@@ -1,0 +1,156 @@
+{
+  "id": "etp-obelix",
+  "schema_version": "paperlean-project-case-1",
+  "title": "ETP-OBELIX staged control",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Obelix.PartialSolution.Equation1491_facts",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/equational_theories",
+    "commit": "8b87204d5b201e1cf6c69b8dcabb0558109bee00",
+    "path": "equational_theories/Obelix.lean",
+    "module": "equational_theories.Obelix",
+    "declarations": [
+      "Obelix.PartialSolution.Equation1491_facts"
+    ],
+    "sha256": "eb04d564d18c22dee6f418899bd1be5afe1449f2768c09627e92665fa9d200b0",
+    "declaration": "Obelix.PartialSolution.Equation1491_facts"
+  },
+  "group_id": "obelix-construction",
+  "split_group": "teorth/equational_theories",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "label": "undetermined",
+  "historical_status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "technical_status": "extracted",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "external_imports": [
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.Lie.OfAssociative",
+    "Mathlib.Analysis.Normed.Field.Lemmas",
+    "Mathlib.Computability.Primrec.Basic",
+    "Mathlib.Data.DFinsupp.Encodable",
+    "Mathlib.Data.DFinsupp.FiniteInfinite",
+    "Mathlib.Data.DFinsupp.Multiset",
+    "Mathlib.Data.DFinsupp.Notation",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.Int.Star",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.GroupTheory.FiniteAbelian.Basic",
+    "Mathlib.LinearAlgebra.Dimension.Localization",
+    "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+    "Mathlib.Logic.Equiv.Basic"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_role": "control",
+  "evaluation_eligible": false,
+  "changes": "CHANGES.md",
+  "original_source_archive": "original-source.tar.gz",
+  "compatibility_patch": "compatibility.patch",
+  "source_packet": "source-packet.json",
+  "gold_label": null,
+  "source_binding_correction": "Compilation resolves the inherited PartialSolution namespace omitted in the historical screening packet. Original theorem/file/content is unchanged.",
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "formal": {
+    "layout": "Main_and_dep",
+    "file_count": 13,
+    "resource_count": 0,
+    "sha256": "6385caf6d5b2cf2823f6f221caeb7a406ed9bff3abb56443e83d145571c801dc"
+  },
+  "resources": {},
+  "compatibility": {
+    "changed_files": [
+      "equational_theories/Equations/Command.lean",
+      "equational_theories/FreeMagma.lean",
+      "equational_theories/Homomorphisms.lean",
+      "equational_theories/MagmaLaw.lean",
+      "equational_theories/Obelix.lean"
+    ],
+    "patch_sha256": "f3af137cf826027f0e2196ce38ddb2d81162a86ec2eb7e81d6cfefe83235a710",
+    "added_sorry": false,
+    "added_axioms": false,
+    "target_weakened": false
+  },
+  "preparation": {
+    "compilation": "technical/compile.json",
+    "graph_modes": {
+      "default": {
+        "status": "passed",
+        "nodes": 10,
+        "edges": 18,
+        "raw_graph": "context/default/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      },
+      "explicit": {
+        "status": "passed",
+        "nodes": 10,
+        "edges": 18,
+        "raw_graph": "context/explicit/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      }
+    },
+    "original_archive_sha256": "d1a5a0c531a118b74b4e1aa09e77d1d5787691ffb94c43545cbab56125d3cbd6",
+    "source_packet_sha256": "67413fd9987342f9a33a4dcfc04eb847deec0fb0d95ddd6a2b0ed847fe461125"
+  },
+  "pending_reason": null,
+  "input_sha256": "705f126485e3cfdd29cf0b1fe27bbe574295f85d12849b7f406a49326ad1cb10",
+  "original_external_imports": [
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.Lie.OfAssociative",
+    "Mathlib.Analysis.Normed.Field.Lemmas",
+    "Mathlib.Computability.Primrec",
+    "Mathlib.Data.DFinsupp.Encodable",
+    "Mathlib.Data.DFinsupp.FiniteInfinite",
+    "Mathlib.Data.DFinsupp.Multiset",
+    "Mathlib.Data.DFinsupp.Notation",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.Int.Star",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.GroupTheory.FiniteAbelian.Basic",
+    "Mathlib.LinearAlgebra.Dimension.Localization",
+    "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+    "Mathlib.Logic.Equiv.Basic"
+  ],
+  "human_adjudicated": false,
+  "source_family": "obelix-construction",
+  "material_complete": true,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "technical_receipt": "technical/relocated-receipt.json",
+  "alignment_reference": "metadata/labels/equational-theories.jsonl"
+}

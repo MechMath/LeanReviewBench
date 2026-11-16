@@ -1,0 +1,129 @@
+{
+  "id": "ETP-OBELIX",
+  "schema_version": "paperlean-project-source-packet-1",
+  "role": "control_candidate",
+  "status": "source-bound-control",
+  "family": "obelix-construction",
+  "split_group": "teorth/equational_theories",
+  "repository": "https://github.com/teorth/equational_theories",
+  "source_revision": "8b87204d5b201e1cf6c69b8dcabb0558109bee00",
+  "source_entry": "equational_theories/Obelix.lean",
+  "roots": [
+    "Obelix.Equation1491_facts"
+  ],
+  "informal": {
+    "text": "There exists an Obelix magma satisfying law 1491 that does not satisfy the Asterix law 65.",
+    "scope": "This is a full infinite-model construction through PartialSolution, fresh generators and closureLinear, not a standalone Equation1491 declaration.",
+    "source_file": "blueprint/src/chapter/infinite_magma_constructions.tex",
+    "source_sha256": "93a3a48e01d9509172d12ed67e8ec18bcc7ebeb391d8d6b12b5c9d79e8681543",
+    "source_url": "https://github.com/teorth/equational_theories/blob/8b87204d5b201e1cf6c69b8dcabb0558109bee00/blueprint/src/chapter/infinite_magma_constructions.tex",
+    "source_locators": [
+      {
+        "line": 255,
+        "text": "There is an Obelix magma that is not Asterix (equation 65)."
+      }
+    ],
+    "author_written_mathematical_source": true
+  },
+  "local_import_closure": [
+    "equational_theories/EquationLawConversion.lean",
+    "equational_theories/EquationalResult.lean",
+    "equational_theories/Equations/Basic.lean",
+    "equational_theories/Equations/Command.lean",
+    "equational_theories/FactsSyntax.lean",
+    "equational_theories/FreeMagma.lean",
+    "equational_theories/Homomorphisms.lean",
+    "equational_theories/Magma.lean",
+    "equational_theories/MagmaLaw.lean",
+    "equational_theories/Obelix.lean",
+    "equational_theories/ParseImplications.lean",
+    "equational_theories/Preorder.lean"
+  ],
+  "auxiliary_source_data": [],
+  "external_imports": [
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.Lie.OfAssociative",
+    "Mathlib.Analysis.Normed.Field.Lemmas",
+    "Mathlib.Computability.Primrec",
+    "Mathlib.Data.DFinsupp.Encodable",
+    "Mathlib.Data.DFinsupp.FiniteInfinite",
+    "Mathlib.Data.DFinsupp.Multiset",
+    "Mathlib.Data.DFinsupp.Notation",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.Int.Star",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.GroupTheory.FiniteAbelian.Basic",
+    "Mathlib.LinearAlgebra.Dimension.Localization",
+    "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+    "Mathlib.Logic.Equiv.Basic"
+  ],
+  "source_inventory": [
+    {
+      "file": "equational_theories/EquationLawConversion.lean",
+      "sha256": "cf4e3aeee7e0866b777121b8ab9d2d6025c01a6a1394e98485f877900cd1739b"
+    },
+    {
+      "file": "equational_theories/EquationalResult.lean",
+      "sha256": "8727f45e690665c2a56620bf6711fd8efe8d30e0fa256147470b003e61ba802a"
+    },
+    {
+      "file": "equational_theories/Equations/Basic.lean",
+      "sha256": "0c79d38ffa95e3ce7941621f36af224fe52a9a982b6a2c07c54dca1a007b43fa"
+    },
+    {
+      "file": "equational_theories/Equations/Command.lean",
+      "sha256": "f7adc717ad3cf5e670dbf9ee92cc9008c472c3bc38dc9d446c0b66cbe4d54e60"
+    },
+    {
+      "file": "equational_theories/FactsSyntax.lean",
+      "sha256": "b429405f4867a1cacff38f9143e7123823c2d80a3905f925d3d10d25cee4e553"
+    },
+    {
+      "file": "equational_theories/FreeMagma.lean",
+      "sha256": "216cb059fe3efe8088f72b8670ff5253d2b18ada5408d07d4991a02f1cfc11f9"
+    },
+    {
+      "file": "equational_theories/Homomorphisms.lean",
+      "sha256": "07f690be397b08c054b9ed7ed0a39641791ab36985167029972304b3b8e07008"
+    },
+    {
+      "file": "equational_theories/Magma.lean",
+      "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+    },
+    {
+      "file": "equational_theories/MagmaLaw.lean",
+      "sha256": "40786a1934a5d268f04d96758f1cac06c4a9ecef2b8bcf36b97c422e65b513d7"
+    },
+    {
+      "file": "equational_theories/Obelix.lean",
+      "sha256": "eb04d564d18c22dee6f418899bd1be5afe1449f2768c09627e92665fa9d200b0"
+    },
+    {
+      "file": "equational_theories/ParseImplications.lean",
+      "sha256": "502b0dae0dcccd290fbe55d912842be5feaaf716fb08587c7ed5cb60343942aa"
+    },
+    {
+      "file": "equational_theories/Preorder.lean",
+      "sha256": "ac6ac016284cede61308b31d0f697c8de69588f98dcaf912ce3543b4ba5f1e84"
+    }
+  ],
+  "label": "undetermined",
+  "gold_label": null,
+  "human_adjudicated": false,
+  "human_review_required": true,
+  "evaluation_eligible": false,
+  "technical_status": "not_compiled_not_extracted",
+  "proof_policy": "Original proof source, declarations and holes unchanged. No substitute axiom or sorry introduced.",
+  "nonabsorption_check": "This is a full infinite-model construction through PartialSolution, fresh generators and closureLinear, not a standalone Equation1491 declaration.",
+  "before_after": false,
+  "semantic_candidate_materials_complete": true,
+  "semantic_adjudication_status": "pending",
+  "semantic_materials_gap": null
+}

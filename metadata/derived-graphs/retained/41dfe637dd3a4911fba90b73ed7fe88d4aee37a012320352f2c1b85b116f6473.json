@@ -1,0 +1,3402 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "ProbabilityTheory.finite_set_bound_of_edist_le"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {T : Type u_1} {Ω : Type u_2} {E : Type u_3} [inst : PseudoEMetricSpace T] {mΩ : MeasurableSpace Ω}\n  [inst_1 : PseudoEMetricSpace E] {P : MeasureTheory.Measure Ω} {X : T → Ω → E} {M : NNReal} {d p q : ℝ} {J : Set T}\n  {c δ : ENNReal},\n  HasBoundedInternalCoveringNumber J c d →\n    ProbabilityTheory.IsKolmogorovProcess X P p q M →\n      c ≠ ⊤ →\n        0 < d →\n          0 < p →\n            d < q →\n              δ ≠ 0 →\n                Metric.ediam J ≠ ⊤ →\n                  ∫⁻ (ω : Ω), ⨆ s, ⨆ t, edist (X (↑s) ω) (X (↑↑t) ω) ^ p ∂P ≤\n                    4 ^ (p + 2 * q + 1) * ↑M * c * δ ^ (q - d) *\n                      (4 ^ d * ENNReal.ofReal (Real.logb 2 (c.toReal * 4 ^ d * δ.toReal⁻¹ ^ d)) ^ q +\n                        ProbabilityTheory.Cp d p q)",
+      "source_range": {
+        "start_line": 784,
+        "start_column": 0,
+        "end_line": 814,
+        "end_column": 21
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem",
+      "internal": false,
+      "id": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 99,
+        "start_column": 0,
+        "end_line": 120,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "PseudoEMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A pseudo extended metric space is a type endowed with a `ℝ≥0∞`-valued distance `edist`\nsatisfying reflexivity `edist x x = 0`, commutativity `edist x y = edist y x`, and the triangle\ninequality `edist x z ≤ edist x y + edist y z`.\n\nNote that we do not require `edist x y = 0 → x = y`. See extended metric spaces (`EMetricSpace`) for\nthe similar class with that stronger assumption.\n\nAny pseudo extended metric space is a topological space and a uniform space (see `TopologicalSpace`,\n`UniformSpace`), where the topology and uniformity come from the metric.\nNote that a T1 pseudo extended metric space is just an extended metric space.\n\nWe make the uniformity/topology part of the data instead of deriving it from the metric. This e.g.\nensures that we do not get a diamond when doing\n`[PseudoEMetricSpace α] [PseudoEMetricSpace β] : TopologicalSpace (α × β)`:\nThe product metric and product topology agree, but not definitionally so.\nSee Note [forgetful inheritance]. "
+    },
+    {
+      "value": null,
+      "type": "Type u_6 → Type u_6",
+      "source_range": {
+        "start_line": 48,
+        "start_column": 0,
+        "end_line": 59,
+        "end_column": 97
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "MeasurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measurable space is a space equipped with a σ-algebra. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_5) → [MeasurableSpace α] → Type u_5",
+      "source_range": {
+        "start_line": 70,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "structure",
+      "internal": false,
+      "id": "MeasureTheory.Measure",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measure is defined to be an outer measure that is countably additive on\nmeasurable sets, with the additional assumption that the outer measure is the canonical\nextension of the restricted measure.\n\nThe measure of a set `s`, denoted `μ s`, is an extended nonnegative real. The real-valued version\nis written `μ.real s`.\n"
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 57,
+        "start_column": 0,
+        "end_line": 58,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.NNReal.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "NNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Nonnegative real numbers, denoted as `ℝ≥0` within the NNReal namespace "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `Set.ofPred` (also written `{x | p x}`) and membership of a set (`∈`) should be\nused to convert between sets and predicates.\n"
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 100,
+        "start_column": 0,
+        "end_line": 102,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The extended nonnegative real numbers. This is usually denoted [0, ∞],\nand is relevant as the codomain of a measure. "
+    },
+    {
+      "value": "fun {T} [PseudoEMetricSpace T] A c d => ∀ ε ≤ Metric.ediam A, ↑(internalCoveringNumber ε A) ≤ c * ε⁻¹ ^ d",
+      "type": "{T : Type u_1} → [PseudoEMetricSpace T] → Set T → ENNReal → ℝ → Prop",
+      "source_range": {
+        "start_line": 18,
+        "start_column": 0,
+        "end_line": 19,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.Continuity.HasBoundedInternalCoveringNumber",
+      "kind": "def",
+      "internal": false,
+      "id": "HasBoundedInternalCoveringNumber",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{T : Type u_1} →\n  {Ω : Type u_2} →\n    {E : Type u_3} →\n      [PseudoEMetricSpace T] →\n        {mΩ : MeasurableSpace Ω} →\n          [PseudoEMetricSpace E] → (T → Ω → E) → MeasureTheory.Measure Ω → ℝ → ℝ → NNReal → Prop",
+      "source_range": {
+        "start_line": 50,
+        "start_column": 0,
+        "end_line": 53,
+        "end_column": 60
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "structure",
+      "internal": false,
+      "id": "ProbabilityTheory.IsKolmogorovProcess",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → α → α → Prop",
+      "source_range": {
+        "start_line": 871,
+        "start_column": 0,
+        "end_line": 876,
+        "end_column": 10
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "def",
+      "internal": false,
+      "id": "Ne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ≠ b`, or `Ne a b` is defined as `¬ (a = b)` or `a = b → False`,\nand asserts that `a` and `b` are not equal.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≠` in identifiers is `ne`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [self : Top α] → α",
+      "source_range": {
+        "start_line": 180,
+        "start_column": 2,
+        "end_line": 180,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.Notation",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Top.top",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The top (`⊤`, `\\top`) element \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊤` in identifiers is `top`."
+    },
+    {
+      "value": null,
+      "type": "Top ENNReal",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 17,
+        "end_line": 127,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instTop",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LT α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1292,
+        "start_column": 2,
+        "end_line": 1292,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LT.lt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-than relation: `x < y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `<` in identifiers is `lt`."
+    },
+    {
+      "value": null,
+      "type": "LT ℝ",
+      "source_range": {
+        "start_line": 265,
+        "start_column": 0,
+        "end_line": 267,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLT",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Zero α] → OfNat α 0",
+      "source_range": {
+        "start_line": 17,
+        "start_column": 0,
+        "end_line": 18,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "Zero.toOfNat0",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Zero ℝ",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 91,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Zero ENNReal",
+      "source_range": {
+        "start_line": 120,
+        "start_column": 0,
+        "end_line": 120,
+        "end_column": 36
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{X : Type u_2} → [EDist X] → Set X → ENNReal",
+      "source_range": {
+        "start_line": 29,
+        "start_column": 0,
+        "end_line": 31,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Diam",
+      "kind": "def",
+      "internal": false,
+      "id": "Metric.ediam",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The diameter of a set in a pseudoemetric space as an extended nonnegative real number. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {τ : TopologicalSpace α} → [self : WeakPseudoEMetricSpace α] → EDist α",
+      "source_range": {
+        "start_line": 198,
+        "start_column": 0,
+        "end_line": 208,
+        "end_column": 71
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "WeakPseudoEMetricSpace.toEDist",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : UniformSpace α] → TopologicalSpace α",
+      "source_range": {
+        "start_line": 195,
+        "start_column": 0,
+        "end_line": 204,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.UniformSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "UniformSpace.toTopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoEMetricSpace α] → UniformSpace α",
+      "source_range": {
+        "start_line": 119,
+        "start_column": 2,
+        "end_line": 119,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoEMetricSpace.toUniformSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(α : Type u) → [inst : PseudoEMetricSpace α] → WeakPseudoEMetricSpace α",
+      "source_range": {
+        "start_line": 216,
+        "start_column": 0,
+        "end_line": 224,
+        "end_column": 65
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "PseudoEMetricSpace.toWeakPseudoEMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Every `PseudoEMetricSpace` has a `WeakPseudoEMetricSpace` structure by\nusing the topology induced by `edist`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1287,
+        "start_column": 2,
+        "end_line": 1287,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LE.le",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`."
+    },
+    {
+      "value": null,
+      "type": "LE ENNReal",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 17,
+        "end_line": 127,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_4} → {m : MeasurableSpace α} → MeasureTheory.Measure α → (α → ENNReal) → ENNReal",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 49,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.lintegral",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The **lower Lebesgue integral** of a function `f` with respect to a measure `μ`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {ι : Sort v} → [SupSet α] → (ι → α) → α",
+      "source_range": {
+        "start_line": 58,
+        "start_column": 0,
+        "end_line": 61,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.SetNotation",
+      "kind": "def",
+      "internal": false,
+      "id": "iSup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Indexed supremum "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Set α → Type u",
+      "source_range": {
+        "start_line": 30,
+        "start_column": 0,
+        "end_line": 37,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.CoeSort",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.Elem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Given the set `s`, `Elem s` is the `Type` of element of `s`.\n\nIt is currently an abbreviation so that instance coming from `Subtype` are available.\nIf you're interested in making it a `def`, as it probably should be,\nyou'll then need to create additional instances (and possibly prove lemmas about them).\nSee e.g. `Mathlib/Data/Set/Order.lean`.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_4} → [self : CompletePartialOrder α] → SupSet α",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 49,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.CompletePartialOrder",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "CompletePartialOrder.toSupSet",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [CompleteLattice α] → CompletePartialOrder α",
+      "source_range": {
+        "start_line": 107,
+        "start_column": 0,
+        "end_line": 111,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.CompletePartialOrder",
+      "kind": "def",
+      "internal": false,
+      "id": "CompleteLattice.toCompletePartialOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A complete lattice is a complete partial order. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : CompletelyDistribLattice α] → CompleteLattice α",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 0,
+        "end_line": 129,
+        "end_column": 54
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.CompleteBooleanAlgebra",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "CompletelyDistribLattice.toCompleteLattice",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [CompleteLinearOrder α] → CompletelyDistribLattice α",
+      "source_range": {
+        "start_line": 323,
+        "start_column": 0,
+        "end_line": 349,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.CompleteBooleanAlgebra",
+      "kind": "def",
+      "internal": false,
+      "id": "CompleteLinearOrder.toCompletelyDistribLattice",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "CompleteLinearOrder ENNReal",
+      "source_range": {
+        "start_line": 153,
+        "start_column": 0,
+        "end_line": 154,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instCompleteLinearOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Sort (max 1 u)",
+      "source_range": {
+        "start_line": 638,
+        "start_column": 0,
+        "end_line": 663,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "Subtype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "All the elements of a type that satisfy a predicate.\n\n`Subtype p`, usually written `{ x : α // p x }` or `{ x // p x }`, contains all elements `x : α` for\nwhich `p x` is true. Its constructor is a pair of the value and the proof that it satisfies the\npredicate. In run-time code, `{ x : α // p x }` is represented identically to `α`.\n\nThere is a coercion from `{ x : α // p x }` to `α`, so elements of a subtype may be used where the\nunderlying type is expected.\n\nExamples:\n * `{ n : Nat // n % 2 = 0 }` is the type of even numbers.\n * `{ xs : Array String // xs.size = 5 }` is the type of arrays with five `String`s.\n * Given `xs : List α`, `List { x : α // x ∈ xs }` is the type of lists in which all elements are\n   contained in `xs`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{ x // p x }` in identifiers is `subtype`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [self : EDist α] → α → α → ENNReal",
+      "source_range": {
+        "start_line": 55,
+        "start_column": 2,
+        "end_line": 55,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EDist.edist",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Extended distance between two points "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_3} → [EDist α] → {p : α → Prop} → EDist (Subtype p)",
+      "source_range": {
+        "start_line": 741,
+        "start_column": 0,
+        "end_line": 742,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Subtype.instEDist",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : outParam (Type u)} → {γ : Type v} → [self : Membership α γ] → γ → α → Prop",
+      "source_range": {
+        "start_line": 1753,
+        "start_column": 2,
+        "end_line": 1753,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Membership.mem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Membership α (Set α)",
+      "source_range": {
+        "start_line": 79,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.instMembership",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HPow α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1423,
+        "start_column": 2,
+        "end_line": 1423,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HPow.hPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ^ b` computes `a` to the power of `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `^` in identifiers is `pow`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [Pow α β] → HPow α β α",
+      "source_range": {
+        "start_line": 1689,
+        "start_column": 0,
+        "end_line": 1691,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Pow ENNReal ℝ",
+      "source_range": {
+        "start_line": 489,
+        "start_column": 0,
+        "end_line": 490,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.SpecialFunctions.Pow.NNReal",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instPowReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → {p : α → Prop} → Subtype p → α",
+      "source_range": {
+        "start_line": 659,
+        "start_column": 2,
+        "end_line": 659,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Subtype.val",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The value in the underlying type that satisfies the predicate.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HMul α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1385,
+        "start_column": 2,
+        "end_line": 1385,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HMul.hMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Mul α] → HMul α α α",
+      "source_range": {
+        "start_line": 1677,
+        "start_column": 0,
+        "end_line": 1679,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → [self : Distrib R] → Mul R",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Distrib.toMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [Semiring α] → Distrib α",
+      "source_range": {
+        "start_line": 150,
+        "start_column": 0,
+        "end_line": 150,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instDistribOfSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [self : CommSemiring R] → Semiring R",
+      "source_range": {
+        "start_line": 229,
+        "start_column": 0,
+        "end_line": 229,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "CommSemiring.toSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "CommSemiring ENNReal",
+      "source_range": {
+        "start_line": 141,
+        "start_column": 0,
+        "end_line": 142,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instCommSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → {n : ℕ} → [NatCast R] → [n.AtLeastTwo] → OfNat R n",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 45,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatAtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Recognize numeric literals which are at least `2` as terms of `R` via `Nat.cast`. This\ninstance is what makes things like `37 : R` type check.  Note that `0` and `1` are not needed\nbecause they are recognized as terms of `R` (at least when `R` is an `AddMonoidWithOne`) through\n`Zero` and `One`, respectively. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_2} → [self : AddMonoidWithOne R] → NatCast R",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 70,
+        "end_column": 71
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddMonoidWithOne.toNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_2} → [self : AddCommMonoidWithOne R] → AddMonoidWithOne R",
+      "source_range": {
+        "start_line": 73,
+        "start_column": 0,
+        "end_line": 73,
+        "end_column": 82
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "AddCommMonoidWithOne ENNReal",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 17,
+        "end_line": 127,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instAddCommMonoidWithOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (n : ℕ) [NeZero n], (n + 1).AtLeastTwo",
+      "source_range": {
+        "start_line": 428,
+        "start_column": 0,
+        "end_line": 429,
+        "end_column": 69
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Init",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Nat.instAtLeastTwoHAddOfNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 1234,
+        "start_column": 0,
+        "end_line": 1256,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n"
+    },
+    {
+      "value": null,
+      "type": "(n : ℕ) → OfNat ℕ n",
+      "source_range": {
+        "start_line": 1280,
+        "start_column": 0,
+        "end_line": 1282,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {n : ℕ}, NeZero (n + 1)",
+      "source_range": {
+        "start_line": 745,
+        "start_column": 0,
+        "end_line": 745,
+        "end_column": 70
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Nat.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Nat.instNeZeroSucc",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HAdd α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1366,
+        "start_column": 2,
+        "end_line": 1366,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HAdd.hAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Add α] → HAdd α α α",
+      "source_range": {
+        "start_line": 1669,
+        "start_column": 0,
+        "end_line": 1671,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Add ℝ",
+      "source_range": {
+        "start_line": 97,
+        "start_column": 0,
+        "end_line": 99,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Mul ℝ",
+      "source_range": {
+        "start_line": 105,
+        "start_column": 0,
+        "end_line": 107,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NatCast ℝ",
+      "source_range": {
+        "start_line": 161,
+        "start_column": 0,
+        "end_line": 161,
+        "end_column": 55
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [One α] → OfNat α 1",
+      "source_range": {
+        "start_line": 27,
+        "start_column": 0,
+        "end_line": 28,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "One.toOfNat1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "One ℝ",
+      "source_range": {
+        "start_line": 93,
+        "start_column": 0,
+        "end_line": 95,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NNReal → ENNReal",
+      "source_range": {
+        "start_line": 114,
+        "start_column": 0,
+        "end_line": 115,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.ofNNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Coercion from `ℝ≥0` to `ℝ≥0∞`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HSub α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1376,
+        "start_column": 2,
+        "end_line": 1376,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HSub.hSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator)."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Sub α] → HSub α α α",
+      "source_range": {
+        "start_line": 1673,
+        "start_column": 0,
+        "end_line": 1675,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sub ℝ",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 110,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Add ENNReal",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 17,
+        "end_line": 127,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℝ → ENNReal",
+      "source_range": {
+        "start_line": 230,
+        "start_column": 0,
+        "end_line": 231,
+        "end_column": 52
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.ofReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`ofReal x` returns `x` if it is nonnegative, `0` otherwise. "
+    },
+    {
+      "value": null,
+      "type": "ℝ → ℝ → ℝ",
+      "source_range": {
+        "start_line": 40,
+        "start_column": 0,
+        "end_line": 44,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.logb",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The real logarithm in a given base. As with the natural logarithm, we define `logb b x` to\nbe `logb b |x|` for `x < 0`, and `0` for `x = 0`. "
+    },
+    {
+      "value": null,
+      "type": "ENNReal → ℝ",
+      "source_range": {
+        "start_line": 227,
+        "start_column": 0,
+        "end_line": 228,
+        "end_column": 52
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.toReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`toReal x` returns `x` if it is real, `0` otherwise. "
+    },
+    {
+      "value": null,
+      "type": "Pow ℝ ℝ",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Inv α] → α → α",
+      "source_range": {
+        "start_line": 1556,
+        "start_column": 2,
+        "end_line": 1556,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Inv.inv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a⁻¹` computes the inverse of `a`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⁻¹` in identifiers is `inv`."
+    },
+    {
+      "value": null,
+      "type": "Inv ℝ",
+      "source_range": {
+        "start_line": 112,
+        "start_column": 0,
+        "end_line": 114,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instInv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun d p q => max (1 / (2 ^ ((q - d) / p) - 1) ^ p) (1 / (2 ^ (q - d) - 1))",
+      "type": "ℝ → ℝ → ℝ → ENNReal",
+      "source_range": {
+        "start_line": 603,
+        "start_column": 0,
+        "end_line": 605,
+        "end_column": 65
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "def",
+      "internal": false,
+      "id": "ProbabilityTheory.Cp",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℕ∞ → ENNReal",
+      "source_range": {
+        "start_line": 30,
+        "start_column": 0,
+        "end_line": 31,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.ENatENNReal",
+      "kind": "def",
+      "internal": false,
+      "id": "ENat.toENNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Coercion from `ℕ∞` to `ℝ≥0∞`. "
+    },
+    {
+      "value": "fun {E} [EDist E] r A => ⨅ C, ⨅ (_ : ↑C ⊆ A), ⨅ (_ : IsCover (↑C) r A), ↑C.card",
+      "type": "{E : Type u_1} → [EDist E] → ENNReal → Set E → ℕ∞",
+      "source_range": {
+        "start_line": 36,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 59
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.Continuity.CoveringNumber",
+      "kind": "def",
+      "internal": false,
+      "id": "internalCoveringNumber",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Inv ENNReal",
+      "source_range": {
+        "start_line": 175,
+        "start_column": 0,
+        "end_line": 175,
+        "end_column": 70
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instInv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {T : Type u_1} {Ω : Type u_2} {E : Type u_3} [inst : PseudoEMetricSpace T] {mΩ : MeasurableSpace Ω}\n  [inst_1 : PseudoEMetricSpace E] {X : T → Ω → E} {P : MeasureTheory.Measure Ω} {p q : ℝ} {M : NNReal},\n  (∀ (s t : T), AEMeasurable (fun ω => (X s ω, X t ω)) P) →\n    (∀ (s t : T), ∫⁻ (ω : Ω), edist (X s ω) (X t ω) ^ p ∂P ≤ ↑M * edist s t ^ q) →\n      ProbabilityTheory.IsKolmogorovProcess X P p q M",
+      "source_range": {
+        "start_line": 50,
+        "start_column": 10,
+        "end_line": 50,
+        "end_column": 29
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "constructor",
+      "internal": false,
+      "id": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Max α] → α → α → α",
+      "source_range": {
+        "start_line": 1309,
+        "start_column": 2,
+        "end_line": 1309,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Max.max",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Returns the greater of its two arguments. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `max` in identifiers is `max`.\n\n * The recommended spelling of `⊔` in identifiers is `sup` (`⊔` is the preferred notation for `max` when the type is not linearly ordered.)."
+    },
+    {
+      "value": null,
+      "type": "Max ENNReal",
+      "source_range": {
+        "start_line": 139,
+        "start_column": 0,
+        "end_line": 139,
+        "end_column": 43
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instMax",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HDiv α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1403,
+        "start_column": 2,
+        "end_line": 1403,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HDiv.hDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a / b` computes the result of dividing `a` by `b`.\nThe meaning of this notation is type-dependent.\n* For most types like `Nat`, `Int`, `Rat`, `Real`, `a / 0` is defined to be `0`.\n* For `Nat`, `a / b` rounds downwards.\n* For `Int`, `a / b` rounds downwards if `b` is positive or upwards if `b` is negative.\n  It is implemented as `Int.ediv`, the unique function satisfying\n  `a % b + b * (a / b) = a` and `0 ≤ a % b < natAbs b` for `b ≠ 0`.\n  Other rounding conventions are available using the functions\n  `Int.fdiv` (floor rounding) and `Int.tdiv` (truncation rounding).\n* For `Float`, `a / 0` follows the IEEE 754 semantics for division,\n  usually resulting in `inf` or `nan`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `/` in identifiers is `div`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Div α] → HDiv α α α",
+      "source_range": {
+        "start_line": 1681,
+        "start_column": 0,
+        "end_line": 1683,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : DivInvMonoid G] → Div G",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 98
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DivInvMonoid.toDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "DivInvMonoid ENNReal",
+      "source_range": {
+        "start_line": 177,
+        "start_column": 0,
+        "end_line": 177,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instDivInvMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "One ENNReal",
+      "source_range": {
+        "start_line": 121,
+        "start_column": 0,
+        "end_line": 121,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sub ENNReal",
+      "source_range": {
+        "start_line": 167,
+        "start_column": 0,
+        "end_line": 167,
+        "end_column": 66
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(1 + 1).AtLeastTwo",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem",
+      "internal": true,
+      "id": "ProbabilityTheory.Cp._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "DivInvMonoid ℝ",
+      "source_range": {
+        "start_line": 476,
+        "start_column": 0,
+        "end_line": 476,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instDivInvMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type u_2 → Type u_2",
+      "source_range": {
+        "start_line": 51,
+        "start_column": 0,
+        "end_line": 55,
+        "end_column": 22
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "EDist",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`EDist α` means that `α` is equipped with an extended distance. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 16,
+        "start_column": 0,
+        "end_line": 17,
+        "end_column": 52
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.ENat.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "ENat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Extended natural numbers `ℕ∞ = WithTop ℕ`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {ι : Sort v} → [InfSet α] → (ι → α) → α",
+      "source_range": {
+        "start_line": 59,
+        "start_column": 2,
+        "end_line": 59,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.SetNotation",
+      "kind": "def",
+      "internal": false,
+      "id": "iInf",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Indexed infimum "
+    },
+    {
+      "value": null,
+      "type": "Type u_3 → Type u_3",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 79,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "Finset",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Finset α` is the type of finite sets of elements of `α`. It is implemented\nas a multiset (a list up to permutation) which has no duplicate elements. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_3} → [self : ConditionallyCompletePartialOrderInf α] → InfSet α",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 54,
+        "end_column": 74
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompletePartialOrder.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "ConditionallyCompletePartialOrderInf.toInfSet",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_3} → [self : ConditionallyCompletePartialOrder α] → ConditionallyCompletePartialOrderInf α",
+      "source_range": {
+        "start_line": 69,
+        "start_column": 0,
+        "end_line": 70,
+        "end_column": 96
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompletePartialOrder.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderInf",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [ConditionallyCompleteLattice α] → ConditionallyCompletePartialOrder α",
+      "source_range": {
+        "start_line": 220,
+        "start_column": 0,
+        "end_line": 223,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ConditionallyCompleteLattice.toConditionallyCompletePartialOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [self : ConditionallyCompleteLinearOrder α] → ConditionallyCompleteLattice α",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 82,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [self : ConditionallyCompleteLinearOrderBot α] → ConditionallyCompleteLinearOrder α",
+      "source_range": {
+        "start_line": 94,
+        "start_column": 0,
+        "end_line": 97,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [h : CompleteLinearOrder α] → ConditionallyCompleteLinearOrderBot α",
+      "source_range": {
+        "start_line": 164,
+        "start_column": 0,
+        "end_line": 170,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "CompleteLinearOrder.toConditionallyCompleteLinearOrderBot",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "CompleteLinearOrder ℕ∞",
+      "source_range": {
+        "start_line": 29,
+        "start_column": 42,
+        "end_line": 29,
+        "end_column": 44
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.ENat.Lattice",
+      "kind": "def",
+      "internal": false,
+      "id": "instCompleteLinearOrderENat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → LE (Set α)",
+      "source_range": {
+        "start_line": 92,
+        "start_column": 0,
+        "end_line": 95,
+        "end_column": 14
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "We introduce `≤` before `⊆` to help the unifier when applying lattice theorems\nto subset hypotheses. "
+    },
+    {
+      "value": null,
+      "type": "{A : Type u_1} → {B : outParam (Type u_2)} → [self : SetLike A B] → A → Set B",
+      "source_range": {
+        "start_line": 108,
+        "start_column": 12,
+        "end_line": 108,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.SetLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SetLike.coe",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The coercion from a term of a `SetLike` to its corresponding `Set`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → SetLike (Finset α) α",
+      "source_range": {
+        "start_line": 100,
+        "start_column": 0,
+        "end_line": 103,
+        "end_column": 94
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.instSetLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Convert a finset to a set in the natural way. "
+    },
+    {
+      "value": "fun {E} [EDist E] C ε A => ∀ a ∈ A, ∃ c ∈ C, edist a c ≤ ε",
+      "type": "{E : Type u_1} → [EDist E] → Set E → ENNReal → Set E → Prop",
+      "source_range": {
+        "start_line": 27,
+        "start_column": 0,
+        "end_line": 30,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.Continuity.CoveringNumber",
+      "kind": "def",
+      "internal": false,
+      "id": "IsCover",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "A set `C` is an `r`-cover of another set `A` if every point in `A` belongs to a ball with radius\n`r` around a point of `C`. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [NatCast R] → ℕ → R",
+      "source_range": {
+        "start_line": 69,
+        "start_column": 0,
+        "end_line": 71,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Cast",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.cast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The canonical homomorphism `Nat → R`. In most use cases, the target type will have a (semi)ring\nstructure, and this homomorphism should be a (semi)ring homomorphism.\n\n`NatCast` and `IntCast` exist to allow different libraries with their own types that can be notated\nas natural numbers to have consistent `simp` normal forms without needing to create coercion\nsimplification sets that are aware of all combinations. Libraries should make it easy to work with\n`NatCast` where possible. For instance, in Mathlib there will be such a homomorphism (and thus a\n`NatCast R` instance) whenever `R` is an additive monoid with a `1`.\n\nThe prototypical example is `Int.ofNat`.\n"
+    },
+    {
+      "value": null,
+      "type": "NatCast ℕ∞",
+      "source_range": {
+        "start_line": 23,
+        "start_column": 0,
+        "end_line": 23,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.ENat.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "ENat.instNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → Finset α → ℕ",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 0,
+        "end_line": 48,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Card",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.card",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`s.card` is the number of elements of `s`, aka its cardinality.\n\nThe notation `#s` can be accessed in the `Finset` locale. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} →\n  {β : Type u_2} →\n    [MeasurableSpace β] →\n      {_m : MeasurableSpace α} → (α → β) → autoParam (MeasureTheory.Measure α) AEMeasurable._auto_1 → Prop",
+      "source_range": {
+        "start_line": 404,
+        "start_column": 0,
+        "end_line": 411,
+        "end_column": 39
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "def",
+      "internal": false,
+      "id": "AEMeasurable",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function is almost everywhere measurable if it coincides almost everywhere with a measurable\nfunction.\n\nA similar notion is `MeasureTheory.NullMeasurable`. That notion is equivalent to `AEMeasurable` if\nthe σ-algebra on the codomain is countably generated, but weaker in general. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type v → Type (max u v)",
+      "source_range": {
+        "start_line": 547,
+        "start_column": 0,
+        "end_line": 562,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "Prod",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`."
+    },
+    {
+      "value": null,
+      "type": "(α : Type u) → [TopologicalSpace α] → MeasurableSpace α",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 52,
+        "end_column": 39
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "borel",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`MeasurableSpace` structure generated by `TopologicalSpace`. "
+    },
+    {
+      "value": null,
+      "type": "{X : Type u} → {Y : Type v} → [t₁ : TopologicalSpace X] → [t₂ : TopologicalSpace Y] → TopologicalSpace (X × Y)",
+      "source_range": {
+        "start_line": 53,
+        "start_column": 0,
+        "end_line": 55,
+        "end_column": 43
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Constructions.SumProd",
+      "kind": "def",
+      "internal": false,
+      "id": "instTopologicalSpaceProd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → α → β → α × β",
+      "source_range": {
+        "start_line": 558,
+        "start_column": 2,
+        "end_line": 558,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Prod.mk",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `(a, b)` in identifiers is `mk`."
+    },
+    {
+      "value": null,
+      "type": "ℕ → Prop",
+      "source_range": {
+        "start_line": 412,
+        "start_column": 0,
+        "end_line": 424,
+        "end_column": 14
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Init",
+      "kind": "class",
+      "internal": false,
+      "id": "Nat.AtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A type class for natural numbers which are greater than or equal to `2`.\n\n`NeZero` and `AtLeastTwo` are used for numeric literals, and also for groups of related lemmas\nsharing a common value of `n` that needs to be nonzero, or at least `2`, and where it is\nconvenient to pass this information implicitly. Instances for these classes cover some of the\ncases where it is most structurally obvious from the syntactic form of `n` that it satisfies the\nrequired conditions, such as `m + 1`. Less widely used cases may be defined as lemmas rather than\nglobal instances and then made into instances locally where needed. If implicit arguments,\nappearing before other explicit arguments, are allowed to be `autoParam`s in a future version of\nLean, such an `autoParam` that is proved `by lia` might be a more general replacement for the\nuse of typeclass inference for this purpose. "
+    },
+    {
+      "value": null,
+      "type": "Add ℕ",
+      "source_range": {
+        "start_line": 1777,
+        "start_column": 0,
+        "end_line": 1778,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instAddNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Prop",
+      "source_range": {
+        "start_line": 313,
+        "start_column": 0,
+        "end_line": 341,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Exists",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Existential quantification. If `p : α → Prop` is a predicate, then `∃ x : α, p x`\nasserts that there is some `x` of type `α` such that `p x` holds.\nTo create an existential proof, use the `exists` tactic,\nor the anonymous constructor notation `⟨x, h⟩`.\nTo unpack an existential, use `cases h` where `h` is a proof of `∃ x : α, p x`,\nor `let ⟨x, hx⟩ := h`.\n\nBecause Lean has proof irrelevance, any two proofs of an existential are\ndefinitionally equal. One consequence of this is that it is impossible to recover the\nwitness of an existential from the mere fact of its existence.\nFor example, the following does not compile:\n```\nexample (h : ∃ x : Nat, x = x) : Nat :=\n  let ⟨x, _⟩ := h  -- fail, because the goal is `Nat : Type`\n  x\n```\nThe error message `recursor 'Exists.casesOn' can only eliminate into Prop` means\nthat this only works when the current goal is another proposition:\n```\nexample (h : ∃ x : Nat, x = x) : True :=\n  let ⟨x, _⟩ := h  -- ok, because the goal is `True : Prop`\n  trivial\n```\n"
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 589,
+        "start_column": 0,
+        "end_line": 603,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "And",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`."
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "PseudoEMetricSpace",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "NNReal",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "HasBoundedInternalCoveringNumber",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.IsKolmogorovProcess",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Ne",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Top.top",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instTop",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "LT.lt",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLT",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instZero",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Metric.ediam",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "WeakPseudoEMetricSpace.toEDist",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace.toUniformSpace",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace.toWeakPseudoEMetricSpace",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "LE.le",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instLE",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.lintegral",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "iSup",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Set.Elem",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "CompletePartialOrder.toSupSet",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "CompleteLattice.toCompletePartialOrder",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "CompletelyDistribLattice.toCompleteLattice",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "CompleteLinearOrder.toCompletelyDistribLattice",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instCompleteLinearOrder",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Subtype",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "EDist.edist",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Subtype.instEDist",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "HPow.hPow",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instHPow",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instPowReal",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Subtype.val",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instHMul",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instCommSemiring",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Nat.instAtLeastTwoHAddOfNat",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Nat.instNeZeroSucc",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "HAdd.hAdd",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instHAdd",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instAdd",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "One.toOfNat1",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instOne",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.ofNNReal",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "HSub.hSub",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "instHSub",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instSub",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAdd",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.ofReal",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.logb",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.toReal",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instPow",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Inv.inv",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "Real.instInv",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.Cp",
+      "source": "ProbabilityTheory.finite_set_bound_of_edist_le",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instLE",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Metric.ediam",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "WeakPseudoEMetricSpace.toEDist",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "PseudoEMetricSpace.toUniformSpace",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "PseudoEMetricSpace.toWeakPseudoEMetricSpace",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENat.toENNReal",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "internalCoveringNumber",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHMul",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instCommSemiring",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "HPow.hPow",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHPow",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instPowReal",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Inv.inv",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instInv",
+      "source": "HasBoundedInternalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "PseudoEMetricSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.IsKolmogorovProcess",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "ProbabilityTheory.IsKolmogorovProcess",
+      "site": "type"
+    },
+    {
+      "target": "NNReal",
+      "source": "ProbabilityTheory.IsKolmogorovProcess",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "source": "ProbabilityTheory.IsKolmogorovProcess",
+      "site": "constructor_type"
+    },
+    {
+      "target": "Real",
+      "source": "ProbabilityTheory.Cp",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "ProbabilityTheory.Cp",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "Max.max",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instMax",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "HDiv.hDiv",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHDiv",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivInvMonoid.toDiv",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instDivInvMonoid",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "One.toOfNat1",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instOne",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "HPow.hPow",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHPow",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instPowReal",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "HSub.hSub",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHSub",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instSub",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "ProbabilityTheory.Cp._proof_1",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instDivInvMonoid",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instSub",
+      "source": "ProbabilityTheory.Cp",
+      "site": "definition_value"
+    },
+    {
+      "target": "EDist",
+      "source": "internalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "internalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "internalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "ENat",
+      "source": "internalCoveringNumber",
+      "site": "type"
+    },
+    {
+      "target": "EDist",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "iInf",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENat",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompletePartialOrderInf.toInfSet",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompletePartialOrder.toConditionallyCompletePartialOrderInf",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompleteLattice.toConditionallyCompletePartialOrder",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "CompleteLinearOrder.toConditionallyCompleteLinearOrderBot",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "instCompleteLinearOrderENat",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.instLE",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "SetLike.coe",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset.instSetLike",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsCover",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.cast",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENat.instNatCast",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset.card",
+      "source": "internalCoveringNumber",
+      "site": "definition_value"
+    },
+    {
+      "target": "PseudoEMetricSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "NNReal",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "AEMeasurable",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "Prod",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "borel",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "instTopologicalSpaceProd",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace.toUniformSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "Prod.mk",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "LE.le",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instLE",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.lintegral",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "HPow.hPow",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "instHPow",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instPowReal",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "EDist.edist",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "WeakPseudoEMetricSpace.toEDist",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace.toWeakPseudoEMetricSpace",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "instHMul",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instCommSemiring",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.ofNNReal",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.IsKolmogorovProcess",
+      "source": "ProbabilityTheory.IsKolmogorovProcess.mk",
+      "site": "type"
+    },
+    {
+      "target": "Nat.AtLeastTwo",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "HAdd.hAdd",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instHAdd",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instAddNat",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "ProbabilityTheory.Cp._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "EDist",
+      "source": "IsCover",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "IsCover",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "IsCover",
+      "site": "type"
+    },
+    {
+      "target": "EDist",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "Exists",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instLE",
+      "source": "IsCover",
+      "site": "definition_value"
+    },
+    {
+      "target": "EDist.edist",
+      "source": "IsCover",
+      "site": "definition_value"
+    }
+  ]
+}

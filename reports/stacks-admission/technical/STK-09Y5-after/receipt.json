@@ -1,0 +1,52 @@
+{
+  "schema_version": "paperlean-stacks-admission-receipt-1",
+  "status": "passed",
+  "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
+  "root": "LocallyClosedPartition.exists_finite_good_refinement",
+  "source_revision": "e420713207f0a6682a65b2171362b77f2d217fa4",
+  "lean_version": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "mathlib_source_pin_verified": true,
+  "modules": 5,
+  "commands": [
+    [
+      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-o",
+      "dep/ReasLib/Topology/Stratification/Partition.olean",
+      "dep/ReasLib/Topology/Stratification/Partition.lean"
+    ],
+    [
+      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-o",
+      "dep/ReasLib/Topology/Stratification/Good.olean",
+      "dep/ReasLib/Topology/Stratification/Good.lean"
+    ],
+    [
+      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-o",
+      "dep/ReasLib/Topology/Stratification/Indexed.olean",
+      "dep/ReasLib/Topology/Stratification/Indexed.lean"
+    ],
+    [
+      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-o",
+      "dep/ReasLib/Topology/Stratification/Initial.olean",
+      "dep/ReasLib/Topology/Stratification/Initial.lean"
+    ],
+    [
+      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-o",
+      "Main.olean",
+      "Main.lean"
+    ]
+  ],
+  "new_sorry_or_axioms": false,
+  "original_theorem_proof_certified": false,
+  "original_holes_preserved": true,
+  "declaration_types_and_definition_values_equal": true,
+  "dependency_edges_equal": true,
+  "root_axioms_equal": true,
+  "graph_sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
+  "explicit_graph_sha256": "525edf77de37d93f8e389516eb3a89cc23d414156ac09fb17b37daef199f67cc",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1"
+}

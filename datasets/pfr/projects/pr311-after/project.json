@@ -1,0 +1,103 @@
+{
+  "id": "pr311-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr311-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ProbabilityTheory.condIndep_copies",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32",
+    "path": "PFR/ForMathlib/ConditionalIndependence.lean",
+    "module": "PFR.ForMathlib.ConditionalIndependence",
+    "declaration": "ProbabilityTheory.condIndep_copies",
+    "url": "https://github.com/teorth/pfr/blob/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/PFR/ForMathlib/ConditionalIndependence.lean",
+    "sha256": "da2c893b103237c549c178d4af1a9f9ad4385cf62376b2c5568587e4f7a20acd"
+  },
+  "group_id": "pfr-conditional-copy-scope",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pr311-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "Relative to the finite-group chapter scope, finite conditioning codomains satisfy every version's finite/countable/finite-range requirements. The conclusion supplies measurable variables, a probability measure, both joint laws and conditional independence. Wider generic-codomain readings are not the selected target.",
+  "external_imports": [
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.MeasurableSpace.Pi",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 8,
+    "sha256": "19fe7e559c456ae35e81ee95013226a2feda932e3cfdcbe988ecec2c8956dd28"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-candidates/technical/pr311-after/20261104T082333433951Z/receipt.json",
+    "receipt_sha256": "3adf6f1d991620795ec6c36cf609a08299d1a2c1df0b9b17af66662d65a67517",
+    "packaged_receipt": "reports/pfr-candidates/technical/pr311-after/20261104T082333433951Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "3951a45ac64fd8ec357c8fdba2a8c2fae2d36dde7c12f26ed564e3fadf81d071",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/main.tex",
+        "sha256": "38deb38e55cad867d1e1b4f2b4c7452c89ca059d1ae7f24d16af720822be69da",
+        "locator": "distance.tex: cond-indep-exist and chapter opening; entropy.tex: probability/measurability convention",
+        "text": "",
+        "selected": false
+      },
+      {
+        "path": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/entropy.tex",
+        "sha256": "bfe5cc4b7e471006a0a46f4fd82cb83258b80ae7d67d43e551bdd7e7eca652d2",
+        "locator": "distance.tex: cond-indep-exist and chapter opening; entropy.tex: probability/measurability convention",
+        "text": "",
+        "selected": false
+      },
+      {
+        "path": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/fibring.tex",
+        "sha256": "2d3e12e8fd70f5b0f39704e193670a7df3f0c53fda03cf52c150fcef4352bf08",
+        "locator": "distance.tex: cond-indep-exist and chapter opening; entropy.tex: probability/measurability convention",
+        "text": "",
+        "selected": false
+      },
+      {
+        "path": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/distance.tex",
+        "sha256": "1044c13a04e57adf1c1a7a5ab8754f009d7efcef06797041d3bfe09252f1c366",
+        "locator": "cond-indep-exist",
+        "text": "\\begin{lemma}[Existence of conditional independent trials]\\label{cond-indep-exist}\n  \\uses{conditional-independent-def}\n  \\lean{ProbabilityTheory.condIndep_copies}\\leanok\n  For $X,Y$ random variables, there exist random variables $X_1,X_2,Y'$ on a common probability space with $(X_1, Y'), (X_2, Y')$ both having the distribution of $(X,Y)$, and $X_1, X_2$ conditionally independent over $Y'$ in the sense of \\Cref{conditional-independent-def}.\n\\end{lemma}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'ProbabilityTheory.condIndep_copies' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'ProbabilityTheory.condIndep_copies' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "0b5de00ddcc3b443aa831af184be3ddcecabb34f196e72d5cb3f2a12a4f314cc",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

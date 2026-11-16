@@ -1,0 +1,85 @@
+{
+  "id": "pr228-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr228-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "rho_minus",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "3d68572315e488ec2e75aa35dc760d2d21a34479",
+    "path": "PFR/RhoFunctional.lean",
+    "module": "PFR.RhoFunctional",
+    "declaration": "rho_minus",
+    "url": "https://github.com/teorth/pfr/blob/3d68572315e488ec2e75aa35dc760d2d21a34479/PFR/RhoFunctional.lean",
+    "sha256": "2bd2db182714784dfce4835122921c1d30a68f40212ce1a62794f94518fe43b1"
+  },
+  "group_id": "pfr-kl-support",
+  "split_group": "teorth/pfr",
+  "before_ids": [],
+  "after_ids": [
+    "pr228-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "formal 的下确界允许非概率输出并沿用零分母总化 KL；在完全有限标准目标中已得到与原文不同的数值，因此不是仅凭候选集合写法不同判负。",
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Notation",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 2,
+    "sha256": "aac47295c4d60bd84924262670b088714f16f756fdb01bd6a1fee0e6f2fd64c7"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr228-before/20261104T091723218206Z/receipt.json",
+    "receipt_sha256": "b44c8a7a05fecdb81f481b55bcf4f8ef9318abc8fd17e5bee1af2409ca5876cc",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr228-before/20261104T091723218206Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "85cbbcb5e68cd28c0fe6cec8a16bada6cb3c50aeddc429490e9fa063efab7343",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/3d68572315e488ec2e75aa35dc760d2d21a34479/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "f9643241ec326e353e868fd0765d440cfd3561ceb91cbc54b08657c8bdd7ad65",
+        "locator": "rhominus-def",
+        "text": "\\begin{definition}[Rho minus]\\label{rhominus-def}\\lean{rho_minus}\\leanok  For any $G$-valued random variable $X$, we define $\\rho^-(X)$ to be the infimum of $D_{KL}(X \\Vert  U_A + T)$, where $U_A$ is uniform on $A$ and $T$ ranges over $G$-valued random variables independent of $U_A$.\n\\end{definition}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/3d68572315e488ec2e75aa35dc760d2d21a34479/blueprint/src/chapter/entropy.tex",
+        "sha256": "6587c95c25e521f7f16f14e079f715550b9dbf9f8d00f5c845a5ba2af56dbddf",
+        "locator": "further_improvement.tex: rhominus-def; kl-div; entropy chapter probability convention",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'rho_minus' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'rho_minus' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "definition_preserving_slice"
+  },
+  "input_sha256": "48e96fc0a7daff061584e48d64cfad01664fa9264e8fbf54f8cf99afeecfddad",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

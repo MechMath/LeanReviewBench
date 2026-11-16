@@ -1,0 +1,569 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing"
+  ],
+  "project_module_prefixes": [
+    "LG21TestOptionalPolicies",
+    "EconCSLib",
+    "AppliedModelingLib"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {takeEstimate noTakeEstimateAtCutoff : ℝ → ℝ} {low high : ℝ},\n  ContinuousOn takeEstimate (Set.Icc low high) →\n    ContinuousOn noTakeEstimateAtCutoff (Set.Icc low high) →\n      StrictMono takeEstimate →\n        low < high →\n          takeEstimate low < noTakeEstimateAtCutoff low →\n            noTakeEstimateAtCutoff high < takeEstimate high →\n              ∃ qBar ∈ Set.Ioo low high,\n                noTakeEstimateAtCutoff qBar = takeEstimate qBar ∧\n                  (∀ (skill : ℝ), noTakeEstimateAtCutoff qBar ≤ takeEstimate skill ↔ qBar ≤ skill) ∧\n                    ∀ (skill : ℝ), takeEstimate skill < noTakeEstimateAtCutoff qBar ↔ skill < qBar",
+      "source_range": {
+        "start_line": 1797,
+        "start_column": 0,
+        "end_line": 1821,
+        "end_column": 58
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "LG21TestOptionalPolicies.PaperInterface",
+      "kind": "theorem",
+      "internal": false,
+      "id": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Theorem 3.1 report-required crossing step: continuity plus opposite endpoint\ncomparisons produce a finite skill cutoff where taking/reporting is indifferent\nand taking/reporting is optimal exactly above the cutoff skill.\n"
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "{X : Type u_1} → {Y : Type u_2} → [TopologicalSpace X] → [TopologicalSpace Y] → (X → Y) → Set X → Prop",
+      "source_range": {
+        "start_line": 188,
+        "start_column": 0,
+        "end_line": 192,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Filter",
+      "kind": "def",
+      "internal": false,
+      "id": "ContinuousOn",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function between topological spaces is continuous on a subset `s`\nwhen it's continuous at every point of `s` within `s`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : UniformSpace α] → TopologicalSpace α",
+      "source_range": {
+        "start_line": 195,
+        "start_column": 0,
+        "end_line": 204,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.UniformSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "UniformSpace.toTopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoMetricSpace α] → UniformSpace α",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoMetricSpace.toUniformSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "PseudoMetricSpace ℝ",
+      "source_range": {
+        "start_line": 1111,
+        "start_column": 0,
+        "end_line": 1116,
+        "end_column": 41
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.pseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Instantiate the reals as a pseudometric space. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Preorder α] → α → α → Set α",
+      "source_range": {
+        "start_line": 74,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Interval.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.Icc",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Icc a b` is the left-closed right-closed interval $[a, b]$. "
+    },
+    {
+      "value": null,
+      "type": "Preorder ℝ",
+      "source_range": {
+        "start_line": 331,
+        "start_column": 0,
+        "end_line": 331,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instPreorder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → [Preorder α] → [Preorder β] → (α → β) → Prop",
+      "source_range": {
+        "start_line": 85,
+        "start_column": 0,
+        "end_line": 87,
+        "end_column": 28
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Monotone.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "StrictMono",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function `f` is strictly monotone if `a < b` implies `f a < f b`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LT α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1292,
+        "start_column": 2,
+        "end_line": 1292,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LT.lt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-than relation: `x < y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `<` in identifiers is `lt`."
+    },
+    {
+      "value": null,
+      "type": "LT ℝ",
+      "source_range": {
+        "start_line": 265,
+        "start_column": 0,
+        "end_line": 267,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLT",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Prop",
+      "source_range": {
+        "start_line": 313,
+        "start_column": 0,
+        "end_line": 341,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Exists",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Existential quantification. If `p : α → Prop` is a predicate, then `∃ x : α, p x`\nasserts that there is some `x` of type `α` such that `p x` holds.\nTo create an existential proof, use the `exists` tactic,\nor the anonymous constructor notation `⟨x, h⟩`.\nTo unpack an existential, use `cases h` where `h` is a proof of `∃ x : α, p x`,\nor `let ⟨x, hx⟩ := h`.\n\nBecause Lean has proof irrelevance, any two proofs of an existential are\ndefinitionally equal. One consequence of this is that it is impossible to recover the\nwitness of an existential from the mere fact of its existence.\nFor example, the following does not compile:\n```\nexample (h : ∃ x : Nat, x = x) : Nat :=\n  let ⟨x, _⟩ := h  -- fail, because the goal is `Nat : Type`\n  x\n```\nThe error message `recursor 'Exists.casesOn' can only eliminate into Prop` means\nthat this only works when the current goal is another proposition:\n```\nexample (h : ∃ x : Nat, x = x) : True :=\n  let ⟨x, _⟩ := h  -- ok, because the goal is `True : Prop`\n  trivial\n```\n"
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 589,
+        "start_column": 0,
+        "end_line": 603,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "And",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`."
+    },
+    {
+      "value": null,
+      "type": "{α : outParam (Type u)} → {γ : Type v} → [self : Membership α γ] → γ → α → Prop",
+      "source_range": {
+        "start_line": 1753,
+        "start_column": 2,
+        "end_line": 1753,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Membership.mem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`."
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `Set.ofPred` (also written `{x | p x}`) and membership of a set (`∈`) should be\nused to convert between sets and predicates.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Membership α (Set α)",
+      "source_range": {
+        "start_line": 79,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.instMembership",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Preorder α] → α → α → Set α",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Interval.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.Ioo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Ioo a b` is the left-open right-open interval $(a, b)$. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u_1} → α → α → Prop",
+      "source_range": {
+        "start_line": 46,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Eq",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`."
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 183,
+        "start_column": 0,
+        "end_line": 194,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "structure",
+      "internal": false,
+      "id": "Iff",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "If and only if, or logical bi-implication. `a ↔ b` means that `a` implies `b` and vice versa.\nBy `propext`, this implies that `a` and `b` are equal and hence any expression involving `a`\nis equivalent to the corresponding expression with `b` instead.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `↔` in identifiers is `iff`.\n\n * The recommended spelling of `<->` in identifiers is `iff` (prefer `↔` over `<->`)."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1287,
+        "start_column": 2,
+        "end_line": 1287,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LE.le",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`."
+    },
+    {
+      "value": null,
+      "type": "LE ℝ",
+      "source_range": {
+        "start_line": 296,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Real",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "ContinuousOn",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toUniformSpace",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Set.Icc",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Real.instPreorder",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "StrictMono",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "LT.lt",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLT",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Exists",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "And",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Set.Ioo",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Eq",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Iff",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "LE.le",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "site": "type"
+    }
+  ],
+  "provenance": {
+    "repository": "nikhgarg/AppliedModelingLib",
+    "revision": "25686396b1003e5e5bf44b06a1bf6f0319658660",
+    "root": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+    "lean_required": "4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "source_edits": [
+      {
+        "module": "LG21TestOptionalPolicies.MainTheorems",
+        "original_sha256": "20776f839862e63ea9a57379535a3091015ae3fd4a3626cf38ec05217fe3a9ae",
+        "adapted_sha256": "00ca988f70f582e8645621c2df4b6093b1d0f9bd2ae738337a7a9e9c047d003a",
+        "diff": "--- upstream/LG21TestOptionalPolicies.MainTheorems\n+++ 4.34.1/LG21TestOptionalPolicies.MainTheorems\n@@ -2762,7 +2762,7 @@\n     lg21SourceDemographicallyFair S := by\n   intro e\n   rw [hAccess e, hNoAccess e]\n-  simpa [lg21DemographicEstimateDistribution, lg21DemographicallyFair] using\n+  simpa [lg21DemographicEstimateDistribution, lg21DemographicallyFair, DemographicallyFair] using\n     demographicallyFair_of_observableFair baseProfile (hobs e)\n \n /--\n@@ -5837,7 +5837,7 @@\n     [Fintype ΩBase] [DecidableEq ΩBase] [Fintype ΩTest] [DecidableEq ΩTest]\n     (m : LG21Model Θ ΩBase ΩTest) :\n     lg21BaseMass m (fun _ : ΩBase => True) = pmfExp m.prior m.quality := by\n-  simpa [lg21BaseMass] using\n+  simpa [lg21BaseMass, lg21BaseModel] using\n     (admissionsSelectionMass_of_true (m := lg21BaseModel m) (value := m.quality))\n \n theorem lg21_base_no_accept\n@@ -5852,7 +5852,7 @@\n     [Fintype ΩBase] [DecidableEq ΩBase] [Fintype ΩTest] [DecidableEq ΩTest]\n     (m : LG21Model Θ ΩBase ΩTest) (p : ΩBase → Prop) [DecidablePred p] :\n     lg21BaseMass m (fun ω => ¬ p ω) = pmfExp m.prior m.quality - lg21BaseMass m p := by\n-  simpa [lg21BaseMass] using\n+  simpa [lg21BaseMass, lg21BaseModel] using\n     (admissionsSelectedWelfareMass_of_compl (m := lg21BaseModel m) (p := p)\n       (value := m.quality))\n \n@@ -5934,7 +5934,7 @@\n     [Fintype ΩBase] [DecidableEq ΩBase] [Fintype ΩTest] [DecidableEq ΩTest]\n     (m : LG21Model Θ ΩBase ΩTest) :\n     lg21TestMass m (fun _ : ΩTest => True) = pmfExp m.prior m.quality := by\n-  simpa [lg21TestMass] using\n+  simpa [lg21TestMass, lg21TestModel] using\n     (admissionsSelectionMass_of_true (m := lg21TestModel m) (value := m.quality))\n \n theorem lg21_test_no_accept\n@@ -5949,7 +5949,7 @@\n     [Fintype ΩBase] [DecidableEq ΩBase] [Fintype ΩTest] [DecidableEq ΩTest]\n     (m : LG21Model Θ ΩBase ΩTest) (p : ΩTest → Prop) [DecidablePred p] :\n     lg21TestMass m (fun ω => ¬ p ω) = pmfExp m.prior m.quality - lg21TestMass m p := by\n-  simpa [lg21TestMass] using\n+  simpa [lg21TestMass, lg21TestModel] using\n     (admissionsSelectedWelfareMass_of_compl (m := lg21TestModel m) (p := p)\n       (value := m.quality))\n \n@@ -6031,7 +6031,7 @@\n     [Fintype ΩBase] [DecidableEq ΩBase] [Fintype ΩTest] [DecidableEq ΩTest]\n     (m : LG21Model Θ ΩBase ΩTest) :\n     lg21BaseConditionalMass m (fun _ : ΩBase => True) = pmfExp m.prior m.quality := by\n-  simpa [lg21BaseConditionalMass] using\n+  simpa [lg21BaseConditionalMass, lg21BaseModel] using\n     (admissionsSelectedWelfareConditionalExp_of_true (m := lg21BaseModel m) (value := m.quality))\n \n theorem lg21_test_conditional_universal_accept\n@@ -6039,7 +6039,7 @@\n     [Fintype ΩBase] [DecidableEq ΩBase] [Fintype ΩTest] [DecidableEq ΩTest]\n     (m : LG21Model Θ ΩBase ΩTest) :\n   lg21TestConditionalMass m (fun _ : ΩTest => True) = pmfExp m.prior m.quality := by\n-  simpa [lg21TestConditionalMass] using\n+  simpa [lg21TestConditionalMass, lg21TestModel] using\n     (admissionsSelectedWelfareConditionalExp_of_true (m := lg21TestModel m) (value := m.quality))\n \n theorem lg21_base_conditional_of_compl\n@@ -6049,7 +6049,7 @@\n     lg21BaseConditionalMass m (fun ω => ¬ p ω) =\n       (pmfExp m.prior m.quality - lg21BaseSelectionProb m p * lg21BaseConditionalMass m p) /\n         lg21BaseSelectionProb m (fun ω => ¬ p ω) := by\n-  simpa [lg21BaseConditionalMass, lg21BaseSelectionProb] using\n+  simpa [lg21BaseConditionalMass, lg21BaseSelectionProb, lg21BaseModel] using\n     (admissionsSelectedWelfareConditionalExp_of_compl (m := lg21BaseModel m) (p := p)\n       (value := m.quality))\n \n@@ -6072,7 +6072,7 @@\n     lg21TestConditionalMass m (fun ω => ¬ p ω) =\n       (pmfExp m.prior m.quality - lg21TestSelectionProb m p * lg21TestConditionalMass m p) /\n         lg21TestSelectionProb m (fun ω => ¬ p ω) := by\n-  simpa [lg21TestConditionalMass, lg21TestSelectionProb] using\n+  simpa [lg21TestConditionalMass, lg21TestSelectionProb, lg21TestModel] using\n     (admissionsSelectedWelfareConditionalExp_of_compl (m := lg21TestModel m) (p := p)\n       (value := m.quality))\n \n"
+      },
+      {
+        "module": "EconCSLib.Foundations.Probability.Gaussian",
+        "original_sha256": "77cdacb9ea2a5c586d195560122f3cf19b5d31d3c2e7122d6d9875d0f72c63af",
+        "adapted_sha256": "da1056258f4a2470da221224a41321ecd8ebbd910281472222e717f1fcdb1a78",
+        "diff": "--- upstream/EconCSLib.Foundations.Probability.Gaussian\n+++ 4.34.1/EconCSLib.Foundations.Probability.Gaussian\n@@ -490,7 +490,7 @@\n   dsimp [mixtureTailMass]\n   exact Finset.sum_le_sum (by\n     intro g _\n-    simpa using\n+    simpa only [thresholdPassProb, mul_one] using\n       mul_le_mul_of_nonneg_left\n         (api.normalTail_le_one (law g) threshold)\n         (hweight g))\n"
+      },
+      {
+        "module": "EconCSLib.Foundations.Probability.Admissions",
+        "original_sha256": "50653bd490f6f3463c2044554f581dc9ee1f97668f23253c6d4f7132602d35fc",
+        "adapted_sha256": "7d8ee97f9576d4f53f7c0e6e9709ae936ba6995e62f14bb8a2b5a6759c7cf4bc",
+        "diff": "--- upstream/EconCSLib.Foundations.Probability.Admissions\n+++ 4.34.1/EconCSLib.Foundations.Probability.Admissions\n@@ -294,8 +294,9 @@\n     (m : AdmissionsModel Θ Ω) (value : Θ → ℝ) :\n     admissionsSelectedWelfareMass m (fun _ : Ω => True) value = pmfExp m.prior value := by\n   -- With universal admission, conditioning on signal has no effect on expected welfare.\n-  simpa [admissionsSelectedWelfareMass, pmfIndicatorExp] using\n-    (pmfKernelJointExp m.prior m.signalKernel (fun θ _ => value θ))\n+  have h := pmfKernelJointExp m.prior m.signalKernel (fun θ _ => value θ)\n+  simp only [pmfExp_const] at h\n+  simpa only [admissionsSelectedWelfareMass, pmfIndicatorExp, ite_true, admissionsJointMass, pmfExp] using h\n \n theorem admissionsSelectedWelfareConditionalExp_of_false {Θ Ω : Type*}\n     [Fintype Θ] [DecidableEq Θ] [Fintype Ω] [DecidableEq Ω]\n@@ -438,9 +439,9 @@\n           = pmfExp m.prior value := by\n     have hfull :\n         pmfExp (admissionsJointMass m) (fun a : Θ × Ω => value a.1) = pmfExp m.prior value := by\n-      simpa [admissionsJointMass] using\n-        (pmfKernelJointExp (prior := m.prior) (obs := m.signalKernel)\n-          (f := fun θ _ => value θ))\n+      have h := pmfKernelJointExp (prior := m.prior) (obs := m.signalKernel) (f := fun θ _ => value θ)\n+      simp only [pmfExp_const] at h\n+      simpa only [admissionsJointMass, pmfExp] using h\n     unfold admissionsSelectedWelfareMass pmfIndicatorExp\n     calc\n       pmfExp (admissionsJointMass m) (fun a : Θ × Ω => if p a.2 then value a.1 else 0) +\n"
+      }
+    ],
+    "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+    "proof_values_traversed": false,
+    "alignment_label": null,
+    "source_inventory": "screen-08/batch-01/closures/2568639-LG21TestOptionalPolicies.json"
+  }
+}

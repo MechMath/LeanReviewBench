@@ -1,0 +1,71 @@
+{
+  "id": "riemann-von-mangoldt-text-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT riemann-von-mangoldt-text-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "riemannZeta.Riemann_vonMangoldt_bound",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "declaration": "riemannZeta.Riemann_vonMangoldt_bound",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+  },
+  "group_id": "pnt-riemannZeta.Riemann_vonMangoldt_bound",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "riemann-von-mangoldt-text-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "T≥2时log(T/(2πe))=log(T/(2π))−1，formal绝对值内展开正是当前文字的−7/8版本；三个误差系数与范围均相同。按scope使用保留的N定义（0<Imρ<T并按重数），不替换成其他文章的计数端点约定。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "3793dd9ffca246cb387ff9be01090a2042e345dc9fbb10251840253ff53c377c"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/receipt.json",
+    "receipt_sha256": "f73b27e14fdb7dec83107a6aedfaf823ca35f1368468029d1578bb6996936bf9",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "ece7880d0ced490ba8993d9599c2ab729e63982ccf68710a2c015eca5fc46c3f",
+    "formal_snapshot_id": "riemann-von-mangoldt",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a",
+        "ref": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+        "text": "An estimate of the form\n    $\\bigl|N(T) - \\frac{T}{2\\pi} \\log \\frac{T}{2\\pi e} - \\frac{7}{8}\\bigr| \\leq b_1 \\log T + b_2 \\log\\log T\n    + b_3$ for $T \\geq 2$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'riemannZeta.Riemann_vonMangoldt_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'riemannZeta.Riemann_vonMangoldt_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "cd7383940e6ee321108205881dbdee3d645fa941420f5e7972a77ac031e8786e",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

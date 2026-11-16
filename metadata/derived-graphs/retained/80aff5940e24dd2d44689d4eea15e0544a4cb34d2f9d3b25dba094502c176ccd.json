@@ -1,0 +1,717 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "pi_star"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": "fun x => ∑ n ∈ Finset.Ioc 1 ⌊x⌋₊, ArithmeticFunction.vonMangoldt n / ↑n",
+      "type": "ℝ → ℝ",
+      "source_range": {
+        "start_line": 5,
+        "start_column": 0,
+        "end_line": 6,
+        "end_column": 40
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "def",
+      "internal": false,
+      "id": "pi_star",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "{ι : Type u_1} → {M : Type u_3} → [AddCommMonoid M] → Finset ι → (ι → M) → M",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 2,
+        "end_line": 67,
+        "end_column": 28
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.sum",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`∑ x ∈ s, f x` is the sum of `f x` as `x` ranges over the elements\nof the finite set `s`.\n\nWhen the index type is a `Fintype`, the notation `∑ x, f x`, is a shorthand for\n`∑ x ∈ Finset.univ, f x`. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 1234,
+        "start_column": 0,
+        "end_line": 1256,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n"
+    },
+    {
+      "value": null,
+      "type": "AddCommMonoid ℝ",
+      "source_range": {
+        "start_line": 228,
+        "start_column": 0,
+        "end_line": 228,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instAddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : Preorder α] → [LocallyFiniteOrder α] → α → α → Finset α",
+      "source_range": {
+        "start_line": 288,
+        "start_column": 0,
+        "end_line": 292,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Interval.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.Ioc",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The finset $(a, b]$ of elements `x` such that `a < x` and `x ≤ b`. Basically `Set.Ioc a b` as a\nfinset. "
+    },
+    {
+      "value": null,
+      "type": "Preorder ℕ",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 47,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.instPreorder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "LocallyFiniteOrder ℕ",
+      "source_range": {
+        "start_line": 34,
+        "start_column": 0,
+        "end_line": 42,
+        "end_column": 89
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Interval.Finset.Nat",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.instLocallyFiniteOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "(n : ℕ) → OfNat ℕ n",
+      "source_range": {
+        "start_line": 1280,
+        "start_column": 0,
+        "end_line": 1282,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : Semiring α] → [inst_1 : PartialOrder α] → [FloorSemiring α] → α → ℕ",
+      "source_range": {
+        "start_line": 116,
+        "start_column": 0,
+        "end_line": 118,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Order.Floor.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.floor",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`⌊a⌋₊` is the greatest natural `n` such that `n ≤ a`. If `a` is negative, then `⌊a⌋₊ = 0`. "
+    },
+    {
+      "value": null,
+      "type": "Semiring ℝ",
+      "source_range": {
+        "start_line": 218,
+        "start_column": 0,
+        "end_line": 218,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.semiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "PartialOrder ℝ",
+      "source_range": {
+        "start_line": 313,
+        "start_column": 0,
+        "end_line": 329,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.partialOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : Ring α] → [inst_1 : LinearOrder α] → [FloorRing α] → FloorSemiring α",
+      "source_range": {
+        "start_line": 343,
+        "start_column": 0,
+        "end_line": 348,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Order.Floor.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "FloorRing.toFloorSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Ring ℝ",
+      "source_range": {
+        "start_line": 214,
+        "start_column": 0,
+        "end_line": 214,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "LinearOrder ℝ",
+      "source_range": {
+        "start_line": 471,
+        "start_column": 0,
+        "end_line": 472,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.linearOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "FloorRing ℝ",
+      "source_range": {
+        "start_line": 37,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instFloorRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HDiv α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1403,
+        "start_column": 2,
+        "end_line": 1403,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HDiv.hDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a / b` computes the result of dividing `a` by `b`.\nThe meaning of this notation is type-dependent.\n* For most types like `Nat`, `Int`, `Rat`, `Real`, `a / 0` is defined to be `0`.\n* For `Nat`, `a / b` rounds downwards.\n* For `Int`, `a / b` rounds downwards if `b` is positive or upwards if `b` is negative.\n  It is implemented as `Int.ediv`, the unique function satisfying\n  `a % b + b * (a / b) = a` and `0 ≤ a % b < natAbs b` for `b ≠ 0`.\n  Other rounding conventions are available using the functions\n  `Int.fdiv` (floor rounding) and `Int.tdiv` (truncation rounding).\n* For `Float`, `a / 0` follows the IEEE 754 semantics for division,\n  usually resulting in `inf` or `nan`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `/` in identifiers is `div`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Div α] → HDiv α α α",
+      "source_range": {
+        "start_line": 1681,
+        "start_column": 0,
+        "end_line": 1683,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : DivInvMonoid G] → Div G",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 98
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DivInvMonoid.toDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "DivInvMonoid ℝ",
+      "source_range": {
+        "start_line": 476,
+        "start_column": 0,
+        "end_line": 476,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instDivInvMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{F : Sort u_1} → {α : outParam (Sort u_2)} → {β : outParam (α → Sort u_3)} → [self : DFunLike F α β] → F → (a : α) → β a",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.FunLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DFunLike.coe",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The coercion from `F` to a function. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) → [Zero R] → Type (max 0 u_1)",
+      "source_range": {
+        "start_line": 46,
+        "start_column": 0,
+        "end_line": 50,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "ArithmeticFunction",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "An arithmetic function is a function from `ℕ` that maps 0 to 0. In the literature, they are\noften instead defined as functions from `ℕ+`. Multiplication on `ArithmeticFunctions` is by\nDirichlet convolution. "
+    },
+    {
+      "value": null,
+      "type": "Zero ℝ",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 91,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → [inst : Zero R] → FunLike (ArithmeticFunction R) ℕ R",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 45
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "ArithmeticFunction.instFunLikeNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ArithmeticFunction ℝ",
+      "source_range": {
+        "start_line": 55,
+        "start_column": 0,
+        "end_line": 66,
+        "end_column": 94
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "kind": "def",
+      "internal": false,
+      "id": "ArithmeticFunction.vonMangoldt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `vonMangoldt` function is the function on natural numbers that returns `log p` if the input can\nbe expressed as `p^k` for a prime `p`.\nIn the case when `n` is a prime power, `Nat.minFac` will give the appropriate prime, as it is the\nsmallest prime factor.\n\nIn the `ArithmeticFunction` locale, we have the notation `Λ` for this function.\nThis is also available in the `ArithmeticFunction.vonMangoldt` locale, allowing for selective\naccess to the notation.\n"
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [NatCast R] → ℕ → R",
+      "source_range": {
+        "start_line": 69,
+        "start_column": 0,
+        "end_line": 71,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Cast",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.cast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The canonical homomorphism `Nat → R`. In most use cases, the target type will have a (semi)ring\nstructure, and this homomorphism should be a (semi)ring homomorphism.\n\n`NatCast` and `IntCast` exist to allow different libraries with their own types that can be notated\nas natural numbers to have consistent `simp` normal forms without needing to create coercion\nsimplification sets that are aware of all combinations. Libraries should make it easy to work with\n`NatCast` where possible. For instance, in Mathlib there will be such a homomorphism (and thus a\n`NatCast R` instance) whenever `R` is an additive monoid with a `1`.\n\nThe prototypical example is `Int.ofNat`.\n"
+    },
+    {
+      "value": null,
+      "type": "NatCast ℝ",
+      "source_range": {
+        "start_line": 161,
+        "start_column": 0,
+        "end_line": 161,
+        "end_column": 55
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Real",
+      "source": "pi_star",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset.sum",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instAddCommMonoid",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset.Ioc",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.instPreorder",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.instLocallyFiniteOrder",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.floor",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.semiring",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.partialOrder",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "FloorRing.toFloorSemiring",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instRing",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.linearOrder",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instFloorRing",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "HDiv.hDiv",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHDiv",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivInvMonoid.toDiv",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instDivInvMonoid",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "DFunLike.coe",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "ArithmeticFunction",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "ArithmeticFunction.instFunLikeNat",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "ArithmeticFunction.vonMangoldt",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.cast",
+      "source": "pi_star",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "pi_star",
+      "site": "definition_value"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "pr227-after-nonneg",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr227-after-nonneg",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "KL_div_nonneg",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "420af883a0ddf1975cca1e1a49db587feef6f4bb",
+    "path": "PFR/Kullback.lean",
+    "module": "PFR.Kullback",
+    "declaration": "KL_div_nonneg",
+    "url": "https://github.com/teorth/pfr/blob/420af883a0ddf1975cca1e1a49db587feef6f4bb/PFR/Kullback.lean",
+    "sha256": "5e094088b8969856a2e15765b0f94782338214542877d60d44351238b7f9ce29"
+  },
+  "group_id": "pfr-kl-support",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pr227-before-nonneg"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "after 修复了有限域 KL 的支持条件，但根仍只量化有限 G；原文完整范围没有有限值或有限支持约定，包含真实的无限支持概率输入。因输入域缩窄而不满足冻结完整目标。",
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "7491f5e37daf70f7e649361afcdb0028e286e0e64fd93759881f6eb57c1f7b3e"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr227-after-nonneg/20261104T091656585573Z/receipt.json",
+    "receipt_sha256": "ba9f8943e824444724a90cfedcca50c1c864abef77fc36bc9cea42af4c622c67",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr227-after-nonneg/20261104T091656585573Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "fec5e35788ec17b483ee53d0a8ebb4b0b35f693e0d5096d921eaeb391c6664ce",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "c58f4c4a00dd69bbedd689dccde250baca2e2252cb69a812b1af8b5db1b9d0ab",
+        "locator": "Gibbs",
+        "text": "\\begin{lemma}[Gibbs inequality]\\label{Gibbs}\\uses{kl-div}\\lean{KL_div_nonneg}\\leanok  $D_{KL}(X\\Vert Y) \\geq 0$.\n\\end{lemma}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/jensen.tex",
+        "sha256": "c468005691d451376fcfca9a79c6ed8812de3e3a20aa54ed6b642007cdfafcef",
+        "locator": "further_improvement.tex: kl-div, Gibbs, Gibbs-converse; jensen.tex: log-sum",
+        "text": "",
+        "selected": false
+      },
+      {
+        "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/entropy.tex",
+        "sha256": "6587c95c25e521f7f16f14e079f715550b9dbf9f8d00f5c845a5ba2af56dbddf",
+        "locator": "further_improvement.tex: kl-div, Gibbs, Gibbs-converse; jensen.tex: log-sum",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'KL_div_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'KL_div_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "definition_preserving_slice"
+  },
+  "input_sha256": "e1cbe1cf8eb3074517036521fa6b0e9fb0dbea9abfc24b3748e82765e4d780c7",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

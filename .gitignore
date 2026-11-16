@@ -1,6 +1,5 @@
 /artifacts/
-/data/*
-!/data/0.1.0-preview/
+/data/
 /runs/
 /build/
 __pycache__/

@@ -1,0 +1,72 @@
+{
+  "id": "ik-liouville-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT ik-liouville-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ArithmeticFunction.LSeries_liouville_eq",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "99d4ce46962a09b4ed95574e95c62b491673a1ad",
+    "path": "PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "declaration": "ArithmeticFunction.LSeries_liouville_eq",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112"
+  },
+  "group_id": "pnt-ArithmeticFunction.LSeries_liouville_eq",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "ik-liouville-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
+  "external_imports": [
+    "Mathlib.NumberTheory.LSeries.Dirichlet",
+    "Mathlib.NumberTheory.LSeries.Nonvanishing"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "001f6db23f8d1a131cfc60829968a2ac0df16230ab7bdc81b82d78944d2b9a4b"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-ik-extraction/repaired/ik-liouville-before/20261105T052926749391Z/receipt.json",
+    "receipt_sha256": "d60fbf409cba35b01732e079c3ca27c498721a441567531f0e95cd56d2055103",
+    "packaged_receipt": "reports/pnt-ik-extraction/repaired/ik-liouville-before/20261105T052926749391Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "867f9dd225622fc57eaf4c33de4bfb7b6b9ce1190cf5adb02096adfe89b0416f",
+    "formal_snapshot_id": "ik-liouville-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+        "ref": "99d4ce46962a09b4ed95574e95c62b491673a1ad",
+        "text": "The Dirichlet series of the Liouville function is $\\zeta(2s)/\\zeta(s)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'ArithmeticFunction.LSeries_liouville_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'ArithmeticFunction.LSeries_liouville_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "3af95d1d845257125a7a62ee71b796ab61dc8d885bd35bd31ef8faa5a6200c5d",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

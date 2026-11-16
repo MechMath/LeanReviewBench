@@ -1,0 +1,3295 @@
+{
+  "id": "flt-c04",
+  "schema_version": "paperlean-project-case-1",
+  "title": "NumberField.AdeleRing.DivisionAlgebra.compact_quotient",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "NumberField.AdeleRing.DivisionAlgebra.compact_quotient",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/ImperialCollegeLondon/FLT",
+    "commit": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+    "path": "FLT/DivisionAlgebra/Finiteness.lean",
+    "module": "FLT.DivisionAlgebra.Finiteness",
+    "declaration": "NumberField.AdeleRing.DivisionAlgebra.compact_quotient",
+    "url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/DivisionAlgebra/Finiteness.lean",
+    "sha256": "9ee0ec01339c942ac0736a13f6e0ad07741c46e5adb6c66e194545245bcb67a1"
+  },
+  "group_id": "fujisaki",
+  "split_group": "ImperialCollegeLondon/FLT",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "historical_status": "undetermined",
+  "gold_label": null,
+  "human_adjudicated": false,
+  "evaluation_eligible": false,
+  "role": "control_candidate",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "preparation": {
+    "source_packet": {
+      "id": "FLT-C04",
+      "role": "control_candidate",
+      "root": "NumberField.AdeleRing.DivisionAlgebra.compact_quotient",
+      "module": "FLT/DivisionAlgebra/Finiteness.lean",
+      "source_family": "fujisaki",
+      "source_revision": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+      "source_url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/DivisionAlgebra/Finiteness.lean",
+      "label": "undetermined",
+      "gold_label": null,
+      "human_adjudicated": false,
+      "evaluation_eligible": false,
+      "readiness": "semantic_candidate_materials_complete_technical_pending",
+      "informal_target": {
+        "text": "For a finite-dimensional central division algebra D over a number field K, the quotient D^times backslash D_A^(1) is compact, where D_A^(1) is the kernel of its Haar character.",
+        "kind": "curator_paraphrase_of_frozen_blueprint",
+        "source_path": "blueprint/src/chapter/FujisakiProject.tex",
+        "source_label": "NumberField.AdeleRing.DivisionAlgebra.compact_quotient",
+        "source_revision": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+        "source_url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/blueprint/src/chapter/FujisakiProject.tex",
+        "source_sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5",
+        "exact_theorem_environment": "\\begin{theorem}\n  \\label{NumberField.AdeleRing.DivisionAlgebra.compact_quotient}\n  \\lean{NumberField.AdeleRing.DivisionAlgebra.compact_quotient}\n  \\leanok\n  If $D$ is a division algebra then\n  the quotient $D^\\times\\backslash D_{\\A}^{(1)}$\n  with its quotient topology coming from $D_{\\A}^{(1)}$, is compact.\n\\end{theorem}",
+        "independence": "Separate mathematical LaTeX exposition, with mathematical proof prose and historical Lean annotations; not produced here by Lean-to-text. Same pinned repository revision as formal source; last-change provenance retained in evidence."
+      },
+      "scope_check": "Retain definitions of D_A, the Haar character kernel, diagonal inclusion and quotient relation, plus the locally compact tensor and adele topology. Compactness does not assert the quotient is Hausdorff.",
+      "archive": "FLT-C04-source-closure.tar.gz",
+      "archive_sha256": "0f549f7cea9230d610e7055657e3483e5c92564c01f66e483168e6e1121cdc5e",
+      "source_inventory": [
+        {
+          "path": "FLT/AutomorphicForm/GroupTheoryStuff.lean",
+          "sha256": "a01a73aadd3f40509760b4f5fb4d370e1b08f915fcd0da31222c8adb597c7fa6"
+        },
+        {
+          "path": "FLT/DedekindDomain/AdicValuation.lean",
+          "sha256": "41bbd0414391c1dcb3e2107aed2b37fd524f8c58f2358c4240ebc13917a884f3"
+        },
+        {
+          "path": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "sha256": "e4acecbf16a87e317fc6200b6de20d7263218dae803f9e7e774568fcf5fba53a"
+        },
+        {
+          "path": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "sha256": "8ad21325b9e9f3871ea8fa4c3b9cef3bc0177a6f5350b140fef63f9d993a2428"
+        },
+        {
+          "path": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "sha256": "871574af0cb0d2e13af85bae135209e8a9e7698e8ce00f59c31a3a7d266bac12"
+        },
+        {
+          "path": "FLT/DedekindDomain/FiniteAdeleRing/TensorPi.lean",
+          "sha256": "533aba3b171453799f58040f12e8af627eee69e84ec2e3837656e9a1b9d83e4d"
+        },
+        {
+          "path": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+          "sha256": "7581383925fcfad7636eee0c4ba64447a6443b5dfd47af8957312789db91563a"
+        },
+        {
+          "path": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+          "sha256": "6cf88c5985e8d26a850ab6b86f84264d4bbd075bc0af3f54a4dbdebff671bdbb"
+        },
+        {
+          "path": "FLT/DedekindDomain/IntegralClosure.lean",
+          "sha256": "ff10d4fb18432c1faedd79e56e40abd19422b26379c8ff5c19075fa0d9f00767"
+        },
+        {
+          "path": "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+          "sha256": "8bc72d7fbab17ae6961e079f080fa3aeab5fbebc021f8b18b4c1ac3e1c56498e"
+        },
+        {
+          "path": "FLT/DivisionAlgebra/Finiteness.lean",
+          "sha256": "9ee0ec01339c942ac0736a13f6e0ad07741c46e5adb6c66e194545245bcb67a1"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "sha256": "d96e644f47ddf6991c9eed09cec126e455d02449cf5642853e465e0cb23df6c0"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "sha256": "79f6a4c50ec3ce560912e45b2f9cccb486aeac754ca009c07839c4796ceaf24d"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "sha256": "ba19407bbab13d2742e0a7edecc8845ec750a1fcb42c6c81d713d0bc0919eaa7"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "sha256": "9609f5f9ce8e8ca9fe4808ecc8b76d066028e16fa1520aa1fc52e5826b75c632"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "sha256": "cebc32ca20d279e70caec25c615c25a53dc4801622ba5d66d1caa6df92a83257"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "sha256": "91e31a9f402341f6eb323cb36fa115eedc1a2c6b7c1d293290f9f80b3568d518"
+        },
+        {
+          "path": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "sha256": "f7e70a15f800bafd303f2a28da1ada584eaf3d72a586b96e4e757d8c27c3d740"
+        },
+        {
+          "path": "FLT/HaarMeasure/MeasurableSpacePadics.lean",
+          "sha256": "29de8cf9b3cd0ffaba31ad1bdc400661c3dd61a258685686b0e974de0710a109"
+        },
+        {
+          "path": "FLT/Hacks/RightActionInstances.lean",
+          "sha256": "0af5e464ffd06bdaab2834200233949de1c991513e30d9f14db977abe308c75b"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "sha256": "53ac9b53d616d428b7ad6e35e787144eebac0c955ada079ccab10d0ff9aacbde"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/Algebra/Hom.lean",
+          "sha256": "8cbb22429d324ef566f45dbb5d947c236a0ea5fc8af2f56546a13766879ad1b7"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/Algebra/Pi.lean",
+          "sha256": "1c4a4d185a670ade3df09115aee89dd314c6aa3a70fde5ffc381730137c67d7c"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/Algebra/Tower.lean",
+          "sha256": "10d0ad5f022f531f264ac60b85aa67441835fbbf9d3fc88801df73c983f15fac"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "sha256": "339ef895acab3f1c628fd67487f033df525be1a4fa82fca67a7d983bb708037c"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/IsDirectLimit.lean",
+          "sha256": "795f431f2b5ee383c42e2120b4889c0c64a9be27add71ccc045fc82f8b56dd2e"
+        },
+        {
+          "path": "FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+          "sha256": "ab4a9f867938884a4a1a3a1763ffece491601c13b3754a1c410f9de1f2c60a6e"
+        },
+        {
+          "path": "FLT/Mathlib/Data/Real/Archimedean.lean",
+          "sha256": "7ebec4126e481aaee282146be9286afb9c200f454b2a34a88fa41117699234d9"
+        },
+        {
+          "path": "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+          "sha256": "42aee498b543998beb28798aaeb431de9f1a6b84f4cf72b3e3783001c6a86dd3"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "sha256": "be957dbf7f60c51bb4d585673a768ce94929f7899669c1c1b305774a9bb64d1b"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "sha256": "d04bfecf6af216d4e69b1c3cc731efc241bda874e0d0b7d8365ce318a33ba4b7"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+          "sha256": "767ae3e8b58dc0837132d898ce392f1ec7c27bc24bea65603be01182e598406b"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+          "sha256": "60d6d713026a86ccdd9403948102431e36002c12b9b16d65d490d8fb680b95f1"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/Pi.lean",
+          "sha256": "0105d12a889e8b8a2b03ded4c559d55d46269aaa13ba93af12adc9834df94866"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/TensorProduct/Algebra.lean",
+          "sha256": "c3cf741dd6f5a4dc22bb84f459e7eeb2f28c0d18c04ff814ab99beff0bccf08a"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+          "sha256": "d06b6ed9ea567ea575e34d650f947d495bccb50e82d20e7e154f3626d978dded"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/TensorProduct/FiniteFree.lean",
+          "sha256": "9f331cab11e9d69692e2f5642822d3dbdfa6aa825a5ba51dcd02fe8f0f1f625a"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+          "sha256": "da5108842edeed5ebc03339648a29aa6887d84eefa6266e35e93245654964f27"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdicCompletion.lean",
+          "sha256": "d932981f4426535a7c950876c7898e9480aba32ea164e4b8c950287e25e2c51f"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/FiniteAdeleRing.lean",
+          "sha256": "42a6ccf3fdd4b07606fc4ea03a1b8b8782e932b00fdebb28f0fe220c0225d6e3"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/InfinitePlace.lean",
+          "sha256": "89c12668941b846d76117bc675e79534a432001e381b106f66115ce13571ee44"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/RestrictedProduct.lean",
+          "sha256": "8eb2e92b6c5237a64445cf68bed4be620f465b806c93b1e35b81413b52b114e9"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Group/Action.lean",
+          "sha256": "473851decb0337a8b484a4540a3281d302fe5d495464bd0c897224fb3e08b440"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Group/Measure.lean",
+          "sha256": "cf598f607d0b3059afd2388eb6eb1fefe1a02fe1fe190bad1c0f4b0e658f9f78"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Haar/Extension.lean",
+          "sha256": "b1a754f0028eb02dcdded7a772aba0edec897b63bc0163255a79c72fd9cfb31f"
+        },
+        {
+          "path": "FLT/Mathlib/MeasureTheory/Measure/Typeclasses/Finite.lean",
+          "sha256": "aca33268c4b7e8c12e457518d8b50aaa79e93c760831e01e0649f3308bb0756e"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+          "sha256": "4322d8a967722e71d8c68044f5a39094efebfb3efc508391362779c90e61d330"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "sha256": "d5d383b25835e2323d82980fe23f16f4a4e1e375b66639724d14a0f1284eda7a"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+          "sha256": "98a2fc29d24e6112f1ebf0b59ef434111baa79fb03869cbc945fa7cd4b1c517d"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+          "sha256": "187f3deb1377baa0d7f65c55d6eb38a9f2e124df2142a46a9455400a49f51391"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Completion.lean",
+          "sha256": "000bebf4d0c89b7c0d1821b9b872720eaee8e77fa21407e7b585fdb01bb5ebff"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+          "sha256": "8db71088ddf91074a749393ac03ef15281932751aac7c1bade9df72efbcbbe60"
+        },
+        {
+          "path": "FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+          "sha256": "0b7052c72894745e6cbe56a56626cc29392c7193778d0aebc12839b0ab23412b"
+        },
+        {
+          "path": "FLT/Mathlib/Order/Filter/Cofinite.lean",
+          "sha256": "d899bd1d43bca6e1f4d0562371cb52ac3bde5051884665a776d8c63ad82a559e"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+          "sha256": "1d7dd43cd1d779e6a545141be0ef05c4b28f923fe08a6af16584074b070d0b06"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+          "sha256": "c360bd8a4ebcba0c17f31f4a9d79cba1314bafc9cef5abb09e38f97a8578cf8b"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+          "sha256": "86b9e0ec911383633d36f8937caabaace14a0a6a9996d40bf96175cff913b210"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+          "sha256": "f040f0736f51bd3ac4c0b47221d08d4156cfec459ee74bf1de62092d2affd76b"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/Localization/BaseChange.lean",
+          "sha256": "c33262bf982f94c0a2b71d21a199cedcff11c04839985c1dd94920adf555f06a"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "sha256": "439099658220cfe4f3073f6252a4ea24f2c36647d9465af32e1aee03ef122ed9"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "sha256": "6a7729204eb3fc7329bd223ee2134844d85d7dc171a91707c17de427cff376c4"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/TensorProduct/Pi.lean",
+          "sha256": "3cdf7662384c47dd03e55997cce9ec301ffa8983b40cccadef43f7491952b9fd"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+          "sha256": "983e9b2d3a3a4fc9dc741a7ef5388adf3e97bbe28df4a2a505c376df37858b75"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "sha256": "b60310bf5317b730b0673bab482dfafc3b9f567dd897ff1a09c7a489fffc8b0b"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/ContinuousAlgEquiv.lean",
+          "sha256": "9acea3b34782dfa07b16e95218a04f6580fc55fdc1915a77544b4e3afeb64939"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "sha256": "20677139a9f2162db2c3b8b04b1a65e8cc6ea5f1f9b56139892df79785684198"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Group/Quotient.lean",
+          "sha256": "3a9a354e1c4521e6e88390d84057982a1676db97a7d6f450691819bb041cd7ad"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Group/Units.lean",
+          "sha256": "ad910df7ecdfb186458ea1991cb734ff96ad49fa164d07c61b54a51702667ce7"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "sha256": "daaafadd4336cc59b9bfc189e3702f63be8e87cb6e1e49ba618583c7f5efcd19"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+          "sha256": "9624599b513bdb70d25dbf59e4bfe63707c94af15a3bbe1f7b4ee7057a75e5c4"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "sha256": "a7f7fc99750b5ded51b9b6b593a8d69af27cbc404958ced91c82114b725c8dd2"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Module/Quotient.lean",
+          "sha256": "02d579ea424e200a3cf812e07db47252b219d82304fbeaf01a1663d21ae5ad1d"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Module/TensorProduct.lean",
+          "sha256": "c40e00262f86b1889639d29f938a42f181d186f6a342c4de8805bb732b8b1ade"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/MulAction.lean",
+          "sha256": "9d24ed096380343ef2cea514832d86f5e8a5240cef8cf489e1f13f3ec9f90a6f"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Algebra.lean",
+          "sha256": "acab2260387b01390daa0e7699639e40091b98b91666dce9d2d46e20024054e4"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+          "sha256": "d61cc2c03596ae25dd0ae9a2bcfd43751359890458268be2a1f0cb372088c90f"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+          "sha256": "bace9306c6fda91b1f6f1b00f9331973b8a0371117ddd9354c800267582ca9a3"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "sha256": "bedfe3fa9777c85bbc64c0735f252c68a253f0d98aba5eb7109a6d0633bc409f"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "sha256": "5a6f77ccc69b21a0d43869dac69ecdb6f5be948d475ba08c4abe02651f681a9e"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/UniformRing.lean",
+          "sha256": "f21c238bb245d43f743ae339b5f586ea45154cdc7edb1d59b8ea20b51b9fc17b"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "sha256": "5c42389b591f4d55876eaa2152a2cae8f1909cfbd24ad4335d501f89efabdd3c"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Bases.lean",
+          "sha256": "856cabfa256753254de706d62504b3e7b934ba9ae484ca019d08b9cea2902d01"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Constructions.lean",
+          "sha256": "1746b25f68e0d4924f5ec590d522d487594bd1f7d1d58e0fff0230c044ef8777"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/HomToDiscrete.lean",
+          "sha256": "af84a8321ad29fcd0ccd96d582b2e9c9cc16d31ede550cd3990e1e4d0e424b55"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/MetricSpace/ProperSpace/InfinitePlace.lean",
+          "sha256": "b0b08e7d09f1e51addfe0695db6844d8e000c5fdfd2ff072f57e156150b411f8"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/MetricSpace/Pseudo/Matrix.lean",
+          "sha256": "6d5bd0b2e7d1acb0b7d254a94edc550d0fd520e1a250f3adaa14025e3d602701"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Polish.lean",
+          "sha256": "af4107c49b5ca63e2c5fa69765c7fc9852e731e240cc65e9cd9e0be59c56d5ee"
+        },
+        {
+          "path": "FLT/NumberField/AdeleRing.lean",
+          "sha256": "ed2432d6c9437717e17a6ead6fe13a68390a3d46a91f5d9e6468de8822a7ee41"
+        },
+        {
+          "path": "FLT/NumberField/Completion/Finite.lean",
+          "sha256": "d9c5e4d3940a6ef24791ed96d747413fe65f392324088ed28ed890b00debdd53"
+        },
+        {
+          "path": "FLT/NumberField/Completion/Infinite.lean",
+          "sha256": "908e2b5f0278079368281321e4e2327bdbf1cc466e9043b4fc16bb685b07b9e8"
+        },
+        {
+          "path": "FLT/NumberField/HeightOneSpectrum.lean",
+          "sha256": "08df10fd41c3ceee4013a86d8a7c5c4dc13c100cb4cda1777738e929da8650bc"
+        },
+        {
+          "path": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "sha256": "5c3f3d5c68c8ce83c23f4394866b0e978c49423be5a81c3c46d0274170dd90f4"
+        },
+        {
+          "path": "FLT/NumberField/InfinitePlace/Extension.lean",
+          "sha256": "e35dd4b68a6a8dea7c222ce0d0cba9b48db8d259bc0dcb268bbe6126c7033268"
+        },
+        {
+          "path": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "sha256": "95ab77ccef304d02c16aa5488f4c4f192093b5732dec4c9fcd243130cf584982"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "lake-manifest.json",
+          "sha256": "69bea3a723baa7da056496b1535acf49641977881614601d33114363a44358c7"
+        },
+        {
+          "path": "lakefile.toml",
+          "sha256": "2deef638ed8315399f8346c20c7db5a3cbd344ea3dee93ec6a27b2e09c64bc27"
+        },
+        {
+          "path": "lean-toolchain",
+          "sha256": "2c290dc3675a4faf0bc03545ff71a417d2f9a7c2e60e8be80ed643fcbcc73e2d"
+        }
+      ],
+      "project_module_count": 94,
+      "external_imports": [
+        "Mathlib.Algebra.Algebra.Hom",
+        "Mathlib.Algebra.Algebra.Pi",
+        "Mathlib.Algebra.Algebra.Prod",
+        "Mathlib.Algebra.Algebra.Subalgebra.Centralizer",
+        "Mathlib.Algebra.Central.Basic",
+        "Mathlib.Algebra.Central.Defs",
+        "Mathlib.Algebra.CharZero.Infinite",
+        "Mathlib.Algebra.Colimit.Module",
+        "Mathlib.Algebra.EuclideanDomain.Field",
+        "Mathlib.Algebra.FiveLemma",
+        "Mathlib.Algebra.Group.Int.TypeTags",
+        "Mathlib.Algebra.Group.Pi.Units",
+        "Mathlib.Algebra.Group.Pointwise.Set.Basic",
+        "Mathlib.Algebra.Group.Submonoid.Units",
+        "Mathlib.Algebra.Lie.OfAssociative",
+        "Mathlib.Algebra.Module.Equiv.Defs",
+        "Mathlib.Algebra.Module.FinitePresentation",
+        "Mathlib.Algebra.Module.LinearMap.Defs",
+        "Mathlib.Algebra.Module.Pi",
+        "Mathlib.Algebra.Module.Submodule.Defs",
+        "Mathlib.Algebra.Order.AbsoluteValue.Basic",
+        "Mathlib.Algebra.Order.Algebra",
+        "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+        "Mathlib.Algebra.Ring.Subring.Basic",
+        "Mathlib.Algebra.Ring.Subring.Defs",
+        "Mathlib.Algebra.Ring.Subsemiring.Basic",
+        "Mathlib.Analysis.CStarAlgebra.Classes",
+        "Mathlib.Analysis.Complex.ReImTopology",
+        "Mathlib.Analysis.Normed.Field.Basic",
+        "Mathlib.Analysis.Normed.Ring.Basic",
+        "Mathlib.Analysis.Normed.Ring.Lemmas",
+        "Mathlib.CategoryTheory.Category.Basic",
+        "Mathlib.CategoryTheory.Category.Init",
+        "Mathlib.CategoryTheory.Types.Basic",
+        "Mathlib.Combinatorics.Matroid.Init",
+        "Mathlib.Data.Nat.Totient",
+        "Mathlib.Data.Rat.Cast.Order",
+        "Mathlib.Data.Rat.Encodable",
+        "Mathlib.Data.Rat.Floor",
+        "Mathlib.Data.Set.Card.Arithmetic",
+        "Mathlib.Data.Sym.Sym2.Init",
+        "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+        "Mathlib.GroupTheory.DoubleCoset",
+        "Mathlib.GroupTheory.Index",
+        "Mathlib.GroupTheory.Torsion",
+        "Mathlib.LinearAlgebra.Basis.VectorSpace",
+        "Mathlib.LinearAlgebra.Charpoly.BaseChange",
+        "Mathlib.LinearAlgebra.Countable",
+        "Mathlib.LinearAlgebra.DFinsupp",
+        "Mathlib.LinearAlgebra.Determinant",
+        "Mathlib.LinearAlgebra.Dimension.Constructions",
+        "Mathlib.LinearAlgebra.Dimension.Finrank",
+        "Mathlib.LinearAlgebra.Dimension.Free",
+        "Mathlib.LinearAlgebra.Dimension.StrongRankCondition",
+        "Mathlib.LinearAlgebra.DirectSum.Finsupp",
+        "Mathlib.LinearAlgebra.FreeModule.Basic",
+        "Mathlib.LinearAlgebra.FreeModule.Finite.Basic",
+        "Mathlib.LinearAlgebra.FreeModule.PID",
+        "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+        "Mathlib.LinearAlgebra.Matrix.Basis",
+        "Mathlib.LinearAlgebra.Matrix.Defs",
+        "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+        "Mathlib.LinearAlgebra.Matrix.Transvection",
+        "Mathlib.LinearAlgebra.Quotient.Pi",
+        "Mathlib.LinearAlgebra.TensorProduct.Defs",
+        "Mathlib.LinearAlgebra.TensorProduct.Map",
+        "Mathlib.LinearAlgebra.TensorProduct.Pi",
+        "Mathlib.Logic.Equiv.PartialEquiv",
+        "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+        "Mathlib.MeasureTheory.Group.Arithmetic",
+        "Mathlib.MeasureTheory.Group.Defs",
+        "Mathlib.MeasureTheory.Group.Measure",
+        "Mathlib.MeasureTheory.Measure.Haar.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.Extension",
+        "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar",
+        "Mathlib.MeasureTheory.Measure.Haar.Unique",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+        "Mathlib.NumberTheory.NumberField.AdeleRing",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+        "Mathlib.NumberTheory.NumberField.Completion.InfinitePlace",
+        "Mathlib.NumberTheory.NumberField.Completion.LiesOverInstances",
+        "Mathlib.NumberTheory.NumberField.Completion.Ramification",
+        "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+        "Mathlib.NumberTheory.NumberField.InfinitePlace.Basic",
+        "Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification",
+        "Mathlib.NumberTheory.NumberField.ProductFormula",
+        "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+        "Mathlib.NumberTheory.Padics.PadicIntegers",
+        "Mathlib.NumberTheory.Padics.ProperSpace",
+        "Mathlib.NumberTheory.Padics.RingHoms",
+        "Mathlib.NumberTheory.RamificationInertia.Basic",
+        "Mathlib.NumberTheory.RamificationInertia.Inertia",
+        "Mathlib.NumberTheory.RamificationInertia.Ramification",
+        "Mathlib.Order.Filter.Cofinite",
+        "Mathlib.RingTheory.AlgebraTower",
+        "Mathlib.RingTheory.Complex",
+        "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+        "Mathlib.RingTheory.DedekindDomain.Basic",
+        "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+        "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+        "Mathlib.RingTheory.Flat.Basic",
+        "Mathlib.RingTheory.Flat.FaithfullyFlat.Basic",
+        "Mathlib.RingTheory.Flat.TorsionFree",
+        "Mathlib.RingTheory.Henselian",
+        "Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient",
+        "Mathlib.RingTheory.Ideal.Quotient.Defs",
+        "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+        "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+        "Mathlib.RingTheory.Localization.BaseChange",
+        "Mathlib.RingTheory.Norm.Transitivity",
+        "Mathlib.RingTheory.PicardGroup",
+        "Mathlib.RingTheory.SimpleModule.IsAlgClosed",
+        "Mathlib.RingTheory.SimpleRing.Principal",
+        "Mathlib.RingTheory.TensorProduct.Basic",
+        "Mathlib.RingTheory.TensorProduct.Finite",
+        "Mathlib.RingTheory.TensorProduct.Free",
+        "Mathlib.RingTheory.TensorProduct.Maps",
+        "Mathlib.RingTheory.TensorProduct.Pi",
+        "Mathlib.RingTheory.TwoSidedIdeal.Instances",
+        "Mathlib.RingTheory.TwoSidedIdeal.Operations",
+        "Mathlib.RingTheory.UniqueFactorizationDomain.Nat",
+        "Mathlib.RingTheory.Valuation.Discrete.Basic",
+        "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+        "Mathlib.Tactic.Basic",
+        "Mathlib.Tactic.Bound.Init",
+        "Mathlib.Tactic.ContinuousFunctionalCalculus",
+        "Mathlib.Tactic.NormNum.Abs",
+        "Mathlib.Tactic.NormNum.DivMod",
+        "Mathlib.Tactic.NormNum.GCD",
+        "Mathlib.Tactic.NormNum.OfScientific",
+        "Mathlib.Tactic.Positivity.Finset",
+        "Mathlib.Tactic.ToAdditive",
+        "Mathlib.Topology.Algebra.Algebra",
+        "Mathlib.Topology.Algebra.Algebra.Equiv",
+        "Mathlib.Topology.Algebra.Constructions",
+        "Mathlib.Topology.Algebra.ContinuousMonoidHom",
+        "Mathlib.Topology.Algebra.Group.Quotient",
+        "Mathlib.Topology.Algebra.Group.Units",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict",
+        "Mathlib.Topology.Algebra.Module.Equiv",
+        "Mathlib.Topology.Algebra.Module.FiniteDimension",
+        "Mathlib.Topology.Algebra.Module.ModuleTopology",
+        "Mathlib.Topology.Algebra.MulAction",
+        "Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+        "Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+        "Mathlib.Topology.Algebra.UniformRing",
+        "Mathlib.Topology.Algebra.Valued.NormedValued",
+        "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+        "Mathlib.Topology.Algebra.Valued.ValuedField",
+        "Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+        "Mathlib.Topology.Bases",
+        "Mathlib.Topology.Compactness.Paracompact",
+        "Mathlib.Topology.Constructions",
+        "Mathlib.Topology.Constructions.SumProd",
+        "Mathlib.Topology.Homeomorph.Lemmas",
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.Topology.MetricSpace.Completion",
+        "Mathlib.Topology.MetricSpace.Polish",
+        "Mathlib.Topology.Metrizable.Urysohn",
+        "Mathlib.Topology.Path"
+      ],
+      "local_import_edges": [
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.DedekindDomain.FiniteAdeleRing.TensorPi",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorPi.lean",
+          "module": "Mathlib.Algebra.Module.FinitePresentation",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorPi.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorPi.lean",
+          "module": "Mathlib.Algebra.FiveLemma",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.HaarMeasure.HaarChar.Ring",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "Mathlib.Algebra.Group.Pi.Units",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "FLT.Deformations.ContinuousRepresentation.IsTopologicalModule",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+          "module": "Mathlib.Topology.Algebra.MulAction",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+          "module": "Mathlib.Algebra.Module.Submodule.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+          "module": "Mathlib.Algebra.Module.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Tower",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Tower.lean",
+          "module": "Mathlib.RingTheory.AlgebraTower",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.Algebra.Lie.OfAssociative",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.CategoryTheory.Types.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.PID",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.Topology.Algebra.Algebra.Equiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.LinearAlgebra.Dimension.Free",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.PID",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.RingTheory.Henselian",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.RingTheory.PicardGroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.RestrictedProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/RestrictedProduct.lean",
+          "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/RestrictedProduct.lean",
+          "module": "Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Equiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+          "module": "Mathlib.Algebra.Module.LinearMap.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+          "module": "Mathlib.Algebra.Ring.Subring.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+          "module": "Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+          "module": "Mathlib.Algebra.Module.Submodule.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+          "module": "Mathlib.Algebra.Group.Pointwise.Set.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+          "module": "Mathlib.Algebra.Group.Submonoid.Units",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+          "module": "Mathlib.LinearAlgebra.DFinsupp",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+          "module": "Mathlib.LinearAlgebra.Matrix.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "FLT.HaarMeasure.HaarChar.AddEquiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.ContinuousMonoidHom",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.Quotient",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Quotient.lean",
+          "module": "Mathlib.LinearAlgebra.Quotient.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Quotient.lean",
+          "module": "Mathlib.Topology.Algebra.Module.Equiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "Mathlib.Data.Sym.Sym2.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "Mathlib.Tactic.ContinuousFunctionalCalculus",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "Mathlib.Tactic.NormNum.GCD",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Group.Units",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Group/Units.lean",
+          "module": "Mathlib.Algebra.Group.Submonoid.Units",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Group/Units.lean",
+          "module": "Mathlib.Topology.Algebra.Constructions",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Group/Units.lean",
+          "module": "Mathlib.Tactic.Bound.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Equiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.Topology.Instances.Matrix",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.Topology.Algebra.Group.Units",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "FLT.Mathlib.Order.Filter.Cofinite",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Order/Filter/Cofinite.lean",
+          "module": "Mathlib.Order.Filter.Cofinite",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "FLT.Mathlib.Topology.Bases",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Bases.lean",
+          "module": "Mathlib.Topology.Bases",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Bases.lean",
+          "module": "Mathlib.Topology.Homeomorph.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.Logic.Equiv.PartialEquiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.RestrictedProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Group.Measure",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Measure.lean",
+          "module": "Mathlib.MeasureTheory.Group.Measure",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Measure.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Group.Action",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Action.lean",
+          "module": "Mathlib.GroupTheory.Index",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Action.lean",
+          "module": "Mathlib.MeasureTheory.Group.Arithmetic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Action.lean",
+          "module": "Mathlib.MeasureTheory.Group.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Action.lean",
+          "module": "Mathlib.MeasureTheory.Group.Measure",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Group/Measure.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Measure.Typeclasses.Finite",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Measure/Typeclasses/Finite.lean",
+          "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Ring.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Hacks.RightActionInstances",
+          "local": true
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Free",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Algebra.Lie.OfAssociative",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Maps",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": true
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Data.Sym.Sym2.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Logic.Equiv.PartialEquiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Finite",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Tactic.NormNum.GCD",
+          "local": false
+        },
+        {
+          "importer": "FLT/Hacks/RightActionInstances.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Dimension.Constructions",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+          "module": "Mathlib.LinearAlgebra.Dimension.Free",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+          "module": "FLT.Mathlib.RingTheory.TensorProduct.Pi",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Pi.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+          "module": "Mathlib.LinearAlgebra.Dimension.Constructions",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.AdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Algebra",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Algebra.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Algebra.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "FLT.Mathlib.Algebra.Module.Submodule.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+          "module": "Mathlib.Algebra.Module.Submodule.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+          "module": "Mathlib.Algebra.Ring.Subring.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+          "module": "Mathlib.Algebra.Ring.Subsemiring.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+          "module": "Mathlib.Algebra.Ring.Subring.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "Mathlib.Algebra.Lie.OfAssociative",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.MulAction",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/MulAction.lean",
+          "module": "Mathlib.Topology.Algebra.MulAction",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+          "module": "Mathlib.Algebra.Lie.OfAssociative",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+          "module": "Mathlib.Topology.Algebra.Algebra",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Countable",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "module": "Mathlib.Data.Rat.Encodable",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "module": "Mathlib.LinearAlgebra.Countable",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "module": "FLT.NumberField.Completion.Finite",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "FLT.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.Analysis.Normed.Ring.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.NumberTheory.RamificationInertia.Inertia",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.Topology.Path",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "FLT.Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+          "module": "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+          "module": "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "FLT.Mathlib.RingTheory.Valuation.ValuationSubring",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.Algebra.Group.Int.TypeTags",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Analysis.Normed.Ring.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "FLT.Mathlib.RingTheory.Ideal.Quotient.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+          "module": "Mathlib.RingTheory.Ideal.Quotient.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.ValuedField",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.NumberTheory.Padics.ProperSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Countable",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "module": "FLT.NumberField.HeightOneSpectrum",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/HeightOneSpectrum.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/HeightOneSpectrum.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/HeightOneSpectrum.lean",
+          "module": "FLT.DedekindDomain.IntegralClosure",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/IntegralClosure.lean",
+          "module": "FLT.Mathlib.RingTheory.Localization.BaseChange",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/Localization/BaseChange.lean",
+          "module": "Mathlib.RingTheory.Localization.BaseChange",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/IntegralClosure.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/IntegralClosure.lean",
+          "module": "Mathlib.NumberTheory.RamificationInertia.Inertia",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/IntegralClosure.lean",
+          "module": "Mathlib.NumberTheory.RamificationInertia.Ramification",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/IntegralClosure.lean",
+          "module": "Mathlib.Algebra.Group.Int.TypeTags",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/IntegralClosure.lean",
+          "module": "Mathlib.NumberTheory.RamificationInertia.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/HeightOneSpectrum.lean",
+          "module": "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfinitePlace.Completion",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Completion.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.InfinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "Mathlib.GroupTheory.DoubleCoset",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "Mathlib.RingTheory.Flat.TorsionFree",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.HaarMeasure.HaarChar.AddEquiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.HaarMeasure.HaarChar.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.Ring",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.AdicCompletion",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdicCompletion.lean",
+          "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdicCompletion.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.NumberField.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.DedekindDomain.FiniteAdeleRing.BaseChange",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.DedekindDomain.Completion.BaseChange",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.DedekindDomain.IntegralClosure",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Bilinear",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Hom",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Hom.lean",
+          "module": "Mathlib.Algebra.Algebra.Prod",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Tower",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "FLT.Hacks.RightActionInstances",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "Mathlib.Data.Sym.Sym2.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "Mathlib.Tactic.NormNum.GCD",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Pi",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Pi.lean",
+          "module": "Mathlib.Algebra.Algebra.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Algebra/Pi.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Hom",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.Mathlib.Algebra.Module.Submodule.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.UniformRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/UniformRing.lean",
+          "module": "Mathlib.Topology.Algebra.UniformRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/UniformRing.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Hom",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.RingTheory.Flat.FaithfullyFlat.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.NormedValued",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "FLT.Mathlib.RingTheory.TensorProduct.Basis",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "FLT.Hacks.RightActionInstances",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.Dimension.Finrank",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.Data.Sym.Sym2.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.Dimension.StrongRankCondition",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.Tactic.NormNum.GCD",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.NumberTheory.RamificationInertia.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.RingTheory.PicardGroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/Completion/BaseChange.lean",
+          "module": "Mathlib.Topology.Algebra.Module.FiniteDimension",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.DedekindDomain.FiniteAdeleRing.TensorRestrictedProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+          "module": "FLT.DedekindDomain.FiniteAdeleRing.TensorPi",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+          "module": "Mathlib.RingTheory.Flat.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+          "module": "FLT.Mathlib.Algebra.IsDirectLimit",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/IsDirectLimit.lean",
+          "module": "Mathlib.Algebra.Colimit.Module",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+          "module": "FLT.DedekindDomain.FiniteAdeleRing.IsDirectLimitRestricted",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "FLT.Mathlib.Algebra.IsDirectLimit",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "Mathlib.Algebra.Module.FinitePresentation",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "Mathlib.Data.Rat.Cast.Order",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "Mathlib.Tactic.NormNum.Abs",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "Mathlib.Tactic.NormNum.DivMod",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "Mathlib.Tactic.NormNum.OfScientific",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Algebra.Hom",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Hom",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "module": "Mathlib.Tactic.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "module": "Mathlib.Tactic.ToAdditive",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "module": "Mathlib.Topology.Constructions.SumProd",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "module": "Mathlib.Algebra.Order.AbsoluteValue.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+          "module": "Mathlib.Data.Rat.Floor",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Pi",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Pi.lean",
+          "module": "Mathlib.Algebra.Module.Equiv.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Pi.lean",
+          "module": "Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "Mathlib.RingTheory.Flat.TorsionFree",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "Mathlib.Algebra.Order.Algebra",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "Mathlib.RingTheory.Flat.TorsionFree",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.InfinitePlace",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/InfinitePlace.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/InfinitePlace.lean",
+          "module": "FLT.Mathlib.Topology.MetricSpace.ProperSpace.InfinitePlace",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/MetricSpace/ProperSpace/InfinitePlace.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/MetricSpace/ProperSpace/InfinitePlace.lean",
+          "module": "Mathlib.Analysis.CStarAlgebra.Classes",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/FiniteAdeleRing.lean",
+          "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/FiniteAdeleRing.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.AdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.InfinitePlace",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfinitePlace.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfinitePlace.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Group.Quotient",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Group/Quotient.lean",
+          "module": "Mathlib.Topology.Algebra.Group.Quotient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Group/Quotient.lean",
+          "module": "Mathlib.Topology.Algebra.ContinuousMonoidHom",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.NumberField.InfiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "FLT.NumberField.Completion.Infinite",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Bilinear",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Dimension.Constructions",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.UniformRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.ContinuousAlgEquiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousAlgEquiv.lean",
+          "module": "Mathlib.Topology.Algebra.Algebra.Equiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/ContinuousAlgEquiv.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Tower",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.NumberField.InfinitePlace.Extension",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/InfinitePlace/Extension.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Pi",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.LiesOverInstances",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "Mathlib.RingTheory.Henselian",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.FiniteDimension",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+          "module": "Mathlib.Topology.Instances.Matrix",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+          "module": "Mathlib.Analysis.Normed.Field.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+          "module": "Mathlib.LinearAlgebra.Matrix.Basis",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+          "module": "Mathlib.Topology.Algebra.Module.FiniteDimension",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "FLT.Mathlib.Topology.MetricSpace.Pseudo.Matrix",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/MetricSpace/Pseudo/Matrix.lean",
+          "module": "Mathlib.Analysis.Normed.Ring.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/MetricSpace/Pseudo/Matrix.lean",
+          "module": "Mathlib.Topology.Instances.Matrix",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/MetricSpace/Pseudo/Matrix.lean",
+          "module": "FLT.Mathlib.Topology.Constructions",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Constructions.lean",
+          "module": "Mathlib.Topology.Constructions",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Constructions.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Pi",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.Ramification",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "Mathlib.RingTheory.PicardGroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Infinite.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.Equiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Pi",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "Mathlib.CategoryTheory.Category.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "Mathlib.LinearAlgebra.Determinant",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "Mathlib.Logic.Equiv.PartialEquiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.Constructions",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Algebra.Hom",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/InfiniteAdeleRing.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.NumberField.Padics.RestrictedProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.NumberTheory.Padics.PadicIntegers",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.Combinatorics.Matroid.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.Data.Nat.Totient",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.Data.Sym.Sym2.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.NumberTheory.Padics.RingHoms",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.Tactic.NormNum.GCD",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Padics/RestrictedProduct.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.AdeleRing",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "Mathlib.RingTheory.Flat.FaithfullyFlat.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "Mathlib.RingTheory.Flat.TorsionFree",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.Data.Real.Archimedean",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Data/Real/Archimedean.lean",
+          "module": "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "FLT.NumberField.Completion.Finite",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.AdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.NumberField.Completion.Finite",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.AddEquiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.FiniteDimensional",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "FLT.HaarMeasure.HaarChar.Ring",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.Equiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Matrix.Transvection",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+          "module": "Mathlib.LinearAlgebra.Matrix.Transvection",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Bilinear",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "FLT.HaarMeasure.HaarChar.AddEquiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Determinant",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "FLT.Mathlib.Algebra.Algebra.Bilinear",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.Algebra.Central.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.CategoryTheory.Category.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.LinearAlgebra.Determinant",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "FLT.Mathlib.RingTheory.SimpleRing.TensorProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.TwoSidedIdeal.Operations",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.Algebra.Central.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.Algebra.Central.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.LinearAlgebra.Basis.VectorSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.Flat.FaithfullyFlat.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.Henselian",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.TwoSidedIdeal.Instances",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.LinearAlgebra.Charpoly.BaseChange",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.PID",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.RingTheory.Henselian",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.RingTheory.PicardGroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.RingTheory.SimpleModule.IsAlgClosed",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.PID",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "Mathlib.RingTheory.Henselian",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.Padic",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "module": "FLT.HaarMeasure.MeasurableSpacePadics",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/MeasurableSpacePadics.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Haar.Unique",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/MeasurableSpacePadics.lean",
+          "module": "Mathlib.NumberTheory.Padics.ProperSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/MeasurableSpacePadics.lean",
+          "module": "FLT.Mathlib.NumberTheory.Padics.PadicIntegers",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+          "module": "Mathlib.NumberTheory.Padics.PadicIntegers",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+          "module": "Mathlib.Algebra.CharZero.Infinite",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+          "module": "Mathlib.NumberTheory.Padics.RingHoms",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "module": "FLT.HaarMeasure.HaarChar.Ring",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Group.Action",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "module": "FLT.Mathlib.NumberTheory.Padics.PadicIntegers",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "module": "Mathlib.CategoryTheory.Category.Init",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/Padic.lean",
+          "module": "Mathlib.Tactic.Positivity.Finset",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.RealComplex",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "FLT.HaarMeasure.HaarChar.Ring",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.Analysis.Complex.ReImTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.PID",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.RingTheory.Complex",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.RingTheory.Norm.Transitivity",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.RingTheory.PicardGroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Countable",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+          "module": "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.Mathlib.Topology.MetricSpace.ProperSpace.InfinitePlace",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "FLT.NumberField.HeightOneSpectrum",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "Mathlib.LinearAlgebra.Charpoly.BaseChange",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.ProductFormula",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.HaarMeasure.HaarChar.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.DedekindDomain.FiniteAdeleRing.TensorProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Module.TensorProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/TensorProduct.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.TensorProduct.FiniteFree",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/FiniteFree.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Pi",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/FiniteFree.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.Finite.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Module/TensorProduct.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.TensorProduct.Algebra",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/Algebra.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Map",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/Algebra.lean",
+          "module": "Mathlib.Algebra.Algebra.Hom",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+          "module": "Mathlib.Logic.Equiv.PartialEquiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.FiniteDimensional",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.AdicCompletion",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.NumberTheory.NumberField.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.FiniteAdeleRing",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.DedekindDomain.Completion.BaseChange",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Countable",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.TensorProduct.Algebra",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.NumberField.Completion.Finite",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "Mathlib.RingTheory.Flat.TorsionFree",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.HaarMeasure.HaarChar.AddEquiv",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.Algebra.Central.TensorProduct",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Algebra.Central.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.RingTheory.TensorProduct.Maps",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Algebra.Algebra.Subalgebra.Centralizer",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Algebra.Central.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Algebra.EuclideanDomain.Field",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Data.Rat.Cast.Order",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.LinearAlgebra.Basis.VectorSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Tactic.NormNum.Abs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Tactic.NormNum.DivMod",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+          "module": "Mathlib.Tactic.NormNum.OfScientific",
+          "local": false
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Determinant",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.NumberField.HeightOneSpectrum",
+          "local": true
+        },
+        {
+          "importer": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+          "module": "FLT.AutomorphicForm.GroupTheoryStuff",
+          "local": true
+        },
+        {
+          "importer": "FLT/AutomorphicForm/GroupTheoryStuff.lean",
+          "module": "Mathlib.Algebra.Group.Submonoid.Units",
+          "local": false
+        },
+        {
+          "importer": "FLT/AutomorphicForm/GroupTheoryStuff.lean",
+          "module": "Mathlib.GroupTheory.Torsion",
+          "local": false
+        },
+        {
+          "importer": "FLT/AutomorphicForm/GroupTheoryStuff.lean",
+          "module": "Mathlib.RingTheory.UniqueFactorizationDomain.Nat",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.HaarMeasure.HaarChar.RealComplex",
+          "local": true
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.GroupTheory.DoubleCoset",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+          "module": "FLT.AutomorphicForm.GroupTheoryStuff",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Group.Quotient",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+          "module": "Mathlib.Data.Set.Card.Arithmetic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+          "module": "Mathlib.GroupTheory.DoubleCoset",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Determinant",
+          "local": true
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.TensorProduct.Basis",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.FreeModule.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+          "module": "Mathlib.LinearAlgebra.DirectSum.Finsupp",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.MeasureTheory.Haar.Extension",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Haar/Extension.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Haar.Extension",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Haar/Extension.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Haar.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/MeasureTheory/Haar/Extension.lean",
+          "module": "Mathlib.MeasureTheory.Measure.Haar.Unique",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.Topology.HomToDiscrete",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/HomToDiscrete.lean",
+          "module": "Mathlib.Topology.Constructions",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.Topology.MetricSpace.ProperSpace.InfinitePlace",
+          "local": true
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "FLT.Mathlib.Topology.Polish",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Polish.lean",
+          "module": "Mathlib.Topology.MetricSpace.Polish",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Polish.lean",
+          "module": "Mathlib.Topology.Compactness.Paracompact",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Polish.lean",
+          "module": "Mathlib.Topology.MetricSpace.Completion",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Polish.lean",
+          "module": "Mathlib.Topology.Metrizable.Urysohn",
+          "local": false
+        },
+        {
+          "importer": "FLT/DivisionAlgebra/Finiteness.lean",
+          "module": "Mathlib.Analysis.CStarAlgebra.Classes",
+          "local": false
+        }
+      ],
+      "technical": {
+        "compilation": "not_attempted",
+        "leantrace": "not_attempted",
+        "source_bytes_unchanged": true,
+        "upstream_admissions_preserved": true,
+        "new_axioms_or_sorry_added": false,
+        "source_sorry_occurrences": 0,
+        "sorry_count_is_textual_not_axiom_audit": true,
+        "toolchain": "leanprover/lean4:v4.32.0-rc1"
+      },
+      "remaining": [
+        "Human semantic label and scope adjudication",
+        "Pinned-environment compatibility and actual compile",
+        "LeanTrace declaration dependency extraction and proof/comment filtering"
+      ]
+    },
+    "original": "original/",
+    "compatibility_patch": "compatibility.patch",
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+  },
+  "changes": "CHANGES.md",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "technical_status": "extracted",
+  "compatibility_files": [
+    "FLT/AutomorphicForm/GroupTheoryStuff.lean",
+    "FLT/DedekindDomain/AdicValuation.lean",
+    "FLT/DedekindDomain/Completion/BaseChange.lean",
+    "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+    "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+    "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+    "FLT/DedekindDomain/IntegralClosure.lean",
+    "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+    "FLT/DivisionAlgebra/Finiteness.lean",
+    "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+    "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+    "FLT/HaarMeasure/HaarChar/Padic.lean",
+    "FLT/Hacks/RightActionInstances.lean",
+    "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+    "FLT/Mathlib/Algebra/Algebra/Hom.lean",
+    "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+    "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+    "FLT/Mathlib/LinearAlgebra/TensorProduct/Algebra.lean",
+    "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Completion.lean",
+    "FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+    "FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+    "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+    "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+    "FLT/Mathlib/RingTheory/Localization/BaseChange.lean",
+    "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+    "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+    "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+    "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+    "FLT/Mathlib/Topology/HomToDiscrete.lean",
+    "FLT/NumberField/AdeleRing.lean",
+    "FLT/NumberField/Completion/Finite.lean",
+    "FLT/NumberField/Completion/Infinite.lean",
+    "FLT/NumberField/InfiniteAdeleRing.lean",
+    "FLT/NumberField/Padics/RestrictedProduct.lean"
+  ],
+  "technical_receipt": "technical/relocated-receipt.json",
+  "source_role": "control",
+  "source_family": "fujisaki",
+  "material_complete": true,
+  "formal": {
+    "layout": "Main_and_dep",
+    "file_count": 95,
+    "resource_count": 0,
+    "sha256": "b0d64017cb0a96d2d66e2741a5212209a2be6ed4cfb70e35614a45a8ae4c14d9"
+  },
+  "input_sha256": "075f7c59547dfcf9caa4e6aabea1c2b072440826a49b956fe792c894e821f009",
+  "external_imports": [
+    "Mathlib.Algebra.Algebra.Hom",
+    "Mathlib.Algebra.Algebra.Pi",
+    "Mathlib.Algebra.Algebra.Prod",
+    "Mathlib.Algebra.Algebra.Subalgebra.Centralizer",
+    "Mathlib.Algebra.Central.Basic",
+    "Mathlib.Algebra.Central.Defs",
+    "Mathlib.Algebra.CharZero.Infinite",
+    "Mathlib.Algebra.Colimit.Module",
+    "Mathlib.Algebra.EuclideanDomain.Field",
+    "Mathlib.Algebra.FiveLemma",
+    "Mathlib.Algebra.Group.Int.TypeTags",
+    "Mathlib.Algebra.Group.Pi.Units",
+    "Mathlib.Algebra.Group.Pointwise.Set.Basic",
+    "Mathlib.Algebra.Group.Submonoid.Units",
+    "Mathlib.Algebra.Lie.OfAssociative",
+    "Mathlib.Algebra.Module.Equiv.Defs",
+    "Mathlib.Algebra.Module.FinitePresentation",
+    "Mathlib.Algebra.Module.LinearMap.Defs",
+    "Mathlib.Algebra.Module.Pi",
+    "Mathlib.Algebra.Module.Submodule.Defs",
+    "Mathlib.Algebra.Order.AbsoluteValue.Basic",
+    "Mathlib.Algebra.Order.Algebra",
+    "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+    "Mathlib.Algebra.Ring.Subring.Basic",
+    "Mathlib.Algebra.Ring.Subring.Defs",
+    "Mathlib.Algebra.Ring.Subsemiring.Basic",
+    "Mathlib.Analysis.CStarAlgebra.Classes",
+    "Mathlib.Analysis.Complex.ReImTopology",
+    "Mathlib.Analysis.Normed.Field.Basic",
+    "Mathlib.Analysis.Normed.Ring.Basic",
+    "Mathlib.Analysis.Normed.Ring.Lemmas",
+    "Mathlib.CategoryTheory.Category.Basic",
+    "Mathlib.CategoryTheory.Category.Init",
+    "Mathlib.CategoryTheory.Types.Basic",
+    "Mathlib.Combinatorics.Matroid.Init",
+    "Mathlib.Data.Nat.Totient",
+    "Mathlib.Data.Rat.Cast.Order",
+    "Mathlib.Data.Rat.Encodable",
+    "Mathlib.Data.Rat.Floor",
+    "Mathlib.Data.Set.Card.Arithmetic",
+    "Mathlib.Data.Sym.Sym2.Init",
+    "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+    "Mathlib.GroupTheory.DoubleCoset",
+    "Mathlib.GroupTheory.Index",
+    "Mathlib.GroupTheory.Torsion",
+    "Mathlib.LinearAlgebra.Basis.VectorSpace",
+    "Mathlib.LinearAlgebra.Charpoly.BaseChange",
+    "Mathlib.LinearAlgebra.Countable",
+    "Mathlib.LinearAlgebra.DFinsupp",
+    "Mathlib.LinearAlgebra.Determinant",
+    "Mathlib.LinearAlgebra.Dimension.Constructions",
+    "Mathlib.LinearAlgebra.Dimension.Finrank",
+    "Mathlib.LinearAlgebra.Dimension.Free",
+    "Mathlib.LinearAlgebra.Dimension.StrongRankCondition",
+    "Mathlib.LinearAlgebra.DirectSum.Finsupp",
+    "Mathlib.LinearAlgebra.FreeModule.Basic",
+    "Mathlib.LinearAlgebra.FreeModule.Finite.Basic",
+    "Mathlib.LinearAlgebra.FreeModule.IdealQuotient",
+    "Mathlib.LinearAlgebra.FreeModule.PID",
+    "Mathlib.LinearAlgebra.FreeModule.StrongRankCondition",
+    "Mathlib.LinearAlgebra.Matrix.Basis",
+    "Mathlib.LinearAlgebra.Matrix.Defs",
+    "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+    "Mathlib.LinearAlgebra.Matrix.Transvection",
+    "Mathlib.LinearAlgebra.Quotient.Pi",
+    "Mathlib.LinearAlgebra.TensorProduct.Defs",
+    "Mathlib.LinearAlgebra.TensorProduct.Map",
+    "Mathlib.LinearAlgebra.TensorProduct.Pi",
+    "Mathlib.Logic.Equiv.PartialEquiv",
+    "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Group.Defs",
+    "Mathlib.MeasureTheory.Group.Measure",
+    "Mathlib.MeasureTheory.Measure.Haar.Basic",
+    "Mathlib.MeasureTheory.Measure.Haar.Extension",
+    "Mathlib.MeasureTheory.Measure.Haar.MulEquivHaarChar",
+    "Mathlib.MeasureTheory.Measure.Haar.Unique",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+    "Mathlib.NumberTheory.NumberField.AdeleRing",
+    "Mathlib.NumberTheory.NumberField.Basic",
+    "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+    "Mathlib.NumberTheory.NumberField.Completion.InfinitePlace",
+    "Mathlib.NumberTheory.NumberField.Completion.LiesOverInstances",
+    "Mathlib.NumberTheory.NumberField.Completion.Ramification",
+    "Mathlib.NumberTheory.NumberField.InfiniteAdeleRing",
+    "Mathlib.NumberTheory.NumberField.InfinitePlace.Basic",
+    "Mathlib.NumberTheory.NumberField.InfinitePlace.Ramification",
+    "Mathlib.NumberTheory.NumberField.ProductFormula",
+    "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+    "Mathlib.NumberTheory.Padics.PadicIntegers",
+    "Mathlib.NumberTheory.Padics.ProperSpace",
+    "Mathlib.NumberTheory.Padics.RingHoms",
+    "Mathlib.NumberTheory.RamificationInertia.Basic",
+    "Mathlib.NumberTheory.RamificationInertia.Inertia",
+    "Mathlib.NumberTheory.RamificationInertia.Ramification",
+    "Mathlib.Order.Filter.Cofinite",
+    "Mathlib.RingTheory.AlgebraTower",
+    "Mathlib.RingTheory.Complex",
+    "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+    "Mathlib.RingTheory.DedekindDomain.Basic",
+    "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+    "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+    "Mathlib.RingTheory.Flat.Basic",
+    "Mathlib.RingTheory.Flat.FaithfullyFlat.Basic",
+    "Mathlib.RingTheory.Flat.TorsionFree",
+    "Mathlib.RingTheory.Henselian",
+    "Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient",
+    "Mathlib.RingTheory.Ideal.Quotient.Defs",
+    "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+    "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+    "Mathlib.RingTheory.Localization.BaseChange",
+    "Mathlib.RingTheory.Norm.Transitivity",
+    "Mathlib.RingTheory.PicardGroup",
+    "Mathlib.RingTheory.SimpleModule.IsAlgClosed",
+    "Mathlib.RingTheory.SimpleRing.Principal",
+    "Mathlib.RingTheory.TensorProduct.Basic",
+    "Mathlib.RingTheory.TensorProduct.Finite",
+    "Mathlib.RingTheory.TensorProduct.Free",
+    "Mathlib.RingTheory.TensorProduct.Maps",
+    "Mathlib.RingTheory.TensorProduct.Pi",
+    "Mathlib.RingTheory.TwoSidedIdeal.Instances",
+    "Mathlib.RingTheory.TwoSidedIdeal.Operations",
+    "Mathlib.RingTheory.UniqueFactorizationDomain.Nat",
+    "Mathlib.RingTheory.Valuation.Discrete.Basic",
+    "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Bound.Init",
+    "Mathlib.Tactic.ContinuousFunctionalCalculus",
+    "Mathlib.Tactic.NormNum.Abs",
+    "Mathlib.Tactic.NormNum.DivMod",
+    "Mathlib.Tactic.NormNum.GCD",
+    "Mathlib.Tactic.NormNum.OfScientific",
+    "Mathlib.Tactic.Positivity.Finset",
+    "Mathlib.Tactic.ToAdditive",
+    "Mathlib.Topology.Algebra.Algebra",
+    "Mathlib.Topology.Algebra.Algebra.Equiv",
+    "Mathlib.Topology.Algebra.Constructions",
+    "Mathlib.Topology.Algebra.ContinuousMonoidHom",
+    "Mathlib.Topology.Algebra.Group.Quotient",
+    "Mathlib.Topology.Algebra.Group.Units",
+    "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict",
+    "Mathlib.Topology.Algebra.Module.Equiv",
+    "Mathlib.Topology.Algebra.Module.FiniteDimension",
+    "Mathlib.Topology.Algebra.Module.ModuleTopology",
+    "Mathlib.Topology.Algebra.MulAction",
+    "Mathlib.Topology.Algebra.RestrictedProduct.Basic",
+    "Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace",
+    "Mathlib.Topology.Algebra.UniformRing",
+    "Mathlib.Topology.Algebra.Valued.NormedValued",
+    "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+    "Mathlib.Topology.Algebra.Valued.ValuedField",
+    "Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+    "Mathlib.Topology.Bases",
+    "Mathlib.Topology.Compactness.Paracompact",
+    "Mathlib.Topology.Constructions",
+    "Mathlib.Topology.Constructions.SumProd",
+    "Mathlib.Topology.Homeomorph.Lemmas",
+    "Mathlib.Topology.Instances.Matrix",
+    "Mathlib.Topology.MetricSpace.Completion",
+    "Mathlib.Topology.MetricSpace.Polish",
+    "Mathlib.Topology.Metrizable.Urysohn",
+    "Mathlib.Topology.Path"
+  ],
+  "missing_modules": [],
+  "packaged_compilation": "passed",
+  "pending_reason": null,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "alignment_reference": "metadata/labels/imperial-flt.jsonl"
+}

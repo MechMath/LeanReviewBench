@@ -1,30 +1,24 @@
 import argparse
 import json
 from pathlib import Path
-from .integrity import verify_files
+import subprocess
+import sys
 from .dataset import Dataset
-from .evaluate import score, restore_sources
 
 
 def main():
-    parser=argparse.ArgumentParser(description='LeanReviewBench offline preview tools')
+    parser=argparse.ArgumentParser(description='Native LeanReviewBench project-case inspection and validation')
     commands=parser.add_subparsers(dest='command',required=True)
-    p=commands.add_parser('validate');p.add_argument('--data',type=Path,required=True);p.add_argument('--manifest',type=Path)
-    p=commands.add_parser('task');p.add_argument('--data',type=Path,required=True);p.add_argument('--id',required=True);p.add_argument('--output',type=Path)
-    p=commands.add_parser('score');p.add_argument('--data',type=Path,required=True);p.add_argument('--predictions',type=Path,required=True);p.add_argument('--references',type=Path,required=True);p.add_argument('--allow-provisional',action='store_true');p.add_argument('--allow-partial',action='store_true')
-    p=commands.add_parser('restore');p.add_argument('--data',type=Path,required=True);p.add_argument('--id',required=True);p.add_argument('--output',type=Path,required=True)
+    p=commands.add_parser('validate');p.add_argument('--root',type=Path,default=Path('.'))
+    p=commands.add_parser('inspect');p.add_argument('--root',type=Path,default=Path('.'));p.add_argument('--id',required=True)
     args=parser.parse_args()
     try:
-        if args.command=='validate':
-            result=Dataset(args.data).validate()
-            if args.manifest:result['inventory']=verify_files(args.manifest,args.data)
-        elif args.command=='task':
-            result=Dataset(args.data).task(args.id)
-            if args.output:
-                args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');return
-        elif args.command=='restore':result=restore_sources(args.data,args.id,args.output)
-        else:result=score(Dataset(args.data),args.predictions,args.references,args.allow_provisional,args.allow_partial)
-        print(json.dumps(result,ensure_ascii=False,indent=2))
-    except (ValueError,OSError,KeyError) as exc:parser.exit(2,str(exc)+'\n')
+        if args.command=='inspect':
+            print(json.dumps(Dataset(args.root).project(args.id),ensure_ascii=False,indent=2))
+        else:
+            root=args.root.resolve()
+            subprocess.run([sys.executable,str(root/'scripts/data/check_release_candidate.py')],cwd=root,check=True)
+            print(json.dumps(Dataset(root).validate(),indent=2))
+    except (ValueError,OSError,KeyError,subprocess.CalledProcessError) as exc:parser.exit(2,str(exc)+'\n')
 
 if __name__=='__main__':main()

@@ -1,0 +1,62 @@
+\section{Construction implementation details}
+\label{app:implementation}
+
+\paragraph{Common environment.}
+The construction environment uses \texttt{leanprover/lean4:v4.34.1}, Mathlib commit \nolinkurl{d13f23b723b8a846827a245b89c10fc7d3f11612}, and Cslib commit \nolinkurl{7c8f6c0f67015df29b152fdcffaf7850db2e9185}. The shared configuration records these pins separately from per-input upstream revisions. Historical dependency environments and compatibility patches remain part of the reconstruction record; successful compilation under the shared environment does not establish global equivalence with the original dependencies.
+
+\paragraph{Source and version records.}
+Each input records its upstream repository and commit, root declaration and module, informal-source version and locator, scope qualifications, and any historical relationships. Reciprocal before/after links preserve renames and scope changes as well as repairs. Multiple roots can share one development event, so input counts, distinct root names, and mathematical case groups are recorded separately. Source licenses and relevant upstream discussion excerpts are retained with their provenance.
+
+\subsection{Packaged artifacts and integrity}
+\label{app:data-package}
+
+The repository organizes inputs by source project and fixed snapshot, following the layout documented in \texttt{datasets/README.md} and \texttt{metadata/README.md}:
+\begin{verbatim}
+datasets/
+  project-cases.json
+  <dataset>/
+    README.md
+    index.csv
+    projects/<id>/
+      project.json
+      informal.jsonl
+      formal/
+        Main.lean
+        dep/
+metadata/
+  labels/
+  upstream-evidence/
+  derived-graphs/
+  provenance.json
+  manifest.json
+\end{verbatim}
+
+\paragraph{Input packages.}
+\texttt{project-cases.json} registers source datasets and the common environment; each dataset has a README and a CSV index of its versioned inputs.
+Each \texttt{projects/<id>/} directory stores one versioned input package.
+Its \texttt{project.json} identifies the upstream repository, revision, selected root and source module, and records technical status, input hashes, provenance, grouping information, and available before/after links.
+The \texttt{informal.jsonl} records contain the informal targets, their mathematical sources and locators, scope qualifications, and bindings to formal roots.
+Local Lean sources are retained under \texttt{formal/Main.lean} and \texttt{formal/dep/}, with project-local import paths relocated for the packaged layout.
+These files preserve complete relevant modules, including historical proofs and proof admissions; they are reconstruction sources rather than the filtered model input.
+Packages also retain runtime resources when needed, such as generated data tables.
+
+\paragraph{Construction evidence and references.}
+Compatibility edits are documented in \texttt{CHANGES.md} and, where provided, patch files.
+Compilation receipts, extraction graphs, and original-source evidence are stored in per-package technical directories or linked preparation reports; their locations are recorded in package metadata.
+The precise auxiliary layout varies across construction batches.
+\texttt{metadata/derived-graphs/} registers recovered graphs with their input and receipt bindings.
+\texttt{metadata/labels/} stores review labels and explanations, while \texttt{metadata/upstream-evidence/} retains explicit upstream reports with source locators.
+These records remain separate from model-visible exports; an upstream report is discovery evidence, not an alignment label.
+Historical preparation locations are resolved through \texttt{metadata/provenance.json}.
+
+\paragraph{Integrity and readiness.}
+Source and input hashes bind packages, graphs, and review records to the corresponding artifacts, and \texttt{metadata/manifest.json} records the publication inventory.
+Graphs recovered from historical artifacts are checked against their source or input bindings.
+Such recovery is distinguished from a fresh build; elaborating statement types is likewise distinguished from rebuilding the original proof environment.
+Missing targets, blocked reconstruction, and incomplete review are recorded separately, so the presence of a package does not establish eligibility for scored evaluation.
+
+\paragraph{Graph traversal and external boundaries.}
+The task exporter follows dependencies at declaration types, non-proof definition values, and constructor types. Theorem and other proof-valued bodies are not traversed. Constructors expose structure, class, and inductive constraints even when field projections do not occur explicitly in the root type. Referenced external-library declarations are retained with their names and types but without recursively expanding their implementations. Each package records its external boundary.
+
+\paragraph{Model-visible export.}
+Exports retain the informal claim, scope qualifications, supporting mathematical context, formal root, and extracted declarations and dependency edges. They remove proof bodies, Lean comments, reference labels, review reasons, discovery provenance, and explicit historical version names. Declaration identities needed to interpret the formal content remain available. Task and input hashes bind evaluation and review records to the exact exported content; provisional references remain outside model-visible packages. Technical integrity checks do not substitute for mathematical annotation.

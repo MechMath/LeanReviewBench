@@ -1,0 +1,67 @@
+{
+  "id": "bohr-regular-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "APAP regular Bohr-set definition before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "BohrSet.IsRegular",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/YaelDillies/apap",
+    "commit": "d5f5f6054ec7967d05e87d7e0579a0b08a6c5cb2",
+    "path": "APAP/Prereqs/Bohr/Regular.lean",
+    "module": "APAP.Prereqs.Bohr.Regular",
+    "declaration": "BohrSet.IsRegular",
+    "url": "https://github.com/YaelDillies/apap/blob/d5f5f6054ec7967d05e87d7e0579a0b08a6c5cb2/APAP/Prereqs/Bohr/Regular.lean",
+    "sha256": "40ded39126799e5108b676c4cc11236c935cff6e3712ff542fcbd723e8c2063b",
+    "leads": [
+      "https://github.com/YaelDillies/apap/commit/2e86fa43e17d2721d00f1016916cf616e55f34f8"
+    ]
+  },
+  "group_id": "apap:bohr-regular",
+  "split_group": "YaelDillies/apap",
+  "before_ids": [],
+  "after_ids": [
+    "bohr-regular-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality",
+    "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality",
+    "Mathlib.Analysis.Normed.Ring.Basic",
+    "Mathlib.Tactic.NoncommRing"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Batteries",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 4,
+    "sha256": "0d2fd03c1f3680c5af6a9f67b6f0086700cca9691177d541fbe86e2b6547c7f4"
+  },
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/apap.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/receipt.json",
+    "graph": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/default/graph.json",
+    "explicit_graph": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/explicit/graph.json",
+    "receipt_sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84",
+    "packaged_receipt": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/receipt.json",
+    "packaged_receipt_sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84"
+  },
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6"
+}

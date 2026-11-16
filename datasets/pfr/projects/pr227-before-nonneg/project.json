@@ -1,0 +1,89 @@
+{
+  "id": "pr227-before-nonneg",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr227-before-nonneg",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "KL_div_nonneg",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "3dd249a8aec4961bc55de4744643fc3db7b4f252",
+    "path": "PFR/Kullback.lean",
+    "module": "PFR.Kullback",
+    "declaration": "KL_div_nonneg",
+    "url": "https://github.com/teorth/pfr/blob/3dd249a8aec4961bc55de4744643fc3db7b4f252/PFR/Kullback.lean",
+    "sha256": "d77ddd17c7b4464da52282a709ec7f04637ded2f2bfa0559d6365dbc72b07b42"
+  },
+  "group_id": "pfr-kl-support",
+  "split_group": "teorth/pfr",
+  "before_ids": [],
+  "after_ids": [
+    "pr227-after-nonneg"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "在原文的零分母按无穷处理的 KL 下，真实概率输入的发散度与 formal 的全实数总化不同；formal 的非负结论因此不是所选 Gibbs 命题。",
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "c4547ed9ace62e2a45ddeb47f387f738fc6377eafa239aa3d4aacffee59215ac"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr227-before-nonneg/20261104T091630889043Z/receipt.json",
+    "receipt_sha256": "0015de26e59f331aa93d1ffaf1577c82a522fc46c3034fe5cb150aea532ea7dc",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr227-before-nonneg/20261104T091630889043Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "d9b8a431f01a3e30b22ffe9818fb011bd28d76326693a140db9d3470f03a348b",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "7562efdd2bb61da9ac18c011fc3adfbcf9357bdc8f66492fa6cffc44881e3788",
+        "locator": "Gibbs",
+        "text": "\\begin{lemma}[Gibbs inequality]\\label{Gibbs}\\uses{kl-div}\\lean{KL_div_nonneg}\\leanok  $D_{KL}(X\\Vert Y) \\geq 0$.\n\\end{lemma}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/jensen.tex",
+        "sha256": "e54cbcdbccf354979da495d044d65585d408a71bedcc335a34aa0982ed511841",
+        "locator": "further_improvement.tex: kl-div, Gibbs, Gibbs-converse; jensen.tex: log-sum",
+        "text": "",
+        "selected": false
+      },
+      {
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/entropy.tex",
+        "sha256": "6587c95c25e521f7f16f14e079f715550b9dbf9f8d00f5c845a5ba2af56dbddf",
+        "locator": "further_improvement.tex: kl-div, Gibbs, Gibbs-converse; jensen.tex: log-sum",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'KL_div_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'KL_div_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "definition_preserving_slice"
+  },
+  "input_sha256": "49e105b354d98fcab015a1c7b6f1b88cb6011b0a2264293547e949838db6c9d6",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

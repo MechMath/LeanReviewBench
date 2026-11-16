@@ -1,0 +1,71 @@
+{
+  "id": "classical-zero-free-text-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT classical-zero-free-text-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "riemannZeta.classicalZeroFree",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "declaration": "riemannZeta.classicalZeroFree",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+  },
+  "group_id": "pnt-riemannZeta.classicalZeroFree",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "classical-zero-free-text-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "文字与formal都在t≥3上要求σ≥1−1/(R log|t|)时ζ(σ+it)≠0；由于t≥3，|t|=t，公式和含端点条件一致。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "42e5249d3e9c5e3b6391d1f1311a00c60d17f0b383f267d034f71b0dcb978809"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/receipt.json",
+    "receipt_sha256": "66f0f52382eb29f2d30b1cf221eee92b5a59bccb0cfcfac64a78b384883776c8",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "89c86df6f7b63dd55b8eaddb6f8b09d281d6b6c3a11371505cb7da23f3055695",
+    "formal_snapshot_id": "classical-zero-free",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a",
+        "ref": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+        "text": "We say that one has a classical zero-free region with parameter $R$ if $\\zeta(s)$ has no zeroes\n    in the region $\\Re(s) \\geq 1 - 1/(R \\log |\\Im s|)$ for $\\Im(s) \\geq 3$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'riemannZeta.classicalZeroFree' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'riemannZeta.classicalZeroFree' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "4137382a35c4f4d0cbeff3d04984d4015d5edbb8be87a154d1a764d16dbff8b3",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

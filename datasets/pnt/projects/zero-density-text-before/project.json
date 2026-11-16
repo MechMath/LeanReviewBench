@@ -1,0 +1,71 @@
+{
+  "id": "zero-density-text-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT zero-density-text-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "zero_density_bound",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "declaration": "zero_density_bound",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+  },
+  "group_id": "pnt-zero_density_bound",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "zero-density-text-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "当前文字将N(σ,T)的密度界与另一条RvM误差式拼接，含未绑定的b1,b2,b3，固定T≥2。formal结构实际量化T≥T0、σ∈σ_range，只有c1(σ)T^p(σ)(logT)^q(σ)+c2(σ)(logT)^2一条界，未表达拼入的约束。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "996829cbfc693435b447e03c56946f5d7c3339c366ad4fff860da14a1c02b5b7"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/receipt.json",
+    "receipt_sha256": "bf939b59f450abfb60dfbc755f7350ab83cd3970386511ef714d6c2318d3ab42",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "7c4239d87e1b79c4e9b1149da931b6e02929ad7604434fe523df14a77938a9e4",
+    "formal_snapshot_id": "zero-density",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "An estimate of the form $N(\\sigma,T) \\leq c₁ T^p \\log^q T + c₂ \\log^2 T -\n    \\frac{T}{2\\pi} \\log \\frac{T}{2\\pi e} + \\frac{7}{8}| \\leq b_1 \\log T + b_2 \\log\\log T + b_3$\n    for $T \\geq 2$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'zero_density_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'zero_density_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "de08bdd08260ab1bed68f7f2da5946700be28d086c62751909b9cb794cd35712",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

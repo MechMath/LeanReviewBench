@@ -1,0 +1,97 @@
+{
+  "id": "SP-A-CUTOFF-FIXED",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere-Packing-Lean",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MagicFunction.a.SpecialValues.a_zero",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+    "commit": "cce794efc489e57fa9bcb3dc831bcd92d4a05c14",
+    "path": "SpherePacking/MagicFunction/a/SpecialValues.lean",
+    "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/cce794efc489e57fa9bcb3dc831bcd92d4a05c14/SpherePacking/MagicFunction/a/SpecialValues.lean",
+    "declaration": "MagicFunction.a.SpecialValues.a_zero",
+    "sha256": "3b8be55d7cdf8f287415251aab24a911b9b4b3c87940d39f7b19c42c432b9afa",
+    "leads": [
+      "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/pull/485"
+    ],
+    "module": "SpherePacking.MagicFunction.a.SpecialValues"
+  },
+  "group_id": "sphere-packing:SP-A-CUTOFF",
+  "split_group": "thefundamentaltheor3m/Sphere-Packing-Lean",
+  "before_ids": [
+    "SP-A-CUTOFF"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "not-rerun-after-import-relocation",
+  "missing_modules": [],
+  "pending_reason": null,
+  "external_imports": [
+    "Mathlib.Algebra.Field.ZMod",
+    "Mathlib.Algebra.Order.Star.Real",
+    "Mathlib.Analysis.CStarAlgebra.Classes",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+    "Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty",
+    "Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+    "Mathlib.Analysis.InnerProductSpace.Calculus",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Normed.Group.Tannery",
+    "Mathlib.Analysis.RCLike.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Log.Summable",
+    "Mathlib.Analysis.SpecialFunctions.SmoothTransition",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.Data.Complex.Basic",
+    "Mathlib.Geometry.Manifold.Notation",
+    "Mathlib.LinearAlgebra.Matrix.FixedDetMatrices",
+    "Mathlib.NumberTheory.ModularForms.BoundedAtCusp",
+    "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups",
+    "Mathlib.NumberTheory.ModularForms.Discriminant",
+    "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+    "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion",
+    "Mathlib.NumberTheory.ModularForms.QExpansion",
+    "Mathlib.NumberTheory.ModularForms.SlashActions",
+    "Mathlib.Tactic.NormNum.Parity"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/repairs.json",
+      "sha256": "57bc3db890261d1fe1a44a60bbbbc58f1b0684cbe51621f6ed1ff97a01117d3c"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/technical/SP-A-CUTOFF-FIXED/repair-compat-01/graph.json",
+      "sha256": "58e8101d39ec8cb0f05989d6a28e490a4badfd5e99b9780e709cc30fe6d75d6a"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-repairs-01/adjudication.json",
+      "sha256": "09149b1de0263c066f515189c5b07249b12a87f182cbae50e531e5d8bcd722e2"
+    }
+  },
+  "input_sha256": "8c5c9d899eb29037c15206ddaed4eb9c4f28601dc1a469c194c5af3af3a87a0e",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 16,
+    "sha256": "1fd8a815f8f96ae2fc5f5ddfefeb4a90dfe3f240d975de7ef328fa70cdcebdb3",
+    "effective_root_sha256": "3b8be55d7cdf8f287415251aab24a911b9b4b3c87940d39f7b19c42c432b9afa"
+  },
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/sphere-packing.jsonl"
+}

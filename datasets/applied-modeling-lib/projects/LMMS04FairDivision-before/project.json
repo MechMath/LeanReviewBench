@@ -1,0 +1,103 @@
+{
+  "id": "LMMS04FairDivision-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "LMMS04FairDivision",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "eb67cc832a74734e521fdbe7bb584238ab2ac0a8",
+    "path": "papers/LMMS04FairDivision/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/eb67cc832a74734e521fdbe7bb584238ab2ac0a8/papers/LMMS04FairDivision/PaperInterface.lean",
+    "declaration": "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset",
+    "sha256": "5c32e331d4a936f916c77af4c41b059e78175a33a87eb45980af3b3b3ce498e9",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/cf500b748ac63dbff55faf97d989d4935c8eff50",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e9f7579ce3c4ddaffff0648ea5a265cbff57de10",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d"
+    ],
+    "module": "LMMS04FairDivision.PaperInterface"
+  },
+  "group_id": "aml:LMMS04FairDivision-before",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [
+    "LMMS04FairDivision-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "not-rerun-after-import-relocation",
+  "missing_modules": [],
+  "pending_reason": null,
+  "external_imports": [
+    "Cslib.Foundations.Data.RelatesInSteps",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+    "Mathlib.Data.Finset.Basic",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.Basic",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.Pi",
+    "Mathlib.Data.Fintype.Powerset",
+    "Mathlib.Data.List.Chain",
+    "Mathlib.Data.Nat.Find",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.Set.Finite.Basic",
+    "Mathlib.GroupTheory.Perm.List",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.SFinite",
+    "Mathlib.Order.Interval.Set.LinearOrder",
+    "Mathlib.Order.WellFoundedSet",
+    "Mathlib.Probability.CDF",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Instances.Real.Lemmas"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/eb67cc8-LMMS04FairDivision/LMMS04FairDivision-before/graph.json",
+      "sha256": "f0408a9d83dd8db661bf6026ad1c33c8ca4c34ad941985d6cc11ed601d2265e4"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "sha256": "ad159a2b5842df9895a0bae159503cf125ff0e8de1d9e10feb0fc16d6c3e07c8"
+    }
+  },
+  "input_sha256": "d459a8e68c9368de882d4f620a0b4547d7f652f7d9967563ae8182eb4bc7d4ad",
+  "external_boundaries": [
+    "Mathlib",
+    "Cslib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 35,
+    "sha256": "078a31e1e25bbf86ba71c3a479e7e0d5590185aea0f5b14f1e655d046709f0d9",
+    "effective_root_sha256": "5c32e331d4a936f916c77af4c41b059e78175a33a87eb45980af3b3b3ce498e9"
+  },
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

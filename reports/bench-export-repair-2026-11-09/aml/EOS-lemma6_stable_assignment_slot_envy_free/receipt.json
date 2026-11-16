@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "dataset": "applied-modeling-lib",
+  "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+  "status": "passed",
+  "evidence": "elaborated_statement_type",
+  "root": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+  "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+  "graph_sha256": "70244e7329b5b6ef26952cf51eba4458dd5a059305a4ef7b14bbb35790acd9a6",
+  "graph": "reports/bench-export-repair-2026-11-09/aml/EOS-lemma6_stable_assignment_slot_envy_free/graph.json",
+  "source_map": "reports/bench-export-repair-2026-11-09/aml/EOS-lemma6_stable_assignment_slot_envy_free/source-map.json",
+  "source_map_sha256": "144f35421129e3069c80c7781e80a24f9438b71359eca42d8b633d05b7524407",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "original_source_commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+  "compiled_modules": [
+    "dep.EconCSLib.MechanismDesign.Auctions.Position",
+    "Probe"
+  ],
+  "new_sorry_or_axioms": false,
+  "canonical_dataset_changed": false,
+  "original_project_full_build_passed": false,
+  "original_theorem_proof_checked": false,
+  "root_definition_checked": false,
+  "source_fragments_exact": true,
+  "supplemental_legacy_declarations": [],
+  "source_manifest": {
+    "Probe.lean": {
+      "sha256": "a31649c351b06bdb20a17b8bed14e01fc993af81623bd0e9ca32fa11265d2052",
+      "bytes": 7798
+    },
+    "dep/EconCSLib/MechanismDesign/Auctions/Position.lean": {
+      "sha256": "0646d0a69acf21e220db4074bceb3741d7c6496c8b92b90ea055fca9d170f353",
+      "bytes": 4031
+    }
+  },
+  "replay_command": "python3 build/bench-export-repair-20261109/aml/compile_sliced.py EOS-lemma6_stable_assignment_slot_envy_free",
+  "build_result": {
+    "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+    "status": "passed",
+    "compiled_modules": [
+      "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "Probe"
+    ],
+    "elapsed_seconds": 19.15346050262451,
+    "lean_path": "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/aml/projects/EOS-lemma6_stable_assignment_slot_envy_free/slice-lib:/tmp/paperlean-mathlib-434-20261109/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/Qq/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/plausible/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/aesop/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/batteries/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/proofwidgets/.lake/build/lib/lean"
+  },
+  "review_method": "model",
+  "limitations_cn": "证据是原始声明类型/原生Prop定义的真实Lean展开，未声称整项目或原theorem证明通过Lean4.34.1。",
+  "position_dependency_version_compatibility": {
+    "legacy_commit": "3c6a64802de232585064cf906faaefc9ba31b3bc",
+    "current_commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+    "path": "EconCSLib/MechanismDesign/Auctions/Position.lean",
+    "legacy_sha256": "fea773f18bc7da1e5a2d0457fe2a2fb2115ba16ae3ca664fb74b3b8261ddbccf",
+    "current_sha256": "b2cfc028621d06992e976e3f77ca80abf563b586386cccfa1c10dd7e68332ccd",
+    "entire_module_equal_modulo_comments_and_whitespace": true,
+    "only_diff": "StableAssignment documentation generalizes the wording EOS assignment-game bridge to assignment-game bridge; no code change."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "EOS-lemma6_stable_assignment_slot_envy_free",
+  "schema_version": "paperlean-project-case-1",
+  "title": "EOS07GSP",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "informal_id": "main-full-paper"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+    "path": "papers/EOS07GSP/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/0f8ab772a3432265c5bd3d0b90bb4a8de52aff27/papers/EOS07GSP/PaperInterface.lean",
+    "declaration": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+    "sha256": "4662efec3ff231e00fe6965ef53e490e00f6cf74b443197416ee7c83bb398524",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/040650891b432f2fd7912529e8a9f2981f01cd92",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/0f8ab772a3432265c5bd3d0b90bb4a8de52aff27"
+    ],
+    "module": "EOS07GSP.PaperInterface"
+  },
+  "group_id": "aml:EOS-lemma6_stable_assignment_slot_envy_free",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": false,
+  "leantrace_extracted": false,
+  "packaged_compilation": "not-rerun-after-import-relocation",
+  "missing_modules": [
+    "EconCSLib.MechanismDesign.Auctions.MainTheorems"
+  ],
+  "pending_reason": "Full-paper semantic pairing resolved on 2026-11-05; technical compilation/extraction remains incomplete. Missing modules, if any, are unchanged.",
+  "external_imports": [],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": null,
+    "review": null
+  },
+  "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": null,
+  "formal": {
+    "file_count": 4,
+    "sha256": "849c57e70efac74e03f4aced353fb38168f4d70260ac4c14aa5efc61bcae83ae",
+    "effective_root_sha256": "4662efec3ff231e00fe6965ef53e490e00f6cf74b443197416ee7c83bb398524"
+  },
+  "historical_status": "blocked",
+  "technical_status": "blocked",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

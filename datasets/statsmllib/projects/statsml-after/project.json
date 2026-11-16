@@ -1,0 +1,108 @@
+{
+  "id": "statsml-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Lean-MoDS/StatsMLlib uniform_deviation_tail_bound_pointwiseSeparable_of_pos",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "uniform_deviation_tail_bound_pointwiseSeparable_of_pos",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/Lean-MoDS/StatsMLlib",
+    "commit": "4d5deccbec4d3ed14f50e90d43c021b18e3ac718",
+    "path": "StatsMLlib/LearningTheory/UniformDeviation/Bounds.lean",
+    "module": "StatsMLlib.LearningTheory.UniformDeviation.Bounds",
+    "declaration": "uniform_deviation_tail_bound_pointwiseSeparable_of_pos",
+    "url": "https://github.com/Lean-MoDS/StatsMLlib/blob/4d5deccbec4d3ed14f50e90d43c021b18e3ac718/StatsMLlib/LearningTheory/UniformDeviation/Bounds.lean",
+    "sha256": "73ebe7b0da0574792b8da35f731ab91100e3500bed8cbcf851b024b504fef126",
+    "leads": [
+      "https://github.com/Lean-MoDS/StatsMLlib/pull/78"
+    ]
+  },
+  "group_id": "statsmllib:pointwise-scope",
+  "split_group": "YuanheZ/lean-stat-learning-theory+Lean-MoDS/StatsMLlib",
+  "before_ids": [
+    "statsml-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Field",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.Group.CompleteLattice",
+    "Mathlib.Analysis.Calculus.ParametricIntegral",
+    "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+    "Mathlib.Basic.Real.Basic",
+    "Mathlib.Data.Fintype.Order",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Tilted",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Finite",
+    "Mathlib.MeasureTheory.Order.Group.Lattice",
+    "Mathlib.Order.ConditionallyCompleteLattice.Indexed",
+    "Mathlib.Probability.Distributions.Uniform",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Moments.Tilted",
+    "Mathlib.Probability.Notation",
+    "Mathlib.Probability.ProbabilityMassFunction.Basic",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "Mathlib.Tactic.Cases",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.GCongr",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Instances.Real.Lemmas",
+    "Mathlib.Topology.Sequences"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": null,
+  "formal": {
+    "file_count": 17,
+    "sha256": "6184da38753b9e779bd8a8c3db755d929ea42eb4fd5c3289f7255183afb4de39"
+  },
+  "preparation": {
+    "receipt": "reports/stat-learning-extraction/technical/statsml-after/receipt.json",
+    "receipt_sha256": "0bd94ce4710eb3f720b69a4b08ccae4e96e261e719b3774a3aa410164193ad6c",
+    "source_closure": {
+      "StatsMLlib/LearningTheory/UniformDeviation/Bounds.lean": "73ebe7b0da0574792b8da35f731ab91100e3500bed8cbcf851b024b504fef126",
+      "StatsMLlib/LearningTheory/Rademacher/Complexity.lean": "051c1fa6d5f753676fa5377956eaabc0cee305dffc89c8033b49c70a5fd1ac20",
+      "StatsMLlib/LearningTheory/Rademacher/Signs.lean": "fc38c39f8f513185a0e3549fb0158f50652f89b86917724bd2b9e55b41dc495d",
+      "StatsMLlib/LearningTheory/Rademacher/Defs.lean": "804a2a1df776403d5cd5685dd7293fb87c6e732d5c8ed8550469eb1f4a4c3f0c",
+      "StatsMLlib/LearningTheory/Rademacher/Symmetrization.lean": "3c923059a28de601d11a1f03e39675c18b86f9cff96f07efd69c7a14e2721881",
+      "StatsMLlib/Probability/Moments/Expectation.lean": "822398147f0dd04de34ce605252ebbfa471f9bcf554e949262928fead582bcf9",
+      "StatsMLlib/Probability/Independence/FinsetPi.lean": "8022bf4a0412829a91a826f8f79bf068a23c779df3a484b6fe8588ba4dbcfd59",
+      "StatsMLlib/LearningTheory/UniformDeviation/Defs.lean": "a7598a9d7c6aeae0ebf065ff4526b060bb99ce5947fed290ca1a762336282792",
+      "StatsMLlib/Probability/Concentration/McDiarmid.lean": "f35a4461033ef1a7b245f06aa675d1a6158962501f381ecd046fd1a39b9df067",
+      "StatsMLlib/Probability/Concentration/Hoeffding.lean": "9dffc6fc0eadb39ca034208d29d95ed50770e952a15ae58f9b2ef93ff9876496",
+      "StatsMLlib/Probability/Moments/Cumulant.lean": "473b57b9f9658edc7e33cf4e4a9de2b0f65bc5a7ce2ffef7bdcd1ee537a2dc54",
+      "StatsMLlib/LearningTheory/UniformDeviation/BoundedDifference.lean": "abe335d86df7390070541ca9db345cc1992323177452b1e6fd529a7d86ada555",
+      "StatsMLlib/Analysis/FiniteSample.lean": "9e72217e792aafd3fda1452e8b14a548a5086342461349e5c7334f8c4bc51039",
+      "StatsMLlib/Order/IndexedSupremum.lean": "ee20007911939bf53602d99d40d2b36e7edd37167ee04fd00c8f62ee8c520bea",
+      "StatsMLlib/LearningTheory/Rademacher/PointwiseSeparable.lean": "c8cf3e39dbeef87e806558877de93c8047f32eedcfab4309b336cf1b3769be9e",
+      "StatsMLlib/LearningTheory/EmpiricalRiskMinimization/Defs.lean": "d62cc9c5b01070ddae9d846a5a82fae8366feadbc7020213b2b8bd6c34803386",
+      "StatsMLlib/MeasureTheory/Measure/Real.lean": "57f434ea70a047a9b83867e9f91650555cc669f33b11d733dfc7bb6a105890fa"
+    },
+    "packaged_receipt": "reports/stat-learning-extraction/technical/statsml-after/packaged/receipt.json",
+    "packaged_receipt_sha256": "6ddaf118de6280633b8e988057ae53eee30bad5e06ab37371ff9da95a9993402"
+  },
+  "input_sha256": "69affdea181000403cce345a0d2edccc0390e2c4b3ffec15160e075bc9b7cd53",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/statsmllib.jsonl",
+  "informal_binding_review": "reports/undetermined-review-2026-11-09/review.json"
+}

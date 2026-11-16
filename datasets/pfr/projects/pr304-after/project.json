@@ -1,0 +1,108 @@
+{
+  "id": "pr304-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr304-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "entropic_PFR_conjecture_improv",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "47299fac2eb0a561f093204237dc6a5a82babf81",
+    "path": "PFR/ImprovedPFR.lean",
+    "module": "PFR.ImprovedPFR",
+    "declaration": "entropic_PFR_conjecture_improv",
+    "url": "https://github.com/teorth/pfr/blob/47299fac2eb0a561f093204237dc6a5a82babf81/PFR/ImprovedPFR.lean",
+    "sha256": "d317bbb9a47f5fbeca08002c1829adb1a43eebe8630eac5f7df5290b0205cba0"
+  },
+  "group_id": "pfr-improved-output-constants",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pr304-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "The formal root returns a probability space, measurable uniform variable, sum bound 10d and individual bounds 11d/2. Nonnegative d implies the old 6d bounds; the newer target uses 11d/2. A subgroup is a ZMod 2 subspace in this scope.",
+  "external_imports": [
+    "Mathlib.Algebra.Group.Pointwise.Set.Card",
+    "Mathlib.Algebra.Module.ZMod",
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Combinatorics.Additive.RuzsaCovering",
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Data.Set.Insert",
+    "Mathlib.Data.ZMod.Basic",
+    "Mathlib.GroupTheory.Complement",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Prokhorov",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Probability.Kernel.Composition.Comp",
+    "Mathlib.Probability.Kernel.Composition.Prod",
+    "Mathlib.Probability.Kernel.CondDistrib",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 45,
+    "sha256": "6d7d962dbcab21aa747a0470582de5ba7a2f57b68dbca4871991cdc7619bb556"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-candidates/technical/pr304-after/20261104T082258567703Z/receipt.json",
+    "receipt_sha256": "9227921b21fc0007298b676e28250104ecf578cacc0d520885dd826d7bc8ea64",
+    "packaged_receipt": "reports/pfr-candidates/technical/pr304-after/20261104T082258567703Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "a27b788c8544dac961163b5261cc8eab36b385fae6e6acb504e755d655e12cc4",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/47299fac2eb0a561f093204237dc6a5a82babf81/blueprint/src/chapter/improved_exponent.tex",
+        "sha256": "9559b9aab195f25005cd20d5dd689da43b59b78437cff80111f156a27438e2c9",
+        "locator": "entropy-pfr-improv",
+        "text": "\\begin{theorem}[Improved entropy version of PFR]\\label{entropy-pfr-improv}\\lean{entropic_PFR_conjecture_improv}\\leanok\n  Let $G = \\F_2^n$, and suppose that $X^0_1, X^0_2$ are $G$-valued random variables.\n  Then there is some subgroup $H \\leq G$ such that\n  \\[\n    d[X^0_1;U_H] + d[X^0_2;U_H] \\le 10 d[X^0_1;X^0_2],\n  \\]\n  where $U_H$ is uniformly distributed on $H$.\n  Furthermore, both $d[X^0_1;U_H]$ and $d[X^0_2;U_H]$ are at most $\\tfrac{11}{2} d[X^0_1;X^0_2]$.\n\\end{theorem}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'entropic_PFR_conjecture_improv' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'entropic_PFR_conjecture_improv' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "65285b4b2f9d07f5e6ef75f46c645801638cb12d75bfc3b1c19481f04c9562d8",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

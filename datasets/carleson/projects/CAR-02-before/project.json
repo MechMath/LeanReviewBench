@@ -1,0 +1,99 @@
+{
+  "id": "CAR-02-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Carleson",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "linearized_metric_carleson",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/fpvandoorn/carleson",
+    "commit": "f005a0fe7be71905a7bbe2f85b7ecd23e84a637f",
+    "path": "Carleson/LinearizedMetricCarleson.lean",
+    "url": "https://github.com/fpvandoorn/carleson/blob/f005a0fe7be71905a7bbe2f85b7ecd23e84a637f/Carleson/LinearizedMetricCarleson.lean",
+    "declaration": "linearized_metric_carleson",
+    "sha256": "e73c923bd407e55ea7c724900ae7794694b7105f9793c01350e15df3b581f395",
+    "leads": [
+      "https://github.com/fpvandoorn/carleson/pull/297"
+    ],
+    "module": "Carleson.LinearizedMetricCarleson"
+  },
+  "group_id": "carleson:CAR-02-before",
+  "split_group": "fpvandoorn/carleson",
+  "before_ids": [],
+  "after_ids": [
+    "CAR-02-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "not-rerun-after-import-relocation",
+  "missing_modules": [],
+  "pending_reason": null,
+  "external_imports": [
+    "Mathlib.Algebra.Order.Group.Int",
+    "Mathlib.Analysis.CStarAlgebra.Classes",
+    "Mathlib.Analysis.Calculus.ContDiff.Basic",
+    "Mathlib.Analysis.Convex.PartitionOfUnity",
+    "Mathlib.Analysis.Normed.Field.Basic",
+    "Mathlib.Analysis.Normed.Group.Basic",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.Analysis.Normed.Group.Uniform",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Integral",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+    "Mathlib.Data.Int.Star",
+    "Mathlib.Data.Real.ENatENNReal",
+    "Mathlib.Data.Real.StarOrdered",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.AEStronglyMeasurable",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.Basic",
+    "Mathlib.MeasureTheory.Integral.Average",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Layercake",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.MeanInequalities",
+    "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Order.CompletePartialOrder",
+    "Mathlib.Topology.Algebra.Support",
+    "Mathlib.Topology.MetricSpace.Holder"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/cases.json",
+      "sha256": "256f52c31e63f63a6a1bec0666b9e46c365ebb0e2ab9a56b2b47e2f97b50da38"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/technical/f005a0fe7be71905a7bbe2f85b7ecd23e84a637f/migration-297/graph.json",
+      "sha256": "05f23a6c25a61c8f8e2adcc21c5edd77d78b37b6fa37a5ceed8fa6908728c99a"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/migration-semantic-review.json",
+      "sha256": "00b938b85151bebce243dbd34b37ae1fd0b2d0d5aa6f0ef99c17e0a5dbdc6639"
+    }
+  },
+  "input_sha256": "96018b69ebbc77b3af56b24c101f53fd81af0aee8d690dde18ca61d3248ec0a8",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 9,
+    "sha256": "8ade872328b7456f99096f6315d0caebf09981ae79f849533a459b9cd75601e5",
+    "effective_root_sha256": "e73c923bd407e55ea7c724900ae7794694b7105f9793c01350e15df3b581f395"
+  },
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/carleson.jsonl"
+}

@@ -1,0 +1,7 @@
+The original root module is byte-for-byte unchanged. `Main.lean` imports that original module. The complete original source closure, licenses and pins are archived in `original/`.
+
+`compatibility.patch` records all source edits and locally vendored compatibility modules. These are module-name migration, transparent proof elaboration, proved instance aliases, original proved helper lemmas, explicit elaborator registry API/meta staging, and polynomial coefficient/support representation transport preserving coefficient identities; they introduce no new sorry/admit/axiom declarations or root assumptions. Shared Mathlib and Cslib were not modified. Passing compilation certifies these migrated inputs, not global semantic equivalence of external dependency versions; individual API/representation correspondences and unresolved target relationships remain subject to human review.
+
+The true compilation result is in `compilation/result.json`; compilation success can still include admits already present upstream. Graphs, if available, are statement dependency exports including every local module prefix. All labels remain undetermined and evaluation eligibility is false.
+
+2026-11-13: relocated repository modules under formal/dep and prefixed local imports with dep. Declaration names and proof bodies unchanged. Historical receipts apply to pre-relocation sources; new receipt tracked separately.

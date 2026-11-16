@@ -1,0 +1,4 @@
+id,root,commit,group_id,before_ids,after_ids,status
+coupled-after,VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions,d3201f45109dc93df14102127ffcee91ec6b974f,vaught:receiving,gate-before,,misaligned
+gate-before,VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasGatedPinnedExtensions,21099472892b83d9627c96992091d0083f1c3eea,vaught:receiving,,coupled-after,misaligned
+twoface-before,VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift,e7b6efbc3cc3210864666f48567c6aafd55dfb34,vaught:twoface,,,misaligned

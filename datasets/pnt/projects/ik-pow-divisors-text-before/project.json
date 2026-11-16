@@ -1,0 +1,72 @@
+{
+  "id": "ik-pow-divisors-text-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT ik-pow-divisors-text-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ArithmeticFunction.pow_divisors_mul",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "declaration": "ArithmeticFunction.pow_divisors_mul",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+  },
+  "group_id": "pnt-ArithmeticFunction.pow_divisors_mul",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "ik-pow-divisors-text-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "允许显式的k次根参数化时对应：对m,n>0及k≥1，x↦x^k是{x|m:x^k|m}到m的完全k次幂除数的双射，并保持乘积。因此formal根除数的分解/乘法单射，经该双射就是文字的幂除数命题。k=0时文字的完全0次幂只有1，分解与单射直接成立；formal覆盖更强的普通互素除数结论。",
+  "external_imports": [
+    "Mathlib.NumberTheory.LSeries.Dirichlet",
+    "Mathlib.NumberTheory.LSeries.Nonvanishing"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "07238a011df726036b523fb4641e7658c9fbba8c1ccad86c36bf2b3c61320422"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-ik-extraction/repaired/ik-pow-divisors/20261105T052917502913Z/receipt.json",
+    "receipt_sha256": "e8cd40788a67af29d34d4fa43126274e80cf828bb312e4ab300594a3f8dcf6d1",
+    "packaged_receipt": "reports/pnt-ik-extraction/repaired/ik-pow-divisors/20261105T052917502913Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "be578f316c80a35f7568c130b66303d2b86c55e55d2e75e8045b2e0f9c0edbf8",
+    "formal_snapshot_id": "ik-pow-divisors",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+        "ref": "99d4ce46962a09b4ed95574e95c62b491673a1ad",
+        "text": "Let $m$ and $n$ be coprime natural numbers, with a fixed power $k$. The divisors of $mn$ that\n    can be expressed as perfect $k$-powers are exactly the product of the divisors of $m$ and $n$\n    that can be expressed as perfect $k$-powers."
+      }
+    ],
+    "root_axioms": {
+      "default": "'ArithmeticFunction.pow_divisors_mul' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'ArithmeticFunction.pow_divisors_mul' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "ce5ef86d9c515bd16850ca3425da226e2b651921ec20ea8b7c6ff4a2fd03f404",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

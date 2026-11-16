@@ -1,0 +1,116 @@
+{
+  "id": "pr305-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr305-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "torsion_PFR",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "ebe97805ab718bec2ca0ab5268f3e4a69ae76b81",
+    "path": "PFR/TorsionEndgame.lean",
+    "module": "PFR.TorsionEndgame",
+    "declaration": "torsion_PFR",
+    "url": "https://github.com/teorth/pfr/blob/ebe97805ab718bec2ca0ab5268f3e4a69ae76b81/PFR/TorsionEndgame.lean",
+    "sha256": "d9660eed95a8bf7bf5ffb7432ecd313cb7378b78e94d11ef83cbb21c456619bd"
+  },
+  "group_id": "pfr-torsion-ambient",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pr305-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "原文的 torsion 约定给 m≥2 及 mx=0；自然 Z/mZ 模的子模与加法子群等价。根的有限性、覆盖及大小条件对应自身版本，严格覆盖数界比原文的至多界更强。",
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Fin",
+    "Mathlib.Algebra.BigOperators.Group.Multiset.Defs",
+    "Mathlib.Algebra.Group.Pointwise.Finset.BigOperators",
+    "Mathlib.Algebra.Group.Pointwise.Set.Card",
+    "Mathlib.Algebra.Module.ZMod",
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Combinatorics.Additive.RuzsaCovering",
+    "Mathlib.Data.Fin.Basic",
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Data.Set.Insert",
+    "Mathlib.Data.ZMod.Basic",
+    "Mathlib.GroupTheory.Complement",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+    "Mathlib.MeasureTheory.MeasurableSpace.Pi",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasurePi",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Prokhorov",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Order.Interval.Finset.Defs",
+    "Mathlib.Order.Interval.Finset.Fin",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Probability.Kernel.Composition.Comp",
+    "Mathlib.Probability.Kernel.Composition.Prod",
+    "Mathlib.Probability.Kernel.CondDistrib",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 53,
+    "sha256": "141cef0295b465233f7aa617d0de64675d1b1e9d5c6a287e8e23a989c9576721"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-candidates/technical/pr305-after/20261104T082556687840Z/receipt.json",
+    "receipt_sha256": "ca26f3cbb555a1bf9666b643cafed5ceae2168da8f428c5788927493cb37a0de",
+    "packaged_receipt": "reports/pfr-candidates/technical/pr305-after/20261104T082556687840Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "19dddb603230da0ed2bcb8a69ce698f7d087bd5301f26628c52b558f885e89d6",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/ebe97805ab718bec2ca0ab5268f3e4a69ae76b81/blueprint/src/chapter/torsion.tex",
+        "sha256": "246dfa2d3a9c4dc1ba998a83e35ac40b4ac1693cd3705be81abe3a71db48df45",
+        "locator": "pfr-torsion",
+        "text": "\\begin{theorem}[PFR]\\label{pfr-torsion}\\lean{torsion_PFR}\\leanok  Suppose that $G$ is an abelian group of torsion $m$ (not necessarily finite).\n  If $A \\subset G$ is a finite non-empty set with $|A+A| \\leq K|A|$, then $A$ can be covered by at most $mK^{256m^3+1}$ translates of a finite subspace $H$ of $G$ with $|H| \\leq |A|$.\n  \\end{theorem}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'torsion_PFR' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'torsion_PFR' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "9a589f1ad45de05960d4ffcdddaf669842d7ee82f52c7f0c279fbed297f212fd",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "paperlean-stacks-admission-receipt-1",
+  "status": "passed",
+  "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+  "root": "locallyCompactSpace_iff_weaklyLocallyCompactSpace",
+  "source_revision": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
+  "lean_version": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "mathlib_source_pin_verified": true,
+  "modules": 1,
+  "commands": [
+    [
+      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "-o",
+      "Main.olean",
+      "Main.lean"
+    ]
+  ],
+  "new_sorry_or_axioms": false,
+  "original_theorem_proof_certified": false,
+  "original_holes_preserved": true,
+  "declaration_types_and_definition_values_equal": true,
+  "dependency_edges_equal": true,
+  "root_axioms_equal": true,
+  "graph_sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
+  "explicit_graph_sha256": "41e74287f6ef1ae8a4fe5f4c1fb0ca94720d05a3a15abcc877268e11bde3a179",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1"
+}

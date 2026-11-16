@@ -1,0 +1,6513 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "LinearProgrammingBound'"
+  ],
+  "project_module_prefixes": [
+    "SpherePacking"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {d : ℕ} {f : SchwartzMap (EuclideanSpace ℝ (Fin d)) ℂ},\n  f ≠ 0 →\n    (∀ (x : EuclideanSpace ℝ (Fin d)), ↑(f x).re = f x) →\n      (∀ (x : EuclideanSpace ℝ (Fin d)), ↑((FourierTransform.fourier f) x).re = (FourierTransform.fourier f) x) →\n        (∀ (x : EuclideanSpace ℝ (Fin d)), ‖x‖ ≥ 1 → (f x).re ≤ 0) →\n          (∀ (x : EuclideanSpace ℝ (Fin d)), ((FourierTransform.fourier f) x).re ≥ 0) →\n            ∀ {P : PeriodicSpherePacking d},\n              P.separation = 1 →\n                ∀ [Nonempty ↑P.centers] {D : Set (EuclideanSpace ℝ (Fin d))},\n                  Bornology.IsBounded D →\n                    (∀ (x : EuclideanSpace ℝ (Fin d)), ∃! g, g +ᵥ x ∈ D) →\n                      0 < d →\n                        Summable ⇑f →\n                          P.density ≤\n                            ↑(f 0).re.toNNReal / ↑((FourierTransform.fourier f) 0).re.toNNReal *\n                              MeasureTheory.volume (Metric.ball 0 (1 / 2))",
+      "source_range": {
+        "start_line": 533,
+        "start_column": 0,
+        "end_line": 634,
+        "end_column": 94
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.CohnElkies.LPBound",
+      "kind": "theorem",
+      "internal": false,
+      "id": "LinearProgrammingBound'",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 1234,
+        "start_column": 0,
+        "end_line": 1256,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n"
+    },
+    {
+      "value": null,
+      "type": "(E : Type u_5) →\n  (F : Type u_6) →\n    [inst : NormedAddCommGroup E] →\n      [NormedSpace ℝ E] → [inst : NormedAddCommGroup F] → [NormedSpace ℝ F] → Type (max u_5 u_6)",
+      "source_range": {
+        "start_line": 75,
+        "start_column": 0,
+        "end_line": 83,
+        "end_column": 78
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "SchwartzMap",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function is a Schwartz function if it is smooth and all derivatives decay faster than\nany power of `‖x‖`. "
+    },
+    {
+      "value": null,
+      "type": "Type u_7 → Type u_8 → Type (max u_7 u_8)",
+      "source_range": {
+        "start_line": 108,
+        "start_column": 0,
+        "end_line": 115,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EuclideanSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The standard real/complex Euclidean space, functions on a finite type. For an `n`-dimensional\nspace use `EuclideanSpace 𝕜 (Fin n)`.\n\nFor the case when `n = Fin _`, there is `!₂[x, y, ...]` notation for building elements of this type,\nanalogous to `![x, y, ...]` notation. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "ℕ → Type",
+      "source_range": {
+        "start_line": 2320,
+        "start_column": 0,
+        "end_line": 2339,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "Fin",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Natural numbers less than some upper bound.\n\nIn particular, a `Fin n` is a natural number `i` with the constraint that `i < n`. It is the\ncanonical type with `n` elements.\n"
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 39,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Complex",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Complex numbers consist of two `Real`s: a real part `re` and an imaginary part `im`. "
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) →\n  {ι : Type u_2} →\n    (α : ι → Type u_3) →\n      [hp : Fact (1 ≤ p)] → [Fintype ι] → [(i : ι) → NormedAddCommGroup (α i)] → NormedAddCommGroup (PiLp p α)",
+      "source_range": {
+        "start_line": 719,
+        "start_column": 0,
+        "end_line": 722,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.normedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "normed group instance on the product of finitely many normed groups, using the `L^p` norm. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 100,
+        "start_column": 0,
+        "end_line": 102,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The extended nonnegative real numbers. This is usually denoted [0, ∞],\nand is relevant as the codomain of a measure. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → {n : ℕ} → [NatCast R] → [n.AtLeastTwo] → OfNat R n",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 45,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatAtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Recognize numeric literals which are at least `2` as terms of `R` via `Nat.cast`. This\ninstance is what makes things like `37 : R` type check.  Note that `0` and `1` are not needed\nbecause they are recognized as terms of `R` (at least when `R` is an `AddMonoidWithOne`) through\n`Zero` and `One`, respectively. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_2} → [self : AddMonoidWithOne R] → NatCast R",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 70,
+        "end_column": 71
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddMonoidWithOne.toNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_2} → [self : AddCommMonoidWithOne R] → AddMonoidWithOne R",
+      "source_range": {
+        "start_line": 73,
+        "start_column": 0,
+        "end_line": 73,
+        "end_column": 82
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "AddCommMonoidWithOne ENNReal",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 17,
+        "end_line": 127,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instAddCommMonoidWithOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(1 + 1).AtLeastTwo",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "kind": "theorem",
+      "internal": true,
+      "id": "PiLp.innerProductSpace._proof_1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Fact (1 ≤ 2)",
+      "source_range": {
+        "start_line": 436,
+        "start_column": 0,
+        "end_line": 438,
+        "end_column": 14
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "fact_one_le_two_ennreal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`(1 : ℝ≥0∞) ≤ 2`, recorded as a `Fact` for use with `Lp` spaces. "
+    },
+    {
+      "value": null,
+      "type": "(n : ℕ) → Fintype (Fin n)",
+      "source_range": {
+        "start_line": 37,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Fintype.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Fin.fintype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NormedAddCommGroup ℝ",
+      "source_range": {
+        "start_line": 59,
+        "start_column": 0,
+        "end_line": 60,
+        "end_column": 96
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Real",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.normedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) →\n  (𝕜 : Type u_1) →\n    {ι : Type u_2} →\n      (β : ι → Type u_4) →\n        [hp : Fact (1 ≤ p)] →\n          [inst : Fintype ι] →\n            [inst_1 : NormedField 𝕜] →\n              [inst_2 : (i : ι) → SeminormedAddCommGroup (β i)] →\n                [(i : ι) → NormedSpace 𝕜 (β i)] → NormedSpace 𝕜 (PiLp p β)",
+      "source_range": {
+        "start_line": 846,
+        "start_column": 0,
+        "end_line": 849,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.normedSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The product of finitely many normed spaces is a normed space, with the `L^p` norm. "
+    },
+    {
+      "value": null,
+      "type": "NormedField ℝ",
+      "source_range": {
+        "start_line": 301,
+        "start_column": 0,
+        "end_line": 303,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Field.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.normedField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [NonUnitalSeminormedRing α] → SeminormedAddCommGroup α",
+      "source_range": {
+        "start_line": 192,
+        "start_column": 0,
+        "end_line": 194,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NonUnitalSeminormedRing.toSeminormedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : NonUnitalSeminormedCommRing α] → NonUnitalSeminormedRing α",
+      "source_range": {
+        "start_line": 106,
+        "start_column": 0,
+        "end_line": 107,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [β : SeminormedCommRing α] → NonUnitalSeminormedCommRing α",
+      "source_range": {
+        "start_line": 140,
+        "start_column": 0,
+        "end_line": 143,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "SeminormedCommRing.toNonUnitalSeminormedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A seminormed commutative ring is a non-unital seminormed commutative ring. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [β : NormedCommRing α] → SeminormedCommRing α",
+      "source_range": {
+        "start_line": 152,
+        "start_column": 0,
+        "end_line": 155,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedCommRing.toSeminormedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A normed commutative ring is a seminormed commutative ring. "
+    },
+    {
+      "value": null,
+      "type": "NormedCommRing ℝ",
+      "source_range": {
+        "start_line": 659,
+        "start_column": 0,
+        "end_line": 660,
+        "end_column": 85
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.normedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_4} →\n  {E : Type u_5} →\n    {inst : RCLike 𝕜} → {inst_1 : SeminormedAddCommGroup E} → [self : InnerProductSpace 𝕜 E] → NormedSpace 𝕜 E",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 118,
+        "end_column": 59
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "InnerProductSpace.toNormedSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "RCLike ℝ",
+      "source_range": {
+        "start_line": 786,
+        "start_column": 0,
+        "end_line": 804,
+        "end_column": 41
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.RCLike.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instRCLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_1} → [inst : RCLike 𝕜] → InnerProductSpace ℝ 𝕜",
+      "source_range": {
+        "start_line": 995,
+        "start_column": 0,
+        "end_line": 1005,
+        "end_column": 90
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "RCLike.toInnerProductSpaceReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "An `RCLike` field is a real inner product space. "
+    },
+    {
+      "value": null,
+      "type": "NormedAddCommGroup ℂ",
+      "source_range": {
+        "start_line": 66,
+        "start_column": 0,
+        "end_line": 72,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Norm",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instNormedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_2} → [NormedAddCommGroup E] → SeminormedAddCommGroup E",
+      "source_range": {
+        "start_line": 272,
+        "start_column": 2,
+        "end_line": 272,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedAddCommGroup.toSeminormedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "InnerProductSpace ℝ ℂ",
+      "source_range": {
+        "start_line": 987,
+        "start_column": 0,
+        "end_line": 987,
+        "end_column": 67
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "instInnerProductSpaceRealComplex",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → α → α → Prop",
+      "source_range": {
+        "start_line": 871,
+        "start_column": 0,
+        "end_line": 876,
+        "end_column": 10
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "def",
+      "internal": false,
+      "id": "Ne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ≠ b`, or `Ne a b` is defined as `¬ (a = b)` or `a = b → False`,\nand asserts that `a` and `b` are not equal.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≠` in identifiers is `ne`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Zero α] → OfNat α 0",
+      "source_range": {
+        "start_line": 17,
+        "start_column": 0,
+        "end_line": 18,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "Zero.toOfNat0",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_5} →\n  {F : Type u_6} →\n    [inst : NormedAddCommGroup E] →\n      [inst_1 : NormedSpace ℝ E] → [inst_2 : NormedAddCommGroup F] → [inst_3 : NormedSpace ℝ F] → Zero (SchwartzMap E F)",
+      "source_range": {
+        "start_line": 292,
+        "start_column": 0,
+        "end_line": 295,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "SchwartzMap.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u_1} → α → α → Prop",
+      "source_range": {
+        "start_line": 46,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Eq",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`."
+    },
+    {
+      "value": null,
+      "type": "ℝ → ℂ",
+      "source_range": {
+        "start_line": 81,
+        "start_column": 0,
+        "end_line": 84,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.ofReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural inclusion of the real numbers into the complex numbers. "
+    },
+    {
+      "value": null,
+      "type": "ℂ → ℝ",
+      "source_range": {
+        "start_line": 37,
+        "start_column": 2,
+        "end_line": 37,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Complex.re",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The real part of a complex number. "
+    },
+    {
+      "value": null,
+      "type": "{F : Sort u_1} → {α : outParam (Sort u_2)} → {β : outParam (α → Sort u_3)} → [self : DFunLike F α β] → F → (a : α) → β a",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.FunLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DFunLike.coe",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The coercion from `F` to a function. "
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_5} →\n  {F : Type u_6} →\n    [inst : NormedAddCommGroup E] →\n      [inst_1 : NormedSpace ℝ E] →\n        [inst_2 : NormedAddCommGroup F] → [inst_3 : NormedSpace ℝ F] → FunLike (SchwartzMap E F) E F",
+      "source_range": {
+        "start_line": 91,
+        "start_column": 0,
+        "end_line": 94,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "SchwartzMap.instFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_3} →\n  [inst : RCLike 𝕜] →\n    {ι : Type u_7} →\n      [inst_1 : Fintype ι] →\n        (f : ι → Type u_8) →\n          [inst_2 : (i : ι) → NormedAddCommGroup (f i)] →\n            [(i : ι) → InnerProductSpace 𝕜 (f i)] → InnerProductSpace 𝕜 (PiLp 2 f)",
+      "source_range": {
+        "start_line": 84,
+        "start_column": 0,
+        "end_line": 102,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.innerProductSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_1} → [inst : SeminormedAddCommGroup E] → [NormedSpace ℂ E] → NormedSpace ℝ E",
+      "source_range": {
+        "start_line": 81,
+        "start_column": 0,
+        "end_line": 83,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedSpace.complexToReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The module structure from `Module.complexToReal` is a normed space. "
+    },
+    {
+      "value": null,
+      "type": "RCLike ℂ",
+      "source_range": {
+        "start_line": 328,
+        "start_column": 0,
+        "end_line": 345,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instRCLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [NormedField α] → NormedCommRing α",
+      "source_range": {
+        "start_line": 194,
+        "start_column": 0,
+        "end_line": 195,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Field.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedField.toNormedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NormedField ℂ",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instNormedField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_1} → [inst : RCLike 𝕜] → InnerProductSpace 𝕜 𝕜",
+      "source_range": {
+        "start_line": 914,
+        "start_column": 0,
+        "end_line": 920,
+        "end_column": 74
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "RCLike.innerProductSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A field `𝕜` satisfying `RCLike` is itself a `𝕜`-inner product space. "
+    },
+    {
+      "value": null,
+      "type": "{E : Type u} → {F : outParam (Type v)} → [self : FourierTransform E F] → E → F",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 2,
+        "end_line": 38,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Fourier.Notation",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "FourierTransform.fourier",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`𝓕 f` is the Fourier transform of `f`. The meaning of this notation is type-dependent. "
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_2} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℂ E] →\n      {V : Type u_3} →\n        [inst_2 : NormedAddCommGroup V] →\n          [inst_3 : InnerProductSpace ℝ V] →\n            [FiniteDimensional ℝ V] →\n              [inst_5 : MeasurableSpace V] → [BorelSpace V] → FourierTransform (SchwartzMap V E) (SchwartzMap V E)",
+      "source_range": {
+        "start_line": 86,
+        "start_column": 0,
+        "end_line": 87,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+      "kind": "def",
+      "internal": false,
+      "id": "SchwartzMap.instFourierTransform",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (p : ENNReal) (K : Type u_1) (V : Type u_4) [inst : Semiring K] [inst_1 : AddCommGroup V] [inst_2 : Module K V]\n  [Module.Finite K V], Module.Finite K (WithLp p V)",
+      "source_range": {
+        "start_line": 251,
+        "start_column": 0,
+        "end_line": 254,
+        "end_column": 53
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.WithLp",
+      "kind": "theorem",
+      "internal": false,
+      "id": "WithLp.instModuleFinite",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [self : Ring R] → Semiring R",
+      "source_range": {
+        "start_line": 147,
+        "start_column": 0,
+        "end_line": 147,
+        "end_column": 77
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Ring.toSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_2} → [self : DivisionRing K] → Ring K",
+      "source_range": {
+        "start_line": 116,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 84
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DivisionRing.toRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "DivisionRing ℝ",
+      "source_range": {
+        "start_line": 499,
+        "start_column": 0,
+        "end_line": 499,
+        "end_column": 60
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instDivisionRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{I : Type u} → {f : I → Type v₁} → [(i : I) → AddCommGroup (f i)] → AddCommGroup ((i : I) → f i)",
+      "source_range": {
+        "start_line": 118,
+        "start_column": 2,
+        "end_line": 118,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Pi.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Pi.addCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_4} → [self : SeminormedAddCommGroup E] → AddCommGroup E",
+      "source_range": {
+        "start_line": 225,
+        "start_column": 0,
+        "end_line": 229,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SeminormedAddCommGroup.toAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(I : Type u) →\n  (f : I → Type v) →\n    (α : Type u_1) →\n      {r : Semiring α} → {m : (i : I) → AddCommMonoid (f i)} → [(i : I) → Module α (f i)] → Module α ((i : I) → f i)",
+      "source_range": {
+        "start_line": 37,
+        "start_column": 0,
+        "end_line": 41,
+        "end_column": 57
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Pi",
+      "kind": "def",
+      "internal": false,
+      "id": "Pi.module",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [self : CommSemiring R] → Semiring R",
+      "source_range": {
+        "start_line": 229,
+        "start_column": 0,
+        "end_line": 229,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "CommSemiring.toSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_2} → [self : Semifield K] → CommSemiring K",
+      "source_range": {
+        "start_line": 168,
+        "start_column": 0,
+        "end_line": 168,
+        "end_column": 91
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Semifield.toCommSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_1} → [Field K] → Semifield K",
+      "source_range": {
+        "start_line": 183,
+        "start_column": 0,
+        "end_line": 183,
+        "end_column": 90
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Field.toSemifield",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_3} → [self : NormedField α] → Field α",
+      "source_range": {
+        "start_line": 154,
+        "start_column": 0,
+        "end_line": 158,
+        "end_column": 60
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Field.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NormedField.toField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_3} → [self : DenselyNormedField α] → NormedField α",
+      "source_range": {
+        "start_line": 173,
+        "start_column": 0,
+        "end_line": 175,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Field.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DenselyNormedField.toNormedField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{K : semiOutParam (Type u_1)} → [self : RCLike K] → DenselyNormedField K",
+      "source_range": {
+        "start_line": 60,
+        "start_column": 0,
+        "end_line": 84,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.RCLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "RCLike.toDenselyNormedField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : AddCommGroup G] → AddCommMonoid G",
+      "source_range": {
+        "start_line": 111,
+        "start_column": 0,
+        "end_line": 111,
+        "end_column": 66
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommGroup.toAddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_6} →\n  {E : Type u_7} → {inst : NormedField 𝕜} → {inst_1 : SeminormedAddCommGroup E} → [self : NormedSpace 𝕜 E] → Module 𝕜 E",
+      "source_range": {
+        "start_line": 40,
+        "start_column": 0,
+        "end_line": 42,
+        "end_column": 65
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Module.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NormedSpace.toModule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (K : Type u) [inst : DivisionRing K] {ι : Type u_1} [Finite ι] (M : ι → Type u_2)\n  [inst_2 : (i : ι) → AddCommGroup (M i)] [inst_3 : (i : ι) → Module K (M i)] [∀ (i : ι), FiniteDimensional K (M i)],\n  FiniteDimensional K ((i : ι) → M i)",
+      "source_range": {
+        "start_line": 98,
+        "start_column": 0,
+        "end_line": 100,
+        "end_column": 11
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.FiniteDimensional.Defs",
+      "kind": "theorem",
+      "internal": false,
+      "id": "FiniteDimensional.finiteDimensional_pi'",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (α : Type u_3) [Fintype α], Finite α",
+      "source_range": {
+        "start_line": 168,
+        "start_column": 0,
+        "end_line": 171,
+        "end_column": 20
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Fintype.EquivFin",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Finite.of_fintype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "For efficiency reasons, we want `Finite` instances to have higher\npriority than ones coming from `Fintype` instances. "
+    },
+    {
+      "value": null,
+      "type": "∀ {K : Type u_1} [inst : RCLike K], FiniteDimensional ℝ K",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 64,
+        "end_column": 81
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.RCLike.Lemmas",
+      "kind": "theorem",
+      "internal": false,
+      "id": "FiniteDimensional.rclike_to_real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "An `RCLike` field is finite-dimensional over `ℝ`, since it is spanned by `{1, I}`. "
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) → (X : Type u_1) → [MeasurableSpace X] → MeasurableSpace (WithLp p X)",
+      "source_range": {
+        "start_line": 26,
+        "start_column": 0,
+        "end_line": 27,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.MeasurableSpace",
+      "kind": "def",
+      "internal": false,
+      "id": "WithLp.measurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{δ : Type u_4} → {X : δ → Type u_6} → [m : (a : δ) → MeasurableSpace (X a)] → MeasurableSpace ((a : δ) → X a)",
+      "source_range": {
+        "start_line": 574,
+        "start_column": 0,
+        "end_line": 575,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasurableSpace.pi",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "MeasurableSpace ℝ",
+      "source_range": {
+        "start_line": 712,
+        "start_column": 0,
+        "end_line": 713,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.measurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (p : ENNReal) {ι : Type u_2} {X : ι → Type u_3} [Countable ι] [inst : (i : ι) → MeasurableSpace (X i)]\n  [inst_1 : (i : ι) → TopologicalSpace (X i)] [∀ (i : ι), BorelSpace (X i)] [∀ (i : ι), SecondCountableTopology (X i)],\n  BorelSpace (PiLp p X)",
+      "source_range": {
+        "start_line": 52,
+        "start_column": 0,
+        "end_line": 55,
+        "end_column": 47
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.MeasurableSpace",
+      "kind": "theorem",
+      "internal": false,
+      "id": "PiLp.borelSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {n : ℕ}, Countable (Fin n)",
+      "source_range": {
+        "start_line": 93,
+        "start_column": 0,
+        "end_line": 94,
+        "end_column": 52
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Countable.Defs",
+      "kind": "theorem",
+      "internal": false,
+      "id": "instCountableFin",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : UniformSpace α] → TopologicalSpace α",
+      "source_range": {
+        "start_line": 195,
+        "start_column": 0,
+        "end_line": 204,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.UniformSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "UniformSpace.toTopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoEMetricSpace α] → UniformSpace α",
+      "source_range": {
+        "start_line": 119,
+        "start_column": 2,
+        "end_line": 119,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.EMetricSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoEMetricSpace.toUniformSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [PseudoMetricSpace α] → PseudoEMetricSpace α",
+      "source_range": {
+        "start_line": 975,
+        "start_column": 0,
+        "end_line": 985,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "PseudoMetricSpace.toPseudoEMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A pseudometric space induces a pseudoemetric space "
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_4} → [self : SeminormedAddCommGroup E] → PseudoMetricSpace E",
+      "source_range": {
+        "start_line": 225,
+        "start_column": 0,
+        "end_line": 229,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SeminormedAddCommGroup.toPseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "BorelSpace ℝ",
+      "source_range": {
+        "start_line": 715,
+        "start_column": 0,
+        "end_line": 716,
+        "end_column": 7
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Real.borelSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "SecondCountableTopology ℝ",
+      "source_range": {
+        "start_line": 121,
+        "start_column": 0,
+        "end_line": 121,
+        "end_column": 53
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.ProperSpace",
+      "kind": "theorem",
+      "internal": false,
+      "id": "instSecondCountableTopologyReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1294,
+        "start_column": 0,
+        "end_line": 1295,
+        "end_column": 72
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "GE.ge",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ≥ b` is an abbreviation for `b ≤ a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≥` in identifiers is `ge`."
+    },
+    {
+      "value": null,
+      "type": "LE ℝ",
+      "source_range": {
+        "start_line": 296,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_4} → [self : Norm E] → E → ℝ",
+      "source_range": {
+        "start_line": 62,
+        "start_column": 2,
+        "end_line": 62,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Norm.norm",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "the `ℝ`-valued norm function. "
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) → {ι : Type u_2} → (β : ι → Type u_4) → [Fintype ι] → [(i : ι) → Norm (β i)] → Norm (PiLp p β)",
+      "source_range": {
+        "start_line": 339,
+        "start_column": 0,
+        "end_line": 348,
+        "end_column": 79
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.instNorm",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Endowing the space `PiLp p β` with the `L^p` norm. We register this instance\nseparate from `PiLp.seminormedAddCommGroup` since the latter requires the type class hypothesis\n`[Fact (1 ≤ p)]` in order to prove the triangle inequality.\n\nRegistering this separately allows for a future norm-like structure on `PiLp p β` for `p < 1`\nsatisfying a relaxed triangle inequality. These are called *quasi-norms*. "
+    },
+    {
+      "value": null,
+      "type": "Norm ℝ",
+      "source_range": {
+        "start_line": 52,
+        "start_column": 0,
+        "end_line": 53,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Real",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.norm",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [One α] → OfNat α 1",
+      "source_range": {
+        "start_line": 27,
+        "start_column": 0,
+        "end_line": 28,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "One.toOfNat1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "One ℝ",
+      "source_range": {
+        "start_line": 93,
+        "start_column": 0,
+        "end_line": 95,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1287,
+        "start_column": 2,
+        "end_line": 1287,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LE.le",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`."
+    },
+    {
+      "value": null,
+      "type": "Zero ℝ",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 91,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℕ → Type",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 53,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "structure",
+      "internal": false,
+      "id": "PeriodicSpherePacking",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun d self => self.2",
+      "type": "{d : ℕ} → SpherePacking d → ℝ",
+      "source_range": {
+        "start_line": 45,
+        "start_column": 2,
+        "end_line": 45,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SpherePacking.separation",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun d self => self.1",
+      "type": "{d : ℕ} → PeriodicSpherePacking d → SpherePacking d",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 53,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PeriodicSpherePacking.toSpherePacking",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sort u → Prop",
+      "source_range": {
+        "start_line": 775,
+        "start_column": 0,
+        "end_line": 785,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nonempty",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Nonempty α` is a typeclass that says that `α` is not an empty type,\nthat is, there exists an element in the type. It differs from `Inhabited α`\nin that `Nonempty α` is a `Prop`, which means that it does not actually carry\nan element of `α`, only a proof that *there exists* such an element.\nGiven `Nonempty α`, you can construct an element of `α` *nonconstructively*\nusing `Classical.choice`.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Set α → Type u",
+      "source_range": {
+        "start_line": 30,
+        "start_column": 0,
+        "end_line": 37,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.CoeSort",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.Elem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Given the set `s`, `Elem s` is the `Type` of element of `s`.\n\nIt is currently an abbreviation so that instance coming from `Subtype` are available.\nIf you're interested in making it a `def`, as it probably should be,\nyou'll then need to create additional instances (and possibly prove lemmas about them).\nSee e.g. `Mathlib/Data/Set/Order.lean`.\n"
+    },
+    {
+      "value": "fun d self => self.1",
+      "type": "{d : ℕ} → SpherePacking d → Set (EuclideanSpace ℝ (Fin d))",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 2,
+        "end_line": 44,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SpherePacking.centers",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `Set.ofPred` (also written `{x | p x}`) and membership of a set (`∈`) should be\nused to convert between sets and predicates.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [Bornology α] → Set α → Prop",
+      "source_range": {
+        "start_line": 98,
+        "start_column": 0,
+        "end_line": 100,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Bornology.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Bornology.IsBounded",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`IsBounded` is the predicate that `s` is bounded relative to the ambient bornology on `α`. "
+    },
+    {
+      "value": null,
+      "type": "{ι : Type u_2} → (p : ENNReal) → (β : ι → Type u_5) → [(i : ι) → Bornology (β i)] → Bornology (PiLp p β)",
+      "source_range": {
+        "start_line": 522,
+        "start_column": 0,
+        "end_line": 523,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.bornology",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoMetricSpace α] → Bornology α",
+      "source_range": {
+        "start_line": 151,
+        "start_column": 2,
+        "end_line": 151,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoMetricSpace.toBornology",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "PseudoMetricSpace ℝ",
+      "source_range": {
+        "start_line": 1111,
+        "start_column": 0,
+        "end_line": 1116,
+        "end_column": 41
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.pseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Instantiate the reals as a pseudometric space. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u_1} → (α → Prop) → Prop",
+      "source_range": {
+        "start_line": 21,
+        "start_column": 0,
+        "end_line": 22,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ExistsUnique",
+      "kind": "def",
+      "internal": false,
+      "id": "ExistsUnique",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "For `p : α → Prop`, `ExistsUnique p` means that there exists a unique `x : α` with `p x`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Sort (max 1 u)",
+      "source_range": {
+        "start_line": 638,
+        "start_column": 0,
+        "end_line": 663,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "Subtype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "All the elements of a type that satisfy a predicate.\n\n`Subtype p`, usually written `{ x : α // p x }` or `{ x // p x }`, contains all elements `x : α` for\nwhich `p x` is true. Its constructor is a pair of the value and the proof that it satisfies the\npredicate. In run-time code, `{ x : α // p x }` is represented identically to `α`.\n\nThere is a coercion from `{ x : α // p x }` to `α`, so elements of a subtype may be used where the\nunderlying type is expected.\n\nExamples:\n * `{ n : Nat // n % 2 = 0 }` is the type of even numbers.\n * `{ xs : Array String // xs.size = 5 }` is the type of arrays with five `String`s.\n * Given `xs : List α`, `List { x : α // x ∈ xs }` is the type of lists in which all elements are\n   contained in `xs`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{ x // p x }` in identifiers is `subtype`."
+    },
+    {
+      "value": null,
+      "type": "{α : outParam (Type u)} → {γ : Type v} → [self : Membership α γ] → γ → α → Prop",
+      "source_range": {
+        "start_line": 1753,
+        "start_column": 2,
+        "end_line": 1753,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Membership.mem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`."
+    },
+    {
+      "value": null,
+      "type": "(R : Type u) → (M : Type v) → [inst : Semiring R] → [inst_1 : AddCommMonoid M] → [Module R M] → Type v",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 42,
+        "end_column": 44
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Submodule.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "Submodule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A submodule of a module is one which is closed under vector operations.\nThis is a sufficient condition for the subset of vectors in the submodule\nto themselves form a module. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 35,
+        "start_column": 0,
+        "end_line": 58,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Int.Basic",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Int",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The integers.\n\nThis type is special-cased by the compiler and overridden with an efficient implementation. The\nruntime has a special representation for `Int` that stores “small” signed numbers directly, while\nlarger numbers use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)). A “small number” is an integer that can be encoded with one fewer bits\nthan the platform's pointer size (i.e. 63 bits on 64-bit architectures and 31 bits on 32-bit\narchitectures).\n"
+    },
+    {
+      "value": null,
+      "type": "Semiring ℤ",
+      "source_range": {
+        "start_line": 87,
+        "start_column": 0,
+        "end_line": 87,
+        "end_column": 59
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Int.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Int.instSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) → (V : Type u_4) → [AddCommGroup V] → AddCommGroup (WithLp p V)",
+      "source_range": {
+        "start_line": 88,
+        "start_column": 0,
+        "end_line": 89,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.WithLp",
+      "kind": "def",
+      "internal": false,
+      "id": "WithLp.instAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "AddCommGroup ℝ",
+      "source_range": {
+        "start_line": 224,
+        "start_column": 0,
+        "end_line": 224,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(M : Type u_3) → [inst : AddCommGroup M] → Module ℤ M",
+      "source_range": {
+        "start_line": 73,
+        "start_column": 0,
+        "end_line": 79,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.NatInt",
+      "kind": "def",
+      "internal": false,
+      "id": "AddCommGroup.toIntModule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{A : Type u_1} → {B : Type u_2} → [i : SetLike A B] → Membership B A",
+      "source_range": {
+        "start_line": 122,
+        "start_column": 0,
+        "end_line": 123,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.SetLike.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "SetLike.instMembership",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} →\n  {M : Type v} → [inst : Semiring R] → [inst_1 : AddCommMonoid M] → [inst_2 : Module R M] → SetLike (Submodule R M) M",
+      "source_range": {
+        "start_line": 54,
+        "start_column": 0,
+        "end_line": 56,
+        "end_column": 82
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Submodule.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Submodule.setLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun d self => self.2",
+      "type": "{d : ℕ} → PeriodicSpherePacking d → Submodule ℤ (EuclideanSpace ℝ (Fin d))",
+      "source_range": {
+        "start_line": 50,
+        "start_column": 2,
+        "end_line": 50,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PeriodicSpherePacking.lattice",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Membership α (Set α)",
+      "source_range": {
+        "start_line": 79,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.instMembership",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HVAdd α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 48,
+        "start_column": 2,
+        "end_line": 48,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Notation.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HVAdd.hVAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a +ᵥ b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+ᵥ` in identifiers is `vadd`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [VAdd α β] → HVAdd α β β",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 11,
+        "end_line": 72,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Notation.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instHVAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} →\n  {M : Type v} →\n    [inst : Semiring R] →\n      [inst_1 : AddCommMonoid M] →\n        {module_M : Module R M} → (p : Submodule R M) → {α : Type u_1} → [VAdd M α] → VAdd (↥p) α",
+      "source_range": {
+        "start_line": 100,
+        "start_column": 0,
+        "end_line": 101,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Submodule.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Submodule.instVAddSubtypeMem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [Add α] → VAdd α α",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 26,
+        "end_line": 63,
+        "end_column": 77
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Action.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instVAddOfAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "See also `AddMonoid.toAddAction` "
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : AddCommMagma G] → Add G",
+      "source_range": {
+        "start_line": 201,
+        "start_column": 0,
+        "end_line": 203,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Semigroup",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommMagma.toAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : AddCommSemigroup G] → AddCommMagma G",
+      "source_range": {
+        "start_line": 219,
+        "start_column": 0,
+        "end_line": 219,
+        "end_column": 79
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Semigroup",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommSemigroup.toAddCommMagma",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_2} → [self : AddCommMonoid M] → AddCommSemigroup M",
+      "source_range": {
+        "start_line": 525,
+        "start_column": 0,
+        "end_line": 525,
+        "end_column": 71
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Monoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommMonoid.toAddCommSemigroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LT α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1292,
+        "start_column": 2,
+        "end_line": 1292,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LT.lt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-than relation: `x < y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `<` in identifiers is `lt`."
+    },
+    {
+      "value": null,
+      "type": "LT ℕ",
+      "source_range": {
+        "start_line": 1920,
+        "start_column": 0,
+        "end_line": 1921,
+        "end_column": 14
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instLTNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(n : ℕ) → OfNat ℕ n",
+      "source_range": {
+        "start_line": 1280,
+        "start_column": 0,
+        "end_line": 1282,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} →\n  {β : Type u_2} →\n    [AddCommMonoid α] →\n      [TopologicalSpace α] → (β → α) → optParam (SummationFilter β) (SummationFilter.unconditional β) → Prop",
+      "source_range": {
+        "start_line": 111,
+        "start_column": 2,
+        "end_line": 113,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Algebra.InfiniteSum.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Summable",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Summable f` means that `f` has some (infinite) sum with respect to `L`. Use `tsum` to get the\nvalue. "
+    },
+    {
+      "value": null,
+      "type": "AddCommMonoid ℂ",
+      "source_range": {
+        "start_line": 413,
+        "start_column": 0,
+        "end_line": 416,
+        "end_column": 22
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instAddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "This shortcut instance ensures we do not find `AddCommMonoid` via the noncomputable\n`Complex.instNormedField` instance. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoMetricSpace α] → UniformSpace α",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoMetricSpace.toUniformSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : SeminormedRing α] → PseudoMetricSpace α",
+      "source_range": {
+        "start_line": 51,
+        "start_column": 0,
+        "end_line": 55,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SeminormedRing.toPseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : SeminormedCommRing α] → SeminormedRing α",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 0,
+        "end_line": 127,
+        "end_column": 79
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SeminormedCommRing.toSeminormedRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{A : Type u_1} → [self : CommCStarAlgebra A] → NormedCommRing A",
+      "source_range": {
+        "start_line": 42,
+        "start_column": 0,
+        "end_line": 42,
+        "end_column": 75
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.CStarAlgebra.Classes",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "CommCStarAlgebra.toNormedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "CommCStarAlgebra ℂ",
+      "source_range": {
+        "start_line": 76,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.CStarAlgebra.Classes",
+      "kind": "def",
+      "internal": false,
+      "id": "instCommCStarAlgebraComplex",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(β : Type u_2) → SummationFilter β",
+      "source_range": {
+        "start_line": 166,
+        "start_column": 0,
+        "end_line": 169,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Algebra.InfiniteSum.SummationFilter",
+      "kind": "def",
+      "internal": false,
+      "id": "SummationFilter.unconditional",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "**Unconditional summation**: a function on `β` is said to be *unconditionally summable* if its\npartial sums over finite subsets converge with respect to the `atTop` filter. "
+    },
+    {
+      "value": null,
+      "type": "LE ENNReal",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 17,
+        "end_line": 127,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun {d} S => Filter.limsup S.finiteDensity Filter.atTop",
+      "type": "{d : ℕ} → SpherePacking d → ENNReal",
+      "source_range": {
+        "start_line": 112,
+        "start_column": 0,
+        "end_line": 113,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "def",
+      "internal": false,
+      "id": "SpherePacking.density",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HMul α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1385,
+        "start_column": 2,
+        "end_line": 1385,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HMul.hMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Mul α] → HMul α α α",
+      "source_range": {
+        "start_line": 1677,
+        "start_column": 0,
+        "end_line": 1679,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → [self : Distrib R] → Mul R",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Distrib.toMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [Semiring α] → Distrib α",
+      "source_range": {
+        "start_line": 150,
+        "start_column": 0,
+        "end_line": 150,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instDistribOfSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "CommSemiring ENNReal",
+      "source_range": {
+        "start_line": 141,
+        "start_column": 0,
+        "end_line": 142,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instCommSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HDiv α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1403,
+        "start_column": 2,
+        "end_line": 1403,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HDiv.hDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a / b` computes the result of dividing `a` by `b`.\nThe meaning of this notation is type-dependent.\n* For most types like `Nat`, `Int`, `Rat`, `Real`, `a / 0` is defined to be `0`.\n* For `Nat`, `a / b` rounds downwards.\n* For `Int`, `a / b` rounds downwards if `b` is positive or upwards if `b` is negative.\n  It is implemented as `Int.ediv`, the unique function satisfying\n  `a % b + b * (a / b) = a` and `0 ≤ a % b < natAbs b` for `b ≠ 0`.\n  Other rounding conventions are available using the functions\n  `Int.fdiv` (floor rounding) and `Int.tdiv` (truncation rounding).\n* For `Float`, `a / 0` follows the IEEE 754 semantics for division,\n  usually resulting in `inf` or `nan`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `/` in identifiers is `div`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Div α] → HDiv α α α",
+      "source_range": {
+        "start_line": 1681,
+        "start_column": 0,
+        "end_line": 1683,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : DivInvMonoid G] → Div G",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 98
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DivInvMonoid.toDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "DivInvMonoid ENNReal",
+      "source_range": {
+        "start_line": 177,
+        "start_column": 0,
+        "end_line": 177,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instDivInvMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NNReal → ENNReal",
+      "source_range": {
+        "start_line": 114,
+        "start_column": 0,
+        "end_line": 115,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.ofNNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Coercion from `ℝ≥0` to `ℝ≥0∞`. "
+    },
+    {
+      "value": null,
+      "type": "ℝ → NNReal",
+      "source_range": {
+        "start_line": 154,
+        "start_column": 0,
+        "end_line": 156,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.NNReal.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.toNNReal",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Reinterpret a real number `r` as a non-negative real number. Returns `0` if `r < 0`. "
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : NegZeroClass G] → Zero G",
+      "source_range": {
+        "start_line": 294,
+        "start_column": 0,
+        "end_line": 295,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NegZeroClass.toZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : SubNegZeroMonoid G] → NegZeroClass G",
+      "source_range": {
+        "start_line": 298,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 73
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SubNegZeroMonoid.toNegZeroClass",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [SubtractionMonoid α] → SubNegZeroMonoid α",
+      "source_range": {
+        "start_line": 414,
+        "start_column": 2,
+        "end_line": 414,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "SubtractionMonoid.toSubNegZeroMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : SubtractionCommMonoid G] → SubtractionMonoid G",
+      "source_range": {
+        "start_line": 359,
+        "start_column": 0,
+        "end_line": 359,
+        "end_column": 84
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SubtractionCommMonoid.toSubtractionMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_1} → [AddCommGroup G] → SubtractionCommMonoid G",
+      "source_range": {
+        "start_line": 128,
+        "start_column": 2,
+        "end_line": 128,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "AddCommGroup.toDivisionAddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_5) → [MeasurableSpace α] → Type u_5",
+      "source_range": {
+        "start_line": 70,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "structure",
+      "internal": false,
+      "id": "MeasureTheory.Measure",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measure is defined to be an outer measure that is countably additive on\nmeasurable sets, with the additional assumption that the outer measure is the canonical\nextension of the restricted measure.\n\nThe measure of a set `s`, denoted `μ s`, is an extended nonnegative real. The real-valued version\nis written `μ.real s`.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : MeasureTheory.MeasureSpace α] → MeasurableSpace α",
+      "source_range": {
+        "start_line": 356,
+        "start_column": 0,
+        "end_line": 357,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "MeasureTheory.MeasureSpace.toMeasurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_3} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : InnerProductSpace ℝ E] →\n      [FiniteDimensional ℝ E] → [inst_3 : MeasurableSpace E] → [BorelSpace E] → MeasureTheory.MeasureSpace E",
+      "source_range": {
+        "start_line": 294,
+        "start_column": 0,
+        "end_line": 311,
+        "end_column": 76
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+      "kind": "def",
+      "internal": false,
+      "id": "measureSpaceOfInnerProductSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A finite-dimensional inner product space has a canonical measure, the Lebesgue measure giving\nvolume `1` to the parallelepiped spanned by any orthonormal basis. We define the measure using\nsome arbitrary choice of orthonormal basis. The fact that it works with any orthonormal basis\nis proved in `orthonormalBasis.volume_parallelepiped`.\n\nThis instance creates:\n\n- a potential non-defeq diamond with the natural instance for `MeasureSpace (ULift E)`,\n  which does not exist in Mathlib at the moment;\n\n- a diamond with the existing instance `MeasureTheory.Measure.instMeasureSpacePUnit`.\n\nHowever, we've decided not to refactor until one of these diamonds starts creating issues, see\nhttps://leanprover.zulipchat.com/#narrow/stream/287929-mathlib4/topic/Hausdorff.20measure.20normalisation\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : MeasurableSpace α] → FunLike (MeasureTheory.Measure α) (Set α) ENNReal",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 92,
+        "end_column": 97
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.Measure.instFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : MeasureTheory.MeasureSpace α] → MeasureTheory.Measure α",
+      "source_range": {
+        "start_line": 357,
+        "start_column": 2,
+        "end_line": 357,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "MeasureTheory.MeasureSpace.volume",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`volume` is the canonical measure on `α`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [PseudoMetricSpace α] → α → ℝ → Set α",
+      "source_range": {
+        "start_line": 368,
+        "start_column": 0,
+        "end_line": 371,
+        "end_column": 22
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Metric.ball",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`ball x ε` is the set of all points `y` with `dist y x < ε` "
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) →\n  {ι : Type u_2} →\n    (β : ι → Type u_4) →\n      [hp : Fact (1 ≤ p)] → [Fintype ι] → [(i : ι) → PseudoMetricSpace (β i)] → PseudoMetricSpace (PiLp p β)",
+      "source_range": {
+        "start_line": 617,
+        "start_column": 0,
+        "end_line": 621,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.instPseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "pseudometric space instance on the product of finitely many pseudometric spaces, using the\n`L^p` distance, and having as uniformity the product uniformity. "
+    },
+    {
+      "value": null,
+      "type": "DivInvMonoid ℝ",
+      "source_range": {
+        "start_line": 476,
+        "start_column": 0,
+        "end_line": 476,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instDivInvMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NatCast ℝ",
+      "source_range": {
+        "start_line": 161,
+        "start_column": 0,
+        "end_line": 161,
+        "end_column": 55
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (n : ℕ) [NeZero n], (n + 1).AtLeastTwo",
+      "source_range": {
+        "start_line": 428,
+        "start_column": 0,
+        "end_line": 429,
+        "end_column": 69
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Init",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Nat.instAtLeastTwoHAddOfNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {n : ℕ}, NeZero (n + 1)",
+      "source_range": {
+        "start_line": 745,
+        "start_column": 0,
+        "end_line": 745,
+        "end_column": 70
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Nat.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Nat.instNeZeroSucc",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{d : ℕ} →\n  (toSpherePacking : SpherePacking d) →\n    (lattice : Submodule ℤ (EuclideanSpace ℝ (Fin d))) →\n      (∀ ⦃x y : EuclideanSpace ℝ (Fin d)⦄,\n          x ∈ lattice → y ∈ toSpherePacking.centers → x + y ∈ toSpherePacking.centers) →\n        (lattice_discrete : autoParam (DiscreteTopology ↥lattice) PeriodicSpherePacking.lattice_discrete._autoParam) →\n          autoParam (IsZLattice ℝ lattice) PeriodicSpherePacking.lattice_isZLattice._autoParam → PeriodicSpherePacking d",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 10,
+        "end_line": 49,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "constructor",
+      "internal": false,
+      "id": "PeriodicSpherePacking.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℕ → Type",
+      "source_range": {
+        "start_line": 43,
+        "start_column": 0,
+        "end_line": 47,
+        "end_column": 76
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "structure",
+      "internal": false,
+      "id": "SpherePacking",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [ConditionallyCompleteLattice α] → (β → α) → Filter β → α",
+      "source_range": {
+        "start_line": 61,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.LiminfLimsup",
+      "kind": "def",
+      "internal": false,
+      "id": "Filter.limsup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `limsup` of a function `u` along a filter `f` is the infimum of the `a` such that\nthe inequality `u x ≤ a` eventually holds for `f`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [self : ConditionallyCompleteLinearOrder α] → ConditionallyCompleteLattice α",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 82,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [self : ConditionallyCompleteLinearOrderBot α] → ConditionallyCompleteLinearOrder α",
+      "source_range": {
+        "start_line": 94,
+        "start_column": 0,
+        "end_line": 97,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [h : CompleteLinearOrder α] → ConditionallyCompleteLinearOrderBot α",
+      "source_range": {
+        "start_line": 164,
+        "start_column": 0,
+        "end_line": 170,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "CompleteLinearOrder.toConditionallyCompleteLinearOrderBot",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "CompleteLinearOrder ENNReal",
+      "source_range": {
+        "start_line": 153,
+        "start_column": 0,
+        "end_line": 154,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.ENNReal.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ENNReal.instCompleteLinearOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun {d} S R => MeasureTheory.volume (S.balls ∩ Metric.ball 0 R) / MeasureTheory.volume (Metric.ball 0 R)",
+      "type": "{d : ℕ} → SpherePacking d → ℝ → ENNReal",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 110,
+        "end_column": 80
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "def",
+      "internal": false,
+      "id": "SpherePacking.finiteDensity",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [Preorder α] → Filter α",
+      "source_range": {
+        "start_line": 30,
+        "start_column": 0,
+        "end_line": 40,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Filter.AtTopBot.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Filter.atTop",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`atTop` is the filter representing the limit `→ ∞` on an ordered set.\nIt is generated by the collection of up-sets `{b | a ≤ b}`.\n(The preorder need not have a top element for this to be well defined,\nand indeed is trivial when a top element `x` exists, i.e., it coincides with `pure x`.) "
+    },
+    {
+      "value": null,
+      "type": "Preorder ℝ",
+      "source_range": {
+        "start_line": 331,
+        "start_column": 0,
+        "end_line": 331,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instPreorder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HAdd α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1366,
+        "start_column": 2,
+        "end_line": 1366,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HAdd.hAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Add α] → HAdd α α α",
+      "source_range": {
+        "start_line": 1669,
+        "start_column": 0,
+        "end_line": 1671,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sort u → Lean.Syntax → Sort u",
+      "source_range": {
+        "start_line": 2648,
+        "start_column": 0,
+        "end_line": 2653,
+        "end_column": 70
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Tactics",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "autoParam",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Gadget for automatic parameter support. This is similar to the `optParam` gadget, but it uses\nthe given tactic.\nLike `optParam`, this gadget only affects elaboration.\nFor example, the tactic will *not* be invoked during type class resolution. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_2) → [t : TopologicalSpace α] → Prop",
+      "source_range": {
+        "start_line": 307,
+        "start_column": 0,
+        "end_line": 311,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Order",
+      "kind": "class",
+      "internal": false,
+      "id": "DiscreteTopology",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A topological space is discrete if every set is open, that is,\nits topology equals the discrete topology `⊥`. "
+    },
+    {
+      "value": null,
+      "type": "{X : Type u_1} → {p : X → Prop} → [t : TopologicalSpace X] → TopologicalSpace (Subtype p)",
+      "source_range": {
+        "start_line": 76,
+        "start_column": 0,
+        "end_line": 78,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Induced",
+      "kind": "def",
+      "internal": false,
+      "id": "instTopologicalSpaceSubtype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) → {ι : Type u_2} → (β : ι → Type u_4) → [(i : ι) → TopologicalSpace (β i)] → TopologicalSpace (PiLp p β)",
+      "source_range": {
+        "start_line": 534,
+        "start_column": 0,
+        "end_line": 535,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "def",
+      "internal": false,
+      "id": "PiLp.topologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq\n  (#[].push\n    (Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq1Indented\n      (#[].push\n        (Lean.Syntax.node Lean.SourceInfo.none `null\n          (#[].push\n            (Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticInfer_instance\n              (#[].push (Lean.mkAtom \"infer_instance\"))))))))",
+      "type": "Lean.Syntax",
+      "source_range": null,
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "def",
+      "internal": true,
+      "id": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(K : Type u_1) →\n  [inst : NormedField K] →\n    {E : Type u_2} →\n      [inst_1 : NormedAddCommGroup E] → [NormedSpace K E] → (L : Submodule ℤ E) → [DiscreteTopology ↥L] → Prop",
+      "source_range": {
+        "start_line": 430,
+        "start_column": 0,
+        "end_line": 435,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.ZLattice.Basic",
+      "kind": "class",
+      "internal": false,
+      "id": "IsZLattice",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`L : Submodule ℤ E` where `E` is a vector space over a normed field `K` is a `ℤ`-lattice if\nit is discrete and spans `E` over `K`. "
+    },
+    {
+      "value": "Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq\n  (#[].push\n    (Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq1Indented\n      (#[].push\n        (Lean.Syntax.node Lean.SourceInfo.none `null\n          (#[].push\n            (Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticInfer_instance\n              (#[].push (Lean.mkAtom \"infer_instance\"))))))))",
+      "type": "Lean.Syntax",
+      "source_range": null,
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "def",
+      "internal": true,
+      "id": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{d : ℕ} →\n  (centers : Set (EuclideanSpace ℝ (Fin d))) →\n    (separation : ℝ) →\n      autoParam (0 < separation) SpherePacking.separation_pos._autoParam →\n        (Pairwise fun x1 x2 => separation ≤ dist x1 x2) → SpherePacking d",
+      "source_range": {
+        "start_line": 43,
+        "start_column": 10,
+        "end_line": 43,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "constructor",
+      "internal": false,
+      "id": "SpherePacking.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {d : ℕ}, Module.Finite ℝ (WithLp 2 (Fin d → ℝ))",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "theorem",
+      "internal": true,
+      "id": "SpherePacking.finiteDensity._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {d : ℕ}, BorelSpace (PiLp 2 fun x => ℝ)",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "theorem",
+      "internal": true,
+      "id": "SpherePacking.finiteDensity._proof_2",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Inter α] → α → α → α",
+      "source_range": {
+        "start_line": 528,
+        "start_column": 2,
+        "end_line": 528,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Inter.inter",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ∩ b` is the intersection of `a` and `b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∩` in identifiers is `inter`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Inter (Set α)",
+      "source_range": {
+        "start_line": 244,
+        "start_column": 0,
+        "end_line": 244,
+        "end_column": 39
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.instInter",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun {d} S => ⋃ x, Metric.ball (↑x) (S.separation / 2)",
+      "type": "{d : ℕ} → SpherePacking d → Set (EuclideanSpace ℝ (Fin d))",
+      "source_range": {
+        "start_line": 106,
+        "start_column": 0,
+        "end_line": 107,
+        "end_column": 73
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SpherePacking.balls",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 5043,
+        "start_column": 0,
+        "end_line": 5096,
+        "end_column": 117
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Lean.Syntax",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Lean syntax trees.\n\nSyntax trees are used pervasively throughout Lean: they are produced by the parser, transformed by\nthe macro expander, and elaborated. They are also produced by the delaborator and presented to\nusers.\n"
+    },
+    {
+      "value": null,
+      "type": "Lean.SourceInfo → Lean.SyntaxNodeKind → Array Lean.Syntax → Lean.Syntax",
+      "source_range": {
+        "start_line": 5057,
+        "start_column": 2,
+        "end_line": 5074,
+        "end_column": 85
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Lean.Syntax.node",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A node in the syntax tree that may have further syntax as child nodes. The node's `kind`\ndetermines its interpretation.\n\nFor nodes produced by the parser, the `info` field is typically `Lean.SourceInfo.none`, and source\ninformation is stored in the corresponding fields of identifiers and atoms. This field is used in\ntwo ways:\n 1. The delaborator uses it to associate nodes with metadata that are used to implement\n    interactive features.\n 2. Nodes created by quotations use the field to mark the syntax as synthetic (storing the result\n    of `Lean.SourceInfo.fromRef`) even when its leading or trailing tokens are not.\n"
+    },
+    {
+      "value": null,
+      "type": "Lean.SourceInfo",
+      "source_range": {
+        "start_line": 4967,
+        "start_column": 2,
+        "end_line": 4968,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Lean.SourceInfo.none",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A synthesized token without position information. "
+    },
+    {
+      "value": null,
+      "type": "String → String → String → String → Lean.Name",
+      "source_range": {
+        "start_line": 4868,
+        "start_column": 0,
+        "end_line": 4870,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.Name.mkStr4",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Make name `s₁.s₂.s₃.s₄` "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Array α → α → Array α",
+      "source_range": {
+        "start_line": 3327,
+        "start_column": 0,
+        "end_line": 3339,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Array.push",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Adds an element to the end of an array. The resulting array's size is one greater than the input\narray. If there are no other references to the array, then it is modified in-place.\n\nThis takes amortized `O(1)` time because `Array α` is represented by a dynamic array.\n\nExamples:\n* `#[].push \"apple\" = #[\"apple\"]`\n* `#[\"apple\"].push \"orange\" = #[\"apple\", \"orange\"]`\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Array α",
+      "source_range": {
+        "start_line": 3251,
+        "start_column": 0,
+        "end_line": 3257,
+        "end_column": 61
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Array.empty",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Constructs a new empty array with initial capacity `0`.\n\nUse `Array.emptyWithCapacity` to create an array with a greater initial capacity.\n"
+    },
+    {
+      "value": null,
+      "type": "String → Lean.Name",
+      "source_range": {
+        "start_line": 4856,
+        "start_column": 0,
+        "end_line": 4858,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.Name.mkStr1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Make name `s₁` "
+    },
+    {
+      "value": null,
+      "type": "String → Lean.Syntax",
+      "source_range": {
+        "start_line": 5456,
+        "start_column": 0,
+        "end_line": 5458,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.mkAtom",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Constructs a synthetic `atom` with no source info. "
+    },
+    {
+      "value": null,
+      "type": "LT ℝ",
+      "source_range": {
+        "start_line": 265,
+        "start_column": 0,
+        "end_line": 267,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLT",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq\n  (#[].push\n    (Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq1Indented\n      (#[].push\n        (Lean.Syntax.node Lean.SourceInfo.none `null\n          (#[].push\n            (Lean.Syntax.node Lean.SourceInfo.none `Mathlib.Tactic.Positivity.positivity\n              ((#[].push (Lean.mkAtom \"positivity\")).push (Lean.Syntax.node Lean.SourceInfo.none `null #[]))))))))",
+      "type": "Lean.Syntax",
+      "source_range": null,
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "def",
+      "internal": true,
+      "id": "SpherePacking.separation_pos._autoParam",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → (α → α → Prop) → Prop",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 35,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Logic.Pairwise",
+      "kind": "def",
+      "internal": false,
+      "id": "Pairwise",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A relation `r` holds pairwise if `r i j` for all `i ≠ j`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_3} → [self : Dist α] → α → α → ℝ",
+      "source_range": {
+        "start_line": 106,
+        "start_column": 2,
+        "end_line": 106,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Dist.dist",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Distance between two points "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoMetricSpace α] → Dist α",
+      "source_range": {
+        "start_line": 141,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 71
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoMetricSpace.toDist",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [PseudoMetricSpace α] → {p : α → Prop} → PseudoMetricSpace (Subtype p)",
+      "source_range": {
+        "start_line": 60,
+        "start_column": 0,
+        "end_line": 61,
+        "end_column": 43
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Constructions",
+      "kind": "def",
+      "internal": false,
+      "id": "Subtype.pseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) → (M : Type u_3) → [inst : Semiring R] → [inst_1 : AddCommMonoid M] → [Module R M] → Prop",
+      "source_range": {
+        "start_line": 116,
+        "start_column": 0,
+        "end_line": 119,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.Finiteness.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Module.Finite",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A module over a semiring is `Module.Finite` if it is finitely generated as a module. "
+    },
+    {
+      "value": null,
+      "type": "ENNReal → Type u_1 → Type u_1",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 54,
+        "end_column": 10
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.WithLp",
+      "kind": "structure",
+      "internal": false,
+      "id": "WithLp",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A type synonym for the given `V`, associated with the L`p` norm. Note that by default this just\nforgets the norm structure on `V`; it is up to downstream users to implement the L`p` norm (for\ninstance, on `Prod` and finite `Pi` types). "
+    },
+    {
+      "value": null,
+      "type": "(p : ENNReal) →\n  (K : Type u_1) →\n    (V : Type u_4) → [inst : Semiring K] → [inst_1 : AddCommGroup V] → [Module K V] → Module K (WithLp p V)",
+      "source_range": {
+        "start_line": 232,
+        "start_column": 0,
+        "end_line": 233,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.WithLp",
+      "kind": "def",
+      "internal": false,
+      "id": "WithLp.instModule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_6) → [TopologicalSpace α] → [MeasurableSpace α] → Prop",
+      "source_range": {
+        "start_line": 111,
+        "start_column": 0,
+        "end_line": 115,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+      "kind": "class",
+      "internal": false,
+      "id": "BorelSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A space with `MeasurableSpace` and `TopologicalSpace` structures such that\nthe `σ`-algebra of measurable sets is exactly the `σ`-algebra generated by open sets. "
+    },
+    {
+      "value": null,
+      "type": "ENNReal → {ι : Type u_1} → (ι → Type u_2) → Type (max u_1 u_2)",
+      "source_range": {
+        "start_line": 83,
+        "start_column": 0,
+        "end_line": 88,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Lp.PiLp",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PiLp",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A copy of a Pi type, on which we will put the `L^p` distance. Since the Pi type itself is\nalready endowed with the `L^∞` distance, we need the type synonym to avoid confusing typeclass\nresolution. Also, we let it depend on `p`, to get a whole family of type on which we can put\ndifferent distances. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {ι : Sort v} → (ι → Set α) → Set α",
+      "source_range": {
+        "start_line": 164,
+        "start_column": 0,
+        "end_line": 166,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.SetNotation",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.iUnion",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Indexed union of a family of sets "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → {p : α → Prop} → Subtype p → α",
+      "source_range": {
+        "start_line": 659,
+        "start_column": 2,
+        "end_line": 659,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Subtype.val",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The value in the underlying type that satisfies the predicate.\n"
+    },
+    {
+      "value": null,
+      "type": "(1 + 1).AtLeastTwo",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "SpherePacking.Basic.SpherePacking",
+      "kind": "theorem",
+      "internal": true,
+      "id": "SpherePacking.balls._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℕ → Prop",
+      "source_range": {
+        "start_line": 412,
+        "start_column": 0,
+        "end_line": 424,
+        "end_column": 14
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Init",
+      "kind": "class",
+      "internal": false,
+      "id": "Nat.AtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A type class for natural numbers which are greater than or equal to `2`.\n\n`NeZero` and `AtLeastTwo` are used for numeric literals, and also for groups of related lemmas\nsharing a common value of `n` that needs to be nonzero, or at least `2`, and where it is\nconvenient to pass this information implicitly. Instances for these classes cover some of the\ncases where it is most structurally obvious from the syntactic form of `n` that it satisfies the\nrequired conditions, such as `m + 1`. Less widely used cases may be defined as lemmas rather than\nglobal instances and then made into instances locally where needed. If implicit arguments,\nappearing before other explicit arguments, are allowed to be `autoParam`s in a future version of\nLean, such an `autoParam` that is proved `by lia` might be a more general replacement for the\nuse of typeclass inference for this purpose. "
+    },
+    {
+      "value": null,
+      "type": "Add ℕ",
+      "source_range": {
+        "start_line": 1777,
+        "start_column": 0,
+        "end_line": 1778,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instAddNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Nat",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SchwartzMap",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.normedAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "fact_one_le_two_ennreal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Fin.fintype",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.normedSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedField",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NonUnitalSeminormedRing.toSeminormedAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedCommRing.toNonUnitalSeminormedCommRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NormedCommRing.toSeminormedCommRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedCommRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "InnerProductSpace.toNormedSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instRCLike",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "RCLike.toInnerProductSpaceReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex.instNormedAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NormedAddCommGroup.toSeminormedAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instInnerProductSpaceRealComplex",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Ne",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SchwartzMap.instZero",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Eq",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex.ofReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex.re",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "DFunLike.coe",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SchwartzMap.instFunLike",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NormedSpace.complexToReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex.instRCLike",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NormedField.toNormedCommRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex.instNormedField",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "RCLike.innerProductSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "FourierTransform.fourier",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SchwartzMap.instFourierTransform",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.instModuleFinite",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instDivisionRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Pi.addCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedAddCommGroup.toAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Pi.module",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NormedField.toField",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "DenselyNormedField.toNormedField",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "RCLike.toDenselyNormedField",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toAddCommMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NormedSpace.toModule",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "FiniteDimensional.finiteDimensional_pi'",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Finite.of_fintype",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "FiniteDimensional.rclike_to_real",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.measurableSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace.pi",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.measurableSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.borelSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instCountableFin",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace.toUniformSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toPseudoEMetricSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedAddCommGroup.toPseudoMetricSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.borelSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instSecondCountableTopologyReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "GE.ge",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Norm.norm",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.instNorm",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.norm",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "One.toOfNat1",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instOne",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "LE.le",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking.separation",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking.toSpherePacking",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Nonempty",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Set.Elem",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking.centers",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Bornology.IsBounded",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.bornology",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toBornology",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ExistsUnique",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Subtype",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Submodule",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Int",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Int.instSemiring",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.instAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instAddCommGroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toIntModule",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SetLike.instMembership",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Submodule.setLike",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking.lattice",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "HVAdd.hVAdd",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instHVAdd",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Submodule.instVAddSubtypeMem",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instVAddOfAdd",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMagma.toAdd",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommSemigroup.toAddCommMagma",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoid.toAddCommSemigroup",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "LT.lt",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instLTNat",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Summable",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Complex.instAddCommMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toUniformSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedRing.toPseudoMetricSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedCommRing.toSeminormedRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "CommCStarAlgebra.toNormedCommRing",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instCommCStarAlgebraComplex",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SummationFilter.unconditional",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instLE",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking.density",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instHMul",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instCommSemiring",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "HDiv.hDiv",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "instHDiv",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "DivInvMonoid.toDiv",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instDivInvMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.ofNNReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.toNNReal",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "NegZeroClass.toZero",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SubNegZeroMonoid.toNegZeroClass",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SubtractionMonoid.toSubNegZeroMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "SubtractionCommMonoid.toSubtractionMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toDivisionAddCommMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.toMeasurableSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "measureSpaceOfInnerProductSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure.instFunLike",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.volume",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Metric.ball",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.instPseudoMetricSpace",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instDivInvMonoid",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Nat.instAtLeastTwoHAddOfNat",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Nat.instNeZeroSucc",
+      "source": "LinearProgrammingBound'",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "PeriodicSpherePacking",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking.mk",
+      "source": "PeriodicSpherePacking",
+      "site": "constructor_type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.separation",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.separation",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.separation",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.separation",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.separation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "PeriodicSpherePacking.toSpherePacking",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking",
+      "source": "PeriodicSpherePacking.toSpherePacking",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "PeriodicSpherePacking.toSpherePacking",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "PeriodicSpherePacking.toSpherePacking",
+      "site": "definition_value"
+    },
+    {
+      "target": "PeriodicSpherePacking",
+      "source": "PeriodicSpherePacking.toSpherePacking",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.centers",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.centers",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "SpherePacking.centers",
+      "site": "type"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "SpherePacking.centers",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.centers",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.centers",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.centers",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.centers",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Submodule",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Int",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Int.instSemiring",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toAddCommMonoid",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.instAddCommGroup",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Pi.addCommGroup",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Real.instAddCommGroup",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toIntModule",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "definition_value"
+    },
+    {
+      "target": "PeriodicSpherePacking",
+      "source": "PeriodicSpherePacking.lattice",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.density",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.density",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.density",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "Filter.limsup",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "CompleteLinearOrder.toConditionallyCompleteLinearOrderBot",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instCompleteLinearOrder",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.finiteDensity",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "Filter.atTop",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instPreorder",
+      "source": "SpherePacking.density",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Submodule",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Int",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Int.instSemiring",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toAddCommMonoid",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.instAddCommGroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Pi.addCommGroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.instAddCommGroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toIntModule",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "SetLike.instMembership",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Submodule.setLike",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking.centers",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "HAdd.hAdd",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "instHAdd",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMagma.toAdd",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommSemigroup.toAddCommMagma",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoid.toAddCommSemigroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "autoParam",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "DiscreteTopology",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Subtype",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "instTopologicalSpaceSubtype",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.topologicalSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toUniformSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "IsZLattice",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedField",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.normedAddCommGroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "fact_one_le_two_ennreal",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Fin.fintype",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedAddCommGroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.normedSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "NonUnitalSeminormedRing.toSeminormedAddCommGroup",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedCommRing.toNonUnitalSeminormedCommRing",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "NormedCommRing.toSeminormedCommRing",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedCommRing",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "InnerProductSpace.toNormedSpace",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.instRCLike",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "RCLike.toInnerProductSpaceReal",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PeriodicSpherePacking",
+      "source": "PeriodicSpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking.mk",
+      "source": "SpherePacking",
+      "site": "constructor_type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.finiteDensity",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.finiteDensity",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.finiteDensity",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.finiteDensity",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "HDiv.hDiv",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHDiv",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivInvMonoid.toDiv",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instDivInvMonoid",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "DFunLike.coe",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.toMeasurableSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "measureSpaceOfInnerProductSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "PiLp.normedAddCommGroup",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "fact_one_le_two_ennreal",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Fin.fintype",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.normedAddCommGroup",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "PiLp.innerProductSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instRCLike",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "RCLike.toInnerProductSpaceReal",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.finiteDensity._proof_1",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "WithLp.measurableSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasurableSpace.pi",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.measurableSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.finiteDensity._proof_2",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure.instFunLike",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.volume",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Inter.inter",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.instInter",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.balls",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Metric.ball",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "PiLp.instPseudoMetricSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "NegZeroClass.toZero",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SubNegZeroMonoid.toNegZeroClass",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SubtractionMonoid.toSubNegZeroMonoid",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "SubtractionCommMonoid.toSubtractionMonoid",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommGroup.toDivisionAddCommMonoid",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "WithLp.instAddCommGroup",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Pi.addCommGroup",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instAddCommGroup",
+      "source": "SpherePacking.finiteDensity",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "type"
+    },
+    {
+      "target": "Lean.Syntax.node",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.SourceInfo.none",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr4",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.push",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.empty",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr1",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.mkAtom",
+      "source": "PeriodicSpherePacking.lattice_discrete._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "type"
+    },
+    {
+      "target": "Lean.Syntax.node",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.SourceInfo.none",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr4",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.push",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.empty",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr1",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.mkAtom",
+      "source": "PeriodicSpherePacking.lattice_isZLattice._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "autoParam",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "LT.lt",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLT",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking.separation_pos._autoParam",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Pairwise",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Set.Elem",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "LE.le",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Dist.dist",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toDist",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Subtype.pseudoMetricSpace",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.instPseudoMetricSpace",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "fact_one_le_two_ennreal",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Fin.fintype",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.mk",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Module.Finite",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "WithLp",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Real.instDivisionRing",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "AddCommGroup.toAddCommMonoid",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.instAddCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Pi.addCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedAddCommGroup.toAddCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NormedAddCommGroup.toSeminormedAddCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedAddCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.instModule",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Pi.module",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NormedField.toField",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "DenselyNormedField.toNormedField",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "RCLike.toDenselyNormedField",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Real.instRCLike",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NormedSpace.toModule",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "InnerProductSpace.toNormedSpace",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "RCLike.toInnerProductSpaceReal",
+      "source": "SpherePacking.finiteDensity._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "BorelSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "PiLp",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "PiLp.topologicalSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "PseudoEMetricSpace.toUniformSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "PseudoMetricSpace.toPseudoEMetricSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "SeminormedAddCommGroup.toPseudoMetricSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NormedAddCommGroup.toSeminormedAddCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Real.normedAddCommGroup",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "WithLp.measurableSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace.pi",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Real.measurableSpace",
+      "source": "SpherePacking.finiteDensity._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.balls",
+      "site": "type"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.balls",
+      "site": "type"
+    },
+    {
+      "target": "Set",
+      "source": "SpherePacking.balls",
+      "site": "type"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "SpherePacking.balls",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.balls",
+      "site": "type"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.balls",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.iUnion",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "EuclideanSpace",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Fin",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.Elem",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.centers",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Metric.ball",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "PiLp.instPseudoMetricSpace",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddMonoidWithOne.toNatCast",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommMonoidWithOne.toAddMonoidWithOne",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "ENNReal.instAddCommMonoidWithOne",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "PiLp.innerProductSpace._proof_1",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "fact_one_le_two_ennreal",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Fin.fintype",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Subtype.val",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.instMembership",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "HDiv.hDiv",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHDiv",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivInvMonoid.toDiv",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instDivInvMonoid",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.separation",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "SpherePacking.balls._proof_1",
+      "source": "SpherePacking.balls",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "type"
+    },
+    {
+      "target": "Lean.Syntax.node",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.SourceInfo.none",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr4",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.push",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.empty",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr1",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.mkAtom",
+      "source": "SpherePacking.separation_pos._autoParam",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.AtLeastTwo",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "HAdd.hAdd",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instHAdd",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instAddNat",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "SpherePacking.balls._proof_1",
+      "site": "type"
+    }
+  ],
+  "provenance": {
+    "repository": "thefundamentaltheor3m/Sphere-Packing-Lean",
+    "revision": "77cf0a0c104f2e31501eab04d88bbc068d61c169",
+    "root": "LinearProgrammingBound'",
+    "lean_required": "4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "proof_values_traversed": false,
+    "source_edits": [
+      {
+        "module": "SpherePacking.Basic.PeriodicPacking",
+        "path": "SpherePacking/Basic/PeriodicPacking.lean",
+        "original_sha256": "08b2b8a3025807341907a84e861481c18c1b878d7edd0d36dab898398873d14e",
+        "effective_sha256": "7ecaeef6a463751be56dca33bc1592fe15e2248a20d62241358f674b355f86de"
+      }
+    ],
+    "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1"
+  }
+}

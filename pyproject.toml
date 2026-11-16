@@ -5,8 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "leanreviewbench"
 version = "0.1.0"
-description = "LeanReviewBench offline dataset loader and development evaluation tools"
-requires-python = ">=3.10"
+description = "Native LeanReviewBench project-case inspection and validation"
+requires-python = ">=3.11"
 license = {text = "Apache-2.0"}
 dependencies = []
 

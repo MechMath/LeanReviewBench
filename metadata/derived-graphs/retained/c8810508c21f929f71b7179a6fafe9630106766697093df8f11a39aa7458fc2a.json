@@ -1,0 +1,987 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "Dusart.proposition_4_3"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {x : ℝ},\n  x ≥ 121 →\n    Chebyshev.psi x - Chebyshev.theta x > 0.9999 * √x ∧\n      Chebyshev.psi x - Chebyshev.theta x > √x * (1 - 4 / Real.log x ^ 3)",
+      "source_range": {
+        "start_line": 11,
+        "start_column": 0,
+        "end_line": 14,
+        "end_column": 7
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Dusart.proposition_4_3",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1294,
+        "start_column": 0,
+        "end_line": 1295,
+        "end_column": 72
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "GE.ge",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ≥ b` is an abbreviation for `b ≤ a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≥` in identifiers is `ge`."
+    },
+    {
+      "value": null,
+      "type": "LE ℝ",
+      "source_range": {
+        "start_line": 296,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → {n : ℕ} → [NatCast R] → [n.AtLeastTwo] → OfNat R n",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 45,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatAtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Recognize numeric literals which are at least `2` as terms of `R` via `Nat.cast`. This\ninstance is what makes things like `37 : R` type check.  Note that `0` and `1` are not needed\nbecause they are recognized as terms of `R` (at least when `R` is an `AddMonoidWithOne`) through\n`Zero` and `One`, respectively. "
+    },
+    {
+      "value": null,
+      "type": "NatCast ℝ",
+      "source_range": {
+        "start_line": 161,
+        "start_column": 0,
+        "end_line": 161,
+        "end_column": 55
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (n : ℕ) [NeZero n], (n + 1).AtLeastTwo",
+      "source_range": {
+        "start_line": 428,
+        "start_column": 0,
+        "end_line": 429,
+        "end_column": 69
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Init",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Nat.instAtLeastTwoHAddOfNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 1234,
+        "start_column": 0,
+        "end_line": 1256,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n"
+    },
+    {
+      "value": null,
+      "type": "(n : ℕ) → OfNat ℕ n",
+      "source_range": {
+        "start_line": 1280,
+        "start_column": 0,
+        "end_line": 1282,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {n : ℕ}, NeZero (n + 1)",
+      "source_range": {
+        "start_line": 745,
+        "start_column": 0,
+        "end_line": 745,
+        "end_column": 70
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Nat.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Nat.instNeZeroSucc",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 589,
+        "start_column": 0,
+        "end_line": 603,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "And",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [LT α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1296,
+        "start_column": 0,
+        "end_line": 1297,
+        "end_column": 72
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "GT.gt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a > b` is an abbreviation for `b < a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `>` in identifiers is `gt`."
+    },
+    {
+      "value": null,
+      "type": "LT ℝ",
+      "source_range": {
+        "start_line": 265,
+        "start_column": 0,
+        "end_line": 267,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLT",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HSub α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1376,
+        "start_column": 2,
+        "end_line": 1376,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HSub.hSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator)."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Sub α] → HSub α α α",
+      "source_range": {
+        "start_line": 1673,
+        "start_column": 0,
+        "end_line": 1675,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sub ℝ",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 110,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℝ → ℝ",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 74,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.Chebyshev",
+      "kind": "def",
+      "internal": false,
+      "id": "Chebyshev.psi",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The sum of `ArithmeticFunction.vonMangoldt` over integers `n ≤ x`. "
+    },
+    {
+      "value": null,
+      "type": "ℝ → ℝ",
+      "source_range": {
+        "start_line": 79,
+        "start_column": 0,
+        "end_line": 81,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.Chebyshev",
+      "kind": "def",
+      "internal": false,
+      "id": "Chebyshev.theta",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The sum of `log p` over primes `p ≤ x`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HMul α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1385,
+        "start_column": 2,
+        "end_line": 1385,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HMul.hMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Mul α] → HMul α α α",
+      "source_range": {
+        "start_line": 1677,
+        "start_column": 0,
+        "end_line": 1679,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Mul ℝ",
+      "source_range": {
+        "start_line": 105,
+        "start_column": 0,
+        "end_line": 107,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : OfScientific α] → ℕ → Bool → ℕ → α",
+      "source_range": {
+        "start_line": 31,
+        "start_column": 2,
+        "end_line": 31,
+        "end_column": 14
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Data.OfScientific.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfScientific.ofScientific",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Produces a value from the given mantissa, exponent sign, and decimal exponent. For the exponent\nsign, `true` indicates a negative exponent.\n\n Examples:\n - `1.23` is syntax for `OfScientific.ofScientific (nat_lit 123) true (nat_lit 2)`\n - `121e100` is syntax for `OfScientific.ofScientific (nat_lit 121) false (nat_lit 100)`\n\n Note the use of `nat_lit`; there is no wrapping `OfNat.ofNat` in the resulting term.\n"
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_1} → [NNRatCast K] → OfScientific K",
+      "source_range": {
+        "start_line": 45,
+        "start_column": 0,
+        "end_line": 47,
+        "end_column": 66
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Order.Ring.Unbundled.Rat",
+      "kind": "def",
+      "internal": false,
+      "id": "NNRatCast.toOfScientific",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NNRatCast ℝ",
+      "source_range": {
+        "start_line": 163,
+        "start_column": 0,
+        "end_line": 163,
+        "end_column": 61
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instNNRatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Bool",
+      "source_range": {
+        "start_line": 110,
+        "start_column": 2,
+        "end_line": 111,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Bool.true",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The Boolean value `true`, not to be confused with the proposition `True`. "
+    },
+    {
+      "value": null,
+      "type": "ℝ → ℝ",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 113,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Real.Sqrt",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.sqrt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The square root of a real number. This returns 0 for negative inputs.\n\nThis has notation `√x`. Note that `√x⁻¹` is parsed as `√(x⁻¹)`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [One α] → OfNat α 1",
+      "source_range": {
+        "start_line": 27,
+        "start_column": 0,
+        "end_line": 28,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "One.toOfNat1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "One ℝ",
+      "source_range": {
+        "start_line": 93,
+        "start_column": 0,
+        "end_line": 95,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HDiv α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1403,
+        "start_column": 2,
+        "end_line": 1403,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HDiv.hDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a / b` computes the result of dividing `a` by `b`.\nThe meaning of this notation is type-dependent.\n* For most types like `Nat`, `Int`, `Rat`, `Real`, `a / 0` is defined to be `0`.\n* For `Nat`, `a / b` rounds downwards.\n* For `Int`, `a / b` rounds downwards if `b` is positive or upwards if `b` is negative.\n  It is implemented as `Int.ediv`, the unique function satisfying\n  `a % b + b * (a / b) = a` and `0 ≤ a % b < natAbs b` for `b ≠ 0`.\n  Other rounding conventions are available using the functions\n  `Int.fdiv` (floor rounding) and `Int.tdiv` (truncation rounding).\n* For `Float`, `a / 0` follows the IEEE 754 semantics for division,\n  usually resulting in `inf` or `nan`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `/` in identifiers is `div`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Div α] → HDiv α α α",
+      "source_range": {
+        "start_line": 1681,
+        "start_column": 0,
+        "end_line": 1683,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : DivInvMonoid G] → Div G",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 98
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.DivInvMonoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DivInvMonoid.toDiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "DivInvMonoid ℝ",
+      "source_range": {
+        "start_line": 476,
+        "start_column": 0,
+        "end_line": 476,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instDivInvMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HPow α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1423,
+        "start_column": 2,
+        "end_line": 1423,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HPow.hPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a ^ b` computes `a` to the power of `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `^` in identifiers is `pow`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [Pow α β] → HPow α β α",
+      "source_range": {
+        "start_line": 1689,
+        "start_column": 0,
+        "end_line": 1691,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_2} → [NPow M] → Pow M ℕ",
+      "source_range": {
+        "start_line": 371,
+        "start_column": 0,
+        "end_line": 373,
+        "end_column": 27
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Monoid",
+      "kind": "def",
+      "internal": false,
+      "id": "NPow.toPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_2} → [self : Monoid M] → NPow M",
+      "source_range": {
+        "start_line": 390,
+        "start_column": 0,
+        "end_line": 395,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Monoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Monoid.toNPow",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Monoid ℝ",
+      "source_range": {
+        "start_line": 242,
+        "start_column": 0,
+        "end_line": 242,
+        "end_column": 40
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℝ → ℝ",
+      "source_range": {
+        "start_line": 39,
+        "start_column": 0,
+        "end_line": 45,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.log",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The real logarithm function, equal to the inverse of the exponential for `x > 0`,\nto `log |x|` for `x < 0`, and to `0` for `0`. We use this unconventional extension to\n`(-∞, 0]` as it gives the formula `log (x * y) = log x + log y` for all nonzero `x` and `y`, and\nthe derivative of `log` is `1/x` away from `0`. "
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Real",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "GE.ge",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Nat.instAtLeastTwoHAddOfNat",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Nat.instNeZeroSucc",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "And",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "GT.gt",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instLT",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "HSub.hSub",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "instHSub",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instSub",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Chebyshev.psi",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Chebyshev.theta",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "instHMul",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "OfScientific.ofScientific",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "NNRatCast.toOfScientific",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instNNRatCast",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Bool.true",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.sqrt",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "One.toOfNat1",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instOne",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "HDiv.hDiv",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "instHDiv",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "DivInvMonoid.toDiv",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instDivInvMonoid",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "HPow.hPow",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "instHPow",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "NPow.toPow",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Monoid.toNPow",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.instMonoid",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    },
+    {
+      "target": "Real.log",
+      "source": "Dusart.proposition_4_3",
+      "site": "type"
+    }
+  ]
+}

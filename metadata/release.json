@@ -1,0 +1,40 @@
+{
+  "schema_version": "paperlean-local-release-1",
+  "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+  "research_docs_commit": "2f471585a4b71adb32f6e3fac214e366ce8979ae",
+  "dataset_schema": "paperlean-project-case-1",
+  "inputs": 172,
+  "batches": {
+    "applied-modeling-lib": 30,
+    "carleson": 7,
+    "coarse-degiorgi": 7,
+    "sphere-packing": 9,
+    "formalslt": 6,
+    "vaught": 3,
+    "stat-learning-theory": 1,
+    "statsmllib": 2,
+    "brownian-motion": 2,
+    "pfr": 24,
+    "sphere-eversion": 6,
+    "pnt": 40,
+    "stacks": 5,
+    "arklib": 12,
+    "imperial-flt": 5,
+    "equational-theories": 7,
+    "apap": 6
+  },
+  "labels": {
+    "misaligned": 90,
+    "aligned": 82
+  },
+  "formal_files": 8734,
+  "reference_ready": 0,
+  "model_export_status": "Native project-case data; no frozen model task export is asserted.",
+  "omitted": [
+    "staging and excluded candidates",
+    "qwen experiment runs",
+    "per-declaration and duplicate graph encodings",
+    "build caches",
+    "original-source.tar.gz copies (original/ contents retained)"
+  ]
+}

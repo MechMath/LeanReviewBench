@@ -1,0 +1,79 @@
+{
+  "id": "eb-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "FormalSLT eb confidence sequence",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/Robby955/FormalSLT",
+    "commit": "3d96374ae0ab353a154a1db74708645a28973807",
+    "path": "FormalSLT/AnytimeValid/EmpiricalBernsteinCS.lean",
+    "module": "FormalSLT.AnytimeValid.EmpiricalBernsteinCS",
+    "declaration": "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior",
+    "url": "https://github.com/Robby955/FormalSLT/blob/3d96374ae0ab353a154a1db74708645a28973807/FormalSLT/AnytimeValid/EmpiricalBernsteinCS.lean",
+    "sha256": "0ca3587a06a26026a35d8f33046829a43973c6ad8da6005e13543dc2c248dbbb",
+    "leads": [
+      "https://github.com/Robby955/FormalSLT/commit/94a4bfc3f8b50c8e905a44672babaff6d74619e6"
+    ]
+  },
+  "group_id": "formalslt:eb",
+  "split_group": "Robby955/FormalSLT",
+  "before_ids": [],
+  "after_ids": [
+    "eb-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Exp",
+    "Mathlib.Analysis.SpecialFunctions.Exponential",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Analysis.SpecificLimits.Basic",
+    "Mathlib.Analysis.SpecificLimits.Normed",
+    "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+    "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut",
+    "Mathlib.MeasureTheory.Function.ConditionalExpectation.Real",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.Martingale.OptionalStopping",
+    "Mathlib.Probability.Notation",
+    "Mathlib.Probability.Process.HittingTime",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 9,
+    "sha256": "c8dda40817edead3582444e17622788bf6fd948e8f51a65526bbcab0cb0368bf"
+  },
+  "preparation": {
+    "receipt": "reports/formalslt-history/technical/eb-before/20261103T130336866752Z/receipt.json",
+    "receipt_sha256": "3c32a02c8d160761f40ffb448805be3ad0dce4b75b589826519c5e4a5e25f366",
+    "graph": "reports/formalslt-history/technical/eb-before/20261103T130336866752Z/graph.json",
+    "explicit_graph": "reports/formalslt-history/technical/eb-before/20261103T130336866752Z/explicit-graph.json",
+    "explicit_receipt_sha256": "d1e81cae03788a786c80a92a25561beb289642dbf86731e534507955278528dc",
+    "packaged_receipt": "reports/formalslt-history/technical/eb-before/packaged/receipt.json",
+    "packaged_receipt_sha256": "5b5417e476e24a19b3564579b5918665f19ba3dd8524949ad4d9609627b4f1de",
+    "review": "reports/formalslt-history/semantic-review.json"
+  },
+  "author_disclosure": "explicitly_confirmed_in_repair_commit",
+  "mechanism_group": "formalslt:increment-adapted-zero-collapse",
+  "input_sha256": "84fccd39b0b4043a9149592aa38cd7898fb7ba2e5ee36385e46f6fc09388b40b",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/formalslt.jsonl"
+}

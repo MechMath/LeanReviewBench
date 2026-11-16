@@ -1,0 +1,71 @@
+{
+  "id": "bounded-dusart1999-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-dusart1999-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Dusart1999.p_n_upper",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "a93551347dce924b1db75d40218841bf085a465f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "declaration": "Dusart1999.p_n_upper",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+  },
+  "group_id": "pnt-Dusart1999.p_n_upper",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-dusart1999-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "与自己的冻结版本逐项一致：nth_prime′ n=Nat.nth Prime(n−1)对应从1开始的p_n；n和p_n上的阈值、严格/非严格不等号、自然对数项及常数均按当前文字保留。不同版本之间的阈值变化不构成各自配对的不一致。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "4e6e481a4143c2bcb4668566dac475750008f12073b53d08ef592f4a3341466e"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-before/20261105T053544779623Z/receipt.json",
+    "receipt_sha256": "99c66c4f8b72579fb682ed4f4f21ee19a9935fc11c906f6384d761e136b2d353",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-before/20261105T053544779623Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "7a32e6cd7e1d910ba4794618f798e90a90a724adac3e169102f103fa93dec8ac",
+    "formal_snapshot_id": "bounded-dusart1999-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+        "ref": "a93551347dce924b1db75d40218841bf085a465f",
+        "text": "For $n > 39017$ (i.e., $p_n > 467473$), we have\n  $p_n < n(\\log n + \\log\\log n - 0.9484)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Dusart1999.p_n_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Dusart1999.p_n_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "5ab6dd94ee71bbe6e4363c40bf0e86b3dd4c551bd559ff941e7fe9bdae18a1f1",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

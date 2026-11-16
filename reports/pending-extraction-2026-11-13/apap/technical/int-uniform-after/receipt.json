@@ -1,0 +1,25 @@
+{
+  "dataset": "packets",
+  "project_id": "int-uniform-after",
+  "status": "passed",
+  "modules": 1,
+  "targets": [
+    "int"
+  ],
+  "compiled_modules": 1,
+  "source_sha256": "ca920a9cb5d44be55a17af13aad003e5ceb9635387bd4128d52522f127c8a0f3",
+  "seconds": 2.683,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 43,
+      "edges": 42
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 43,
+      "edges": 42
+    }
+  },
+  "leantrace_extracted": true
+}

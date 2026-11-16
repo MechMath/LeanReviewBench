@@ -1,0 +1,85 @@
+{
+  "id": "pr228-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr228-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "rhoMinus",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "238db8a8e77897bd2f996837ae9c8711c6aebce5",
+    "path": "PFR/RhoFunctional.lean",
+    "module": "PFR.RhoFunctional",
+    "declaration": "rhoMinus",
+    "url": "https://github.com/teorth/pfr/blob/238db8a8e77897bd2f996837ae9c8711c6aebce5/PFR/RhoFunctional.lean",
+    "sha256": "3451e6bbf69bbc6ddcafc45bc4d3ca233be94db392a15246bb3ea11658aeac35"
+  },
+  "group_id": "pfr-kl-support",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pr228-before"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "after 的概率乘积测度和支持筛选在有限群范围内正确实现目标下确界；但定义只接受有限 G，而冻结目标允许一般加法群和无限支持 X、T。完整输入范围仍缺失。",
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Notation",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 2,
+    "sha256": "4a038a0bef06e59e103fef921e324cf106d7a14854bd5088f2405b217ef2f417"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr228-after/20261104T091732042185Z/receipt.json",
+    "receipt_sha256": "d38b9c06fafc218a3b4d97dfa187997f275d1ebf3a387efa4333001dcf6930ea",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr228-after/20261104T091732042185Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "392003bd51218a309ba1b3e8bb23ecfe5c851ae996fa53f5242123f179fc38c6",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/238db8a8e77897bd2f996837ae9c8711c6aebce5/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "1cd52a9fc9c968eb366dd25925600765b84aa324033d6080c244cc9b239e0cfb",
+        "locator": "rhominus-def",
+        "text": "\\begin{definition}[Rho minus]\\label{rhominus-def}\\lean{rhoMinus}\\leanok  For any $G$-valued random variable $X$, we define $\\rho^-(X)$ to be the infimum of $D_{KL}(X \\Vert  U_A + T)$, where $U_A$ is uniform on $A$ and $T$ ranges over $G$-valued random variables independent of $U_A$.\n\\end{definition}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/238db8a8e77897bd2f996837ae9c8711c6aebce5/blueprint/src/chapter/entropy.tex",
+        "sha256": "6587c95c25e521f7f16f14e079f715550b9dbf9f8d00f5c845a5ba2af56dbddf",
+        "locator": "further_improvement.tex: rhominus-def; kl-div; entropy chapter probability convention",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'rhoMinus' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'rhoMinus' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "definition_preserving_slice"
+  },
+  "input_sha256": "65652804f5f59397415343a5a826230879fde6d2f99196381a404c5e1d087574",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

@@ -1,0 +1,8 @@
+id,root,commit,group_id,before_ids,after_ids,status
+CAR-01-after,metric_carleson,26325e323949418e155a4dc92b9b5a047ef2de82,carleson:CAR-01-before,CAR-01-before,,misaligned
+CAR-01-before,metric_carleson,0138d636eed1475ea5e848ef6cf4b141636056cc,carleson:CAR-01-before,,CAR-01-after,misaligned
+CAR-02-after,linearized_metric_carleson,31a6f54943413ac48fd9e934c4fce3c9621e1860,carleson:CAR-02-before,CAR-02-before,,misaligned
+CAR-02-before,linearized_metric_carleson,f005a0fe7be71905a7bbe2f85b7ecd23e84a637f,carleson:CAR-02-before,,CAR-02-after,misaligned
+CAR-CTRL-01,ClassicalCarleson,f10c441921273ee2a04cea802f2c32b7c6ebc5ea,carleson:CAR-CTRL-01,,,ready
+CAR-CTRL-02,MetricSpaceCarleson,f10c441921273ee2a04cea802f2c32b7c6ebc5ea,carleson:CAR-CTRL-02,,,misaligned
+CAR-CTRL-03,LinearizedMetricCarleson,f10c441921273ee2a04cea802f2c32b7c6ebc5ea,carleson:CAR-CTRL-03,,,misaligned

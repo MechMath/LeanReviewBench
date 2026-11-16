@@ -1,0 +1,71 @@
+{
+  "id": "bounded-dusart-table-error-text-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-dusart-table-error-text-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Dusart.proposition_3_2",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+    "path": "PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "declaration": "Dusart.proposition_3_2",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+  },
+  "group_id": "pnt-Dusart.proposition_3_2",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "bounded-dusart-table-error-text-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "Frozen prose states the normalized error bound |ψ(x)−x|/x≤ε for x≥exp(b). Formal unfolds to exactly this statement, and every retained Table1 row matches the cited published table.",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "084babc4ea86445f95334df554fcc0c4603591d30e40b6fa9201ff561859c145"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-table-error/20261105T053628500676Z/receipt.json",
+    "receipt_sha256": "82461066af2b523b65bc23a0d09aebf00af2a7fa701a5d58c81d4d5ff63608bf",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-table-error/20261105T053628500676Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "4b81500c236634263db1bdd488e628a62ddba4c661f393c065f3fb0f269040b1",
+    "formal_snapshot_id": "bounded-dusart-table-error",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+        "ref": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+        "text": "For $x \\geq e^{b}$ we have $|\\psi(x) - x|/x \\leq \\varepsilon$, where $b, \\varepsilon$ are given by \\cite[Table 1]{Dusart2018}."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Dusart.proposition_3_2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Dusart.proposition_3_2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "183d7a73767d204609e63a6b9e1bc63f46eae92793278c281cef2a31fe6a5321",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

@@ -1,0 +1,1135 @@
+/-
+Copyright (c) 2025 Devon Tuma. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Devon Tuma, Quang Dao
+-/
+
+module
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Data.Set.Card
+public import dep.PolyFun.PFunctor.Trace
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+
+/-!
+# Structures For Tracking a Computation's Oracle Queries
+
+This file defines types like `QueryLog` and `QueryCache` for use with
+simulation oracles and implementation transformers defined in the same directory.
+-/
+
+@[expose] public section
+
+open ENNReal OracleSpec OracleComp
+
+/- Query logs are definitionally PolyFun traces for an oracle specification. These reducers
+must remain available at implicit transparency when specializing that generic API. -/
+attribute [local implicit_reducible] PFunctor.Idx FreeMonoid
+
+universe u v w
+
+namespace OracleSpec
+
+variable {ι : Type u} {spec : OracleSpec ι}
+
+/-- A partial dependent answer table, ordered by extension of cached responses. -/
+structure QueryCache (spec : OracleSpec.{u, v} ι) : Type (max u v) where
+  /-- Look up the response stored at an oracle index. -/
+  toFn : (t : spec.Domain) → Option (spec.Range t)
+
+namespace QueryCache
+
+instance : CoeFun (QueryCache spec) (fun _ => (t : spec.Domain) → Option (spec.Range t)) :=
+  ⟨QueryCache.toFn⟩
+
+/-- Package a partial dependent answer function as a cache. -/
+def ofFn (f : (t : spec.Domain) → Option (spec.Range t)) : QueryCache spec := ⟨f⟩
+
+@[simp]
+lemma ofFn_apply (f : (t : spec.Domain) → Option (spec.Range t)) (t : spec.Domain) :
+    ofFn f t = f t := rfl
+
+@[simp]
+lemma toFn_ofFn (f : (t : spec.Domain) → Option (spec.Range t)) : (ofFn f).toFn = f := rfl
+
+@[simp]
+lemma ofFn_toFn (cache : QueryCache spec) : ofFn cache.toFn = cache := rfl
+
+instance : EmptyCollection (QueryCache spec) := ⟨ofFn (fun _ => none)⟩
+
+@[simp]
+lemma empty_apply (t : spec.Domain) : (∅ : QueryCache spec) t = none := rfl
+
+@[ext]
+protected lemma ext {c₁ c₂ : QueryCache spec} (h : ∀ t, c₁ t = c₂ t) : c₁ = c₂ := by
+  cases c₁
+  cases c₂
+  congr 1
+  exact funext h
+
+/-- Cache lookup is injective. -/
+theorem toFn_injective : Function.Injective (@toFn ι spec) :=
+  fun _ _ h => QueryCache.ext (congrFun h)
+
+/-- A cache and its dependent optional lookup table contain the same data. -/
+def equivFn : QueryCache spec ≃ ((t : spec.Domain) → Option (spec.Range t)) where
+  toFun := toFn
+  invFun := ofFn
+  left_inv := ofFn_toFn
+  right_inv := toFn_ofFn
+
+instance : Inhabited (QueryCache spec) := ⟨∅⟩
+
+instance [DecidableEq ((t : spec.Domain) → Option (spec.Range t))] :
+    DecidableEq (QueryCache spec) := fun c₁ c₂ =>
+  decidable_of_iff (c₁.toFn = c₂.toFn) toFn_injective.eq_iff
+
+instance [Countable ((t : spec.Domain) → Option (spec.Range t))] :
+    Countable (QueryCache spec) := toFn_injective.countable
+
+instance [Finite ((t : spec.Domain) → Option (spec.Range t))] :
+    Finite (QueryCache spec) := Finite.of_injective toFn toFn_injective
+
+instance [Fintype ((t : spec.Domain) → Option (spec.Range t))] :
+    Fintype (QueryCache spec) := Fintype.ofEquiv _ equivFn.symm
+
+/-! ### Agreement with answer functions -/
+
+/-- A total answer function agrees with a cache if it returns every cached response. -/
+@[grind]
+def AgreesWithFn (f : QueryImpl spec Id) (cache : QueryCache spec) : Prop :=
+  ∀ ⦃t : spec.Domain⦄ ⦃r : spec.Range t⦄, cache t = some r → f t = r
+
+/-- Every cache is extended by some total answer function. -/
+lemma exists_agreesWithFn [∀ t, Nonempty (spec.Range t)] (cache : QueryCache spec) :
+    ∃ f : QueryImpl spec Id, cache.AgreesWithFn f := by
+  refine ⟨fun t => (cache t).getD (Classical.arbitrary _), ?_⟩
+  intro t r h
+  simp [h]
+
+/-! ### Partial Order
+
+A `QueryCache` carries a natural partial order where `c₁ ≤ c₂` means every cached entry
+in `c₁` also appears (with the same value) in `c₂`. The empty cache is the bottom element. -/
+
+instance : PartialOrder (QueryCache spec) where
+  le c₁ c₂ := ∀ ⦃t⦄ ⦃u : spec.Range t⦄, c₁ t = some u → c₂ t = some u
+  le_refl _ _ _ h := h
+  le_trans _ _ _ h₁₂ h₂₃ _ _ h := h₂₃ (h₁₂ h)
+  le_antisymm a b hab hba := by apply QueryCache.ext; intro t; aesop
+
+instance : OrderBot (QueryCache spec) where
+  bot := ∅
+  bot_le _ := by intro _ _ h; simp at h
+
+@[simp]
+lemma bot_eq_empty : (⊥ : QueryCache spec) = ∅ := rfl
+
+@[grind =]
+lemma le_def {c₁ c₂ : QueryCache spec} :
+    c₁ ≤ c₂ ↔ ∀ ⦃t⦄ ⦃u : spec.Range t⦄, c₁ t = some u → c₂ t = some u :=
+  ⟨fun h => h, fun h => h⟩
+
+/-! ### Query membership -/
+
+/-- Check whether a query `t` has a cached response. -/
+def isCached (cache : QueryCache spec) (t : spec.Domain) : Bool :=
+  (cache t).isSome
+
+@[simp]
+lemma isCached_empty (t : spec.Domain) : isCached (∅ : QueryCache spec) t = false := rfl
+
+/-- A query answered in a cache is answered in every larger cache. -/
+lemma isSome_mono {c₁ c₂ : QueryCache spec} (h : c₁ ≤ c₂) {t : spec.Domain}
+    (ht : (c₁ t).isSome) : (c₂ t).isSome :=
+  Option.isSome_iff_exists.mpr ((Option.isSome_iff_exists.mp ht).imp fun _ hu => h hu)
+
+/-! ### Conversion to a set of query-response pairs -/
+
+/-- The set of all `(query, response)` pairs stored in the cache. -/
+def toSet (cache : QueryCache spec) : Set ((t : spec.Domain) × spec.Range t) :=
+  fun ⟨t, r⟩ => cache t = some r
+
+@[simp]
+lemma mem_toSet {cache : QueryCache spec} {t : spec.Domain} {r : spec.Range t} :
+    ⟨t, r⟩ ∈ cache.toSet ↔ cache t = some r :=
+  Iff.rfl
+
+@[simp]
+lemma toSet_empty : (∅ : QueryCache spec).toSet = ∅ := by
+  ext ⟨t, r⟩; simp
+
+lemma toSet_mono {c₁ c₂ : QueryCache spec} (h : c₁ ≤ c₂) : c₁.toSet ⊆ c₂.toSet :=
+  fun ⟨_, _⟩ hx => h hx
+
+/-- Number of live entries in a query cache, as an `ℝ≥0∞` resource. -/
+noncomputable def enncard (cache : QueryCache spec) : ℝ≥0∞ :=
+  (cache.toSet.encard : ℝ≥0∞)
+
+@[simp]
+lemma enncard_empty : enncard (∅ : QueryCache spec) = 0 := by
+  simp [enncard]
+
+/-- Cache cardinality is monotone in the extension order. -/
+lemma enncard_mono {c₁ c₂ : QueryCache spec} (h : c₁ ≤ c₂) : enncard c₁ ≤ enncard c₂ := by
+  simpa [enncard] using Set.encard_mono (toSet_mono h)
+
+/-- A set of answered queries is no larger than the set of entries: the entries at those
+queries are distinct pairs, one per query. -/
+lemma encard_le_toSet_encard {cache : QueryCache spec} (S : Set spec.Domain)
+    (hS : ∀ t ∈ S, (cache t).isSome) : S.encard ≤ cache.toSet.encard := by
+  set T : Set ((t : spec.Domain) × spec.Range t) := {x | x ∈ cache.toSet ∧ x.1 ∈ S}
+  have hinj : Set.InjOn Sigma.fst T := by
+    rintro ⟨t, r⟩ ⟨hr, -⟩ ⟨t', r'⟩ ⟨hr', -⟩ h
+    obtain rfl : t = t' := h
+    simp only [mem_toSet] at hr hr'
+    exact Sigma.ext rfl (heq_of_eq (Option.some_inj.mp (hr.symm.trans hr')))
+  have himg : Sigma.fst '' T = S := by
+    refine Set.eq_of_subset_of_subset ?_ fun t ht => ?_
+    · rintro t ⟨⟨t', r'⟩, ⟨-, hmem⟩, rfl⟩
+      exact hmem
+    · obtain ⟨r, hr⟩ := Option.isSome_iff_exists.mp (hS t ht)
+      exact ⟨⟨t, r⟩, ⟨hr, ht⟩, rfl⟩
+  calc S.encard = T.encard := by rw [← himg, hinj.encard_image]
+    _ ≤ cache.toSet.encard := Set.encard_mono fun x hx => hx.1
+
+/-- **A set of answered queries is a lower bound on the cache's cardinality.** -/
+lemma encard_le_enncard {cache : QueryCache spec} (S : Set spec.Domain)
+    (hS : ∀ t ∈ S, (cache t).isSome) : (S.encard : ℝ≥0∞) ≤ enncard cache := by
+  rw [enncard]
+  exact_mod_cast encard_le_toSet_encard S hS
+
+/-! ### Cache update -/
+
+variable [DecidableEq ι] (cache : QueryCache spec)
+
+/- Named wrappers keep the dependent `Function.update` representation detail available for
+explicit rewriting at the `QueryCache` API boundary; generic `simp` also handles these forms. -/
+lemma functionUpdate_self (t : spec.Domain) (u : spec.Range t) :
+    Function.update cache t (some u) t = some u :=
+  Function.update_self t (some u) cache
+
+lemma functionUpdate_of_ne {t' t : spec.Domain} (u : spec.Range t) (h : t' ≠ t) :
+    Function.update cache t (some u) t' = cache t' :=
+  Function.update_of_ne h (some u) cache
+
+/-- Add an index + input pair to the cache by updating the function
+(wrapper around `Function.update`). -/
+def cacheQuery (t : spec.Domain) (u : spec.Range t) : QueryCache spec :=
+  ofFn (Function.update cache t (some u))
+
+@[simp, grind =]
+lemma cacheQuery_self (t : spec.Domain) (u : spec.Range t) :
+    (cache.cacheQuery t u) t = some u := by
+  simp [cacheQuery]
+
+@[simp, grind =]
+lemma cacheQuery_of_ne {t' t : spec.Domain} (u : spec.Range t) (h : t' ≠ t) :
+    (cache.cacheQuery t u) t' = cache t' := by
+  simp [cacheQuery, h]
+
+/-- After caching an answer at `t`, the cache answers `t'` exactly when `t'` is `t` or the cache
+already answered `t'`. -/
+lemma isSome_cacheQuery_apply_iff {t' t : spec.Domain} (u : spec.Range t) :
+    ((cache.cacheQuery t u) t').isSome ↔ t' = t ∨ (cache t').isSome := by
+  by_cases h : t' = t
+  · subst h
+    simp only [cacheQuery_self, Option.isSome_some, true_or]
+  · simp only [cacheQuery_of_ne _ _ h, h, false_or]
+
+/-- An answer function agrees with `cache.cacheQuery t u` iff it agrees with `cache` and returns
+`u` on `t`, provided `t` was not already cached. -/
+lemma agreesWithFn_cacheQuery_iff (t : spec.Domain) (u : spec.Range t) (f : QueryImpl spec Id)
+    (hcache : cache t = none) :
+    (cache.cacheQuery t u).AgreesWithFn f ↔ cache.AgreesWithFn f ∧ f t = u := by
+  grind [cacheQuery]
+
+lemma toSet_cacheQuery_subset_insert (t : spec.Domain) (u : spec.Range t) :
+    (cache.cacheQuery t u).toSet ⊆ insert ⟨t, u⟩ cache.toSet := by
+  rintro ⟨t', u'⟩ hmem
+  rcases eq_or_ne t' t with ht | ht
+  · subst t'
+    change cache.cacheQuery t u t = some u' at hmem
+    have hu : u = u' := Option.some.inj ((cacheQuery_self cache t u).symm.trans hmem)
+    subst u'
+    exact Set.mem_insert _ _
+  · right
+    change cache.cacheQuery t u t' = some u' at hmem
+    change cache t' = some u'
+    rw [← cacheQuery_of_ne cache u ht]
+    exact hmem
+
+lemma toSet_encard_cacheQuery_le (t : spec.Domain) (u : spec.Range t) :
+    (cache.cacheQuery t u).toSet.encard ≤ cache.toSet.encard + 1 :=
+  le_trans (Set.encard_le_encard (toSet_cacheQuery_subset_insert cache t u))
+    (Set.encard_insert_le cache.toSet ⟨t, u⟩)
+
+lemma enncard_cacheQuery_le (t : spec.Domain) (u : spec.Range t) :
+    enncard (cache.cacheQuery t u) ≤ enncard cache + 1 := by
+  simp only [enncard]
+  exact_mod_cast toSet_encard_cacheQuery_le cache t u
+
+/-- Caching a query that was not already cached inserts exactly its own pair. -/
+lemma toSet_cacheQuery (t : spec.Domain) (u : spec.Range t) (h : cache t = none) :
+    (cache.cacheQuery t u).toSet = insert ⟨t, u⟩ cache.toSet := by
+  ext ⟨t', r⟩
+  by_cases ht : t' = t
+  · subst ht; simp [h, eq_comm]
+  · simp [ht]
+
+/-- Caching a query that was not already cached raises the cardinality by exactly one. -/
+lemma enncard_cacheQuery (t : spec.Domain) (u : spec.Range t) (h : cache t = none) :
+    enncard (cache.cacheQuery t u) = enncard cache + 1 := by
+  rw [enncard, enncard, toSet_cacheQuery cache t u h,
+    Set.encard_insert_of_notMem (by simp [h])]
+  simp
+
+lemma le_cacheQuery {t : spec.Domain} {u : spec.Range t} (h : cache t = none) :
+    cache ≤ cache.cacheQuery t u := by grind
+
+/-- Caching answers at two distinct inputs commutes. -/
+lemma cacheQuery_comm {t t' : spec.Domain} (h : t ≠ t') (u : spec.Range t) (u' : spec.Range t') :
+    (cache.cacheQuery t u).cacheQuery t' u' = (cache.cacheQuery t' u').cacheQuery t u := by
+  ext s
+  by_cases hs : s = t
+  · subst hs
+    rw [cacheQuery_of_ne _ _ h, cacheQuery_self, cacheQuery_self]
+  · by_cases hs' : s = t'
+    · subst hs'
+      rw [cacheQuery_self, cacheQuery_of_ne _ _ hs, cacheQuery_self]
+    · rw [cacheQuery_of_ne _ _ hs', cacheQuery_of_ne _ _ hs, cacheQuery_of_ne _ _ hs,
+        cacheQuery_of_ne _ _ hs']
+
+lemma cacheQuery_mono {c₁ c₂ : QueryCache spec} (h : c₁ ≤ c₂) (t : spec.Domain)
+    (u : spec.Range t) : c₁.cacheQuery t u ≤ c₂.cacheQuery t u := by
+  intro t' u' ht'
+  rcases eq_or_ne t' t with rfl | heq
+  · simpa only [cacheQuery_self] using ht'
+  · exact cacheQuery_of_ne c₂ u heq ▸ h (cacheQuery_of_ne c₁ u heq ▸ ht')
+
+@[simp]
+lemma isCached_cacheQuery_self (t : spec.Domain) (u : spec.Range t) :
+    (cache.cacheQuery t u).isCached t = true := by
+  simp [isCached]
+
+@[simp]
+lemma isCached_cacheQuery_of_ne {t' t : spec.Domain} (u : spec.Range t) (h : t' ≠ t) :
+    (cache.cacheQuery t u).isCached t' = cache.isCached t' := by
+  simp [isCached, cacheQuery_of_ne cache u h]
+
+/-- The indices listed in `ts` that the cache does not hold. -/
+def uncached (ts : List spec.Domain) : Finset spec.Domain :=
+  ts.toFinset.filter fun t ↦ !cache.isCached t
+
+variable {cache} in
+lemma mem_uncached {ts : List spec.Domain} {t : spec.Domain} :
+    t ∈ cache.uncached ts ↔ t ∈ ts ∧ cache t = none := by
+  simp only [uncached, isCached, Bool.not_eq_true', Option.isSome_eq_false_iff,
+    Option.isNone_iff_eq_none, Finset.mem_filter, List.mem_toFinset]
+
+/-! ### Sum spec projections -/
+
+section sum
+
+variable {ι₁ ι₂ : Type*} {spec₁ : OracleSpec ι₁} {spec₂ : OracleSpec ι₂}
+
+/-- Project a cache for `spec₁ + spec₂` onto `spec₁`. -/
+protected def fst (cache : QueryCache (spec₁ + spec₂)) : QueryCache spec₁ :=
+  ofFn (fun t => cache (.inl t))
+
+/-- Project a cache for `spec₁ + spec₂` onto `spec₂`. -/
+protected def snd (cache : QueryCache (spec₁ + spec₂)) : QueryCache spec₂ :=
+  ofFn (fun t => cache (.inr t))
+
+/-- Embed a cache for `spec₁` into one for `spec₁ + spec₂`. -/
+protected def inl (cache : QueryCache spec₁) : QueryCache (spec₁ + spec₂) :=
+  ofFn (Sum.rec cache (fun _ => none))
+
+/-- Embed a cache for `spec₂` into one for `spec₁ + spec₂`. -/
+protected def inr (cache : QueryCache spec₂) : QueryCache (spec₁ + spec₂) :=
+  ofFn (Sum.rec (fun _ => none) cache)
+
+@[simp] lemma fst_apply (cache : QueryCache (spec₁ + spec₂)) (t : ι₁) :
+    cache.fst t = cache (.inl t) := rfl
+
+@[simp] lemma snd_apply (cache : QueryCache (spec₁ + spec₂)) (t : ι₂) :
+    cache.snd t = cache (.inr t) := rfl
+
+/-- Projecting onto the first summand is monotone. -/
+lemma fst_mono {c c' : QueryCache (spec₁ + spec₂)} (h : c ≤ c') : c.fst ≤ c'.fst :=
+  fun _ _ hu => h hu
+
+/-- Projecting onto the second summand is monotone. -/
+lemma snd_mono {c c' : QueryCache (spec₁ + spec₂)} (h : c ≤ c') : c.snd ≤ c'.snd :=
+  fun _ _ hu => h hu
+
+@[simp] lemma inl_apply_inl (cache : QueryCache spec₁) (t : ι₁) :
+    (cache.inl : QueryCache (spec₁ + spec₂)) (.inl t) = cache t := rfl
+
+@[simp] lemma inl_apply_inr (cache : QueryCache spec₁) (t : ι₂) :
+    (cache.inl : QueryCache (spec₁ + spec₂)) (.inr t) = none := rfl
+
+@[simp] lemma inr_apply_inl (cache : QueryCache spec₂) (t : ι₁) :
+    (cache.inr : QueryCache (spec₁ + spec₂)) (.inl t) = none := rfl
+
+@[simp] lemma inr_apply_inr (cache : QueryCache spec₂) (t : ι₂) :
+    (cache.inr : QueryCache (spec₁ + spec₂)) (.inr t) = cache t := rfl
+
+@[simp] lemma fst_inl (cache : QueryCache spec₁) :
+    (cache.inl : QueryCache (spec₁ + spec₂)).fst = cache := rfl
+
+@[simp] lemma snd_inr (cache : QueryCache spec₂) :
+    (cache.inr : QueryCache (spec₁ + spec₂)).snd = cache := rfl
+
+@[simp] lemma fst_inr (cache : QueryCache spec₂) :
+    (cache.inr : QueryCache (spec₁ + spec₂)).fst = ∅ := rfl
+
+@[simp] lemma snd_inl (cache : QueryCache spec₁) :
+    (cache.inl : QueryCache (spec₁ + spec₂)).snd = ∅ := rfl
+
+/-- Embedding a left-component cache commutes with caching a left-component query. -/
+@[simp]
+lemma inl_cacheQuery [DecidableEq ι₁] [DecidableEq ι₂]
+    (cache : QueryCache spec₁) (t : spec₁.Domain) (u : spec₁.Range t) :
+    (cache.cacheQuery t u).inl =
+      (cache.inl : QueryCache (spec₁ + spec₂)).cacheQuery (.inl t) u := by
+  apply QueryCache.ext
+  intro q
+  exact congrFun (Sum.rec_update_left (γ := fun t => Option ((spec₁ + spec₂).Range t))
+    cache (fun _ => none) t (some u)) q
+
+/-- Embedding a right-component cache commutes with caching a right-component query. -/
+@[simp]
+lemma inr_cacheQuery [DecidableEq ι₁] [DecidableEq ι₂]
+    (cache : QueryCache spec₂) (t : spec₂.Domain) (u : spec₂.Range t) :
+    (cache.cacheQuery t u).inr =
+      (cache.inr : QueryCache (spec₁ + spec₂)).cacheQuery (.inr t) u := by
+  apply QueryCache.ext
+  intro q
+  exact congrFun (Sum.rec_update_right (γ := fun t => Option ((spec₁ + spec₂).Range t))
+    (fun _ => none) cache t (some u)) q
+
+@[simp] lemma fst_empty :
+    (∅ : QueryCache (spec₁ + spec₂)).fst = (∅ : QueryCache spec₁) := rfl
+
+@[simp] lemma snd_empty :
+    (∅ : QueryCache (spec₁ + spec₂)).snd = (∅ : QueryCache spec₂) := rfl
+
+instance : Coe (QueryCache spec₁) (QueryCache (spec₁ + spec₂)) := ⟨QueryCache.inl⟩
+instance : Coe (QueryCache spec₂) (QueryCache (spec₁ + spec₂)) := ⟨QueryCache.inr⟩
+
+/-! ### Pairing two component caches -/
+
+/-- A cache for `spec₁ + spec₂` is exactly a pair of a cache for `spec₁` and one for `spec₂`. -/
+def addEquiv (spec₁ : OracleSpec ι₁) (spec₂ : OracleSpec ι₂) :
+    QueryCache spec₁ × QueryCache spec₂ ≃ QueryCache (spec₁ + spec₂) where
+  toFun p := ofFn (Sum.rec p.1 p.2)
+  invFun c := (c.fst, c.snd)
+  left_inv _ := rfl
+  right_inv c := by ext t; cases t <;> rfl
+
+/-- The pairing answers a left-hand query from the left-hand component cache. -/
+@[simp] lemma addEquiv_apply_inl (c₁ : QueryCache spec₁) (c₂ : QueryCache spec₂)
+    (t : spec₁.Domain) : addEquiv spec₁ spec₂ (c₁, c₂) (.inl t) = c₁ t := rfl
+
+/-- The pairing answers a right-hand query from the right-hand component cache. -/
+@[simp] lemma addEquiv_apply_inr (c₁ : QueryCache spec₁) (c₂ : QueryCache spec₂)
+    (t : spec₂.Domain) : addEquiv spec₁ spec₂ (c₁, c₂) (.inr t) = c₂ t := rfl
+
+/-- Pairing two empty caches gives the empty cache. -/
+@[simp] lemma addEquiv_empty :
+    addEquiv spec₁ spec₂ (∅, ∅) = (∅ : QueryCache (spec₁ + spec₂)) := by
+  ext t; cases t <;> rfl
+
+/-- Caching a left-hand query in the left-hand component is caching it in the pairing. -/
+lemma addEquiv_cacheQuery_inl [DecidableEq ι₁] [DecidableEq ι₂]
+    (c₁ : QueryCache spec₁) (c₂ : QueryCache spec₂) (t : spec₁.Domain) (u : spec₁.Range t) :
+    addEquiv spec₁ spec₂ (c₁.cacheQuery t u, c₂) =
+      (addEquiv spec₁ spec₂ (c₁, c₂)).cacheQuery (.inl t) u := by
+  ext t'
+  cases t' with
+  | inl t' =>
+      rcases eq_or_ne t' t with rfl | h
+      · simp
+      · simp [h, Sum.inl_injective.ne h]
+  | inr t' => simp
+
+/-- Caching a right-hand query in the right-hand component is caching it in the pairing. -/
+lemma addEquiv_cacheQuery_inr [DecidableEq ι₁] [DecidableEq ι₂]
+    (c₁ : QueryCache spec₁) (c₂ : QueryCache spec₂) (t : spec₂.Domain) (u : spec₂.Range t) :
+    addEquiv spec₁ spec₂ (c₁, c₂.cacheQuery t u) =
+      (addEquiv spec₁ spec₂ (c₁, c₂)).cacheQuery (.inr t) u := by
+  ext t'
+  cases t' with
+  | inl t' => simp
+  | inr t' =>
+      rcases eq_or_ne t' t with rfl | h
+      · simp
+      · simp [h, Sum.inr_injective.ne h]
+
+/-- The entries of the pairing are the entries of the two component caches, tagged by the side
+they came from. -/
+lemma toSet_addEquiv (c₁ : QueryCache spec₁) (c₂ : QueryCache spec₂) :
+    (addEquiv spec₁ spec₂ (c₁, c₂)).toSet =
+      (fun x : (t : spec₁.Domain) × spec₁.Range t =>
+          (⟨Sum.inl x.1, x.2⟩ :
+            (t : (spec₁ + spec₂).Domain) × (spec₁ + spec₂).Range t)) '' c₁.toSet ∪
+      (fun x : (t : spec₂.Domain) × spec₂.Range t =>
+          (⟨Sum.inr x.1, x.2⟩ :
+            (t : (spec₁ + spec₂).Domain) × (spec₁ + spec₂).Range t)) '' c₂.toSet := by
+  ext ⟨t, r⟩
+  cases t with
+  | inl t =>
+      simp only [mem_toSet, Set.mem_union, Set.mem_image]
+      refine ⟨fun h => Or.inl ⟨⟨t, r⟩, h, rfl⟩, ?_⟩
+      rintro (⟨⟨t', r'⟩, h, heq⟩ | ⟨⟨t', r'⟩, -, heq⟩)
+      · obtain ⟨h1, h2⟩ := Sigma.mk.inj heq
+        obtain rfl := Sum.inl_injective h1
+        obtain rfl := eq_of_heq h2
+        exact h
+      · exact absurd heq (by simp)
+  | inr t =>
+      simp only [mem_toSet, Set.mem_union, Set.mem_image]
+      refine ⟨fun h => Or.inr ⟨⟨t, r⟩, h, rfl⟩, ?_⟩
+      rintro (⟨⟨t', r'⟩, -, heq⟩ | ⟨⟨t', r'⟩, h, heq⟩)
+      · exact absurd heq (by simp)
+      · obtain ⟨h1, h2⟩ := Sigma.mk.inj heq
+        obtain rfl := Sum.inr_injective h1
+        obtain rfl := eq_of_heq h2
+        exact h
+
+/-- The pairing holds exactly as many entries as its two components together. -/
+lemma enncard_addEquiv (c₁ : QueryCache spec₁) (c₂ : QueryCache spec₂) :
+    enncard (addEquiv spec₁ spec₂ (c₁, c₂)) = enncard c₁ + enncard c₂ := by
+  have hinj₁ : Function.Injective
+      (fun x : (t : spec₁.Domain) × spec₁.Range t =>
+        (⟨Sum.inl x.1, x.2⟩ : (t : (spec₁ + spec₂).Domain) × (spec₁ + spec₂).Range t)) := by
+    rintro ⟨t, r⟩ ⟨t', r'⟩ h
+    obtain ⟨h1, h2⟩ := Sigma.mk.inj h
+    obtain rfl : t = t' := Sum.inl_injective h1
+    simpa using h2
+  have hinj₂ : Function.Injective
+      (fun x : (t : spec₂.Domain) × spec₂.Range t =>
+        (⟨Sum.inr x.1, x.2⟩ : (t : (spec₁ + spec₂).Domain) × (spec₁ + spec₂).Range t)) := by
+    rintro ⟨t, r⟩ ⟨t', r'⟩ h
+    obtain ⟨h1, h2⟩ := Sigma.mk.inj h
+    obtain rfl : t = t' := Sum.inr_injective h1
+    simpa using h2
+  have hdisj : Disjoint
+      ((fun x : (t : spec₁.Domain) × spec₁.Range t =>
+        (⟨Sum.inl x.1, x.2⟩ : (t : (spec₁ + spec₂).Domain) × (spec₁ + spec₂).Range t)) ''
+          c₁.toSet)
+      ((fun x : (t : spec₂.Domain) × spec₂.Range t =>
+        (⟨Sum.inr x.1, x.2⟩ : (t : (spec₁ + spec₂).Domain) × (spec₁ + spec₂).Range t)) ''
+          c₂.toSet) := by
+    rw [Set.disjoint_left]
+    rintro ⟨t, r⟩ ⟨⟨t₁, r₁⟩, -, h₁⟩ ⟨⟨t₂, r₂⟩, -, h₂⟩
+    rw [← h₁] at h₂
+    exact absurd (Sigma.mk.inj h₂).1 (by simp)
+  rw [enncard, enncard, enncard, toSet_addEquiv, Set.encard_union_eq hdisj,
+    hinj₁.injOn.encard_image, hinj₂.injOn.encard_image]
+  simp
+
+end sum
+
+end QueryCache
+
+/-- Per-index natural counts with the ordinary pointwise additive algebra.
+Additive writer instrumentation uses `Multiplicative (QueryCount ι)` as its
+monoidal payload; query counts themselves retain the standard function instances. -/
+@[reducible] def QueryCount (ι : Type*) := ι → ℕ
+
+namespace QueryCount
+
+/-- The query count recording one query at index `i` and none elsewhere. -/
+def single [DecidableEq ι] (i : ι) : QueryCount ι := Pi.single i 1
+
+@[simp]
+lemma single_le_iff_pos [DecidableEq ι] (i : ι) (qc : QueryCount ι) :
+    single i ≤ qc ↔ 0 < qc i := by
+  simp [single, Pi.single, update_le_iff, Nat.lt_iff_add_one_le]
+
+end QueryCount
+
+/-- Log of queries represented by a list of dependent product's tagging the oracle's index.
+`(t : spec.Domain) × (spec.Range t)` is slightly more restricted as it doesn't
+keep track of query ordering between different oracles.
+
+A `QueryLog spec` is morally a free monoid on `Idx spec.toPFunctor`, with
+identity `[]` and product `(++)`. By Mathlib reducibility this is exactly
+`FreeMonoid (Idx spec.toPFunctor) = TraceList spec.toPFunctor`, so a
+trace-valued boundary description such as `BoundaryAction.emit` (in
+`PolyFun/Interaction/Open/OpenProcess.lean`) and a per-call `QueryLog`-valued
+writer share the same underlying free-monoid carrier.
+
+We do *not* declare a global `Monoid (QueryLog spec)` instance: doing so
+would conflict with the `[EmptyCollection ω] [Append ω] → Monad (WriterT ω M)`
+instance Mathlib already provides for `WriterT (QueryLog spec) M`, which the
+`Std.Do` bridge `WriterTBridge` and the append-based reading `WriterT.AppendWP` rely on. The
+`QueryImpl.withTrace`/`withLogging` API instead uses the Append-based
+`Monad (WriterT _ _)` directly via `QueryImpl.withTraceAppend`. -/
+@[reducible] def QueryLog (spec : OracleSpec.{u, v} ι) : Type (max u v) :=
+  List ((t : spec.Domain) × spec.Range t)
+
+namespace QueryLog
+
+/-- Query log with a single entry. -/
+def singleton (t : spec.Domain) (u : spec.Range t) : QueryLog spec := [⟨t, u⟩]
+
+/-- Update a query log by adding a new element to the appropriate list.
+Note that this requires decidable equality on the indexing set. -/
+def logQuery (log : QueryLog spec) (t : spec.Domain) (u : spec.Range t) : QueryLog spec :=
+  log ++ singleton t u
+
+instance [DecidableEq ι] [∀ t, DecidableEq (spec.Range t)] : DecidableEq (QueryLog spec) :=
+  inferInstanceAs (DecidableEq (List _))
+
+section getQ
+
+/-- Get all the queries with inputs satisfying `p` -/
+def getQ (log : QueryLog spec) (p : spec.Domain → Prop) [DecidablePred p] :
+    List ((t : spec.Domain) × spec.Range t) :=
+  List.foldr (fun ⟨t, u⟩ xs => if p t then ⟨t, u⟩ :: xs else xs) [] log
+
+@[simp]
+lemma getQ_nil (p : spec.Domain → Prop) [DecidablePred p] :
+    getQ ([] : QueryLog spec) p = [] := rfl
+
+@[simp]
+lemma getQ_cons (entry : (t : spec.Domain) × spec.Range t) (log : QueryLog spec)
+    (p : spec.Domain → Prop) [DecidablePred p] :
+    getQ (entry :: log) p = if p entry.1 then entry :: getQ log p else getQ log p := rfl
+
+@[simp]
+lemma getQ_singleton (t : spec.Domain) (u : spec.Range t)
+    (p : spec.Domain → Prop) [DecidablePred p] :
+    getQ (singleton t u) p = if p t then [⟨t, u⟩] else [] := by
+  simp [singleton, getQ]
+
+@[simp]
+lemma getQ_append (log log' : QueryLog spec) (p : spec.Domain → Prop) [DecidablePred p] :
+    (log ++ log').getQ p = log.getQ p ++ log'.getQ p := by
+  induction log with
+  | nil => rfl
+  | cons hd tl ih => grind [getQ_cons]
+
+end getQ
+
+section countQ
+
+/-- Count the number of queries with inputs satisfying `p`. -/
+def countQ (log : QueryLog spec) (p : spec.Domain → Prop) [DecidablePred p] : ℕ :=
+  (log.getQ p).length
+
+@[simp]
+lemma countQ_cons (entry : (t : spec.Domain) × spec.Range t) (log : QueryLog spec)
+    (p : spec.Domain → Prop) [DecidablePred p] :
+    countQ (entry :: log) p = if p entry.1 then countQ log p + 1 else countQ log p := by
+  by_cases hp : p entry.1 <;> simp [countQ, getQ_cons, hp, Nat.add_comm]
+
+@[simp]
+lemma countQ_singleton (t : spec.Domain) (u : spec.Range t)
+    (p : spec.Domain → Prop) [DecidablePred p] :
+    countQ (singleton t u) p = if p t then 1 else 0 := by
+  simp [countQ, apply_ite List.length]
+
+@[simp]
+lemma countQ_append (log log' : QueryLog spec) (p : spec.Domain → Prop) [DecidablePred p] :
+    (log ++ log').countQ p = log.countQ p + log'.countQ p := by
+  simp [countQ, List.length_append]
+
+end countQ
+
+/-! ### Lookup by oracle occurrence -/
+
+/-- The `n`-th answer in the log for queries to oracle `t`, if it exists. -/
+def getQueryValue? [DecidableEq ι] (log : QueryLog spec) (t : ι) (n : Nat) :
+    Option (spec.Range t) :=
+  match (log.getQ (· = t))[n]? with
+  | none => none
+  | some ⟨t', u⟩ => if h : t' = t then some (h ▸ u) else none
+
+/-- Decompose `getQ` across a `logQuery` step. -/
+lemma getQ_logQuery (log : QueryLog spec) (t : ι) (u : spec.Range t)
+    (p : ι → Prop) [DecidablePred p] :
+    (log.logQuery t u).getQ p = log.getQ p ++ (if p t then [⟨t, u⟩] else []) := by
+  simp [QueryLog.logQuery, QueryLog.singleton]
+
+/-- If `getQueryValue? log t n = some u`, then the `n`-th `t`-filtered entry of
+`log` is `⟨t, u⟩`. -/
+lemma getQ_getElem?_eq_of_getQueryValue?_eq_some [DecidableEq ι]
+    (log : QueryLog spec) (t : ι) (n : Nat) (u : spec.Range t)
+    (h : getQueryValue? log t n = some u) :
+    (log.getQ (· = t))[n]? = some ⟨t, u⟩ := by
+  rcases hopt : (log.getQ (· = t))[n]? with _ | ⟨t', u'⟩
+  · simp [getQueryValue?, hopt] at h
+  · obtain rfl : t' = t := by by_contra ht; simp [getQueryValue?, hopt, ht] at h
+    simpa [getQueryValue?, hopt] using h
+
+/-- Converse: if the `n`-th `t`-filtered entry is `⟨t, u⟩`, then
+`getQueryValue? log t n = some u`. -/
+lemma getQueryValue?_eq_some_of_getQ_getElem? [DecidableEq ι]
+    (log : QueryLog spec) (t : ι) (n : Nat) (u : spec.Range t)
+    (h : (log.getQ (· = t))[n]? = some ⟨t, u⟩) :
+    getQueryValue? log t n = some u := by simp [getQueryValue?, h]
+
+/-- Every entry of `log.getQ (· = t)` has its first component equal to `t`. -/
+lemma getQ_eq_mem [DecidableEq ι] (log : QueryLog spec) (t : ι)
+    {entry : (t' : ι) × spec.Range t'} (h : entry ∈ log.getQ (· = t)) :
+    entry.1 = t := by
+  induction log <;> grind [QueryLog.getQ_cons, QueryLog.getQ_nil]
+
+/-- If the `t`-filtered log has at least `n + 1` entries, then the indexed
+lookup succeeds. -/
+lemma getQueryValue?_isSome_of_lt [DecidableEq ι]
+    (log : QueryLog spec) (t : ι) (n : Nat)
+    (h : n < (log.getQ (· = t)).length) :
+    (getQueryValue? log t n).isSome := by
+  simp [getQueryValue?, List.getElem?_eq_getElem h,
+    getQ_eq_mem log t (List.getElem_mem h)]
+
+/-- Prepending an entry whose oracle index does not match `t` leaves the
+`t`-indexed view of the log unchanged. -/
+lemma getQueryValue?_cons_of_ne [DecidableEq ι]
+    (entry : (t' : ι) × spec.Range t') (log : QueryLog spec) (t : ι) (n : Nat)
+    (h : entry.1 ≠ t) :
+    getQueryValue? (entry :: log) t n = getQueryValue? log t n := by
+  simp [getQueryValue?, QueryLog.getQ_cons, h]
+
+/-- The first matching entry is the zeroth indexed query value. -/
+@[simp] lemma getQueryValue?_cons_self_zero [DecidableEq ι]
+    (t : ι) (u : spec.Range t) (log : QueryLog spec) :
+    getQueryValue? (⟨t, u⟩ :: log) t 0 = some u :=
+  getQueryValue?_eq_some_of_getQ_getElem? _ _ _ _ (by simp [QueryLog.getQ_cons])
+
+/-- Prepending a matching entry shifts later indexed lookups by one. -/
+@[simp] lemma getQueryValue?_cons_self_succ [DecidableEq ι]
+    (t : ι) (u : spec.Range t) (log : QueryLog spec) (n : Nat) :
+    getQueryValue? (⟨t, u⟩ :: log) t (n + 1) = getQueryValue? log t n := by
+  simp [getQueryValue?, QueryLog.getQ_cons]
+
+/-- The entry immediately following a prefix is found at the prefix's count
+of matching oracle queries. -/
+lemma getQueryValue?_append_self_at_countQ [DecidableEq ι]
+    (before after : QueryLog spec) (t : ι) (u : spec.Range t) :
+    getQueryValue? (before ++ ⟨t, u⟩ :: after) t (before.countQ (· = t)) = some u :=
+  getQueryValue?_eq_some_of_getQ_getElem? _ _ _ _ (by simp [QueryLog.countQ])
+
+/-- Query-log counting is the `OracleSpec` specialization of PolyFun's
+generic occurrence count on erased polynomial traces. -/
+lemma countQ_eq_occurrences [DecidableEq ι] (log : QueryLog spec) (t : ι) :
+    log.countQ (· = t) = PFunctor.TraceList.occurrences (P := spec.toPFunctor) t
+      (show PFunctor.TraceList spec.toPFunctor from log) := by
+  change log.countQ (· = t) = log.countP (fun event => decide (event.1 = t))
+  induction log with
+  | nil => rfl
+  | cons entry log ih =>
+      rcases entry with ⟨t', u⟩
+      by_cases h : t' = t
+      · subst t'
+        simp only [QueryLog.countQ, QueryLog.getQ_cons, ite_eq_left trivial,
+          List.length_cons]
+        rw [List.countP_cons_of_pos (by simp)]
+        simpa [QueryLog.countQ] using ih
+      · simp only [QueryLog.countQ, QueryLog.getQ_cons, ite_eq_right h]
+        rw [List.countP_cons_of_neg (by simp [h])]
+        simpa [QueryLog.countQ] using ih
+
+/-- Query-log lookup is the `OracleSpec` specialization of dependent lookup
+on PolyFun traces. -/
+lemma getQueryValue?_eq_getAt? [DecidableEq ι]
+    (log : QueryLog spec) (t : ι) (n : Nat) :
+    getQueryValue? log t n =
+      PFunctor.TraceList.getAt?
+        (show PFunctor.TraceList spec.toPFunctor from log) t n := by
+  induction log generalizing n with
+  | nil => rfl
+  | cons entry log ih =>
+      rcases entry with ⟨t', u⟩
+      by_cases h : t' = t
+      · subst t'
+        cases n with
+        | zero =>
+            rw [getQueryValue?_cons_self_zero,
+              PFunctor.TraceList.getAt?_cons_self_zero]
+        | succ n =>
+            rw [getQueryValue?_cons_self_succ,
+              PFunctor.TraceList.getAt?_cons_self_succ]
+            exact ih n
+      · rw [getQueryValue?_cons_of_ne ⟨t', u⟩ log t n (by simpa using h),
+          PFunctor.TraceList.getAt?_cons_of_ne h]
+        exact ih n
+
+/-- Check if an element was ever queried in a log of queries.
+Relies on decidable equality of the domain types of oracles. -/
+def wasQueried [DecidableEq ι] (log : QueryLog spec) (t : spec.Domain) : Bool :=
+  log.getQ (· = t) ≠ []
+
+lemma getQ_ne_nil_iff_mem_map_fst [DecidableEq ι]
+    (log : QueryLog spec) (t : spec.Domain) :
+    log.getQ (· = t) ≠ [] ↔ t ∈ log.map (fun e => e.1) := by
+  induction log with
+  | nil => simp
+  | cons hd tl ih => rcases eq_or_ne hd.1 t with h | h <;> simp [List.mem_map, ih, h, Ne.symm]
+
+lemma wasQueried_eq_decide_mem_map_fst [DecidableEq ι]
+    (log : QueryLog spec) (t : spec.Domain) :
+    log.wasQueried t = decide (t ∈ log.map (fun e => e.1)) :=
+  decide_eq_decide.mpr (getQ_ne_nil_iff_mem_map_fst log t)
+
+@[simp]
+lemma wasQueried_cons_self [DecidableEq ι] {t : spec.Domain} {u : spec.Range t}
+    {log : QueryLog spec} :
+    wasQueried (⟨t, u⟩ :: log) t = true := by
+  simp [wasQueried_eq_decide_mem_map_fst]
+
+@[simp]
+lemma wasQueried_cons_of_ne [DecidableEq ι] {t t' : spec.Domain}
+    {u : spec.Range t'} {log : QueryLog spec} (hne : t' ≠ t) :
+    wasQueried (⟨t', u⟩ :: log) t = wasQueried log t := by
+  simp [wasQueried_eq_decide_mem_map_fst, List.mem_cons, hne.symm, eq_comm]
+
+@[simp]
+lemma wasQueried_nil [DecidableEq ι] (t : spec.Domain) :
+    wasQueried ([] : QueryLog spec) t = false := by
+  simp [wasQueried_eq_decide_mem_map_fst]
+
+@[simp]
+lemma wasQueried_append [DecidableEq ι] (log₁ log₂ : QueryLog spec) (t : spec.Domain) :
+    wasQueried (log₁ ++ log₂) t = (wasQueried log₁ t || wasQueried log₂ t) := by
+  simp only [wasQueried_eq_decide_mem_map_fst, List.map_append, List.mem_append, Bool.decide_or]
+
+section prod
+
+variable {ι₁ ι₂} {spec₁ : OracleSpec ι₁} {spec₂ : OracleSpec ι₂}
+
+/-- Get only the portion of the log for queries in `spec₁`. -/
+protected def fst (log : QueryLog (spec₁ + spec₂)) : QueryLog spec₁ :=
+  log.filterMap (fun | ⟨.inl t, u⟩ => some ⟨t, u⟩ | _ => none)
+
+/-- Get only the portion of the log for queries in `spec₂`. -/
+protected def snd (log : QueryLog (spec₁ + spec₂)) : QueryLog spec₂ :=
+  log.filterMap (fun | ⟨.inr t, u⟩ => some ⟨t, u⟩ | _ => none)
+
+/-- View a log for `spec₁` as one for `spec₁ + spec₂` by inclusion. -/
+protected def inl (log : QueryLog spec₁) : QueryLog (spec₁ + spec₂) :=
+  log.map fun ⟨t, u⟩ => ⟨.inl t, u⟩
+
+/-- View a log for `spec₂` as one for `spec₁ + spec₂` by inclusion. -/
+protected def inr (log : QueryLog spec₂) : QueryLog (spec₁ + spec₂) :=
+  log.map fun ⟨t, u⟩ => ⟨.inr t, u⟩
+
+instance : Coe (QueryLog spec₁) (QueryLog (spec₁ + spec₂)) := ⟨QueryLog.inl⟩
+instance : Coe (QueryLog spec₂) (QueryLog (spec₁ + spec₂)) := ⟨QueryLog.inr⟩
+
+end prod
+
+end QueryLog
+
+/-- A store of pre-generated seed values for oracle queries, indexed by oracle.
+Maps each oracle index `i` to a list of outputs `List (spec.Range i)`. -/
+@[reducible] def QuerySeed (spec : OracleSpec.{u, v} ι) : Type (max u v) :=
+  (i : ι) → List (spec.Range i)
+
+namespace QuerySeed
+
+variable {ι : Type u} {spec : OracleSpec.{u, v} ι}
+
+instance : EmptyCollection (QuerySeed spec) := ⟨fun _ => []⟩
+
+@[ext]
+protected lemma ext {seed₁ seed₂ : QuerySeed spec} (h : ∀ i, seed₁ i = seed₂ i) :
+    seed₁ = seed₂ :=
+  funext h
+
+@[simp]
+lemma empty_apply (i : ι) : (∅ : QuerySeed spec) i = [] := rfl
+
+variable [DecidableEq ι]
+
+/- These equations are the public reduction surface for dependent updates of a `QuerySeed`.
+Using specialized lemmas avoids coupling all seed proofs to simplifier support for the generic
+dependent `Function.update`. -/
+lemma functionUpdate_self (seed : QuerySeed spec) (i : ι) (xs : List (spec.Range i)) :
+    Function.update seed i xs i = xs :=
+  Function.update_self i xs seed
+
+lemma functionUpdate_of_ne (seed : QuerySeed spec) (i : ι) (xs : List (spec.Range i))
+    (j : ι) (hj : j ≠ i) : Function.update seed i xs j = seed j :=
+  Function.update_of_ne hj xs seed
+
+lemma functionUpdate_eq_self (seed : QuerySeed spec) (i : ι) :
+    Function.update seed i (seed i) = seed :=
+  Function.update_eq_self i seed
+
+lemma functionUpdate_idem (seed : QuerySeed spec) (i : ι)
+    (xs ys : List (spec.Range i)) :
+    Function.update (Function.update seed i xs) i ys = Function.update seed i ys :=
+  Function.update_idem (a := i) xs ys seed
+
+/-- Replace the seed values at index `i`. -/
+def update (seed : QuerySeed spec) (i : ι) (xs : List (spec.Range i)) : QuerySeed spec :=
+  Function.update seed i xs
+
+@[simp]
+lemma update_self (seed : QuerySeed spec) (i : ι) (xs : List (spec.Range i)) :
+    seed.update i xs i = xs := by
+  exact functionUpdate_self seed i xs
+
+@[simp]
+lemma update_of_ne (seed : QuerySeed spec) (i : ι) (xs : List (spec.Range i))
+    (j : ι) (hj : j ≠ i) :
+    seed.update i xs j = seed j := by
+  exact functionUpdate_of_ne seed i xs j hj
+
+@[simp]
+lemma update_eq_self (seed : QuerySeed spec) (i : ι) : seed.update i (seed i) = seed :=
+  functionUpdate_eq_self seed i
+
+@[simp]
+lemma update_idem (seed : QuerySeed spec) (i : ι) (xs ys : List (spec.Range i)) :
+    (seed.update i xs).update i ys = seed.update i ys :=
+  functionUpdate_idem seed i xs ys
+
+/-- Updates at distinct seed indices commute. -/
+lemma update_comm (seed : QuerySeed spec) {i j : ι} (h : i ≠ j)
+    (xs : List (spec.Range i)) (ys : List (spec.Range j)) :
+    (seed.update i xs).update j ys = (seed.update j ys).update i xs := by
+  unfold update
+  exact Function.update_comm h xs ys seed
+
+/-- Append a list of values to the seed at index `i`. -/
+def addValues (seed : QuerySeed spec) {i : ι} (us : List (spec.Range i)) : QuerySeed spec :=
+  seed.update i (seed i ++ us)
+
+/-- Replacing an index after appending there discards the appended values. -/
+@[simp]
+lemma update_addValues_same (seed : QuerySeed spec) (i : ι)
+    (us xs : List (spec.Range i)) :
+    (seed.addValues (i := i) us).update i xs = seed.update i xs := by
+  unfold addValues
+  exact update_idem seed i _ xs
+
+/-- Appending at one seed index commutes with replacing a distinct index. -/
+lemma update_addValues_comm (seed : QuerySeed spec) {i j : ι} (h : i ≠ j)
+    (us : List (spec.Range i)) (ys : List (spec.Range j)) :
+    (seed.addValues (i := i) us).update j ys =
+      (seed.update j ys).addValues (i := i) us := by
+  unfold addValues
+  rw [update_of_ne seed j ys i h]
+  exact update_comm seed h (seed i ++ us) ys
+
+@[simp]
+lemma addValues_self (seed : QuerySeed spec) {i : ι} (us : List (spec.Range i)) :
+    seed.addValues us i = seed i ++ us := by
+  simp [addValues]
+
+@[simp]
+lemma addValues_of_ne (seed : QuerySeed spec) {i : ι} (us : List (spec.Range i))
+    {j : ι} (hj : j ≠ i) : seed.addValues us j = seed j := by
+  simp [addValues, hj]
+
+@[simp]
+lemma addValues_nil (seed : QuerySeed spec) (i : ι) :
+    seed.addValues (i := i) ([] : List (spec.Range i)) = seed := by
+  simp [addValues]
+
+lemma addValues_cons (seed : QuerySeed spec) {i : ι} (u : spec.Range i)
+    (us : List (spec.Range i)) :
+    seed.addValues (u :: us) = (seed.addValues [u]).addValues us := by
+  simp [addValues]
+
+/-- Prepend a list of values to the seed at index `i`. -/
+def prependValues (seed : QuerySeed spec) {i : ι} (us : List (spec.Range i)) : QuerySeed spec :=
+  seed.update i (us ++ seed i)
+
+@[simp]
+lemma prependValues_self (seed : QuerySeed spec) {i : ι} (us : List (spec.Range i)) :
+    seed.prependValues us i = us ++ seed i := by
+  simp [prependValues]
+
+lemma prependValues_singleton (seed : QuerySeed spec) {i : ι} (u : spec.Range i) :
+    seed.prependValues [u] i = u :: seed i := by
+  simp [prependValues]
+
+@[simp]
+lemma prependValues_of_ne (seed : QuerySeed spec) {i : ι} (us : List (spec.Range i))
+    {j : ι} (hj : j ≠ i) : seed.prependValues us j = seed j := by
+  simp [prependValues, hj]
+
+@[simp]
+lemma prependValues_nil (seed : QuerySeed spec) (i : ι) :
+    seed.prependValues (i := i) ([] : List (spec.Range i)) = seed := by
+  simp [prependValues]
+
+lemma prependValues_take_drop (seed : QuerySeed spec) (i : ι) (n : ℕ) :
+    QuerySeed.prependValues (seed.update i ((seed i).drop n))
+      ((seed i).take n : List (spec.Range i)) = seed := by
+  simp [prependValues]
+
+lemma eq_of_prependValues_eq (seed rest : QuerySeed spec)
+    {i : ι} (xs : List (spec.Range i)) {n : ℕ} (hlen : xs.length = n)
+    (h : rest.prependValues xs = seed) :
+    xs = (seed i).take n ∧ rest = seed.update i ((seed i).drop n) := by
+  subst hlen; subst h; simp [prependValues]
+
+lemma eq_of_prependValues_singleton_eq (seed rest : QuerySeed spec)
+    {i : ι} (u : spec.Range i) (h : rest.prependValues [u] = seed) :
+    u :: rest i = seed i ∧ rest = seed.update i ((seed i).tail) := by
+  subst h; simp [prependValues]
+
+/-- Append the single value `u` to the end of the seed at index `i`. -/
+abbrev addValue (seed : QuerySeed spec) (i : ι) (u : spec.Range i) :
+    QuerySeed spec :=
+  seed.addValues [u]
+
+/-- Take only the first `n` values of the seed at index `i`. -/
+def takeAtIndex (seed : QuerySeed spec) (i : ι) (n : ℕ) : QuerySeed spec :=
+  seed.update i ((seed i).take n)
+
+@[simp] lemma takeAtIndex_apply_self (seed : QuerySeed spec) (i : ι) (n : ℕ) :
+    seed.takeAtIndex i n i = (seed i).take n := by
+  simp [takeAtIndex]
+
+@[simp] lemma takeAtIndex_apply_of_ne (seed : QuerySeed spec) (i : ι) (n : ℕ) (j : ι)
+    (hj : j ≠ i) : seed.takeAtIndex i n j = seed j := by
+  simp [takeAtIndex, hj]
+
+@[simp] lemma takeAtIndex_length (seed : QuerySeed spec) (i : ι) :
+    seed.takeAtIndex i (seed i).length = seed :=
+  funext fun j => by
+    by_cases hj : j = i
+    · subst hj; simp [takeAtIndex]
+    · simp [takeAtIndex, hj]
+
+lemma takeAtIndex_addValues_drop (seed : QuerySeed spec) (i : ι) (n : ℕ) :
+    (seed.takeAtIndex i n).addValues ((seed i).drop n) = seed := by
+  ext j; by_cases hj : j = i
+  · subst hj; simp [takeAtIndex, addValues, List.take_append_drop]
+  · simp [takeAtIndex, addValues, hj]
+
+/-- Pop one value from index `i`, returning the consumed value and updated seed when nonempty. -/
+def pop (seed : QuerySeed spec) (i : ι) : Option (spec.Range i × QuerySeed spec) :=
+  match seed i with
+  | [] => none
+  | u :: us => some (u, seed.update i us)
+
+@[simp]
+lemma pop_eq_none_iff (seed : QuerySeed spec) (i : ι) :
+    seed.pop i = none ↔ seed i = [] := by
+  unfold pop
+  cases hsi : seed i <;> simp
+
+lemma pop_eq_some_of_cons (seed : QuerySeed spec) (i : ι)
+    (u : spec.Range i) (us : List (spec.Range i))
+    (h : seed i = u :: us) :
+    seed.pop i = some (u, seed.update i us) := by
+  unfold pop
+  simp [h]
+
+lemma cons_of_pop_eq_some (seed : QuerySeed spec) (i : ι)
+    (u : spec.Range i) (rest : QuerySeed spec)
+    (h : seed.pop i = some (u, rest)) :
+    u :: rest i = seed i := by
+  unfold pop at h
+  cases hsi : seed i with
+  | nil => simp [hsi] at h
+  | cons u0 us =>
+    simp only [hsi, Option.some.injEq, Prod.mk.injEq] at h
+    obtain ⟨rfl, rfl⟩ := h
+    simp
+
+lemma rest_eq_update_tail_of_pop_eq_some (seed : QuerySeed spec) (i : ι)
+    (u : spec.Range i) (rest : QuerySeed spec)
+    (h : seed.pop i = some (u, rest)) :
+    rest = seed.update i ((seed i).tail) := by
+  unfold pop at h
+  cases hsi : seed i with
+  | nil => simp [hsi] at h
+  | cons u0 us =>
+    simp only [hsi, Option.some.injEq, Prod.mk.injEq] at h
+    obtain ⟨rfl, rfl⟩ := h
+    simp
+
+/-- Construct a query seed from a list at a single index. -/
+def ofList {i : ι} (xs : List (spec.Range i)) : QuerySeed spec :=
+  fun j => if h : i = j then h ▸ xs else []
+
+@[simp] lemma ofList_apply_self {i : ι} (xs : List (spec.Range i)) :
+    (ofList xs : QuerySeed spec) i = xs := by simp [ofList]
+
+@[simp] lemma ofList_apply_of_ne {i j : ι} (xs : List (spec.Range i)) (hj : j ≠ i) :
+    (ofList xs : QuerySeed spec) j = [] := by simp [ofList, Ne.symm hj]
+
+lemma eq_addValues_iff (seed seed' : QuerySeed spec)
+    {i : ι} (xs : List (spec.Range i)) :
+    seed = seed'.addValues xs ↔ seed' i ++ xs = seed i ∧
+      ∀ j, j ≠ i → seed' j = seed j := by
+  constructor
+  · rintro rfl
+    exact ⟨by simp, fun j hj => by simp [addValues, hj]⟩
+  · rintro ⟨happ, hother⟩
+    funext j
+    by_cases hj : j = i
+    · subst hj; rw [addValues_self]; exact happ.symm
+    · rw [addValues_of_ne _ _ hj, hother j hj]
+
+lemma addValues_eq_iff (seed seed' : QuerySeed spec)
+    {i : ι} (xs : List (spec.Range i)) :
+    seed.addValues xs = seed' ↔ seed i ++ xs = seed' i ∧
+      ∀ j, j ≠ i → seed j = seed' j :=
+  eq_comm.trans (eq_addValues_iff seed' seed xs)
+
+@[simp]
+lemma pop_prependValues_singleton (s' : QuerySeed spec) (i : ι) (u : spec.Range i) :
+    (s'.prependValues [u]).pop i = some (u, s') := by
+  simp only [pop, prependValues, update_self, List.singleton_append, update_idem, update_eq_self]
+
+lemma prependValues_singleton_injective (i : ι) :
+    Function.Injective (fun (p : spec.Range i × QuerySeed spec) => p.2.prependValues [p.1]) := by
+  intro ⟨u₁, s₁⟩ ⟨u₂, s₂⟩ h
+  obtain ⟨hu, hst⟩ := List.cons_eq_cons.mp <|
+    by simpa only [prependValues_singleton] using congr_fun h i
+  refine Prod.ext hu (funext fun j => ?_)
+  by_cases hj : j = i
+  · exact hj ▸ hst
+  · simpa only [prependValues_of_ne _ _ hj] using congr_fun h j
+
+lemma eq_prependValues_of_pop_eq_some {seed : QuerySeed spec} {i : ι}
+    {u : spec.Range i} {rest : QuerySeed spec} (h : seed.pop i = some (u, rest)) :
+    rest.prependValues [u] = seed := by
+  have hcons := cons_of_pop_eq_some seed i u rest h
+  have hrest := rest_eq_update_tail_of_pop_eq_some seed i u rest h
+  funext j
+  by_cases hj : j = i
+  · subst hj; simpa [prependValues_singleton] using hcons
+  · rw [prependValues_of_ne _ _ hj, hrest]
+    exact update_of_ne seed i _ j hj
+
+lemma pop_takeAtIndex_prependValues_of_ne (s' : QuerySeed spec) (i₀ : ι) (k : ℕ)
+    {t : ι} (u₀ : spec.Range t) (hti : t ≠ i₀) :
+    ((s'.prependValues [u₀]).takeAtIndex i₀ k).pop t =
+      some (u₀, s'.takeAtIndex i₀ k) := by
+  have h1 : ((s'.prependValues [u₀]).takeAtIndex i₀ k) t = u₀ :: s' t := by
+    rw [takeAtIndex_apply_of_ne _ _ _ _ hti, prependValues_singleton]
+  rw [pop_eq_some_of_cons _ _ u₀ (s' t) h1]
+  refine congrArg some (Prod.ext rfl (funext fun j => ?_))
+  by_cases hj : j = t <;> by_cases hji : j = i₀ <;> subst_vars <;>
+    simp_all [update_self, update_of_ne, takeAtIndex_apply_self,
+      takeAtIndex_apply_of_ne, prependValues_of_ne]
+
+lemma pop_takeAtIndex_prependValues_self (s' : QuerySeed spec) (i₀ : ι)
+    (u₀ : spec.Range i₀) {k : ℕ} (hk : 0 < k) :
+    ((s'.prependValues [u₀]).takeAtIndex i₀ k).pop i₀ =
+      some (u₀, s'.takeAtIndex i₀ (k - 1)) := by
+  have h1 : ((s'.prependValues [u₀]).takeAtIndex i₀ k) i₀ =
+      u₀ :: (s' i₀).take (k - 1) := by
+    simp only [takeAtIndex_apply_self, prependValues_singleton, List.take_cons hk]
+  rw [pop_eq_some_of_cons _ _ u₀ ((s' i₀).take (k - 1)) h1]
+  refine congrArg some (Prod.ext rfl (funext fun j => ?_))
+  by_cases hj : j = i₀ <;> subst_vars <;>
+    simp_all [update_self, update_of_ne, takeAtIndex_apply_self,
+      takeAtIndex_apply_of_ne, prependValues_of_ne]
+
+end QuerySeed
+
+end OracleSpec

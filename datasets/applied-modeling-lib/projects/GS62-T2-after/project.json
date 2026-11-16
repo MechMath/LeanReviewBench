@@ -1,0 +1,78 @@
+{
+  "id": "GS62-T2-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "GS62CollegeAdmissions",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "7dfef1f11f46a5709da0f1a6de422863d2301b10",
+    "path": "papers/GS62CollegeAdmissions/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/7dfef1f11f46a5709da0f1a6de422863d2301b10/papers/GS62CollegeAdmissions/PaperInterface.lean",
+    "declaration": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+    "sha256": "5500452d9cb46a5b7e6416d2cc0d9a98df9b51d50b11be5eec3ac1120dc0962f",
+    "leads": [],
+    "module": "GS62CollegeAdmissions.PaperInterface"
+  },
+  "group_id": "aml:GS62-T2-before",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [
+    "GS62-T2-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "not-rerun-after-import-relocation",
+  "missing_modules": [],
+  "pending_reason": null,
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Data.Finset.Basic",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.Basic",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.Fintype.Sigma",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Tactic.Linarith"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-05/AppliedModelingLib/semantic-review-01/gs62/leantrace-after/graph.json",
+      "sha256": "9ba12e57318af95985385cef544bbe13503e09bbf9cf66280b484998e359f7c0"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "sha256": "c7a5dfacce8ae086283947d8f0598b328fd9584644711365a529fb617518b768"
+    }
+  },
+  "input_sha256": "225be72dd9bc57d272adb380c86744f76cd4ca9e6bf87b2eb36a44bb90aea41b",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 5,
+    "sha256": "6c4f80da6aec62ac599a0ac711c6797d6a14fac798f39a05b8df8b3cd08f312b",
+    "effective_root_sha256": "5500452d9cb46a5b7e6416d2cc0d9a98df9b51d50b11be5eec3ac1120dc0962f"
+  },
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "SP-LP-PERIODIC",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere-Packing-Lean",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LinearProgrammingBound'",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+    "commit": "77cf0a0c104f2e31501eab04d88bbc068d61c169",
+    "path": "SpherePacking/CohnElkies/LPBound.lean",
+    "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/77cf0a0c104f2e31501eab04d88bbc068d61c169/SpherePacking/CohnElkies/LPBound.lean",
+    "declaration": "LinearProgrammingBound'",
+    "sha256": "9dfad9d67d0696860f908ce86f3a57302c63f82817d51769ef53ca7be9af28af",
+    "leads": [
+      "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/pull/504"
+    ],
+    "module": "SpherePacking.CohnElkies.LPBound"
+  },
+  "group_id": "sphere-packing:SP-LP-PERIODIC",
+  "split_group": "thefundamentaltheor3m/Sphere-Packing-Lean",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "not-rerun-after-import-relocation",
+  "missing_modules": [],
+  "pending_reason": null,
+  "external_imports": [
+    "Mathlib.Algebra.Module.ZLattice.Basic",
+    "Mathlib.Algebra.Module.ZLattice.Covolume",
+    "Mathlib.Algebra.Order.Star.Real",
+    "Mathlib.Analysis.CStarAlgebra.Classes",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.RCLike.Inner",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Continuity",
+    "Mathlib.Basic.IsEmpty.Basic",
+    "Mathlib.Data.ENat.Lattice",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Dynamics.Ergodic.Action.Regular",
+    "Mathlib.LinearAlgebra.BilinearForm.DualLattice",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.FundThmCalculus",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.Order.CompletePartialOrder",
+    "Mathlib.Topology.Algebra.InfiniteSum.Basic",
+    "Mathlib.Topology.Algebra.InfiniteSum.Defs",
+    "Mathlib.Topology.Algebra.InfiniteSum.ENNReal",
+    "Mathlib.Topology.Algebra.InfiniteSum.Order",
+    "Mathlib.Topology.Algebra.InfiniteSum.Ring",
+    "Mathlib.Topology.Compactness.Lindelof",
+    "Mathlib.Topology.EMetricSpace.Paracompact",
+    "Mathlib.Topology.Instances.ENat",
+    "Mathlib.Topology.Metrizable.Basic",
+    "Mathlib.Topology.Order.T5",
+    "Mathlib.Topology.Separation.CompletelyRegular"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/candidates.json",
+      "sha256": "309b18ae8194e5dada48e6f160814dc87eb1f99b070f807f1fe1a7621546801c"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/technical/SP-LP-PERIODIC/compat-02/graph.json",
+      "sha256": "19432969b1d8e3240f2f04bff8229cd85394576c558d46c4973f058a78aec549"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "sha256": "4729ceae9b3c6110e2ffccadce12904061e20fe2eb1f3ab10fa9d00d53b5d15b"
+    }
+  },
+  "input_sha256": "ad315154091f2c808aa9f8af30bf50acb1e92d144341a1afd46448c7d93ab7ed",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 10,
+    "sha256": "fa07129819ea3eacf7f5276a9d6a92de2f5f5ac3bec5c8d364290fdd2f05e580",
+    "effective_root_sha256": "9dfad9d67d0696860f908ce86f3a57302c63f82817d51769ef53ca7be9af28af"
+  },
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/sphere-packing.jsonl"
+}

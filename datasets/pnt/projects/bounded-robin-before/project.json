@@ -1,0 +1,71 @@
+{
+  "id": "bounded-robin-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-robin-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Robin.p_n_lower_const1",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "a93551347dce924b1db75d40218841bf085a465f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "declaration": "Robin.p_n_lower_const1",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+  },
+  "group_id": "pnt-Robin.p_n_lower_const1",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-robin-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "文字p_n≤10^11下的严格下界与formal相同；formal对n=0的总化扩展只多出2>0的真边界实例，不限制正整数下的原文；n=1时log1=log0=0、下界−1，也成立。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "949c3ed055580e7f735467fb360e4fdb1ddbe31be29c20388da31d46d360871b"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-robin-before/20261105T053533749389Z/receipt.json",
+    "receipt_sha256": "274eb3acab36024764bf3f19a6dcf72ee004d661b3d86119236826fdeffb53db",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-robin-before/20261105T053533749389Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "f7e7c487f17aeeda900b212d6fdb48cefa558b0a1b3fbd002c834d1475b64baf",
+    "formal_snapshot_id": "bounded-robin-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+        "ref": "a93551347dce924b1db75d40218841bf085a465f",
+        "text": "For $p_n \\leq 10^{11}$, we have $p_n > n(\\log n + \\log\\log n - 1)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Robin.p_n_lower_const1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Robin.p_n_lower_const1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "611bc3c94817136f3b8316f988e14b99268e8b89f87c1db2ef083105dc5f9078",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

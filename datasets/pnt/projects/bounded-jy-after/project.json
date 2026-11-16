@@ -1,0 +1,71 @@
+{
+  "id": "bounded-jy-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-jy-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "JY.theorem_1_4",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "253828569c34a1b0e2f493bf92b4ec2513de2bab",
+    "path": "PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "declaration": "JY.theorem_1_4",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "sha256": "90e0824b8ebd5e81e032ab0800ef02451f27e4061264e3f9b73625d1d6149dd6"
+  },
+  "group_id": "pnt-JY.theorem_1_4",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "bounded-jy-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "当前文字阈值23，formal B=1.801；乘回正因子x/log x后log指数1.801−1=0.801，其余常数、实数3/5及1/5指数、Li定义一致。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "0ed8da56997286db55ba71781894a74df0588aa8d928796e799b68104d8115ca"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-after/20261105T053511871694Z/receipt.json",
+    "receipt_sha256": "6fbb12d303b33c57ebc827613400eaafd0775c5e3ecdf30d6f929456ff29067a",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-after/20261105T053511871694Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "cc212dd2e1484454d84eb1f253ebc25fc1c811047658aa69bc6665e43f67fcaf",
+    "formal_snapshot_id": "bounded-jy-after",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "90e0824b8ebd5e81e032ab0800ef02451f27e4061264e3f9b73625d1d6149dd6",
+        "ref": "253828569c34a1b0e2f493bf92b4ec2513de2bab",
+        "text": "One has\n  \\[\n  |\\pi(x) - \\mathrm{Li}(x)| \\leq 0.028 x (\\log x)^{0.801}\n    \\exp(-0.1853 \\log^{3/5} x / (\\log \\log x)^{1/5})\n  \\]\n  for all $x \\geq 23$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'JY.theorem_1_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'JY.theorem_1_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "3cb65b1719ef11092365a9a7693fe740b800fb9a4e45349b8c890afecfe8dc18",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

@@ -1,0 +1,964 @@
+{
+  "id": "flt-c01",
+  "schema_version": "paperlean-project-case-1",
+  "title": "FreyPackage.mazur",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "FreyPackage.mazur",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/ImperialCollegeLondon/FLT",
+    "commit": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+    "path": "FLT/FreyCurve/Mazur.lean",
+    "module": "FLT.FreyCurve.Mazur",
+    "declaration": "FreyPackage.mazur",
+    "url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/FreyCurve/Mazur.lean",
+    "sha256": "0a34005c8405037d0eacc2d7cb01ab391856ace43f4fa4469023e90ee3dc6106"
+  },
+  "group_id": "flt-reductions",
+  "split_group": "ImperialCollegeLondon/FLT",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "historical_status": "undetermined",
+  "gold_label": null,
+  "human_adjudicated": false,
+  "evaluation_eligible": false,
+  "role": "control_candidate",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "preparation": {
+    "source_packet": {
+      "id": "FLT-C01",
+      "role": "control_candidate",
+      "root": "FreyPackage.mazur",
+      "module": "FLT/FreyCurve/Mazur.lean",
+      "source_family": "flt-reductions",
+      "source_revision": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+      "source_url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/FreyCurve/Mazur.lean",
+      "label": "undetermined",
+      "gold_label": null,
+      "human_adjudicated": false,
+      "evaluation_eligible": false,
+      "readiness": "semantic_candidate_materials_complete_technical_pending",
+      "informal_target": {
+        "text": "The Galois representation on the p-torsion of the Frey curve associated to a Frey package is irreducible.",
+        "kind": "curator_paraphrase_of_frozen_blueprint",
+        "source_path": "blueprint/src/chapter/ch02reductions.tex",
+        "source_label": "Mazur_Frey",
+        "source_revision": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+        "source_url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/blueprint/src/chapter/ch02reductions.tex",
+        "source_sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb",
+        "exact_theorem_environment": "\\begin{theorem}[Mazur]\n  \\label{Mazur_Frey}\n  \\lean{Mazur_Frey}\n  \\uses{FreyCurve}\n  \\leanok\n  If $\\rho$ is the mod $p$ Galois representation associated to a Frey package $(a,b,c,p)$ then\n  $\\rho$ is irreducible.\n\\end{theorem}",
+        "independence": "Separate mathematical LaTeX exposition, with mathematical proof prose and historical Lean annotations; not produced here by Lean-to-text. Same pinned repository revision as formal source; last-change provenance retained in evidence."
+      },
+      "scope_check": "This is the project-specific Frey representation root with its local curve, package and Galois representation models. Preserve the knownin1980s axiom used for the historical Mazur result; it is a proof admission, not evidence of misalignment.",
+      "archive": "FLT-C01-source-closure.tar.gz",
+      "archive_sha256": "3015318e52c217eddbd21a5270c73a58025973d271320e67633508142a16c257",
+      "source_inventory": [
+        {
+          "path": "FLT/Assumptions/KnownIn1980s.lean",
+          "sha256": "ddbd0b63b267a31a5df5467c31fdfd5cb673a512ae27cc712cbb0b1c77dd0c9c"
+        },
+        {
+          "path": "FLT/Basic/Lemmas.lean",
+          "sha256": "ec9694a1c9497a6f0bf8ea1ffe8bb51e483ae8bed13802465ab6ca0f96f8969f"
+        },
+        {
+          "path": "FLT/DedekindDomain/AdicValuation.lean",
+          "sha256": "41bbd0414391c1dcb3e2107aed2b37fd524f8c58f2358c4240ebc13917a884f3"
+        },
+        {
+          "path": "FLT/Deformations/Lemmas.lean",
+          "sha256": "c5dbe7436e71c760fd026a6908f87a37e9b2f5cbc84640b117aa89d2bd3e38e3"
+        },
+        {
+          "path": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "sha256": "e2a1a2518f3a207d9c0d5be634a2940b3328297b64d68642f9ba448eb83885ea"
+        },
+        {
+          "path": "FLT/Deformations/RepresentationTheory/ContinuousSMulDiscrete.lean",
+          "sha256": "1e23b089c36912816f56bec1a6c25d1145d2e13e9524909e7996356a4d2d66d0"
+        },
+        {
+          "path": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "sha256": "b960f3eaaef68545cf697f63d891745294b11b12a2a286eadfd70883c227df02"
+        },
+        {
+          "path": "FLT/Deformations/RepresentationTheory/Frobenius.lean",
+          "sha256": "9a2d6047e31c80f0700358cc9e9184fc9ab15eab506383bf1e0a3c20eb1d55e1"
+        },
+        {
+          "path": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "sha256": "30f5c3334204563fbb2a3e6d40cefdf6c017ee9a2ce959c0922d93b9eca0edfb"
+        },
+        {
+          "path": "FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+          "sha256": "0d06e078073db38269cffbe950e9f11bb88174ac9ec74870ea6bbeacedbe7fbd"
+        },
+        {
+          "path": "FLT/EllipticCurve/Torsion.lean",
+          "sha256": "d828f3deb16bffbb5629a2e8c0c7028131649443d3e6075e7d1d1c1e03bb55f0"
+        },
+        {
+          "path": "FLT/FreyCurve/Basic.lean",
+          "sha256": "0c2b2132318bba2aa868480d5e907f3d4f149973ef6af52abf8f34a659dad46f"
+        },
+        {
+          "path": "FLT/FreyCurve/FreyPackage.lean",
+          "sha256": "4b9adcb2edebbe5dbf3b096acbc65ca86ed666991ca1254e487331491b36da8a"
+        },
+        {
+          "path": "FLT/FreyCurve/Mazur.lean",
+          "sha256": "0a34005c8405037d0eacc2d7cb01ab391856ace43f4fa4469023e90ee3dc6106"
+        },
+        {
+          "path": "FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+          "sha256": "d80c06ae5a78f8c6afb8ac4fbaf516f70f630c8a00097c6735c933e042c538f7"
+        },
+        {
+          "path": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "sha256": "4c6ee880cace189aa32780add6f9e73d627920d1f7fa989213aae9a919891757"
+        },
+        {
+          "path": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "sha256": "be957dbf7f60c51bb4d585673a768ce94929f7899669c1c1b305774a9bb64d1b"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+          "sha256": "1d7dd43cd1d779e6a545141be0ef05c4b28f923fe08a6af16584074b070d0b06"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+          "sha256": "4f6a19d0a4c83d4a1936ae9407dc520e0fda4b0ea8267ce53c29fa0183477529"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+          "sha256": "86b9e0ec911383633d36f8937caabaace14a0a6a9996d40bf96175cff913b210"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+          "sha256": "f040f0736f51bd3ac4c0b47221d08d4156cfec459ee74bf1de62092d2affd76b"
+        },
+        {
+          "path": "FLT/Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+          "sha256": "983e9b2d3a3a4fc9dc741a7ef5388adf3e97bbe28df4a2a505c376df37858b75"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Group/Basic.lean",
+          "sha256": "5b5afd23c17001f510a323bf066b666ccf43d669bdf50dc25773046e8fe135c9"
+        },
+        {
+          "path": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "sha256": "5c42389b591f4d55876eaa2152a2cae8f1909cfbd24ad4335d501f89efabdd3c"
+        },
+        {
+          "path": "FLT/NumberField/Completion/Finite.lean",
+          "sha256": "d9c5e4d3940a6ef24791ed96d747413fe65f392324088ed28ed890b00debdd53"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "lake-manifest.json",
+          "sha256": "69bea3a723baa7da056496b1535acf49641977881614601d33114363a44358c7"
+        },
+        {
+          "path": "lakefile.toml",
+          "sha256": "2deef638ed8315399f8346c20c7db5a3cbd344ea3dee93ec6a27b2e09c64bc27"
+        },
+        {
+          "path": "lean-toolchain",
+          "sha256": "2c290dc3675a4faf0bc03545ff71a417d2f9a7c2e60e8be80ed643fcbcc73e2d"
+        }
+      ],
+      "project_module_count": 25,
+      "external_imports": [
+        "Mathlib.Algebra.Field.ZMod",
+        "Mathlib.Algebra.GCDMonoid.IntegrallyClosed",
+        "Mathlib.Algebra.Group.Int.TypeTags",
+        "Mathlib.Algebra.Lie.OfAssociative",
+        "Mathlib.Algebra.Order.Algebra",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "Mathlib.Analysis.Normed.Field.Lemmas",
+        "Mathlib.Analysis.Normed.Ring.Lemmas",
+        "Mathlib.Analysis.Normed.Unbundled.SpectralNorm",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.NNReal",
+        "Mathlib.CategoryTheory.Types.Basic",
+        "Mathlib.Data.Matrix.Mul",
+        "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+        "Mathlib.Data.Nat.Factors",
+        "Mathlib.Data.Nat.Prime.Int",
+        "Mathlib.Data.Rat.Encodable",
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+        "Mathlib.FieldTheory.Galois.Infinite",
+        "Mathlib.FieldTheory.IsSepClosed",
+        "Mathlib.FieldTheory.KrullTopology",
+        "Mathlib.LinearAlgebra.Charpoly.Basic",
+        "Mathlib.LinearAlgebra.Countable",
+        "Mathlib.LinearAlgebra.Matrix.Unique",
+        "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter",
+        "Mathlib.NumberTheory.FLT.Basic",
+        "Mathlib.NumberTheory.FLT.Four",
+        "Mathlib.NumberTheory.FLT.Three",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+        "Mathlib.NumberTheory.Padics.Complex",
+        "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+        "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+        "Mathlib.NumberTheory.Padics.ProperSpace",
+        "Mathlib.NumberTheory.RamificationInertia.Inertia",
+        "Mathlib.RepresentationTheory.Irreducible",
+        "Mathlib.RingTheory.Bialgebra.Basic",
+        "Mathlib.RingTheory.Bialgebra.TensorProduct",
+        "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+        "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+        "Mathlib.RingTheory.Etale.Basic",
+        "Mathlib.RingTheory.Etale.Field",
+        "Mathlib.RingTheory.Frobenius",
+        "Mathlib.RingTheory.HopfAlgebra.Basic",
+        "Mathlib.RingTheory.HopkinsLevitzki",
+        "Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient",
+        "Mathlib.RingTheory.Ideal.Quotient.Defs",
+        "Mathlib.RingTheory.Invariant.Defs",
+        "Mathlib.RingTheory.Invariant.Profinite",
+        "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+        "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+        "Mathlib.RingTheory.SimpleRing.Principal",
+        "Mathlib.RingTheory.Valuation.Discrete.Basic",
+        "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+        "Mathlib.RingTheory.Valuation.ValuationSubring",
+        "Mathlib.Tactic.ModCases",
+        "Mathlib.Topology.Algebra.Algebra.Equiv",
+        "Mathlib.Topology.Algebra.Group.Basic",
+        "Mathlib.Topology.Algebra.Group.ClosedSubgroup",
+        "Mathlib.Topology.Algebra.LinearTopology",
+        "Mathlib.Topology.Algebra.Module.ModuleTopology",
+        "Mathlib.Topology.Algebra.MulAction",
+        "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+        "Mathlib.Topology.Algebra.Valued.ValuedField",
+        "Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.Topology.Instances.ZMod",
+        "Mathlib.Topology.Path"
+      ],
+      "local_import_edges": [
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "FLT.FreyCurve.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/FreyCurve/Basic.lean",
+          "module": "FLT.FreyCurve.FreyPackage",
+          "local": true
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Algebra.Field.ZMod",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Analysis.Normed.Field.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Data.Matrix.Mul",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.FLT.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Algebra.Lie.OfAssociative",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.FLT.Four",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.FLT.Three",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Tactic.ModCases",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "FLT.Basic.Lemmas",
+          "local": true
+        },
+        {
+          "importer": "FLT/Basic/Lemmas.lean",
+          "module": "Mathlib.Data.Nat.Factors",
+          "local": false
+        },
+        {
+          "importer": "FLT/Basic/Lemmas.lean",
+          "module": "Mathlib.NumberTheory.FLT.Four",
+          "local": false
+        },
+        {
+          "importer": "FLT/Basic/Lemmas.lean",
+          "module": "Mathlib.NumberTheory.FLT.Three",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "FLT.EllipticCurve.Torsion",
+          "local": true
+        },
+        {
+          "importer": "FLT/EllipticCurve/Torsion.lean",
+          "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+          "local": false
+        },
+        {
+          "importer": "FLT/EllipticCurve/Torsion.lean",
+          "module": "Mathlib.Topology.Instances.ZMod",
+          "local": false
+        },
+        {
+          "importer": "FLT/EllipticCurve/Torsion.lean",
+          "module": "FLT.Deformations.RepresentationTheory.GaloisRep",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "FLT.Deformations.RepresentationTheory.AbsoluteGaloisGroup",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "FLT.Deformations.RepresentationTheory.Frobenius",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Frobenius.lean",
+          "module": "Mathlib.RingTheory.Frobenius",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Frobenius.lean",
+          "module": "FLT.Deformations.RepresentationTheory.ContinuousSMulDiscrete",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/ContinuousSMulDiscrete.lean",
+          "module": "Mathlib.Topology.Algebra.MulAction",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/ContinuousSMulDiscrete.lean",
+          "module": "Mathlib.Topology.Algebra.Group.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Frobenius.lean",
+          "module": "Mathlib.RingTheory.Invariant.Profinite",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "FLT.Deformations.RepresentationTheory.IntegralClosure",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+          "module": "FLT.Deformations.Lemmas",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Group.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Group/Basic.lean",
+          "module": "Mathlib.Topology.Algebra.Group.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "Mathlib.RingTheory.Valuation.ValuationSubring",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "Mathlib.Topology.Algebra.Algebra.Equiv",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "Mathlib.Topology.Algebra.LinearTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/Lemmas.lean",
+          "module": "Mathlib.Topology.Instances.Matrix",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+          "module": "FLT.Deformations.RepresentationTheory.ContinuousSMulDiscrete",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+          "module": "Mathlib.RingTheory.Invariant.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+          "module": "Mathlib.Algebra.GCDMonoid.IntegrallyClosed",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "Mathlib.Analysis.Normed.Unbundled.SpectralNorm",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "FLT.NumberField.Completion.Finite",
+          "local": true
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "FLT.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.Analysis.Normed.Ring.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.NumberTheory.RamificationInertia.Inertia",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.Topology.Path",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "FLT.Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+          "module": "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+          "module": "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "FLT.Mathlib.RingTheory.Valuation.ValuationSubring",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.Algebra.Group.Int.TypeTags",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+          "local": false
+        },
+        {
+          "importer": "FLT/DedekindDomain/AdicValuation.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "FLT.Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Analysis.Normed.Ring.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "FLT.Mathlib.RingTheory.Ideal.Quotient.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+          "module": "Mathlib.RingTheory.Ideal.Quotient.Defs",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+          "module": "Mathlib.Topology.Algebra.Valued.ValuedField",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "Mathlib.NumberTheory.Padics.ProperSpace",
+          "local": false
+        },
+        {
+          "importer": "FLT/NumberField/Completion/Finite.lean",
+          "module": "FLT.Mathlib.LinearAlgebra.Countable",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "module": "Mathlib.Data.Rat.Encodable",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+          "module": "Mathlib.LinearAlgebra.Countable",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+          "module": "Mathlib.FieldTheory.Galois.Infinite",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "FLT.Deformations.RepresentationTheory.Etale",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "FLT.Deformations.RepresentationTheory.ContinuousSMulDiscrete",
+          "local": true
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.CategoryTheory.Types.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.FieldTheory.IsSepClosed",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.FieldTheory.KrullTopology",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.RingTheory.Bialgebra.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.RingTheory.Etale.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.Topology.Algebra.Group.ClosedSubgroup",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.FieldTheory.Galois.Infinite",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.RingTheory.Etale.Field",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/Etale.lean",
+          "module": "Mathlib.RingTheory.HopkinsLevitzki",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "Mathlib.LinearAlgebra.Charpoly.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "Mathlib.LinearAlgebra.Matrix.Unique",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "Mathlib.RingTheory.Bialgebra.TensorProduct",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "Mathlib.RingTheory.HopfAlgebra.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+          "module": "Mathlib.RepresentationTheory.Irreducible",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "FLT.GaloisRepresentation.HardlyRamified.Frey",
+          "local": true
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "module": "FLT.GaloisRepresentation.HardlyRamified.Defs",
+          "local": true
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+          "module": "FLT.Deformations.RepresentationTheory.GaloisRep",
+          "local": true
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+          "module": "FLT.Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+          "local": true
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+          "module": "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+          "module": "Mathlib.NumberTheory.NumberField.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+          "module": "Mathlib.Algebra.Order.Algebra",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+          "module": "Mathlib.Analysis.SpecialFunctions.Pow.NNReal",
+          "local": false
+        },
+        {
+          "importer": "FLT/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+          "module": "Mathlib.Data.Nat.Prime.Int",
+          "local": false
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+          "module": "Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter",
+          "local": false
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+          "module": "Mathlib.NumberTheory.Padics.Complex",
+          "local": false
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+          "module": "Mathlib.RingTheory.SimpleRing.Principal",
+          "local": false
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "module": "FLT.FreyCurve.Basic",
+          "local": true
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "module": "FLT.EllipticCurve.Torsion",
+          "local": true
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "module": "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "module": "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+          "local": false
+        },
+        {
+          "importer": "FLT/GaloisRepresentation/HardlyRamified/Frey.lean",
+          "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/Mazur.lean",
+          "module": "FLT.Assumptions.KnownIn1980s",
+          "local": true
+        }
+      ],
+      "technical": {
+        "compilation": "not_attempted",
+        "leantrace": "not_attempted",
+        "source_bytes_unchanged": true,
+        "upstream_admissions_preserved": true,
+        "new_axioms_or_sorry_added": false,
+        "source_sorry_occurrences": 16,
+        "sorry_count_is_textual_not_axiom_audit": true,
+        "toolchain": "leanprover/lean4:v4.32.0-rc1"
+      },
+      "remaining": [
+        "Human semantic label and scope adjudication",
+        "Pinned-environment compatibility and actual compile",
+        "LeanTrace declaration dependency extraction and proof/comment filtering"
+      ]
+    },
+    "original": "original/",
+    "compatibility_patch": "compatibility.patch",
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+  },
+  "changes": "CHANGES.md",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "technical_status": "extracted",
+  "compatibility_files": [
+    "FLT/DedekindDomain/AdicValuation.lean",
+    "FLT/Deformations/Lemmas.lean",
+    "FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+    "FLT/Deformations/RepresentationTheory/Etale.lean",
+    "FLT/Deformations/RepresentationTheory/Frobenius.lean",
+    "FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+    "FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+    "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+    "FLT/Mathlib/Topology/Algebra/Group/Basic.lean",
+    "FLT/NumberField/Completion/Finite.lean"
+  ],
+  "technical_receipt": "technical/relocated-receipt.json",
+  "source_role": "control",
+  "source_family": "flt-reductions",
+  "material_complete": true,
+  "formal": {
+    "layout": "Main_and_dep",
+    "file_count": 26,
+    "resource_count": 0,
+    "sha256": "f22f178f7fe8d6fa1284d2e44b48c78341e29c34197e75a4be6a952a296ad729"
+  },
+  "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
+  "external_imports": [
+    "Mathlib.Algebra.Field.ZMod",
+    "Mathlib.Algebra.GCDMonoid.IntegrallyClosed",
+    "Mathlib.Algebra.Group.Int.TypeTags",
+    "Mathlib.Algebra.Lie.OfAssociative",
+    "Mathlib.Algebra.Order.Algebra",
+    "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+    "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+    "Mathlib.Analysis.Normed.Field.Lemmas",
+    "Mathlib.Analysis.Normed.Ring.Lemmas",
+    "Mathlib.Analysis.Normed.Unbundled.SpectralNorm",
+    "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Pow.NNReal",
+    "Mathlib.CategoryTheory.Types.Basic",
+    "Mathlib.Data.Matrix.Mul",
+    "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+    "Mathlib.Data.Nat.Factors",
+    "Mathlib.Data.Nat.Prime.Int",
+    "Mathlib.Data.Rat.Encodable",
+    "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+    "Mathlib.FieldTheory.Galois.Infinite",
+    "Mathlib.FieldTheory.IsSepClosed",
+    "Mathlib.FieldTheory.KrullTopology",
+    "Mathlib.LinearAlgebra.Charpoly.Basic",
+    "Mathlib.LinearAlgebra.Countable",
+    "Mathlib.LinearAlgebra.FreeModule.IdealQuotient",
+    "Mathlib.LinearAlgebra.Matrix.Unique",
+    "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+    "Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter",
+    "Mathlib.NumberTheory.FLT.Basic",
+    "Mathlib.NumberTheory.FLT.Four",
+    "Mathlib.NumberTheory.FLT.Three",
+    "Mathlib.NumberTheory.NumberField.Basic",
+    "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+    "Mathlib.NumberTheory.Padics.Complex",
+    "Mathlib.NumberTheory.Padics.HeightOneSpectrum",
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+    "Mathlib.NumberTheory.Padics.ProperSpace",
+    "Mathlib.NumberTheory.RamificationInertia.Inertia",
+    "Mathlib.RepresentationTheory.Irreducible",
+    "Mathlib.RingTheory.Bialgebra.Basic",
+    "Mathlib.RingTheory.Bialgebra.TensorProduct",
+    "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+    "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+    "Mathlib.RingTheory.Etale.Basic",
+    "Mathlib.RingTheory.Etale.Field",
+    "Mathlib.RingTheory.Frobenius",
+    "Mathlib.RingTheory.HopfAlgebra.Basic",
+    "Mathlib.RingTheory.HopkinsLevitzki",
+    "Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient",
+    "Mathlib.RingTheory.Ideal.Quotient.Defs",
+    "Mathlib.RingTheory.Invariant.Defs",
+    "Mathlib.RingTheory.Invariant.Profinite",
+    "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+    "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+    "Mathlib.RingTheory.SimpleRing.Principal",
+    "Mathlib.RingTheory.Valuation.Discrete.Basic",
+    "Mathlib.RingTheory.Valuation.Discrete.RankOne",
+    "Mathlib.RingTheory.Valuation.ValuationSubring",
+    "Mathlib.Tactic.ModCases",
+    "Mathlib.Topology.Algebra.Algebra.Equiv",
+    "Mathlib.Topology.Algebra.Group.Basic",
+    "Mathlib.Topology.Algebra.Group.ClosedSubgroup",
+    "Mathlib.Topology.Algebra.Group.Neighborhood",
+    "Mathlib.Topology.Algebra.LinearTopology",
+    "Mathlib.Topology.Algebra.Module.ModuleTopology",
+    "Mathlib.Topology.Algebra.MulAction",
+    "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+    "Mathlib.Topology.Algebra.Valued.ValuedField",
+    "Mathlib.Topology.Algebra.Valued.WithZeroMulInt",
+    "Mathlib.Topology.Instances.Matrix",
+    "Mathlib.Topology.Instances.ZMod",
+    "Mathlib.Topology.Path"
+  ],
+  "missing_modules": [],
+  "packaged_compilation": "passed",
+  "pending_reason": null,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "alignment_reference": "metadata/labels/imperial-flt.jsonl"
+}

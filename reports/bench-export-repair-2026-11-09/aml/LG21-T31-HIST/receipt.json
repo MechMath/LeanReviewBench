@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-T31-HIST",
+  "status": "passed",
+  "evidence": "elaborated_statement_type",
+  "root": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
+  "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+  "graph_sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+  "graph": "reports/bench-export-repair-2026-11-09/aml/LG21-T31-HIST/graph.json",
+  "source_map": "reports/bench-export-repair-2026-11-09/aml/LG21-T31-HIST/source-map.json",
+  "source_map_sha256": "c0f0bc9432b3094c8a7e003e8faa2598b6c3e440922a75fb01301cad108a64b7",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "original_source_commit": "dbfa918c02cd35c8279f8f8a9183f6bcbe72c817",
+  "compiled_modules": [
+    "dep.EconCSLib.Foundations.Probability.Gaussian",
+    "dep.LG21TestOptionalPolicies.MainTheorems",
+    "dep.LG21TestOptionalPolicies.ProofInterface",
+    "Probe"
+  ],
+  "new_sorry_or_axioms": false,
+  "canonical_dataset_changed": false,
+  "original_project_full_build_passed": false,
+  "original_theorem_proof_checked": false,
+  "root_definition_checked": false,
+  "source_fragments_exact": true,
+  "supplemental_legacy_declarations": [],
+  "source_manifest": {
+    "Probe.lean": {
+      "sha256": "f05713b265fefaf1e0d4a0f4cc5d41c7c87bd4f4fc3003547d3006ed946411c2",
+      "bytes": 9563
+    },
+    "dep/EconCSLib/Foundations/Probability/Gaussian.lean": {
+      "sha256": "37b1bd629ab987620e27dcfee0a5f84352d7c02c5b7bf194138e3fea98824272",
+      "bytes": 7953
+    },
+    "dep/LG21TestOptionalPolicies/MainTheorems.lean": {
+      "sha256": "3530c12559b1ec04255ce155e9578b95d76cdfbd52cf456b7f53bebfe54a09f6",
+      "bytes": 11692
+    },
+    "dep/LG21TestOptionalPolicies/ProofInterface.lean": {
+      "sha256": "27f8e830209618a8ce4291125d5257e4da948666ad7b0674bcc51097dd30fc37",
+      "bytes": 1486
+    }
+  },
+  "replay_command": "python3 build/bench-export-repair-20261109/aml/compile_sliced.py LG21-T31-HIST",
+  "build_result": {
+    "project_id": "LG21-T31-HIST",
+    "status": "passed",
+    "compiled_modules": [
+      "dep.EconCSLib.Foundations.Probability.Gaussian",
+      "dep.LG21TestOptionalPolicies.MainTheorems",
+      "dep.LG21TestOptionalPolicies.ProofInterface",
+      "Probe"
+    ],
+    "elapsed_seconds": 9.987369060516357,
+    "lean_path": "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/aml/projects/LG21-T31-HIST/slice-lib:/tmp/paperlean-mathlib-434-20261109/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/Qq/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/plausible/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/aesop/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/batteries/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/proofwidgets/.lake/build/lib/lean"
+  },
+  "review_method": "model",
+  "limitations_cn": "证据是原始声明类型/原生Prop定义的真实Lean展开，未声称整项目或原theorem证明通过Lean4.34.1。"
+}

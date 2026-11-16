@@ -1,0 +1,71 @@
+{
+  "id": "error-pi-text-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT error-pi-text-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Eπ",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "Eπ",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+  },
+  "group_id": "pnt-Eπ",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "error-pi-text-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "The revised own-version numerator-absolute-value formula matches the retained Formal definition exactly for every real x, checked by definitional equality. This label assesses that explicit source definition, not global agreement with the paper quotient-absolute-value formula. The separately checked x>1 bridge records the paper-domain scope.",
+  "external_imports": [
+    "Mathlib.NumberTheory.Chebyshev"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "f642e94978d14862e77d11e99c3c4ff70ddcf0daafb67c70e276d1096ae15049"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/receipt.json",
+    "receipt_sha256": "3c9653d0db8288d45213c11377e30bf8fdd9cb791097643bc595abfc35894b9c",
+    "packaged_receipt": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "837d3179fabda8230f095f1d70b34831e110bddb984bfa0df2860282c18c075e",
+    "formal_snapshot_id": "error-pi",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0",
+        "ref": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+        "text": "$E_\\pi(x) = |\\pi(x) - \\mathrm{Li}(x)| /\n  (x / \\log x)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Eπ' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'Eπ' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "e42226a9137de3d93e105462ea8c80993fdda6e520c0cd232733f9fb97b3b692",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

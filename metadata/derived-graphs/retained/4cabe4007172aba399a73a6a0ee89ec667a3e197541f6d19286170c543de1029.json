@@ -1,0 +1,3232 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ (K : Type u_1) [inst : Field K] [inst_1 : NumberField K] (D : Type u_2) [inst_2 : DivisionRing D]\n  [inst_3 : Algebra K D] [inst_4 : FiniteDimensional K D] [Algebra.IsCentral K D]\n  {U : Subgroup (NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx K D)},\n  IsOpen ↑U → Finite (DoubleCoset.Quotient (Set.range ⇑(NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁ K D)) ↑U)",
+      "source_range": {
+        "start_line": 1099,
+        "start_column": 0,
+        "end_line": 1111,
+        "end_column": 86
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "theorem",
+      "internal": false,
+      "id": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 170,
+        "start_column": 0,
+        "end_line": 180,
+        "end_column": 59
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Field",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A `Field` is a `CommRing` with multiplicative inverses for nonzero elements.\n\nAn instance of `Field K` includes maps `ratCast : ℚ → K` and `qsmul : ℚ → K → K`.\nThose two fields are needed to implement the `DivisionRing K → Algebra ℚ K` instance since we need\nto control the specific definitions for some special cases of `K` (in particular `K = ℚ` itself).\nSee also note [forgetful inheritance].\n\nIf the field has positive characteristic `p`, our division by zero convention forces\n`ratCast (1 / p) = 1 / 0 = 0`. "
+    },
+    {
+      "value": null,
+      "type": "(K : Type u_1) → [Field K] → Prop",
+      "source_range": {
+        "start_line": 42,
+        "start_column": 0,
+        "end_line": 47,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.NumberField.Basic",
+      "kind": "class",
+      "internal": false,
+      "id": "NumberField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A number field is a field which has characteristic zero and is finite\ndimensional over ℚ. "
+    },
+    {
+      "value": null,
+      "type": "Type u_2 → Type u_2",
+      "source_range": {
+        "start_line": 106,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 84
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "DivisionRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A `DivisionRing` is a `Ring` with multiplicative inverses for nonzero elements.\n\nAn instance of `DivisionRing K` includes maps `ratCast : ℚ → K` and `qsmul : ℚ → K → K`.\nThose two fields are needed to implement the `DivisionRing K → Algebra ℚ K` instance since we need\nto control the specific definitions for some special cases of `K` (in particular `K = ℚ` itself).\nSee also note [forgetful inheritance]. Similarly, there are maps `nnratCast ℚ≥0 → K` and\n`nnqsmul : ℚ≥0 → K → K` to implement the `DivisionSemiring K → Algebra ℚ≥0 K` instance.\n\nIf the division ring has positive characteristic `p`, our division by zero convention forces\n`ratCast (1 / p) = 1 / 0 = 0`. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u) → (A : Type v) → [CommSemiring R] → [Semiring A] → Type (max u v)",
+      "source_range": {
+        "start_line": 91,
+        "start_column": 0,
+        "end_line": 99,
+        "end_column": 45
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Algebra.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Algebra",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "An associative unital `R`-algebra is a semiring `A` equipped with a map into its center `R → A`.\n\nSee the implementation notes in this file for discussion of the details of this definition.\n"
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_2} → [self : Semifield K] → CommSemiring K",
+      "source_range": {
+        "start_line": 168,
+        "start_column": 0,
+        "end_line": 168,
+        "end_column": 91
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Semifield.toCommSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_1} → [Field K] → Semifield K",
+      "source_range": {
+        "start_line": 183,
+        "start_column": 0,
+        "end_line": 183,
+        "end_column": 90
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Field.toSemifield",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [self : Ring R] → Semiring R",
+      "source_range": {
+        "start_line": 147,
+        "start_column": 0,
+        "end_line": 147,
+        "end_column": 77
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Ring.toSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{K : Type u_2} → [self : DivisionRing K] → Ring K",
+      "source_range": {
+        "start_line": 116,
+        "start_column": 0,
+        "end_line": 153,
+        "end_column": 84
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DivisionRing.toRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(K : Type u_1) → (V : Type u_2) → [inst : DivisionRing K] → [inst_1 : AddCommGroup V] → [Module K V] → Prop",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 75,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.FiniteDimensional.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "FiniteDimensional",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`FiniteDimensional` vector spaces are defined to be finite modules.\nUse `Module.Basis.finiteDimensional_of_finite` to prove finite dimension from another definition. "
+    },
+    {
+      "value": null,
+      "type": "{K : Type u} → [self : Field K] → DivisionRing K",
+      "source_range": {
+        "start_line": 180,
+        "start_column": 0,
+        "end_line": 180,
+        "end_column": 59
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Field.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Field.toDivisionRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [self : Ring R] → AddCommGroup R",
+      "source_range": {
+        "start_line": 147,
+        "start_column": 0,
+        "end_line": 147,
+        "end_column": 77
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Ring.toAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → {A : Type u_2} → {x : CommSemiring R} → {x_1 : Semiring A} → [Algebra R A] → Module R A",
+      "source_range": {
+        "start_line": 267,
+        "start_column": 0,
+        "end_line": 274,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Algebra.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Algebra.toModule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(K : Type u) → [inst : CommSemiring K] → (D : Type v) → [inst_1 : Semiring D] → [Algebra K D] → Prop",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 69,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Central.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Algebra.IsCentral",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "For a commutative ring `K` and a `K`-algebra `D`, we say that `D` is a central algebra over `K` if\nthe center of `D` is the image of `K` in `D`.\n"
+    },
+    {
+      "value": null,
+      "type": "(G : Type u_3) → [Group G] → Type u_3",
+      "source_range": {
+        "start_line": 294,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 44
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Subgroup.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "Subgroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A subgroup of a group `G` is a subset containing 1, closed under multiplication\nand closed under multiplicative inverse. \n\n[Wikidata Q466109](https://www.wikidata.org/wiki/Q466109)"
+    },
+    {
+      "value": "fun K [Field K] [NumberField K] D [DivisionRing D] [Algebra K D] => (NumberField.AdeleRing.DivisionAlgebra.Aux.Df K D)ˣ",
+      "type": "(K : Type u_1) →\n  [inst : Field K] → [NumberField K] → (D : Type u_2) → [inst_2 : DivisionRing D] → [Algebra K D] → Type (max u_2 u_1)",
+      "source_range": {
+        "start_line": 95,
+        "start_column": 0,
+        "end_line": 96,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Dfx is notation for (D ⊗ 𝔸_K^∞)ˣ. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [inst : Monoid α] → Group αˣ",
+      "source_range": {
+        "start_line": 258,
+        "start_column": 0,
+        "end_line": 261,
+        "end_column": 42
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Units.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Units.instGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Units of a monoid form a group. "
+    },
+    {
+      "value": "fun K [Field K] [NumberField K] D [DivisionRing D] [Algebra K D] =>\n  TensorProduct K D (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers K) K)",
+      "type": "(K : Type u_1) →\n  [inst : Field K] → [NumberField K] → (D : Type u_2) → [inst_2 : DivisionRing D] → [Algebra K D] → Type (max u_2 u_1)",
+      "source_range": {
+        "start_line": 92,
+        "start_column": 0,
+        "end_line": 93,
+        "end_column": 45
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Df is notation for D ⊗ 𝔸_K^∞ "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Semiring α] → Monoid α",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 143,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Semiring.toMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type uR} →\n  {A : Type uA} →\n    {B : Type uB} →\n      [inst : CommSemiring R] →\n        [inst_1 : Semiring A] →\n          [inst_2 : Algebra R A] → [inst_3 : Semiring B] → [inst_4 : Algebra R B] → Semiring (TensorProduct R A B)",
+      "source_range": {
+        "start_line": 249,
+        "start_column": 0,
+        "end_line": 258,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.TensorProduct.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Algebra.TensorProduct.instSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) →\n  [inst : CommRing R] →\n    [IsDedekindDomain R] →\n      (K : Type u_2) → [inst_2 : Field K] → [inst_3 : Algebra R K] → [IsFractionRing R K] → Type (max u_2 u_1)",
+      "source_range": {
+        "start_line": 87,
+        "start_column": 0,
+        "end_line": 95,
+        "end_column": 78
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+      "kind": "def",
+      "internal": false,
+      "id": "IsDedekindDomain.FiniteAdeleRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "If `K` is the field of fractions of the Dedekind domain `R` then `FiniteAdeleRing R K` is\nthe ring of finite adeles of `K`, defined as the restricted product of the completions\n`K_v` with respect to the subrings `R_v`. Here `v` runs through the nonzero primes of `R`\nand the restricted product is the subring of `∏_v K_v` consisting of elements which\nare in `R_v` for all but finitely many `v`.\n"
+    },
+    {
+      "value": null,
+      "type": "(K : Type u_1) → [Field K] → Type u_1",
+      "source_range": {
+        "start_line": 94,
+        "start_column": 0,
+        "end_line": 106,
+        "end_column": 39
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.NumberField.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NumberField.RingOfIntegers",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The ring of integers (or number ring) corresponding to a number field\nis the integral closure of ℤ in the number field.\n\nThis is defined as its own type, rather than a `Subalgebra`, for performance reasons:\nlooking for instances of the form `SMul (RingOfIntegers _) (RingOfIntegers _)` makes\nmuch more effective use of the discrimination tree than instances of the form\n`SMul (Subtype _) (Subtype _)`.\nThe drawback is we have to copy over instances manually.\n"
+    },
+    {
+      "value": null,
+      "type": "(K : Type u_1) → [inst : Field K] → CommRing (NumberField.RingOfIntegers K)",
+      "source_range": {
+        "start_line": 106,
+        "start_column": 9,
+        "end_line": 106,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.NumberField.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NumberField.instCommRingRingOfIntegers",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (K : Type u_1) [inst : Field K] [NumberField K], IsDedekindDomain (NumberField.RingOfIntegers K)",
+      "source_range": {
+        "start_line": 317,
+        "start_column": 0,
+        "end_line": 318,
+        "end_column": 44
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.NumberField.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(K : Type u_1) → [inst : Field K] → Algebra (NumberField.RingOfIntegers K) K",
+      "source_range": {
+        "start_line": 118,
+        "start_column": 0,
+        "end_line": 118,
+        "end_column": 47
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.NumberField.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NumberField.RingOfIntegers.instAlgebra_1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {K : Type u_1} [inst : Field K] [NumberField K], IsFractionRing (NumberField.RingOfIntegers K) K",
+      "source_range": {
+        "start_line": 278,
+        "start_column": 0,
+        "end_line": 279,
+        "end_column": 56
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.NumberTheory.NumberField.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "NumberField.RingOfIntegers.instIsFractionRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [self : CommSemiring R] → Semiring R",
+      "source_range": {
+        "start_line": 229,
+        "start_column": 0,
+        "end_line": 229,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "CommSemiring.toSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [s : CommRing α] → CommSemiring α",
+      "source_range": {
+        "start_line": 418,
+        "start_column": 0,
+        "end_line": 419,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "CommRing.toCommSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) →\n  [inst : CommRing R] →\n    [inst_1 : IsDedekindDomain R] →\n      (K : Type u_2) →\n        [inst_2 : Field K] →\n          [inst_3 : Algebra R K] → [inst_4 : IsFractionRing R K] → CommRing (IsDedekindDomain.FiniteAdeleRing R K)",
+      "source_range": {
+        "start_line": 97,
+        "start_column": 0,
+        "end_line": 98,
+        "end_column": 90
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+      "kind": "def",
+      "internal": false,
+      "id": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) →\n  [inst : CommRing R] →\n    [inst_1 : IsDedekindDomain R] →\n      (K : Type u_2) →\n        [inst_2 : Field K] →\n          [inst_3 : Algebra R K] → [inst_4 : IsFractionRing R K] → Algebra K (IsDedekindDomain.FiniteAdeleRing R K)",
+      "source_range": {
+        "start_line": 139,
+        "start_column": 0,
+        "end_line": 139,
+        "end_column": 75
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+      "kind": "def",
+      "internal": false,
+      "id": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{X : Type u} → [TopologicalSpace X] → Set X → Prop",
+      "source_range": {
+        "start_line": 93,
+        "start_column": 0,
+        "end_line": 95,
+        "end_column": 52
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "IsOpen",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`IsOpen s` means that `s` is open in the ambient topological space on `X` "
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_1} → [TopologicalSpace M] → [inst : Monoid M] → TopologicalSpace Mˣ",
+      "source_range": {
+        "start_line": 98,
+        "start_column": 0,
+        "end_line": 102,
+        "end_column": 57
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Algebra.Constructions",
+      "kind": "def",
+      "internal": false,
+      "id": "Units.instTopologicalSpaceUnits",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The units of a monoid are equipped with a topology, via the embedding into `M × M`. "
+    },
+    {
+      "value": "fun R A M [CommSemiring R] [AddCommMonoid M] [Module R M] [CommSemiring A] [Algebra R A] [TopologicalSpace A]\n    [Module.Finite R M] =>\n  moduleTopology A (TensorProduct R M A)",
+      "type": "(R : Type u_1) →\n  (A : Type u_3) →\n    (M : Type u_5) →\n      [inst : CommSemiring R] →\n        [inst_1 : AddCommMonoid M] →\n          [inst_2 : Module R M] →\n            [inst_3 : CommSemiring A] →\n              [inst_4 : Algebra R A] →\n                [TopologicalSpace A] → [Module.Finite R M] → TopologicalSpace (TensorProduct R M A)",
+      "source_range": {
+        "start_line": 153,
+        "start_column": 0,
+        "end_line": 158,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.Hacks.RightActionInstances",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "We equip `M ⊗[R] A` with the `A`-module topology if `M` is finite over `R`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Semiring α] → AddCommMonoid α",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 143,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Semiring.toAddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) →\n  [inst : CommRing R] →\n    [inst_1 : IsDedekindDomain R] →\n      (K : Type u_2) →\n        [inst_2 : Field K] →\n          [inst_3 : Algebra R K] →\n            [inst_4 : IsFractionRing R K] → TopologicalSpace (IsDedekindDomain.FiniteAdeleRing R K)",
+      "source_range": {
+        "start_line": 100,
+        "start_column": 0,
+        "end_line": 101,
+        "end_column": 98
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing",
+      "kind": "def",
+      "internal": false,
+      "id": "IsDedekindDomain.instTopologicalSpaceFiniteAdeleRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{A : Type u_1} → {B : outParam (Type u_2)} → [self : SetLike A B] → A → Set B",
+      "source_range": {
+        "start_line": 108,
+        "start_column": 12,
+        "end_line": 108,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.SetLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SetLike.coe",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The coercion from a term of a `SetLike` to its corresponding `Set`. "
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_1} → [inst : Group G] → SetLike (Subgroup G) G",
+      "source_range": {
+        "start_line": 316,
+        "start_column": 0,
+        "end_line": 322,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Subgroup.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Subgroup.instSetLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sort u_3 → Prop",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 102,
+        "end_column": 40
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Finite.Defs",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Finite",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A type is `Finite` if it is in bijective correspondence to some `Fin n`.\n\nThis is similar to `Fintype`, but `Finite` is a proposition rather than data.\nA particular benefit to this is that `Finite` instances are definitionally equal to one another\n(due to proof irrelevance) rather than being merely propositionally equal,\nand, furthermore, `Finite` instances generally avoid the need for `Decidable` instances.\nOne other notable difference is that `Finite` allows there to be `Finite p` instances\nfor all `p : Prop`, which is not allowed by `Fintype` due to universe constraints.\nAn application of this is that `Finite (x ∈ s → β x)` follows from the general instance for pi\ntypes, assuming `[∀ x, Finite (β x)]`.\nImplementation note: this is a reason `Finite α` is not defined as `Nonempty (Fintype α)`.\n\nEvery `Fintype` instance provides a `Finite` instance via `Finite.of_fintype`.\nConversely, one can noncomputably create a `Fintype` instance from a `Finite` instance\nvia `Fintype.ofFinite`. In a proof one might write\n```lean\n  have := Fintype.ofFinite α\n```\nto obtain such an instance.\n\nDo not write noncomputable `Fintype` instances; instead write `Finite` instances\nand use this `Fintype.ofFinite` interface.\nThe `Fintype` instances should be relied upon to be computable for evaluation purposes.\n\nTheorems should use `Finite` instead of `Fintype`, unless definitions in the theorem statement\nrequire `Fintype`.\nDefinitions should prefer `Finite` as well, unless it is important that the definitions\nare meant to be computable in the reduction or `#eval` sense.\n"
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_1} → [Group G] → Set G → Set G → Type u_1",
+      "source_range": {
+        "start_line": 78,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.GroupTheory.DoubleCoset",
+      "kind": "def",
+      "internal": false,
+      "id": "DoubleCoset.Quotient",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Quotient of `G` by the double coset relation, i.e. `H \\ G / K` "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {ι : Sort u_1} → (ι → α) → Set α",
+      "source_range": {
+        "start_line": 169,
+        "start_column": 0,
+        "end_line": 173,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Operations",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.range",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Range of a function.\n\nThis function is more flexible than `f '' univ`, as the image requires that the domain is in Type\nand not an arbitrary Sort. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u) → [Monoid α] → Type u",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 0,
+        "end_line": 57,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Units.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "Units",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Units of a `Monoid`, bundled version. Notation: `αˣ`.\n\nAn element of a `Monoid` is a unit if it has a two-sided inverse.\nThis version bundles the inverse element so that it can be computed.\nFor a predicate see `IsUnit`. "
+    },
+    {
+      "value": null,
+      "type": "{F : Sort u_1} → {α : outParam (Sort u_2)} → {β : outParam (α → Sort u_3)} → [self : DFunLike F α β] → F → (a : α) → β a",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.FunLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DFunLike.coe",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The coercion from `F` to a function. "
+    },
+    {
+      "value": null,
+      "type": "(M : Type u_10) → (N : Type u_11) → [MulOne M] → [MulOne N] → Type (max u_10 u_11)",
+      "source_range": {
+        "start_line": 357,
+        "start_column": 0,
+        "end_line": 367,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Hom.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "MonoidHom",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`M →* N` is the type of functions `M → N` that preserve the `MulOne` structure.\n`MonoidHom` is used for both monoid and group homomorphisms.\n\nWhen possible, instead of parametrizing results over `(f : M →* N)`,\nyou should parametrize over `(F : Type*) [MonoidHomClass F M N] (f : F)`.\n\nWhen you extend this structure, make sure to extend `MonoidHomClass`.\n\n\n[Wikidata Q868169](https://www.wikidata.org/wiki/Q868169)"
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_2} → [self : MulOneClass M] → MulOne M",
+      "source_range": {
+        "start_line": 74,
+        "start_column": 0,
+        "end_line": 78,
+        "end_column": 40
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Monoid",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "MulOneClass.toMulOne",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [inst : Monoid α] → MulOneClass αˣ",
+      "source_range": {
+        "start_line": 156,
+        "start_column": 0,
+        "end_line": 161,
+        "end_column": 37
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Units.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Units.instMulOneClass",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Units of a monoid have a multiplication and multiplicative identity. "
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_4} → {N : Type u_5} → [inst : MulOne M] → [inst_1 : MulOne N] → FunLike (M →* N) M N",
+      "source_range": {
+        "start_line": 382,
+        "start_column": 0,
+        "end_line": 390,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Hom.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "MonoidHom.instFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun K [Field K] [NumberField K] D [DivisionRing D] [Algebra K D] => Units.map ↑Algebra.TensorProduct.includeLeftRingHom",
+      "type": "(K : Type u_1) →\n  [inst : Field K] →\n    [inst_1 : NumberField K] →\n      (D : Type u_2) →\n        [inst_2 : DivisionRing D] → [inst_3 : Algebra K D] → Dˣ →* NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx K D",
+      "source_range": {
+        "start_line": 108,
+        "start_column": 0,
+        "end_line": 110,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The inclusion Dˣ → (D ⊗ 𝔸_K^∞)ˣ as a group homomorphism. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) →\n  [inst : CommSemiring R] →\n    (M : Type u_5) →\n      (N : Type u_6) →\n        [inst_1 : AddCommMonoid M] → [inst_2 : AddCommMonoid N] → [Module R M] → [Module R N] → Type (max u_5 u_6)",
+      "source_range": {
+        "start_line": 69,
+        "start_column": 0,
+        "end_line": 73,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The tensor product of two modules `M` and `N` over the same commutative semiring `R`.\nThe localized notations are `M ⊗ N` and `M ⊗[R] N`, accessed by `open scoped TensorProduct`. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 228,
+        "start_column": 0,
+        "end_line": 229,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "CommSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A commutative semiring is a semiring with commutative multiplication. "
+    },
+    {
+      "value": null,
+      "type": "Type u_2 → Type u_2",
+      "source_range": {
+        "start_line": 524,
+        "start_column": 0,
+        "end_line": 525,
+        "end_column": 71
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Monoid",
+      "kind": "class",
+      "internal": false,
+      "id": "AddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "An additive commutative monoid is an additive monoid with commutative `(+)`. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u) → (M : Type v) → [Semiring R] → [AddCommMonoid M] → Type (max u v)",
+      "source_range": {
+        "start_line": 48,
+        "start_column": 0,
+        "end_line": 59,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Module",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A module is a generalization of vector spaces to a scalar semiring.\nIt consists of a scalar semiring `R` and an additive monoid of \"vectors\" `M`,\nconnected by a \"scalar multiplication\" operation `r • x : M`\n(where `r : R` and `x : M`) with some natural associativity and\ndistributivity axioms similar to those on a ring. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 71,
+        "start_column": 0,
+        "end_line": 83,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Basic",
+      "kind": "class",
+      "internal": false,
+      "id": "TopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A topology on `X`. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) → (M : Type u_3) → [inst : Semiring R] → [inst_1 : AddCommMonoid M] → [Module R M] → Prop",
+      "source_range": {
+        "start_line": 116,
+        "start_column": 0,
+        "end_line": 119,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.Finiteness.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Module.Finite",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A module over a semiring is `Module.Finite` if it is finitely generated as a module. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) → [TopologicalSpace R] → (A : Type u_2) → [Add A] → [SMul R A] → TopologicalSpace A",
+      "source_range": {
+        "start_line": 123,
+        "start_column": 0,
+        "end_line": 129,
+        "end_column": 61
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Algebra.Module.ModuleTopology",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "moduleTopology",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The module topology, for a module `A` over a topological ring `R`. It's the finest topology\nmaking addition and the `R`-action continuous, or equivalently the finest topology making `A`\ninto a topological `R`-module. More precisely it's the Inf of the set of\ntopologies with these properties; theorems `continuousSMul` and `continuousAdd` show\nthat the module topology also has these properties. "
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_3) →\n  [inst : CommSemiring R] →\n    (M : Type u_1) →\n      (N : Type u_2) →\n        [inst_1 : AddCommMonoid M] →\n          [inst_2 : AddCommMonoid N] → [inst_3 : Module R M] → [inst_4 : Module R N] → Add (TensorProduct R M N)",
+      "source_range": {
+        "start_line": 73,
+        "start_column": 15,
+        "end_line": 73,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instAddTensorProduct",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun R S M [CommSemiring R] [CommSemiring S] [AddCommMonoid M] [Algebra R S] [Module R M] =>\n  { smul := fun s e => (TensorProduct.comm R S M) (s • (TensorProduct.comm R M S) e) }",
+      "type": "(R : Type u_1) →\n  (S : Type u_2) →\n    (M : Type u_5) →\n      [inst : CommSemiring R] →\n        [inst_1 : CommSemiring S] →\n          [inst_2 : AddCommMonoid M] → [inst_3 : Algebra R S] → [inst_4 : Module R M] → SMul S (TensorProduct R M S)",
+      "source_range": {
+        "start_line": 61,
+        "start_column": 0,
+        "end_line": 64,
+        "end_column": 73
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.Hacks.RightActionInstances",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct.RightActions.instSMul_dep",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Right action of a commutative semiring `S` on `M ⊗ S`. An instance only when\nthe `TensorProduct.RightActions` scope is open. "
+    },
+    {
+      "value": null,
+      "type": "{M : Type u} → {N : Type v} → [inst : Monoid M] → [inst_1 : Monoid N] → (M →* N) → Mˣ →* Nˣ",
+      "source_range": {
+        "start_line": 73,
+        "start_column": 0,
+        "end_line": 77,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Units.Hom",
+      "kind": "def",
+      "internal": false,
+      "id": "Units.map",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The group homomorphism on units induced by a `MonoidHom`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → {β : Type u_6} → [inst : NonAssocSemiring α] → [inst_1 : NonAssocSemiring β] → (α →+* β) → α →* β",
+      "source_range": {
+        "start_line": 297,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 35
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Hom.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "RingHom.toMonoidHom",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Reinterpret a ring homomorphism `f : α →+* β` as a monoid homomorphism `α →* β`.\nThe `simp`-normal form is `(f : α →* β)`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Semiring α] → NonAssocSemiring α",
+      "source_range": {
+        "start_line": 142,
+        "start_column": 0,
+        "end_line": 143,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Semiring.toNonAssocSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type uR} →\n  {A : Type uA} →\n    {B : Type uB} →\n      [inst : CommSemiring R] →\n        [inst_1 : NonAssocSemiring A] →\n          [inst_2 : Module R A] →\n            [SMulCommClass R A A] →\n              [IsScalarTower R A A] →\n                [inst_5 : NonAssocSemiring B] →\n                  [inst_6 : Module R B] →\n                    [SMulCommClass R B B] → [IsScalarTower R B B] → NonAssocSemiring (TensorProduct R A B)",
+      "source_range": {
+        "start_line": 215,
+        "start_column": 0,
+        "end_line": 219,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.TensorProduct.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Algebra.TensorProduct.instNonAssocSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (K : Type u_1) [inst : Field K] (D : Type u_2) [inst_1 : DivisionRing D] [inst_2 : Algebra K D], SMulCommClass K D D",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "theorem",
+      "internal": true,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (K : Type u_1) [inst : Field K] (D : Type u_2) [inst_1 : DivisionRing D] [inst_2 : Algebra K D], IsScalarTower K D D",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "theorem",
+      "internal": true,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (K : Type u_1) [inst : Field K] [inst_1 : NumberField K],\n  SMulCommClass K (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers K) K)\n    (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers K) K)",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "theorem",
+      "internal": true,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (K : Type u_1) [inst : Field K] [inst_1 : NumberField K],\n  IsScalarTower K (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers K) K)\n    (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers K) K)",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.DivisionAlgebra.Finiteness",
+      "kind": "theorem",
+      "internal": true,
+      "id": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type uR} →\n  {A : Type uA} →\n    {B : Type uB} →\n      [inst : CommSemiring R] →\n        [inst_1 : Semiring A] →\n          [inst_2 : Algebra R A] → [inst_3 : Semiring B] → [inst_4 : Algebra R B] → A →+* TensorProduct R A B",
+      "source_range": {
+        "start_line": 266,
+        "start_column": 0,
+        "end_line": 271,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.RingTheory.TensorProduct.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Algebra.TensorProduct.includeLeftRingHom",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The ring morphism `A →+* A ⊗[R] B` sending `a` to `a ⊗ₜ 1`. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type v → Type (max u v)",
+      "source_range": {
+        "start_line": 1604,
+        "start_column": 0,
+        "end_line": 1608,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "class",
+      "internal": false,
+      "id": "SMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Typeclass for types with a scalar multiplication operation, denoted `•` (`\\bu`) "
+    },
+    {
+      "value": null,
+      "type": "{M : Type u} → {α : Type v} → (M → α → α) → SMul M α",
+      "source_range": {
+        "start_line": 1605,
+        "start_column": 6,
+        "end_line": 1605,
+        "end_column": 10
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "SMul.mk",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_14} →\n  {S : Type u_15} →\n    [inst : Semiring R] →\n      [inst_1 : Semiring S] →\n        (σ : R →+* S) →\n          {σ' : S →+* R} →\n            [RingHomInvPair σ σ'] →\n              [RingHomInvPair σ' σ] →\n                (M : Type u_16) →\n                  (M₂ : Type u_17) →\n                    [inst_4 : AddCommMonoid M] →\n                      [inst_5 : AddCommMonoid M₂] → [Module R M] → [Module S M₂] → Type (max u_16 u_17)",
+      "source_range": {
+        "start_line": 48,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 99
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Equiv.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "LinearEquiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A linear equivalence is an invertible linear map. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_5) → [inst : NonAssocSemiring α] → α →+* α",
+      "source_range": {
+        "start_line": 513,
+        "start_column": 0,
+        "end_line": 520,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Hom.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "RingHom.id",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The identity ring homomorphism from a semiring to itself. "
+    },
+    {
+      "value": null,
+      "type": "∀ (R : Type u_1) [inst : CommSemiring R], RingHomInvPair (RingHom.id R) (RingHom.id R)",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.Hacks.RightActionInstances",
+      "kind": "theorem",
+      "internal": true,
+      "id": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} →\n  [inst : CommSemiring R] →\n    {M : Type u_5} →\n      {N : Type u_6} →\n        [inst_1 : AddCommMonoid M] →\n          [inst_2 : AddCommMonoid N] →\n            [inst_3 : Module R M] → [inst_4 : Module R N] → AddCommMonoid (TensorProduct R M N)",
+      "source_range": {
+        "start_line": 272,
+        "start_column": 0,
+        "end_line": 272,
+        "end_column": 55
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct.addCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} →\n  [inst : CommSemiring R] →\n    {M : Type u_5} →\n      {N : Type u_6} →\n        [inst_1 : AddCommMonoid M] →\n          [inst_2 : AddCommMonoid N] → [inst_3 : Module R M] → [inst_4 : Module R N] → Module R (TensorProduct R M N)",
+      "source_range": {
+        "start_line": 321,
+        "start_column": 0,
+        "end_line": 322,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct.instModule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Sort u_1} → {α : Sort u_3} → {β : Sort u_4} → [EquivLike E α β] → FunLike E α β",
+      "source_range": {
+        "start_line": 163,
+        "start_column": 0,
+        "end_line": 167,
+        "end_column": 78
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.FunLike.Equiv",
+      "kind": "def",
+      "internal": false,
+      "id": "EquivLike.toFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_7} →\n  {S : Type u_8} →\n    [inst : Semiring R] →\n      [inst_1 : Semiring S] →\n        (σ : R →+* S) →\n          {σ' : S →+* R} →\n            [inst_2 : RingHomInvPair σ σ'] →\n              [inst_3 : RingHomInvPair σ' σ] →\n                (M : Type u_9) →\n                  (M₂ : Type u_10) →\n                    [inst_4 : AddCommMonoid M] →\n                      [inst_5 : AddCommMonoid M₂] →\n                        [inst_6 : Module R M] → [inst_7 : Module S M₂] → EquivLike (M ≃ₛₗ[σ] M₂) M M₂",
+      "source_range": {
+        "start_line": 115,
+        "start_column": 0,
+        "end_line": 120,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.DFinsupp",
+      "kind": "def",
+      "internal": false,
+      "id": "DFinsupp.instEquivLikeLinearEquiv",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(R : Type u_1) →\n  [inst : CommSemiring R] →\n    (M : Type u_6) →\n      (N : Type u_7) →\n        [inst_1 : AddCommMonoid M] →\n          [inst_2 : AddCommMonoid N] →\n            [inst_3 : Module R M] → [inst_4 : Module R N] → TensorProduct R M N ≃ₗ[R] TensorProduct R N M",
+      "source_range": {
+        "start_line": 263,
+        "start_column": 0,
+        "end_line": 266,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct.comm",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The tensor product of modules is commutative, up to linear equivalence. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HSMul α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1440,
+        "start_column": 2,
+        "end_line": 1440,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HSMul.hSMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a • b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent, but it is intended to be used for left actions. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `•` in identifiers is `smul`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [SMul α β] → HSMul α β β",
+      "source_range": {
+        "start_line": 1701,
+        "start_column": 0,
+        "end_line": 1703,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHSMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} →\n  {R' : Type u_2} →\n    [inst : CommSemiring R] →\n      [inst_1 : Monoid R'] →\n        {M : Type u_5} →\n          {N : Type u_6} →\n            [inst_2 : AddCommMonoid M] →\n              [inst_3 : AddCommMonoid N] →\n                [inst_4 : DistribMulAction R' M] →\n                  [inst_5 : Module R M] → [inst_6 : Module R N] → [SMulCommClass R R' M] → SMul R' (TensorProduct R M N)",
+      "source_range": {
+        "start_line": 210,
+        "start_column": 0,
+        "end_line": 238,
+        "end_column": 65
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "TensorProduct.leftHasSMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Given two modules over a commutative semiring `R`, if one of the factors carries a\n(distributive) action of a second type of scalars `R'`, which commutes with the action of `R`, then\nthe tensor product (over `R`) carries an action of `R'`.\n\nThis instance defines this `R'` action in the case that it is the left module which has the `R'`\naction. Two natural ways in which this situation arises are:\n* Extension of scalars\n* A tensor product of a group representation with a module not carrying an action\n\nNote that in the special case that `R = R'`, since `R` is commutative, we just get the usual scalar\naction on a tensor product of two modules. This special case is important enough that, for\nperformance reasons, we define it explicitly below. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} →\n  {M : Type v} → {inst : Semiring R} → {inst_1 : AddCommMonoid M} → [self : Module R M] → DistribMulAction R M",
+      "source_range": {
+        "start_line": 54,
+        "start_column": 0,
+        "end_line": 59,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Module.toDistribMulAction",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → [inst : Semiring R] → Module R R",
+      "source_range": {
+        "start_line": 167,
+        "start_column": 0,
+        "end_line": 171,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Module.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Semiring.toModule",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ (R : Type u_1) (S : Type u_2) [inst : CommSemiring R] [inst_1 : CommSemiring S] [inst_2 : Algebra R S],\n  SMulCommClass R S S",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.FLT.Hacks.RightActionInstances",
+      "kind": "theorem",
+      "internal": true,
+      "id": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(M : Type u_9) → (N : Type u_10) → (α : Type u_11) → [SMul M α] → [SMul N α] → Prop",
+      "source_range": {
+        "start_line": 147,
+        "start_column": 0,
+        "end_line": 151,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Action.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "SMulCommClass",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A typeclass mixin saying that two multiplicative actions on the same space commute. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → {A : Type v} → {inst : CommSemiring R} → {inst_1 : Semiring A} → [self : Algebra R A] → SMul R A",
+      "source_range": {
+        "start_line": 95,
+        "start_column": 0,
+        "end_line": 99,
+        "end_column": 45
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Algebra.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Algebra.toSMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [Mul α] → SMul α α",
+      "source_range": {
+        "start_line": 1705,
+        "start_column": 0,
+        "end_line": 1706,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instSMulOfMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → [self : Distrib R] → Mul R",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Distrib.toMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [Semiring α] → Distrib α",
+      "source_range": {
+        "start_line": 150,
+        "start_column": 0,
+        "end_line": 150,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instDistribOfSemiring",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(M : Type u_9) → (N : Type u_10) → (α : Type u_11) → [SMul M N] → [SMul N α] → [SMul M α] → Prop",
+      "source_range": {
+        "start_line": 207,
+        "start_column": 0,
+        "end_line": 213,
+        "end_column": 65
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Action.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "IsScalarTower",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "An instance of `IsScalarTower M N α` states that the multiplicative\naction of `M` on `α` is determined by the multiplicative actions of `M` on `N`\nand `N` on `α`. "
+    },
+    {
+      "value": null,
+      "type": "{R₁ : Type u_1} →\n  {R₂ : Type u_2} → [inst : Semiring R₁] → [inst_1 : Semiring R₂] → (R₁ →+* R₂) → outParam (R₂ →+* R₁) → Prop",
+      "source_range": {
+        "start_line": 81,
+        "start_column": 0,
+        "end_line": 87,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.CompTypeclasses",
+      "kind": "class",
+      "internal": false,
+      "id": "RingHomInvPair",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Class that expresses the fact that two ring homomorphisms are inverses of each other. This is\nused to handle `symm` for semilinear equivalences. "
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Field",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "FiniteDimensional",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Field.toDivisionRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toAddCommGroup",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.IsCentral",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Subgroup",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Units.instGroup",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Semiring.toMonoid",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.TensorProduct.instSemiring",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "IsOpen",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Units.instTopologicalSpaceUnits",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.instTopologicalSpaceFiniteAdeleRing",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "SetLike.coe",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Subgroup.instSetLike",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Finite",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "DoubleCoset.Quotient",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Set.range",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Units",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "DFunLike.coe",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "MonoidHom",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "MulOneClass.toMulOne",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Units.instMulOneClass",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "MonoidHom.instFunLike",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "source": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Units",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toMonoid",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.TensorProduct.instSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "site": "definition_value"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoid",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "Module",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "TopologicalSpace",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "Module.Finite",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "TensorProduct",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommMonoid",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Module",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TopologicalSpace",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Module.Finite",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "moduleTopology",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "instAddTensorProduct",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.RightActions.instSMul_dep",
+      "source": "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "MonoidHom",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Units",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Semiring.toMonoid",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "MulOneClass.toMulOne",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Units.instMulOneClass",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.TensorProduct.instSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Units.map",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.Df",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toMonoid",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.TensorProduct.instSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "RingHom.toMonoidHom",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toNonAssocSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.TensorProduct.instNonAssocSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.TensorProduct.includeLeftRingHom",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "AddCommMonoid",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "Module",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "SMul",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "TensorProduct",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommMonoid",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Module",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "SMul.mk",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toAddCommMonoid",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Algebra.toModule",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "DFunLike.coe",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "LinearEquiv",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "RingHom.id",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toNonAssocSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.addCommMonoid",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.instModule",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "EquivLike.toFunLike",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "DFinsupp.instEquivLikeLinearEquiv",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.comm",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "HSMul.hSMul",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHSMul",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.leftHasSMul",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toMonoid",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Module.toDistribMulAction",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Semiring.toModule",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "source": "TensorProduct.RightActions.instSMul_dep",
+      "site": "definition_value"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "SMulCommClass",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toSMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instSMulOfMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Ring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "DivisionRing.toRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "IsScalarTower",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toSMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instSMulOfMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "SMulCommClass",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toSMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instSMulOfMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Field",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NumberField",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "IsScalarTower",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.instCommRingRingOfIntegers",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsDedekindDomain",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instAlgebra_1",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "NumberField.RingOfIntegers.instIsFractionRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toSMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Semifield.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Field.toSemifield",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "CommRing.toCommSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.instCommRingFiniteAdeleRing",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "IsDedekindDomain.FiniteAdeleRing.instAlgebra",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instSMulOfMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "RingHomInvPair",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "RingHom.id",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Semiring.toNonAssocSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Algebra",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "CommSemiring.toSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "SMulCommClass",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Algebra.toSMul",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instSMulOfMul",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "Distrib.toMul",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    },
+    {
+      "target": "instDistribOfSemiring",
+      "source": "TensorProduct.RightActions.instSMul_dep._proof_2",
+      "site": "type"
+    }
+  ]
+}

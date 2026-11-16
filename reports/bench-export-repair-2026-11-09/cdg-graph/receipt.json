@@ -1,0 +1,94 @@
+{
+  "status": "passed",
+  "root": "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli",
+  "exit_code": 0,
+  "command": [
+    "/home/shenhao/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+    "-j",
+    "1",
+    "-o",
+    "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/cdg/ExportRoot.olean",
+    "ExportRoot.lean"
+  ],
+  "source_edits": [],
+  "raw_input_unchanged": true,
+  "new_sorry_or_axioms": false,
+  "original_theorem_proof_certified": true,
+  "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
+  "driver_sha256": "41fd5dffba8f5db83ecd62f9b69a2259a46d30ab4d8a8120f3ef3adf310f3919",
+  "closure_audit_sha256": "63b28b5d8a05ac01508c0ac7c81fb50f661d8d935e7809c5c7f5c294676d6930",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_processor_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "compile_status_sha256": "2031f8bd9c50c297cd77b6d21bffdddffc210b076c8e57846663eaf15c9e31d9",
+  "nodes": 306,
+  "edges": 1764,
+  "source_extraction_status": "passed",
+  "raw_sha256": "0c1d83c342b92d7d1a0a8843e0273e10d702babc3c5ed8f312b34817b0218ce4",
+  "graph_sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10",
+  "archive_evidence": {
+    "ExportRoot.lean": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/ExportRoot.lean",
+      "sha256": "41fd5dffba8f5db83ecd62f9b69a2259a46d30ab4d8a8120f3ef3adf310f3919"
+    },
+    "closure-audit.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/closure-audit.json",
+      "sha256": "63b28b5d8a05ac01508c0ac7c81fb50f661d8d935e7809c5c7f5c294676d6930"
+    },
+    "compact.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compact.json",
+      "sha256": "64afe37f540cfdf22293319bd7e8fdfe00bcfd15d828432f0c95759cb82695b8"
+    },
+    "compile-closure.py": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compile-closure.py",
+      "sha256": "fa348b2ccbf471be70d28d0a0887552db5266d7a86ed3e52e3bc0dab08cd3eff"
+    },
+    "compile-status.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compile-status.json",
+      "sha256": "2031f8bd9c50c297cd77b6d21bffdddffc210b076c8e57846663eaf15c9e31d9"
+    },
+    "compile.log": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compile.log",
+      "sha256": "2876f4411dc1c6d7e38b35aad068db70e3e9d2525d10a5e5baab589a02fb847b"
+    },
+    "export-root.py": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/export-root.py",
+      "sha256": "237a4b9ee95a186d3b024ed49ad09f29668e901ef9aad27a81948f0951b7cd08"
+    },
+    "extraction.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/extraction.json",
+      "sha256": "7bb1691ec33895b98d4ee090471504e7a5d0c352cbf02e9f17443f474352838e"
+    },
+    "graph.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/graph.json",
+      "sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10"
+    },
+    "historical-source-comparison.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/historical-source-comparison.json",
+      "sha256": "000b5cf4ea804bd6b4544edb7e0f51008e8c9de6ad65be2d2727da6a9304b2f3"
+    },
+    "module-build-evidence.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/module-build-evidence.json",
+      "sha256": "0c4a198523a2634db2daf989871613e7942ad2d1d250191179c21bf91d6e871e"
+    },
+    "raw.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/raw.json",
+      "sha256": "0c1d83c342b92d7d1a0a8843e0273e10d702babc3c5ed8f312b34817b0218ce4"
+    },
+    "receipt-original.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/receipt-original.json",
+      "sha256": "f3de53c83cc2eb516545bc9c2935f3aca05ec82851a5a6b2aa27345c4403a8fc"
+    },
+    "source-bindings.json": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/source-bindings.json",
+      "sha256": "abf36af242593b24e5b50a28a3399e58df9a2c623a2f25ab747ac38b2826c3c6"
+    },
+    "graph-processor.py": {
+      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/graph-processor.py",
+      "sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+    }
+  },
+  "archive_policy": "Graph and original build/export evidence are retained under reports. Source text is not duplicated; source-bindings.json verifies the unchanged canonical files and extracted declaration ranges. Absolute build paths in historical commands and logs identify the executed workspace.",
+  "evidence": "compiled_environment",
+  "source_file_count": 564,
+  "verified_source_declaration_count": 48
+}

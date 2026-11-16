@@ -1,0 +1,18 @@
+module
+
+public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+public import Mathlib.Data.Fintype.Parity
+
+/-!
+# The Upper Half-Plane
+
+Auxiliary lemmas about the upper half-plane.
+-/
+
+@[expose] public section
+
+-- Probably put it at LinearAlgebra/Matrix/SpecialLinearGroup.lean
+
+theorem ModularGroup.modular_S_sq : S * S = -1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> rfl

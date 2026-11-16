@@ -1,0 +1,62 @@
+{
+  "id": "int-sign-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "APAP integer Kelley\u2013Meka int-sign-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "int",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/YaelDillies/apap",
+    "commit": "56041e8c7c58f5fd34031769dedae547bb73209f",
+    "path": "APAP/Integer.lean",
+    "module": "APAP.Integer",
+    "declaration": "int",
+    "url": "https://github.com/YaelDillies/apap/blob/56041e8c7c58f5fd34031769dedae547bb73209f/APAP/Integer.lean",
+    "sha256": "7b65f1a88b14a933add72da781e0eb9b9b6717b41c7a77a322e325703998324d",
+    "leads": []
+  },
+  "group_id": "apap:integer-bound",
+  "split_group": "YaelDillies/apap",
+  "before_ids": [
+    "int-sign-before"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Combinatorics.Additive.AP.Three.Defs"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "0729062f82968d6a53c6f3b036b154e1584a33e1b9d95925c05acfb4162dfc50"
+  },
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/apap.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
+    "graph": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/default/graph.json",
+    "explicit_graph": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/explicit/graph.json",
+    "receipt_sha256": "5795acc2e4664cbb8122a709894f0dbf9b16f0d71774b9019114c2991c23f81c",
+    "packaged_receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
+    "packaged_receipt_sha256": "5795acc2e4664cbb8122a709894f0dbf9b16f0d71774b9019114c2991c23f81c"
+  },
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6"
+}

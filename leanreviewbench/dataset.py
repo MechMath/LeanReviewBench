@@ -1,22 +1,11 @@
+"""Read native project-case packages. These are curator data, not model prompts."""
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 
-TASK_FIELDS = {'schema_version','task_id','roots','informal','context_id','environment'}
-NODE_FIELDS = {'id','kind','type','value','external','proof_valued','projection','internal','generated_kind'}
-CONTEXT_FIELDS = {'schema_version','roots','nodes','edges','external_boundary'}
 
-
-def require(condition,message):
-    if not condition:raise ValueError(message)
-
-
-def encoded(obj):
-    return (json.dumps(obj,ensure_ascii=False,sort_keys=True,separators=(',',':'))+'\n').encode()
-
-
-def digest(raw):
-    return hashlib.sha256(raw).hexdigest()
+def file_hash(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def records(path):
@@ -25,54 +14,50 @@ def records(path):
             if line.strip():yield json.loads(line)
 
 
-def validate_context(graph,roots):
-    require(set(graph)==CONTEXT_FIELDS,'Unexpected context fields')
-    require(graph['schema_version']=='leanreviewbench-context-1','Unknown context schema')
-    require(graph['roots']==roots,'Context roots differ')
-    nodes={}
-    for n in graph['nodes']:
-        require(set(n)<=NODE_FIELDS,'Unexpected declaration fields')
-        require(n['id'] not in nodes,'Duplicate declaration')
-        require(isinstance(n.get('type'),str),'Missing declaration type')
-        require(n.get('value') is None or isinstance(n['value'],str),'Invalid declaration value')
-        if n.get('proof_valued') or n.get('kind') in ('theorem','theorem_statement','axiom'):
-            require(n.get('value') is None,'Proof body exposed')
-        for value in [n.get('type'),n.get('value')]:
-            require(not value or 'failed to pretty print expression' not in value,'Failed expression print')
-        nodes[n['id']]=n
-    require(set(roots)<=set(nodes),'Missing root declaration')
-    for edge in graph['edges']:
-        require(set(edge)=={'source','target','site'},'Unexpected edge fields')
-        require(edge['source'] in nodes and edge['target'] in nodes,'Dangling dependency edge')
-        require(edge['site'] in ('type','definition_value','constructor_type'),'Unknown dependency site')
-        require(not (edge['site']=='definition_value' and nodes[edge['source']].get('proof_valued')),'Proof traversal')
-
-
 class Dataset:
-    """Loads only input files. It does not open reference or provenance artifacts."""
-    def __init__(self,root):
-        self.directory=Path(root)/'inputs'
-        self._tasks={}
-        for task in records(self.directory/'tasks.jsonl'):
-            require(set(task)==TASK_FIELDS,'Unexpected model-input fields')
-            require(task['schema_version']=='leanreviewbench-input-1','Unknown input schema')
-            require(task['task_id'] not in self._tasks,'Duplicate task')
-            require(len(task['context_id'])==64 and all(c in '0123456789abcdef' for c in task['context_id']),'Unsafe context ID')
-            require(task['roots'] and len(set(task['roots']))==len(task['roots']),'Missing/duplicate roots')
-            require(task['informal'] and all(set(x)=={'id','text'} and x['text'].strip() for x in task['informal']),'Missing independent target')
-            self._tasks[task['task_id']]=task
-    def __len__(self):return len(self._tasks)
-    def ids(self):return list(self._tasks)
-    def __iter__(self):
-        for identity in self.ids():yield self.task(identity)
-    def task(self,identity):
-        stored=self._tasks[identity]
-        raw=(self.directory/'contexts'/(stored['context_id']+'.json')).read_bytes()
-        require(digest(raw)==stored['context_id'],'Context hash mismatch')
-        graph=json.loads(raw);validate_context(graph,stored['roots'])
-        return dict(schema_version='leanreviewbench-task-1',task_id=identity,roots=list(stored['roots']),
-                    informal=stored['informal'],formal_context=graph,environment=stored['environment'])
+    """Uses the original batch:project identity and preserves all native records.
+
+    project() includes source and historical metadata. Do not send its output to
+    a model. A filtered, reviewed model export is a separate benchmark artifact.
+    """
+    def __init__(self,root='.'):
+        self.root=Path(root)
+        self.config=json.loads((self.root/'datasets/project-cases.json').read_text())
+        if self.config['schema_version']!='paperlean-project-cases-1':raise ValueError('Unknown project-case configuration')
+        self._projects={}
+        for batch in self.config['datasets']:
+            for path in sorted((self.root/'datasets'/batch/'projects').glob('*/project.json')):
+                self._projects[batch+':'+path.parent.name]=path.parent
+    def __len__(self):return len(self._projects)
+    def ids(self):return list(self._projects)
+    def directory(self,identity):return self._projects[identity]
+    def project(self,identity):
+        directory=self.directory(identity)
+        return dict(project=json.loads((directory/'project.json').read_text()),
+                    informal=list(records(directory/'informal.jsonl')))
+    def graph(self,identity):
+        batch,project=identity.split(':',1)
+        rows=json.loads((self.root/'metadata/derived-graphs/retained-index.json').read_text())['records']
+        selected=[r for r in rows if (r['dataset'],r['project_id'])==(batch,project)]
+        if len(selected)!=1:raise ValueError('Missing/duplicate retained graph binding')
+        row=selected[0];path=Path(row['graph_path'])
+        if not path.parts or path.is_absolute() or '..' in path.parts or (path.parts[:2]!=('metadata','derived-graphs') and path.parts[0]!='reports'):
+            raise ValueError('Unsafe graph path')
+        path=self.root/path
+        if file_hash(path)!=row['graph_sha256']:raise ValueError('Retained graph hash mismatch')
+        meta=self.project(identity)['project']
+        if row['input_sha256']!=meta['input_sha256'] or row['roots']!=[t['declaration'] for t in meta['targets']]:
+            raise ValueError('Stale retained graph input binding')
+        graph=json.loads(path.read_text())
+        if not set(row['roots'])<=set(graph['roots']):raise ValueError('Missing graph roots')
+        return graph
     def validate(self):
-        for identity in self.ids():self.task(identity)
-        return dict(inputs=len(self),contexts=len({t['context_id'] for t in self._tasks.values()}))
-    def payload_hash(self,identity):return digest(encoded(self._tasks[identity]))
+        script=self.root/'scripts/data/project_cases.py'
+        spec=importlib.util.spec_from_file_location('_native_project_cases',script)
+        native=importlib.util.module_from_spec(spec);spec.loader.exec_module(native)
+        for identity,directory in self._projects.items():
+            meta=self.project(identity)['project']
+            if meta['schema_version']!='paperlean-project-case-1':raise ValueError('Unknown project schema')
+            if native.input_digest(directory)!=meta['input_sha256']:raise ValueError('Input digest mismatch: '+identity)
+            self.graph(identity)
+        return dict(inputs=len(self),graphs=len(self))

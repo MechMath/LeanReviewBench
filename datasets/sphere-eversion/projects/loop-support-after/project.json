@@ -1,0 +1,79 @@
+{
+  "id": "loop-support-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere eversion loop-support-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "loop.support",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/leanprover-community/sphere-eversion",
+    "commit": "094437437b24ee7a8b6a8f1f28da241a1ba9f280",
+    "path": "src/loops/basic.lean",
+    "module": "loops.basic",
+    "declaration": "loop.support",
+    "url": "https://github.com/leanprover-community/sphere-eversion/blob/094437437b24ee7a8b6a8f1f28da241a1ba9f280/src/loops/basic.lean",
+    "sha256": "758210ff38dabfa725986b585698968f1809d3be796995b54b85057e3eca8e13"
+  },
+  "group_id": "sphere-eversion-loop-support",
+  "split_group": "leanprover-community/sphere-eversion",
+  "before_ids": [
+    "loop-support-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "The revised independent definition uses the closure of the nonconstant-loop locus, exactly matching loop.support and loop.is_const. The Formal bytes are unchanged; this is a target-text correction control, not a second formal repair.",
+  "external_imports": [
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Topology.Closure"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "e3c11aa763ad4db77b70ad5009fef19c1efb3a159a1b56ddc46e44d07cc40aef"
+  },
+  "preparation": {
+    "receipt": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/receipt.json",
+    "receipt_sha256": "c968ccf34b5ff63f519e8996b26d9c4f3a00e072123d45946ebc335795521078",
+    "packaged_receipt": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "8756c3f18541b822faa6edaf881bde7721e18961503015eec1fba100eb966dc2",
+    "formal_snapshot_id": "loop-support",
+    "formal_source_revision": "9380572eecd1f143accb73dbf114e8052626dc31",
+    "target_bindings": [
+      {
+        "path": "reports/sphere-eversion-extraction/sources/094437437b24ee7a8b6a8f1f28da241a1ba9f280/blueprint/src/loops.tex",
+        "sha256": "31739287f4e11f2452b7ae1ca8ea194009bdd57a0e5f8d3d983751691e474592",
+        "ref": "094437437b24ee7a8b6a8f1f28da241a1ba9f280",
+        "locator": "def:loop_family_support",
+        "text": "\\begin{definition}\n  \\label{def:loop_family_support}\n  \\lean{loop.support}\\leanok\n  The \\emph{support} of a family $γ$ of loops in $F$ parametrized by $E$ is\n  the closure of the set of $x$ in $E$ such that $γ_x$ is not a constant loop.\n\\end{definition}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'loop.support' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'loop.support' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/sphere-eversion-admission/review.json",
+    "approach": "Lean3_definition_syntax_port",
+    "supporting_declarations": [],
+    "assessment_scope": "own-version definition or lemma",
+    "historical_sorryAx": false
+  },
+  "input_sha256": "136c5d0b26cf0be74f8ad5addca0fa70f1039756c2af1510e2f9ce726822252e",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/sphere-eversion.jsonl"
+}

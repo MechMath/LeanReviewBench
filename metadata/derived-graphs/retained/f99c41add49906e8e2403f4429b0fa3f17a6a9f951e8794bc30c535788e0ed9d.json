@@ -1,0 +1,1956 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "ClassicalCarleson"
+  ],
+  "project_module_prefixes": [
+    "Carleson"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": "∀ {f : ℝ → ℂ},\n  Continuous f →\n    Function.Periodic f (2 * Real.pi) →\n      ∀ᵐ (x : ℝ), Filter.Tendsto (fun x_1 => partialFourierSum x_1 f x) Filter.atTop (nhds (f x))",
+      "type": "Prop",
+      "source_range": {
+        "start_line": 295,
+        "start_column": 0,
+        "end_line": 300,
+        "end_column": 76
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Carleson.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "ClassicalCarleson",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Theorem 1.0.1: Carleson's theorem asserting a.e. convergence of the partial Fourier sums for\ncontinous functions.\nFor the proof, see `classical_carleson` in the file `Carleson.Classical.ClassicalCarleson`. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 39,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Complex",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Complex numbers consist of two `Real`s: a real part `re` and an imaginary part `im`. "
+    },
+    {
+      "value": null,
+      "type": "{X : Type u} → {Y : Type v} → [TopologicalSpace X] → [TopologicalSpace Y] → (X → Y) → Prop",
+      "source_range": {
+        "start_line": 152,
+        "start_column": 0,
+        "end_line": 158,
+        "end_column": 52
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Continuous",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function between topological spaces is continuous if the preimage\nof every open set is open. Registered as a structure to make sure it is not unfolded by Lean. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : UniformSpace α] → TopologicalSpace α",
+      "source_range": {
+        "start_line": 195,
+        "start_column": 0,
+        "end_line": 204,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.UniformSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "UniformSpace.toTopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : PseudoMetricSpace α] → UniformSpace α",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "PseudoMetricSpace.toUniformSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "PseudoMetricSpace ℝ",
+      "source_range": {
+        "start_line": 1111,
+        "start_column": 0,
+        "end_line": 1116,
+        "end_column": 41
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.pseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Instantiate the reals as a pseudometric space. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : SeminormedRing α] → PseudoMetricSpace α",
+      "source_range": {
+        "start_line": 51,
+        "start_column": 0,
+        "end_line": 55,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SeminormedRing.toPseudoMetricSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : SeminormedCommRing α] → SeminormedRing α",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 0,
+        "end_line": 127,
+        "end_column": 79
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "SeminormedCommRing.toSeminormedRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [β : NormedCommRing α] → SeminormedCommRing α",
+      "source_range": {
+        "start_line": 152,
+        "start_column": 0,
+        "end_line": 155,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Ring.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedCommRing.toSeminormedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A normed commutative ring is a seminormed commutative ring. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [NormedField α] → NormedCommRing α",
+      "source_range": {
+        "start_line": 194,
+        "start_column": 0,
+        "end_line": 195,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Field.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedField.toNormedCommRing",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "NormedField ℂ",
+      "source_range": {
+        "start_line": 65,
+        "start_column": 0,
+        "end_line": 67,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instNormedField",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [Add α] → (α → β) → α → Prop",
+      "source_range": {
+        "start_line": 41,
+        "start_column": 0,
+        "end_line": 44,
+        "end_column": 26
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Ring.Periodic",
+      "kind": "def",
+      "internal": false,
+      "id": "Function.Periodic",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function `f` is said to be `Periodic` with period `c` if for all `x`, `f (x + c) = f x`. "
+    },
+    {
+      "value": null,
+      "type": "Add ℝ",
+      "source_range": {
+        "start_line": 97,
+        "start_column": 0,
+        "end_line": 99,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HMul α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1385,
+        "start_column": 2,
+        "end_line": 1385,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HMul.hMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Mul α] → HMul α α α",
+      "source_range": {
+        "start_line": 1677,
+        "start_column": 0,
+        "end_line": 1679,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Mul ℝ",
+      "source_range": {
+        "start_line": 105,
+        "start_column": 0,
+        "end_line": 107,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "{R : Type u_1} → {n : ℕ} → [NatCast R] → [n.AtLeastTwo] → OfNat R n",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 45,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Cast.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatAtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Recognize numeric literals which are at least `2` as terms of `R` via `Nat.cast`. This\ninstance is what makes things like `37 : R` type check.  Note that `0` and `1` are not needed\nbecause they are recognized as terms of `R` (at least when `R` is an `AddMonoidWithOne`) through\n`Zero` and `One`, respectively. "
+    },
+    {
+      "value": null,
+      "type": "NatCast ℝ",
+      "source_range": {
+        "start_line": 161,
+        "start_column": 0,
+        "end_line": 161,
+        "end_column": 55
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instNatCast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(1 + 1).AtLeastTwo",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Carleson.Defs",
+      "kind": "theorem",
+      "internal": true,
+      "id": "partialFourierSum._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "ℝ",
+      "source_range": {
+        "start_line": 122,
+        "start_column": 0,
+        "end_line": 129,
+        "end_column": 41
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.pi",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The number π = 3.14159265... Defined here using choice as twice a zero of cos in [1,2],\nfrom which one can derive all its properties. For explicit bounds on π,\nsee `Mathlib/Analysis/Real/Pi/Bounds.lean`.\n\nDenoted `π`, once the `Real` namespace is opened. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → (α → Prop) → Filter α → Prop",
+      "source_range": {
+        "start_line": 279,
+        "start_column": 0,
+        "end_line": 282,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Filter.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Filter.Eventually",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`f.Eventually p` or `∀ᶠ x in f, p x` mean that `{x | p x} ∈ f`. E.g., `∀ᶠ x in atTop, p x`\nmeans that `p` holds true for sufficiently large `x`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → (α → β) → Filter α → Filter β → Prop",
+      "source_range": {
+        "start_line": 419,
+        "start_column": 0,
+        "end_line": 423,
+        "end_column": 15
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Filter.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Filter.Tendsto",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Filter.Tendsto` is the generic \"limit of a function\" predicate.\n`Tendsto f l₁ l₂` asserts that for every `l₂` neighborhood `a`,\nthe `f`-preimage of `a` is an `l₁` neighborhood. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 1234,
+        "start_column": 0,
+        "end_line": 1256,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n"
+    },
+    {
+      "value": "fun N f x => ∑ n ∈ Finset.Icc (-↑N) ↑N, fourierCoeffOn Real.two_pi_pos f n * (fourier n) ↑x",
+      "type": "ℕ → (ℝ → ℂ) → ℝ → ℂ",
+      "source_range": {
+        "start_line": 42,
+        "start_column": 0,
+        "end_line": 44,
+        "end_column": 74
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Carleson.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "partialFourierSum",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The Nᵗʰ partial Fourier sum of `f : ℝ → ℂ` for `N : ℕ`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_2} → [Preorder α] → Filter α",
+      "source_range": {
+        "start_line": 30,
+        "start_column": 0,
+        "end_line": 40,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Filter.AtTopBot.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Filter.atTop",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`atTop` is the filter representing the limit `→ ∞` on an ordered set.\nIt is generated by the collection of up-sets `{b | a ≤ b}`.\n(The preorder need not have a top element for this to be well defined,\nand indeed is trivial when a top element `x` exists, i.e., it coincides with `pure x`.) "
+    },
+    {
+      "value": null,
+      "type": "Preorder ℕ",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 47,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.instPreorder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{X : Type u_3} → [TopologicalSpace X] → X → Filter X",
+      "source_range": {
+        "start_line": 127,
+        "start_column": 0,
+        "end_line": 131,
+        "end_column": 45
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Filter",
+      "kind": "def",
+      "internal": false,
+      "id": "nhds",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is called a neighborhood of `x` if it contains an open set around `x`. The set of all\nneighborhoods of `x` forms a filter, the neighborhood filter at `x`, is here defined as the\ninfimum over the principal filters of all open sets containing `x`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} →\n  {F : Type u_3} → [inst : FunLike F (Set α) ENNReal] → [MeasureTheory.OuterMeasureClass F α] → F → Filter α",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 52,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.OuterMeasure.AE",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.ae",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The “almost everywhere” filter of co-null sets. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_5) → [MeasurableSpace α] → Type u_5",
+      "source_range": {
+        "start_line": 70,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "structure",
+      "internal": false,
+      "id": "MeasureTheory.Measure",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measure is defined to be an outer measure that is countably additive on\nmeasurable sets, with the additional assumption that the outer measure is the canonical\nextension of the restricted measure.\n\nThe measure of a set `s`, denoted `μ s`, is an extended nonnegative real. The real-valued version\nis written `μ.real s`.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : MeasureTheory.MeasureSpace α] → MeasurableSpace α",
+      "source_range": {
+        "start_line": 356,
+        "start_column": 0,
+        "end_line": 357,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "MeasureTheory.MeasureSpace.toMeasurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "MeasureTheory.MeasureSpace ℝ",
+      "source_range": {
+        "start_line": 319,
+        "start_column": 0,
+        "end_line": 319,
+        "end_column": 64
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.measureSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : MeasurableSpace α] → FunLike (MeasureTheory.Measure α) (Set α) ENNReal",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 92,
+        "end_column": 97
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.Measure.instFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "MeasureTheory.OuterMeasureClass (MeasureTheory.Measure ℝ) ℝ",
+      "source_range": null,
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Carleson.Defs",
+      "kind": "theorem",
+      "internal": true,
+      "id": "ClassicalCarleson._proof_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_5} → [self : MeasureTheory.MeasureSpace α] → MeasureTheory.Measure α",
+      "source_range": {
+        "start_line": 357,
+        "start_column": 2,
+        "end_line": 357,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "MeasureTheory.MeasureSpace.volume",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`volume` is the canonical measure on `α`. "
+    },
+    {
+      "value": null,
+      "type": "ℕ → Prop",
+      "source_range": {
+        "start_line": 412,
+        "start_column": 0,
+        "end_line": 424,
+        "end_column": 14
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Nat.Init",
+      "kind": "class",
+      "internal": false,
+      "id": "Nat.AtLeastTwo",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A type class for natural numbers which are greater than or equal to `2`.\n\n`NeZero` and `AtLeastTwo` are used for numeric literals, and also for groups of related lemmas\nsharing a common value of `n` that needs to be nonzero, or at least `2`, and where it is\nconvenient to pass this information implicitly. Instances for these classes cover some of the\ncases where it is most structurally obvious from the syntactic form of `n` that it satisfies the\nrequired conditions, such as `m + 1`. Less widely used cases may be defined as lemmas rather than\nglobal instances and then made into instances locally where needed. If implicit arguments,\nappearing before other explicit arguments, are allowed to be `autoParam`s in a future version of\nLean, such an `autoParam` that is proved `by lia` might be a more general replacement for the\nuse of typeclass inference for this purpose. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HAdd α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1366,
+        "start_column": 2,
+        "end_line": 1366,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HAdd.hAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Add α] → HAdd α α α",
+      "source_range": {
+        "start_line": 1669,
+        "start_column": 0,
+        "end_line": 1671,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHAdd",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Add ℕ",
+      "source_range": {
+        "start_line": 1777,
+        "start_column": 0,
+        "end_line": 1778,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instAddNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "(n : ℕ) → OfNat ℕ n",
+      "source_range": {
+        "start_line": 1280,
+        "start_column": 0,
+        "end_line": 1282,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instOfNatNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{ι : Type u_1} → {M : Type u_3} → [AddCommMonoid M] → Finset ι → (ι → M) → M",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 2,
+        "end_line": 67,
+        "end_column": 28
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.sum",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`∑ x ∈ s, f x` is the sum of `f x` as `x` ranges over the elements\nof the finite set `s`.\n\nWhen the index type is a `Fintype`, the notation `∑ x, f x`, is a shorthand for\n`∑ x ∈ Finset.univ, f x`. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 35,
+        "start_column": 0,
+        "end_line": 58,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Int.Basic",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Int",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The integers.\n\nThis type is special-cased by the compiler and overridden with an efficient implementation. The\nruntime has a special representation for `Int` that stores “small” signed numbers directly, while\nlarger numbers use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)). A “small number” is an integer that can be encoded with one fewer bits\nthan the platform's pointer size (i.e. 63 bits on 64-bit architectures and 31 bits on 32-bit\narchitectures).\n"
+    },
+    {
+      "value": null,
+      "type": "AddCommMonoid ℂ",
+      "source_range": {
+        "start_line": 413,
+        "start_column": 0,
+        "end_line": 416,
+        "end_column": 22
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instAddCommMonoid",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "This shortcut instance ensures we do not find `AddCommMonoid` via the noncomputable\n`Complex.instNormedField` instance. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : Preorder α] → [LocallyFiniteOrder α] → α → α → Finset α",
+      "source_range": {
+        "start_line": 277,
+        "start_column": 0,
+        "end_line": 281,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Interval.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.Icc",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The finset $[a, b]$ of elements `x` such that `a ≤ x` and `x ≤ b`. Basically `Set.Icc a b` as a\nfinset. "
+    },
+    {
+      "value": null,
+      "type": "Preorder ℤ",
+      "source_range": {
+        "start_line": 46,
+        "start_column": 0,
+        "end_line": 46,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Int.Order.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Int.instPreorder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "LocallyFiniteOrder ℤ",
+      "source_range": {
+        "start_line": 29,
+        "start_column": 0,
+        "end_line": 68,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Int.Interval",
+      "kind": "def",
+      "internal": false,
+      "id": "Int.instLocallyFiniteOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : Neg α] → α → α",
+      "source_range": {
+        "start_line": 1542,
+        "start_column": 2,
+        "end_line": 1542,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Neg.neg",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`-a` computes the negative or opposite of `a`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `neg` (when used as a unary operator)."
+    },
+    {
+      "value": null,
+      "type": "Neg ℤ",
+      "source_range": {
+        "start_line": 133,
+        "start_column": 0,
+        "end_line": 135,
+        "end_column": 16
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Int.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Int.instNegInt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{R : Type u} → [NatCast R] → ℕ → R",
+      "source_range": {
+        "start_line": 69,
+        "start_column": 0,
+        "end_line": 71,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Cast",
+      "kind": "def",
+      "internal": false,
+      "id": "Nat.cast",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The canonical homomorphism `Nat → R`. In most use cases, the target type will have a (semi)ring\nstructure, and this homomorphism should be a (semi)ring homomorphism.\n\n`NatCast` and `IntCast` exist to allow different libraries with their own types that can be notated\nas natural numbers to have consistent `simp` normal forms without needing to create coercion\nsimplification sets that are aware of all combinations. Libraries should make it easy to work with\n`NatCast` where possible. For instance, in Mathlib there will be such a homomorphism (and thus a\n`NatCast R` instance) whenever `R` is an additive monoid with a `1`.\n\nThe prototypical example is `Int.ofNat`.\n"
+    },
+    {
+      "value": null,
+      "type": "NatCast ℤ",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 63,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Int.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "instNatCastInt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Mul ℂ",
+      "source_range": {
+        "start_line": 208,
+        "start_column": 0,
+        "end_line": 209,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_1} → [inst : NormedAddCommGroup E] → [NormedSpace ℂ E] → {a b : ℝ} → a < b → (ℝ → E) → ℤ → E",
+      "source_range": {
+        "start_line": 351,
+        "start_column": 0,
+        "end_line": 355,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Fourier.AddCircle",
+      "kind": "def",
+      "internal": false,
+      "id": "fourierCoeffOn",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "For a function on `ℝ`, the Fourier coefficients of `f` on `[a, b]` are defined as the\nFourier coefficients of the unique periodic function agreeing with `f` on `Ioc a b`. "
+    },
+    {
+      "value": null,
+      "type": "NormedAddCommGroup ℂ",
+      "source_range": {
+        "start_line": 66,
+        "start_column": 0,
+        "end_line": 72,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Norm",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instNormedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_4} →\n  {E : Type u_5} →\n    {inst : RCLike 𝕜} → {inst_1 : SeminormedAddCommGroup E} → [self : InnerProductSpace 𝕜 E] → NormedSpace 𝕜 E",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 118,
+        "end_column": 59
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "InnerProductSpace.toNormedSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "RCLike ℂ",
+      "source_range": {
+        "start_line": 328,
+        "start_column": 0,
+        "end_line": 345,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Complex.instRCLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{E : Type u_2} → [NormedAddCommGroup E] → SeminormedAddCommGroup E",
+      "source_range": {
+        "start_line": 272,
+        "start_column": 2,
+        "end_line": 272,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Normed.Group.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "NormedAddCommGroup.toSeminormedAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_1} → [inst : RCLike 𝕜] → InnerProductSpace 𝕜 𝕜",
+      "source_range": {
+        "start_line": 914,
+        "start_column": 0,
+        "end_line": 920,
+        "end_column": 74
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.InnerProductSpace.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "RCLike.innerProductSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A field `𝕜` satisfying `RCLike` is itself a `𝕜`-inner product space. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Zero α] → OfNat α 0",
+      "source_range": {
+        "start_line": 17,
+        "start_column": 0,
+        "end_line": 18,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "Zero.toOfNat0",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Zero ℝ",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 91,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "0 < 2 * Real.pi",
+      "source_range": {
+        "start_line": 172,
+        "start_column": 0,
+        "end_line": 172,
+        "end_column": 54
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Real.two_pi_pos",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{F : Sort u_1} → {α : outParam (Sort u_2)} → {β : outParam (α → Sort u_3)} → [self : DFunLike F α β] → F → (a : α) → β a",
+      "source_range": {
+        "start_line": 149,
+        "start_column": 2,
+        "end_line": 149,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Data.FunLike.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DFunLike.coe",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The coercion from `F` to a function. "
+    },
+    {
+      "value": null,
+      "type": "(X : Type u_1) → (Y : Type u_2) → [TopologicalSpace X] → [TopologicalSpace Y] → Type (max u_1 u_2)",
+      "source_range": {
+        "start_line": 27,
+        "start_column": 0,
+        "end_line": 37,
+        "end_column": 62
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.ContinuousMap.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "ContinuousMap",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type of continuous maps from `X` to `Y`.\n\nWhen possible, instead of parametrizing results over `(f : C(X, Y))`,\nyou should parametrize over `{F : Type*} [ContinuousMapClass F X Y] (f : F)`.\n\nWhen you extend this structure, make sure to extend `ContinuousMapClass`. "
+    },
+    {
+      "value": null,
+      "type": "{𝕜 : Type u_1} → [AddCommGroup 𝕜] → 𝕜 → Type u_1",
+      "source_range": {
+        "start_line": 188,
+        "start_column": 0,
+        "end_line": 190,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Instances.AddCircle.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCircle",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The \"additive circle\": `𝕜 ⧸ ℤ ∙ p`. See also `Circle` and `Real.Angle`. "
+    },
+    {
+      "value": null,
+      "type": "AddCommGroup ℝ",
+      "source_range": {
+        "start_line": 224,
+        "start_column": 0,
+        "end_line": 224,
+        "end_column": 46
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instAddCommGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_1} → [TopologicalSpace G] → [inst : AddGroup G] → (N : AddSubgroup G) → TopologicalSpace (G ⧸ N)",
+      "source_range": {
+        "start_line": 31,
+        "start_column": 2,
+        "end_line": 31,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Algebra.Group.Quotient",
+      "kind": "def",
+      "internal": false,
+      "id": "QuotientAddGroup.instTopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_2} → [self : AddCommGroup G] → AddGroup G",
+      "source_range": {
+        "start_line": 111,
+        "start_column": 0,
+        "end_line": 111,
+        "end_column": 66
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "AddCommGroup.toAddGroup",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{G : Type u_1} → [inst : AddGroup G] → G → AddSubgroup G",
+      "source_range": {
+        "start_line": 29,
+        "start_column": 2,
+        "end_line": 29,
+        "end_column": 67
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Algebra.Group.Subgroup.ZPowers.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "AddSubgroup.zmultiples",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The additive subgroup generated by an element. "
+    },
+    {
+      "value": null,
+      "type": "{X : Type u_1} → {Y : Type u_2} → [inst : TopologicalSpace X] → [inst_1 : TopologicalSpace Y] → FunLike C(X, Y) X Y",
+      "source_range": {
+        "start_line": 77,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.ContinuousMap.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "ContinuousMap.instFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{T : ℝ} → ℤ → C(AddCircle T, ℂ)",
+      "source_range": {
+        "start_line": 121,
+        "start_column": 0,
+        "end_line": 125,
+        "end_column": 99
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Analysis.Fourier.AddCircle",
+      "kind": "def",
+      "internal": false,
+      "id": "fourier",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The family of exponential monomials `fun x => exp (2 π i n x / T)`, parametrized by `n : ℤ` and\nconsidered as bundled continuous maps from `ℝ / ℤ • T` to `ℂ`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : AddGroup α] → {s : AddSubgroup α} → α → α ⧸ s",
+      "source_range": {
+        "start_line": 159,
+        "start_column": 2,
+        "end_line": 160,
+        "end_column": 72
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.GroupTheory.Coset.Defs",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "QuotientAddGroup.mk",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The canonical map from an `AddGroup` `α` to the quotient `α ⧸ s`. "
+    },
+    {
+      "value": null,
+      "type": "(F : Type u_2) → (α : outParam (Type u_3)) → [FunLike F (Set α) ENNReal] → Prop",
+      "source_range": {
+        "start_line": 61,
+        "start_column": 0,
+        "end_line": 68,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.OuterMeasure.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "MeasureTheory.OuterMeasureClass",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A mixin class saying that elements `μ : F` are outer measures on `α`.\n\nThis typeclass is used to unify some API for outer measures and measures. "
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Real",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Continuous",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "PseudoMetricSpace.toUniformSpace",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "SeminormedRing.toPseudoMetricSpace",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "SeminormedCommRing.toSeminormedRing",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "NormedCommRing.toSeminormedCommRing",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "NormedField.toNormedCommRing",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex.instNormedField",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Function.Periodic",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instAdd",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHMul",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "partialFourierSum._proof_1",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.pi",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Filter.Eventually",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Filter.Tendsto",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "partialFourierSum",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Filter.atTop",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.instPreorder",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "nhds",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.ae",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.toMeasurableSpace",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.measureSpace",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure.instFunLike",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "ClassicalCarleson._proof_1",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.volume",
+      "source": "ClassicalCarleson",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.AtLeastTwo",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "HAdd.hAdd",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instHAdd",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instAddNat",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "instOfNatNat",
+      "source": "partialFourierSum._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "partialFourierSum",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "partialFourierSum",
+      "site": "type"
+    },
+    {
+      "target": "Complex",
+      "source": "partialFourierSum",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset.sum",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Int",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex.instAddCommMonoid",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Finset.Icc",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Int.instPreorder",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Int.instLocallyFiniteOrder",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Neg.neg",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Int.instNegInt",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Nat.cast",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "instNatCastInt",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHMul",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex.instMul",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "fourierCoeffOn",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex.instNormedAddCommGroup",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "InnerProductSpace.toNormedSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex.instRCLike",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "NormedAddCommGroup.toSeminormedAddCommGroup",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "RCLike.innerProductSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "instOfNatAtLeastTwo",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instNatCast",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "partialFourierSum._proof_1",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.pi",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.two_pi_pos",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "DFunLike.coe",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "ContinuousMap",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCircle",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instAddCommGroup",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "QuotientAddGroup.instTopologicalSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "UniformSpace.toTopologicalSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "PseudoMetricSpace.toUniformSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.pseudoMetricSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddCommGroup.toAddGroup",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "AddSubgroup.zmultiples",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "SeminormedRing.toPseudoMetricSpace",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "SeminormedCommRing.toSeminormedRing",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "NormedCommRing.toSeminormedCommRing",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "NormedField.toNormedCommRing",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "Complex.instNormedField",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "ContinuousMap.instFunLike",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "fourier",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "QuotientAddGroup.mk",
+      "source": "partialFourierSum",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.OuterMeasureClass",
+      "source": "ClassicalCarleson._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ClassicalCarleson._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "ClassicalCarleson._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.MeasureSpace.toMeasurableSpace",
+      "source": "ClassicalCarleson._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "Real.measureSpace",
+      "source": "ClassicalCarleson._proof_1",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure.instFunLike",
+      "source": "ClassicalCarleson._proof_1",
+      "site": "type"
+    }
+  ],
+  "provenance": {
+    "repository": "fpvandoorn/carleson",
+    "revision": "f10c441921273ee2a04cea802f2c32b7c6ebc5ea",
+    "root": "ClassicalCarleson",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "lean_required": "4.34.1",
+    "source_edits": [],
+    "proof_values_traversed": false,
+    "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1"
+  }
+}

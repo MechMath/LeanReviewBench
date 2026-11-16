@@ -1,0 +1,71 @@
+{
+  "id": "STK-09Y5-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Stacks 09Y5",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LocallyClosedPartition.exists_finite_good_refinement",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/optpku/stacks",
+    "commit": "e420713207f0a6682a65b2171362b77f2d217fa4",
+    "path": "ReasLib/Topology/Stratification/Refinement.lean",
+    "module": "ReasLib.Topology.Stratification.Refinement",
+    "declaration": "LocallyClosedPartition.exists_finite_good_refinement",
+    "url": "https://github.com/optpku/stacks/blob/e420713207f0a6682a65b2171362b77f2d217fa4/ReasLib/Topology/Stratification/Refinement.lean",
+    "sha256": "1c4c9f46fb6bee516a51a5eed2b7c9165124b24f07c8e5a1e0c4c4729fe2b3c4",
+    "leads": [
+      "https://github.com/optpku/stacks/commit/e420713207f0a6682a65b2171362b77f2d217fa4"
+    ]
+  },
+  "group_id": "stacks:09Y5",
+  "split_group": "optpku/stacks",
+  "before_ids": [
+    "STK-09Y5-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Data.Setoid.Partition",
+    "Mathlib.Tactic.CrossRefAttribute",
+    "Mathlib.Topology.Constructible",
+    "Mathlib.Topology.LocallyFinite",
+    "Mathlib.Topology.NoetherianSpace",
+    "Mathlib.Topology.Separation.Basic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 5,
+    "sha256": "7d0f1648adf0a8af5189e0bcd2304a926fc130c51453e5c4613a25ac7fe27ed3"
+  },
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/stacks.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
+    "graph": "reports/stacks-admission/technical/STK-09Y5-after/default/graph.json",
+    "explicit_graph": "reports/stacks-admission/technical/STK-09Y5-after/explicit/graph.json",
+    "review": "reports/stacks-admission/reviews.json",
+    "original_source": "reports/stacks-admission/original/STK-09Y5-after/Main.lean",
+    "receipt_sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f",
+    "packaged_receipt": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
+    "packaged_receipt_sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
+  },
+  "author_disclosure": "no_explicit_root_error_admission",
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f"
+}

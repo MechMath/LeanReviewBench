@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "ProbabilityTheory.iIndepFun.finsets"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {Ω : Type u_10} {ι : Type u_11} [inst : MeasurableSpace Ω] {β : ι → Type u_14} [m : (i : ι) → MeasurableSpace (β i)]\n  {μ : MeasureTheory.Measure Ω} {f : (i : ι) → Ω → β i} {J : Type u_15} [Finite J] (S : J → Finset ι),\n  Set.univ.PairwiseDisjoint S →\n    ProbabilityTheory.iIndepFun f μ →\n      (∀ (i : ι), Measurable (f i)) → ProbabilityTheory.iIndepFun (fun j a i => f (↑i) a) μ",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 56,
+        "end_column": 56
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem",
+      "internal": false,
+      "id": "ProbabilityTheory.iIndepFun.finsets",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "If `f` is a family of mutually independent random variables, `(S j)ⱼ` are pairwise disjoint\nfinite index sets, then the tuples formed by `f i` for `i ∈ S j` are mutually independent,\nwhen seen as a family indexed by `J`. "
+    },
+    {
+      "value": null,
+      "type": "Type u_6 → Type u_6",
+      "source_range": {
+        "start_line": 48,
+        "start_column": 0,
+        "end_line": 59,
+        "end_column": 97
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "MeasurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measurable space is a space equipped with a σ-algebra. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_5) → [MeasurableSpace α] → Type u_5",
+      "source_range": {
+        "start_line": 70,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "structure",
+      "internal": false,
+      "id": "MeasureTheory.Measure",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measure is defined to be an outer measure that is countably additive on\nmeasurable sets, with the additional assumption that the outer measure is the canonical\nextension of the restricted measure.\n\nThe measure of a set `s`, denoted `μ s`, is an extended nonnegative real. The real-valued version\nis written `μ.real s`.\n"
+    },
+    {
+      "value": null,
+      "type": "Sort u_3 → Prop",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 102,
+        "end_column": 40
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Finite.Defs",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Finite",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A type is `Finite` if it is in bijective correspondence to some `Fin n`.\n\nThis is similar to `Fintype`, but `Finite` is a proposition rather than data.\nA particular benefit to this is that `Finite` instances are definitionally equal to one another\n(due to proof irrelevance) rather than being merely propositionally equal,\nand, furthermore, `Finite` instances generally avoid the need for `Decidable` instances.\nOne other notable difference is that `Finite` allows there to be `Finite p` instances\nfor all `p : Prop`, which is not allowed by `Fintype` due to universe constraints.\nAn application of this is that `Finite (x ∈ s → β x)` follows from the general instance for pi\ntypes, assuming `[∀ x, Finite (β x)]`.\nImplementation note: this is a reason `Finite α` is not defined as `Nonempty (Fintype α)`.\n\nEvery `Fintype` instance provides a `Finite` instance via `Finite.of_fintype`.\nConversely, one can noncomputably create a `Fintype` instance from a `Finite` instance\nvia `Fintype.ofFinite`. In a proof one might write\n```lean\n  have := Fintype.ofFinite α\n```\nto obtain such an instance.\n\nDo not write noncomputable `Fintype` instances; instead write `Finite` instances\nand use this `Fintype.ofFinite` interface.\nThe `Fintype` instances should be relied upon to be computable for evaluation purposes.\n\nTheorems should use `Finite` instead of `Fintype`, unless definitions in the theorem statement\nrequire `Fintype`.\nDefinitions should prefer `Finite` as well, unless it is important that the definitions\nare meant to be computable in the reduction or `#eval` sense.\n"
+    },
+    {
+      "value": null,
+      "type": "Type u_3 → Type u_3",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 79,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Defs",
+      "kind": "structure",
+      "internal": false,
+      "id": "Finset",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Finset α` is the type of finite sets of elements of `α`. It is implemented\nas a multiset (a list up to permutation) which has no duplicate elements. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {ι : Type u_4} → [inst : PartialOrder α] → [OrderBot α] → Set ι → (ι → α) → Prop",
+      "source_range": {
+        "start_line": 251,
+        "start_column": 0,
+        "end_line": 258,
+        "end_column": 28
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Pairwise.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.PairwiseDisjoint",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is `PairwiseDisjoint` under `f`, if the images of any distinct two elements under `f`\nare disjoint.\n\n`s.Pairwise Disjoint` is (definitionally) the same as `s.PairwiseDisjoint id`. We prefer the latter\nin order to allow dot notation on `Set.PairwiseDisjoint`, even though the former unfolds more\nnicely. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → PartialOrder (Finset α)",
+      "source_range": {
+        "start_line": 123,
+        "start_column": 0,
+        "end_line": 123,
+        "end_column": 61
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.instPartialOrder",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → OrderBot (Finset α)",
+      "source_range": {
+        "start_line": 173,
+        "start_column": 0,
+        "end_line": 175,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Empty",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.instOrderBot",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Set α",
+      "source_range": {
+        "start_line": 210,
+        "start_column": 0,
+        "end_line": 215,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.univ",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The universal set on a type `α` is the set containing all elements of `α`.\n\nThis is conceptually the \"same as\" `α` (in set theory, it is actually the same), but type theory\nmakes the distinction that `α` is a type while `Set.univ` is a term of type `Set α`. `Set.univ` can\nitself be coerced to a type `↥Set.univ` which is in bijection with (but distinct from) `α`. "
+    },
+    {
+      "value": null,
+      "type": "{Ω : Type u_1} →\n  {ι : Type u_2} →\n    {_mΩ : MeasurableSpace Ω} →\n      {β : ι → Type u_6} →\n        [m : (x : ι) → MeasurableSpace (β x)] →\n          ((x : ι) → Ω → β x) → autoParam (MeasureTheory.Measure Ω) ProbabilityTheory.iIndepFun._auto_1 → Prop",
+      "source_range": {
+        "start_line": 132,
+        "start_column": 0,
+        "end_line": 138,
+        "end_column": 76
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Probability.Independence.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ProbabilityTheory.iIndepFun",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A family of functions defined on the same space `Ω` and taking values in possibly different\nspaces, each with a measurable space structure, is independent if the family of measurable space\nstructures they generate on `Ω` is independent. For a function `g` with codomain having measurable\nspace structure `m`, the generated measurable space structure is `MeasurableSpace.comap g m`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [MeasurableSpace α] → [MeasurableSpace β] → (α → β) → Prop",
+      "source_range": {
+        "start_line": 490,
+        "start_column": 0,
+        "end_line": 494,
+        "end_column": 58
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Measurable",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function `f` between measurable spaces is measurable if the preimage of every\nmeasurable set is measurable. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Sort (max 1 u)",
+      "source_range": {
+        "start_line": 638,
+        "start_column": 0,
+        "end_line": 663,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "Subtype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "All the elements of a type that satisfy a predicate.\n\n`Subtype p`, usually written `{ x : α // p x }` or `{ x // p x }`, contains all elements `x : α` for\nwhich `p x` is true. Its constructor is a pair of the value and the proof that it satisfies the\npredicate. In run-time code, `{ x : α // p x }` is represented identically to `α`.\n\nThere is a coercion from `{ x : α // p x }` to `α`, so elements of a subtype may be used where the\nunderlying type is expected.\n\nExamples:\n * `{ n : Nat // n % 2 = 0 }` is the type of even numbers.\n * `{ xs : Array String // xs.size = 5 }` is the type of arrays with five `String`s.\n * Given `xs : List α`, `List { x : α // x ∈ xs }` is the type of lists in which all elements are\n   contained in `xs`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{ x // p x }` in identifiers is `subtype`."
+    },
+    {
+      "value": null,
+      "type": "{α : outParam (Type u)} → {γ : Type v} → [self : Membership α γ] → γ → α → Prop",
+      "source_range": {
+        "start_line": 1753,
+        "start_column": 2,
+        "end_line": 1753,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Membership.mem",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`."
+    },
+    {
+      "value": null,
+      "type": "{A : Type u_1} → {B : Type u_2} → [i : SetLike A B] → Membership B A",
+      "source_range": {
+        "start_line": 122,
+        "start_column": 0,
+        "end_line": 123,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.SetLike.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "SetLike.instMembership",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → SetLike (Finset α) α",
+      "source_range": {
+        "start_line": 100,
+        "start_column": 0,
+        "end_line": 103,
+        "end_column": 94
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Finset.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Finset.instSetLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Convert a finset to a set in the natural way. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → {p : α → Prop} → Subtype p → α",
+      "source_range": {
+        "start_line": 659,
+        "start_column": 2,
+        "end_line": 659,
+        "end_column": 5
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Subtype.val",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The value in the underlying type that satisfies the predicate.\n"
+    },
+    {
+      "value": null,
+      "type": "{δ : Type u_4} → {X : δ → Type u_6} → [m : (a : δ) → MeasurableSpace (X a)] → MeasurableSpace ((a : δ) → X a)",
+      "source_range": {
+        "start_line": 574,
+        "start_column": 0,
+        "end_line": 575,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasurableSpace.pi",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Finite",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Finset",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Set.PairwiseDisjoint",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Finset.instPartialOrder",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Finset.instOrderBot",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Set.univ",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.iIndepFun",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Measurable",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Subtype",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Membership.mem",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "SetLike.instMembership",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Finset.instSetLike",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "Subtype.val",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace.pi",
+      "source": "ProbabilityTheory.iIndepFun.finsets",
+      "site": "type"
+    }
+  ]
+}

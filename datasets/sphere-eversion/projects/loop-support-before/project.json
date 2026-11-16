@@ -1,0 +1,79 @@
+{
+  "id": "loop-support-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere eversion loop-support-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "loop.support",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/leanprover-community/sphere-eversion",
+    "commit": "9380572eecd1f143accb73dbf114e8052626dc31",
+    "path": "src/loops/basic.lean",
+    "module": "loops.basic",
+    "declaration": "loop.support",
+    "url": "https://github.com/leanprover-community/sphere-eversion/blob/9380572eecd1f143accb73dbf114e8052626dc31/src/loops/basic.lean",
+    "sha256": "758210ff38dabfa725986b585698968f1809d3be796995b54b85057e3eca8e13"
+  },
+  "group_id": "sphere-eversion-loop-support",
+  "split_group": "leanprover-community/sphere-eversion",
+  "before_ids": [],
+  "after_ids": [
+    "loop-support-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "The old independent text takes the closure of the constant-loop locus, while Formal takes the closure of the nonconstant-loop locus. A constant zero family on R gives the empty set in Formal and all of R in the old text; a Lean-checked separation is retained.",
+  "external_imports": [
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Topology.Closure"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "e3c11aa763ad4db77b70ad5009fef19c1efb3a159a1b56ddc46e44d07cc40aef"
+  },
+  "preparation": {
+    "receipt": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/receipt.json",
+    "receipt_sha256": "c968ccf34b5ff63f519e8996b26d9c4f3a00e072123d45946ebc335795521078",
+    "packaged_receipt": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "8756c3f18541b822faa6edaf881bde7721e18961503015eec1fba100eb966dc2",
+    "formal_snapshot_id": "loop-support",
+    "formal_source_revision": "9380572eecd1f143accb73dbf114e8052626dc31",
+    "target_bindings": [
+      {
+        "path": "reports/sphere-eversion-extraction/sources/9380572eecd1f143accb73dbf114e8052626dc31/blueprint/src/loops.tex",
+        "sha256": "a2c2f726dde84d8cc11d440cd1e843775f6dc291c8ab39fe27c0302092a6d7e5",
+        "ref": "9380572eecd1f143accb73dbf114e8052626dc31",
+        "locator": "def:loop_family_support",
+        "text": "\\begin{definition}\n  \\label{def:loop_family_support}\n  \\lean{loop.support}\\leanok\n  The \\emph{support} of a family $γ$ of loops in $F$ parametrized by $E$ is\n  the closure of the set of $x$ in $E$ such that $γ_x$ is a constant loop.\n\\end{definition}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'loop.support' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'loop.support' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/sphere-eversion-admission/review.json",
+    "approach": "Lean3_definition_syntax_port",
+    "supporting_declarations": [],
+    "assessment_scope": "own-version definition or lemma",
+    "historical_sorryAx": false
+  },
+  "input_sha256": "4409d5a425b19e8e64d334e8aa3c67c2f29eadb99d4c23d38e3d48d5025e474b",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/sphere-eversion.jsonl"
+}

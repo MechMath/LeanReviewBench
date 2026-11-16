@@ -1,0 +1,1377 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+  ],
+  "project_module_prefixes": [
+    "GS62CollegeAdmissions",
+    "EconCSLib"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {Applicants : Type u_1} {Colleges : Type u_2} [inst : Fintype Applicants] [inst_1 : Fintype Colleges]\n  [DecidableEq Applicants] [DecidableEq Colleges] (val_applicant : Applicants → Colleges → ℝ)\n  (val_college : Colleges → Applicants → ℝ),\n  Fintype.card Applicants = Fintype.card Colleges →\n    GS62CollegeAdmissions.PaperInterface.strictMarriageDomain val_applicant val_college →\n      ∃ mu,\n        GS62CollegeAdmissions.PaperInterface.completeMarriage mu ∧\n          GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage val_applicant val_college mu",
+      "source_range": {
+        "start_line": 86,
+        "start_column": 0,
+        "end_line": 106,
+        "end_column": 45
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "GS62CollegeAdmissions.PaperInterface",
+      "kind": "theorem",
+      "internal": false,
+      "id": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Theorem 2: the applicant-proposing deferred-acceptance assignment is complete\nand applicant-optimal among stable assignments.\n"
+    },
+    {
+      "value": null,
+      "type": "Type u_3 → Type u_3",
+      "source_range": {
+        "start_line": 53,
+        "start_column": 0,
+        "end_line": 61,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Fintype.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "Fintype",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Fintype α` means that `α` is finite, i.e. there are only\nfinitely many distinct elements of type `α`. The evidence of this\nis a finset `elems` (a list up to permutation without duplicates),\ntogether with a proof that everything of type `α` is in the list. "
+    },
+    {
+      "value": null,
+      "type": "Sort u → Sort (max 1 u)",
+      "source_range": {
+        "start_line": 997,
+        "start_column": 0,
+        "end_line": 1004,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "DecidableEq",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Propositional equality is `Decidable` for all elements of a type.\n\nIn other words, an instance of `DecidableEq α` is a means of deciding the proposition `a = b` is\nfor all `a b : α`.\n"
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u_1} → α → α → Prop",
+      "source_range": {
+        "start_line": 46,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Eq",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`."
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 1234,
+        "start_column": 0,
+        "end_line": 1256,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Nat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n"
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_3) → [Fintype α] → ℕ",
+      "source_range": {
+        "start_line": 39,
+        "start_column": 0,
+        "end_line": 41,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Fintype.Card",
+      "kind": "def",
+      "internal": false,
+      "id": "Fintype.card",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`card α` is the number of elements in `α`, defined when `α` is a fintype. "
+    },
+    {
+      "value": "fun {M} {W} val_m val_w =>\n  EconCSLib.Matching.MenStrictPreferenceProfile val_m ∧\n    EconCSLib.Matching.WomenStrictPreferenceProfile val_w ∧ EconCSLib.Matching.AllPairsAcceptable val_m val_w",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → (W → M → ℝ) → Prop",
+      "source_range": {
+        "start_line": 19,
+        "start_column": 0,
+        "end_line": 27,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "GS62CollegeAdmissions.PaperInterface",
+      "kind": "def",
+      "internal": false,
+      "id": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Strict marriage domain: both sides have strict preferences and every possible\nman-woman pair is acceptable.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Prop",
+      "source_range": {
+        "start_line": 313,
+        "start_column": 0,
+        "end_line": 341,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Exists",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Existential quantification. If `p : α → Prop` is a predicate, then `∃ x : α, p x`\nasserts that there is some `x` of type `α` such that `p x` holds.\nTo create an existential proof, use the `exists` tactic,\nor the anonymous constructor notation `⟨x, h⟩`.\nTo unpack an existential, use `cases h` where `h` is a proof of `∃ x : α, p x`,\nor `let ⟨x, hx⟩ := h`.\n\nBecause Lean has proof irrelevance, any two proofs of an existential are\ndefinitionally equal. One consequence of this is that it is impossible to recover the\nwitness of an existential from the mere fact of its existence.\nFor example, the following does not compile:\n```\nexample (h : ∃ x : Nat, x = x) : Nat :=\n  let ⟨x, _⟩ := h  -- fail, because the goal is `Nat : Type`\n  x\n```\nThe error message `recursor 'Exists.casesOn' can only eliminate into Prop` means\nthat this only works when the current goal is another proposition:\n```\nexample (h : ∃ x : Nat, x = x) : True :=\n  let ⟨x, _⟩ := h  -- ok, because the goal is `True : Prop`\n  trivial\n```\n"
+    },
+    {
+      "value": null,
+      "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
+      "source_range": {
+        "start_line": 9,
+        "start_column": 0,
+        "end_line": 13,
+        "end_column": 63
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "EconCSLib.Matching.Assignment",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "A matching between Men and Women. "
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 589,
+        "start_column": 0,
+        "end_line": 603,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "And",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`."
+    },
+    {
+      "value": "fun {M} {W} mu => (∀ (m : M), ∃ w, mu.m_match m = some w) ∧ ∀ (w : W), ∃ m, mu.w_match w = some m",
+      "type": "{M : Type u_1} → {W : Type u_2} → EconCSLib.Matching.Assignment M W → Prop",
+      "source_range": {
+        "start_line": 35,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 37
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "GS62CollegeAdmissions.PaperInterface",
+      "kind": "def",
+      "internal": false,
+      "id": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Complete marriage: every participant is matched. "
+    },
+    {
+      "value": "fun {M} {W} val_m val_w mu =>\n  GS62CollegeAdmissions.PaperInterface.stableMarriage val_m val_w mu ∧\n    ∀ (mu' : EconCSLib.Matching.Assignment M W),\n      GS62CollegeAdmissions.PaperInterface.stableMarriage val_m val_w mu' →\n        ∀ (m : M), EconCSLib.Matching.valM val_m m (mu'.m_match m) ≤ EconCSLib.Matching.valM val_m m (mu.m_match m)",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → (W → M → ℝ) → EconCSLib.Matching.Assignment M W → Prop",
+      "source_range": {
+        "start_line": 40,
+        "start_column": 0,
+        "end_line": 49,
+        "end_column": 69
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "GS62CollegeAdmissions.PaperInterface",
+      "kind": "def",
+      "internal": false,
+      "id": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Applicant/proposer optimal stable marriage: every proposer weakly prefers this\nstable marriage to any other stable marriage.\n"
+    },
+    {
+      "value": "fun {M} {W} val_m => ∀ (m : M) (w w' : W), val_m m w = val_m m w' → w = w'",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → Prop",
+      "source_range": {
+        "start_line": 1969,
+        "start_column": 0,
+        "end_line": 1971,
+        "end_column": 43
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.DeferredAcceptance",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Matching.MenStrictPreferenceProfile",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Men have strict preferences over women. "
+    },
+    {
+      "value": "fun {M} {W} val_w => ∀ (w : W) (m m' : M), val_w w m = val_w w m' → m = m'",
+      "type": "{M : Type u_1} → {W : Type u_2} → (W → M → ℝ) → Prop",
+      "source_range": {
+        "start_line": 1973,
+        "start_column": 0,
+        "end_line": 1975,
+        "end_column": 43
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.DeferredAcceptance",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Matching.WomenStrictPreferenceProfile",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Women have strict preferences over men. "
+    },
+    {
+      "value": "fun {M} {W} val_m val_w => (∀ (m : M) (w : W), 0 < val_m m w) ∧ ∀ (w : W) (m : M), 0 < val_w w m",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → (W → M → ℝ) → Prop",
+      "source_range": {
+        "start_line": 1977,
+        "start_column": 0,
+        "end_line": 1982,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.DeferredAcceptance",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Matching.AllPairsAcceptable",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "All potential pairs are acceptable to both sides. This is the marriage-problem\nspecialization in Roth's proof, where every agent must be matched.\n"
+    },
+    {
+      "value": null,
+      "type": "{M : Type u_1} →\n  {W : Type u_2} →\n    (m_match : M → Option W) →\n      (w_match : W → Option M) →\n        (∀ (m : M) (w : W), m_match m = some w ↔ w_match w = some m) → EconCSLib.Matching.Assignment M W",
+      "source_range": {
+        "start_line": 10,
+        "start_column": 10,
+        "end_line": 10,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "constructor",
+      "internal": false,
+      "id": "EconCSLib.Matching.Assignment.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 2920,
+        "start_column": 0,
+        "end_line": 2931,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Option",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Optional values, which are either `some` around a value from the underlying type or `none`.\n\n`Option` can represent nullable types or computations that might fail. In the codomain of a function\ntype, it can also represent partiality.\n"
+    },
+    {
+      "value": "fun M W self => self.1",
+      "type": "{M : Type u_1} → {W : Type u_2} → EconCSLib.Matching.Assignment M W → M → Option W",
+      "source_range": {
+        "start_line": 11,
+        "start_column": 2,
+        "end_line": 11,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Matching.Assignment.m_match",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → α → Option α",
+      "source_range": {
+        "start_line": 2930,
+        "start_column": 2,
+        "end_line": 2931,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Option.some",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Some value of type `α`. "
+    },
+    {
+      "value": "fun M W self => self.2",
+      "type": "{M : Type u_1} → {W : Type u_2} → EconCSLib.Matching.Assignment M W → W → Option M",
+      "source_range": {
+        "start_line": 12,
+        "start_column": 2,
+        "end_line": 12,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Matching.Assignment.w_match",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun {M} {W} val_m val_w mu => EconCSLib.Matching.IsStable val_m val_w mu",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → (W → M → ℝ) → EconCSLib.Matching.Assignment M W → Prop",
+      "source_range": {
+        "start_line": 29,
+        "start_column": 0,
+        "end_line": 33,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "GS62CollegeAdmissions.PaperInterface",
+      "kind": "def",
+      "internal": false,
+      "id": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Stable marriage: no blocking pair, using the reusable matching API. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1287,
+        "start_column": 2,
+        "end_line": 1287,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LE.le",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`."
+    },
+    {
+      "value": null,
+      "type": "LE ℝ",
+      "source_range": {
+        "start_line": 296,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun {M} {W} val m w =>\n  match w with\n  | none => 0\n  | some w' => val m w'",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → M → Option W → ℝ",
+      "source_range": {
+        "start_line": 168,
+        "start_column": 0,
+        "end_line": 172,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Matching.valM",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The value of a match for a man. 0 if unmatched. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LT α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1292,
+        "start_column": 2,
+        "end_line": 1292,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LT.lt",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-than relation: `x < y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `<` in identifiers is `lt`."
+    },
+    {
+      "value": null,
+      "type": "LT ℝ",
+      "source_range": {
+        "start_line": 265,
+        "start_column": 0,
+        "end_line": 267,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLT",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Zero α] → OfNat α 0",
+      "source_range": {
+        "start_line": 17,
+        "start_column": 0,
+        "end_line": 18,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "Zero.toOfNat0",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Zero ℝ",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 91,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 183,
+        "start_column": 0,
+        "end_line": 194,
+        "end_column": 13
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "structure",
+      "internal": false,
+      "id": "Iff",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "If and only if, or logical bi-implication. `a ↔ b` means that `a` implies `b` and vice versa.\nBy `propext`, this implies that `a` and `b` are equal and hence any expression involving `a`\nis equivalent to the corresponding expression with `b` instead.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `↔` in identifiers is `iff`.\n\n * The recommended spelling of `<->` in identifiers is `iff` (prefer `↔` over `<->`)."
+    },
+    {
+      "value": "fun {M} {W} val_m val_w mu =>\n  (∀ (m : M), 0 ≤ EconCSLib.Matching.valM val_m m (mu.m_match m)) ∧\n    (∀ (w : W), 0 ≤ EconCSLib.Matching.valW val_w w (mu.w_match w)) ∧\n      ∀ (m : M) (w : W),\n        EconCSLib.Matching.valM val_m m (mu.m_match m) < val_m m w →\n          EconCSLib.Matching.valW val_w w (mu.w_match w) < val_w w m → False",
+      "type": "{M : Type u_1} → {W : Type u_2} → (M → W → ℝ) → (W → M → ℝ) → EconCSLib.Matching.Assignment M W → Prop",
+      "source_range": {
+        "start_line": 201,
+        "start_column": 0,
+        "end_line": 206,
+        "end_column": 58
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Matching.IsStable",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "A matching is stable if it is individually rational and admits no blocking pairs. "
+    },
+    {
+      "value": "fun {W} motive w h_1 h_2 => Option.casesOn w (h_1 ()) fun val => h_2 val",
+      "type": "{W : Type u_1} →\n  (motive : Option W → Sort u_2) → (w : Option W) → (Unit → motive none) → ((w' : W) → motive (some w')) → motive w",
+      "source_range": null,
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Matching.valM.match_1",
+      "generated_kind": "matcher",
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 214,
+        "start_column": 0,
+        "end_line": 224,
+        "end_column": 27
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Unit",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The canonical type with one element. This element is written `()`.\n\n`Unit` has a number of uses:\n* It can be used to model control flow that returns from a function call without providing other\n  information.\n* Monadic actions that return `Unit` have side effects without computing values.\n* In polymorphic types, it can be used to indicate that no data is to be stored in a particular\n  field.\n"
+    },
+    {
+      "value": "fun {M} {W} val w m =>\n  match m with\n  | none => 0\n  | some m' => val w m'",
+      "type": "{M : Type u_1} → {W : Type u_2} → (W → M → ℝ) → W → Option M → ℝ",
+      "source_range": {
+        "start_line": 174,
+        "start_column": 0,
+        "end_line": 178,
+        "end_column": 23
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "EconCSLib.Markets.Matching.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Matching.valW",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The value of a match for a woman. 0 if unmatched. "
+    },
+    {
+      "value": null,
+      "type": "Prop",
+      "source_range": {
+        "start_line": 274,
+        "start_column": 0,
+        "end_line": 282,
+        "end_column": 22
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "False",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`False` is the empty proposition. Thus, it has no introduction rules.\nIt represents a contradiction. `False` elimination rule, `False.rec`,\nexpresses the fact that anything follows from a contradiction.\nThis rule is sometimes called ex falso (short for ex falso sequitur quodlibet),\nor the principle of explosion.\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Option α",
+      "source_range": {
+        "start_line": 2928,
+        "start_column": 2,
+        "end_line": 2929,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Option.none",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "No value. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} →\n  {motive : Option α → Sort u_1} → (t : Option α) → motive none → ((val : α) → motive (some val)) → motive t",
+      "source_range": {
+        "start_line": 2920,
+        "start_column": 0,
+        "end_line": 2931,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Option.casesOn",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Unit",
+      "source_range": {
+        "start_line": 226,
+        "start_column": 0,
+        "end_line": 231,
+        "end_column": 54
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Unit.unit",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The only element of the unit type.\n\nIt can be written as an empty tuple: `()`.\n"
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "Fintype",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "DecidableEq",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "Eq",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "Nat",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "Fintype.card",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "Exists",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "And",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "source": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.MenStrictPreferenceProfile",
+      "source": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.WomenStrictPreferenceProfile",
+      "source": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.AllPairsAcceptable",
+      "source": "GS62CollegeAdmissions.PaperInterface.strictMarriageDomain",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment.mk",
+      "source": "EconCSLib.Matching.Assignment",
+      "site": "constructor_type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Exists",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Eq",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment.m_match",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.some",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment.w_match",
+      "source": "GS62CollegeAdmissions.PaperInterface.completeMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.valM",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment.m_match",
+      "source": "GS62CollegeAdmissions.PaperInterface.applicantOptimalStableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.MenStrictPreferenceProfile",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.MenStrictPreferenceProfile",
+      "site": "definition_value"
+    },
+    {
+      "target": "Eq",
+      "source": "EconCSLib.Matching.MenStrictPreferenceProfile",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.WomenStrictPreferenceProfile",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.WomenStrictPreferenceProfile",
+      "site": "definition_value"
+    },
+    {
+      "target": "Eq",
+      "source": "EconCSLib.Matching.WomenStrictPreferenceProfile",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "LT.lt",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLT",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "EconCSLib.Matching.AllPairsAcceptable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.Assignment.mk",
+      "site": "type"
+    },
+    {
+      "target": "Iff",
+      "source": "EconCSLib.Matching.Assignment.mk",
+      "site": "type"
+    },
+    {
+      "target": "Eq",
+      "source": "EconCSLib.Matching.Assignment.mk",
+      "site": "type"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Matching.Assignment.mk",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.Assignment.mk",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.Assignment.m_match",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.Assignment.m_match",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.Assignment.m_match",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.Assignment.w_match",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.Assignment.w_match",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.Assignment.w_match",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.IsStable",
+      "source": "GS62CollegeAdmissions.PaperInterface.stableMarriage",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.valM",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.valM",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.valM.match_1",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "EconCSLib.Matching.valM",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.valM",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment.m_match",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.valW",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.Assignment.w_match",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "LT.lt",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLT",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "False",
+      "source": "EconCSLib.Matching.IsStable",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Option.none",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.none",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.casesOn",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit.unit",
+      "source": "EconCSLib.Matching.valM.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.valW",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.valW",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Matching.valM.match_1",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "EconCSLib.Matching.valW",
+      "site": "definition_value"
+    }
+  ],
+  "provenance": {
+    "repository": "nikhgarg/AppliedModelingLib",
+    "revision": "175d656d056721bbf56ce57b2421908ec345921a",
+    "root": "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality",
+    "source_identity": "archived-upstream-with-two-proof-tactic-compatibility-edits",
+    "lean_required": "4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "mathlib_provenance_receipt": "/home/reed/workspace/code/MechAlignWork/PaperLeanBench/experiments/real-project-errors/validate-01/receipt.json",
+    "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+    "adaptations": [
+      {
+        "path": "EconCSLib/Markets/Matching/ManyToOne.lean",
+        "original_sha256": "5df5846b50ec7411f194843876da5fe8da2bab1db77058a4d100f27036d3f5b7",
+        "adapted_sha256": "0cf4eeb22948415d9af13be12861036789d679030db97fb024846ee4425d4dab",
+        "diff": "--- upstream\n+++ 4.34.1\n@@ -311,7 +311,8 @@\n   rcases hstable with ⟨happIR, hcollegeIR, hnoBlock⟩\n   refine ⟨ManyToOneAssignment.ofOneToOne_respects_quota_one mu, ?_, ?_, ?_⟩\n   · intro a\n-    simpa [valApplicant, ManyToOneAssignment.ofOneToOne, valM] using happIR a\n+    cases hmatch : mu.m_match a <;>\n+      simpa [valApplicant, ManyToOneAssignment.ofOneToOne, valM, hmatch] using happIR a\n   · intro c a ha\n     have ha_match : mu.m_match a = some c :=\n       (ManyToOneAssignment.mem_college_roster_ofOneToOne_iff mu a c).1 ha\n@@ -319,7 +320,8 @@\n     simpa [valW, hc_match] using hcollegeIR c\n   · intro a c happPref hcollegeAccept\n     have happPref' : valM val_applicant a (mu.m_match a) < val_applicant a c := by\n-      simpa [valApplicant, ManyToOneAssignment.ofOneToOne, valM] using happPref\n+      cases hmatch : mu.m_match a <;>\n+        simpa [valApplicant, ManyToOneAssignment.ofOneToOne, valM, hmatch] using happPref\n     have hcollegePref :\n         valW val_college c (mu.w_match c) < val_college c a := by\n       rcases hcollegeAccept with ⟨hpos, hroom⟩ | ⟨a', ha', hpref⟩\n"
+      }
+    ],
+    "scope": "five-module root import closure; not whole repository",
+    "alignment_label": "undetermined"
+  }
+}

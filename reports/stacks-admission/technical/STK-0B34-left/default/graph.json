@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "Sum.not_t0_of_not_t0_left"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep.ReasLib"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {X : Type u} {Y : Type v} [inst : TopologicalSpace X] [inst_1 : TopologicalSpace Y], ¬T0Space X → ¬T0Space (X ⊕ Y)",
+      "source_range": {
+        "start_line": 27,
+        "start_column": 0,
+        "end_line": 30,
+        "end_column": 77
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem",
+      "internal": false,
+      "id": "Sum.not_t0_of_not_t0_left",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "Example 5.8.11: a topological sum cannot be Kolmogorov when its left summand is not\nKolmogorov. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 71,
+        "start_column": 0,
+        "end_line": 83,
+        "end_column": 68
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Defs.Basic",
+      "kind": "class",
+      "internal": false,
+      "id": "TopologicalSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A topology on `X`. "
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop",
+      "source_range": {
+        "start_line": 301,
+        "start_column": 0,
+        "end_line": 308,
+        "end_column": 60
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Not",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`Not p`, or `¬p`, is the negation of `p`. It is defined to be `p → False`,\nso if your goal is `¬p` you can use `intro h` to turn the goal into\n`h : p ⊢ False`, and if you have `hn : ¬p` and `h : p` then `hn h : False`\nand `(hn h).elim` will prove anything.\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `¬` in identifiers is `not`."
+    },
+    {
+      "value": null,
+      "type": "(X : Type u) → [TopologicalSpace X] → Prop",
+      "source_range": {
+        "start_line": 73,
+        "start_column": 0,
+        "end_line": 79,
+        "end_column": 43
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Separation.Basic",
+      "kind": "class",
+      "internal": false,
+      "id": "T0Space",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A T₀ space, also known as a Kolmogorov space, is a topological space such that for every pair\n`x ≠ y`, there is an open set containing one but not the other. We formulate the definition in terms\nof the `Inseparable` relation. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type v → Type (max u v)",
+      "source_range": {
+        "start_line": 203,
+        "start_column": 0,
+        "end_line": 216,
+        "end_column": 27
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Sum",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The disjoint union of types `α` and `β`, ordinarily written `α ⊕ β`.\n\nAn element of `α ⊕ β` is either an `a : α` wrapped in `Sum.inl` or a `b : β` wrapped in `Sum.inr`.\n`α ⊕ β` is not equivalent to the set-theoretic union of `α` and `β` because its values include an\nindication of which of the two types was chosen. The union of a singleton set with itself contains\none element, while `Unit ⊕ Unit` contains distinct values `inl ()` and `inr ()`.\n"
+    },
+    {
+      "value": null,
+      "type": "{X : Type u} → {Y : Type v} → [t₁ : TopologicalSpace X] → [t₂ : TopologicalSpace Y] → TopologicalSpace (X ⊕ Y)",
+      "source_range": {
+        "start_line": 49,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 45
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Topology.Constructions.SumProd",
+      "kind": "def",
+      "internal": false,
+      "id": "instTopologicalSpaceSum",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "TopologicalSpace",
+      "source": "Sum.not_t0_of_not_t0_left",
+      "site": "type"
+    },
+    {
+      "target": "Not",
+      "source": "Sum.not_t0_of_not_t0_left",
+      "site": "type"
+    },
+    {
+      "target": "T0Space",
+      "source": "Sum.not_t0_of_not_t0_left",
+      "site": "type"
+    },
+    {
+      "target": "Sum",
+      "source": "Sum.not_t0_of_not_t0_left",
+      "site": "type"
+    },
+    {
+      "target": "instTopologicalSpaceSum",
+      "source": "Sum.not_t0_of_not_t0_left",
+      "site": "type"
+    }
+  ]
+}

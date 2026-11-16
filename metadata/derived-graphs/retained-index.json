@@ -1,0 +1,3042 @@
+{
+  "schema_version": "paperlean-retained-graphs-1",
+  "purpose": "Local access to exact historical graphs; no fresh compilation or semantic re-annotation.",
+  "records": [
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-lemma5_locally_envy_free_stable",
+      "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
+      "roots": [
+        "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
+      "graph_sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
+        "sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+      "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+      "roots": [
+        "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma6_stable_assignment_slot_envy_free.json",
+      "graph_sha256": "70244e7329b5b6ef26952cf51eba4458dd5a059305a4ef7b14bbb35790acd9a6",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma6_stable_assignment_slot_envy_free.json",
+        "sha256": "70244e7329b5b6ef26952cf51eba4458dd5a059305a4ef7b14bbb35790acd9a6",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
+      "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
+      "roots": [
+        "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
+      "graph_sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
+        "sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GCG24UserItemFairness-after-spec",
+      "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+      "roots": [
+        "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-after-spec.json",
+      "graph_sha256": "5acb7d85a727b12a3d70d96c2bbbf09a78cd7514e392e8d1c6dbc0e954cb59a8",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-after-spec.json",
+        "sha256": "5acb7d85a727b12a3d70d96c2bbbf09a78cd7514e392e8d1c6dbc0e954cb59a8",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GCG24UserItemFairness-before",
+      "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+      "roots": [
+        "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
+      "graph_sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
+        "sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GHW-theorem9_1_bid_independent_lower_bound",
+      "input_sha256": "20dc5274f3f9dfd7dc49c66597b34edce10d90e35cab61352b7b8fe83c527114",
+      "roots": [
+        "GHW01DigitalGoods.PaperInterface.theorem9_1_bid_independent_lower_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4e97f7317d71e9d214fbb1c8c2a28806172d5a90b8a07a192b8ff88ee6152802.json",
+      "graph_sha256": "4e97f7317d71e9d214fbb1c8c2a28806172d5a90b8a07a192b8ff88ee6152802",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/fa5379e-GHW01DigitalGoods/GHW-theorem9_1_bid_independent_lower_bound/graph.json",
+        "sha256": "4e97f7317d71e9d214fbb1c8c2a28806172d5a90b8a07a192b8ff88ee6152802",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GHW-theorem9_3_deterministic_truthful_lower_bound",
+      "input_sha256": "77784b836363410511239ee5a0d78f5a52be578e6fec682c46382ad047742a98",
+      "roots": [
+        "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/6dff5f374a46c36d74f239d828d19ef87ce4ff985954d8132c5d0b946670bebc.json",
+      "graph_sha256": "6dff5f374a46c36d74f239d828d19ef87ce4ff985954d8132c5d0b946670bebc",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/fa5379e-GHW01DigitalGoods/GHW-theorem9_3_deterministic_truthful_lower_bound/graph.json",
+        "sha256": "6dff5f374a46c36d74f239d828d19ef87ce4ff985954d8132c5d0b946670bebc",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GJ19OptimalBinaryRatingSystems-after-spec",
+      "input_sha256": "5cf372ee5b4088d02c5b485d3e296fcee0fe903ce8145f7f9a6a564882b81267",
+      "roots": [
+        "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographicSpec"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/537d3cd5af2ac955e7d62d5d603d766b641a355bbd8cd888e91c3918512f2049.json",
+      "graph_sha256": "537d3cd5af2ac955e7d62d5d603d766b641a355bbd8cd888e91c3918512f2049",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/cf500b7-GJ19OptimalBinaryRatingSystems/GJ19OptimalBinaryRatingSystems-after-spec/graph.json",
+        "sha256": "537d3cd5af2ac955e7d62d5d603d766b641a355bbd8cd888e91c3918512f2049",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GJ19OptimalBinaryRatingSystems-before",
+      "input_sha256": "80dfbfffafc13bbe594f7c239f65ae740737ae1d6d2ca0a1d60d20731d2db653",
+      "roots": [
+        "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographic"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4b904f6a302ee67e043c4232c03abed1502eee813ac96abe8aa58039e00d0ead.json",
+      "graph_sha256": "4b904f6a302ee67e043c4232c03abed1502eee813ac96abe8aa58039e00d0ead",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/fa5379e-GJ19OptimalBinaryRatingSystems/GJ19OptimalBinaryRatingSystems-before/graph.json",
+        "sha256": "4b904f6a302ee67e043c4232c03abed1502eee813ac96abe8aa58039e00d0ead",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-AFFINE-P31",
+      "input_sha256": "5eb01243a9aa023992ea812e142925a3ab24bdf0989f8224fef0c741a904b32d",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a155ec83244ccb4ea403e391e46e3406e908b21a525eb44328afde205a47e104.json",
+      "graph_sha256": "a155ec83244ccb4ea403e391e46e3406e908b21a525eb44328afde205a47e104",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/c539645-GN21DriverSurgePricing/GN21-AFFINE-P31/graph.json",
+        "sha256": "a155ec83244ccb4ea403e391e46e3406e908b21a525eb44328afde205a47e104",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-CROSS",
+      "input_sha256": "d27decf1ad8051cc2fc54ca4130b09f946f00b657babacabae237375f2030a96",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4315e16f9816d6101e02413d2c02ed5ca8f171b9d9f2d083b3918c5867b7b247.json",
+      "graph_sha256": "4315e16f9816d6101e02413d2c02ed5ca8f171b9d9f2d083b3918c5867b7b247",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/e1e995e-GN21DriverSurgePricing/GN21-CROSS/graph.json",
+        "sha256": "4315e16f9816d6101e02413d2c02ed5ca8f171b9d9f2d083b3918c5867b7b247",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-final_sign",
+      "input_sha256": "ef01f29a17eea986583a4abd770ec20d0602dab7a202eca6af2139035659ce3a",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_final_sign"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/0507e264ed0dae4a0b8e2f948ebfe35bf7c69979b73be1dd00468b59a106dd83.json",
+      "graph_sha256": "0507e264ed0dae4a0b8e2f948ebfe35bf7c69979b73be1dd00468b59a106dd83",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/ba9d012-GN21DriverSurgePricing/GN21-SMALL-final_sign/graph.json",
+        "sha256": "0507e264ed0dae4a0b8e2f948ebfe35bf7c69979b73be1dd00468b59a106dd83",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-interval_final_sign",
+      "input_sha256": "d0af7eaae7407bc62ab8547d48eb71bfb23aac282c977c6bb82db97663067756",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_interval_final_sign"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/3c6719223e8c3981a3dfcf6922752d39c1a846b2c52ac47f3e5b82e05d3947a8.json",
+      "graph_sha256": "3c6719223e8c3981a3dfcf6922752d39c1a846b2c52ac47f3e5b82e05d3947a8",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/ba9d012-GN21DriverSurgePricing/GN21-SMALL-interval_final_sign/graph.json",
+        "sha256": "3c6719223e8c3981a3dfcf6922752d39c1a846b2c52ac47f3e5b82e05d3947a8",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-mass_affine_interval_final_sign",
+      "input_sha256": "18d94db90158ba8e2576ddb00fa3ac3c86ac0e5860beba9fe1148960584dc25e",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/393e0758d4d7b98ad9295b4dc1074c919e99284c15ec9ebd08eb71cd7eda06b2.json",
+      "graph_sha256": "393e0758d4d7b98ad9295b4dc1074c919e99284c15ec9ebd08eb71cd7eda06b2",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/ba9d012-GN21DriverSurgePricing/GN21-SMALL-mass_affine_interval_final_sign/graph.json",
+        "sha256": "393e0758d4d7b98ad9295b4dc1074c919e99284c15ec9ebd08eb71cd7eda06b2",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-T1",
+      "input_sha256": "4d6755735c17fad6a79a90a18169fb589089a748f194c96b3ba941907728e6f3",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem1_single_state_threshold_best_response"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7b735ebd2bd196852b1ccbbd621e1f58f286b84b81e060fb432accadfa16d906.json",
+      "graph_sha256": "7b735ebd2bd196852b1ccbbd621e1f58f286b84b81e060fb432accadfa16d906",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/ba9d012-GN21DriverSurgePricing/GN21-T1/graph.json",
+        "sha256": "7b735ebd2bd196852b1ccbbd621e1f58f286b84b81e060fb432accadfa16d906",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GS62-T2-after",
+      "input_sha256": "225be72dd9bc57d272adb380c86744f76cd4ca9e6bf87b2eb36a44bb90aea41b",
+      "roots": [
+        "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/9ba12e57318af95985385cef544bbe13503e09bbf9cf66280b484998e359f7c0.json",
+      "graph_sha256": "9ba12e57318af95985385cef544bbe13503e09bbf9cf66280b484998e359f7c0",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-05/AppliedModelingLib/semantic-review-01/gs62/leantrace-after/graph.json",
+        "sha256": "9ba12e57318af95985385cef544bbe13503e09bbf9cf66280b484998e359f7c0",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GS62-T2-before",
+      "input_sha256": "25cf090557ad123b49bd2b51aa85ced298c6ca85f57bfc4c595acc527c009cd1",
+      "roots": [
+        "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/9db06c96f92737341d78d89c11f57459545997539c58dd95a75c3a85cdc093c0.json",
+      "graph_sha256": "9db06c96f92737341d78d89c11f57459545997539c58dd95a75c3a85cdc093c0",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-05/AppliedModelingLib/semantic-review-01/gs62/leantrace-before/graph.json",
+        "sha256": "9db06c96f92737341d78d89c11f57459545997539c58dd95a75c3a85cdc093c0",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-GAUSSIAN-P42",
+      "input_sha256": "19f9dff7d1edef0d005ed1ceb8172c56708d0ada781110e013408f4edf014d71",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_proposition4_2_not_law_latent_skill_fair_of_gaussian_mean_gap"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/8b753bebba1b0b4ff55158315b1602977066aca828e6cb1a3a8040a7db072a52.json",
+      "graph_sha256": "8b753bebba1b0b4ff55158315b1602977066aca828e6cb1a3a8040a7db072a52",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/aef6c89-LG21TestOptionalPolicies/LG21-GAUSSIAN-P42/graph.json",
+        "sha256": "8b753bebba1b0b4ff55158315b1602977066aca828e6cb1a3a8040a7db072a52",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-T31-HIST",
+      "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+      "roots": [
+        "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
+      "graph_sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
+        "sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-optional_reporting-source_witness_of_base_crossings",
+      "input_sha256": "4c1ef2379935a391f423e1e5ee56f5e08af64d7a5339bbde14d4eb029ce748a6",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_source_witness_of_base_crossings"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/e841317411e69958a0ead29d90d61e50702a9e3026ae0cbe1416975b120417f3.json",
+      "graph_sha256": "e841317411e69958a0ead29d90d61e50702a9e3026ae0cbe1416975b120417f3",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/c5fb3ad-LG21TestOptionalPolicies/LG21-optional_reporting-source_witness_of_base_crossings/graph.json",
+        "sha256": "e841317411e69958a0ead29d90d61e50702a9e3026ae0cbe1416975b120417f3",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-optional_reporting-threshold_equilibrium_exists_of_crossing",
+      "input_sha256": "5bbdb6db2278dac3207a66fb7119283c8757d14836a785d04de4cebec4102e8f",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_threshold_equilibrium_exists_of_crossing"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/e3efdfa0f713b536e2f4d4762e61cc54158b4b7cec0084f2ad5c20710a236756.json",
+      "graph_sha256": "e3efdfa0f713b536e2f4d4762e61cc54158b4b7cec0084f2ad5c20710a236756",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/c5fb3ad-LG21TestOptionalPolicies/LG21-optional_reporting-threshold_equilibrium_exists_of_crossing/graph.json",
+        "sha256": "e3efdfa0f713b536e2f4d4762e61cc54158b4b7cec0084f2ad5c20710a236756",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-report_required-source_witness_of_base_crossings",
+      "input_sha256": "2c861aa9a8809b440ec958dc709d7ec204b615037a2ce4c367b9aa9441ef2a67",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7edd80c800f96dd49c07bd3147565ab94cfc431b8a4259a01904a969c04c8b4d.json",
+      "graph_sha256": "7edd80c800f96dd49c07bd3147565ab94cfc431b8a4259a01904a969c04c8b4d",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/2568639-LG21TestOptionalPolicies/LG21-report_required-source_witness_of_base_crossings/graph.json",
+        "sha256": "7edd80c800f96dd49c07bd3147565ab94cfc431b8a4259a01904a969c04c8b4d",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-report_required-threshold_equilibrium_exists_of_crossing",
+      "input_sha256": "e5863d8528273da40981f0b7a9e206c6089fe717cdf483783c0c9b082d0f4e03",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/299c6edfb5b6f17e668a64c6114efd9fae758c434f1906eb112cd0b5670fb965.json",
+      "graph_sha256": "299c6edfb5b6f17e668a64c6114efd9fae758c434f1906eb112cd0b5670fb965",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/2568639-LG21TestOptionalPolicies/LG21-report_required-threshold_equilibrium_exists_of_crossing/graph.json",
+        "sha256": "299c6edfb5b6f17e668a64c6114efd9fae758c434f1906eb112cd0b5670fb965",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LMMS04FairDivision-after",
+      "input_sha256": "40a3c2dec06f1d02dc67a8cd438131def5d439f15891f2769d907bb55a976d48",
+      "roots": [
+        "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/0329e9bd0b9608acbd3af7e5b94c3d10e4faf0c29f8ed75eee4c0ab11172b8d4.json",
+      "graph_sha256": "0329e9bd0b9608acbd3af7e5b94c3d10e4faf0c29f8ed75eee4c0ab11172b8d4",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/3523dfe-LMMS04FairDivision/LMMS04FairDivision-after/graph.json",
+        "sha256": "0329e9bd0b9608acbd3af7e5b94c3d10e4faf0c29f8ed75eee4c0ab11172b8d4",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LMMS04FairDivision-before",
+      "input_sha256": "d459a8e68c9368de882d4f620a0b4547d7f652f7d9967563ae8182eb4bc7d4ad",
+      "roots": [
+        "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f0408a9d83dd8db661bf6026ad1c33c8ca4c34ad941985d6cc11ed601d2265e4.json",
+      "graph_sha256": "f0408a9d83dd8db661bf6026ad1c33c8ca4c34ad941985d6cc11ed601d2265e4",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/eb67cc8-LMMS04FairDivision/LMMS04FairDivision-before/graph.json",
+        "sha256": "f0408a9d83dd8db661bf6026ad1c33c8ca4c34ad941985d6cc11ed601d2265e4",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LOS02CombinatorialAuctions-after",
+      "input_sha256": "f6aa8fec8613fc45a0c249a8e604a09d47da55de66d32847506a337783082106",
+      "roots": [
+        "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c038f368f18b97b0ff7dbb00ec29e2b8f6d554e12dd9f4ea960a624a1feb8d61.json",
+      "graph_sha256": "c038f368f18b97b0ff7dbb00ec29e2b8f6d554e12dd9f4ea960a624a1feb8d61",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/3523dfe-LOS02CombinatorialAuctions/LOS02CombinatorialAuctions-after/graph.json",
+        "sha256": "c038f368f18b97b0ff7dbb00ec29e2b8f6d554e12dd9f4ea960a624a1feb8d61",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LOS02CombinatorialAuctions-before",
+      "input_sha256": "b3749f8a36c0b2c11fa25d02d9ed6e598f054264fed2f69df4508bf76fcf6aee",
+      "roots": [
+        "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f381a2446e51e2815a60422f8b4541a5da793e43b24fce71b127df51bf393389.json",
+      "graph_sha256": "f381a2446e51e2815a60422f8b4541a5da793e43b24fce71b127df51bf393389",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/eb67cc8-LOS02CombinatorialAuctions/LOS02CombinatorialAuctions-before/graph.json",
+        "sha256": "f381a2446e51e2815a60422f8b4541a5da793e43b24fce71b127df51bf393389",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "MBJG-VARIANCE-INTERIOR",
+      "input_sha256": "a1eef88c96a3896fc1e882fff3d61b340f97d9bb58fe086d2e18fb9f3d2da4e5",
+      "roots": [
+        "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/08e91fe908fa61cbf737d26974b55dcbd72490b9b7ff4b21068e56b3c0d17f0f.json",
+      "graph_sha256": "08e91fe908fa61cbf737d26974b55dcbd72490b9b7ff4b21068e56b3c0d17f0f",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/2476b3f-MBJG25ProducerFairness/MBJG-VARIANCE-INTERIOR/graph.json",
+        "sha256": "08e91fe908fa61cbf737d26974b55dcbd72490b9b7ff4b21068e56b3c0d17f0f",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "PRPKG-P4-after",
+      "input_sha256": "725d5f58b7d87d6305b03d7fa00a035aa8a6a9c964f109f2172fc44b81b795e5",
+      "roots": [
+        "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ea89f5d1f58cee2e8d3e60f6fce3764fac49fd2a878c109404691184b59b1e90.json",
+      "graph_sha256": "ea89f5d1f58cee2e8d3e60f6fce3764fac49fd2a878c109404691184b59b1e90",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/c2a77d2-PRPKG24AccuracyDiversity/PRPKG-P4-after/graph.json",
+        "sha256": "ea89f5d1f58cee2e8d3e60f6fce3764fac49fd2a878c109404691184b59b1e90",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "PRPKG-P4-before",
+      "input_sha256": "a58a42b7e5957c551a4ac15c223de36d76346ae1cbf323f9c018f44af11c8ba4",
+      "roots": [
+        "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/3456619ba939ff6d7430e47e739825e505cac87dfbae0dd50dc98e929e134fff.json",
+      "graph_sha256": "3456619ba939ff6d7430e47e739825e505cac87dfbae0dd50dc98e929e134fff",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/screen-08/batch-01/technical/e298529-PRPKG24AccuracyDiversity/PRPKG-P4-before/graph.json",
+        "sha256": "3456619ba939ff6d7430e47e739825e505cac87dfbae0dd50dc98e929e134fff",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-01-after",
+      "input_sha256": "b9bb6c6d56e3e4f4d67ff0cd1855ae47400aab6a602c1625bf5351183859cfb8",
+      "roots": [
+        "metric_carleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/be7eb3349fae5f273ff4da328100a68d52798e9564fe5ef4b672a38cd45a8d0a.json",
+      "graph_sha256": "be7eb3349fae5f273ff4da328100a68d52798e9564fe5ef4b672a38cd45a8d0a",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/26325e323949418e155a4dc92b9b5a047ef2de82/migration-212/graph.json",
+        "sha256": "be7eb3349fae5f273ff4da328100a68d52798e9564fe5ef4b672a38cd45a8d0a",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-01-before",
+      "input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
+      "roots": [
+        "metric_carleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/e30f594de60cdc8c4de7956482980749af3c1a35305739847fb3e224f38ce497.json",
+      "graph_sha256": "e30f594de60cdc8c4de7956482980749af3c1a35305739847fb3e224f38ce497",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/0138d636eed1475ea5e848ef6cf4b141636056cc/migration-212/graph.json",
+        "sha256": "e30f594de60cdc8c4de7956482980749af3c1a35305739847fb3e224f38ce497",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-02-after",
+      "input_sha256": "c8aad7c04babc5e94ad5ce1bfbe4f8ef40634d08c4d1fde4a53ce7430d0c3172",
+      "roots": [
+        "linearized_metric_carleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/df44f30e5e97a18e6961881f23db9c4b7f018979c089373872e12cbaf15ce635.json",
+      "graph_sha256": "df44f30e5e97a18e6961881f23db9c4b7f018979c089373872e12cbaf15ce635",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/31a6f54943413ac48fd9e934c4fce3c9621e1860/migration-297/graph.json",
+        "sha256": "df44f30e5e97a18e6961881f23db9c4b7f018979c089373872e12cbaf15ce635",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-02-before",
+      "input_sha256": "96018b69ebbc77b3af56b24c101f53fd81af0aee8d690dde18ca61d3248ec0a8",
+      "roots": [
+        "linearized_metric_carleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/05f23a6c25a61c8f8e2adcc21c5edd77d78b37b6fa37a5ceed8fa6908728c99a.json",
+      "graph_sha256": "05f23a6c25a61c8f8e2adcc21c5edd77d78b37b6fa37a5ceed8fa6908728c99a",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/f005a0fe7be71905a7bbe2f85b7ecd23e84a637f/migration-297/graph.json",
+        "sha256": "05f23a6c25a61c8f8e2adcc21c5edd77d78b37b6fa37a5ceed8fa6908728c99a",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-01",
+      "input_sha256": "5c08ab80fca8d065607c121fe3d12bf699ac596c8e87668cbc125aa8969b3bc8",
+      "roots": [
+        "ClassicalCarleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f99c41add49906e8e2403f4429b0fa3f17a6a9f951e8794bc30c535788e0ed9d.json",
+      "graph_sha256": "f99c41add49906e8e2403f4429b0fa3f17a6a9f951e8794bc30c535788e0ed9d",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/f10c441921273ee2a04cea802f2c32b7c6ebc5ea-ClassicalCarleson/graph.json",
+        "sha256": "f99c41add49906e8e2403f4429b0fa3f17a6a9f951e8794bc30c535788e0ed9d",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-02",
+      "input_sha256": "489383a7867c353ac7dcda513c9a27f99d071898fa4b68e52e28ba2b94312ad4",
+      "roots": [
+        "MetricSpaceCarleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f7d42dfbafc1aedf30bfe5a64e14da0d121bf43095386e8230e9e7ab9e2561f3.json",
+      "graph_sha256": "f7d42dfbafc1aedf30bfe5a64e14da0d121bf43095386e8230e9e7ab9e2561f3",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/f10c441921273ee2a04cea802f2c32b7c6ebc5ea-MetricSpaceCarleson/graph.json",
+        "sha256": "f7d42dfbafc1aedf30bfe5a64e14da0d121bf43095386e8230e9e7ab9e2561f3",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-03",
+      "input_sha256": "8b979e353b332068e7f303698a66f82645e8ba42eb67f7949bc5098e643d4eef",
+      "roots": [
+        "LinearizedMetricCarleson"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/54d8437398b334946b1884cc13ea75703537276297fc05da397c2520ce0e754d.json",
+      "graph_sha256": "54d8437398b334946b1884cc13ea75703537276297fc05da397c2520ce0e754d",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/technical/f10c441921273ee2a04cea802f2c32b7c6ebc5ea-LinearizedMetricCarleson/graph.json",
+        "sha256": "54d8437398b334946b1884cc13ea75703537276297fc05da397c2520ce0e754d",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-A",
+      "input_sha256": "478e3568ffb91e335c26a5721a892aa6c46515eac528ae8e513f97131851f613",
+      "roots": [
+        "CoarseDeGiorgi.local_boundedness"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/47518e6f3ca7264f63555397e18daa16cf929f2e6c0991db4bd3f10aed4fe123.json",
+      "graph_sha256": "47518e6f3ca7264f63555397e18daa16cf929f2e6c0991db4bd3f10aed4fe123",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/coarse-degiorgi-01/technical/CDG-A/graph.json",
+        "sha256": "47518e6f3ca7264f63555397e18daa16cf929f2e6c0991db4bd3f10aed4fe123",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-C",
+      "input_sha256": "c9e9004a2c2887a3daded5a21b022f0c86ba922a3f443bccc26f6a1f428ede1e",
+      "roots": [
+        "CoarseDeGiorgi.harnack"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/484689310f7f9d2a16ae7ebc4ac0ba74522f7564bf2fee14dc9ebde67617eb61.json",
+      "graph_sha256": "484689310f7f9d2a16ae7ebc4ac0ba74522f7564bf2fee14dc9ebde67617eb61",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/coarse-degiorgi-01/technical/CDG-C/graph.json",
+        "sha256": "484689310f7f9d2a16ae7ebc4ac0ba74522f7564bf2fee14dc9ebde67617eb61",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D1",
+      "input_sha256": "dbc2aa78a055b4c1591436113e249f50c8d0c5dc77225d832fc6588877713a0e",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_lebesgue"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/dd360f04a0ff0b4fcd1afd987d221efc0dafce7c4ad1674c1ac62534debc462f.json",
+      "graph_sha256": "dd360f04a0ff0b4fcd1afd987d221efc0dafce7c4ad1674c1ac62534debc462f",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/coarse-degiorgi-01/technical/CDG-D1/graph.json",
+        "sha256": "dd360f04a0ff0b4fcd1afd987d221efc0dafce7c4ad1674c1ac62534debc462f",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D2",
+      "input_sha256": "3122d7a414935fdd21953b28895687d7a3b82f25cd54cd72657b41b89cd502d6",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_besov"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/679009e4c414cd86463d6bc6d4296f6de3de7e03f84845fb65d32938afc55c40.json",
+      "graph_sha256": "679009e4c414cd86463d6bc6d4296f6de3de7e03f84845fb65d32938afc55c40",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/coarse-degiorgi-01/technical/CDG-D2/graph.json",
+        "sha256": "679009e4c414cd86463d6bc6d4296f6de3de7e03f84845fb65d32938afc55c40",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D3",
+      "input_sha256": "a7ef8cb9b719b3b1c40a454bdbab8e46cfd91b7ff4203be1cd9a8f8b37c6bc09",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_sobolev"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4a983ad122d4a17e64984b6808685eefe6a4d8a18ab75d09dfdd172513416e10.json",
+      "graph_sha256": "4a983ad122d4a17e64984b6808685eefe6a4d8a18ab75d09dfdd172513416e10",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/coarse-degiorgi-01/technical/CDG-D3/graph.json",
+        "sha256": "4a983ad122d4a17e64984b6808685eefe6a4d8a18ab75d09dfdd172513416e10",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-L41",
+      "input_sha256": "81f58a8f465dad29f80e2a685aa17629500d6317d9990b073af263829cab0add",
+      "roots": [
+        "CoarseDeGiorgi.LowerFractional.lower_auxAverage_norm_local"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/eb802b6d3f49a926ee69ea95177e1272cbaac2e487984c5fd389ceac70b25441.json",
+      "graph_sha256": "eb802b6d3f49a926ee69ea95177e1272cbaac2e487984c5fd389ceac70b25441",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/coarse-degiorgi-01/technical/CDG-L41/graph.json",
+        "sha256": "eb802b6d3f49a926ee69ea95177e1272cbaac2e487984c5fd389ceac70b25441",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-L94",
+      "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
+      "roots": [
+        "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-L94.json",
+      "graph_sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-L94.json",
+        "sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-A-CUTOFF",
+      "input_sha256": "37347a3702dc529069d76157a539ff4a08a4749c916414049759e35a4d26b601",
+      "roots": [
+        "MagicFunction.a.SpecialValues.a_zero"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4b49a088f9687c8cfb70113d1c2950629cf01aa1e31f80d41d2d8c186a9ddb67.json",
+      "graph_sha256": "4b49a088f9687c8cfb70113d1c2950629cf01aa1e31f80d41d2d8c186a9ddb67",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-A-CUTOFF/compat-02/graph.json",
+        "sha256": "4b49a088f9687c8cfb70113d1c2950629cf01aa1e31f80d41d2d8c186a9ddb67",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-A-CUTOFF-FIXED",
+      "input_sha256": "8c5c9d899eb29037c15206ddaed4eb9c4f28601dc1a469c194c5af3af3a87a0e",
+      "roots": [
+        "MagicFunction.a.SpecialValues.a_zero"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/58e8101d39ec8cb0f05989d6a28e490a4badfd5e99b9780e709cc30fe6d75d6a.json",
+      "graph_sha256": "58e8101d39ec8cb0f05989d6a28e490a4badfd5e99b9780e709cc30fe6d75d6a",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-A-CUTOFF-FIXED/repair-compat-01/graph.json",
+        "sha256": "58e8101d39ec8cb0f05989d6a28e490a4badfd5e99b9780e709cc30fe6d75d6a",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-EIG",
+      "input_sha256": "0308328261c13dc76e1cd22f02f2100a5ed40ea737bf6f61f4fe077d0354e104",
+      "roots": [
+        "MagicFunction.b.Fourier.eig_b"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/5426123b6c2067bf366cc2a533f4f8933e889109195f08abdfacd44aaa0e8aea.json",
+      "graph_sha256": "5426123b6c2067bf366cc2a533f4f8933e889109195f08abdfacd44aaa0e8aea",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-B-EIG/compat-03/graph.json",
+        "sha256": "5426123b6c2067bf366cc2a533f4f8933e889109195f08abdfacd44aaa0e8aea",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-EIG-FIXED",
+      "input_sha256": "d3952d4fbb6e2b93a151b9dbb9ba4e54790536edec0900d2611e8abf21686d76",
+      "roots": [
+        "MagicFunction.b.Fourier.eig_b"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/1293a951885d840e8d13351a0ea5f7329b7dfacad7babb3e5ae44308ad80fe9d.json",
+      "graph_sha256": "1293a951885d840e8d13351a0ea5f7329b7dfacad7babb3e5ae44308ad80fe9d",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-B-EIG-FIXED/repair-sign-compat-02/graph.json",
+        "sha256": "1293a951885d840e8d13351a0ea5f7329b7dfacad7babb3e5ae44308ad80fe9d",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-ZERO",
+      "input_sha256": "c2f047b78ce8b88dc90985f68f4d3e3c9f3cee8391bcdae993604ea8367549e3",
+      "roots": [
+        "MagicFunction.b.SpecialValues.b_zero"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/065d66ef3573c0644e1aca0a7c506272a0b442558de943a4323c36adf9e60db3.json",
+      "graph_sha256": "065d66ef3573c0644e1aca0a7c506272a0b442558de943a4323c36adf9e60db3",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-B-ZERO/compat-03/graph.json",
+        "sha256": "065d66ef3573c0644e1aca0a7c506272a0b442558de943a4323c36adf9e60db3",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-ZERO-FIXED",
+      "input_sha256": "ca81eadeb523b91dfa234174e5c2ca25b0020be82933c669a931ceace2a2c989",
+      "roots": [
+        "MagicFunction.b.SpecialValues.b_zero"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/944650b68b548e341572eeffe245fafe857ec6bc9db3917118707c7cc7aa2fe5.json",
+      "graph_sha256": "944650b68b548e341572eeffe245fafe857ec6bc9db3917118707c7cc7aa2fe5",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-B-ZERO-FIXED/repair-sign-compat-02/graph.json",
+        "sha256": "944650b68b548e341572eeffe245fafe857ec6bc9db3917118707c7cc7aa2fe5",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-I6-BOUND",
+      "input_sha256": "1873690a1cb1b62241e75411efb80824b634c347415d96dd2eb68700bd7a3dd0",
+      "roots": [
+        "MagicFunction.a.IntegralEstimates.I₆.I₆'_bounding"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ff33d3aecb261007b9960d9e93cb56dcf184d49020b100b6292e129b5fb4fb8d.json",
+      "graph_sha256": "ff33d3aecb261007b9960d9e93cb56dcf184d49020b100b6292e129b5fb4fb8d",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-I6-BOUND/compat-03/graph.json",
+        "sha256": "ff33d3aecb261007b9960d9e93cb56dcf184d49020b100b6292e129b5fb4fb8d",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-LP",
+      "input_sha256": "71856dd9d9cfdbcb0254353cf119a33933fa267bee1d832b8e9dc11ee2dc0767",
+      "roots": [
+        "LinearProgrammingBound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/157cf6c7934530f8d5467d500f118c88ebdc379df96cbb15a07da02e49690c1a.json",
+      "graph_sha256": "157cf6c7934530f8d5467d500f118c88ebdc379df96cbb15a07da02e49690c1a",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-LP/compat-01/graph.json",
+        "sha256": "157cf6c7934530f8d5467d500f118c88ebdc379df96cbb15a07da02e49690c1a",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-LP-PERIODIC",
+      "input_sha256": "ad315154091f2c808aa9f8af30bf50acb1e92d144341a1afd46448c7d93ab7ed",
+      "roots": [
+        "LinearProgrammingBound'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/19432969b1d8e3240f2f04bff8229cd85394576c558d46c4973f058a78aec549.json",
+      "graph_sha256": "19432969b1d8e3240f2f04bff8229cd85394576c558d46c4973f058a78aec549",
+      "graph_source": {
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/sphere-packing-01/technical/SP-LP-PERIODIC/compat-02/graph.json",
+        "sha256": "19432969b1d8e3240f2f04bff8229cd85394576c558d46c4973f058a78aec549",
+        "binding": "historical_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "dudley-covering-number",
+      "input_sha256": "d64e4cfd5c80d1f4daebc9c6af917ab33ee5bf95109a957b38b97441663b6387",
+      "roots": [
+        "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ec37dfab4a2e2ec45d0c7846a5dfaedc1d53387bd427699f6cb9bf9b9a24af85.json",
+      "graph_sha256": "ec37dfab4a2e2ec45d0c7846a5dfaedc1d53387bd427699f6cb9bf9b9a24af85",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-batch2/dudley/default-graph.json",
+        "sha256": "ec37dfab4a2e2ec45d0c7846a5dfaedc1d53387bd427699f6cb9bf9b9a24af85",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-after",
+      "input_sha256": "50c87cbc7984947d40d1754b741b267955f4053bb06e5847a0e21381f76d5d6e",
+      "roots": [
+        "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/2d1c007ef123a45fbc8dbc5346f2573091db823ca6c263771d22ab831feddf5c.json",
+      "graph_sha256": "2d1c007ef123a45fbc8dbc5346f2573091db823ca6c263771d22ab831feddf5c",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/technical/eb-after/20261103T130411210375Z/graph.json",
+        "sha256": "2d1c007ef123a45fbc8dbc5346f2573091db823ca6c263771d22ab831feddf5c",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-before",
+      "input_sha256": "84fccd39b0b4043a9149592aa38cd7898fb7ba2e5ee36385e46f6fc09388b40b",
+      "roots": [
+        "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/1571f51670dfab5e7f6c800816c8831e7a2024f8dd77e4268d6c84ef9e77d914.json",
+      "graph_sha256": "1571f51670dfab5e7f6c800816c8831e7a2024f8dd77e4268d6c84ef9e77d914",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/technical/eb-before/20261103T130336866752Z/graph.json",
+        "sha256": "1571f51670dfab5e7f6c800816c8831e7a2024f8dd77e4268d6c84ef9e77d914",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "flagship-scalar-reflexive",
+      "input_sha256": "86d5472db793e6a1ed1501391c61ae1274b98cff6f84ac54f201c7de90e92af0",
+      "roots": [
+        "FormalSLT.TestTimeMeta.FlagshipComponentWorkedExample.flagshipComponentWorkedExample_scalarAssembly"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/6a39df1290926a8d2c2d19616641c7c3b7da8db36b7c3779b793bedd4dc7edc7.json",
+      "graph_sha256": "6a39df1290926a8d2c2d19616641c7c3b7da8db36b7c3779b793bedd4dc7edc7",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-batch2/flagship/technical/20261103T133423939429Z/default-graph.json",
+        "sha256": "6a39df1290926a8d2c2d19616641c7c3b7da8db36b7c3779b793bedd4dc7edc7",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-after",
+      "input_sha256": "9067f5e19eddd50865d57acc87644a1299d772b7be021003462e45c6a1131c27",
+      "roots": [
+        "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f52058fd82715d309fd1d015bbf1efcc2ac128a0491541bad997bc43b98eb5a8.json",
+      "graph_sha256": "f52058fd82715d309fd1d015bbf1efcc2ac128a0491541bad997bc43b98eb5a8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/technical/mixture-after/20261103T130213711545Z/graph.json",
+        "sha256": "f52058fd82715d309fd1d015bbf1efcc2ac128a0491541bad997bc43b98eb5a8",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-before",
+      "input_sha256": "1f4be19364a75f455f8503470c5a13d1b114bcff36faf60b4c0b53c542fce3a5",
+      "roots": [
+        "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/1f70e06608e9409c232291befbca30765d3a48a299f71a6b598a02a39f2a2ac9.json",
+      "graph_sha256": "1f70e06608e9409c232291befbca30765d3a48a299f71a6b598a02a39f2a2ac9",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/technical/mixture-before/20261103T130157057671Z/graph.json",
+        "sha256": "1f70e06608e9409c232291befbca30765d3a48a299f71a6b598a02a39f2a2ac9",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "coupled-after",
+      "input_sha256": "ea69edce5bb7a80a36a5cee7b7d44d6ccf890c010f216b0b4d186f3b29a59be0",
+      "roots": [
+        "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/20674f2e5b602765f31ab066c51e15e60a07a4c34531cd0cb5a9cfd0858fa9b9.json",
+      "graph_sha256": "20674f2e5b602765f31ab066c51e15e60a07a4c34531cd0cb5a9cfd0858fa9b9",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/vaught-build/technical/coupled-after/20261103T141703212107Z/default-graph.json",
+        "sha256": "20674f2e5b602765f31ab066c51e15e60a07a4c34531cd0cb5a9cfd0858fa9b9",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "gate-before",
+      "input_sha256": "67f479b72414f3df259b16ae7814b96113703590370402fe3e6491546921871a",
+      "roots": [
+        "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasGatedPinnedExtensions"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/1662e8f83a6108ac6dc93e0488e3be6a685e9092b84ae798ca99855e8e3d7230.json",
+      "graph_sha256": "1662e8f83a6108ac6dc93e0488e3be6a685e9092b84ae798ca99855e8e3d7230",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/vaught-build/technical/gate-before/20261103T141555727456Z/default-graph.json",
+        "sha256": "1662e8f83a6108ac6dc93e0488e3be6a685e9092b84ae798ca99855e8e3d7230",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "twoface-before",
+      "input_sha256": "a76ef85aea40657c3e19e8c78c1720fc2300dfae646ab84d239b701074f406cd",
+      "roots": [
+        "VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f9d7819cc68031e40233b84bfe3739ca1ccf20efad4b1890ec332572e1260645.json",
+      "graph_sha256": "f9d7819cc68031e40233b84bfe3739ca1ccf20efad4b1890ec332572e1260645",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/vaught-build/technical/twoface-before/20261103T141555727454Z/default-graph.json",
+        "sha256": "f9d7819cc68031e40233b84bfe3739ca1ccf20efad4b1890ec332572e1260645",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "stat-learning-theory",
+      "project_id": "slt-master",
+      "input_sha256": "fd65f2d8805f8dbd8c24e3eb8711cae28479a488adca9e0698fc0369441bed86",
+      "roots": [
+        "LeastSquares.master_error_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/graphs/stat-learning-theory--slt-master.json",
+      "graph_sha256": "1f51954e06372b5abaa59df20fd21b2e40358c41617a0015ae1e76ee79ab3ea5",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "metadata/derived-graphs/graphs/stat-learning-theory--slt-master.json",
+        "sha256": "1f51954e06372b5abaa59df20fd21b2e40358c41617a0015ae1e76ee79ab3ea5",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-after",
+      "input_sha256": "69affdea181000403cce345a0d2edccc0390e2c4b3ffec15160e075bc9b7cd53",
+      "roots": [
+        "uniform_deviation_tail_bound_pointwiseSeparable_of_pos"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/af802d27f5431ce3ca9282b82916453f2fe4f9c0e2954ba9c5a5a31165151408.json",
+      "graph_sha256": "af802d27f5431ce3ca9282b82916453f2fe4f9c0e2954ba9c5a5a31165151408",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/stat-learning-extraction/technical/statsml-after/packaged/default-graph.json",
+        "sha256": "af802d27f5431ce3ca9282b82916453f2fe4f9c0e2954ba9c5a5a31165151408",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-before",
+      "input_sha256": "4790b7a06521ca2baa50c37939b9dfff11e11c5cf627e907c36a08dec7ebf50b",
+      "roots": [
+        "uniform_deviation_tail_bound_separable_of_pos"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c89f61338368a6f1e44a50c315fd93f4b57b3bb10726991057bebd457d0723d8.json",
+      "graph_sha256": "c89f61338368a6f1e44a50c315fd93f4b57b3bb10726991057bebd457d0723d8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/stat-learning-extraction/technical/statsml-before/packaged/default-graph.json",
+        "sha256": "c89f61338368a6f1e44a50c315fd93f4b57b3bb10726991057bebd457d0723d8",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "brownian-motion",
+      "project_id": "finite-set-after",
+      "input_sha256": "9143a071c5bc6389a770d53b4ff59f79ee92f4f9f4f10037f2c8361dc9204bdb",
+      "roots": [
+        "ProbabilityTheory.finite_set_bound_of_edist_le"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/dd15da572dc8e25bac66484f88775ca4d556816d64b42a49de2ab5022ec18f71.json",
+      "graph_sha256": "dd15da572dc8e25bac66484f88775ca4d556816d64b42a49de2ab5022ec18f71",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/brownian-motion-history/technical/finite-set-after/20261104T063251811438Z/packaged/default-graph.json",
+        "sha256": "dd15da572dc8e25bac66484f88775ca4d556816d64b42a49de2ab5022ec18f71",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "brownian-motion",
+      "project_id": "finite-set-before",
+      "input_sha256": "27fcc7defc6da97b4ba96850a567947b127f3fce9ab22d9a38684957e554824a",
+      "roots": [
+        "ProbabilityTheory.finite_set_bound_of_edist_le"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/41dfe637dd3a4911fba90b73ed7fe88d4aee37a012320352f2c1b85b116f6473.json",
+      "graph_sha256": "41dfe637dd3a4911fba90b73ed7fe88d4aee37a012320352f2c1b85b116f6473",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/brownian-motion-history/technical/finite-set-before/20261104T063055876367Z/packaged/default-graph.json",
+        "sha256": "41dfe637dd3a4911fba90b73ed7fe88d4aee37a012320352f2c1b85b116f6473",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-cs",
+      "input_sha256": "3b06907580f43a60f291a35bb25cf52ac984969478fda3256d30e3af4d5e51a8",
+      "roots": [
+        "Finset.card_sq_le_card_mul_addEnergy'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/79b1f7d9b81ae1d171544d5d5558690ff5cae17e8eac531942237079712da90c.json",
+      "graph_sha256": "79b1f7d9b81ae1d171544d5d5558690ff5cae17e8eac531942237079712da90c",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-extraction/technical/energy-cs/20261104T080108454225Z/packaged/default-graph.json",
+        "sha256": "79b1f7d9b81ae1d171544d5d5558690ff5cae17e8eac531942237079712da90c",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-definition",
+      "input_sha256": "372e5370723959676b5f83cc7418fa49a261ab57e8fd76bbc34284e6325ab3b9",
+      "roots": [
+        "Finset.addEnergy'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7bca99958c747622749b75d416af8217d8c891a3fd4370361cf3ba11df59ccfa.json",
+      "graph_sha256": "7bca99958c747622749b75d416af8217d8c891a3fd4370361cf3ba11df59ccfa",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-extraction/technical/energy-definition/20261104T075959036323Z/packaged/default-graph.json",
+        "sha256": "7bca99958c747622749b75d416af8217d8c891a3fd4370361cf3ba11df59ccfa",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-after",
+      "input_sha256": "028f52b0515a4207c5977f85fdaded3aab74b8f64755ad0d0165e09a56e50717",
+      "roots": [
+        "entropic_PFR_conjecture'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/2978c6449782c473f7bdf1b4fd7f96c3e7cbbeb6c03246b9075ee816a6fc5006.json",
+      "graph_sha256": "2978c6449782c473f7bdf1b4fd7f96c3e7cbbeb6c03246b9075ee816a6fc5006",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-extraction/technical/entropic-output-after/20261104T080208099614Z/packaged/default-graph.json",
+        "sha256": "2978c6449782c473f7bdf1b4fd7f96c3e7cbbeb6c03246b9075ee816a6fc5006",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-before",
+      "input_sha256": "ece21f2153a80707d604becad5ecc5599fd4bbd85afa2ec5ce2499ac5113f5d0",
+      "roots": [
+        "entropic_PFR_conjecture'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/752d307c2a4f67541be1cd4c2e5e5e07799b1a915a8c8173173ec1131138d704.json",
+      "graph_sha256": "752d307c2a4f67541be1cd4c2e5e5e07799b1a915a8c8173173ec1131138d704",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-extraction/technical/entropic-output-before/20261104T080007545143Z/packaged/default-graph.json",
+        "sha256": "752d307c2a4f67541be1cd4c2e5e5e07799b1a915a8c8173173ec1131138d704",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-after",
+      "input_sha256": "9c4f11bbc8b27b3493ba7d7d2505e2c626d17475d4b53dd4c6ba7d2bc0d32287",
+      "roots": [
+        "ProbabilityTheory.iIndepFun.finsets"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/05466fe8e57adaeadfd3717b0c8ad19534d4a5d085b1c7b738e3462def7eeab5.json",
+      "graph_sha256": "05466fe8e57adaeadfd3717b0c8ad19534d4a5d085b1c7b738e3462def7eeab5",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-admission/technical/pfr-independent-blocks-after/packaged/default-graph.json",
+        "sha256": "05466fe8e57adaeadfd3717b0c8ad19534d4a5d085b1c7b738e3462def7eeab5",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-before",
+      "input_sha256": "89ab45325397c40b96513987b16f2adc36b2eac9bc8353b602738b514f238906",
+      "roots": [
+        "ProbabilityTheory.iIndepFun.finsets"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/53213c88982fff3883a720e546578c217145dad2a36c171126c241c39b232605.json",
+      "graph_sha256": "53213c88982fff3883a720e546578c217145dad2a36c171126c241c39b232605",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-admission/technical/pfr-independent-blocks-before/packaged/default-graph.json",
+        "sha256": "53213c88982fff3883a720e546578c217145dad2a36c171126c241c39b232605",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-after",
+      "input_sha256": "2a9fc7f2e8f6c4709a0ee991ecd4884ecc89ab3fe2175cd4cf548cdfe1ec3675",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7e9735ba510d5119db7e48335e2d60ee0a0630d13b3368186251b7bf09eb508f.json",
+      "graph_sha256": "7e9735ba510d5119db7e48335e2d60ee0a0630d13b3368186251b7bf09eb508f",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr209-after/20261104T091749517545Z/packaged/default-graph.json",
+        "sha256": "7e9735ba510d5119db7e48335e2d60ee0a0630d13b3368186251b7bf09eb508f",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-before",
+      "input_sha256": "a13e5f80cae4a9b65591c55493e1d231999b000386d21707530cd2e6bb05fb73",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/2854459ddbdb4b9974da3c2b931829a1ab6c106604a9fea7a20f0d6cb21ca4de.json",
+      "graph_sha256": "2854459ddbdb4b9974da3c2b931829a1ab6c106604a9fea7a20f0d6cb21ca4de",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr209-before/20261104T091740826075Z/packaged/default-graph.json",
+        "sha256": "2854459ddbdb4b9974da3c2b931829a1ab6c106604a9fea7a20f0d6cb21ca4de",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-nonneg",
+      "input_sha256": "e1cbe1cf8eb3074517036521fa6b0e9fb0dbea9abfc24b3748e82765e4d780c7",
+      "roots": [
+        "KL_div_nonneg"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ead9db07a565363084179553b80726eb2dec9202d17ff9a17d31dca81da650d0.json",
+      "graph_sha256": "ead9db07a565363084179553b80726eb2dec9202d17ff9a17d31dca81da650d0",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr227-after-nonneg/20261104T091656585573Z/packaged/default-graph.json",
+        "sha256": "ead9db07a565363084179553b80726eb2dec9202d17ff9a17d31dca81da650d0",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-zero",
+      "input_sha256": "1c370f2e9fa6b9e40d33be68adfa664cd1606e84aa24f9840dfb738e0539274b",
+      "roots": [
+        "KL_div_eq_zero_iff_identDistrib"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c767918fd2911fc6b47f6f6cf62cbb9e820885c309900acc4a591ed4b87fa67a.json",
+      "graph_sha256": "c767918fd2911fc6b47f6f6cf62cbb9e820885c309900acc4a591ed4b87fa67a",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr227-after-zero/20261104T091709985452Z/packaged/default-graph.json",
+        "sha256": "c767918fd2911fc6b47f6f6cf62cbb9e820885c309900acc4a591ed4b87fa67a",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-nonneg",
+      "input_sha256": "49e105b354d98fcab015a1c7b6f1b88cb6011b0a2264293547e949838db6c9d6",
+      "roots": [
+        "KL_div_nonneg"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/5df9314d0aef46c3756b4eaaa31d227b936835f5e42607b0ef40afc6eaad5526.json",
+      "graph_sha256": "5df9314d0aef46c3756b4eaaa31d227b936835f5e42607b0ef40afc6eaad5526",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr227-before-nonneg/20261104T091630889043Z/packaged/default-graph.json",
+        "sha256": "5df9314d0aef46c3756b4eaaa31d227b936835f5e42607b0ef40afc6eaad5526",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-zero",
+      "input_sha256": "cf43ca25e4dd593c11ddcf7ea69c9f2fd575a06d8537aa403d9a33ff807aff91",
+      "roots": [
+        "KL_div_eq_zero_iff_identDistrib"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/3d3591ee290e86fd92c4bfb4923a9dba14656b22abb75bd0932b3e6bb64ae0d8.json",
+      "graph_sha256": "3d3591ee290e86fd92c4bfb4923a9dba14656b22abb75bd0932b3e6bb64ae0d8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr227-before-zero/20261104T091643741378Z/packaged/default-graph.json",
+        "sha256": "3d3591ee290e86fd92c4bfb4923a9dba14656b22abb75bd0932b3e6bb64ae0d8",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-after",
+      "input_sha256": "65652804f5f59397415343a5a826230879fde6d2f99196381a404c5e1d087574",
+      "roots": [
+        "rhoMinus"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c6134313a9859acc69df1668bfa42a5127c8e1a4695e59168c36a208b183bcbe.json",
+      "graph_sha256": "c6134313a9859acc69df1668bfa42a5127c8e1a4695e59168c36a208b183bcbe",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr228-after/20261104T091732042185Z/packaged/default-graph.json",
+        "sha256": "c6134313a9859acc69df1668bfa42a5127c8e1a4695e59168c36a208b183bcbe",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-before",
+      "input_sha256": "48e96fc0a7daff061584e48d64cfad01664fa9264e8fbf54f8cf99afeecfddad",
+      "roots": [
+        "rho_minus"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7be2d40c9d31103063f2c58ac1080743c19aaabdc6fc40056a300a02ce625ffb.json",
+      "graph_sha256": "7be2d40c9d31103063f2c58ac1080743c19aaabdc6fc40056a300a02ce625ffb",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr228-before/20261104T091723218206Z/packaged/default-graph.json",
+        "sha256": "7be2d40c9d31103063f2c58ac1080743c19aaabdc6fc40056a300a02ce625ffb",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-after",
+      "input_sha256": "c386c322172454e88cae33f6ced9bdf544bcf0f1a1bc828d2d14d92f5a85537a",
+      "roots": [
+        "approx_hom_pfr'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/8120924e7883e4dcd1d175ceec378b2850da43038f496a6650b727ba25f47028.json",
+      "graph_sha256": "8120924e7883e4dcd1d175ceec378b2850da43038f496a6650b727ba25f47028",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr293-after/20261104T082138062965Z/packaged/default-graph.json",
+        "sha256": "8120924e7883e4dcd1d175ceec378b2850da43038f496a6650b727ba25f47028",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-before",
+      "input_sha256": "b6007219cf3c6367cddd1b2628e05b897526d11ec3f72eb1d746828d27e60c7a",
+      "roots": [
+        "approx_hom_pfr'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/8120924e7883e4dcd1d175ceec378b2850da43038f496a6650b727ba25f47028.json",
+      "graph_sha256": "8120924e7883e4dcd1d175ceec378b2850da43038f496a6650b727ba25f47028",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr293-before/20261104T082038190106Z/packaged/default-graph.json",
+        "sha256": "8120924e7883e4dcd1d175ceec378b2850da43038f496a6650b727ba25f47028",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-after",
+      "input_sha256": "65285b4b2f9d07f5e6ef75f46c645801638cb12d75bfc3b1c19481f04c9562d8",
+      "roots": [
+        "entropic_PFR_conjecture_improv"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7a98aaa3d0291f6182a3e2d45c5942b017cbcc49402aa058d4bb45df38571c17.json",
+      "graph_sha256": "7a98aaa3d0291f6182a3e2d45c5942b017cbcc49402aa058d4bb45df38571c17",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr304-after/20261104T082258567703Z/packaged/default-graph.json",
+        "sha256": "7a98aaa3d0291f6182a3e2d45c5942b017cbcc49402aa058d4bb45df38571c17",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-before",
+      "input_sha256": "d6f8a2b4b6022b9ce5835611616f39513eaccecef6aa74ea28e7ea8d0dda2237",
+      "roots": [
+        "entropic_PFR_conjecture_improv'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7091a9021d47ef5c325a38319263eda95221103368f534f802718a1c51ded6cf.json",
+      "graph_sha256": "7091a9021d47ef5c325a38319263eda95221103368f534f802718a1c51ded6cf",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr304-before/20261104T082237468133Z/packaged/default-graph.json",
+        "sha256": "7091a9021d47ef5c325a38319263eda95221103368f534f802718a1c51ded6cf",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-after",
+      "input_sha256": "9a589f1ad45de05960d4ffcdddaf669842d7ee82f52c7f0c279fbed297f212fd",
+      "roots": [
+        "torsion_PFR"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/daa2bc1a636628b59f766d948730ef7f998d4f9698bdc3edb4373b5fed7d0e29.json",
+      "graph_sha256": "daa2bc1a636628b59f766d948730ef7f998d4f9698bdc3edb4373b5fed7d0e29",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr305-after/20261104T082556687840Z/packaged/default-graph.json",
+        "sha256": "daa2bc1a636628b59f766d948730ef7f998d4f9698bdc3edb4373b5fed7d0e29",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-before",
+      "input_sha256": "edf32335da64bfc74612086d1411aec186270e02ca2e97829304d867dbf9ac17",
+      "roots": [
+        "torsion_PFR"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/203ca8d001116d1e7226ad3beb3d01ea1ed99a1d534460a3d24a615cbc8c791a.json",
+      "graph_sha256": "203ca8d001116d1e7226ad3beb3d01ea1ed99a1d534460a3d24a615cbc8c791a",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr305-before/20261104T082346114958Z/packaged/default-graph.json",
+        "sha256": "203ca8d001116d1e7226ad3beb3d01ea1ed99a1d534460a3d24a615cbc8c791a",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-after",
+      "input_sha256": "0b5de00ddcc3b443aa831af184be3ddcecabb34f196e72d5cb3f2a12a4f314cc",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/feb72809584c5c31ce4aff32b5299e3e9d647dab9c490f9d67dfc1054ab306b0.json",
+      "graph_sha256": "feb72809584c5c31ce4aff32b5299e3e9d647dab9c490f9d67dfc1054ab306b0",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr311-after/20261104T082333433951Z/packaged/default-graph.json",
+        "sha256": "feb72809584c5c31ce4aff32b5299e3e9d647dab9c490f9d67dfc1054ab306b0",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-before",
+      "input_sha256": "53c1c2cbb25d51aa64db8334dddc8ff26b3b6f285098c9c8610c5bc2817ae127",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/2a6efe66a11e0e0fadfd929a5964f5743abe49219c2f249d980697cde06ee676.json",
+      "graph_sha256": "2a6efe66a11e0e0fadfd929a5964f5743abe49219c2f249d980697cde06ee676",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/technical/pr311-before/20261104T082320897837Z/packaged/default-graph.json",
+        "sha256": "2a6efe66a11e0e0fadfd929a5964f5743abe49219c2f249d980697cde06ee676",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-after",
+      "input_sha256": "111f13fdbc4792a7c6db4a2b16bf4186f7b7f6cf51528c9ebd018017d9924538",
+      "roots": [
+        "ent_of_diff_le"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a7d0cae6a478d8c2efa1ef7d99d3e2f3a38a7052486fe05477ee078be7a25f1b.json",
+      "graph_sha256": "a7d0cae6a478d8c2efa1ef7d99d3e2f3a38a7052486fe05477ee078be7a25f1b",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr48-after/20261104T091621952633Z/packaged/default-graph.json",
+        "sha256": "a7d0cae6a478d8c2efa1ef7d99d3e2f3a38a7052486fe05477ee078be7a25f1b",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-before",
+      "input_sha256": "89a27a0e9fdde4d1c9aa921b0b8397c42f008c7e7a072bed30e483b6dfcffbd5",
+      "roots": [
+        "ent_of_diff_le"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/10d82a9ac956c420e1559944906233f555bc4cc21dcc99e3b07f4eb9990fcfb7.json",
+      "graph_sha256": "10d82a9ac956c420e1559944906233f555bc4cc21dcc99e3b07f4eb9990fcfb7",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-repair/repaired/pr48-before/20261104T091612966982Z/packaged/default-graph.json",
+        "sha256": "10d82a9ac956c420e1559944906233f555bc4cc21dcc99e3b07f4eb9990fcfb7",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-after",
+      "input_sha256": "f76a9c59f84de817191d612cbfec3d45a1fb48c65184a8afac41e3aaaaff5d39",
+      "roots": [
+        "Immersion"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/bfbacff84c0d4236e2c75ff5ebd0df53757b1540b44415f3e829a7a1c6c9594e.json",
+      "graph_sha256": "bfbacff84c0d4236e2c75ff5ebd0df53757b1540b44415f3e829a7a1c6c9594e",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/repaired/immersion-after/20261105T042857834066Z/packaged/default-graph.json",
+        "sha256": "bfbacff84c0d4236e2c75ff5ebd0df53757b1540b44415f3e829a7a1c6c9594e",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-before",
+      "input_sha256": "467e7839ad7f4ad935d38c3ea1d3f2e239c304d55d53a132b3feefda7eafd79e",
+      "roots": [
+        "Immersion"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/22eca88b4d79ae4ca0accab0eec50acb1753fc91e63c2c653e67714f0fce946b.json",
+      "graph_sha256": "22eca88b4d79ae4ca0accab0eec50acb1753fc91e63c2c653e67714f0fce946b",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/repaired/immersion-before/20261105T042853374688Z/packaged/default-graph.json",
+        "sha256": "22eca88b4d79ae4ca0accab0eec50acb1753fc91e63c2c653e67714f0fce946b",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-after",
+      "input_sha256": "136c5d0b26cf0be74f8ad5addca0fa70f1039756c2af1510e2f9ce726822252e",
+      "roots": [
+        "loop.support"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/503b89ced06ee8c03b0203fa530a25f0210d94607a43ccb904e666ae5388f239.json",
+      "graph_sha256": "503b89ced06ee8c03b0203fa530a25f0210d94607a43ccb904e666ae5388f239",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/packaged/default-graph.json",
+        "sha256": "503b89ced06ee8c03b0203fa530a25f0210d94607a43ccb904e666ae5388f239",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-before",
+      "input_sha256": "4409d5a425b19e8e64d334e8aa3c67c2f29eadb99d4c23d38e3d48d5025e474b",
+      "roots": [
+        "loop.support"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/503b89ced06ee8c03b0203fa530a25f0210d94607a43ccb904e666ae5388f239.json",
+      "graph_sha256": "503b89ced06ee8c03b0203fa530a25f0210d94607a43ccb904e666ae5388f239",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/packaged/default-graph.json",
+        "sha256": "503b89ced06ee8c03b0203fa530a25f0210d94607a43ccb904e666ae5388f239",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-after",
+      "input_sha256": "0f1a59da5ea09772acd6db2f477cc668b120e325950de93078f8e62bcc17b111",
+      "roots": [
+        "smooth_surrounding_family.reparametrize_average"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c38c2d918bb8cf6da4ee893d924a4f75bfe85c68f3f001e19aaac39b39f4abd8.json",
+      "graph_sha256": "c38c2d918bb8cf6da4ee893d924a4f75bfe85c68f3f001e19aaac39b39f4abd8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-pr51/repaired/reparametrization-after/20261105T044559077033Z/packaged/default-graph.json",
+        "sha256": "c38c2d918bb8cf6da4ee893d924a4f75bfe85c68f3f001e19aaac39b39f4abd8",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-before",
+      "input_sha256": "a5b0c5d1d4d3911b54891fb6cb5b1702027beb9870cd4e9aa1df79e85260cd73",
+      "roots": [
+        "reparametrization"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a92c47e9d6bb8e54e03827cf257eb1e46fb51903e4d5f98f721bb1724b0375f8.json",
+      "graph_sha256": "a92c47e9d6bb8e54e03827cf257eb1e46fb51903e4d5f98f721bb1724b0375f8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-pr51/repaired/reparametrization-before/20261105T044543510806Z/packaged/default-graph.json",
+        "sha256": "a92c47e9d6bb8e54e03827cf257eb1e46fb51903e4d5f98f721bb1724b0375f8",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-after",
+      "input_sha256": "f5f1709066cc2312e9b456fc706063ce1ed92e4f2aa0ba468691ffa70c4776c8",
+      "roots": [
+        "Dusart.theorem_5_7"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a4252cdd7be5fda738a7f1cb227545156c0a86f79e587a069be87dac6fb429d6.json",
+      "graph_sha256": "a4252cdd7be5fda738a7f1cb227545156c0a86f79e587a069be87dac6fb429d6",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart-mertens-error/20261105T053701812583Z/packaged/default-graph.json",
+        "sha256": "a4252cdd7be5fda738a7f1cb227545156c0a86f79e587a069be87dac6fb429d6",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-before",
+      "input_sha256": "2acbffac6e3c88a2a5a60ae3177206b298fd4497be999d65708f3ca8300546e0",
+      "roots": [
+        "Dusart.theorem_5_7"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a4252cdd7be5fda738a7f1cb227545156c0a86f79e587a069be87dac6fb429d6.json",
+      "graph_sha256": "a4252cdd7be5fda738a7f1cb227545156c0a86f79e587a069be87dac6fb429d6",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart-mertens-error/20261105T053701812583Z/packaged/default-graph.json",
+        "sha256": "a4252cdd7be5fda738a7f1cb227545156c0a86f79e587a069be87dac6fb429d6",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-prime-interval",
+      "input_sha256": "15c044d4f945b5728515aa53e61a02bc02d49a619517638b6dd136833bb3db56",
+      "roots": [
+        "Dusart.corollary_5_5"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/6c2d7be7b71c97f484380fd426489d5ee1b60db3fac71303dccf0511f564e612.json",
+      "graph_sha256": "6c2d7be7b71c97f484380fd426489d5ee1b60db3fac71303dccf0511f564e612",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart-prime-interval/20261105T053650875146Z/packaged/default-graph.json",
+        "sha256": "6c2d7be7b71c97f484380fd426489d5ee1b60db3fac71303dccf0511f564e612",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-psi-theta",
+      "input_sha256": "71e7696a702b6be070310064c96471a728a490df3857c156019a35f3d96c331f",
+      "roots": [
+        "Dusart.proposition_4_3"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c8810508c21f929f71b7179a6fafe9630106766697093df8f11a39aa7458fc2a.json",
+      "graph_sha256": "c8810508c21f929f71b7179a6fafe9630106766697093df8f11a39aa7458fc2a",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart-psi-theta/20261105T053639938480Z/packaged/default-graph.json",
+        "sha256": "c8810508c21f929f71b7179a6fafe9630106766697093df8f11a39aa7458fc2a",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-after",
+      "input_sha256": "183d7a73767d204609e63a6b9e1bc63f46eae92793278c281cef2a31fe6a5321",
+      "roots": [
+        "Dusart.proposition_3_2"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7a2eecf62841799294e25b9ce05e5eae5cb9cfd477662f4d746705797f83a136.json",
+      "graph_sha256": "7a2eecf62841799294e25b9ce05e5eae5cb9cfd477662f4d746705797f83a136",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart-table-error/20261105T053628500676Z/packaged/default-graph.json",
+        "sha256": "7a2eecf62841799294e25b9ce05e5eae5cb9cfd477662f4d746705797f83a136",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-before",
+      "input_sha256": "fe4f774e3b712152c073d6587da4e5fbeb7ebb617a9972b3a4881290c9328ac5",
+      "roots": [
+        "Dusart.proposition_3_2"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7a2eecf62841799294e25b9ce05e5eae5cb9cfd477662f4d746705797f83a136.json",
+      "graph_sha256": "7a2eecf62841799294e25b9ce05e5eae5cb9cfd477662f4d746705797f83a136",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart-table-error/20261105T053628500676Z/packaged/default-graph.json",
+        "sha256": "7a2eecf62841799294e25b9ce05e5eae5cb9cfd477662f4d746705797f83a136",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-after",
+      "input_sha256": "6fdcc2fec23479f6d9dbfd2787edd4342077bd75bf2efb139e1f19038172d16c",
+      "roots": [
+        "Dusart1999.p_n_upper"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/602cb4075870255d98655d7a9bde0ed0daef61cc8bfc0a72d844ad04d5cfcd69.json",
+      "graph_sha256": "602cb4075870255d98655d7a9bde0ed0daef61cc8bfc0a72d844ad04d5cfcd69",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-after/20261105T053617547086Z/packaged/default-graph.json",
+        "sha256": "602cb4075870255d98655d7a9bde0ed0daef61cc8bfc0a72d844ad04d5cfcd69",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-before",
+      "input_sha256": "5ab6dd94ee71bbe6e4363c40bf0e86b3dd4c551bd559ff941e7fe9bdae18a1f1",
+      "roots": [
+        "Dusart1999.p_n_upper"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/acd4ac9d891fa6cb37a1579b0f2c3d54a8349f3062da58e13b39ba13b1a5d23b.json",
+      "graph_sha256": "acd4ac9d891fa6cb37a1579b0f2c3d54a8349f3062da58e13b39ba13b1a5d23b",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-before/20261105T053544779623Z/packaged/default-graph.json",
+        "sha256": "acd4ac9d891fa6cb37a1579b0f2c3d54a8349f3062da58e13b39ba13b1a5d23b",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-after",
+      "input_sha256": "3cb65b1719ef11092365a9a7693fe740b800fb9a4e45349b8c890afecfe8dc18",
+      "roots": [
+        "JY.theorem_1_4"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/d741bd734acf3df1b03a6a12ecc0e6e00fc61319e930c18acc3567c30290327e.json",
+      "graph_sha256": "d741bd734acf3df1b03a6a12ecc0e6e00fc61319e930c18acc3567c30290327e",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-jy-after/20261105T053511871694Z/packaged/default-graph.json",
+        "sha256": "d741bd734acf3df1b03a6a12ecc0e6e00fc61319e930c18acc3567c30290327e",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-before",
+      "input_sha256": "d0a9b408179eca581794137bbc0c65e499dfb8a5eb217afa347a0455fb4be4cc",
+      "roots": [
+        "JY.theorem_1_4"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/9ebe86f4fdd423d8a128aea941a8d98b5b9743b41e0c4128efe823a16cf9df36.json",
+      "graph_sha256": "9ebe86f4fdd423d8a128aea941a8d98b5b9743b41e0c4128efe823a16cf9df36",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-jy-before/20261105T053449737400Z/packaged/default-graph.json",
+        "sha256": "9ebe86f4fdd423d8a128aea941a8d98b5b9743b41e0c4128efe823a16cf9df36",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-after",
+      "input_sha256": "ded8b9df59cc9337ffc8a43eae90eb20fc6ff51d50305fd798c5bc795055989d",
+      "roots": [
+        "MassiasRobin.p_n_lower"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/9dbaa6a249ac6c5bcbf97a0deb085b37dad7af954eda52a5ceb3d65a0c09a853.json",
+      "graph_sha256": "9dbaa6a249ac6c5bcbf97a0deb085b37dad7af954eda52a5ceb3d65a0c09a853",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-massias-robin-after/20261105T053555641805Z/packaged/default-graph.json",
+        "sha256": "9dbaa6a249ac6c5bcbf97a0deb085b37dad7af954eda52a5ceb3d65a0c09a853",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-before",
+      "input_sha256": "a94b08910fb7fd3f7c6274fd3cde450089b95195487f0b26ecdb435a4f509db9",
+      "roots": [
+        "MassiasRobin.p_n_lower"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/5ecae93fae753618304bc9ecee95cf8a365580206c3db6a2c8b753daa5ce9ceb.json",
+      "graph_sha256": "5ecae93fae753618304bc9ecee95cf8a365580206c3db6a2c8b753daa5ce9ceb",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-massias-robin-before/20261105T053522859455Z/packaged/default-graph.json",
+        "sha256": "5ecae93fae753618304bc9ecee95cf8a365580206c3db6a2c8b753daa5ce9ceb",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-after",
+      "input_sha256": "70f05adfacc0da5d111b9b78f3169beae68a20199d16118f9898961de913a8dd",
+      "roots": [
+        "Robin.p_n_lower_const1"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c0829eaa62b5525101cf7ebbaf2bcce866217da9ab86d96c9535950949c2a0dd.json",
+      "graph_sha256": "c0829eaa62b5525101cf7ebbaf2bcce866217da9ab86d96c9535950949c2a0dd",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-robin-after/20261105T053606612097Z/packaged/default-graph.json",
+        "sha256": "c0829eaa62b5525101cf7ebbaf2bcce866217da9ab86d96c9535950949c2a0dd",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-before",
+      "input_sha256": "611bc3c94817136f3b8316f988e14b99268e8b89f87c1db2ef083105dc5f9078",
+      "roots": [
+        "Robin.p_n_lower_const1"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/7064ed7d71cea2f968e45a0eb13a4ef339f7cd5521153a24983fd60f6a713b61.json",
+      "graph_sha256": "7064ed7d71cea2f968e45a0eb13a4ef339f7cd5521153a24983fd60f6a713b61",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-robin-before/20261105T053533749389Z/packaged/default-graph.json",
+        "sha256": "7064ed7d71cea2f968e45a0eb13a4ef339f7cd5521153a24983fd60f6a713b61",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-after",
+      "input_sha256": "1dfde42d3f4ac981363cf8ff8e4cd0d16daa6c8b35508b4d3519f52313803fd5",
+      "roots": [
+        "Trudgian2016.theorem_2"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f8b5a62bed6a64cda8ff130c1120090224551c37f5d342950557f34aceb6337c.json",
+      "graph_sha256": "f8b5a62bed6a64cda8ff130c1120090224551c37f5d342950557f34aceb6337c",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-trudgian-after/20261105T053500755240Z/packaged/default-graph.json",
+        "sha256": "f8b5a62bed6a64cda8ff130c1120090224551c37f5d342950557f34aceb6337c",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-before",
+      "input_sha256": "99e9e98b477e74a547b08216cc8e65e1ebc7c68aeb364edf05d267d916680ab2",
+      "roots": [
+        "Trudgian2016.theorem_2"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/349eb89743292044a0884c20eebfc98d8ab68fcc2f9950ac7d977b04df7b6f81.json",
+      "graph_sha256": "349eb89743292044a0884c20eebfc98d8ab68fcc2f9950ac7d977b04df7b6f81",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/repaired/bounded-trudgian-before/20261105T053438619949Z/packaged/default-graph.json",
+        "sha256": "349eb89743292044a0884c20eebfc98d8ab68fcc2f9950ac7d977b04df7b6f81",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-after",
+      "input_sha256": "4137382a35c4f4d0cbeff3d04984d4015d5edbb8be87a154d1a764d16dbff8b3",
+      "roots": [
+        "riemannZeta.classicalZeroFree"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/404b97aaadf2fcb98b9216781329e34f9ec2a41477b5af1b649ead1490df636b.json",
+      "graph_sha256": "404b97aaadf2fcb98b9216781329e34f9ec2a41477b5af1b649ead1490df636b",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/packaged/default-graph.json",
+        "sha256": "404b97aaadf2fcb98b9216781329e34f9ec2a41477b5af1b649ead1490df636b",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-before",
+      "input_sha256": "b0549b3de0991a4648f4342e85fba2b203fe8b9885baaa294151cd860a5fb2bc",
+      "roots": [
+        "riemannZeta.classicalZeroFree"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/404b97aaadf2fcb98b9216781329e34f9ec2a41477b5af1b649ead1490df636b.json",
+      "graph_sha256": "404b97aaadf2fcb98b9216781329e34f9ec2a41477b5af1b649ead1490df636b",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/packaged/default-graph.json",
+        "sha256": "404b97aaadf2fcb98b9216781329e34f9ec2a41477b5af1b649ead1490df636b",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-after",
+      "input_sha256": "e42226a9137de3d93e105462ea8c80993fdda6e520c0cd232733f9fb97b3b692",
+      "roots": [
+        "Eπ"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/48d1002e62525753edb23074e55c839cfc19be124761a57dc9bd5bc8e234e971.json",
+      "graph_sha256": "48d1002e62525753edb23074e55c839cfc19be124761a57dc9bd5bc8e234e971",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/packaged/default-graph.json",
+        "sha256": "48d1002e62525753edb23074e55c839cfc19be124761a57dc9bd5bc8e234e971",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-before",
+      "input_sha256": "d99c940e7cdfeebdc3ecc9dbe8e8917e09c3335a2951128d8cee5873eac594ef",
+      "roots": [
+        "Eπ"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/48d1002e62525753edb23074e55c839cfc19be124761a57dc9bd5bc8e234e971.json",
+      "graph_sha256": "48d1002e62525753edb23074e55c839cfc19be124761a57dc9bd5bc8e234e971",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/packaged/default-graph.json",
+        "sha256": "48d1002e62525753edb23074e55c839cfc19be124761a57dc9bd5bc8e234e971",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-after",
+      "input_sha256": "eb64b0e75cb90c84c5e15c900f8656d8d0809364a4528cac8688ceadbcd905ed",
+      "roots": [
+        "ArithmeticFunction.LSeries_liouville_eq"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/25ba32668157a7bdf57654d60a9a840779848ceac1c9e8f08a4f871b049547d8.json",
+      "graph_sha256": "25ba32668157a7bdf57654d60a9a840779848ceac1c9e8f08a4f871b049547d8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-liouville-after/20261105T052933665678Z/packaged/default-graph.json",
+        "sha256": "25ba32668157a7bdf57654d60a9a840779848ceac1c9e8f08a4f871b049547d8",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-before",
+      "input_sha256": "3af95d1d845257125a7a62ee71b796ab61dc8d885bd35bd31ef8faa5a6200c5d",
+      "roots": [
+        "ArithmeticFunction.LSeries_liouville_eq"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/25ba32668157a7bdf57654d60a9a840779848ceac1c9e8f08a4f871b049547d8.json",
+      "graph_sha256": "25ba32668157a7bdf57654d60a9a840779848ceac1c9e8f08a4f871b049547d8",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-liouville-before/20261105T052926749391Z/packaged/default-graph.json",
+        "sha256": "25ba32668157a7bdf57654d60a9a840779848ceac1c9e8f08a4f871b049547d8",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-after",
+      "input_sha256": "85076c2db681671ff32efc332543423af599799aa3a7b4760870aea1c3b99aaf",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/62b18092d6ec76e45390f9c237ada396ab28e9e3af2cfe78ee289692cad44a0e.json",
+      "graph_sha256": "62b18092d6ec76e45390f9c237ada396ab28e9e3af2cfe78ee289692cad44a0e",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-pow-divisors/20261105T052917502913Z/packaged/default-graph.json",
+        "sha256": "62b18092d6ec76e45390f9c237ada396ab28e9e3af2cfe78ee289692cad44a0e",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-before",
+      "input_sha256": "ce5ef86d9c515bd16850ca3425da226e2b651921ec20ea8b7c6ff4a2fd03f404",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/62b18092d6ec76e45390f9c237ada396ab28e9e3af2cfe78ee289692cad44a0e.json",
+      "graph_sha256": "62b18092d6ec76e45390f9c237ada396ab28e9e3af2cfe78ee289692cad44a0e",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-pow-divisors/20261105T052917502913Z/packaged/default-graph.json",
+        "sha256": "62b18092d6ec76e45390f9c237ada396ab28e9e3af2cfe78ee289692cad44a0e",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-after",
+      "input_sha256": "f6d5c8b598960f8b54017d77dd20936a38481a83cab97265c7eaad3bd2e63334",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul_injective"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/b9036cad8968895baba8ff7ab0a54db134ddeec068072e1553e6b22c53fc5e4f.json",
+      "graph_sha256": "b9036cad8968895baba8ff7ab0a54db134ddeec068072e1553e6b22c53fc5e4f",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-pow-injective/20261105T053020495714Z/packaged/default-graph.json",
+        "sha256": "b9036cad8968895baba8ff7ab0a54db134ddeec068072e1553e6b22c53fc5e4f",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-before",
+      "input_sha256": "2445b21eadbda57bfb3855e82fb9349d66afb772728991f977899c131a993924",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul_injective"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/b9036cad8968895baba8ff7ab0a54db134ddeec068072e1553e6b22c53fc5e4f.json",
+      "graph_sha256": "b9036cad8968895baba8ff7ab0a54db134ddeec068072e1553e6b22c53fc5e4f",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-pow-injective/20261105T053020495714Z/packaged/default-graph.json",
+        "sha256": "b9036cad8968895baba8ff7ab0a54db134ddeec068072e1553e6b22c53fc5e4f",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-after",
+      "input_sha256": "502db45dcc8ec2b9f954e26fec79ca9185a1c2b5fd58afc8b85ae08d451959b8",
+      "roots": [
+        "ArithmeticFunction.LSeries_totient_eq"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/001db9036fea58b2bd59b2d6a826b94ea5bfb25fb9b73c8ab80b5a4f03ce974a.json",
+      "graph_sha256": "001db9036fea58b2bd59b2d6a826b94ea5bfb25fb9b73c8ab80b5a4f03ce974a",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-totient-after/20261105T052947437827Z/packaged/default-graph.json",
+        "sha256": "001db9036fea58b2bd59b2d6a826b94ea5bfb25fb9b73c8ab80b5a4f03ce974a",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-before",
+      "input_sha256": "3513c9caabc4ff346d9ad0f83f51eaba71a67c51b2620488837dd3c91edec416",
+      "roots": [
+        "ArithmeticFunction.LSeries_totient_eq"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ed72581d62fcda0c6d37f1f77264d122c430c73ea6c842bddd1ee8e9ec9339d5.json",
+      "graph_sha256": "ed72581d62fcda0c6d37f1f77264d122c430c73ea6c842bddd1ee8e9ec9339d5",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/repaired/ik-totient-before/20261105T052940588148Z/packaged/default-graph.json",
+        "sha256": "ed72581d62fcda0c6d37f1f77264d122c430c73ea6c842bddd1ee8e9ec9339d5",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "kln-j-after",
+      "input_sha256": "494f0dfb8d408565ba8d8139ea85fb90b8baf8477b3ec2fbad573aa4883747b2",
+      "roots": [
+        "KLN.J"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ccc77561d0be161582e3c6451ab73b182ae17662461a8cd71012daaaaf83a54b.json",
+      "graph_sha256": "ccc77561d0be161582e3c6451ab73b182ae17662461a8cd71012daaaaf83a54b",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/kln-j-after/20261105T052256552988Z/packaged/default-graph.json",
+        "sha256": "ccc77561d0be161582e3c6451ab73b182ae17662461a8cd71012daaaaf83a54b",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "kln-j-before",
+      "input_sha256": "ac485f2221b5202584effd23dc275f1a7d00f241a2f53a51906f4f5d04826ef0",
+      "roots": [
+        "KLN.J"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/1bc5b2a69a213be97b75a42c77991ad1c6b9692797fef5568fcdc90ab6e3fb11.json",
+      "graph_sha256": "1bc5b2a69a213be97b75a42c77991ad1c6b9692797fef5568fcdc90ab6e3fb11",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/kln-j-before/20261105T052245461319Z/packaged/default-graph.json",
+        "sha256": "1bc5b2a69a213be97b75a42c77991ad1c6b9692797fef5568fcdc90ab6e3fb11",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-after",
+      "input_sha256": "ba8531bb0b37e077873e6c86b65d9fffdc3d8f5e84d54de9b67861b01b4370c3",
+      "roots": [
+        "pi_star"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c1743b8910bf113dcf0a6c57e44a6c05cb3af24751d0d25ea77a1e61bc66455d.json",
+      "graph_sha256": "c1743b8910bf113dcf0a6c57e44a6c05cb3af24751d0d25ea77a1e61bc66455d",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction/repaired/pi-star-after/20261105T051056293981Z/packaged/default-graph.json",
+        "sha256": "c1743b8910bf113dcf0a6c57e44a6c05cb3af24751d0d25ea77a1e61bc66455d",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-before",
+      "input_sha256": "022a26b94e3693432178be5c51ec33485038d163b8dd8294971cf5d48be4c9a4",
+      "roots": [
+        "pi_star"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/80aff5940e24dd2d44689d4eea15e0544a4cb34d2f9d3b25dba094502c176ccd.json",
+      "graph_sha256": "80aff5940e24dd2d44689d4eea15e0544a4cb34d2f9d3b25dba094502c176ccd",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction/repaired/pi-star-before/20261105T051050169250Z/packaged/default-graph.json",
+        "sha256": "80aff5940e24dd2d44689d4eea15e0544a4cb34d2f9d3b25dba094502c176ccd",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-after",
+      "input_sha256": "cd7383940e6ee321108205881dbdee3d645fa941420f5e7972a77ac031e8786e",
+      "roots": [
+        "riemannZeta.Riemann_vonMangoldt_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4e803cde76a189fd40c2275e0897227ef1a3f0c7cefeb84c8facfb4949154392.json",
+      "graph_sha256": "4e803cde76a189fd40c2275e0897227ef1a3f0c7cefeb84c8facfb4949154392",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/packaged/default-graph.json",
+        "sha256": "4e803cde76a189fd40c2275e0897227ef1a3f0c7cefeb84c8facfb4949154392",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-before",
+      "input_sha256": "dab5eecee3e9e3b3893c95a2c0c12ca486b8e6f46dc17978fca4aefd673b8877",
+      "roots": [
+        "riemannZeta.Riemann_vonMangoldt_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4e803cde76a189fd40c2275e0897227ef1a3f0c7cefeb84c8facfb4949154392.json",
+      "graph_sha256": "4e803cde76a189fd40c2275e0897227ef1a3f0c7cefeb84c8facfb4949154392",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/packaged/default-graph.json",
+        "sha256": "4e803cde76a189fd40c2275e0897227ef1a3f0c7cefeb84c8facfb4949154392",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-after",
+      "input_sha256": "9aebdefd8dfbedf9013a54d4df310327f7b59ce8dcdd9387c2c07fd3056cc8a4",
+      "roots": [
+        "Eπ.vinogradovBound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/26d2e178ec9743825e5238c9ac14b3351221966eee8b08b3295c7e38f813081f.json",
+      "graph_sha256": "26d2e178ec9743825e5238c9ac14b3351221966eee8b08b3295c7e38f813081f",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-after/20261105T052110817372Z/packaged/default-graph.json",
+        "sha256": "26d2e178ec9743825e5238c9ac14b3351221966eee8b08b3295c7e38f813081f",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-before",
+      "input_sha256": "bf7cee854c5f0c1e5958f3266f11be0c411f778a6b23c17743e7c46bba54872d",
+      "roots": [
+        "Eπ.vinogradovBound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/e39bb2836058a0ebe97d560e24d3a828dfa25a3d3785144dfd0a32f9f4b6350d.json",
+      "graph_sha256": "e39bb2836058a0ebe97d560e24d3a828dfa25a3d3785144dfd0a32f9f4b6350d",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-before/20261105T052059815956Z/packaged/default-graph.json",
+        "sha256": "e39bb2836058a0ebe97d560e24d3a828dfa25a3d3785144dfd0a32f9f4b6350d",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-after",
+      "input_sha256": "f76fa8a562349919f7d19c45e4a35abb4a9d3bd0d54183e75a743a02e850ce25",
+      "roots": [
+        "Eπ_star.vinogradovBound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a8581a516a37c64f4bae667d66e69d344ab33d59dcfb622a3ad21d0f42d6da19.json",
+      "graph_sha256": "a8581a516a37c64f4bae667d66e69d344ab33d59dcfb622a3ad21d0f42d6da19",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-star-after/20261105T052132586968Z/packaged/default-graph.json",
+        "sha256": "a8581a516a37c64f4bae667d66e69d344ab33d59dcfb622a3ad21d0f42d6da19",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-before",
+      "input_sha256": "f8a7f7c7db2d7657abdf081d336c1da9f7aa2c9e354ea16330240b4ea389a9b7",
+      "roots": [
+        "Eπ_star.vinogradovBound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/21e6b4abb37b9b13ac295a6ce600de668aeaaa4dcb01e54cd3f4fd38ba739ca6.json",
+      "graph_sha256": "21e6b4abb37b9b13ac295a6ce600de668aeaaa4dcb01e54cd3f4fd38ba739ca6",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-star-before/20261105T052121704839Z/packaged/default-graph.json",
+        "sha256": "21e6b4abb37b9b13ac295a6ce600de668aeaaa4dcb01e54cd3f4fd38ba739ca6",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-after",
+      "input_sha256": "781a5cda388b6f871e21275a920003f5e8a0805f4aab83a3e961472310be5e2a",
+      "roots": [
+        "zero_density_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f62f617205720c375892d5cb0bd6e4a8f4dcd8436c4ed3031e1cf2aec26a73c5.json",
+      "graph_sha256": "f62f617205720c375892d5cb0bd6e4a8f4dcd8436c4ed3031e1cf2aec26a73c5",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/packaged/default-graph.json",
+        "sha256": "f62f617205720c375892d5cb0bd6e4a8f4dcd8436c4ed3031e1cf2aec26a73c5",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-before",
+      "input_sha256": "de08bdd08260ab1bed68f7f2da5946700be28d086c62751909b9cb794cd35712",
+      "roots": [
+        "zero_density_bound"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f62f617205720c375892d5cb0bd6e4a8f4dcd8436c4ed3031e1cf2aec26a73c5.json",
+      "graph_sha256": "f62f617205720c375892d5cb0bd6e4a8f4dcd8436c4ed3031e1cf2aec26a73c5",
+      "graph_source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/packaged/default-graph.json",
+        "sha256": "f62f617205720c375892d5cb0bd6e4a8f4dcd8436c4ed3031e1cf2aec26a73c5",
+        "binding": "historical_packaged_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-004Y",
+      "input_sha256": "143a9abe794373e0de6fd780354f4a4fd8e7b23d53da1ba0c7d35994fdc24257",
+      "roots": [
+        "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton"
+      ],
+      "graph_path": "reports/stacks-admission/technical/STK-004Y/default/graph.json",
+      "graph_sha256": "dfab9c6a68c00a58e772c0a23e17bf55f85ce7a9481be6e23c5febb8ad254614",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/technical/STK-004Y/default/graph.json",
+        "sha256": "dfab9c6a68c00a58e772c0a23e17bf55f85ce7a9481be6e23c5febb8ad254614",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/stacks-admission/technical/STK-004Y/receipt.json",
+          "sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
+        },
+        {
+          "path": "reports/stacks-admission/technical/STK-004Y/receipt.json",
+          "sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
+        }
+      ]
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-08ZR",
+      "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+      "roots": [
+        "locallyCompactSpace_iff_weaklyLocallyCompactSpace"
+      ],
+      "graph_path": "reports/stacks-admission/technical/STK-08ZR/default/graph.json",
+      "graph_sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/technical/STK-08ZR/default/graph.json",
+        "sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
+          "sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
+        },
+        {
+          "path": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
+          "sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
+        }
+      ]
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-after",
+      "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
+      "roots": [
+        "LocallyClosedPartition.exists_finite_good_refinement"
+      ],
+      "graph_path": "reports/stacks-admission/technical/STK-09Y5-after/default/graph.json",
+      "graph_sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/technical/STK-09Y5-after/default/graph.json",
+        "sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
+          "sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
+        },
+        {
+          "path": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
+          "sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
+        }
+      ]
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-before",
+      "input_sha256": "59408da39a01dfcd44cb961fb458bf41c0a18b27fda25d3f682874870fa8d449",
+      "roots": [
+        "Setoid.Partitions.exists_finite_good_refinement"
+      ],
+      "graph_path": "reports/stacks-admission/technical/STK-09Y5-before/default/graph.json",
+      "graph_sha256": "9079946a52fd94bbcefc52ce27196481f9a7060235688ab0804e2c2a1683ab02",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/technical/STK-09Y5-before/default/graph.json",
+        "sha256": "9079946a52fd94bbcefc52ce27196481f9a7060235688ab0804e2c2a1683ab02",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/stacks-admission/technical/STK-09Y5-before/receipt.json",
+          "sha256": "255197982f24aa3d719862219672c7a3c098d631f9c6a6296a59095b7179d51a"
+        },
+        {
+          "path": "reports/stacks-admission/technical/STK-09Y5-before/receipt.json",
+          "sha256": "255197982f24aa3d719862219672c7a3c098d631f9c6a6296a59095b7179d51a"
+        }
+      ]
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-0B34",
+      "input_sha256": "1178be3b790897c2ad3c6260ac053bb9a48f661d969d1e0d9ec510b8c90b8ef3",
+      "roots": [
+        "Sum.not_t0_of_not_t0_left",
+        "Sum.not_quasiSober_of_not_quasiSober_right"
+      ],
+      "graph_path": "reports/stacks-admission/technical/STK-0B34/default/graph.json",
+      "graph_sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/technical/STK-0B34/default/graph.json",
+        "sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
+        "binding": "verified_derived_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/stacks-admission/technical/STK-0B34/receipt.json",
+          "sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
+        },
+        {
+          "path": "reports/stacks-admission/technical/STK-0B34/receipt.json",
+          "sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
+        }
+      ]
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-after",
+      "input_sha256": "6a2ef493106f36c966998348a6522678edb31f73126af9d553291ebf617f67e2",
+      "roots": [
+        "KZG.CommitmentScheme.binding"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/c44a5ba2c1c9e00867c1186d6e86256fff9de663b6f0f42ac96b3c4b0b31c2e5.json",
+      "graph_sha256": "c44a5ba2c1c9e00867c1186d6e86256fff9de663b6f0f42ac96b3c4b0b31c2e5",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-after/graph/default/graph.json",
+        "sha256": "c44a5ba2c1c9e00867c1186d6e86256fff9de663b6f0f42ac96b3c4b0b31c2e5",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-before",
+      "input_sha256": "66e220c62b628b2d22836be33f160662204c7d4cffbc9d4a93bff627a61668ab",
+      "roots": [
+        "KZG.CommitmentScheme.binding"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/31e14af17166775de5648d974d9c3eeea7131fbc53d106b5a615ecaf80aa8d25.json",
+      "graph_sha256": "31e14af17166775de5648d974d9c3eeea7131fbc53d106b5a615ecaf80aa8d25",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-before/graph/default/graph.json",
+        "sha256": "31e14af17166775de5648d974d9c3eeea7131fbc53d106b5a615ecaf80aa8d25",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-after",
+      "input_sha256": "10ff9590459bcf10751a25a3bb573442f079448c48ddfae3fe29059092727a61",
+      "roots": [
+        "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/f8ca73c3c911b076794f344f3b4341134ec1758e72282686a431de3120cc69f1.json",
+      "graph_sha256": "f8ca73c3c911b076794f344f3b4341134ec1758e72282686a431de3120cc69f1",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-reduction-after/graph/default/graph.json",
+        "sha256": "f8ca73c3c911b076794f344f3b4341134ec1758e72282686a431de3120cc69f1",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-before",
+      "input_sha256": "7ccd9e57a27f8ad0e9e698f071e3bba4cdd26cb6776f4d7a41a34ec4613faae7",
+      "roots": [
+        "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/558f2021fc6771d2cd9f1a76d046b47e874c241b37d58d45bf75e9a7cf3d6489.json",
+      "graph_sha256": "558f2021fc6771d2cd9f1a76d046b47e874c241b37d58d45bf75e9a7cf3d6489",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/graph/default/graph.json",
+        "sha256": "558f2021fc6771d2cd9f1a76d046b47e874c241b37d58d45bf75e9a7cf3d6489",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-after",
+      "input_sha256": "be87550de5f51bc92e311462ecdeff82ba3f4bec38519b244c4839425389baed",
+      "roots": [
+        "KZG.CommitmentScheme.function_binding"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/8127c30c7c6ae3b7e06482c5c25999cdf63348224eef6f59c0c11cc77f189a64.json",
+      "graph_sha256": "8127c30c7c6ae3b7e06482c5c25999cdf63348224eef6f59c0c11cc77f189a64",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-function-binding-after/graph/default/graph.json",
+        "sha256": "8127c30c7c6ae3b7e06482c5c25999cdf63348224eef6f59c0c11cc77f189a64",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-before",
+      "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
+      "roots": [
+        "KZG.CommitmentScheme.function_binding"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/a62c0ceed628ea8b4ff036c772867ea7ea67b09554a4ec0b815b22901364f55e.json",
+      "graph_sha256": "a62c0ceed628ea8b4ff036c772867ea7ea67b09554a4ec0b815b22901364f55e",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-function-binding-before/graph/default/graph.json",
+        "sha256": "a62c0ceed628ea8b4ff036c772867ea7ea67b09554a4ec0b815b22901364f55e",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-main-withdrawn-before",
+      "input_sha256": "624cddb03bf99d6bc4a2aa781987751b5cf6baf9c5a89b49c7340dc88f95e4da",
+      "roots": [
+        "StirIOP.stir_main"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/0c4986ea9d90db783210a40d3ea24f3e04a4b020bbb481800482c25bedd3c0f6.json",
+      "graph_sha256": "0c4986ea9d90db783210a40d3ea24f3e04a4b020bbb481800482c25bedd3c0f6",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/graph/default/graph.json",
+        "sha256": "0c4986ea9d90db783210a40d3ea24f3e04a4b020bbb481800482c25bedd3c0f6",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-after",
+      "input_sha256": "5dfcd375a2b7c01a07b2cef15b1db122e6d7e53c8f5fd7a06132e4e9f0749156",
+      "roots": [
+        "STIR.proximity_gap"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/57efb3eea7f540cf1743dc41784c60511b157d3d433054f80ec055a5b69a0a30.json",
+      "graph_sha256": "57efb3eea7f540cf1743dc41784c60511b157d3d433054f80ec055a5b69a0a30",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-proximity-after/graph/default/graph.json",
+        "sha256": "57efb3eea7f540cf1743dc41784c60511b157d3d433054f80ec055a5b69a0a30",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-before",
+      "input_sha256": "a38ff234f155559235f797245d6ca0c2788b83bf92efb6da705ea8220a4683be",
+      "roots": [
+        "STIR.proximity_gap"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4ac51f592e79e14c934f9de97098106b413e0b33ff8263af711b8918abe6a388.json",
+      "graph_sha256": "4ac51f592e79e14c934f9de97098106b413e0b33ff8263af711b8918abe6a388",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-proximity-before/graph/default/graph.json",
+        "sha256": "4ac51f592e79e14c934f9de97098106b413e0b33ff8263af711b8918abe6a388",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-rbr-withdrawn-before",
+      "input_sha256": "545c0e0b9578c2967a56401f6057466057cfe0c7ba5ce4a873027c1ce6a7581a",
+      "roots": [
+        "StirIOP.stir_rbr_soundness"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/6e0cb754113c1c2027e04bcca341fdaaf52c9ad5c97d8352a86b977729d1a774.json",
+      "graph_sha256": "6e0cb754113c1c2027e04bcca341fdaaf52c9ad5c97d8352a86b977729d1a774",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/graph/default/graph.json",
+        "sha256": "6e0cb754113c1c2027e04bcca341fdaaf52c9ad5c97d8352a86b977729d1a774",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-after",
+      "input_sha256": "f5e862f878a1c74fa96b3a458ac9134a0aa3858fc71ef16b92adf6f161d150b1",
+      "roots": [
+        "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/d6e1ee2a04c1a0337824e05eb66e7f8bb3b064126329a9c1f5ead447d21ed0d1.json",
+      "graph_sha256": "d6e1ee2a04c1a0337824e05eb66e7f8bb3b064126329a9c1f5ead447d21ed0d1",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/graph/default/graph.json",
+        "sha256": "d6e1ee2a04c1a0337824e05eb66e7f8bb3b064126329a9c1f5ead447d21ed0d1",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-before",
+      "input_sha256": "062db02a9203343df616b5b80adbbaecda38e1cd8dea755e1a598a618343cce7",
+      "roots": [
+        "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/3642319ed8b3fefd943875285eb11412d5f4929f0b2c2863b6f79c7f31c9ffee.json",
+      "graph_sha256": "3642319ed8b3fefd943875285eb11412d5f4929f0b2c2863b6f79c7f31c9ffee",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/graph/default/graph.json",
+        "sha256": "3642319ed8b3fefd943875285eb11412d5f4929f0b2c2863b6f79c7f31c9ffee",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c01",
+      "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
+      "roots": [
+        "FreyPackage.mazur"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ee29ce1c06a6d64c667065051672d251af9074064c33fa2a4b12789b21670fd2.json",
+      "graph_sha256": "ee29ce1c06a6d64c667065051672d251af9074064c33fa2a4b12789b21670fd2",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c01/graph/default/graph.json",
+        "sha256": "ee29ce1c06a6d64c667065051672d251af9074064c33fa2a4b12789b21670fd2",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c02",
+      "input_sha256": "b1e6aaeb52beaa55772427a231566c0570df0f94b493af7c45b46a8d85ad1443",
+      "roots": [
+        "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/32935979395a07a95d65d1cd8a23253b23aa88e7c74f68e078523426886cef60.json",
+      "graph_sha256": "32935979395a07a95d65d1cd8a23253b23aa88e7c74f68e078523426886cef60",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c02/graph/default/graph.json",
+        "sha256": "32935979395a07a95d65d1cd8a23253b23aa88e7c74f68e078523426886cef60",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c03",
+      "input_sha256": "229f6186c8fd360d971a36492ad48d9930a2cd7aa0d642ea93d488aa4ebcd041",
+      "roots": [
+        "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/02d46186782148c754ca4cb028d3003a356f13e2fd6813c5a223b03fa323b882.json",
+      "graph_sha256": "02d46186782148c754ca4cb028d3003a356f13e2fd6813c5a223b03fa323b882",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c03/graph/default/graph.json",
+        "sha256": "02d46186782148c754ca4cb028d3003a356f13e2fd6813c5a223b03fa323b882",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c04",
+      "input_sha256": "075f7c59547dfcf9caa4e6aabea1c2b072440826a49b956fe792c894e821f009",
+      "roots": [
+        "NumberField.AdeleRing.DivisionAlgebra.compact_quotient"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/ff30a3d2bd0aed3593dd385756bf54f4da80d9a63acb6a7e8ed2aa5575b1018e.json",
+      "graph_sha256": "ff30a3d2bd0aed3593dd385756bf54f4da80d9a63acb6a7e8ed2aa5575b1018e",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c04/graph/default/graph.json",
+        "sha256": "ff30a3d2bd0aed3593dd385756bf54f4da80d9a63acb6a7e8ed2aa5575b1018e",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c05",
+      "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
+      "roots": [
+        "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/4cabe4007172aba399a73a6a0ee89ec667a3e197541f6d19286170c543de1029.json",
+      "graph_sha256": "4cabe4007172aba399a73a6a0ee89ec667a3e197541f6d19286170c543de1029",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c05/graph/default/graph.json",
+        "sha256": "4cabe4007172aba399a73a6a0ee89ec667a3e197541f6d19286170c543de1029",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-endtoend",
+      "input_sha256": "67b7134fb649809dc6818fa1e1791b21e6a908b464034e773581c7e245630acd",
+      "roots": [
+        "EndToEnd.end_to_end1"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/38057768754583de36bf094152558ff693af5bb0cb5036c37ce84b22c97bffdb.json",
+      "graph_sha256": "38057768754583de36bf094152558ff693af5bb0cb5036c37ce84b22c97bffdb",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-endtoend/graph/default/graph.json",
+        "sha256": "38057768754583de36bf094152558ff693af5bb0cb5036c37ce84b22c97bffdb",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1482",
+      "input_sha256": "9ac50a67eefde62663e5170b2fb1970a24e4ab1f79e8caac36ae909807e412ac",
+      "roots": [
+        "FullSpectrum.full_spectrum_Equation1482"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/2d76debb6e077797dadc54380a0b1c2d319613688f33a294336803ca40890ade.json",
+      "graph_sha256": "2d76debb6e077797dadc54380a0b1c2d319613688f33a294336803ca40890ade",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/graph/default/graph.json",
+        "sha256": "2d76debb6e077797dadc54380a0b1c2d319613688f33a294336803ca40890ade",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1682",
+      "input_sha256": "0f1d16d5c1648cb48c15316abcfdf4db2f03914eccd467e50ad027abf5238708",
+      "roots": [
+        "FullSpectrum.full_spectrum_Equation1682"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/bbee9b41b666c50c11edb5386b85762573d63ea681a919c50fc646c8d4d669ce.json",
+      "graph_sha256": "bbee9b41b666c50c11edb5386b85762573d63ea681a919c50fc646c8d4d669ce",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/graph/default/graph.json",
+        "sha256": "bbee9b41b666c50c11edb5386b85762573d63ea681a919c50fc646c8d4d669ce",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-greedy1729",
+      "input_sha256": "99e78a223d32421d861b5da9b5570cf09b80b660989b70a948522a8ba131e40f",
+      "roots": [
+        "Eq1729.not_817"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/e540723778488c634f3ff2d0210512e3667d798542c851f87fa08cc650234191.json",
+      "graph_sha256": "e540723778488c634f3ff2d0210512e3667d798542c851f87fa08cc650234191",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-greedy1729/graph/default/graph.json",
+        "sha256": "e540723778488c634f3ff2d0210512e3667d798542c851f87fa08cc650234191",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-law-coverage",
+      "input_sha256": "c085f0df5c319dc029da2ac1c5da3e79ae4bf2aa728fb302b1d213d0103c4a65",
+      "roots": [
+        "laws_complete'"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/03655e83f8532e8894458b918a7d3b820534e5400b1b34865a8a46bd5462e739.json",
+      "graph_sha256": "03655e83f8532e8894458b918a7d3b820534e5400b1b34865a8a46bd5462e739",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-law-coverage/graph/default/graph.json",
+        "sha256": "03655e83f8532e8894458b918a7d3b820534e5400b1b34865a8a46bd5462e739",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-obelix",
+      "input_sha256": "705f126485e3cfdd29cf0b1fe27bbe574295f85d12849b7f406a49326ad1cb10",
+      "roots": [
+        "Obelix.PartialSolution.Equation1491_facts"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/2cb735b8a82c1c29233ad014c21832c635f3b8eb59ed1dea2b4f97711ff1c76b.json",
+      "graph_sha256": "2cb735b8a82c1c29233ad014c21832c635f3b8eb59ed1dea2b4f97711ff1c76b",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-obelix/graph/default/graph.json",
+        "sha256": "2cb735b8a82c1c29233ad014c21832c635f3b8eb59ed1dea2b4f97711ff1c76b",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-sheffer",
+      "input_sha256": "5ca02153328f26b7c71939c62eb66de531b4a1b9f313a61ea1aab4451adbbb96",
+      "roots": [
+        "Sheffer.Equation345169_is_Boolean",
+        "Sheffer.Sheffer_Equation345169"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/fa9c2baa9a947cf4c0b414b8c08a016434d99edf0ff45d8a4d82a12b42c600d6.json",
+      "graph_sha256": "fa9c2baa9a947cf4c0b414b8c08a016434d99edf0ff45d8a4d82a12b42c600d6",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-sheffer/graph/default/graph.json",
+        "sha256": "fa9c2baa9a947cf4c0b414b8c08a016434d99edf0ff45d8a4d82a12b42c600d6",
+        "binding": "retained_project_graph"
+      },
+      "fresh_compilation": false
+    },
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-after",
+      "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
+      "roots": [
+        "BohrSet.IsRegular"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/6a0f8fdb3008a9319bd7304448a6780f6b32fbc11ad6a888ca3646d30bf0c6f9.json",
+      "graph_sha256": "6a0f8fdb3008a9319bd7304448a6780f6b32fbc11ad6a888ca3646d30bf0c6f9",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-after/default/graph.json",
+        "sha256": "6a0f8fdb3008a9319bd7304448a6780f6b32fbc11ad6a888ca3646d30bf0c6f9",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-after/receipt.json",
+          "sha256": "1f39fec97e8d5cd1d57435dbf55bc9d7f36a2b9a55edf6e58588607917eae454"
+        },
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-after/receipt.json",
+          "sha256": "1f39fec97e8d5cd1d57435dbf55bc9d7f36a2b9a55edf6e58588607917eae454"
+        }
+      ]
+    },
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-before",
+      "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
+      "roots": [
+        "BohrSet.IsRegular"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/fe6c19b8007432d1541b5f2e6018b69af6e58a4d9971a0ed745242aa7f3f644e.json",
+      "graph_sha256": "fe6c19b8007432d1541b5f2e6018b69af6e58a4d9971a0ed745242aa7f3f644e",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/default/graph.json",
+        "sha256": "fe6c19b8007432d1541b5f2e6018b69af6e58a4d9971a0ed745242aa7f3f644e",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/receipt.json",
+          "sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84"
+        },
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/receipt.json",
+          "sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84"
+        }
+      ]
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-after",
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "roots": [
+        "int"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c.json",
+      "graph_sha256": "5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/default/graph.json",
+        "sha256": "5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
+          "sha256": "5795acc2e4664cbb8122a709894f0dbf9b16f0d71774b9019114c2991c23f81c"
+        },
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
+          "sha256": "5795acc2e4664cbb8122a709894f0dbf9b16f0d71774b9019114c2991c23f81c"
+        }
+      ]
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-before",
+      "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+      "roots": [
+        "int"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/8e4574f0306517e8e568fafdb78f9da4ccbed450305d650ddbe7544afd0a6d82.json",
+      "graph_sha256": "8e4574f0306517e8e568fafdb78f9da4ccbed450305d650ddbe7544afd0a6d82",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/default/graph.json",
+        "sha256": "8e4574f0306517e8e568fafdb78f9da4ccbed450305d650ddbe7544afd0a6d82",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
+          "sha256": "0cc82310cd04b01ae1eab1a76404c7223681b779dd1600efb57380c0d22fc869"
+        },
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
+          "sha256": "0cc82310cd04b01ae1eab1a76404c7223681b779dd1600efb57380c0d22fc869"
+        }
+      ]
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-after",
+      "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
+      "roots": [
+        "int"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/5426cb90db843608e1b4de17d2e26c3b14a09571ef7bd569501d05ae8114b8f5.json",
+      "graph_sha256": "5426cb90db843608e1b4de17d2e26c3b14a09571ef7bd569501d05ae8114b8f5",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/default/graph.json",
+        "sha256": "5426cb90db843608e1b4de17d2e26c3b14a09571ef7bd569501d05ae8114b8f5",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
+          "sha256": "4c7a0d28f1f7a502db6062c09ed6ef337645b76da045c338d29f840b6daf1057"
+        },
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
+          "sha256": "4c7a0d28f1f7a502db6062c09ed6ef337645b76da045c338d29f840b6daf1057"
+        }
+      ]
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-before",
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "roots": [
+        "int"
+      ],
+      "graph_path": "metadata/derived-graphs/retained/5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c.json",
+      "graph_sha256": "5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c",
+      "graph_source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-before/default/graph.json",
+        "sha256": "5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c",
+        "binding": "retained_preparation_graph"
+      },
+      "fresh_compilation": false,
+      "retained_receipts": [
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-before/receipt.json",
+          "sha256": "4bfeff5aeeda9273edb1d884aac1ebcf7dc95a8e1c4207502444f8fef4925639"
+        },
+        {
+          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-before/receipt.json",
+          "sha256": "4bfeff5aeeda9273edb1d884aac1ebcf7dc95a8e1c4207502444f8fef4925639"
+        }
+      ]
+    }
+  ]
+}

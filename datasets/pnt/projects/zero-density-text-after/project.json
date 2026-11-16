@@ -1,0 +1,71 @@
+{
+  "id": "zero-density-text-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT zero-density-text-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "zero_density_bound",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "declaration": "zero_density_bound",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+  },
+  "group_id": "pnt-zero_density_bound",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "zero-density-text-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "文字明确给T0、σ给定范围以及依σ变化的四个系数/指数函数；formal结构字段和bound量词逐一对应。N(σ,T)按当前保留N′定义解释，其开端点不是此次文字修改的额外要求。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "996829cbfc693435b447e03c56946f5d7c3339c366ad4fff860da14a1c02b5b7"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/receipt.json",
+    "receipt_sha256": "bf939b59f450abfb60dfbc755f7350ab83cd3970386511ef714d6c2318d3ab42",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "7c4239d87e1b79c4e9b1149da931b6e02929ad7604434fe523df14a77938a9e4",
+    "formal_snapshot_id": "zero-density",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a",
+        "ref": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+        "text": "An estimate of the form $N(\\sigma,T) \\leq c_1(\\sigma)\\, T^{p(\\sigma)} (\\log T)^{q(\\sigma)} + c_2(\\sigma)\\, (\\log T)^2$\n    for $T \\geq T_0$ and $\\sigma$ in a given range."
+      }
+    ],
+    "root_axioms": {
+      "default": "'zero_density_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'zero_density_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "781a5cda388b6f871e21275a920003f5e8a0805f4aab83a3e961472310be5e2a",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

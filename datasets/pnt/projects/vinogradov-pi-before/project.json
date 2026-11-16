@@ -1,0 +1,74 @@
+{
+  "id": "vinogradov-pi-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT vinogradov-pi-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Eπ.vinogradovBound",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "Eπ.vinogradovBound",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+  },
+  "group_id": "pnt-Eπ.vinogradovBound",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "vinogradov-pi-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "f62819fe45ba05fcb226b4152d306ccbfcba76688136dc30de94da6e5ee42666"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-before/20261105T052059815956Z/receipt.json",
+    "receipt_sha256": "df725090faad63d1df54dba45f8c85ffa99ec070539b975f79c9f12e4570b619",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-before/20261105T052059815956Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "dbd943605af95b081dada7d6fc5f983ff3a3d818378286990809ab2c63031dcd",
+    "formal_snapshot_id": "vinogradov-pi-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": null
+      }
+    ],
+    "root_axioms": {
+      "default": "'Eπ.vinogradovBound' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'Eπ.vinogradovBound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "informal_status": "source_backed_later_upstream_target",
+  "evaluation_eligible": true,
+  "input_sha256": "bf7cee854c5f0c1e5958f3266f11be0c411f778a6b23c17743e7c46bba54872d",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl",
+  "pair_validity": "valid_source_backed_new_binding",
+  "informal_binding_review": "reports/vinogradov-target-search-2026-11-09/review.json"
+}

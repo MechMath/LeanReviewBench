@@ -1,0 +1,86 @@
+{
+  "id": "energy-definition",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR energy-definition",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Finset.addEnergy'",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/leanprover-community/add-combi",
+    "commit": "2d061f437c1ba00ba9b16d7cba1c7603ba4807a4",
+    "path": "AddCombi/Mathlib/Combinatorics/Additive/Energy.lean",
+    "module": "AddCombi.Mathlib.Combinatorics.Additive.Energy",
+    "declaration": "Finset.addEnergy'",
+    "url": "https://github.com/leanprover-community/add-combi/blob/2d061f437c1ba00ba9b16d7cba1c7603ba4807a4/AddCombi/Mathlib/Combinatorics/Additive/Energy.lean",
+    "sha256": "9cd86ed520c7028920b5a4b997b57bcf826d7b24714bb217ce96edd0ba52788a"
+  },
+  "group_id": "pfr-energy-normalization",
+  "split_group": "teorth/pfr",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "On the diagonal A=A, the requested old raw quadruple count differs from the normalized formal value; the retained ZMod 2 witness gives 1 versus 1/8.",
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.Ring.NNRat",
+    "Mathlib.Algebra.Order.Sub.Unbundled.Basic",
+    "Mathlib.Combinatorics.Additive.Convolution",
+    "Mathlib.Data.Finset.Density",
+    "Mathlib.Data.Fintype.Prod",
+    "Mathlib.Data.Rat.Cast.CharZero",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Positivity"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "2773fa264b49a175ebf97a95b20a6f0c842b02459948cba1d4c3a8e1cb123952"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-extraction/technical/energy-definition/20261104T075959036323Z/receipt.json",
+    "receipt_sha256": "df7b5144e935f51f4d040e97d6a6dc5222eeae526f085b3e95b88dea2cf9d80d",
+    "packaged_receipt": "reports/pfr-extraction/technical/energy-definition/20261104T075959036323Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "8a86dbdb969d1bdf577d5fe50340d27f6ce7ce44a66d84cb3d61b92728a26b1d",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-history/sources/295/before/blueprint/src/chapter/approx_hom_pfr.tex",
+        "sha256": "5e420970debb344b850e4e228fe9c548bdd1c51e300a652d1dbc089d83d08783",
+        "locator": "energy-def",
+        "text": "For a group G and finite subset A, E(A) counts ordered additive quadruples in A.",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-history/sources/295/after/blueprint/src/chapter/approx_hom_pfr.tex",
+        "sha256": "ad785276e013f79b3eac31816f26d3ac0ca7befd204773c1c30266c2e262e57c",
+        "locator": "energy-def",
+        "text": "For a finite additive group G and subset A, E(A) is the additive quadruple count divided by the cube of the ambient cardinality.",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'Finset.addEnergy'' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'Finset.addEnergy'' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "372e5370723959676b5f83cc7418fa49a261ab57e8fd76bbc34284e6325ab3b9",
+  "historical_status": "ready",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

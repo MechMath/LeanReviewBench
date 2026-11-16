@@ -1,0 +1,63 @@
+{
+  "id": "STK-0B34-right",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Stacks 0B34",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Sum.not_quasiSober_of_not_quasiSober_right",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/optpku/stacks",
+    "commit": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
+    "path": "ReasLib/Topology/Sum.lean",
+    "module": "ReasLib.Topology.Sum",
+    "declaration": "Sum.not_quasiSober_of_not_quasiSober_right",
+    "url": "https://github.com/optpku/stacks/blob/e2299cf97f975b08e7b5b59202ed00adc80ff6b7/ReasLib/Topology/Sum.lean",
+    "sha256": "70e3c7a457f687884b515f0044fcc9e89c5dc4aef159ed222124fd5fa740186d",
+    "leads": []
+  },
+  "group_id": "stacks:0B34",
+  "split_group": "optpku/stacks",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Tactic.CrossRefAttribute",
+    "Mathlib.Topology.Sober"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "8200c013d5956069dad6fb2dcbc8c702bf97d4313328c2add730c379ef12d7ba"
+  },
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/stacks.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/stacks-admission/technical/STK-0B34-right/receipt.json",
+    "graph": "reports/stacks-admission/technical/STK-0B34-right/default/graph.json",
+    "explicit_graph": "reports/stacks-admission/technical/STK-0B34-right/explicit/graph.json",
+    "review": "reports/stacks-admission/reviews.json",
+    "original_source": "reports/stacks-admission/original/STK-0B34-right/Main.lean",
+    "receipt_sha256": "4c4133cca1783eb006c8e53c5a7a128c91400d994bf1d58bfb5de46e2d0c6f87",
+    "packaged_receipt": "reports/stacks-admission/technical/STK-0B34-right/receipt.json",
+    "packaged_receipt_sha256": "4c4133cca1783eb006c8e53c5a7a128c91400d994bf1d58bfb5de46e2d0c6f87"
+  },
+  "author_disclosure": "no_explicit_root_error_admission",
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "53e37b0be0d5e884f0569922c78bfe78b6f6e1d1de5e30d67e0deb4cedb44346"
+}

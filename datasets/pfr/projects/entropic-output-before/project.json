@@ -1,0 +1,103 @@
+{
+  "id": "entropic-output-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR entropic-output-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "entropic_PFR_conjecture'",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "3d7898164ebff70a809dce618f9082a7b39e7850",
+    "path": "PFR/EntropyPFR.lean",
+    "module": "PFR.EntropyPFR",
+    "declaration": "entropic_PFR_conjecture'",
+    "url": "https://github.com/teorth/pfr/blob/3d7898164ebff70a809dce618f9082a7b39e7850/PFR/EntropyPFR.lean",
+    "sha256": "398f4791ab52691d64b77ad9832630245703a172ecd4900e20c1e3b860ad02df"
+  },
+  "group_id": "pfr-entropic-output",
+  "split_group": "teorth/pfr",
+  "before_ids": [],
+  "after_ids": [
+    "entropic-output-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "根结论把概率空间及可测性要求丢掉，所用历史 IsUniform 在零测度上对任意子群都成立；结合距离定义，整个见证条件退化。不是仅凭少写两个类型类判负，而是输出见证规格没有表达原文的概率均匀变量。",
+  "external_imports": [
+    "Mathlib.Algebra.Module.ZMod",
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Data.Set.Insert",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Prokhorov",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Probability.Kernel.Composition.Comp",
+    "Mathlib.Probability.Kernel.Composition.Prod",
+    "Mathlib.Probability.Kernel.CondDistrib",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 41,
+    "sha256": "2e243c6c2c1787f0a5767199e6f0f7d408ac797663f970051c0dd52872a81a46"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-extraction/technical/entropic-output-before/20261104T080007545143Z/receipt.json",
+    "receipt_sha256": "b3549f1b25c83803ddac064f20803d08e903dacd4bbcd71837d016945253205e",
+    "packaged_receipt": "reports/pfr-extraction/technical/entropic-output-before/20261104T080007545143Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "caa003b95638de96b36a6d1d8809a1978557750cc1dd75aee326bcbb0f5bf5ce",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-history/sources/301/before/blueprint/src/chapter/entropy_pfr.tex",
+        "sha256": "1f00cfda18fcd2bce97a22ca308fba09a12b49d75e4be93f012d7f1133700c02",
+        "locator": "entropy-pfr, Furthermore clause, lines 417-425",
+        "text": "For G=F_2^n and G-valued random variables X1,X2, there exists a subgroup H such that a uniform random variable U_H has each Ruzsa distance to Xi bounded by six times d[X1;X2]. The blueprint also states the stronger sum bound eleven times that distance. This primed root targets the individual bounds only.",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'entropic_PFR_conjecture'' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'entropic_PFR_conjecture'' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "ece21f2153a80707d604becad5ecc5599fd4bbd85afa2ec5ce2499ac5113f5d0",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "bounded-jy-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-jy-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "JY.theorem_1_4",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "fc3f35017ee842bccf0d887980e8e22dda1583ab",
+    "path": "PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "declaration": "JY.theorem_1_4",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4"
+  },
+  "group_id": "pnt-JY.theorem_1_4",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-jy-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "formal量化x≥23而文字x≥2；且Eπ=|π−Li|/(x/log x)，B=0.801展开为未归一化log指数−0.199，文字要求+0.801。缺失1的指数不是同一数量界。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "06608b88de8cfc08f289be81508fa096b23ce452ad6584e52a712e9388b81a5e"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-before/20261105T053449737400Z/receipt.json",
+    "receipt_sha256": "24dcdd5a2a2b14a87625ff03b59b21aac9417bdb08d24e7be24b6f95f27f5474",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-before/20261105T053449737400Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "0ecf67a8b788672388b04356e480153bff3ecc2d79eba50ea86175b06358418c",
+    "formal_snapshot_id": "bounded-jy-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4",
+        "ref": "fc3f35017ee842bccf0d887980e8e22dda1583ab",
+        "text": "One has\n  \\[\n  |\\pi(x) - \\mathrm{Li}(x)| \\leq 0.028 x (\\log x)^{0.801}\n    \\exp(-0.1853 \\log^{3/5} x / (\\log \\log x)^{1/5}))\n  \\]\n  for all $x \\geq 2$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'JY.theorem_1_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'JY.theorem_1_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "d0a9b408179eca581794137bbc0c65e499dfb8a5eb217afa347a0455fb4be4cc",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

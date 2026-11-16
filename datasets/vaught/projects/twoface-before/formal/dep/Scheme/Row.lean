@@ -1,0 +1,375 @@
+/-
+Copyright (c) 2026 Cameron Freer. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Cameron Freer
+-/
+import dep.Label.Transform
+import dep.Scheme.Cell
+
+/-!
+# Semantic rows and lawful sections
+
+Roadmap, Layer 1 (semantic rows and lawful sections; the order, availability, and locality laws;
+restriction, transport, pullback, and the bottom cases); semantic contract, item 3; the
+expositions, §1 (semantic rows constrain which labellings are lawful).
+
+The **semantic rows** of a cell scheme `D` (`CellScheme.Rows D`) are raw data: for every cell `s`
+a labelling `R.row s` of the cells below `s`, that is, of `D.below (D.gradedIndex s)`.  They are
+separate from the scheme itself; the bundle of a scheme with its rows (and its label section)
+belongs to the stage types (`VaughtConjecture.Stage.Basic`).  A labelling
+`p : ι → Label` of all cells is a **lawful section** of the rows (`Rows.IsLawful R p`) when it
+satisfies three laws:
+
+* **order**: every label `p d` is self-visible at the grade of its cell;
+* **locality**: for every cell `s`, the row `R.row s` transforms (`Label.TransformsTo`, over the
+  grades of the cells below `s`) to the section below `s` capped at the label of `s`,
+  `d ↦ min (p d) (p s)`;
+* **availability**: if the scope of `s` lies in the scope of `t` and the grades agree, then some
+  cell `u` with the graded index of `t` has `p s ≤ p u`.  Availability quantifies over all cells
+  with a given graded index, so it depends on the multiplicities of cells.
+
+Rows pull back along a lower embedding of schemes (`Rows.comap`, functorially: `comap_id`,
+`comap_comap`), and lawful sections pull back with them (`IsLawful.comap`); along an equivalence
+of cells that is a lower embedding, in both directions (`isLawful_comap_equiv_iff`).  Instances
+are the restriction to a face (`Rows.restrict`, `IsLawful.restrict`), the pullback along an
+embedding of ground sets, reindexing along an equivalence of cells, and the lower sets: a
+labelling `r` of the cells below a pair `X` is *lawful below `X`* (`Rows.IsLawfulBelow R X r`)
+when it is a lawful section of the rows restricted to the scheme `D⟨X⟩` of cells below `X`
+(`isLawfulBelow_iff`); along a lower embedding mapping the cells below `X` onto the cells below
+`Y`, lawfulness below `X` is lawfulness below `Y` (`isLawfulBelow_comap_iff`).  Lawful sections
+restrict to every lower set (`IsLawful.isLawfulBelow`) and from a lower set to a smaller one
+(`IsLawfulBelow.mono`).  At a stage `β` that is zero or a limit, the stage reduction
+`Label.reduce β ∘ p` of a lawful section `p` is lawful (`IsLawful.reduce`), by the reduction rule
+`Label.TransformsTo.reduce`; at a successor stage it need not be
+(`VaughtConjecture.Stage.Examples`).  Capping a lawful section at a label `c` that is
+self-visible at the grade of every cell whose label is at least `c` keeps it lawful
+(`IsLawful.min_const`, [Kni26, Lemma 2.5.8]), in particular at a cap self-visible at a bound on all
+grades (`IsLawful.min_const_of_isSelfVisible`), and below a pair (`IsLawfulBelow.min_const`,
+`IsLawfulBelow.min_const_of_isSelfVisible`); capping at a cutoff that is not self-visible need
+not keep lawfulness.
+
+The constant bottom labelling is lawful for all rows (`isLawful_const_bot`), and a cell whose row is
+bottom at the cell itself has bottom label in every lawful section
+(`IsLawful.eq_bot_of_row_self_eq_bot`).  The rows are **consistent** (`Rows.IsConsistent`) when
+each row `R.row s` is lawful below the graded index of `s`; consistent rows are orderly
+(`IsConsistent.isOrderly`) and consistency pulls back along lower embeddings
+(`IsConsistent.comap`).  Since the bottom labelling is always lawful, the mere existence of lawful
+sections carries no information; consistency is the statement about the rows themselves.
+
+The **bottom** rows (`Rows.bot D`) are constantly bottom.  Every cell's row is bottom at the cell
+itself, so the only lawful section is the bottom labelling (`isLawful_bot_iff`), below every pair
+as well (`isLawfulBelow_bot_iff`); the bottom rows are consistent (`isConsistent_bot`) and pull back
+to the bottom rows (`comap_bot`).
+
+## References
+
+Semantic rows are the semantics of [Kni26, Definition 2.5.3], lawful sections the labellings
+respecting them ([Kni26, Definition 2.5.4]: locality is its first clause, availability its
+second), and consistency is [Kni26, Definition 2.5.12]; the bottom rows are the constantly bottom
+semantics of the last clause of [Kni26, Lemma 4.2.2], and stage reduction is
+[Kni26, Definition 3.1.2].
+-/
+
+universe u
+
+namespace VaughtConjecture.CellScheme
+
+open Label
+
+variable {ι κ α β : Type*} {D : CellScheme ι α} {E : CellScheme κ β}
+
+/-- The **semantic rows** of a cell scheme [Kni26, §2.5]: for every cell `s`, a labelling `row s`
+of the cells below `s`.  The rows are data separate from the scheme; the bundle of a scheme with
+its rows belongs to the stage types. -/
+@[ext]
+structure Rows (D : CellScheme ι α) where
+  /-- The semantic row of a cell: a labelling of the cells below it. -/
+  row (s : ι) : D.below (D.gradedIndex s) → Label.{u}
+
+namespace Rows
+
+variable (R : D.Rows) {φ : κ → ι}
+
+/-- Values of a row at equal cells and equal arguments are equal. -/
+theorem row_congr {s s' : ι} (hs : s = s') {t : D.below (D.gradedIndex s)}
+    {t' : D.below (D.gradedIndex s')} (ht : t.1 = t'.1) : R.row s t = R.row s' t' := by
+  subst hs
+  rw [Subtype.ext ht]
+
+/-- The rows are *orderly*: every value of the row of `s` at a cell `t` is self-visible at the
+grade of `t`. -/
+def IsOrderly : Prop :=
+  ∀ s (t : D.below (D.gradedIndex s)), IsSelfVisible (D.grade t) (R.row s t)
+
+/-- The pullback of rows along a lower embedding `φ` of `E` into `D`: the row of `s` at `t` is
+the row of `φ s` at `φ t`. -/
+def comap (hφ : E.IsLowerEmbedding D φ) : E.Rows where
+  row s t := R.row (φ s) ⟨φ t, (hφ.le_iff t s).mpr t.2⟩
+
+/-- The row of a pulled-back cell. -/
+@[simp] theorem comap_row (hφ : E.IsLowerEmbedding D φ) (s : κ) (t : E.below (E.gradedIndex s)) :
+    (R.comap hφ).row s t = R.row (φ s) ⟨φ t, (hφ.le_iff t s).mpr t.2⟩ := rfl
+
+/-- Pulling back along the identity does not change the rows. -/
+@[simp] theorem comap_id : R.comap (IsLowerEmbedding.id D) = R := rfl
+
+/-- Pulling back along two lower embeddings is pulling back along their composite. -/
+@[simp] theorem comap_comap {μ γ : Type*} {F : CellScheme μ γ} {ψ : μ → κ}
+    (hφ : E.IsLowerEmbedding D φ) (hψ : F.IsLowerEmbedding E ψ) :
+    (R.comap hφ).comap hψ = R.comap (hφ.comp hψ) := rfl
+
+/-- The rows of the restriction of a scheme to a face: the rows of the visible cells. -/
+def restrict [DecidableEq α] (B : Finset α) : (D.restrict B).Rows :=
+  R.comap (IsLowerEmbedding.restrict D B)
+
+/-- The row of a cell of the restriction is its original row. -/
+@[simp] theorem restrict_row [DecidableEq α] (B : Finset α) (s : D.visible (B : Set α))
+    (t : (D.restrict B).below ((D.restrict B).gradedIndex s)) :
+    (R.restrict B).row s t = R.row s ⟨t.1, t.2⟩ := rfl
+
+/-! ### Lawful sections -/
+
+/-- A labelling `p` of the cells is a **lawful section** of the rows `R` [Kni26, §2.5]: it
+satisfies the order, locality, and availability laws. -/
+structure IsLawful (p : ι → Label.{u}) : Prop where
+  /-- Order: the label of every cell is self-visible at the grade of the cell. -/
+  orderly (d : ι) : IsSelfVisible (D.grade d) (p d)
+  /-- Locality: the row of every cell `s` transforms, over the grades of the cells below `s`, to
+  the labelling `d ↦ min (p d) (p s)` of the cells below `s`. -/
+  locality (s : ι) : TransformsTo (fun d : D.below (D.gradedIndex s) ↦ D.grade d) (R.row s)
+    (fun d ↦ min (p d) (p s))
+  /-- Availability: if the scope of `s` lies in the scope of `t` and their grades agree, then
+  some cell with the graded index of `t` has a label at least that of `s`. -/
+  availability (s t : ι) : D.scope s ⊆ D.scope t → D.grade s = D.grade t →
+    ∃ u, D.gradedIndex u = D.gradedIndex t ∧ p s ≤ p u
+
+/-- A labelling `r` of the cells below `X` is *lawful below `X`*: it is a lawful section of the
+rows restricted to the scheme `D⟨X⟩` of cells below `X`. -/
+def IsLawfulBelow (X : Finset α × ℕ) (r : D.below X → Label.{u}) : Prop :=
+  (R.comap (IsLowerEmbedding.subtypeVal_below D X)).IsLawful r
+
+/-- The rows are **consistent** [Kni26, §2.5]: the row of every cell `s` is lawful
+below the graded index of `s`. -/
+def IsConsistent : Prop := ∀ s, R.IsLawfulBelow (D.gradedIndex s) (R.row s)
+
+variable {R}
+
+/-- Lawfulness below `X` is lawfulness for the rows pulled back to the scheme `D⟨X⟩` of cells
+below `X`. -/
+theorem isLawfulBelow_iff {X : Finset α × ℕ} {r : D.below X → Label.{u}} :
+    R.IsLawfulBelow X r ↔ (R.comap (IsLowerEmbedding.subtypeVal_below D X)).IsLawful r :=
+  Iff.rfl
+
+/-- The constant bottom labelling is a lawful section of all rows. -/
+theorem isLawful_const_bot : R.IsLawful fun _ ↦ ⊥ where
+  orderly _ := isSelfVisible_bot _
+  locality s := by simpa only [min_self] using TransformsTo.bot _ (R.row s)
+  availability _ t _ _ := ⟨t, rfl, le_rfl⟩
+
+/-- The constant bottom labelling is lawful below every pair. -/
+theorem isLawfulBelow_const_bot (X : Finset α × ℕ) : R.IsLawfulBelow X fun _ ↦ ⊥ :=
+  isLawfulBelow_iff.mpr isLawful_const_bot
+
+/-- Every labelling of a scheme without cells is lawful. -/
+theorem isLawful_of_isEmpty [IsEmpty ι] (p : ι → Label.{u}) : R.IsLawful p where
+  orderly d := isEmptyElim d
+  locality s := isEmptyElim s
+  availability s := isEmptyElim s
+
+namespace IsLawful
+
+variable {p : ι → Label.{u}}
+
+/-- A cell whose row is bottom at the cell itself has bottom label in every lawful section. -/
+theorem eq_bot_of_row_self_eq_bot (h : R.IsLawful p) (s : ι)
+    (hs : R.row s ⟨s, D.mem_below_gradedIndex s⟩ = ⊥) : p s = ⊥ := by
+  simpa using (h.locality s).eq_bot (d := ⟨s, D.mem_below_gradedIndex s⟩) hs
+
+/-- **Pullback of lawful sections**: along a lower embedding `φ`, a lawful section `p` of `R`
+pulls back to the lawful section `p ∘ φ` of the pulled-back rows. -/
+theorem comap (h : R.IsLawful p) (hφ : E.IsLowerEmbedding D φ) :
+    (R.comap hφ).IsLawful (p ∘ φ) where
+  orderly t := hφ.grade_eq t ▸ h.orderly (φ t)
+  locality s := by
+    have hg : (fun t : E.below (E.gradedIndex s) ↦ E.grade t) =
+        (fun d : D.below (D.gradedIndex (φ s)) ↦ D.grade d) ∘
+          fun t : E.below (E.gradedIndex s) ↦
+            (⟨φ t, (hφ.le_iff t s).mpr t.2⟩ : D.below (D.gradedIndex (φ s))) :=
+      funext fun t ↦ (hφ.grade_eq t).symm
+    rw [hg]
+    exact (h.locality (φ s)).reindex _
+  availability s t hst hg := by
+    have hle : D.gradedIndex (φ s) ≤ D.gradedIndex (φ t) :=
+      (hφ.le_iff s t).mpr ((gradedIndex_le_iff E).mpr ⟨hst, hg.le⟩)
+    obtain ⟨u, hu, hpu⟩ := h.availability (φ s) (φ t) hle.1
+      (by rw [hφ.grade_eq, hφ.grade_eq, hg])
+    obtain ⟨u', rfl⟩ := hφ.mem_range t u hu.le
+    exact ⟨u', (hφ.gradedIndex_eq_iff u' t).mp hu, hpu⟩
+
+/-- **Restriction to a face**: a lawful section restricts to a lawful section of the restricted
+rows on the cells visible in the face. -/
+theorem restrict [DecidableEq α] (h : R.IsLawful p) (B : Finset α) :
+    (R.restrict B).IsLawful fun d ↦ p d :=
+  h.comap (IsLowerEmbedding.restrict D B)
+
+/-- A lawful section is lawful below every pair. -/
+theorem isLawfulBelow (h : R.IsLawful p) (X : Finset α × ℕ) :
+    R.IsLawfulBelow X fun d ↦ p d :=
+  isLawfulBelow_iff.mpr (h.comap (IsLowerEmbedding.subtypeVal_below D X))
+
+/-- **Stage reduction of lawful sections.**  At a stage `β` that is zero or a limit, the stage
+reduction of a lawful section is lawful.  The hypothesis on `β` is necessary
+(`VaughtConjecture.Stage.Examples`). -/
+theorem reduce {β : Ordinal.{u}} (h : R.IsLawful p) (hβ : Order.IsSuccPrelimit β) :
+    R.IsLawful (Label.reduce β ∘ p) where
+  orderly d := (h.orderly d).reduce β
+  locality s := by
+    simpa [Function.comp_def, (monotone_reduce β).map_min] using (h.locality s).reduce hβ
+  availability s t hst hg := by
+    obtain ⟨u, hu, hle⟩ := h.availability s t hst hg
+    exact ⟨u, hu, monotone_reduce β hle⟩
+
+/-- **Capping a lawful section** [Kni26, Lemma 2.5.8].  If the cap `c` is self-visible at the
+grade of every cell whose label is at least `c`, the section capped at `c` is lawful.  At a cell
+whose label is below `c` the capped section agrees with `p`; at the others its label is `c`, and
+the locality of such an owner is capped at `c` (`Label.TransformsTo.min_const`).  It gives the
+same statement below a pair (`CellScheme.Rows.IsLawfulBelow.min_const`). -/
+theorem min_const (hp : R.IsLawful p) {c : Label.{u}}
+    (hc : ∀ d, c ≤ p d → IsSelfVisible (D.grade d) c) : R.IsLawful fun d ↦ min (p d) c where
+  orderly d := by
+    rcases le_total (p d) c with h | h
+    · rw [min_eq_left h]; exact hp.orderly d
+    · rw [min_eq_right h]; exact hc d h
+  locality s := by
+    rcases le_total c (p s) with h | h
+    · have := (hp.locality s).min_const (fun d ↦ d.2.2) (hc s h)
+      -- The target `d ↦ min (min (p d) c) (min (p s) c)` is `d ↦ min (min (p d) (p s)) c`.
+      convert this using 2 with d
+      rw [min_min_min_comm, min_self]
+    · -- Here `p s ≤ c`, so the capped target reduces to `d ↦ min (p d) (p s)`, that of `p`.
+      convert hp.locality s using 2 with d
+      rw [min_min_min_comm, min_self]
+      exact min_eq_left ((min_le_right _ _).trans h)
+  availability s t hst hg := by
+    obtain ⟨u, hu, hle⟩ := hp.availability s t hst hg
+    exact ⟨u, hu, min_le_min_right c hle⟩
+
+/-- **Capping a lawful section at a cap self-visible at a grade bound**, the special case of
+[Kni26, Lemma 2.5.8] in which the grades are at most `K` and `c` is self-visible at `K`. -/
+theorem min_const_of_isSelfVisible {K : ℕ} (hp : R.IsLawful p) (hK : ∀ d, D.grade d ≤ K)
+    {c : Label.{u}} (hc : IsSelfVisible K c) : R.IsLawful fun d ↦ min (p d) c :=
+  hp.min_const fun d _ ↦ hc.mono (hK d)
+
+end IsLawful
+
+/-! ### Lawful sections along equivalences -/
+
+/-- Rows pulled back along an equivalence of cells that is a lower embedding and then back along
+its inverse are the original rows. -/
+theorem comap_comap_symm (R : D.Rows.{u}) {e : κ ≃ ι} (h : E.IsLowerEmbedding D e) :
+    (R.comap h).comap h.symm = R := by
+  ext s t
+  exact R.row_congr (e.apply_symm_apply s) (e.apply_symm_apply t)
+
+/-- **Transport along an equivalence of cells** that is a lower embedding: `p ∘ e` is lawful for
+the pulled-back rows exactly when `p` is lawful. -/
+theorem isLawful_comap_equiv_iff {R : D.Rows.{u}} {e : κ ≃ ι} (h : E.IsLowerEmbedding D e)
+    {p : ι → Label.{u}} : (R.comap h).IsLawful (p ∘ e) ↔ R.IsLawful p := by
+  refine ⟨fun hp ↦ ?_, fun hp ↦ hp.comap h⟩
+  have h' := hp.comap h.symm
+  rwa [comap_comap_symm, Function.comp_assoc, e.self_comp_symm, Function.comp_id] at h'
+
+/-- For a lower embedding `φ` mapping the cells below `X` onto the cells below `Y`, a labelling of
+the cells below `Y` is lawful below `Y` exactly when its transport along `belowEquiv` is lawful
+below `X` for the pulled-back rows. -/
+theorem isLawfulBelow_comap_iff {R : D.Rows.{u}} (hφ : E.IsLowerEmbedding D φ)
+    {X : Finset β × ℕ} {Y : Finset α × ℕ} (h : φ '' E.below X = D.below Y)
+    {r : D.below Y → Label.{u}} :
+    (R.comap hφ).IsLawfulBelow X (r ∘ hφ.belowEquiv h) ↔ R.IsLawfulBelow Y r :=
+  isLawful_comap_equiv_iff (R := R.comap (IsLowerEmbedding.subtypeVal_below D Y))
+    (hφ.isLowerEmbedding_belowEquiv h)
+
+namespace IsLawfulBelow
+
+variable {X Y : Finset α × ℕ}
+
+/-- **Restriction between lower sets**: a labelling lawful below `Y` restricts to one lawful
+below every `X ≤ Y`. -/
+theorem mono {q : D.below Y → Label.{u}} (h : R.IsLawfulBelow Y q) (hXY : X ≤ Y) :
+    R.IsLawfulBelow X (q ∘ Set.inclusion (D.below_mono hXY)) :=
+  isLawfulBelow_iff.mpr ((isLawfulBelow_iff.mp h).comap (IsLowerEmbedding.inclusion_below D hXY))
+
+/-- A labelling lawful below a pair lying above every cell is a lawful section. -/
+theorem isLawful {r : D.below X → Label.{u}} (h : R.IsLawfulBelow X r)
+    (hX : ∀ d, d ∈ D.below X) : R.IsLawful fun d ↦ r ⟨d, hX d⟩ := by
+  exact (isLawfulBelow_iff.mp h).comap
+    (IsLowerEmbedding.reindex_symm D (Equiv.subtypeUnivEquiv hX))
+
+end IsLawfulBelow
+
+/-! ### Capping -/
+
+/-- **Capping a labelling lawful below a pair** [Kni26, Lemma 2.5.8]: if the cap `c` is
+self-visible at the grade of every cell below `X` whose label is at least `c`, the capped
+labelling is lawful below `X`. -/
+theorem IsLawfulBelow.min_const {X : Finset α × ℕ} {r : D.below X → Label.{u}}
+    (hr : R.IsLawfulBelow X r) {c : Label.{u}}
+    (hc : ∀ d : D.below X, c ≤ r d → IsSelfVisible (D.grade d) c) :
+    R.IsLawfulBelow X fun d ↦ min (r d) c :=
+  isLawfulBelow_iff.mpr ((isLawfulBelow_iff.mp hr).min_const hc)
+
+/-- **Capping a labelling lawful below a pair at a cap self-visible at its grade**, the special
+case of [Kni26, Lemma 2.5.8] at the grade of `X`: a labelling lawful below `X` stays lawful when
+capped at a label self-visible at the grade of `X`, such as the cap of a lift to `X`. -/
+theorem IsLawfulBelow.min_const_of_isSelfVisible {X : Finset α × ℕ} {r : D.below X → Label.{u}}
+    (hr : R.IsLawfulBelow X r) {c : Label.{u}} (hc : IsSelfVisible X.2 c) :
+    R.IsLawfulBelow X fun d ↦ min (r d) c :=
+  hr.min_const fun d _ ↦ hc.mono d.2.2
+
+/-! ### Consistent rows -/
+
+namespace IsConsistent
+
+/-- Consistent rows are orderly. -/
+theorem isOrderly (hR : R.IsConsistent) : R.IsOrderly := fun s t ↦ (hR s).orderly t
+
+/-- Consistency pulls back along lower embeddings. -/
+theorem comap (hR : R.IsConsistent) (hφ : E.IsLowerEmbedding D φ) : (R.comap hφ).IsConsistent :=
+  fun s ↦ isLawfulBelow_iff.mpr ((isLawfulBelow_iff.mp (hR (φ s))).comap (hφ.below s))
+
+/-- The restriction of consistent rows to a face is consistent. -/
+theorem restrict [DecidableEq α] (hR : R.IsConsistent) (B : Finset α) :
+    (R.restrict B).IsConsistent :=
+  hR.comap (IsLowerEmbedding.restrict D B)
+
+end IsConsistent
+
+/-! ### The bottom rows -/
+
+variable (D) in
+/-- The **bottom** rows: every row is constantly bottom [Kni26, §4.2]. -/
+def bot : D.Rows.{u} := ⟨fun _ _ ↦ ⊥⟩
+
+/-- A value of a bottom row. -/
+@[simp] theorem bot_row (s : ι) (t : D.below (D.gradedIndex s)) : (bot D).row s t = ⊥ := rfl
+
+/-- The bottom rows pull back to the bottom rows. -/
+@[simp] theorem comap_bot (hφ : E.IsLowerEmbedding D φ) : (bot D).comap hφ = bot E := rfl
+
+/-- The lawful sections of the bottom rows: only the bottom labelling. -/
+@[simp] theorem isLawful_bot_iff {p : ι → Label.{u}} : (bot D).IsLawful p ↔ p = fun _ ↦ ⊥ := by
+  refine ⟨fun h ↦ funext fun s ↦ h.eq_bot_of_row_self_eq_bot s rfl, ?_⟩
+  rintro rfl
+  exact isLawful_const_bot
+
+/-- Below every pair, the only labelling lawful for the bottom rows is the bottom labelling. -/
+@[simp] theorem isLawfulBelow_bot_iff {X : Finset α × ℕ} {r : D.below X → Label.{u}} :
+    (bot D).IsLawfulBelow X r ↔ r = fun _ ↦ ⊥ := by
+  rw [isLawfulBelow_iff, comap_bot, isLawful_bot_iff]
+
+/-- The bottom rows are consistent. -/
+theorem isConsistent_bot : (bot D : D.Rows.{u}).IsConsistent := fun _ ↦ isLawfulBelow_const_bot _
+
+end Rows
+
+end VaughtConjecture.CellScheme

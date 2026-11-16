@@ -1,0 +1,142 @@
+{
+  "id": "etp-fullspectrum-1482",
+  "schema_version": "paperlean-project-case-1",
+  "title": "ETP-FULLSPECTRUM-1482 staged control",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "FullSpectrum.full_spectrum_Equation1482",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/equational_theories",
+    "commit": "8b87204d5b201e1cf6c69b8dcabb0558109bee00",
+    "path": "equational_theories/FullSpectrum.lean",
+    "module": "equational_theories.FullSpectrum",
+    "declarations": [
+      "FullSpectrum.full_spectrum_Equation1482"
+    ],
+    "sha256": "de4ddb7a9a65b697c2e3d5217613f888a1b50ac386030bb4db237d95050d7b6b",
+    "declaration": "FullSpectrum.full_spectrum_Equation1482"
+  },
+  "group_id": "full-spectrum-constructions",
+  "split_group": "teorth/equational_theories",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "label": "undetermined",
+  "historical_status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "technical_status": "extracted",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "external_imports": [
+    "Init.Data.Int.DivMod.Lemmas",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.Order.GroupWithZero.Canonical",
+    "Mathlib.Data.ENat.Basic",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.ZMod.Defs",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Tactic.Zify"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_role": "control",
+  "evaluation_eligible": false,
+  "changes": "CHANGES.md",
+  "original_source_archive": "original-source.tar.gz",
+  "compatibility_patch": "compatibility.patch",
+  "source_packet": "source-packet.json",
+  "gold_label": null,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "formal": {
+    "layout": "Main_and_dep",
+    "file_count": 19,
+    "resource_count": 0,
+    "sha256": "6da392874b1b4a7901a980fa18cd24df564c78a97906f7642e038a913b6b6ec7"
+  },
+  "resources": {},
+  "compatibility": {
+    "changed_files": [
+      "equational_theories/Equations/Command.lean",
+      "equational_theories/FreeMagma.lean",
+      "equational_theories/Homomorphisms.lean",
+      "equational_theories/MagmaLaw.lean"
+    ],
+    "patch_sha256": "836620fb8a9e25944263ccf03d732e3337a9a49e1d40b1638c7f254700a1bbf1",
+    "added_sorry": false,
+    "added_axioms": false,
+    "target_weakened": false
+  },
+  "preparation": {
+    "compilation": "technical/compile.json",
+    "graph_modes": {
+      "default": {
+        "status": "passed",
+        "nodes": 10,
+        "edges": 15,
+        "raw_graph": "context/default/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      },
+      "explicit": {
+        "status": "passed",
+        "nodes": 10,
+        "edges": 15,
+        "raw_graph": "context/explicit/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      }
+    },
+    "original_archive_sha256": "8b6aad743ad9faf7f25eac1d13d625119611be2cd5c48304d6315f2fd5552d54",
+    "source_packet_sha256": "01464e2f88aeaf22cd3ce18c5676289887ab0c33abf27daab894cc829482123e"
+  },
+  "pending_reason": null,
+  "input_sha256": "9ac50a67eefde62663e5170b2fb1970a24e4ab1f79e8caac36ae909807e412ac",
+  "original_external_imports": [
+    "Init.Data.Int.DivMod.Lemmas",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.Order.GroupWithZero.Canonical",
+    "Mathlib.Data.ENat.Basic",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.ZMod.Defs",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Tactic.Zify"
+  ],
+  "human_adjudicated": false,
+  "source_family": "full-spectrum-constructions",
+  "material_complete": true,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "technical_receipt": "technical/relocated-receipt.json",
+  "alignment_reference": "metadata/labels/equational-theories.jsonl"
+}

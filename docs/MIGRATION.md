@@ -1,57 +1,48 @@
-# Local release migration
+# Native-format release migration
 
-This preview is derived from the clean research integration snapshot `18086147ad0f8bcac09485289aeda217747de2f6`. It creates a separate local repository; it does not rewrite the research repository, its history, or its remote branches. No release remote has been configured. Complete uncompressed data is included in the local Git repository.
+The active data come from integration commit `18086147ad0f8bcac09485289aeda217747de2f6`. The remote research documentation was fetched and checked at `2f471585a4b71adb32f6e3fac214e366ce8979ae`. The [paper construction appendix](source-contracts/paper/app_imple_detail.tex), [pinned research workflow](source-contracts/research/PROJECT-CASE-WORKFLOW.md) and current integrated [DATA-FORMAT.md](DATA-FORMAT.md) establish the native project-case contract. Dated counts in historical documents do not override the registered active inventory.
 
-## Retained collection
+## Restored contract
+
+The release now uses `datasets/<batch>/projects/<id>/project.json`, complete `informal.jsonl`, directly readable `formal/Main.lean` and `formal/dep/`, and per-batch `index.csv`. It retains `paperlean-project-case-1`, original stable project IDs, environment pins, target mappings, scope/source records, version links and the original digest schemes.
+
+Labels return to `metadata/labels/<batch>.jsonl`; upstream evidence, provenance, license records, recovered graph bindings and the publication manifest use the original native schemas and paths. Current hashed review reports remain at their original report paths. Source and compatibility evidence is retained without importing the whole research report history.
+
+The earlier release-only input/context schemas, centralized task table, source blobs, archive installer, custom prediction/scoring interface and `data/0.1.0-preview` tree have been removed. They are not the published contract. All current input and evidence files are uncompressed and tracked by Git. Git history has not been rewritten.
+
+## Retained inventory
 
 | Item | Result |
 | --- | ---: |
-| Active inputs | 172 |
-| Collection batches | 17 |
-| Unique normalized declaration contexts | 159 |
-| Provisional aligned labels | 82 |
-| Provisional misaligned labels | 90 |
-| Human gold / `reference_ready=true` labels | 0 |
-| Exact formal source/resource files retained | 8,734 |
+| Active inputs / registered batches | 172 / 17 |
+| Aligned / misaligned provisional labels | 82 / 90 |
+| Reference-ready labels | 0 |
+| Formal source/resource files across active packages | 8,734 |
+| Exact original graph bindings available locally | 172 |
 | Inputs marked compiled in the original source | 164 |
-| Historically blocked full compilation, with recovered exported contexts | 8 |
+| Historically blocked full compilation, with recovered contexts | 8 |
 
-The 30 inputs from ArkLib, Imperial FLT, Equational Theories and APAP are retained. The five previously excluded repositories and the four high-cost ArkLib Binius/Hachi inputs remain outside the active collection. Stacks `STK-0B34` retains the refactor layout: one input with two roots. The historical independent left/right records and their newer labels remain archived in the research history, not additional release tasks. Sheffer also retains its joint-input layout.
+The 30 ArkLib, Imperial FLT, Equational Theories and APAP inputs remain. The five excluded repositories and four high-cost Binius/Hachi inputs remain excluded. Stacks `STK-0B34` remains one joint two-root input, as previously agreed; its archived component evidence remains under reports, outside active input counts. Equational Sheffer also remains one two-root input.
 
-The [catalog](../releases/0.1.0-preview/catalog.csv) maps opaque release task IDs to research identities. The manifest records each input batch and its count. Original labels, review state and input digests are preserved in the references directory, while normalized release payloads have separate content hashes. Normalization removes graph metadata such as docstrings and source locations; it does not rewrite the selected independent mathematical text, declaration types or retained definition values.
-
-## Storage layout
-
-The research checkout previously contained 58,886 tracked files totaling approximately 1,437.9 MiB of file contents. This measurement is the tracked checkout content, not compressed Git storage or clone transfer size. The new repository tracks about 1 MiB of code, documentation and inventories plus the complete uncompressed dataset, with no imported research history.
-
-| Git-tracked data directory | Files | Bytes | Approximate MiB |
+| Current tracked data tree | Files | File-content bytes | MiB |
 | --- | ---: | ---: | ---: |
-| `inputs/` | 160 | 43,111,014 | 41.11 |
-| `references/` | 131 | 8,052,183 | 7.68 |
-| `reproduction/` | 3,438 | 94,970,927 | 90.57 |
-| Total | 3,729 | 146,134,124 | 139.36 |
+| `datasets/` | 9,938 | 205,998,714 | 196.46 |
+| `metadata/` | 192 | 69,578,737 | 66.36 |
+| `reports/` | 87 | 787,836 | 0.75 |
+| `licenses/` | 24 | 255,547 | 0.24 |
 
-The earlier packaging prototype compressed these same data bytes into 18.76 MiB of archives. Following the decision to keep the release directly readable, the archives and extraction workflow have been removed from the release. A fresh clone can immediately load, validate and score the dataset. Git handles its own storage compression.
+These are uncompressed checkout file-content sizes, not clone transfer or compressed Git storage. Restoring ordinary per-project source paths repeats shared imports across packages, so this layout is larger than the earlier deduplicated 139.36 MiB prototype. It remains much smaller than the research checkout's approximately 1,437.9 MiB / 58,886 tracked files. Per-declaration graph files, repeated graph encodings, experiment outputs, staging/excluded candidates and build caches remain omitted. Redundant `original-source.tar.gz` copies are omitted while their expanded `original/` sources remain available.
 
-Only one canonical graph representation is retained per unique context. Source files are deduplicated by their byte hash, with original paths recorded in `projects.jsonl`. Research logs, excluded candidates, experiment outputs, build caches and repeated graph encodings are omitted. Only scratch versions, run outputs and materialized build/source trees remain ignored.
+## Verification
 
-## Validation performed
+The [byte comparison](migration-verification.json) confirms that all active `project.json` files, complete informal records, original label files, 8,734 source/resource files and retained original graph bytes match the pinned research snapshot. Input digests are checked using the original `project_cases.input_digest`, including the two established multi-root schemes and non-Lean runtime resources.
 
-The [verification record](../releases/0.1.0-preview/verification.json) records a complete comparison against the pinned research snapshot:
+The original `check_release_candidate.py` passes: registered scope, indexes, hashes, labels, 13 derived graph/receipt bindings, 34 upstream evidence records, provenance and licensing inventory. The annotation coverage audit passes with 172 binary labels and zero reference-ready records. Twelve tests cover native metadata preservation, changed Lean/resource rejection, graph hashes/input bindings, unsafe paths, joint roots and complete publication integrity. A fresh-clone check needs no research checkout, archive download or data preparation.
 
-- All 172 original labels and selected independent informal texts are unchanged.
-- Every released context matches the canonical normalization of its original exported graph, including contexts recovered from pinned archive Git objects.
-- All 8,734 retained formal source/resource files match their original bytes.
-- All 172 task payloads pass loader validation; input-only loading succeeds without accessing references or the research checkout.
-- All 12 tests pass, covering malformed/tampered payloads, reference bindings, provisional scoring, file inventory checks, joint-input layouts and exact source/resource restoration.
-- Rebuilding all three data directories from the same source produces identical file inventories and SHA-256 hashes; see the [determinism record](../releases/0.1.0-preview/determinism.json).
+`metadata/derived-graphs/retained-index.json` adds local access to the original graphs for every active input without changing original project metadata. It records source commit/path/hash and explicitly marks this migration as not performing a fresh build. Original derived records and composition evidence retain their original validation paths.
 
-A constant-prediction submission was used only to exercise the scoring interface. It is not a model evaluation result. No Lean recompilation was performed as part of this packaging migration: the original compilation flags and evidence are retained, and recovered context availability does not imply successful full-project compilation.
+## Evaluation and remaining limits
 
-## Conditions before a public gold release
+This restores the latest native data contract, not a newly frozen model export. Package metadata and source modules include history, comments and proofs, and must not be copied wholesale into prompts. The original protocol tools remain available for separately supplied complete evaluation packages, exactly as upstream documented; a native conversion and its exact reference bindings are still separate work. The current native dataset has binary labels; older transport abstention is not a third gold class.
 
-All labels retain `reference_ready=false`. Review reports and existing user confirmations are preserved without upgrading them to human-adjudicated gold labels. Three legacy label records have empty reasons; these historical records remain unchanged, while new predictions must supply a nonempty reason.
-
-The two KZG function-binding inputs retain dated cached CGKY25 text, but the precise original PDF revision and its hash are still unverified. Evidence and locator caveats are available in evaluator provenance. The historical AppliedModelingLib license-copy gap remains documented in the license index; upstream attribution and redistribution terms require their own review before public redistribution.
-
-A final human review policy and official evaluation splits are not defined by this preview. These are publication decisions still to be completed. Separate artifact hosting and download URLs are unnecessary for the Git-tracked dataset. Local input loading, development scoring and source restoration are already usable without network access or the research repository.
+All labels remain provisional. Three legacy aligned labels have empty reasons; no justifications have been invented. The two KZG function-binding inputs still lack a verified exact original PDF revision/hash. The AppliedModelingLib historical license-copy gap remains recorded. No Lean recompilation, proof completeness certification or semantic re-annotation is claimed by this migration. The original research checkout and remote data branches remain unchanged apart from read-only remote reference fetching; no release push has been performed.

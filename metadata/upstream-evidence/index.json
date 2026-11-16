@@ -1,0 +1,114 @@
+{
+  "schema_version": "paperlean-upstream-evidence-index-1",
+  "policy": "Explicit upstream statements only; upstream claims are not verified labels. No inference from before/after order, compilation, generic repair titles, or local model reviews.",
+  "search_scope": "Locally frozen upstream commit/issue/PR payloads in the two historical archives, source.leads and source revisions for the 137 registered inputs, and targeted frozen upstream scope documentation. This is not an exhaustive audit of the live upstream repositories.",
+  "datasets": {
+    "applied-modeling-lib": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 30
+    },
+    "carleson": {
+      "file": "carleson.jsonl",
+      "evidence_records": 1,
+      "inputs_with_evidence": 2,
+      "inputs_without_retained_evidence": 5
+    },
+    "coarse-degiorgi": {
+      "file": "coarse-degiorgi.jsonl",
+      "evidence_records": 2,
+      "inputs_with_evidence": 4,
+      "inputs_without_retained_evidence": 3
+    },
+    "sphere-packing": {
+      "file": "sphere-packing.jsonl",
+      "evidence_records": 2,
+      "inputs_with_evidence": 8,
+      "inputs_without_retained_evidence": 1
+    },
+    "formalslt": {
+      "file": "formalslt.jsonl",
+      "evidence_records": 2,
+      "inputs_with_evidence": 4,
+      "inputs_without_retained_evidence": 2
+    },
+    "vaught": {
+      "file": "vaught.jsonl",
+      "evidence_records": 3,
+      "inputs_with_evidence": 3,
+      "inputs_without_retained_evidence": 0
+    },
+    "stat-learning-theory": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 1
+    },
+    "statsmllib": {
+      "file": "statsmllib.jsonl",
+      "evidence_records": 1,
+      "inputs_with_evidence": 2,
+      "inputs_without_retained_evidence": 0
+    },
+    "brownian-motion": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 2
+    },
+    "pfr": {
+      "file": "pfr.jsonl",
+      "evidence_records": 10,
+      "inputs_with_evidence": 22,
+      "inputs_without_retained_evidence": 2
+    },
+    "sphere-eversion": {
+      "file": "sphere-eversion.jsonl",
+      "evidence_records": 2,
+      "inputs_with_evidence": 4,
+      "inputs_without_retained_evidence": 2
+    },
+    "pnt": {
+      "file": "pnt.jsonl",
+      "evidence_records": 11,
+      "inputs_with_evidence": 40,
+      "inputs_without_retained_evidence": 0
+    },
+    "stacks": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 5,
+      "note": "No retained explicit mathematical-error statement bound to these roots. Generic sync, Picard-interface and audit-tool claims remain in the screening report."
+    },
+    "arklib": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 12,
+      "note": "Screening evidence and independent target sources are retained in repository extraction reports/packages; no scoring claim is inferred."
+    },
+    "imperial-flt": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 5,
+      "note": "Screening evidence and independent target sources are retained in repository extraction reports/packages; no scoring claim is inferred."
+    },
+    "equational-theories": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 7,
+      "note": "Screening evidence and independent target sources are retained in repository extraction reports/packages; no scoring claim is inferred."
+    },
+    "apap": {
+      "file": null,
+      "evidence_records": 0,
+      "inputs_with_evidence": 0,
+      "inputs_without_retained_evidence": 6,
+      "note": "Screening evidence and independent target sources are retained in repository extraction reports/packages; no scoring claim is inferred."
+    }
+  }
+}

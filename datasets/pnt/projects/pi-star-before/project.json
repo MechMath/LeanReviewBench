@@ -1,0 +1,71 @@
+{
+  "id": "pi-star-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT pi-star-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "pi_star",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "pi_star",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+  },
+  "group_id": "pnt-pi_star",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "pi-star-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "当前文字定义就是截至x的Λ(n)/n之和；formal用Ioc 1 floor(x)。n=1项Λ(1)=0，去掉它不改值，取整恰好编码整数n≤x。此判定不将其替换成另一篇论文的半权prime-power计数。",
+  "external_imports": [
+    "Mathlib.NumberTheory.Chebyshev"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "4f873afca197ebacdbccaf2e004a1fbd94714a3bc51c15bcc520f5e37528e9ca"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction/repaired/pi-star-before/20261105T051050169250Z/receipt.json",
+    "receipt_sha256": "75227722b4f62274c3a0506571921d79979a7159d3bebd92c6aa33f02550743d",
+    "packaged_receipt": "reports/pnt-extraction/repaired/pi-star-before/20261105T051050169250Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "ffabf9c700b9c797be52a2489ad02140296f0902370ad1ce44eeb83858fd7a93",
+    "formal_snapshot_id": "pi-star-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "$\\pi^*(x)$ is the sum of $\\Lambda(n)/n$ for $n$ up to\n  $x$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "022a26b94e3693432178be5c51ec33485038d163b8dd8294971cf5d48be4c9a4",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

@@ -1,3 +1,5 @@
-# Preserve exact dataset and upstream license bytes on every platform.
-data/** -text
+# Preserve exact input, evidence, upstream license and integrity bytes.
+datasets/** -text
+metadata/** -text
+reports/** -text
 licenses/** -text

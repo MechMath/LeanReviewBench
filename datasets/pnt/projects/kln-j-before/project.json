@@ -1,0 +1,73 @@
+{
+  "id": "kln-j-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT kln-j-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "KLN.J",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+    "declaration": "KLN.J",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+    "sha256": "9630d7efe172c92be056b619d14029f6c9f2ced952da6702155ff4ab4dd49f65"
+  },
+  "group_id": "pnt-KLN.J",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "kln-j-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "已绑定作者论文式(4.17)的独立定义。formal 的积分对数次数、log(kT)与log T、整分子除法括号及a₂常数均存在差异；after仅修正T的分数幂，其他差异仍在。详见逐项公式对照及数值区分。",
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "9be6e47f9a1a65974cee2558b4b3d94a96df2439b3c9c8987a0e0bbb68f02535"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/kln-j-before/20261105T052245461319Z/receipt.json",
+    "receipt_sha256": "97c18b1e856aad4588dcbc03268188cb08773bb7c55be2113b00e0b6c127f961",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/kln-j-before/20261105T052245461319Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "3a85c2ee287855dd5d3bd676d68a5a560d2b5faea0def36eaf86203588baf34a",
+    "formal_snapshot_id": "kln-j-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+        "sha256": "9630d7efe172c92be056b619d14029f6c9f2ced952da6702155ff4ab4dd49f65",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": null
+      }
+    ],
+    "root_axioms": {
+      "default": "'KLN.J' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'KLN.J' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "informal_status": "independent_paper_target_bound",
+  "evaluation_eligible": true,
+  "input_sha256": "ac485f2221b5202584effd23dc275f1a7d00f241a2f53a51906f4f5d04826ef0",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

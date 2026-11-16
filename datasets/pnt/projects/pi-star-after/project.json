@@ -1,0 +1,71 @@
+{
+  "id": "pi-star-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT pi-star-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "pi_star",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "pi_star",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+  },
+  "group_id": "pnt-pi_star",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "pi-star-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "对当前文字Σ_{k≥1} π(x^(1/k))/k，formal多出的k=0项因实数除零总化为0；其余项逐项相同。π使用floor与primeCounting，编码≤x；正x下k足够大时x^(1/k)<2，和只有有限非零项。",
+  "external_imports": [
+    "Mathlib.NumberTheory.Chebyshev"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "315c067624f4faa93e2becf42b5e02d035870eabb5fae068650515322f662fbe"
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction/repaired/pi-star-after/20261105T051056293981Z/receipt.json",
+    "receipt_sha256": "ed5d2dfe1541f34f4352b7adab01dc7481d5a4e5cdfec9adb636492b25cf32cc",
+    "packaged_receipt": "reports/pnt-extraction/repaired/pi-star-after/20261105T051056293981Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "03abba0d84bc96afeaec4acae91e52dc4da7af8b2cd2cb80d1e88690feaa7945",
+    "formal_snapshot_id": "pi-star-after",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0",
+        "ref": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+        "text": "$\\pi^*(x) = \\sum_{k \\geq 1} \\pi(x^{1/k}) / k$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "ba8531bb0b37e077873e6c86b65d9fffdc3d8f5e84d54de9b67861b01b4370c3",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

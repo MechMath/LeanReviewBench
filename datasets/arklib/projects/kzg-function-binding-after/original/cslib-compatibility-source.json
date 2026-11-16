@@ -1,0 +1,52 @@
+{
+  "repository": "https://github.com/leanprover/cslib",
+  "revision": "5b56df99362532c46e1175381fbbdd755bd56030",
+  "files": {
+    "Cslib/Foundations/Data/PFunctor/Basic.lean": "444ad160f4a333bb58d8e63e3df5c6d68d754b54f04dd1bb24c546f3414a4b07",
+    "Cslib/Foundations/Data/PFunctor/Free.lean": "64b8a4bea77fabaf7bc8c836477eebd46814abac2947f36435754e37485d4620",
+    "Cslib/Foundations/Data/PFunctor/Free/W.lean": "ccefc2ce76de862f2dfaf1b90e1eb200e11b43cb1176d122bbf173dfa17fc78a",
+    "Cslib/Foundations/Data/PFunctor/Free/Fold.lean": "989ceb45184d76b5b3b1886afea6866799050459f6ef19f0e774642848a08a4e",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "1d06e6476b6fc502fec7005f0f609362ff6d60e9e1991a95f298267eca3acbaf"
+  },
+  "reason": "Unified 4.34 Cslib lacks new Basic and W modules. New definitions are vendored under dep.CslibCompat; existing FreeM is reused, only four proved upstream additive lemmas imported. No existing external Cslib module is shadowed.",
+  "original_pin": [
+    {
+      "url": "https://github.com/Verified-zkEVM/CompPoly",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "06686e4c70939af82203af21516f8ab8a21a8051",
+      "name": "CompPoly",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.35.0",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/Verified-zkEVM/VCVio",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "6214f907760776ceab8b1f828c9015f549e66e31",
+      "name": "VCVio",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "6214f907760776ceab8b1f828c9015f549e66e31",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/Verified-zkEVM/PolyFun",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "4181c82238142d9b73403fbf4c4b13e1a801e400",
+      "name": "PolyFun",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "4181c82238142d9b73403fbf4c4b13e1a801e400",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    }
+  ]
+}

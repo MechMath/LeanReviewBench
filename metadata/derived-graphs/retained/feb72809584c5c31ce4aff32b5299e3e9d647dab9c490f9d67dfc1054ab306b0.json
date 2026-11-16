@@ -1,0 +1,1042 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "ProbabilityTheory.condIndep_copies"
+  ],
+  "project_module_prefixes": [
+    "Main",
+    "dep"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {Ω : Type u_1} {α β : Type u} [inst : MeasurableSpace Ω] [inst_1 : MeasurableSpace α] [inst_2 : MeasurableSpace β]\n  [MeasurableSingletonClass β] (X : Ω → α) (Y : Ω → β),\n  Measurable X →\n    Measurable Y →\n      ∀ [finY : FiniteRange Y] (μ : MeasureTheory.Measure Ω) [MeasureTheory.IsProbabilityMeasure μ],\n        ∃ Ω' x X₁ X₂ Y' ν,\n          MeasureTheory.IsProbabilityMeasure ν ∧\n            Measurable X₁ ∧\n              Measurable X₂ ∧\n                Measurable Y' ∧\n                  ProbabilityTheory.CondIndepFun X₁ X₂ Y' ν ∧\n                    ProbabilityTheory.IdentDistrib (⟨X₁, Y'⟩) (⟨X, Y⟩) ν μ ∧\n                      ProbabilityTheory.IdentDistrib (⟨X₂, Y'⟩) (⟨X, Y⟩) ν μ",
+      "source_range": {
+        "start_line": 132,
+        "start_column": 0,
+        "end_line": 275,
+        "end_column": 34
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem",
+      "internal": false,
+      "id": "ProbabilityTheory.condIndep_copies",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "For `X, Y` random variables, there exist conditionally independent trials `X_1, X_2, Y'`. "
+    },
+    {
+      "value": null,
+      "type": "Type u_6 → Type u_6",
+      "source_range": {
+        "start_line": 48,
+        "start_column": 0,
+        "end_line": 59,
+        "end_column": 97
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "MeasurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measurable space is a space equipped with a σ-algebra. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_6) → [MeasurableSpace α] → Prop",
+      "source_range": {
+        "start_line": 240,
+        "start_column": 0,
+        "end_line": 243,
+        "end_column": 60
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "MeasurableSingletonClass",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A typeclass mixin for `MeasurableSpace`s such that each singleton is measurable. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {β : Type u_2} → [MeasurableSpace α] → [MeasurableSpace β] → (α → β) → Prop",
+      "source_range": {
+        "start_line": 490,
+        "start_column": 0,
+        "end_line": 494,
+        "end_column": 58
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Measurable",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A function `f` between measurable spaces is measurable if the preimage of every\nmeasurable set is measurable. "
+    },
+    {
+      "value": null,
+      "type": "{Ω : Type u_1} → {G : Type u_2} → (Ω → G) → Prop",
+      "source_range": {
+        "start_line": 7,
+        "start_column": 0,
+        "end_line": 9,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.PFR.ForMathlib.FiniteRange.Defs",
+      "kind": "class",
+      "internal": false,
+      "id": "FiniteRange",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The property of having a finite range. "
+    },
+    {
+      "value": null,
+      "type": "(α : Type u_5) → [MeasurableSpace α] → Type u_5",
+      "source_range": {
+        "start_line": 70,
+        "start_column": 0,
+        "end_line": 80,
+        "end_column": 48
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "structure",
+      "internal": false,
+      "id": "MeasureTheory.Measure",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measure is defined to be an outer measure that is countably additive on\nmeasurable sets, with the additional assumption that the outer measure is the canonical\nextension of the restricted measure.\n\nThe measure of a set `s`, denoted `μ s`, is an extended nonnegative real. The real-valued version\nis written `μ.real s`.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → {m0 : MeasurableSpace α} → MeasureTheory.Measure α → Prop",
+      "source_range": {
+        "start_line": 63,
+        "start_column": 0,
+        "end_line": 65,
+        "end_column": 27
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+      "kind": "class",
+      "internal": false,
+      "id": "MeasureTheory.IsProbabilityMeasure",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A measure `μ` is called a probability measure if `μ univ = 1`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u} → (α → Prop) → Prop",
+      "source_range": {
+        "start_line": 313,
+        "start_column": 0,
+        "end_line": 341,
+        "end_column": 38
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Exists",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Existential quantification. If `p : α → Prop` is a predicate, then `∃ x : α, p x`\nasserts that there is some `x` of type `α` such that `p x` holds.\nTo create an existential proof, use the `exists` tactic,\nor the anonymous constructor notation `⟨x, h⟩`.\nTo unpack an existential, use `cases h` where `h` is a proof of `∃ x : α, p x`,\nor `let ⟨x, hx⟩ := h`.\n\nBecause Lean has proof irrelevance, any two proofs of an existential are\ndefinitionally equal. One consequence of this is that it is impossible to recover the\nwitness of an existential from the mere fact of its existence.\nFor example, the following does not compile:\n```\nexample (h : ∃ x : Nat, x = x) : Nat :=\n  let ⟨x, _⟩ := h  -- fail, because the goal is `Nat : Type`\n  x\n```\nThe error message `recursor 'Exists.casesOn' can only eliminate into Prop` means\nthat this only works when the current goal is another proposition:\n```\nexample (h : ∃ x : Nat, x = x) : True :=\n  let ⟨x, _⟩ := h  -- ok, because the goal is `True : Prop`\n  trivial\n```\n"
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 589,
+        "start_column": 0,
+        "end_line": 603,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "And",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`."
+    },
+    {
+      "value": "fun {Ω} {α} {β} {γ} [MeasurableSpace Ω] [MeasurableSpace α] [MeasurableSpace β] [MeasurableSpace γ] f g h μ =>\n  ∀ᵐ (z : γ) ∂MeasureTheory.Measure.map h μ, ProbabilityTheory.IndepFun f g μ[|h ⁻¹' {z}]",
+      "type": "{Ω : Type u_1} →\n  {α : Type u_3} →\n    {β : Type u_4} →\n      {γ : Type u_5} →\n        [inst : MeasurableSpace Ω] →\n          [MeasurableSpace α] →\n            [MeasurableSpace β] →\n              [MeasurableSpace γ] →\n                (Ω → α) →\n                  (Ω → β) → (Ω → γ) → autoParam (MeasureTheory.Measure Ω) ProbabilityTheory.CondIndepFun._auto_1 → Prop",
+      "source_range": {
+        "start_line": 104,
+        "start_column": 0,
+        "end_line": 106,
+        "end_column": 44
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "def",
+      "internal": false,
+      "id": "ProbabilityTheory.CondIndepFun",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The assertion that `f` and `g` are conditionally independent relative to `h`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} →\n  {β : Type u_2} →\n    {γ : Type u_3} →\n      [inst : MeasurableSpace α] →\n        [inst_1 : MeasurableSpace β] →\n          [MeasurableSpace γ] →\n            (α → γ) →\n              (β → γ) →\n                autoParam (MeasureTheory.Measure α) ProbabilityTheory.IdentDistrib._auto_1 →\n                  autoParam (MeasureTheory.Measure β) ProbabilityTheory.IdentDistrib._auto_3 → Prop",
+      "source_range": {
+        "start_line": 68,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 44
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Probability.IdentDistrib",
+      "kind": "structure",
+      "internal": false,
+      "id": "ProbabilityTheory.IdentDistrib",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Two functions defined on two (possibly different) measure spaces are identically distributed if\ntheir image measures coincide. This only makes sense when the functions are ae measurable\n(as otherwise the image measures are not defined), so we require this as well in the definition. "
+    },
+    {
+      "value": null,
+      "type": "Type u → Type v → Type (max u v)",
+      "source_range": {
+        "start_line": 547,
+        "start_column": 0,
+        "end_line": 562,
+        "end_column": 9
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "Prod",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_6} → {β : Type u_7} → [m₁ : MeasurableSpace α] → [m₂ : MeasurableSpace β] → MeasurableSpace (α × β)",
+      "source_range": {
+        "start_line": 375,
+        "start_column": 0,
+        "end_line": 377,
+        "end_column": 12
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+      "kind": "def",
+      "internal": false,
+      "id": "Prod.instMeasurableSpace",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun {Ω} {S} {T} X Y ω => (X ω, Y ω)",
+      "type": "{Ω : Type u_1} → {S : Type u_2} → {T : Type u_3} → (Ω → S) → (Ω → T) → Ω → S × T",
+      "source_range": {
+        "start_line": 8,
+        "start_column": 0,
+        "end_line": 9,
+        "end_column": 81
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.PFR.ForMathlib.Pair",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "prod",
+      "generated_kind": null,
+      "external": false,
+      "docstring": "The pair of two random variables "
+    },
+    {
+      "value": null,
+      "type": "∀ {Ω : Type u_1} {G : Type u_2} {X : Ω → G}, (Set.range X).Finite → FiniteRange X",
+      "source_range": {
+        "start_line": 8,
+        "start_column": 6,
+        "end_line": 8,
+        "end_column": 17
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "dep.PFR.ForMathlib.FiniteRange.Defs",
+      "kind": "constructor",
+      "internal": false,
+      "id": "FiniteRange.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sort u → Lean.Syntax → Sort u",
+      "source_range": {
+        "start_line": 2648,
+        "start_column": 0,
+        "end_line": 2653,
+        "end_column": 70
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Tactics",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "autoParam",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Gadget for automatic parameter support. This is similar to the `optParam` gadget, but it uses\nthe given tactic.\nLike `optParam`, this gadget only affects elaboration.\nFor example, the tactic will *not* be invoked during type class resolution. "
+    },
+    {
+      "value": "Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq\n  (#[].push\n    (Lean.Syntax.node Lean.SourceInfo.none `Lean.Parser.Tactic.tacticSeq1Indented\n      (#[].push\n        (Lean.Syntax.node Lean.SourceInfo.none `null\n          (#[].push\n            (Lean.Syntax.node Lean.SourceInfo.none `MeasureTheory.tacticVolume_tac\n              (#[].push (Lean.mkAtom \"volume_tac\"))))))))",
+      "type": "Lean.Syntax",
+      "source_range": null,
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "def",
+      "internal": true,
+      "id": "ProbabilityTheory.CondIndepFun._auto_1",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → (α → Prop) → Filter α → Prop",
+      "source_range": {
+        "start_line": 279,
+        "start_column": 0,
+        "end_line": 282,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Order.Filter.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Filter.Eventually",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`f.Eventually p` or `∀ᶠ x in f, p x` mean that `{x | p x} ∈ f`. E.g., `∀ᶠ x in atTop, p x`\nmeans that `p` holds true for sufficiently large `x`. "
+    },
+    {
+      "value": null,
+      "type": "{Ω : Type u_1} →\n  {β : Type u_6} →\n    {γ : Type u_7} →\n      {_mΩ : MeasurableSpace Ω} →\n        [MeasurableSpace β] →\n          [MeasurableSpace γ] →\n            (Ω → β) → (Ω → γ) → autoParam (MeasureTheory.Measure Ω) ProbabilityTheory.IndepFun._auto_1 → Prop",
+      "source_range": {
+        "start_line": 140,
+        "start_column": 0,
+        "end_line": 146,
+        "end_column": 77
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Probability.Independence.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "ProbabilityTheory.IndepFun",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Two functions are independent if the two measurable space structures they generate are\nindependent. For a function `f` with codomain having measurable space structure `m`, the generated\nmeasurable space structure is `MeasurableSpace.comap f m`.\nWe use the notation `f ⟂ᵢ[μ] g` for `IndepFun f g μ` (scoped in `ProbabilityTheory`). "
+    },
+    {
+      "value": null,
+      "type": "{Ω : Type u_1} → {m : MeasurableSpace Ω} → MeasureTheory.Measure Ω → Set Ω → MeasureTheory.Measure Ω",
+      "source_range": {
+        "start_line": 72,
+        "start_column": 0,
+        "end_line": 77,
+        "end_column": 24
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Probability.ConditionalProbability",
+      "kind": "def",
+      "internal": false,
+      "id": "ProbabilityTheory.cond",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The conditional probability measure of measure `μ` on set `s` is `μ` restricted to `s`\nand scaled by the inverse of `μ s` (to make it a probability measure):\n`(μ s)⁻¹ • μ.restrict s`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → (α → β) → Set β → Set α",
+      "source_range": {
+        "start_line": 132,
+        "start_column": 0,
+        "end_line": 135,
+        "end_column": 61
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Operations",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.preimage",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The preimage of `s : Set β` by `f : α → β`, written `f ⁻¹' s`,\nis the set of `x : α` such that `f x ∈ s`. "
+    },
+    {
+      "value": null,
+      "type": "{α : outParam (Type u)} → {β : Type v} → [self : Singleton α β] → α → β",
+      "source_range": {
+        "start_line": 601,
+        "start_column": 2,
+        "end_line": 601,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Core",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Singleton.singleton",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`singleton x` is a collection with the single element `x` (notation: `{x}`). \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{x}` in identifiers is `singleton`."
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 44,
+        "start_column": 0,
+        "end_line": 51,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `Set.ofPred` (also written `{x | p x}`) and membership of a set (`∈`) should be\nused to convert between sets and predicates.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Singleton α (Set α)",
+      "source_range": {
+        "start_line": 230,
+        "start_column": 0,
+        "end_line": 230,
+        "end_column": 66
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.instSingletonSet",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} →\n  {F : Type u_3} → [inst : FunLike F (Set α) ENNReal] → [MeasureTheory.OuterMeasureClass F α] → F → Filter α",
+      "source_range": {
+        "start_line": 47,
+        "start_column": 0,
+        "end_line": 52,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.OuterMeasure.AE",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.ae",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The “almost everywhere” filter of co-null sets. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [inst : MeasurableSpace α] → FunLike (MeasureTheory.Measure α) (Set α) ENNReal",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 92,
+        "end_column": 97
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.Measure.instFunLike",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "∀ {α : Type u_1} [inst : MeasurableSpace α], MeasureTheory.OuterMeasureClass (MeasureTheory.Measure α) α",
+      "source_range": {
+        "start_line": 95,
+        "start_column": 0,
+        "end_line": 98,
+        "end_column": 26
+      },
+      "proof_valued": true,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+      "kind": "theorem",
+      "internal": false,
+      "id": "MeasureTheory.Measure.instOuterMeasureClass",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_4} →\n  {β : Type u_5} →\n    [inst : MeasurableSpace α] →\n      [inst_1 : MeasurableSpace β] → (α → β) → MeasureTheory.Measure α → MeasureTheory.Measure β",
+      "source_range": {
+        "start_line": 94,
+        "start_column": 0,
+        "end_line": 106,
+        "end_column": 32
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.MeasureTheory.Measure.Map",
+      "kind": "def",
+      "internal": false,
+      "id": "MeasureTheory.Measure.map",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The pushforward of a measure. If `f` is not an almost everywhere measurable function,\nwe define it to be `0` if `μ = 0`, and to be an arbitrary Dirac mass otherwise. That way\nwe always have `map f 0 = 0`, and the push-forward of a probability measure is always a\nprobability measure. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → α → β → α × β",
+      "source_range": {
+        "start_line": 558,
+        "start_column": 2,
+        "end_line": 558,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Prod.mk",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `(a, b)` in identifiers is `mk`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Set α → Prop",
+      "source_range": {
+        "start_line": 183,
+        "start_column": 0,
+        "end_line": 185,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Finite.Defs",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.Finite",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A set is finite if the corresponding `Subtype` is finite,\ni.e., if there exists a natural `n : ℕ` and an equivalence `s ≃ Fin n`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {ι : Sort u_1} → (ι → α) → Set α",
+      "source_range": {
+        "start_line": 169,
+        "start_column": 0,
+        "end_line": 173,
+        "end_column": 51
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Data.Set.Operations",
+      "kind": "def",
+      "internal": false,
+      "id": "Set.range",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Range of a function.\n\nThis function is more flexible than `f '' univ`, as the image requires that the domain is in Type\nand not an arbitrary Sort. "
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 5043,
+        "start_column": 0,
+        "end_line": 5096,
+        "end_column": 117
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Lean.Syntax",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Lean syntax trees.\n\nSyntax trees are used pervasively throughout Lean: they are produced by the parser, transformed by\nthe macro expander, and elaborated. They are also produced by the delaborator and presented to\nusers.\n"
+    },
+    {
+      "value": null,
+      "type": "Lean.SourceInfo → Lean.SyntaxNodeKind → Array Lean.Syntax → Lean.Syntax",
+      "source_range": {
+        "start_line": 5057,
+        "start_column": 2,
+        "end_line": 5074,
+        "end_column": 85
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Lean.Syntax.node",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A node in the syntax tree that may have further syntax as child nodes. The node's `kind`\ndetermines its interpretation.\n\nFor nodes produced by the parser, the `info` field is typically `Lean.SourceInfo.none`, and source\ninformation is stored in the corresponding fields of identifiers and atoms. This field is used in\ntwo ways:\n 1. The delaborator uses it to associate nodes with metadata that are used to implement\n    interactive features.\n 2. Nodes created by quotations use the field to mark the syntax as synthetic (storing the result\n    of `Lean.SourceInfo.fromRef`) even when its leading or trailing tokens are not.\n"
+    },
+    {
+      "value": null,
+      "type": "Lean.SourceInfo",
+      "source_range": {
+        "start_line": 4967,
+        "start_column": 2,
+        "end_line": 4968,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Lean.SourceInfo.none",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "A synthesized token without position information. "
+    },
+    {
+      "value": null,
+      "type": "String → String → String → String → Lean.Name",
+      "source_range": {
+        "start_line": 4868,
+        "start_column": 0,
+        "end_line": 4870,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.Name.mkStr4",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Make name `s₁.s₂.s₃.s₄` "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Array α → α → Array α",
+      "source_range": {
+        "start_line": 3327,
+        "start_column": 0,
+        "end_line": 3339,
+        "end_column": 34
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Array.push",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Adds an element to the end of an array. The resulting array's size is one greater than the input\narray. If there are no other references to the array, then it is modified in-place.\n\nThis takes amortized `O(1)` time because `Array α` is represented by a dynamic array.\n\nExamples:\n* `#[].push \"apple\" = #[\"apple\"]`\n* `#[\"apple\"].push \"orange\" = #[\"apple\", \"orange\"]`\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Array α",
+      "source_range": {
+        "start_line": 3251,
+        "start_column": 0,
+        "end_line": 3257,
+        "end_column": 61
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Array.empty",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Constructs a new empty array with initial capacity `0`.\n\nUse `Array.emptyWithCapacity` to create an array with a greater initial capacity.\n"
+    },
+    {
+      "value": null,
+      "type": "String → Lean.Name",
+      "source_range": {
+        "start_line": 4856,
+        "start_column": 0,
+        "end_line": 4858,
+        "end_column": 20
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.Name.mkStr1",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Make name `s₁` "
+    },
+    {
+      "value": null,
+      "type": "String → String → Lean.Name",
+      "source_range": {
+        "start_line": 4860,
+        "start_column": 0,
+        "end_line": 4862,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.Name.mkStr2",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Make name `s₁.s₂` "
+    },
+    {
+      "value": null,
+      "type": "String → Lean.Syntax",
+      "source_range": {
+        "start_line": 5456,
+        "start_column": 0,
+        "end_line": 5458,
+        "end_column": 33
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "Lean.mkAtom",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Constructs a synthetic `atom` with no source info. "
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "edges": [
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSingletonClass",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "Measurable",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "FiniteRange",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.IsProbabilityMeasure",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "Exists",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "And",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.CondIndepFun",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.IdentDistrib",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "Prod",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "Prod.instMeasurableSpace",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "prod",
+      "source": "ProbabilityTheory.condIndep_copies",
+      "site": "type"
+    },
+    {
+      "target": "FiniteRange.mk",
+      "source": "FiniteRange",
+      "site": "constructor_type"
+    },
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "type"
+    },
+    {
+      "target": "autoParam",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "type"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "type"
+    },
+    {
+      "target": "ProbabilityTheory.CondIndepFun._auto_1",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "type"
+    },
+    {
+      "target": "MeasurableSpace",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "Filter.Eventually",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "ProbabilityTheory.IndepFun",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "ProbabilityTheory.cond",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.preimage",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "Singleton.singleton",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.instSingletonSet",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.ae",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure.instFunLike",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure.instOuterMeasureClass",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "MeasureTheory.Measure.map",
+      "source": "ProbabilityTheory.CondIndepFun",
+      "site": "definition_value"
+    },
+    {
+      "target": "Prod",
+      "source": "prod",
+      "site": "type"
+    },
+    {
+      "target": "Prod.mk",
+      "source": "prod",
+      "site": "definition_value"
+    },
+    {
+      "target": "Set.Finite",
+      "source": "FiniteRange.mk",
+      "site": "type"
+    },
+    {
+      "target": "Set.range",
+      "source": "FiniteRange.mk",
+      "site": "type"
+    },
+    {
+      "target": "FiniteRange",
+      "source": "FiniteRange.mk",
+      "site": "type"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "type"
+    },
+    {
+      "target": "Lean.Syntax.node",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.SourceInfo.none",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr4",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.push",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Syntax",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Array.empty",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr1",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.Name.mkStr2",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Lean.mkAtom",
+      "source": "ProbabilityTheory.CondIndepFun._auto_1",
+      "site": "definition_value"
+    }
+  ]
+}

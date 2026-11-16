@@ -1,0 +1,1 @@
+Only local import module prefixes changed to dep. Original declarations/proofs/holes retained. Exact original modules and compatibility patch are stored under the corresponding report technical directory. No repaired successor substituted.

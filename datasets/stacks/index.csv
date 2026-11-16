@@ -1,0 +1,6 @@
+id,root,commit,group_id,before_ids,after_ids,status
+STK-004Y,TopologicalSpace.IrreducibleCloseds.exists_eq_singleton,e2299cf97f975b08e7b5b59202ed00adc80ff6b7,stacks:004Y,,,ready
+STK-08ZR,locallyCompactSpace_iff_weaklyLocallyCompactSpace,e2299cf97f975b08e7b5b59202ed00adc80ff6b7,stacks:08ZR,,,misaligned
+STK-09Y5-after,LocallyClosedPartition.exists_finite_good_refinement,e420713207f0a6682a65b2171362b77f2d217fa4,stacks:09Y5,STK-09Y5-before,,ready
+STK-09Y5-before,Setoid.Partitions.exists_finite_good_refinement,a382629a103aaf5f2acd0e7772460dbb8083ddf3,stacks:09Y5,,STK-09Y5-after,misaligned
+STK-0B34,Sum.not_t0_of_not_t0_left;Sum.not_quasiSober_of_not_quasiSober_right,e2299cf97f975b08e7b5b59202ed00adc80ff6b7,stacks:0B34,,,misaligned

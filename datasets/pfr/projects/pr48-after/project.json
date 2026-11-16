@@ -1,0 +1,110 @@
+{
+  "id": "pr48-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr48-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ent_of_diff_le",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48",
+    "path": "PFR/ruzsa_distance.lean",
+    "module": "PFR.ruzsa_distance",
+    "declaration": "ent_of_diff_le",
+    "url": "https://github.com/teorth/pfr/blob/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/PFR/ruzsa_distance.lean",
+    "sha256": "01957748790de8c543e288165997b76a5b3e2a37d6d6f174cc09c7de378354bd"
+  },
+  "group_id": "pfr-ruzsa-independence",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pr48-before"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "pending_reason": "原文前提为 (X,Z) 与 Y 独立，formal 前提为 (X,Y) 与 Z 独立；它们不是同一命题，也不能通过变量改名同时保持原不等式中的减项。",
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Data.Set.Insert",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Probability.Kernel.Composition.Comp",
+    "Mathlib.Probability.Kernel.Composition.Prod",
+    "Mathlib.Probability.Kernel.CondDistrib",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 35,
+    "sha256": "effe3868ca4a4cfa529e96cd4f6655b53c03e928d48fe71103c877ee06a7dda6"
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr48-after/20261104T091621952633Z/receipt.json",
+    "receipt_sha256": "76fd3c645b7bc41873d506a80cc8d576597f75d047918f9cb97ad30fdf70d903",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr48-after/20261104T091621952633Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "54294026f18f533b92b022027090a11cdc5c5c7b9e4d0558eb47e3361c7958bf",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/blueprint/src/chapter/distance.tex",
+        "sha256": "0e59178dcee8ccc5a8e84c44a0ebedf75b8519b6a152f23a5ef176d001e9597d",
+        "locator": "ruzsa-triangle-improved",
+        "text": "\\begin{lemma}[Improved Ruzsa triangle inequality]\n  \\label{ruzsa-triangle-improved}\n  \\lean{ent_of_diff_le}\n  \\leanok\n  If $X,Y,Z$ are $G$-valued random variables on $\\Omega$ with $(X,Z)$ independent of $Y$, then\n  \\begin{equation}\\label{submod-explicit} \\bbH[X - Y] \\leq \\bbH[X-Z] + \\bbH[Z-Y] - \\bbH[Z]\\end{equation}\n\\end{lemma}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/blueprint/src/chapter/entropy.tex",
+        "sha256": "5989174af8adab3aff6d9b8b95d60c049c1dc1586bfdd12bc0aad3d6fc72961d",
+        "locator": "distance.tex: ruzsa-triangle-improved, lines149-170; finite group scope line3",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'ent_of_diff_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'ent_of_diff_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "historical_statement_with_kernel_checked_bridge"
+  },
+  "input_sha256": "111f13fdbc4792a7c6db4a2b16bf4186f7b7f6cf51528c9ebd018017d9924538",
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

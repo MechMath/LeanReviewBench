@@ -1,0 +1,63 @@
+{
+  "id": "STK-08ZR",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Stacks 08ZR",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "locallyCompactSpace_iff_weaklyLocallyCompactSpace",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/optpku/stacks",
+    "commit": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
+    "path": "ReasLib/Topology/Compactness/LocallyCompact.lean",
+    "module": "ReasLib.Topology.Compactness.LocallyCompact",
+    "declaration": "locallyCompactSpace_iff_weaklyLocallyCompactSpace",
+    "url": "https://github.com/optpku/stacks/blob/e2299cf97f975b08e7b5b59202ed00adc80ff6b7/ReasLib/Topology/Compactness/LocallyCompact.lean",
+    "sha256": "f52fdc05df15e81ad034746b1057ff0d204d345ba6d768bca697350ec8451b23",
+    "leads": []
+  },
+  "group_id": "stacks:08ZR",
+  "split_group": "optpku/stacks",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Tactic.CrossRefAttribute",
+    "Mathlib.Topology.Separation.Hausdorff"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "20c81250dbaf36d38e5cbe007f1ae8561914a4874f3e13eb79ce975240efa5fa"
+  },
+  "historical_status": "undetermined",
+  "technical_status": "extracted",
+  "alignment_reference": "metadata/labels/stacks.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
+    "graph": "reports/stacks-admission/technical/STK-08ZR/default/graph.json",
+    "explicit_graph": "reports/stacks-admission/technical/STK-08ZR/explicit/graph.json",
+    "review": "reports/stacks-admission/reviews.json",
+    "original_source": "reports/stacks-admission/original/STK-08ZR/Main.lean",
+    "receipt_sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39",
+    "packaged_receipt": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
+    "packaged_receipt_sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
+  },
+  "author_disclosure": "no_explicit_root_error_admission",
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "dataset": "applied-modeling-lib",
+  "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
+  "status": "passed",
+  "evidence": "elaborated_statement_type",
+  "root": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
+  "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
+  "graph_sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
+  "graph": "reports/bench-export-repair-2026-11-09/aml/EOS-theorem7_no_positive_transfer_conclusion/graph.json",
+  "source_map": "reports/bench-export-repair-2026-11-09/aml/EOS-theorem7_no_positive_transfer_conclusion/source-map.json",
+  "source_map_sha256": "5f1e9b08b98aa250175135483e816b19f0c7d20b9951a701c944d546be60f09f",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "original_source_commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+  "compiled_modules": [
+    "dep.EconCSLib.MechanismDesign.Auctions.Position",
+    "dep.EconCSLib.MechanismDesign.Auctions.MainTheorems",
+    "Probe"
+  ],
+  "new_sorry_or_axioms": false,
+  "canonical_dataset_changed": false,
+  "original_project_full_build_passed": false,
+  "original_theorem_proof_checked": false,
+  "root_definition_checked": false,
+  "source_fragments_exact": true,
+  "supplemental_legacy_declarations": [
+    "EconCSLib.Auction.paper_position_no_positive_transfers",
+    "EconCSLib.Auction.paper_theorem7_bstar_bid",
+    "EconCSLib.Auction.paper_theorem7_ranked_environment",
+    "EconCSLib.Auction.paper_theorem7_ranked_bstar_outcome",
+    "EconCSLib.Auction.paper_theorem7_ranked_vcg_tail_payment",
+    "EconCSLib.Auction.paper_theorem7_ranked_canonical_tail_remaining",
+    "EconCSLib.Auction.PaperTheorem7OrderedRankedCanonicalTailComparisonPaymentCertificate"
+  ],
+  "source_manifest": {
+    "Probe.lean": {
+      "sha256": "a633e0da0d5e23db42014ce7c8a97b550273f9e435f248f25d8be4f3c73dc655",
+      "bytes": 9083
+    },
+    "dep/EconCSLib/MechanismDesign/Auctions/MainTheorems.lean": {
+      "sha256": "1639449927d55b5131dd6633e10fac17187fa8820f422ea8b6b2a07d4ff0aa3a",
+      "bytes": 5264
+    },
+    "dep/EconCSLib/MechanismDesign/Auctions/Position.lean": {
+      "sha256": "a2f1e738469387dddbcccebaf60971ef67e2e7585ceb3600556ac556f2bc90af",
+      "bytes": 4481
+    }
+  },
+  "replay_command": "python3 build/bench-export-repair-20261109/aml/compile_sliced.py EOS-theorem7_no_positive_transfer_conclusion",
+  "build_result": {
+    "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
+    "status": "passed",
+    "compiled_modules": [
+      "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "dep.EconCSLib.MechanismDesign.Auctions.MainTheorems",
+      "Probe"
+    ],
+    "elapsed_seconds": 19.1242413520813,
+    "lean_path": "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/aml/projects/EOS-theorem7_no_positive_transfer_conclusion/slice-lib:/tmp/paperlean-mathlib-434-20261109/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/Qq/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/plausible/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/aesop/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/batteries/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/proofwidgets/.lake/build/lib/lean"
+  },
+  "review_method": "model",
+  "limitations_cn": "证据是原始声明类型/原生Prop定义的真实Lean展开，未声称整项目或原theorem证明通过Lean4.34.1。 EOS7补充使用明确记录的删除前legacy依赖，原pin缺损事实保留。",
+  "position_dependency_version_compatibility": {
+    "legacy_commit": "3c6a64802de232585064cf906faaefc9ba31b3bc",
+    "current_commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+    "path": "EconCSLib/MechanismDesign/Auctions/Position.lean",
+    "legacy_sha256": "fea773f18bc7da1e5a2d0457fe2a2fb2115ba16ae3ca664fb74b3b8261ddbccf",
+    "current_sha256": "b2cfc028621d06992e976e3f77ca80abf563b586386cccfa1c10dd7e68332ccd",
+    "entire_module_equal_modulo_comments_and_whitespace": true,
+    "only_diff": "StableAssignment documentation generalizes the wording EOS assignment-game bridge to assignment-game bridge; no code change."
+  }
+}

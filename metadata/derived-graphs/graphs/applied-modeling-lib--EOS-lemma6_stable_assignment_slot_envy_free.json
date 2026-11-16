@@ -1,0 +1,1319 @@
+{
+  "schema_version": 1,
+  "roots": [
+    "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
+  ],
+  "project_module_prefixes": [
+    "dep",
+    "StatementProbe"
+  ],
+  "policy": "root types; definition types and values; constructor field types; no theorem proof values; external module boundary",
+  "nodes": [
+    {
+      "value": null,
+      "type": "∀ {Bidder : Type u_1} {Slot : Type u_2} (E : PositionEnvironment Slot) (O : PositionOutcome Bidder Slot)\n  (values : Bidder → ℝ), PositionOutcome.StableAssignment E O values → PositionOutcome.SlotEnvyFree E O values",
+      "source_range": null,
+      "proof_valued": true,
+      "proof_checked": false,
+      "projection": false,
+      "private": false,
+      "module": "Main",
+      "kind": "theorem_statement",
+      "internal": false,
+      "id": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null,
+      "declaration_installed": false
+    },
+    {
+      "value": null,
+      "type": "Type u_1 → Type u_1",
+      "source_range": {
+        "start_line": 15,
+        "start_column": 0,
+        "end_line": 16,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "structure",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionEnvironment",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
+      "source_range": {
+        "start_line": 22,
+        "start_column": 0,
+        "end_line": 24,
+        "end_column": 30
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "structure",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 33,
+        "start_column": 0,
+        "end_line": 38,
+        "end_column": 49
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "structure",
+      "internal": false,
+      "id": "Real",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. "
+    },
+    {
+      "value": "fun {Bidder} {Slot} E O values =>\n  O.FeasibleAssignment ∧\n    PositionOutcome.IndividuallyRational E O values ∧ PositionOutcome.NoProfitableAssignedSlotDeviation E O values",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionEnvironment Slot → PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
+      "source_range": {
+        "start_line": 90,
+        "start_column": 0,
+        "end_line": 94,
+        "end_column": 50
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun {Bidder} {Slot} E O values =>\n  ∀ (i j : Bidder) (s : Slot),\n    O.slotOf j = some s → E.clickThroughRate s * (values i - O.paymentPerClick j) ≤ PositionOutcome.utility E O values i",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionEnvironment Slot → PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
+      "source_range": {
+        "start_line": 70,
+        "start_column": 0,
+        "end_line": 75,
+        "end_column": 28
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{Slot : Type u_1} → (Slot → ℝ) → PositionEnvironment Slot",
+      "source_range": {
+        "start_line": 15,
+        "start_column": 10,
+        "end_line": 15,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "constructor",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionEnvironment.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → (Bidder → Option Slot) → (Bidder → ℝ) → PositionOutcome Bidder Slot",
+      "source_range": {
+        "start_line": 22,
+        "start_column": 10,
+        "end_line": 22,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "constructor",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.mk",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Prop → Prop → Prop",
+      "source_range": {
+        "start_line": 589,
+        "start_column": 0,
+        "end_line": 603,
+        "end_column": 11
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "structure",
+      "internal": false,
+      "id": "And",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`."
+    },
+    {
+      "value": "fun {Bidder} {Slot} O => ∀ ⦃i j : Bidder⦄ ⦃s : Slot⦄, O.slotOf i = some s → O.slotOf j = some s → i = j",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionOutcome Bidder Slot → Prop",
+      "source_range": {
+        "start_line": 38,
+        "start_column": 0,
+        "end_line": 40,
+        "end_column": 53
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun {Bidder} {Slot} E O values => ∀ (i : Bidder), 0 ≤ PositionOutcome.utility E O values i",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionEnvironment Slot → PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
+      "source_range": {
+        "start_line": 43,
+        "start_column": 0,
+        "end_line": 45,
+        "end_column": 31
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun {Bidder} {Slot} E O values =>\n  ∀ (i j : Bidder) (s : Slot),\n    O.slotOf j = some s → E.clickThroughRate s * (values i - O.paymentPerClick j) ≤ PositionOutcome.utility E O values i",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionEnvironment Slot → PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
+      "source_range": {
+        "start_line": 77,
+        "start_column": 0,
+        "end_line": 82,
+        "end_column": 28
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Sort u_1} → α → α → Prop",
+      "source_range": {
+        "start_line": 46,
+        "start_column": 0,
+        "end_line": 76,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Eq",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`."
+    },
+    {
+      "value": null,
+      "type": "Type u → Type u",
+      "source_range": {
+        "start_line": 2920,
+        "start_column": 0,
+        "end_line": 2931,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "inductive",
+      "internal": false,
+      "id": "Option",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Optional values, which are either `some` around a value from the underlying type or `none`.\n\n`Option` can represent nullable types or computations that might fail. In the codomain of a function\ntype, it can also represent partiality.\n"
+    },
+    {
+      "value": "fun Bidder Slot self => self.1",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionOutcome Bidder Slot → Bidder → Option Slot",
+      "source_range": {
+        "start_line": 23,
+        "start_column": 2,
+        "end_line": 23,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → α → Option α",
+      "source_range": {
+        "start_line": 2930,
+        "start_column": 2,
+        "end_line": 2931,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Option.some",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "Some value of type `α`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → [self : LE α] → α → α → Prop",
+      "source_range": {
+        "start_line": 1287,
+        "start_column": 2,
+        "end_line": 1287,
+        "end_column": 4
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "LE.le",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`."
+    },
+    {
+      "value": null,
+      "type": "LE ℝ",
+      "source_range": {
+        "start_line": 296,
+        "start_column": 0,
+        "end_line": 298,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instLE",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HMul α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1385,
+        "start_column": 2,
+        "end_line": 1385,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HMul.hMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Mul α] → HMul α α α",
+      "source_range": {
+        "start_line": 1677,
+        "start_column": 0,
+        "end_line": 1679,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Mul ℝ",
+      "source_range": {
+        "start_line": 105,
+        "start_column": 0,
+        "end_line": 107,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instMul",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun Slot self => self.1",
+      "type": "{Slot : Type u_1} → PositionEnvironment Slot → Slot → ℝ",
+      "source_range": {
+        "start_line": 16,
+        "start_column": 2,
+        "end_line": 16,
+        "end_column": 18
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → {β : Type v} → {γ : outParam (Type w)} → [self : HSub α β γ] → α → β → γ",
+      "source_range": {
+        "start_line": 1376,
+        "start_column": 2,
+        "end_line": 1376,
+        "end_column": 6
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "HSub.hSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator)."
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Sub α] → HSub α α α",
+      "source_range": {
+        "start_line": 1673,
+        "start_column": 0,
+        "end_line": 1675,
+        "end_column": 25
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "def",
+      "internal": false,
+      "id": "instHSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Sub ℝ",
+      "source_range": {
+        "start_line": 109,
+        "start_column": 0,
+        "end_line": 110,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instSub",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun Bidder Slot self => self.2",
+      "type": "{Bidder : Type u_1} → {Slot : Type u_2} → PositionOutcome Bidder Slot → Bidder → ℝ",
+      "source_range": {
+        "start_line": 24,
+        "start_column": 2,
+        "end_line": 24,
+        "end_column": 17
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": "fun {Bidder} {Slot} E O values i =>\n  match O.slotOf i with\n  | none => 0\n  | some s => E.clickThroughRate s * (values i - O.paymentPerClick i)",
+      "type": "{Bidder : Type u_1} →\n  {Slot : Type u_2} → PositionEnvironment Slot → PositionOutcome Bidder Slot → (Bidder → ℝ) → Bidder → ℝ",
+      "source_range": {
+        "start_line": 30,
+        "start_column": 0,
+        "end_line": 35,
+        "end_column": 69
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "def",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.utility",
+      "generated_kind": null,
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → (x : ℕ) → [self : OfNat α x] → α",
+      "source_range": {
+        "start_line": 1278,
+        "start_column": 2,
+        "end_line": 1278,
+        "end_column": 7
+      },
+      "proof_valued": false,
+      "projection": true,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "OfNat.ofNat",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The `OfNat.ofNat` function is automatically inserted by the parser when\nthe user writes a numeric literal like `1 : α`. Implementations of this\ntypeclass can therefore customize the behavior of `n : α` based on `n` and\n`α`. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u_1} → [Zero α] → OfNat α 0",
+      "source_range": {
+        "start_line": 17,
+        "start_column": 0,
+        "end_line": 18,
+        "end_column": 21
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Data.Zero",
+      "kind": "def",
+      "internal": false,
+      "id": "Zero.toOfNat0",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Zero ℝ",
+      "source_range": {
+        "start_line": 89,
+        "start_column": 0,
+        "end_line": 91,
+        "end_column": 8
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Mathlib.Basic.Real.Basic",
+      "kind": "def",
+      "internal": false,
+      "id": "Real.instZero",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": "fun {Slot} motive x h_1 h_2 => Option.casesOn x (h_1 ()) fun val => h_2 val",
+      "type": "{Slot : Type u_1} →\n  (motive : Option Slot → Sort u_2) →\n    (x : Option Slot) → (Unit → motive none) → ((s : Slot) → motive (some s)) → motive x",
+      "source_range": null,
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "dep.EconCSLib.MechanismDesign.Auctions.Position",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "generated_kind": "matcher",
+      "external": false,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Type",
+      "source_range": {
+        "start_line": 214,
+        "start_column": 0,
+        "end_line": 224,
+        "end_column": 27
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Unit",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The canonical type with one element. This element is written `()`.\n\n`Unit` has a number of uses:\n* It can be used to model control flow that returns from a function call without providing other\n  information.\n* Monadic actions that return `Unit` have side effects without computing values.\n* In polymorphic types, it can be used to indicate that no data is to be stored in a particular\n  field.\n"
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} → Option α",
+      "source_range": {
+        "start_line": 2928,
+        "start_column": 2,
+        "end_line": 2929,
+        "end_column": 19
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "constructor",
+      "internal": false,
+      "id": "Option.none",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "No value. "
+    },
+    {
+      "value": null,
+      "type": "{α : Type u} →\n  {motive : Option α → Sort u_1} → (t : Option α) → motive none → ((val : α) → motive (some val)) → motive t",
+      "source_range": {
+        "start_line": 2920,
+        "start_column": 0,
+        "end_line": 2931,
+        "end_column": 29
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Option.casesOn",
+      "generated_kind": null,
+      "external": true,
+      "docstring": null
+    },
+    {
+      "value": null,
+      "type": "Unit",
+      "source_range": {
+        "start_line": 226,
+        "start_column": 0,
+        "end_line": 231,
+        "end_column": 54
+      },
+      "proof_valued": false,
+      "projection": false,
+      "private": false,
+      "module": "Init.Prelude",
+      "kind": "abbrev",
+      "internal": false,
+      "id": "Unit.unit",
+      "generated_kind": null,
+      "external": true,
+      "docstring": "The only element of the unit type.\n\nIt can be written as an empty tuple: `()`.\n"
+    }
+  ],
+  "lean_version": "4.34.1",
+  "evidence": "elaborated_statement_type",
+  "edges": [
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "source": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "source": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment.mk",
+      "source": "EconCSLib.Auction.PositionEnvironment",
+      "site": "constructor_type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.mk",
+      "source": "EconCSLib.Auction.PositionOutcome",
+      "site": "constructor_type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "And",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "source": "EconCSLib.Auction.PositionOutcome.StableAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Eq",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHMul",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "HSub.hSub",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHSub",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instSub",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.utility",
+      "source": "EconCSLib.Auction.PositionOutcome.SlotEnvyFree",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionEnvironment.mk",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionEnvironment.mk",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.mk",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.mk",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.mk",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "Eq",
+      "source": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "source": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Auction.PositionOutcome.FeasibleAssignment",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.utility",
+      "source": "EconCSLib.Auction.PositionOutcome.IndividuallyRational",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Eq",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "LE.le",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instLE",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHMul",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "HSub.hSub",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHSub",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instSub",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.utility",
+      "source": "EconCSLib.Auction.PositionOutcome.NoProfitableAssignedSlotDeviation",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "type"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "type"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.slotOf",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "OfNat.ofNat",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Zero.toOfNat0",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instZero",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "HMul.hMul",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHMul",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instMul",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionEnvironment.clickThroughRate",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "HSub.hSub",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "instHSub",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Real.instSub",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "EconCSLib.Auction.PositionOutcome.paymentPerClick",
+      "source": "EconCSLib.Auction.PositionOutcome.utility",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Option.none",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "type"
+    },
+    {
+      "target": "Option",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.none",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.some",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Option.casesOn",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "definition_value"
+    },
+    {
+      "target": "Unit.unit",
+      "source": "EconCSLib.Auction.PositionOutcome.utility.match_1",
+      "site": "definition_value"
+    }
+  ]
+}

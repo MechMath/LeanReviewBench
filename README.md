@@ -1,82 +1,98 @@
 # LeanReviewBench
 
-A local release preview for assessing whether Lean declarations express independently supplied mathematical statements, including their qualifications and dependency context.
+A benchmark for informal–formal statement alignment in real Lean projects.
 
-Migrated from PaperLeanBench integration commit `18086147`: **172 inputs across 17 batches**, with **82 aligned and 90 misaligned provisional labels**. Stacks `STK-0B34` remains one joint input with two roots; the new ArkLib/FLT/Equational/APAP collection contributes 30 inputs. The original research repository is unchanged.
+This local publication preview retains **172 versioned inputs across 17 registered batches**, with **82 aligned and 90 misaligned provisional labels**. It uses the original **`paperlean-project-case-1`** format described in the paper's construction appendix and the research branch documentation. All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
-The complete dataset is stored **uncompressed and tracked by Git** in `data/0.1.0-preview`. Clone the repository and use it directly: no download service, archive extraction, research checkout or Lean installation is needed for loading and scoring. The dataset contains 3,729 files totaling 139.36 MiB before Git compression.
+```text
+datasets/
+  project-cases.json
+  <batch>/
+    README.md
+    index.csv
+    projects/<id>/
+      project.json
+      informal.jsonl
+      CHANGES.md                 # When compatibility changes exist
+      formal/
+        Main.lean
+        dep/
+metadata/
+  labels/<batch>.jsonl
+  upstream-evidence/
+  derived-graphs/
+    index.json                   # Original derived-graph/receipt bindings
+    retained-index.json          # Local access to all 172 original contexts
+  provenance.json
+  manifest.json
+  release.json
+reports/                         # Retained bound reviews and extraction evidence
+licenses/
+```
 
-| Directory | Contents | Intended reader |
-| --- | --- | --- |
-| `data/0.1.0-preview/inputs/` | Independent informal text and 159 deduplicated declaration contexts | Models and task loaders |
-| `data/0.1.0-preview/references/` | Input-bound labels, review states, reports and provenance | Evaluators and reviewers |
-| `data/0.1.0-preview/reproduction/` | Exact source/resource bytes, source materials and technical evidence | Source inspection and optional reproduction |
+Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes and label records are unchanged.
 
-Files use JSON/JSONL or retain their original source bytes. Identical source files share content-addressed blobs; the source inventory maps their original paths to those blobs. Model task loading reads only `inputs/`. See [migration results](docs/MIGRATION.md), [data format](docs/FORMAT.md) and [file hash inventory](releases/0.1.0-preview/manifest.json).
+## Validate and inspect
 
-## Quick start
-
-Python 3.10+; no third-party runtime dependencies. From a fresh clone:
+Python 3.11+; static checks have no third-party dependencies and need neither Lean nor network access:
 
 ```sh
-python3 -m leanreviewbench validate \
-  --data data/0.1.0-preview \
-  --manifest releases/0.1.0-preview/manifest.json
+python3 scripts/data/check_release_candidate.py
+python3 scripts/data/annotation_coverage.py
+python3 -m leanreviewbench validate
 python3 -m unittest discover -s tests -v
 ```
 
-Validation checks all 172 inputs and, when `--manifest` is supplied, every data file's size and SHA-256. No preparation or unpacking step is needed.
+The native checker validates registered scope, project indexes and input hashes, label bindings, graph receipts, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command also checks local graph availability for all 172 inputs.
+
+Open `datasets/<batch>/projects/<id>/formal/Main.lean` directly to read a source snapshot. No blob restoration step is required. To inspect native metadata and complete informal records:
+
+```sh
+python3 -m leanreviewbench inspect --id stacks:STK-0B34
+```
 
 ```python
 from leanreviewbench import Dataset
 
-data = Dataset('data/0.1.0-preview')
-task_id = data.ids()[0]
-task = data.task(task_id)
-print(task_id, task['roots'])
+bench = Dataset('.')
+package = bench.project('stacks:STK-0B34')
+print(package['project']['targets'])
+print(package['informal'])
+graph = bench.graph('stacks:STK-0B34')
 ```
 
-The evaluator-only [catalog](releases/0.1.0-preview/catalog.csv) maps opaque task IDs to original identities. `python3 -m leanreviewbench task --data data/0.1.0-preview --id TASK_ID --output runs/task.json` writes one complete model input. Graphs load on demand without implicit truncation.
+These are curator-facing package records, including source/history metadata. They are not filtered model prompts.
 
-## Predictions and development scoring
+## Data contract and evaluation boundary
 
-Supply one JSON object per line:
+[DATA-FORMAT.md](docs/DATA-FORMAT.md) and [PROJECT-CASE-WORKFLOW.md](docs/PROJECT-CASE-WORKFLOW.md) define the native format. The [paper appendix snapshot](docs/source-contracts/paper/app_imple_detail.tex) describes the same layout. Copies of the [latest fetched research documents](docs/source-contracts/research/README.md) are pinned to commit `2f471585`; dated counts in those copies are historical. The retained data come from integration commit `18086147`, preserving the agreed refactor joint-input layout.
 
-```json
-{"task_id":"TASK_ID","verdict":"misaligned","reason":"A concrete mathematical discrepancy.","declarations":["A.declaration"]}
-```
+The current dataset contract uses binary semantic labels and requires mathematical reasons and declaration evidence for negative decisions. It is a preparation/publication format, **not a frozen model evaluation export**. Exporting requires selected independent targets and qualifications, formal roots/context, comment/proof filtering, exclusion of review/history clues, and fresh export-bound task/reference hashes. This migration does not assert that all scope notes can be copied directly into a prompt: curator scope notes are not independent quotations.
 
-Verdicts are `aligned` or `misaligned`. Both require a nonempty reason; a negative prediction requires at least one known declaration. Unknown IDs and fields, duplicates, stale label bindings and incomplete submissions are rejected. Partial scoring requires `--allow-partial`.
+The original [evaluation tools](scripts/evaluation/README.md) and [protocol/v1](protocol/v1/README.md) are retained unchanged for compatibility with separately supplied complete packages. That older transport supports `insufficient_information` as a model abstention and is not a third gold class. It does not consume native project-case packages directly. No alternative release-only prediction schema or automatic native-to-model conversion is introduced here.
+
+## Reproduction and maintenance
+
+Compilation tools and [pinned environment configuration](docs/ENVIRONMENT.md) are retained. Recompilation needs externally installed pinned Lean, Mathlib and, where used, Cslib/LeanTrace:
 
 ```sh
-python3 -m leanreviewbench score \
-  --data data/0.1.0-preview --predictions runs/predictions.jsonl \
-  --references data/0.1.0-preview/references/labels.jsonl \
-  --allow-provisional
+python3 scripts/construction/compile_projects.py env
+python3 scripts/construction/compile_projects.py compile --dataset carleson --ids CAR-01-before
 ```
 
-Every current label has `reference_ready=false`. This preview does not promote existing review decisions to human-adjudicated gold. Scores must be described as provisional.
+This packaging migration performs static verification, not a fresh Lean build. Historical full-project compilation remains blocked for eight packages with recovered exported contexts. Compilation is separate from proof completeness and semantic labeling.
 
-## Optional source restoration
-
-```sh
-python3 -m leanreviewbench restore --data data/0.1.0-preview \
-  --id TASK_ID --output build/source-snapshot
-```
-
-This materializes byte-checked `formal/Main.lean`, local imports and runtime resources at their original relative paths from the tracked source blobs. It does not download Lean/Mathlib or claim a new compilation run. Existing proof holes and technical limitations remain recorded in evaluator provenance.
-
-## Rebuilding the migration
+To rebuild this publication layout from the pinned research checkout and its local archive Git objects:
 
 ```sh
 python3 tools/migrate.py --source /path/to/clean/research-checkout \
-  --version NEW_LOCAL_VERSION
+  --output /path/to/fresh-publication-directory
 ```
 
-This maintainer-only command needs the research repository and its locally available archive Git objects. It writes ordinary files under `data/NEW_LOCAL_VERSION` and a manifest/catalog under `releases/NEW_LOCAL_VERSION`, without creating compressed archives. Generated scratch versions are ignored until deliberately selected for tracking in `.gitignore`. Runtime use needs neither the research checkout, network, Lean nor credentials. File contents are deterministic for a fixed source snapshot.
+See [migration verification](docs/MIGRATION.md) for byte comparisons, exclusions, sizes and remaining source limitations. After an intentional data change, review input/reference bindings before regenerating `metadata/manifest.json` with `python3 scripts/data/release_metadata.py freeze`.
 
-## Attribution and limitations
+## Attribution and review status
 
-Code follows [LICENSE](LICENSE). Retained sources have their own [license records](licenses/index.json) and [NOTICE](NOTICE); this is not a blanket relicensing of data or source snapshots. The historical AppliedModelingLib license-copy gap remains documented.
+Code follows [LICENSE](LICENSE); upstream sources retain their own [license records](licenses/index.json) and [NOTICE](NOTICE). This is not a blanket relicensing of source material. The historical AppliedModelingLib license-copy gap remains recorded.
 
-See [MIGRATION.md](docs/MIGRATION.md) for label-state and source limitations, including the two KZG function-binding inputs whose exact original PDF revisions remain unverified. Eight historically blocked full-project compilation snapshots have recovered declaration contexts; this does not certify complete proofs or full compilation.
+All 172 labels remain provisional with `reference_ready=false`. User decisions and model reviews are preserved without promoting them to human gold. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.

@@ -1,0 +1,152 @@
+{
+  "schema_version": "paperlean-derived-graphs-1",
+  "purpose": "Hash-bound derived statement graphs recovered from frozen inputs; extraction evidence does not imply original proof certification.",
+  "records": [
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-lemma5_locally_envy_free_stable",
+      "root": "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable",
+      "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
+      "graph_sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
+      "evidence": "elaborated_statement_type",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/aml/EOS-lemma5_locally_envy_free_stable/receipt.json",
+      "receipt_sha256": "e6b0b6eaca6faba55fe0228ccd3dd3a48b46c81ad4ee54d7a61b83cb08b9d571"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+      "root": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
+      "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+      "graph_sha256": "70244e7329b5b6ef26952cf51eba4458dd5a059305a4ef7b14bbb35790acd9a6",
+      "evidence": "elaborated_statement_type",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma6_stable_assignment_slot_envy_free.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/aml/EOS-lemma6_stable_assignment_slot_envy_free/receipt.json",
+      "receipt_sha256": "f5cf23cbae2a7df7601b0cac761e41248040b4ca56570dc9144472d085b1a689"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
+      "root": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
+      "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
+      "graph_sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
+      "evidence": "elaborated_statement_type",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/aml/EOS-theorem7_no_positive_transfer_conclusion/receipt.json",
+      "receipt_sha256": "822b86765fd95a6ec8d2ec25251b3bf894472e7f4aa84af901737390d1f54a4e"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GCG24UserItemFairness-after-spec",
+      "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec",
+      "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+      "graph_sha256": "5acb7d85a727b12a3d70d96c2bbbf09a78cd7514e392e8d1c6dbc0e954cb59a8",
+      "evidence": "elaborated_statement_type",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-after-spec.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/aml/GCG24UserItemFairness-after-spec/receipt.json",
+      "receipt_sha256": "b355def62bc576aa49a79d4212ba49704b738626d58f5e19a1ce757baf2bbc12"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GCG24UserItemFairness-before",
+      "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
+      "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+      "graph_sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
+      "evidence": "elaborated_statement_type",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/aml/GCG24UserItemFairness-before/receipt.json",
+      "receipt_sha256": "f23b262a5a179e7fc3bf1f67693b564bc06b23818f5370eeca7a5ab343d27f1d"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-T31-HIST",
+      "root": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
+      "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+      "graph_sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+      "evidence": "elaborated_statement_type",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/aml/LG21-T31-HIST/receipt.json",
+      "receipt_sha256": "1d0e61ea8e6a4bc139d8e6f485a9bb09301be568cd09e9351f038be1f016285b"
+    },
+    {
+      "root": "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli",
+      "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
+      "graph_sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10",
+      "evidence": "compiled_environment",
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-L94",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-L94.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/cdg-graph/receipt.json",
+      "receipt_sha256": "b55c18cbbf2536e9473cab2004a1da281465191c31adabd2db2c4a7adb97c5dc"
+    },
+    {
+      "dataset": "stat-learning-theory",
+      "project_id": "slt-master",
+      "input_sha256": "fd65f2d8805f8dbd8c24e3eb8711cae28479a488adca9e0698fc0369441bed86",
+      "graph_sha256": "1f51954e06372b5abaa59df20fd21b2e40358c41617a0015ae1e76ee79ab3ea5",
+      "evidence": "elaborated_statement_type",
+      "root": "LeastSquares.master_error_bound",
+      "graph_path": "metadata/derived-graphs/graphs/stat-learning-theory--slt-master.json",
+      "receipt_path": "reports/bench-export-repair-2026-11-09/slt-statement-graph/receipt.json",
+      "receipt_sha256": "72ed2abe1ad85ceae0333ed99fb5af102c6e40f2b95cec8dcac27903592a3bbc"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-004Y",
+      "root": "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton",
+      "input_sha256": "143a9abe794373e0de6fd780354f4a4fd8e7b23d53da1ba0c7d35994fdc24257",
+      "evidence": "compiled_environment",
+      "graph_path": "reports/stacks-admission/technical/STK-004Y/default/graph.json",
+      "graph_sha256": "dfab9c6a68c00a58e772c0a23e17bf55f85ce7a9481be6e23c5febb8ad254614",
+      "receipt_path": "reports/stacks-admission/technical/STK-004Y/receipt.json",
+      "receipt_sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-08ZR",
+      "root": "locallyCompactSpace_iff_weaklyLocallyCompactSpace",
+      "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+      "evidence": "compiled_environment",
+      "graph_path": "reports/stacks-admission/technical/STK-08ZR/default/graph.json",
+      "graph_sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
+      "receipt_path": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
+      "receipt_sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-after",
+      "root": "LocallyClosedPartition.exists_finite_good_refinement",
+      "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
+      "evidence": "compiled_environment",
+      "graph_path": "reports/stacks-admission/technical/STK-09Y5-after/default/graph.json",
+      "graph_sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
+      "receipt_path": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
+      "receipt_sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-before",
+      "root": "Setoid.Partitions.exists_finite_good_refinement",
+      "input_sha256": "59408da39a01dfcd44cb961fb458bf41c0a18b27fda25d3f682874870fa8d449",
+      "evidence": "compiled_environment",
+      "graph_path": "reports/stacks-admission/technical/STK-09Y5-before/default/graph.json",
+      "graph_sha256": "9079946a52fd94bbcefc52ce27196481f9a7060235688ab0804e2c2a1683ab02",
+      "receipt_path": "reports/stacks-admission/technical/STK-09Y5-before/receipt.json",
+      "receipt_sha256": "255197982f24aa3d719862219672c7a3c098d631f9c6a6296a59095b7179d51a"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-0B34",
+      "roots": [
+        "Sum.not_t0_of_not_t0_left",
+        "Sum.not_quasiSober_of_not_quasiSober_right"
+      ],
+      "input_sha256": "1178be3b790897c2ad3c6260ac053bb9a48f661d969d1e0d9ec510b8c90b8ef3",
+      "evidence": "compiled_environment",
+      "graph_path": "reports/stacks-admission/technical/STK-0B34/default/graph.json",
+      "graph_sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
+      "receipt_path": "reports/stacks-admission/technical/STK-0B34/receipt.json",
+      "receipt_sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
+    }
+  ]
+}

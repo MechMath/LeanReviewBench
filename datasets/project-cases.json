@@ -1,0 +1,55 @@
+{
+  "schema_version": "paperlean-project-cases-1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "preparation_archive": {
+    "branch": "archive/real-project-preparation-2026-11-02",
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b"
+  },
+  "datasets": {
+    "applied-modeling-lib": "nikhgarg/AppliedModelingLib",
+    "carleson": "fpvandoorn/carleson",
+    "coarse-degiorgi": "scottnarmstrong/CoarseDeGiorgi",
+    "sphere-packing": "thefundamentaltheor3m/Sphere-Packing-Lean",
+    "formalslt": "Robby955/FormalSLT",
+    "vaught": "cameronfreer/vaught-conjecture-counterexample",
+    "stat-learning-theory": "YuanheZ/lean-stat-learning-theory",
+    "statsmllib": "Lean-MoDS/StatsMLlib",
+    "brownian-motion": "RemyDegenne/brownian-motion",
+    "pfr": "teorth/pfr",
+    "sphere-eversion": "leanprover-community/sphere-eversion",
+    "pnt": "AlexKontorovich/PrimeNumberTheoremAnd",
+    "stacks": "optpku/stacks",
+    "arklib": "Verified-zkEVM/ArkLib",
+    "imperial-flt": "ImperialCollegeLondon/FLT",
+    "equational-theories": "teorth/equational_theories",
+    "apap": "YaelDillies/apap"
+  },
+  "construction_tools": {
+    "lean": {
+      "path_env": "PAPERLEAN_LEAN",
+      "fallback": "Pinned toolchain resolved through elan"
+    },
+    "elan": {
+      "path_env": "PAPERLEAN_ELAN",
+      "fallback": "elan on PATH"
+    },
+    "leantrace": {
+      "path_env": "PAPERLEAN_LEANTRACE",
+      "required_files": [
+        "Export.lean",
+        "graph.py"
+      ],
+      "purpose": "Optional compatible exporter bundle; required only when re-extracting contexts"
+    }
+  }
+}

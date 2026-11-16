@@ -1,0 +1,472 @@
+[
+  {
+    "path": "FLT/AutomorphicForm/GroupTheoryStuff.lean",
+    "original_sha256": "a01a73aadd3f40509760b4f5fb4d370e1b08f915fcd0da31222c8adb597c7fa6",
+    "formal_sha256": "d8686da7c567875bbbc0e6114cb4a50091f336d269991b208afe9f3524b223c4"
+  },
+  {
+    "path": "FLT/DedekindDomain/AdicValuation.lean",
+    "original_sha256": "41bbd0414391c1dcb3e2107aed2b37fd524f8c58f2358c4240ebc13917a884f3",
+    "formal_sha256": "1fe66ed6eb47e42c5e3ffa4e5c526ba466d58c258ed517a405f6ccf860e35d5e"
+  },
+  {
+    "path": "FLT/DedekindDomain/Completion/BaseChange.lean",
+    "original_sha256": "e4acecbf16a87e317fc6200b6de20d7263218dae803f9e7e774568fcf5fba53a",
+    "formal_sha256": "73f08d0c737c982411bdce225702bc60781f1b359b75a475e4772baba9124140"
+  },
+  {
+    "path": "FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+    "original_sha256": "8ad21325b9e9f3871ea8fa4c3b9cef3bc0177a6f5350b140fef63f9d993a2428",
+    "formal_sha256": "aabe448114d63ad99d5bdb255c12170eed16daacd1e585feb496b283d7bbf9e0"
+  },
+  {
+    "path": "FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+    "original_sha256": "871574af0cb0d2e13af85bae135209e8a9e7698e8ce00f59c31a3a7d266bac12",
+    "formal_sha256": "871574af0cb0d2e13af85bae135209e8a9e7698e8ce00f59c31a3a7d266bac12"
+  },
+  {
+    "path": "FLT/DedekindDomain/FiniteAdeleRing/TensorPi.lean",
+    "original_sha256": "533aba3b171453799f58040f12e8af627eee69e84ec2e3837656e9a1b9d83e4d",
+    "formal_sha256": "533aba3b171453799f58040f12e8af627eee69e84ec2e3837656e9a1b9d83e4d"
+  },
+  {
+    "path": "FLT/DedekindDomain/FiniteAdeleRing/TensorProduct.lean",
+    "original_sha256": "7581383925fcfad7636eee0c4ba64447a6443b5dfd47af8957312789db91563a",
+    "formal_sha256": "25cf0b51789667daee6c6b69bf9b4c5f94040790a3194d8a49bb232bd17c633c"
+  },
+  {
+    "path": "FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+    "original_sha256": "6cf88c5985e8d26a850ab6b86f84264d4bbd075bc0af3f54a4dbdebff671bdbb",
+    "formal_sha256": "4f3ce900c54690b438b00bdd128edf3606e56c085085ee5f024442feeff3ff60"
+  },
+  {
+    "path": "FLT/DedekindDomain/IntegralClosure.lean",
+    "original_sha256": "ff10d4fb18432c1faedd79e56e40abd19422b26379c8ff5c19075fa0d9f00767",
+    "formal_sha256": "fc2443eb014e124d67a8ae2b0cc6a5d67ab6ed7cb855bf6d1a1c544dda4377a4"
+  },
+  {
+    "path": "FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+    "original_sha256": "8bc72d7fbab17ae6961e079f080fa3aeab5fbebc021f8b18b4c1ac3e1c56498e",
+    "formal_sha256": "5353fc14dc378917ede2ae198a12b45da27341022a34f16345246eb370ef2e73"
+  },
+  {
+    "path": "FLT/DivisionAlgebra/Finiteness.lean",
+    "original_sha256": "9ee0ec01339c942ac0736a13f6e0ad07741c46e5adb6c66e194545245bcb67a1",
+    "formal_sha256": "22afb863ecbd8709906f806f2e7e4f173eb7d5815daa0df45c4cbcc795cf34d7"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+    "original_sha256": "d96e644f47ddf6991c9eed09cec126e455d02449cf5642853e465e0cb23df6c0",
+    "formal_sha256": "d96e644f47ddf6991c9eed09cec126e455d02449cf5642853e465e0cb23df6c0"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+    "original_sha256": "79f6a4c50ec3ce560912e45b2f9cccb486aeac754ca009c07839c4796ceaf24d",
+    "formal_sha256": "94541bdf4c3a569e85ae0d84a1e7b409c46c49866dc22509794c42bf658a9840"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/FiniteAdeleRing.lean",
+    "original_sha256": "ba19407bbab13d2742e0a7edecc8845ec750a1fcb42c6c81d713d0bc0919eaa7",
+    "formal_sha256": "5b3bb337ba05a772b778740ffd8823036a588ada077165d73df3d5c82cc08cd9"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/FiniteDimensional.lean",
+    "original_sha256": "9609f5f9ce8e8ca9fe4808ecc8b76d066028e16fa1520aa1fc52e5826b75c632",
+    "formal_sha256": "9609f5f9ce8e8ca9fe4808ecc8b76d066028e16fa1520aa1fc52e5826b75c632"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/Padic.lean",
+    "original_sha256": "cebc32ca20d279e70caec25c615c25a53dc4801622ba5d66d1caa6df92a83257",
+    "formal_sha256": "f5d5dc76dc7d34c399866d701db2e786aae465cbf2e600269759ca889b8f808d"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/RealComplex.lean",
+    "original_sha256": "91e31a9f402341f6eb323cb36fa115eedc1a2c6b7c1d293290f9f80b3568d518",
+    "formal_sha256": "91e31a9f402341f6eb323cb36fa115eedc1a2c6b7c1d293290f9f80b3568d518"
+  },
+  {
+    "path": "FLT/HaarMeasure/HaarChar/Ring.lean",
+    "original_sha256": "f7e70a15f800bafd303f2a28da1ada584eaf3d72a586b96e4e757d8c27c3d740",
+    "formal_sha256": "f7e70a15f800bafd303f2a28da1ada584eaf3d72a586b96e4e757d8c27c3d740"
+  },
+  {
+    "path": "FLT/HaarMeasure/MeasurableSpacePadics.lean",
+    "original_sha256": "29de8cf9b3cd0ffaba31ad1bdc400661c3dd61a258685686b0e974de0710a109",
+    "formal_sha256": "29de8cf9b3cd0ffaba31ad1bdc400661c3dd61a258685686b0e974de0710a109"
+  },
+  {
+    "path": "FLT/Hacks/RightActionInstances.lean",
+    "original_sha256": "0af5e464ffd06bdaab2834200233949de1c991513e30d9f14db977abe308c75b",
+    "formal_sha256": "811fcc71bd42a35848afa2ca85dc4cffeb472d79dc25ba0629941bb3b6bdb516"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+    "original_sha256": "53ac9b53d616d428b7ad6e35e787144eebac0c955ada079ccab10d0ff9aacbde",
+    "formal_sha256": "ee9910f2f35e2e4f98ff65c9923295fb1df8adbc1865f7a9d2557f64fbcbfcda"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/Algebra/Hom.lean",
+    "original_sha256": "8cbb22429d324ef566f45dbb5d947c236a0ea5fc8af2f56546a13766879ad1b7",
+    "formal_sha256": "d67cf7f4f5abae7a1d30ec7650137c4c32eb20346f45ced255de830161efa1e0"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/Algebra/Pi.lean",
+    "original_sha256": "1c4a4d185a670ade3df09115aee89dd314c6aa3a70fde5ffc381730137c67d7c",
+    "formal_sha256": "1c4a4d185a670ade3df09115aee89dd314c6aa3a70fde5ffc381730137c67d7c"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/Algebra/Tower.lean",
+    "original_sha256": "10d0ad5f022f531f264ac60b85aa67441835fbbf9d3fc88801df73c983f15fac",
+    "formal_sha256": "10d0ad5f022f531f264ac60b85aa67441835fbbf9d3fc88801df73c983f15fac"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/Central/TensorProduct.lean",
+    "original_sha256": "339ef895acab3f1c628fd67487f033df525be1a4fa82fca67a7d983bb708037c",
+    "formal_sha256": "374b63514e860a759424f29f8fa9d27c03f6dd5b027c30746840dfb4d83b068a"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/IsDirectLimit.lean",
+    "original_sha256": "795f431f2b5ee383c42e2120b4889c0c64a9be27add71ccc045fc82f8b56dd2e",
+    "formal_sha256": "795f431f2b5ee383c42e2120b4889c0c64a9be27add71ccc045fc82f8b56dd2e"
+  },
+  {
+    "path": "FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+    "original_sha256": "ab4a9f867938884a4a1a3a1763ffece491601c13b3754a1c410f9de1f2c60a6e",
+    "formal_sha256": "ab4a9f867938884a4a1a3a1763ffece491601c13b3754a1c410f9de1f2c60a6e"
+  },
+  {
+    "path": "FLT/Mathlib/Data/Real/Archimedean.lean",
+    "original_sha256": "7ebec4126e481aaee282146be9286afb9c200f454b2a34a88fa41117699234d9",
+    "formal_sha256": "7ebec4126e481aaee282146be9286afb9c200f454b2a34a88fa41117699234d9"
+  },
+  {
+    "path": "FLT/Mathlib/GroupTheory/DoubleCoset.lean",
+    "original_sha256": "42aee498b543998beb28798aaeb431de9f1a6b84f4cf72b3e3783001c6a86dd3",
+    "formal_sha256": "047705fa6504b0a830eb0e588ad8ad8be2fc30bc690f12ff177cf9e0d1d8b918"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/Countable.lean",
+    "original_sha256": "be957dbf7f60c51bb4d585673a768ce94929f7899669c1c1b305774a9bb64d1b",
+    "formal_sha256": "be957dbf7f60c51bb4d585673a768ce94929f7899669c1c1b305774a9bb64d1b"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/Determinant.lean",
+    "original_sha256": "d04bfecf6af216d4e69b1c3cc731efc241bda874e0d0b7d8365ce318a33ba4b7",
+    "formal_sha256": "d04bfecf6af216d4e69b1c3cc731efc241bda874e0d0b7d8365ce318a33ba4b7"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+    "original_sha256": "767ae3e8b58dc0837132d898ce392f1ec7c27bc24bea65603be01182e598406b",
+    "formal_sha256": "767ae3e8b58dc0837132d898ce392f1ec7c27bc24bea65603be01182e598406b"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+    "original_sha256": "60d6d713026a86ccdd9403948102431e36002c12b9b16d65d490d8fb680b95f1",
+    "formal_sha256": "60d6d713026a86ccdd9403948102431e36002c12b9b16d65d490d8fb680b95f1"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/Pi.lean",
+    "original_sha256": "0105d12a889e8b8a2b03ded4c559d55d46269aaa13ba93af12adc9834df94866",
+    "formal_sha256": "0105d12a889e8b8a2b03ded4c559d55d46269aaa13ba93af12adc9834df94866"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/TensorProduct/Algebra.lean",
+    "original_sha256": "c3cf741dd6f5a4dc22bb84f459e7eeb2f28c0d18c04ff814ab99beff0bccf08a",
+    "formal_sha256": "3a8f2046119aac0e3b5a5622ad86058a4d1d5f8c9948f4efd203af5abf91f40c"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+    "original_sha256": "d06b6ed9ea567ea575e34d650f947d495bccb50e82d20e7e154f3626d978dded",
+    "formal_sha256": "d06b6ed9ea567ea575e34d650f947d495bccb50e82d20e7e154f3626d978dded"
+  },
+  {
+    "path": "FLT/Mathlib/LinearAlgebra/TensorProduct/FiniteFree.lean",
+    "original_sha256": "9f331cab11e9d69692e2f5642822d3dbdfa6aa825a5ba51dcd02fe8f0f1f625a",
+    "formal_sha256": "9f331cab11e9d69692e2f5642822d3dbdfa6aa825a5ba51dcd02fe8f0f1f625a"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+    "original_sha256": "da5108842edeed5ebc03339648a29aa6887d84eefa6266e35e93245654964f27",
+    "formal_sha256": "da5108842edeed5ebc03339648a29aa6887d84eefa6266e35e93245654964f27"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdicCompletion.lean",
+    "original_sha256": "d932981f4426535a7c950876c7898e9480aba32ea164e4b8c950287e25e2c51f",
+    "formal_sha256": "d932981f4426535a7c950876c7898e9480aba32ea164e4b8c950287e25e2c51f"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/FiniteAdeleRing.lean",
+    "original_sha256": "42a6ccf3fdd4b07606fc4ea03a1b8b8782e932b00fdebb28f0fe220c0225d6e3",
+    "formal_sha256": "42a6ccf3fdd4b07606fc4ea03a1b8b8782e932b00fdebb28f0fe220c0225d6e3"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/InfinitePlace.lean",
+    "original_sha256": "89c12668941b846d76117bc675e79534a432001e381b106f66115ce13571ee44",
+    "formal_sha256": "89c12668941b846d76117bc675e79534a432001e381b106f66115ce13571ee44"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/RestrictedProduct.lean",
+    "original_sha256": "8eb2e92b6c5237a64445cf68bed4be620f465b806c93b1e35b81413b52b114e9",
+    "formal_sha256": "8eb2e92b6c5237a64445cf68bed4be620f465b806c93b1e35b81413b52b114e9"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Group/Action.lean",
+    "original_sha256": "473851decb0337a8b484a4540a3281d302fe5d495464bd0c897224fb3e08b440",
+    "formal_sha256": "473851decb0337a8b484a4540a3281d302fe5d495464bd0c897224fb3e08b440"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Group/Measure.lean",
+    "original_sha256": "cf598f607d0b3059afd2388eb6eb1fefe1a02fe1fe190bad1c0f4b0e658f9f78",
+    "formal_sha256": "cf598f607d0b3059afd2388eb6eb1fefe1a02fe1fe190bad1c0f4b0e658f9f78"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Haar/Extension.lean",
+    "original_sha256": "b1a754f0028eb02dcdded7a772aba0edec897b63bc0163255a79c72fd9cfb31f",
+    "formal_sha256": "b1a754f0028eb02dcdded7a772aba0edec897b63bc0163255a79c72fd9cfb31f"
+  },
+  {
+    "path": "FLT/Mathlib/MeasureTheory/Measure/Typeclasses/Finite.lean",
+    "original_sha256": "aca33268c4b7e8c12e457518d8b50aaa79e93c760831e01e0649f3308bb0756e",
+    "formal_sha256": "aca33268c4b7e8c12e457518d8b50aaa79e93c760831e01e0649f3308bb0756e"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+    "original_sha256": "4322d8a967722e71d8c68044f5a39094efebfb3efc508391362779c90e61d330",
+    "formal_sha256": "4322d8a967722e71d8c68044f5a39094efebfb3efc508391362779c90e61d330"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+    "original_sha256": "d5d383b25835e2323d82980fe23f16f4a4e1e375b66639724d14a0f1284eda7a",
+    "formal_sha256": "d5d383b25835e2323d82980fe23f16f4a4e1e375b66639724d14a0f1284eda7a"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+    "original_sha256": "98a2fc29d24e6112f1ebf0b59ef434111baa79fb03869cbc945fa7cd4b1c517d",
+    "formal_sha256": "98a2fc29d24e6112f1ebf0b59ef434111baa79fb03869cbc945fa7cd4b1c517d"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+    "original_sha256": "187f3deb1377baa0d7f65c55d6eb38a9f2e124df2142a46a9455400a49f51391",
+    "formal_sha256": "187f3deb1377baa0d7f65c55d6eb38a9f2e124df2142a46a9455400a49f51391"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Completion.lean",
+    "original_sha256": "000bebf4d0c89b7c0d1821b9b872720eaee8e77fa21407e7b585fdb01bb5ebff",
+    "formal_sha256": "4567466a285bed896c60fc763778bbe2a8763c9437c973066f9aeba122b6d801"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+    "original_sha256": "8db71088ddf91074a749393ac03ef15281932751aac7c1bade9df72efbcbbe60",
+    "formal_sha256": "c550c6fb1034ad0fb4687d182d4ce0942ac09ea9bfed80dbdd203d7a8e6fd7d8"
+  },
+  {
+    "path": "FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+    "original_sha256": "0b7052c72894745e6cbe56a56626cc29392c7193778d0aebc12839b0ab23412b",
+    "formal_sha256": "2c7b7beed1ca7ea58cc356eba3659dfcd582870137a4454243a3e73f26f7fbd3"
+  },
+  {
+    "path": "FLT/Mathlib/Order/Filter/Cofinite.lean",
+    "original_sha256": "d899bd1d43bca6e1f4d0562371cb52ac3bde5051884665a776d8c63ad82a559e",
+    "formal_sha256": "d899bd1d43bca6e1f4d0562371cb52ac3bde5051884665a776d8c63ad82a559e"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+    "original_sha256": "1d7dd43cd1d779e6a545141be0ef05c4b28f923fe08a6af16584074b070d0b06",
+    "formal_sha256": "e98321627d648e42877f04a0b05d6dfe3d8ca0beb04130ef92c4d1d14d2efae3"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+    "original_sha256": "c360bd8a4ebcba0c17f31f4a9d79cba1314bafc9cef5abb09e38f97a8578cf8b",
+    "formal_sha256": "3c8f3d3f1d6a38acd52778d2df9ff6fb0274c6c7ea6f90fbabbd5c2d5afd0fab"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+    "original_sha256": "86b9e0ec911383633d36f8937caabaace14a0a6a9996d40bf96175cff913b210",
+    "formal_sha256": "86b9e0ec911383633d36f8937caabaace14a0a6a9996d40bf96175cff913b210"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+    "original_sha256": "f040f0736f51bd3ac4c0b47221d08d4156cfec459ee74bf1de62092d2affd76b",
+    "formal_sha256": "f040f0736f51bd3ac4c0b47221d08d4156cfec459ee74bf1de62092d2affd76b"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/Localization/BaseChange.lean",
+    "original_sha256": "c33262bf982f94c0a2b71d21a199cedcff11c04839985c1dd94920adf555f06a",
+    "formal_sha256": "e31b43b3f64f7df369117c3e1bef01c681ad233d0e932127c040982b3bfbe0f4"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/SimpleRing/TensorProduct.lean",
+    "original_sha256": "439099658220cfe4f3073f6252a4ea24f2c36647d9465af32e1aee03ef122ed9",
+    "formal_sha256": "439099658220cfe4f3073f6252a4ea24f2c36647d9465af32e1aee03ef122ed9"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/TensorProduct/Basis.lean",
+    "original_sha256": "6a7729204eb3fc7329bd223ee2134844d85d7dc171a91707c17de427cff376c4",
+    "formal_sha256": "6a7729204eb3fc7329bd223ee2134844d85d7dc171a91707c17de427cff376c4"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/TensorProduct/Pi.lean",
+    "original_sha256": "3cdf7662384c47dd03e55997cce9ec301ffa8983b40cccadef43f7491952b9fd",
+    "formal_sha256": "3cdf7662384c47dd03e55997cce9ec301ffa8983b40cccadef43f7491952b9fd"
+  },
+  {
+    "path": "FLT/Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+    "original_sha256": "983e9b2d3a3a4fc9dc741a7ef5388adf3e97bbe28df4a2a505c376df37858b75",
+    "formal_sha256": "983e9b2d3a3a4fc9dc741a7ef5388adf3e97bbe28df4a2a505c376df37858b75"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+    "original_sha256": "b60310bf5317b730b0673bab482dfafc3b9f567dd897ff1a09c7a489fffc8b0b",
+    "formal_sha256": "b60310bf5317b730b0673bab482dfafc3b9f567dd897ff1a09c7a489fffc8b0b"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/ContinuousAlgEquiv.lean",
+    "original_sha256": "9acea3b34782dfa07b16e95218a04f6580fc55fdc1915a77544b4e3afeb64939",
+    "formal_sha256": "9acea3b34782dfa07b16e95218a04f6580fc55fdc1915a77544b4e3afeb64939"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+    "original_sha256": "20677139a9f2162db2c3b8b04b1a65e8cc6ea5f1f9b56139892df79785684198",
+    "formal_sha256": "20677139a9f2162db2c3b8b04b1a65e8cc6ea5f1f9b56139892df79785684198"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Group/Quotient.lean",
+    "original_sha256": "3a9a354e1c4521e6e88390d84057982a1676db97a7d6f450691819bb041cd7ad",
+    "formal_sha256": "3a9a354e1c4521e6e88390d84057982a1676db97a7d6f450691819bb041cd7ad"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Group/Units.lean",
+    "original_sha256": "ad910df7ecdfb186458ea1991cb734ff96ad49fa164d07c61b54a51702667ce7",
+    "formal_sha256": "ad910df7ecdfb186458ea1991cb734ff96ad49fa164d07c61b54a51702667ce7"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Module/Equiv.lean",
+    "original_sha256": "daaafadd4336cc59b9bfc189e3702f63be8e87cb6e1e49ba618583c7f5efcd19",
+    "formal_sha256": "daaafadd4336cc59b9bfc189e3702f63be8e87cb6e1e49ba618583c7f5efcd19"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+    "original_sha256": "9624599b513bdb70d25dbf59e4bfe63707c94af15a3bbe1f7b4ee7057a75e5c4",
+    "formal_sha256": "9624599b513bdb70d25dbf59e4bfe63707c94af15a3bbe1f7b4ee7057a75e5c4"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+    "original_sha256": "a7f7fc99750b5ded51b9b6b593a8d69af27cbc404958ced91c82114b725c8dd2",
+    "formal_sha256": "a7f7fc99750b5ded51b9b6b593a8d69af27cbc404958ced91c82114b725c8dd2"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Module/Quotient.lean",
+    "original_sha256": "02d579ea424e200a3cf812e07db47252b219d82304fbeaf01a1663d21ae5ad1d",
+    "formal_sha256": "02d579ea424e200a3cf812e07db47252b219d82304fbeaf01a1663d21ae5ad1d"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Module/TensorProduct.lean",
+    "original_sha256": "c40e00262f86b1889639d29f938a42f181d186f6a342c4de8805bb732b8b1ade",
+    "formal_sha256": "c40e00262f86b1889639d29f938a42f181d186f6a342c4de8805bb732b8b1ade"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/MulAction.lean",
+    "original_sha256": "9d24ed096380343ef2cea514832d86f5e8a5240cef8cf489e1f13f3ec9f90a6f",
+    "formal_sha256": "9d24ed096380343ef2cea514832d86f5e8a5240cef8cf489e1f13f3ec9f90a6f"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Algebra.lean",
+    "original_sha256": "acab2260387b01390daa0e7699639e40091b98b91666dce9d2d46e20024054e4",
+    "formal_sha256": "acab2260387b01390daa0e7699639e40091b98b91666dce9d2d46e20024054e4"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+    "original_sha256": "d61cc2c03596ae25dd0ae9a2bcfd43751359890458268be2a1f0cb372088c90f",
+    "formal_sha256": "4a4ada2d0ef592a63fa0d5832488dbe49de4db9df53b6b788336b1ebdf61e91a"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+    "original_sha256": "bace9306c6fda91b1f6f1b00f9331973b8a0371117ddd9354c800267582ca9a3",
+    "formal_sha256": "fe09d0b1c0c040a53ed3ebc78459cb31ce9ec5ef3f3e7168270509c22ed6a187"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+    "original_sha256": "bedfe3fa9777c85bbc64c0735f252c68a253f0d98aba5eb7109a6d0633bc409f",
+    "formal_sha256": "c587d55629e8a4f93e0eec2eee703aa046fefd38b12a7a984431a8a6ce7c1bf3"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+    "original_sha256": "5a6f77ccc69b21a0d43869dac69ecdb6f5be948d475ba08c4abe02651f681a9e",
+    "formal_sha256": "34ad458d64993607ba6eb850ab56477d1719cc3f192b9b421e4d389d462a2eea"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/UniformRing.lean",
+    "original_sha256": "f21c238bb245d43f743ae339b5f586ea45154cdc7edb1d59b8ea20b51b9fc17b",
+    "formal_sha256": "f21c238bb245d43f743ae339b5f586ea45154cdc7edb1d59b8ea20b51b9fc17b"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Algebra/Valued/WithZeroMulInt.lean",
+    "original_sha256": "5c42389b591f4d55876eaa2152a2cae8f1909cfbd24ad4335d501f89efabdd3c",
+    "formal_sha256": "5c42389b591f4d55876eaa2152a2cae8f1909cfbd24ad4335d501f89efabdd3c"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Bases.lean",
+    "original_sha256": "856cabfa256753254de706d62504b3e7b934ba9ae484ca019d08b9cea2902d01",
+    "formal_sha256": "856cabfa256753254de706d62504b3e7b934ba9ae484ca019d08b9cea2902d01"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Constructions.lean",
+    "original_sha256": "1746b25f68e0d4924f5ec590d522d487594bd1f7d1d58e0fff0230c044ef8777",
+    "formal_sha256": "1746b25f68e0d4924f5ec590d522d487594bd1f7d1d58e0fff0230c044ef8777"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/HomToDiscrete.lean",
+    "original_sha256": "af84a8321ad29fcd0ccd96d582b2e9c9cc16d31ede550cd3990e1e4d0e424b55",
+    "formal_sha256": "7cc5947ae6a926f88c18730889d1602fa798016f45165c09a4eaf2bd2efc43b0"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/MetricSpace/ProperSpace/InfinitePlace.lean",
+    "original_sha256": "b0b08e7d09f1e51addfe0695db6844d8e000c5fdfd2ff072f57e156150b411f8",
+    "formal_sha256": "b0b08e7d09f1e51addfe0695db6844d8e000c5fdfd2ff072f57e156150b411f8"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/MetricSpace/Pseudo/Matrix.lean",
+    "original_sha256": "6d5bd0b2e7d1acb0b7d254a94edc550d0fd520e1a250f3adaa14025e3d602701",
+    "formal_sha256": "6d5bd0b2e7d1acb0b7d254a94edc550d0fd520e1a250f3adaa14025e3d602701"
+  },
+  {
+    "path": "FLT/Mathlib/Topology/Polish.lean",
+    "original_sha256": "af4107c49b5ca63e2c5fa69765c7fc9852e731e240cc65e9cd9e0be59c56d5ee",
+    "formal_sha256": "af4107c49b5ca63e2c5fa69765c7fc9852e731e240cc65e9cd9e0be59c56d5ee"
+  },
+  {
+    "path": "FLT/NumberField/AdeleRing.lean",
+    "original_sha256": "ed2432d6c9437717e17a6ead6fe13a68390a3d46a91f5d9e6468de8822a7ee41",
+    "formal_sha256": "44f46b9b429d22e0a50ee247eb86928e5528bbb05d859277218b0749a6c260a4"
+  },
+  {
+    "path": "FLT/NumberField/Completion/Finite.lean",
+    "original_sha256": "d9c5e4d3940a6ef24791ed96d747413fe65f392324088ed28ed890b00debdd53",
+    "formal_sha256": "6d2c82d5122788b9497fc63eed40c3045f1c60593378f45759797ff22f4869a7"
+  },
+  {
+    "path": "FLT/NumberField/Completion/Infinite.lean",
+    "original_sha256": "908e2b5f0278079368281321e4e2327bdbf1cc466e9043b4fc16bb685b07b9e8",
+    "formal_sha256": "1b232cea7dedfb9c890689f8f01664d16f029401f43a059a3b3487cb7eb358f3"
+  },
+  {
+    "path": "FLT/NumberField/HeightOneSpectrum.lean",
+    "original_sha256": "08df10fd41c3ceee4013a86d8a7c5c4dc13c100cb4cda1777738e929da8650bc",
+    "formal_sha256": "08df10fd41c3ceee4013a86d8a7c5c4dc13c100cb4cda1777738e929da8650bc"
+  },
+  {
+    "path": "FLT/NumberField/InfiniteAdeleRing.lean",
+    "original_sha256": "5c3f3d5c68c8ce83c23f4394866b0e978c49423be5a81c3c46d0274170dd90f4",
+    "formal_sha256": "1ac51c6e4d678054e0c232169514710dd0df0418712e7c38627403094acd87b3"
+  },
+  {
+    "path": "FLT/NumberField/InfinitePlace/Extension.lean",
+    "original_sha256": "e35dd4b68a6a8dea7c222ce0d0cba9b48db8d259bc0dcb268bbe6126c7033268",
+    "formal_sha256": "e35dd4b68a6a8dea7c222ce0d0cba9b48db8d259bc0dcb268bbe6126c7033268"
+  },
+  {
+    "path": "FLT/NumberField/Padics/RestrictedProduct.lean",
+    "original_sha256": "95ab77ccef304d02c16aa5488f4c4f192093b5732dec4c9fcd243130cf584982",
+    "formal_sha256": "957bbca6e72f22c7dc07fb5658e0cc16f96637964f4afc125af143b2317aa809"
+  }
+]

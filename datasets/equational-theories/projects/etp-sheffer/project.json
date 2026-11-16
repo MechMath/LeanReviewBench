@@ -1,0 +1,145 @@
+{
+  "id": "etp-sheffer",
+  "schema_version": "paperlean-project-case-1",
+  "title": "ETP-SHEFFER staged control",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Sheffer.Equation345169_is_Boolean",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Sheffer.Sheffer_Equation345169",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/equational_theories",
+    "commit": "8b87204d5b201e1cf6c69b8dcabb0558109bee00",
+    "path": "equational_theories/Sheffer.lean",
+    "module": "equational_theories.Sheffer",
+    "declarations": [
+      "Sheffer.Equation345169_is_Boolean",
+      "Sheffer.Sheffer_Equation345169"
+    ],
+    "sha256": "f3649c0bca5777d256f4eb1c14a5eb280fff09f41d1fca34de55e23499391333",
+    "declaration": "Sheffer.Equation345169_is_Boolean"
+  },
+  "group_id": "sheffer-axiomatization",
+  "split_group": "teorth/equational_theories",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "label": "undetermined",
+  "historical_status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "technical_status": "extracted",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "external_imports": [
+    "Batteries.Tactic.Exact",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Order.BooleanAlgebra.Set",
+    "Qq"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_role": "control",
+  "evaluation_eligible": false,
+  "changes": "CHANGES.md",
+  "original_source_archive": "original-source.tar.gz",
+  "compatibility_patch": "compatibility.patch",
+  "source_packet": "source-packet.json",
+  "gold_label": null,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "formal": {
+    "layout": "Main_and_dep",
+    "file_count": 21,
+    "resource_count": 0,
+    "sha256": "ce2a97fb3484f63dc254c56525f9b2e22fc47d4fcd88c371c8149f1007e05e26"
+  },
+  "resources": {},
+  "compatibility": {
+    "changed_files": [
+      "equational_theories/Equations/Command.lean",
+      "equational_theories/FreeMagma.lean",
+      "equational_theories/Homomorphisms.lean",
+      "equational_theories/MagmaLaw.lean",
+      "equational_theories/Sheffer.lean"
+    ],
+    "patch_sha256": "5d22b3bfc5d947461d63bdb4fa982110a11a66897220efa97805b80a54f694cf",
+    "added_sorry": false,
+    "added_axioms": false,
+    "target_weakened": false
+  },
+  "preparation": {
+    "compilation": "technical/compile.json",
+    "graph_modes": {
+      "default": {
+        "status": "passed",
+        "nodes": 82,
+        "edges": 334,
+        "raw_graph": "context/default/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      },
+      "explicit": {
+        "status": "passed",
+        "nodes": 82,
+        "edges": 334,
+        "raw_graph": "context/explicit/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      }
+    },
+    "original_archive_sha256": "4d7f82a0b56f9cf191165b34c4090fba9c816dd347598ac901e00ad4dde23b3d",
+    "source_packet_sha256": "5640bfa4d1474b9d7db1f0daebdf9f8f84e39b0e6d01020948298a4f87f3feea"
+  },
+  "pending_reason": null,
+  "input_sha256": "5ca02153328f26b7c71939c62eb66de531b4a1b9f313a61ea1aab4451adbbb96",
+  "original_external_imports": [
+    "Batteries.Tactic.Exact",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Order.BooleanAlgebra.Set",
+    "Qq"
+  ],
+  "human_adjudicated": false,
+  "source_family": "sheffer-axiomatization",
+  "material_complete": true,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "technical_receipt": "technical/relocated-receipt.json",
+  "alignment_reference": "metadata/labels/equational-theories.jsonl"
+}
