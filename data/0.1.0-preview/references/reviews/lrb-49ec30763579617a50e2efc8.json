@@ -1,0 +1,106 @@
+{
+  "dataset": "equational-theories",
+  "project_id": "etp-law-coverage",
+  "root": "laws_complete'",
+  "input_sha256": "c085f0df5c319dc029da2ac1c5da3e79ae4bf2aa728fb302b1d213d0103c4a65",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "15ba862ff3746bfe8cb222acbe098b34248e0d21b6e841d0142d5d44c20150ba",
+  "label": "aligned",
+  "reason": "按本题选定的枚举覆盖性目标，formal 对每条两侧二元运算总次数≤4 的律给出定律表中语义等价的条目。forks 对应原文 order，iff 量化所有 magma；根不要求输入已规范化，Nat 仅编码变量名。编号唯一性、最小性及完整蕴含图不在本题范围内。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为aligned; confirms aligned for equational-theories:etp-law-coverage after reviewing operation-count scope, semantic-equivalence coverage, internal canonicalization, and the selected endpoint limitations.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "当前冻结 scope 明确选定的定律枚举覆盖性：每条二元运算总次数不超过 4 的 magma 等式律，都与项目定律表中的条目语义等价；不把编号唯一性、列表最小性或完整蕴含图作为本题端点。",
+  "evidence_locations": {
+    "informal_and_selected_scope": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/informal.jsonl",
+      "line": 1,
+      "sha256": "b1919239844066c6ffb2ae43b9767c36a22b7931b83de6781a531498fb092780"
+    },
+    "source_numbering": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+      "line": 13,
+      "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+    },
+    "source_order_definition": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+      "line": 23,
+      "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+    },
+    "source_law_inventory": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+      "line": 37,
+      "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+    },
+    "law_list_construction": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+      "line": 20,
+      "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+    },
+    "law_operation_count": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+      "line": 133,
+      "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+    },
+    "term_operation_count": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/FreeMagma.lean",
+      "line": 143,
+      "sha256": "c2307f5d0253f469bcc679cfc62b10f304c5666a127b509a1e13814d9ae6edc7"
+    },
+    "canonicalization": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+      "line": 540,
+      "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+    },
+    "canonical_law_coverage": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+      "line": 757,
+      "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+    },
+    "root": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+      "line": 768,
+      "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+    },
+    "semantic_equivalence": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Preorder.lean",
+      "line": 18,
+      "sha256": "f17def52e0ec5a50d7c4b7c6d405e7bf68d2c7d193af1191ec45ff6826c95278"
+    },
+    "array_lookup": {
+      "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/RArray.lean",
+      "line": 18,
+      "sha256": "bc3bdde26a92fe31219ebbe9d197bb1ec500a5b90f068bc2679bd1773da79f08"
+    }
+  },
+  "semantic_argument": [
+    "原文 order 为 magma 二元运算出现次数。FreeMagma.forks 对叶节点记 0、对二叉运算节点记左右计数之和加 1；Law.MagmaLaw.forks 再将等式左右两侧相加。因此 l.forks≤4 与目标阶数限制一致。",
+    "根对任意 l:Law.MagmaLaw Nat 给出 ∃i:Nat, laws[i].iff l。iff 展开为对所有 G:Type 和 Magma G，两个全称等式律的满足关系等价，与目标的语义覆盖性一致。",
+    "laws 的构造逐一引用 Law1 至 Law4694。RArray.get 按分支最终返回已有叶节点；索引没有显式上界也不会产生表外的额外定律。本次不声称根显式证明了 i<4694。",
+    "辅助 laws_complete 对规范化律给出表中相等条目；根先调用 exists_canonical 获取语义等价且运算次数不增加的规范化律，再使用辅助覆盖结果，所以根没有额外的 IsCanonical 输入前提。",
+    "MagmaLaw Nat 中的 Nat 是变量名称编码，不是模型载体。每个等式语法树只出现有限多个变量，可重命名为自然数编号；语义仍量化一般 magma。",
+    "当前冻结 scope 仅要求定律枚举覆盖性。原段落中编号及整个蕴含图的背景描述，不被扩展为此根必须同时证明的唯一性、最小性或图分类结果。"
+  ],
+  "verification": {
+    "source_binding_checked": true,
+    "operation_count_and_equivalence_inspected": true,
+    "law_inventory_and_lookup_inspected": true,
+    "fresh_lean_build": false,
+    "new_lean_equivalence_proof": false
+  },
+  "limitations": [
+    "本次为陈述与关键定义的语义核对，未重新编译项目或重新运行完整的 4694 条律枚举计算。",
+    "aligned 判断限定于已绑定的覆盖性目标，不声称根同时证明编号唯一性、列表最小性或完整蕴含图。",
+    "不将该标签传播到同一证明家族中的其他输入。",
+    "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态。",
+    "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

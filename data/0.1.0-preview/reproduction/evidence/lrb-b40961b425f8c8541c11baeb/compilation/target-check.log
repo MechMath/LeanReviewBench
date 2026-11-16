@@ -1,0 +1,6 @@
+Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness : ∀ (R : Type) [inst : CommSemiring R] (deg : ℕ) {m : ℕ}
+  (D : Fin m ↪ R) (n : ℕ) {ι : Type} (oSpec : OracleSpec ι) [inst_1 : DecidableEq R] [inst_2 : SampleableType R]
+  {σ : Type} {init : ProbComp σ} {impl : QueryImpl oSpec (StateT σ ProbComp)} [inst_3 : Fintype R] [IsDomain R],
+  OracleVerifier.rbrKnowledgeSoundness init impl (Sumcheck.Spec.relationRound R n deg D 0)
+    (Sumcheck.Spec.relationRound R n deg D (Fin.last n)) (Sumcheck.Spec.oracleVerifier R deg D n oSpec) fun x =>
+    ↑deg / ↑(Fintype.card R)

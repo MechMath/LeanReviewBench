@@ -2,19 +2,15 @@
 
 The source project format, release package format and prediction protocol are distinct. This release does not copy the older three-verdict protocol: predictions are binary.
 
-## Git and artifact layout
+## Git and data layout
 
 ```text
-leanreviewbench/       # Runtime loader, verified local installer, scorer, CLI
+leanreviewbench/       # Loader, inventory verifier, scorer, CLI
 releases/<version>/
-  manifest.json       # Artifact and expanded-member byte sizes/SHA-256
+  manifest.json       # Per-directory file sizes and SHA-256 hashes
   catalog.csv         # Evaluator-only mapping; never a model prompt resource
 licenses/             # Original attribution copies and provenance index
-artifacts/<version>/  # Local compressed artifacts, ignored by Git
-  inputs.tar.gz
-  references.tar.gz
-  reproduction.tar.gz
-data/<version>/       # Verified installations, ignored by Git
+data/<version>/       # Uncompressed files, tracked by Git for the preview
   inputs/
     tasks.jsonl
     contexts/<sha256>.json
@@ -29,7 +25,7 @@ data/<version>/       # Verified installations, ignored by Git
     evidence/<task-id>/...
 ```
 
-The manifest is `leanreviewbench-release-1`; its source repository/commit fixes the research origin. The `url` fields are null until a hosting destination is chosen. The local installer uses supplied local artifacts and never invents remote URLs. Its digest is integrity metadata, not a digital signature.
+The manifest is `leanreviewbench-release-2`; its source repository/commit fixes the research origin. Its `directories` array lists the `inputs`, `references` and `reproduction` roles. Each entry has a relative directory `path`, total byte `size`, and a `files` inventory with relative `path`, byte `size` and `sha256`. There are no archive URLs or compressed-package dependencies. `validate --manifest` verifies every tracked data file against this inventory and rejects missing, unexpected or changed files and symlinks. Hashes provide byte integrity, not a digital signature.
 
 ## Mathematical input
 
@@ -37,7 +33,7 @@ A `leanreviewbench-input-1` row has exactly `schema_version`, opaque `task_id`, 
 
 The context ID is the SHA-256 of canonical UTF-8 JSON (sorted keys, compact separators, final newline). A `leanreviewbench-context-1` contains selected roots, declarations, dependency edges and explicit external-boundary policy. Nodes expose Lean names, kinds, actual types/non-proof values, external/proof flags and structural metadata. Docstrings, module source paths, line ranges, reviewer commentary and labels are removed by an allowlist. Exported type/value strings are preserved without re-elaboration or shortening. Theorems and other proof-valued nodes never expose values or value-dependency traversal. Edge sites are `type`, `definition_value` and `constructor_type`.
 
-`Dataset.task()` expands a graph reference into `leanreviewbench-task-1`: `schema_version`, `task_id`, `roots`, `informal`, `formal_context`, `environment`. This is the model-visible contract. It never reads `references/` or `reproduction/`. The optional source pack contains proofs/comments and review evidence and must not be mounted as a model task resource. Identifier and source-text clues inherent in the mathematics are not claimed to be anonymized.
+`Dataset.task()` expands a graph reference into `leanreviewbench-task-1`: `schema_version`, `task_id`, `roots`, `informal`, `formal_context`, `environment`. This is the model-visible contract. It never reads `references/` or `reproduction/`. The reproduction directory contains proofs/comments and review evidence and must not be mounted as a model task resource. Identifier and source-text clues inherent in the mathematics are not claimed to be anonymized.
 
 Multi-root inputs remain one task. Version pairs retain separate input identities. Do not split train/test sets by snapshots independently: use evaluator provenance `split_group`/`group_id` to avoid related-version leakage. No arbitrary official split is introduced by this migration.
 
@@ -47,7 +43,7 @@ Each reference row binds a task ID and canonical payload hash to a binary label.
 
 Provenance preserves the original project identity, commit/source, input hash, selected graph's exact source commit/path/hash, version relationships, grouping, compilation flag, independent source records and material caveats. It is evaluator-only. A migrated context can come from a verified recovered statement graph even if the original complete source package could not compile; these facts are kept separate.
 
-The normalization creates a new payload hash; it does not overwrite or reinterpret any original input hash or label. The manifest and optional source inventory cover byte integrity. They do not assert semantic equivalence merely from hashing.
+The normalization creates a new payload hash; it does not overwrite or reinterpret any original input hash or label. The manifest and source inventory cover byte integrity. They do not assert semantic equivalence merely from hashing.
 
 ## Optional reproduction
 

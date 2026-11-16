@@ -1,0 +1,68 @@
+{
+  "dataset": "apap",
+  "project_id": "int-uniform-after",
+  "root": "int",
+  "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "d7d17ebeaaa2d36aa6777f7e930fc5bac82e7e58c16b19a1ca22cec1f0223ace",
+  "label": "aligned",
+  "reason": "统一常数 c、指数符号及 1/12 次幂与当前原文一致；未使用的 ∃C>0 可取 C=1 消去，区间端点通过平移对应。双方共同缺少小 N 的处理条件，数学来源有效性仍需修订。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好,为我标为aligned然后看下一题; confirms the preceding statement-alignment explanation and shared small-N caveat for apap:int-uniform-after.",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "当前冻结 README 主段落的 1/12 幂陈述对齐，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-uniform-after 输入；不认证双方命题为真。",
+  "evidence_locations": {
+    "informal": "datasets/apap/projects/int-uniform-after/informal.jsonl:1",
+    "root": "datasets/apap/projects/int-uniform-after/formal/Main.lean:10"
+  },
+  "source_files_sha256": {
+    "datasets/apap/projects/int-uniform-after/informal.jsonl": "6fbfb7eda4c213b1c0da1898802478b09892291475f5f93fe56fcae712590f13",
+    "datasets/apap/projects/int-uniform-after/formal/Main.lean": "79d85781dde7385ab3f6a4f35fe41eac43a2f27c8d0c72aa23b7d652e95ea7d4"
+  },
+  "quantifier_comparison": {
+    "source": "exists c > 0, forall N A, P(A,N) -> |A| <= N / exp(c * (log N)^(1/12))",
+    "formal": "exists c > 0, exists C > 0, forall N A, P(A,N) -> |A| <= N / exp(c * (log N)^(1/12))",
+    "unused_C": "C does not occur in any later hypothesis or conclusion; choose C=1 to introduce it, or discard its witness to eliminate it."
+  },
+  "semantic_argument": [
+    "∃c>0 位于 ∀A,N 之前，表达独立于 A、N 的统一正常数。",
+    "原文和 formal 的分母均为 exp(c*(log N)^(1/12))，符号及实数分数幂一致。",
+    "∃C>0 的见证未用于后续命题；可取 C=1 增补，反向丢弃该见证，不改变剩余命题。",
+    "从 range N 到 {1,...,N} 的平移 a↦a+1 保持基数与三项等差关系，反向在正整数区间用 a↦a-1；不依赖 A、N 改变统一常数 c。",
+    "N=0 的额外分支只有空集，数值不等式为 0≤0。"
+  ],
+  "separate_source_issue": {
+    "N": 2,
+    "formal_A": [
+      0,
+      1
+    ],
+    "source_A": [
+      1,
+      2
+    ],
+    "argument": "二元素区间无非平凡三项等差数列，且 log 2>0。对任意 c>0，2/exp(c*(log 2)^(1/12))<2，故双方当前字面陈述均失败。",
+    "unused_C_does_not_repair": "C 未进入结论或任何 N 的限制，不能充当前置系数或充分大 N 的阈值。",
+    "needed_source_clarification": "需独立修订数学来源中的小 N 条件或有效前置常数，并按新输入重新绑定；本次没有修改输入。",
+    "evaluation_eligible": false,
+    "relation_to_label": "aligned 仅确认当前绑定陈述的对应关系，不表示数学定理有效或评测就绪。"
+  },
+  "status_semantics": "按仓库现有约定，已编译提取且标为 aligned 的项目使用 status=ready；historical_status、technical_status 及 evaluation_eligible=false 保持原值。",
+  "verification": {
+    "method": "Source statement and binder comparison; dummy existential elimination and translation argument; shared small-N issue checked symbolically.",
+    "lean_equivalence_proof": false,
+    "fresh_lean_build": false
+  },
+  "limitations": [
+    "冻结原文使用小写 log n 并有多余括号，数学解读按上下文理解为 log N，原文文件保持原样。",
+    "未纳入 README 后续章节另述的 1/9 改进。",
+    "用户确认已记录；沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+  ]
+}

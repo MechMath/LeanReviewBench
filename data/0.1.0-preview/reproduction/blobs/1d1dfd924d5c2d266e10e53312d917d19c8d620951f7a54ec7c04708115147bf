@@ -1,0 +1,41 @@
+{
+  "id": "dudley-covering-number",
+  "root": "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber",
+  "revision": "815d10dabf7c295417f82a1d7435a39214600e5f",
+  "text": "Let Z be a fair Rademacher sign, taking values +1 and -1 each with probability 1/2, and set X_t=Z*t for t in [0,1], equipped with Euclidean distance. For epsilon>0 let N(epsilon) be the minimum number of open Euclidean balls of radius epsilon, centered in [0,1], whose union covers [0,1]. Then E[sup_{t in [0,1]} X_t] <= 1 + 4*sqrt(2)*integral_{0}^{1/2} sqrt(log N(epsilon)) d epsilon. The integrand at epsilon=0 may be assigned any finite value without changing the integral.",
+  "origin": "author_advertised_concrete_specialization_with_independent_covering_number_semantics",
+  "source": {
+    "url": "https://homes.cs.washington.edu/~jrl/cse599wi23/notes/lec2.html",
+    "title": "James R. Lee, Generic chaining and Dudley’s entropy bound (CSE 599 Winter 2023, Jan 11)",
+    "locator": "Covering numbers paragraph, archived web receipt lines 29-35",
+    "reviewed_receipt": "reports/formalslt-rescreen/soundness/evidence/informal-source.json",
+    "receipt_sha256": "057cc92203130a4fc8398a2b7ff3089a4beb20bbc6d65a7090fd2bb5c20273fe",
+    "supports": "The covering number is a minimum ball-cover cardinality; Dudley entropy integrates sqrt(log N). This source does not supply the project-specific additive 1, coefficient 4 sqrt(2), truncation at 1/2 or the particular process."
+  },
+  "author_specialization_source": {
+    "url": "https://github.com/Robby955/FormalSLT/blob/bd75075fc73802b450af7b8aa5ef248386f25665/FormalSLT/Covering/ContinuousDudleyUnitIntervalCovering.lean",
+    "locator": "Module heading Genuine covering-number continuous Dudley capstone; final capstone docstring and displayed statement",
+    "retained": "Concrete process, variance proxy 1, coarse budget 1, radius scale 1 and upper endpoint 1/2. These numerical specialization choices are author-provided, not claimed as independent paper wording."
+  },
+  "scope": "Concrete two-outcome linear process only; no claim for arbitrary sub-Gaussian processes, no all-radius integral or improved constants. Open balls are fixed explicitly; the separating bound N(1/2)<=3 works with either open or closed balls.",
+  "semantic_label": "misaligned",
+  "reason": "The formal entropy function is sqrt(log of an adjacent-grid cardinality product), not sqrt(log of the minimum ball-cover count promised by the original genuine-covering-number task. Both inequalities may be true; the formal theorem solves a different, weaker-bound task.",
+  "separating_example": {
+    "radius": "1/2",
+    "implemented_count": "(2^(0+1)+1)*(2^(0+2)+1)=15",
+    "metric_count_upper_bound": 3,
+    "cover_centers": [
+      "0",
+      "1/2",
+      "1"
+    ],
+    "argument": "Every x in [0,1] is at distance at most 1/4 from one of these three centers, hence lies in an open radius-1/2 ball. Thus the minimal covering count is at most 3 and cannot equal 15. In fact the same three centers cover for every epsilon in (1/4,1/2], while the implementation is identically 15 throughout that annulus. This is not merely an isolated endpoint convention discrepancy."
+  },
+  "limitations": [
+    "This is an authored specialization plus independently sourced object semantics, not a verbatim theorem quotation from Lee.",
+    "The specification deliberately retains the original authors concrete constants and process. If benchmark policy requires all specialization constants independently present in a paper, retain this case as undetermined rather than call it fully independent-paper sourced.",
+    "The historical rename changes the claimed task, without changing the numeric formula, and is not a same-task aligned control.",
+    "Source-level provisional model judgment; compilation and actual graph review are separate gates; no human gold."
+  ],
+  "frozen_before_graph_review": true
+}

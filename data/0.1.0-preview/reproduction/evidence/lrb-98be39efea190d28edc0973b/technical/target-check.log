@@ -1,0 +1,5 @@
+NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset : ∀ (K : Type u_1) [inst : Field K]
+  [inst_1 : NumberField K] (D : Type u_2) [inst_2 : DivisionRing D] [inst_3 : Algebra K D]
+  [inst_4 : FiniteDimensional K D] [Algebra.IsCentral K D]
+  {U : Subgroup (NumberField.AdeleRing.DivisionAlgebra.Aux.Dfx K D)},
+  IsOpen ↑U → Finite (DoubleCoset.Quotient (Set.range ⇑(NumberField.AdeleRing.DivisionAlgebra.Aux.incl₁ K D)) ↑U)

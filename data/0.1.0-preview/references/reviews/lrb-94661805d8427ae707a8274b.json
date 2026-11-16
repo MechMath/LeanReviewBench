@@ -1,0 +1,105 @@
+{
+  "dataset": "carleson",
+  "project_id": "CAR-01-before",
+  "root": "metric_carleson",
+  "input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
+  "review_date": "2026-11-09",
+  "previous_label": "undetermined",
+  "label": "misaligned",
+  "reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，实质放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 全部兼容性与消去性条件的连续相位族，取零核后其余前提也成立；原文消去性与兼容性对同一相位族给出互相矛盾的距离界，即使重新选择辅助距离也无法满足。此判定针对主命题适用条件，不宣称 formal 结论为假；不以尚未闭合的 toReal 问题作为判负依据。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-09: 好 那为我将标签改成misaligned",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "Same frozen informal and formal inputs, same parameter a and same real-valued phase family; compare main-statement hypotheses, allowing alternative auxiliary distances in the informal definition.",
+  "verification_status": "Mathematical derivation with exact arithmetic checks; not a Lean-certified construction or a refutation of the formal conclusion.",
+  "evidence_locations": {
+    "informal": "datasets/carleson/projects/CAR-01-before/informal.jsonl:1; metric-space-Carleson, eq-vdc-cond, osccontrol, firstdb",
+    "target": "datasets/carleson/projects/CAR-01-before/formal/Main.lean:25",
+    "compatibility": "datasets/carleson/projects/CAR-01-before/formal/dep/Carleson/Defs.lean:94",
+    "norm": "datasets/carleson/projects/CAR-01-before/formal/dep/Carleson/Defs.lean:156",
+    "cancellative": "datasets/carleson/projects/CAR-01-before/formal/dep/Carleson/Defs.lean:169"
+  },
+  "distinguishing_construction": {
+    "parameters": {
+      "a": 4,
+      "A": 16,
+      "tau": "1/4",
+      "c": 159999,
+      "phase_amplitude": "400001*pi"
+    },
+    "space": "X = Q_2 with the usual 2-adic metric and Haar measure normalized by mu(Z_2)=1. The space is proper; the measure is regular and positive on nonempty open sets. Each nonempty open ball B(x,R) has measure delta, a power of 2, with delta < R <= 2*delta. Doubling R doubles delta, so the measure is 16-doubling.",
+    "phases": "Let b(x) in {0,1} be the coefficient of 2^(-1) in the 2-adic expansion. It is constant on Z_2 cosets, b(0)=0, b(1/2)=1, and b(x+1/2)=1-b(x). Set theta(x)=400001*pi*b(x), Theta={0,theta}. Both phases are continuous and vanish at 0. exp(i*theta(x))=(-1)^b(x).",
+    "auxiliary_distances": "For a nonempty ball with measure delta, set d_B(0,theta)=D(delta): c*delta for delta<=1, and 8*c*delta for delta>=2. This specifies a metric on the two-element phase family. For nonpositive radius use the zero pseudometric allowed by FunctionDistances.",
+    "compatibility_checks": [
+      "Local oscillation is zero when delta<=1; when delta>=2 it is at most 400001*pi < 16*c <= D(delta).",
+      "Ball inclusion implies monotonicity of delta and therefore D(delta).",
+      "D(2*delta)/D(delta) is 2 except at delta=1, where it is 16; hence cdist_le holds for all required centers.",
+      "D(16*delta) >= 16*D(delta) >= 2*D(delta), so le_cdist holds.",
+      "A metric space with two points can cover every ball of radius 2*s by at most two balls of radius s when s>0; for s<=0 the ball is empty. Thus the phase covering bound 16 holds.",
+      "The common zero point is 0. Empty-ball local oscillation and monotonicity conditions hold with zero auxiliary pseudometric."
+    ],
+    "formal_cancellative_proof": [
+      "For a globally Lipschitz test function phi with tsupport(phi) contained in B, let S=sup_B |phi| and L=Lip_X(phi). Compactness of B and the global Lipschitz bound ensure these suprema are finite. The formal iLipNorm is S+R*L.",
+      "If delta<=1, the integral has norm at most delta*S. Every y in B has an exterior point at distance 2*delta, where phi=0. Hence L>=S/(2*delta), and S+R*L >= (3/2)*S. Since (1+D(delta))^(1/4)<=20, the formal RHS is at least 16*delta*(3/2)*S/20=(6/5)*delta*S.",
+      "If delta>=2, translation by h=1/2 preserves B, has norm 2, and reverses exp(i*theta). Translation invariance yields |integral_B exp(i*theta)*phi| <= (1/2)*integral_B |phi(x)-phi(x+h)| <= delta*L. Together with the bound delta*S this gives delta*min(S,L).",
+      "For delta>=2, S+R*L >= (1+delta)*min(S,L), and (1+8*c*delta)^(1/4) <= 16*(1+delta). Thus the formal RHS is at least delta*min(S,L).",
+      "The reversed phase pair gives the same sign function. Equal phases have distance zero and satisfy the estimate by the trivial integral bound. Empty balls have integral and measure zero."
+    ],
+    "informal_impossibility_for_any_auxiliary_distances": [
+      "Take B0=B(0,2)=Z_2 and B1=B(0,4)=(1/2)*Z_2. The test phi=1_{Z_2} is globally Lipschitz with constant 1/2; its topological support is Z_2, contained in B0. Thus it meets either support convention.",
+      "On B0, theta=0, the integral is 1, and the paper ball-local Lipschitz norm of phi is 1. Paper cancellativity forces 1 <= 16*(1+d_B0(0,theta))^(-1/4), hence d_B0(0,theta)<=65535.",
+      "Paper compatibility for the concentric radius-2 and radius-4 balls then forces d_B1(0,theta)<=16*65535=1048560.",
+      "But 0 and 1/2 lie in B1, with phase values 0 and 400001*pi. Oscillation control forces d_B1(0,theta)>=400001*pi>1200003>1048560. This contradiction holds for any choice of paper auxiliary distances."
+    ],
+    "remaining_main_hypotheses": "Take the zero kernel K. IsOneSidedKernel holds, the nontangential operator is zero, and hT holds including its measurability requirement. Take q=qprime=2 and, for example, F=G=Z_2 and f=0. The formal main-statement assumptions are simultaneously satisfiable. The construction separates admissible hypotheses; it does not falsify the zero-kernel conclusion."
+  },
+  "exact_arithmetic_checks": {
+    "method": "Python integer/rational arithmetic; only the classical bounds 3 < pi < 4 are used for the phase amplitude.",
+    "phase_amplitude_lower_bound": 1200003,
+    "paper_distance_upper_bound": 1048560,
+    "phase_amplitude_upper_bound": 1600004,
+    "formal_distance_at_delta_2": 2559984,
+    "small_ball_available_factor": "24 > 20",
+    "large_ball_polynomial": "16^4*(1+delta)^4-(1+8*c*delta), substituting delta=t+2 with t>=0",
+    "large_ball_polynomial_coefficients_ascending": [
+      2748431,
+      5797896,
+      3538944,
+      786432,
+      65536
+    ],
+    "result": "passed"
+  },
+  "limitations": [
+    "The construction and measure-theoretic arguments have not been encoded and checked in Lean.",
+    "The independent toReal finiteness issue remains unresolved and is not used to justify this label.",
+    "This update changes only CAR-01-before; no verdict for another snapshot is inferred automatically.",
+    "User confirmation authorizes the label update; the existing provisional-review fields do not become formal human-gold certification."
+  ],
+  "previous_review": {
+    "task_id": "carleson:CAR-01-before",
+    "dataset": "carleson",
+    "project_id": "CAR-01-before",
+    "root": "metric_carleson",
+    "label": "undetermined",
+    "reason": "暂不纳入二分类评测。toReal 将 ∞ 映到 0，确与扩展实 L2 范数不同；但必须证明实际 CZ 算子在全部其他假设下可出现被隐藏的无限值，或证明有限性桥。通用 ENNReal 例子不足以判负。此外旧 iLipNorm 的差商 supremum 遍历全 X，原文遍历 B，且 tsupport 测试域与原文 support 需要等价性核查。",
+    "human_adjudicated": false,
+    "gold_label": null,
+    "reference_ready": false,
+    "review_status": "model_rechecked_unresolved_excluded",
+    "input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
+    "reviewed_graph_sha256": "e30f594de60cdc8c4de7956482980749af3c1a35305739847fb3e224f38ce497",
+    "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+    "source_review_url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/migration-semantic-review.json",
+    "review_date": "2026-11-05",
+    "review_report": "reports/undetermined-decisions-2026-11-05/review.json",
+    "adjudication_decision": "exclude_from_binary_evaluation",
+    "previous_input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
+    "previous_label": "undetermined",
+    "reviewer": "Codex",
+    "reviewer_type": "model"
+  }
+}

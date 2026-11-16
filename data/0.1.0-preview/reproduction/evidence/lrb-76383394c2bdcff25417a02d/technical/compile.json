@@ -1,0 +1,13 @@
+{
+  "dataset": "equational",
+  "project_id": "etp-sheffer",
+  "status": "passed",
+  "modules": 21,
+  "targets": [
+    "Sheffer.Equation345169_is_Boolean",
+    "Sheffer.Sheffer_Equation345169"
+  ],
+  "compiled_modules": 21,
+  "source_sha256": "de559270ee55e43d4d09dcadda00db86c247c8c9bc2da6f841582ea1f94d9b90",
+  "seconds": 4.072
+}

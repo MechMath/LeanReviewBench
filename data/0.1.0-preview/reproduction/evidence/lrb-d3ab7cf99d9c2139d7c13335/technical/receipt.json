@@ -1,0 +1,24 @@
+{
+  "dataset": "flt",
+  "project_id": "flt-c02",
+  "status": "passed",
+  "modules": 3,
+  "targets": [
+    "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5"
+  ],
+  "compiled_modules": 3,
+  "source_sha256": "70369e347dfd376c63cfc4eb050604fe6287b6c33d9c0984f751c5ec87a4f4a4",
+  "seconds": 1.717,
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "compatibility_files": [],
+  "no_new_admissions": true,
+  "original_admissions_preserved": true,
+  "root_source_unchanged": true,
+  "root_statement_unchanged": true,
+  "targets_checked": true,
+  "graph_modes": {
+    "default": true,
+    "explicit": true
+  }
+}

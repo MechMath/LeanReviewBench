@@ -1,0 +1,7 @@
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.Apply
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.Apply2
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.RewriteGoal
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.RewriteHypothesis
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.RewriteHypothesisAndGoal
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.RewriteCombinations
+import dep.equational_theories.Generated.TrivialBruteforce.theorems.NthRewrites

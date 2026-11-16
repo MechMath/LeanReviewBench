@@ -1,0 +1,30 @@
+module
+
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Sobolev.WeakDerivatives
+public import dep.Homogenization.CoarseGraining.Definitions
+public import dep.Homogenization.Geometry.TriadicCube
+public import Mathlib.Data.EReal.Basic
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import dep.CoarseDeGiorgi.Statements.IsWeightedCoeffOn
+public import dep.CoarseDeGiorgi.Statements.LowerMoment
+public import dep.CoarseDeGiorgi.Statements.OriginCube
+public import dep.CoarseDeGiorgi.Statements.ParamTheta
+public import dep.CoarseDeGiorgi.Statements.UpperMoment
+
+@[expose] public section
+
+open Homogenization MeasureTheory
+open scoped BigOperators ENNReal Matrix.Norms.L2Operator
+
+namespace CoarseDeGiorgi
+
+noncomputable def spatialMomentRange {d : ℕ} (a : CoeffField d)
+    (ha : IsWeightedCoeffOn (originCube 1) a) (p q s t : ℝ) : Prop :=
+  ∃ (hp : 1 ≤ p) (hq : 1 ≤ q) (hs : 0 < s) (ht : 0 < t),
+    1 < p ∧ 1 < q ∧ 0 < s ∧ 0 < t ∧ 0 < paramTheta d p q s t ∧
+      upperMoment a ha s p hs hp < ⊤ ∧ 0 < lowerMoment a ha t q ht hq
+
+end CoarseDeGiorgi

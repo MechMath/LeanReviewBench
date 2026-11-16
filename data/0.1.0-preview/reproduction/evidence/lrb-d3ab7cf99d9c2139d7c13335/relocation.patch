@@ -1,0 +1,19 @@
+--- staging/formal/Main.lean
++++ formal/Main.lean
+@@ -1,4 +1,4 @@
+-import FLT.FreyCurve.FreyPackage
++import dep.FLT.FreyCurve.FreyPackage
+ 
+ #check @FreyPackage.of_not_FermatLastTheoremFor_p_ge_5
+ #print axioms FreyPackage.of_not_FermatLastTheoremFor_p_ge_5
+--- staging/formal/FLT/FreyCurve/FreyPackage.lean
++++ formal/dep/FLT/FreyCurve/FreyPackage.lean
+@@ -15,7 +15,7 @@
+ import Mathlib.NumberTheory.FLT.Four
+ import Mathlib.NumberTheory.FLT.Three
+ import Mathlib.Tactic.ModCases
+-public import FLT.Basic.Lemmas
++public import dep.FLT.Basic.Lemmas
+ 
+ /-!
+ 

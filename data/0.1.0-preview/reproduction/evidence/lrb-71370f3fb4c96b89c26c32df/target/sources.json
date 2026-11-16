@@ -1,0 +1,42 @@
+{
+  "packet": "kzg-binding-reduction-after",
+  "root": "KZG.CommitmentScheme.binding_reduces_to_tSdh",
+  "sources": [
+    {
+      "kind": "independent paper",
+      "url": "https://cacr.uwaterloo.ca/techreports/2010/cacr2010-10.pdf",
+      "version": "CACR 2010-10, December 2010",
+      "evidence": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+      "sha256": "15cda500272b20c04fc71dda0db8fb31bbc56b1caee4b02172f5ecf41079ff0d",
+      "text_evidence": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+      "text_sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e",
+      "locator": "§2 PPT/static-adversary convention and Definition 2.3; Definition 3.1 Evaluation Binding; §3.2 trusted Setup and Theorem 3.2; Appendix C.1 Evaluation Binding (printed pp.19–20)",
+      "excerpt_evidence": "datasets/arklib/projects/kzg-binding-reduction-after/target/independent-excerpts.txt",
+      "text_line_spans_1based_inclusive": [
+        [
+          127,
+          132
+        ],
+        [
+          157,
+          164
+        ],
+        [
+          218,
+          232
+        ],
+        [
+          243,
+          270
+        ],
+        [
+          833,
+          860
+        ]
+      ],
+      "excerpt_sha256": "ef77baa852259ec58ebb73813f37f697c9e92fac0037f5f0ad7d35c2eb863459"
+    }
+  ],
+  "scope_note": "Selected target is Appendix C.1 evaluation-binding-to-t-SDH reduction, not polynomial binding or the whole security theorem. Same commitment and index, two distinct field responses, both accepted evaluation witnesses; setup samples a private nonzero trapdoor and exposes its power SRS. The paper uses a symmetric pairing, PPT/static algorithms and equal success probability; the formal root uses two source groups, explicit pairing/nonidentity assumptions and a one-sided concrete probability inequality for this adversary/reduction. No asymptotic efficiency theorem or reference label follows from this binding.",
+  "remaining_review_gap": "The historical caching randomOracle experiment and fresh-private-coin paper experiment require semantic adjudication. No actual admissible KZG distinguishing witness or negative reference label is claimed. See experiment-scope.md."
+}

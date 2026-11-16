@@ -1,0 +1,98 @@
+{
+  "dataset": "arklib",
+  "project_id": "stir-main-withdrawn-before",
+  "root": "StirIOP.stir_main",
+  "input_sha256": "624cddb03bf99d6bc4a2aa781987751b5cf6baf9c5a89b49c7340dc88f95e4da",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "de3a01ffc5e57ca46362789f3f7294918a1976c4627af1d57fe9129ba12ba5e3",
+  "label": "misaligned",
+  "reason": "原文要求足够大的域（Ω 下界），formal 的 hF 却给出域大小上界。M、proofLen、qNumtoInput、qNumtoProofstr 是外部输入，未绑定到存在协议 π 的实际资源；复杂度常数在输入参数之后存在量化，缺少原文渐近界要求的统一性。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为misaligned，谢谢; confirms misaligned for arklib:stir-main-withdrawn-before after reviewing the reversed field-size bound, unbound protocol resource parameters, and nonuniform asymptotic constants.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "当前冻结 blueprint STIR Main Theorem（thm:stir）与 StirIOP.stir_main 的陈述对齐；仅本输入。",
+  "evidence_locations": {
+    "informal": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal.jsonl",
+      "line": 1,
+      "sha256": "6d2b9b0b989cc53c8d42f73884c65fbcaeaa444da5f32c3066299fe374034c71"
+    },
+    "source_theorem": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+      "line": 240,
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+    },
+    "source_field_lower_bound": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+      "line": 250,
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+    },
+    "source_complexity_guarantees": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+      "line": 252,
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+    },
+    "root": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 122,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "outer_round_parameter": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 33,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "resource_parameters": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 126,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "field_upper_bound": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 129,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "existential_protocol": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 132,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "complexity_conclusions": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 140,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "security_definition": {
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/OracleReduction/VectorIOR.lean",
+      "line": 180,
+      "sha256": "7af9323404832acb456af3d32b7c59461577d33ff5d9ed6488cdb9bb912eb2cf"
+    }
+  },
+  "semantic_argument": [
+    "原文 |F|=Ω(λ·2^λ·d²·N²/log(1/ρ)) 是域大小的渐近下界，表示域须足够大。formal 的 hF 使用 Fintype.card F ≤ ...，把适用条件改为上界。",
+    "原文要求存在一个协议，并将轮数、证明长度及查询次数作为该协议的资源性质。formal 的 M 来自外层变量声明，proofLen、qNumtoInput、qNumtoProofstr 是根之前的隐式自然数输入；没有等式或定义将它们关联到存在的 π、vPSpec 或 n。",
+    "已展开 IsSecureWithGap，其字段只有完备性和逐轮知识健全性；它没有将上述外部资源参数绑定到 π 的机制。资源参数的不等式因而不能表达所构造协议的实际复杂度界。",
+    "复杂度常数 ∃c>0 与 ∃c_k 在 secpar、degree、域、资源数等输入之后量化；c_k 虽是 k 的函数，其选择本身仍可依赖当前其他输入。这缺少原文 O/O_k 界所要求的相应统一性。",
+    "例如 degree>1 且 k≥4 时，log(degree)/log(k)>0。对每个固定 degree、k、M 可选择足够大的 c，使 M≤c·log(degree)/log(k) 成立；逐实例存在这样的常数并不能推出随 degree 变化的统一对数轮数界。"
+  ],
+  "verification": {
+    "source_binding_checked": true,
+    "fresh_lean_build": false,
+    "new_lean_counterexample_proof": false
+  },
+  "limitations": [
+    "判负依据为当前原文与 formal 陈述的上述差异；不以项目名 withdrawn 或证明中的 sorry 作为语义判负证据。",
+    "本次不声称完成了协议构造、实际运行复杂度分析或 Lean 反例认证。",
+    "未将域大小表达式中的其他幂次问题、缺失端点限制、挑战量词的附加作用域问题作为本次用户确认标签的独立依据。",
+    "formal、informal、输入哈希与技术状态均保持原样；不传播标签到相邻 STIR 输入。",
+    "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

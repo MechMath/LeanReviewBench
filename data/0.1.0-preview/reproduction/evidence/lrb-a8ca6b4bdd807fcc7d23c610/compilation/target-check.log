@@ -1,0 +1,36 @@
+@StirIOP.stir_rbr_soundness : ∀ {F : Type} [inst : Field F] [inst_1 : Fintype F] [inst_2 : DecidableEq F] {M : ℕ}
+  (ι : Fin (M + 1) → Type) [inst_3 : (i : Fin (M + 1)) → Fintype (ι i)] [inst_4 : SampleableType F] {s : ℕ}
+  {P : StirIOP.Params ι F} [h_nonempty : ∀ (i : Fin (M + 1)), Nonempty (ι i)] {hParams : StirIOP.ParamConditions ι P}
+  {Dist : StirIOP.Distances M} {Codes : StirIOP.CodeParams ι P Dist},
+  Dist.δ 0 < 1 - STIR.Bstar ↑(LinearCode.rate (ReedSolomon.code (P.φ 0) P.deg)) →
+    (∀ {j : Fin (M + 1)},
+        j ≠ 0 →
+          ↑(Dist.δ j) <
+              1 - ↑(LinearCode.rate (ReedSolomon.code (P.φ j) (StirIOP.degree ι P j))) - 1 / ↑(Fintype.card (ι j)) ∧
+            Dist.δ j < 1 - STIR.Bstar ↑(LinearCode.rate (ReedSolomon.code (P.φ j) (StirIOP.degree ι P j)))) →
+      ∀ (ε_fold : NNReal) (ε_out ε_shift : Fin M → NNReal) (ε_fin : NNReal),
+        ∃ n vPSpec,
+          Fintype.card vPSpec.ChallengeIdx = 2 * M + 2 ∧
+            ∃ π,
+              have ε_rbr := fun x =>
+                ({ε_fold} ∪ {ε_fin} ∪ Finset.image ε_out Finset.univ ∪ Finset.image ε_shift Finset.univ).max' ⋯;
+              VectorIOP.IsSecureWithGap (StirIOP.stirRelation (StirIOP.degree ι P 0) (P.φ 0) 0)
+                  (StirIOP.stirRelation (StirIOP.degree ι P 0) (P.φ 0) (Dist.δ 0)) ε_rbr π ∧
+                ε_fold ≤
+                    STIR.proximityError F (P.deg / P.foldingParam 0)
+                      (↑(LinearCode.rate (ReedSolomon.code (P.φ 0) P.deg))) (Dist.δ 0) (P.repeatParam 0) ∧
+                  ∀ {j : Fin M},
+                    ↑j ≠ 0 →
+                      ↑(ε_out j) ≤
+                          ↑(Dist.l j.succ) ^ 2 / 2 *
+                            (↑(StirIOP.degree ι P j.succ) / (↑(Fintype.card F) - ↑(Fintype.card (ι j.succ)))) ^ s ∧
+                        ε_shift j ≤
+                            (1 - Dist.δ j.castSucc) ^ P.repeatParam j.castSucc +
+                                  STIR.proximityError F (StirIOP.degree ι P j.succ)
+                                    (↑(LinearCode.rate (ReedSolomon.code (P.φ j.succ) (StirIOP.degree ι P j.succ))))
+                                    (Dist.δ j.succ) (P.repeatParam j.castSucc) +
+                                ↑s +
+                              STIR.proximityError F (StirIOP.degree ι P j.succ / P.foldingParam j.succ)
+                                (↑(LinearCode.rate (ReedSolomon.code (P.φ j.succ) (StirIOP.degree ι P j.succ))))
+                                (Dist.δ j.succ) (P.repeatParam j.succ) ∧
+                          ε_fin ≤ (1 - Dist.δ (Fin.last M)) ^ P.repeatParam (Fin.last M)

@@ -1,0 +1,27 @@
+@StirIOP.stir_main : ∀ {F : Type} [inst : Field F] [inst_1 : Fintype F] [inst_2 : DecidableEq F] {M : ℕ} (secpar : ℕ)
+  [inst_3 : SampleableType F] {ι : Type} [inst_4 : Fintype ι] [inst_5 : Nonempty ι] {φ : ι ↪ F} {degree : ℕ}
+  [hsmooth : ReedSolomon.Smooth φ] {k proofLen qNumtoInput qNumtoProofstr : ℕ},
+  (∃ p, k = 2 ^ p) →
+    k ≥ 4 →
+      ∀ (δ : NNReal),
+        ↑δ < 1 - 1.05 * √(↑degree / ↑(Fintype.card ι)) →
+          ↑(Fintype.card F) ≤
+              ↑secpar * 2 ^ secpar * ↑degree ^ 2 * ↑(Fintype.card ι) ^ (7 / 2) /
+                Real.log (1 / ↑(LinearCode.rate (ReedSolomon.code φ degree))) →
+            ∃ n vPSpec ε_rbr π,
+              VectorIOP.IsSecureWithGap (StirIOP.stirRelation degree φ 0) (StirIOP.stirRelation degree φ δ) ε_rbr π ∧
+                ∀ (i : vPSpec.ChallengeIdx),
+                  ε_rbr i ≤ ↑1 / 2 ^ secpar ∧
+                    ∃ c > 0,
+                      ↑M ≤ c * (Real.log ↑degree / Real.log ↑k) ∧
+                        ∃ cₖ,
+                          ↑proofLen ≤ ↑(Fintype.card ι) + cₖ k * Real.log ↑degree ∧
+                            ↑qNumtoInput = ↑secpar / -Real.log (1 - ↑δ) ∧
+                              ∃ cₖ,
+                                ↑qNumtoProofstr ≤
+                                  cₖ k *
+                                    (Real.log ↑degree +
+                                      ↑secpar *
+                                        Real.log
+                                          (Real.log ↑degree /
+                                            Real.log (1 / ↑(LinearCode.rate (ReedSolomon.code φ degree)))))

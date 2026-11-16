@@ -1,0 +1,13 @@
+@KZG.CommitmentScheme.binding_reduces_to_tSdh : ∀ {p : outParam ℕ} [hp : Fact (Nat.Prime p)] {G₁ : Type}
+  [inst : Group G₁] [inst_1 : PrimeOrderWith G₁ p] {G₂ : Type} [inst_2 : Group G₂] [inst_3 : PrimeOrderWith G₂ p]
+  {Gₜ : Type} [inst_4 : Group Gₜ] [inst_5 : PrimeOrderWith Gₜ p] [inst_6 : DecidableEq Gₜ]
+  [inst_7 : Module (ZMod p) (Additive G₁)] [inst_8 : Module (ZMod p) (Additive G₂)]
+  [inst_9 : Module (ZMod p) (Additive Gₜ)] (pairing : Additive G₁ →ₗ[ZMod p] Additive G₂ →ₗ[ZMod p] Additive Gₜ) {n : ℕ}
+  {g₁ : G₁} {g₂ : G₂},
+  g₁ ≠ 1 →
+    (pairing g₁) g₂ ≠ 0 →
+      ∀ [SampleableType G₁] (AuxState : Type)
+        (adversary : KZG.CommitmentScheme.KzgBindingAdversary p G₁ G₂ n unifSpec AuxState),
+        Commitment.bindingExperiment (pure ∅) (unifFwdImpl unifSpec) (KZG.CommitmentScheme.kzg pairing) AuxState
+            adversary ≤
+          Groups.tSdhExperiment n (KZG.CommitmentScheme.bindingReduction pairing AuxState adversary)

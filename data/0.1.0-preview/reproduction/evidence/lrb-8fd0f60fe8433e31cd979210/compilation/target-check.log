@@ -1,0 +1,13 @@
+@KZG.CommitmentScheme.function_binding : ∀ {p : outParam ℕ} [hp : Fact (Nat.Prime p)] {G₁ : Type} [inst : Group G₁]
+  [inst_1 : PrimeOrderWith G₁ p] {G₂ : Type} [inst_2 : Group G₂] [inst_3 : PrimeOrderWith G₂ p] {Gₜ : Type}
+  [inst_4 : Group Gₜ] [inst_5 : PrimeOrderWith Gₜ p] [inst_6 : DecidableEq Gₜ] [inst_7 : Module (ZMod p) (Additive G₁)]
+  [inst_8 : Module (ZMod p) (Additive G₂)] [inst_9 : Module (ZMod p) (Additive Gₜ)]
+  (pairing : Additive G₁ →ₗ[ZMod p] Additive G₂ →ₗ[ZMod p] Additive Gₜ) {n : ℕ} {g₁ : G₁} {g₂ : G₂} (L : ℕ),
+  1 ≤ n →
+    p ≥ n + 2 →
+      g₁ ≠ 1 →
+        (pairing g₁) g₂ ≠ 0 →
+          ∀ [SampleableType G₁] (arsdhError : NNReal),
+            Groups.arsdhAssumption n arsdhError →
+              Commitment.functionBinding (pure ∅) OracleSpec.randomOracle ⋯ (KZG.CommitmentScheme.kzg pairing)
+                arsdhError

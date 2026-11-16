@@ -1,0 +1,25 @@
+{
+  "dataset": "arklib",
+  "project_id": "sumcheck-full-rbr-after",
+  "status": "passed",
+  "modules": 199,
+  "targets": [
+    "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+  ],
+  "compiled_modules": 199,
+  "source_sha256": "7e912585e722a739b3c96b20157f8142af27e2c8e69a0f35d0f554b7cf34962d",
+  "seconds": 4.585,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 699,
+      "edges": 7690
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 699,
+      "edges": 7690
+    }
+  },
+  "leantrace_extracted": true
+}

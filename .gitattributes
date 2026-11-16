@@ -1,0 +1,3 @@
+# Preserve exact dataset and upstream license bytes on every platform.
+data/** -text
+licenses/** -text

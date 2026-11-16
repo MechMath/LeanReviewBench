@@ -1,0 +1,160 @@
+{
+  "dataset": "imperial-flt",
+  "project_id": "flt-c01",
+  "root": "FreyPackage.mazur",
+  "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "78577ce1e742a525b7b99c05111036b3b11c75fab24060d02c2d13dc8d10a718",
+  "label": "misaligned",
+  "reason": "原文指定自然伽罗瓦作用在 Frey 曲线 p-扭点上的表示；formal 的 galoisRep 整体为数据 sorry，类型仅指定群、标量域与扭点载体，没有绑定到自然作用。源码和显式提取值确认这一缺口，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为misaligned; confirms misaligned for imperial-flt:flt-c01 after detailed review of the missing natural-action binding in the data-valued galoisRep definition and clarification that def ... := sorry is legal placeholder syntax.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "model_recommendation": "misaligned",
+  "proposed_categories": [
+    "O"
+  ],
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "独立 blueprint 的 Mazur 不可约性陈述及其自然伽罗瓦表示定义，与 FreyPackage.mazur 及实际依赖定义；区分数据对象未绑定与证明未完成，保留已核对的 Frey package 条件、曲线坐标变换和不可约性谓词对应。",
+  "detailed_review": {
+    "path": "reports/mazur-recheck-2026-11-16/review.json",
+    "sha256": "3c94029fe96ec007d7a8f2676b0799f3614c7b028d8e8e19f785ee1dcee983e1"
+  },
+  "prior_conversation_recommendation": "undetermined",
+  "evidence_locations": {
+    "source_natural_action": {
+      "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+      "line": 112,
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+    },
+    "source_frey_package": {
+      "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+      "line": 59,
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+    },
+    "source_curve": {
+      "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+      "line": 141,
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+    },
+    "source_irreducibility": {
+      "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+      "line": 162,
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+    },
+    "source_theorem": {
+      "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+      "line": 172,
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+    },
+    "root": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/Mazur.lean",
+      "line": 30,
+      "sha256": "1eae1c67de2050f58d3e91d6943a36ae0453d50f13907dc980c417b6cc203068"
+    },
+    "formal_frey_package": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/FreyPackage.lean",
+      "line": 75,
+      "sha256": "1dbfc6c88dfd33e27039ad8a8eb2d71dce599f6115dcb2d8a05eb13521e019f1"
+    },
+    "other_coprime_pairs": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/FreyPackage.lean",
+      "line": 135,
+      "sha256": "1dbfc6c88dfd33e27039ad8a8eb2d71dce599f6115dcb2d8a05eb13521e019f1"
+    },
+    "formal_curve": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/Basic.lean",
+      "line": 60,
+      "sha256": "60323470402d8f8483c8bdcdf3a0086edfda60359a3fc6cde2f6443fdad969e2"
+    },
+    "torsion_carrier": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/EllipticCurve/Torsion.lean",
+      "line": 35,
+      "sha256": "0138908309c18b57680699129a7aba91c9c662b13c48c073cb8cc7012799c5e7"
+    },
+    "natural_action_defined_separately": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/EllipticCurve/Torsion.lean",
+      "line": 100,
+      "sha256": "0138908309c18b57680699129a7aba91c9c662b13c48c073cb8cc7012799c5e7"
+    },
+    "data_placeholder": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/EllipticCurve/Torsion.lean",
+      "line": 122,
+      "sha256": "0138908309c18b57680699129a7aba91c9c662b13c48c073cb8cc7012799c5e7"
+    },
+    "retained_upstream_placeholder": {
+      "path": "datasets/imperial-flt/projects/flt-c01/original/FLT/EllipticCurve/Torsion.lean",
+      "line": 122,
+      "sha256": "d828f3deb16bffbb5629a2e8c0c7028131649443d3e6075e7d1d1c1e03bb55f0"
+    },
+    "representation_type": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+      "line": 51,
+      "sha256": "e9b419ccf8914d1111171445742864a5d2c490ccdd5e29d536f2c078e77d0435"
+    },
+    "irreducibility_predicate": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+      "line": 406,
+      "sha256": "e9b419ccf8914d1111171445742864a5d2c490ccdd5e29d536f2c078e77d0435"
+    },
+    "proof_placeholder": {
+      "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/Assumptions/KnownIn1980s.lean",
+      "line": 79,
+      "sha256": "ddbd0b63b267a31a5df5467c31fdfd5cb673a512ae27cc712cbb0b1c77dd0c9c"
+    },
+    "explicit_statement_graph": {
+      "path": "datasets/imperial-flt/projects/flt-c01/graph/explicit/graph.json",
+      "line": 1,
+      "sha256": "fa4f0ff8327c9572695a3ea58296eb4a1d59d31349eb5fd386640f1e089f7881"
+    },
+    "taxonomy": {
+      "path": "docs/MISALIGNMENT-TAXONOMY.md",
+      "line": 12,
+      "sha256": "c24ff66b62a5177b46acf930b6826c50b6ca9f9120aa28777eb26540b7dee02c"
+    },
+    "assessment_scope": {
+      "path": "protocol/v1/README.md",
+      "line": 8,
+      "sha256": "b6a5d93ffc693c093bf6f2aef1ec9fe9d8ec467a538c9ac0edf88760af9c571c"
+    }
+  },
+  "confirmed_matches": [
+    "FreyPackage 包含非零整数、p 为素数且至少 5、Fermat 方程及同余条件；hgcdac、hgcdbc 从 hgcdab 和方程推出另外两对互素。",
+    "formal 曲线为原文曲线经 X=4x、Y=8y+4x 的有理可逆坐标变换。精确有理多项式展开得到 y²+xy=x³+(b^p-a^p-1)x²/4-a^p*b^p*x/16，与 formal 系数一致。",
+    "nTorsion 定义为点群的乘 n 核；返回表示使用代数闭包上的该载体和 ZMod p。",
+    "GaloisRep.IsIrreducible 委托给 Representation.IsIrreducible；本地 Mathlib 副本将其定义为子表示格的 IsSimpleOrder，与原文的不可约性含义对应。此项不作为判负依据。"
+  ],
+  "semantic_argument": [
+    "原文先通过域自同构作用于点的坐标，再限制到 p-扭点，指定自然表示；类型相同不足以保证该对象相同。",
+    "GaloisRep K k M 定义为绝对伽罗瓦群到 Module.End k M 的连续幺半群同态，并没有要求其作用等于坐标上的自然作用。",
+    "源文件已有 galoisRepresentationSmul 给出点映射，但 galoisRep 的整个数据值由 sorry 提供。注释称预期只缺连续性证明，实际源码和提取值并未保留底层作用。",
+    "二维空间上的平凡作用也属于同类表示类型，且其一维子空间稳定。这说明返回类型本身不能刻画原文指定的表示；不声称 sorry 实际选择了平凡表示，也不把这一类型示例当作 FreyPackage 实例或 Mazur 定理反例。",
+    "knownin1980s 用于定理证明，本身不构成陈述不对齐。判负针对出现在定理陈述中的数据对象定义缺少指定作用。",
+    "由待定转为判负的依据是确认缺口存在于完整保留的正式定义，而非审查材料缺页，并按仓库 taxonomy O 的缺少指定对象绑定规则分类。若采用仅比较声明意图、允许未定义数据常量的宽松标准，结论可能不同；当前审查要求实际 Formal 依赖含义。"
+  ],
+  "verification": {
+    "non_proof_data_node": true,
+    "elaborated_value_contains_sorryAx": true,
+    "elaborated_value_uses_natural_action": false,
+    "galoisRep_binding_equation_found_in_retained_formal_closure": false,
+    "definition_matches_retained_original": true,
+    "coordinate_change_exact_polynomial_identity_checked": true,
+    "fresh_lean_build": false,
+    "new_lean_counterexample_proof": false
+  },
+  "limitations": [
+    "判负依据为关键数据对象缺少指定作用绑定，不因合法的 sorry 语法、证明占位、编译状态或项目使用公理而自动判负。",
+    "不声称 sorry 选择了平凡表示，也不声称构造出 FreyPackage 或 Mazur 定理的数学反例。",
+    "保留此前待定建议、历史初审与详细复核记录；本次用户确认采用详细复核后的 misaligned。",
+    "核心依据来自冻结的本地源码和显式提取值；未重新编译工程或证明新的 Lean 反例。",
+    "formal、informal、输入哈希、目标及技术状态保持原样；不传播标签到下一题。",
+    "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

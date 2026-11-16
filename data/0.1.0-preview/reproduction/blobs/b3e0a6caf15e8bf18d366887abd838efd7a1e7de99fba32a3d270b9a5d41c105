@@ -1,0 +1,82 @@
+import dep.GHW01DigitalGoods.AuctionMainTheorems
+import dep.GHW01DigitalGoods.BoundedSupply
+import dep.GHW01DigitalGoods.Theorem72Bridge
+import dep.GHW01DigitalGoods.RandomSamplingDirectional
+
+/-!
+# Paper-Facing Theorems: Competitive Auctions and Digital Goods
+
+This folder owns the Goldberg-Hartline-Wright digital-goods track. The closed
+Lean statements mostly live in the reusable auction library; this file
+re-exports the paper-facing definitions and final endpoints under the
+citation-specific namespace. The Theorem 9.3 source models are paper-local
+under `GHW01DigitalGoods.Theorem93`. Lower-level proof adapters remain in
+`EconCSLib.Auction`.
+-/
+
+namespace GHW01DigitalGoods
+
+export EconCSLib.Auction (
+  paper_digital_goods_revenue
+  paper_digital_goods_revenue_eq
+  paper_digital_goods_truthful
+  paper_digital_goods_truthful_eq
+  paper_two_winner_benchmark
+  paper_two_winner_benchmark_eq
+  paper_posted_price_truthful
+  paper_posted_price_individually_rational
+  paper_posted_price_no_positive_transfers
+  paper_posted_price_revenue_eq_single_price
+  paper_threshold_price_truthful
+  paper_own_erased_threshold_price_truthful
+  totalBidValue
+  weightedPairingExpectedRevenue
+  paper_theorem6_2_random_sampling_measure_union_bound
+  paper_aux_theorem6_2_fair_coin_lower_tail_relaxed
+  PaperLemma61FairCoinModel
+  paper_lemma6_1_fair_coin_lower_tail_of_model
+  paper_theorem6_2_fair_coin_revenue_bound_of_finite_candidate_benchmark_all_alpha
+  paper_finite_candidate_fixed_price_benchmark_nonneg
+  paper_single_price_revenue_le_candidate_benchmark_of_feasible
+  paper_two_winner_fixed_price_benchmark
+  paper_theorem4_1_finite_candidate_benchmark_from_logb_high_value
+  paper_theorem4_1_finite_candidate_benchmark_exact_logb_of_two_le
+  PaperTheorem41HighValueModel
+  paper_theorem4_1_finite_candidate_benchmark_of_high_value_model
+  paper_corollary4_2_fixed_price_lower_bound_of_card_truncation
+  paper_corollary4_2_fixed_price_lower_bound_exact_logb_of_card_two_le
+  paper_theorem7_1_weighted_pairing_log_bound_from_logb_high_value
+  PaperTheorem71WeightedPairingHighValueModel
+  paper_theorem7_1_weighted_pairing_log_bound_of_high_value_model
+  paper_theorem7_2_weighted_pairing_bound_for_two_winner_benchmark
+  paper_theorem7_2_weighted_pairing_bound_for_two_winner_benchmark_from_logb_high_value
+  PaperTheorem72WeightedPairingHighValueModel
+  paper_theorem7_2_weighted_pairing_bound_for_two_winner_benchmark_of_high_value_model
+  GhwTightAgent
+  ghwTightValue
+  ghwTightTwoWinnerBenchmarkValue
+  paper_theorem7_2_tightness_ratio_for_repeated_bid_family
+  paper_lemma8_1_allocation_mono_own_bid_of_truthful
+  paper_theorem8_2_raw_cdf_expected_revenue
+  PaperTheorem82JournalRawCDFMonotoneOfferSourceModel
+  paper_theorem8_2_expected_revenue_le_finite_candidate_benchmark_of_raw_cdf_monotone_offer_source_model
+  twoValueBidIndependentPriceRevenue
+  twoValueBidProfile
+  twoValueFixedPriceBenchmark
+  twoValueListBidIndependentThresholdPrice
+  paper_theorem9_1_bid_independent_list_rule_scaled_lower_bound_fixed_price_benchmark
+  DeterministicOfferThresholdDominates
+  deterministicAuctionOffer
+  paper_lemma9_2_deterministic_truthful_auction_exists_nonnegative_threshold_dominates
+  DeterministicOfferTruthful
+  DeterministicOfferFeasible
+  paper_theorem9_3_bid_list_offer_auction
+  paper_theorem9_3_deterministic_truthful_ratio_witness_of_primitive_bid_list_offer_source_model
+  paper_theorem9_3_deterministic_truthful_ratio_witness_of_primitive_set_of_bids_source_model
+)
+
+export Theorem93 (
+  PaperTheorem93PrimitiveSetOfBidsDeterministicSourceModel
+)
+
+end GHW01DigitalGoods

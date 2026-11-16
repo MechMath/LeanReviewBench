@@ -1,0 +1,25 @@
+{
+  "dataset": "arklib",
+  "project_id": "kzg-binding-reduction-before",
+  "status": "passed",
+  "modules": 193,
+  "targets": [
+    "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+  ],
+  "compiled_modules": 193,
+  "source_sha256": "50e435ad446bc49c55ad7b4fbe987ff4b51020403a9c3c33181b54b296e08c6e",
+  "seconds": 70.099,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 682,
+      "edges": 5166
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 682,
+      "edges": 5166
+    }
+  },
+  "leantrace_extracted": true
+}

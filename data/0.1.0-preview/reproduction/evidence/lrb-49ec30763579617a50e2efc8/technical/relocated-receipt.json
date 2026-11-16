@@ -1,0 +1,25 @@
+{
+  "dataset": "equational-theories",
+  "project_id": "etp-law-coverage",
+  "status": "passed",
+  "modules": 19,
+  "targets": [
+    "laws_complete'"
+  ],
+  "compiled_modules": 19,
+  "source_sha256": "739c755317929cd100bc441e17f6ff5f04bde994fa6e43dfc11e9e79ae14f19a",
+  "seconds": 18.018,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 4752,
+      "edges": 37724
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 4752,
+      "edges": 37724
+    }
+  },
+  "leantrace_extracted": true
+}

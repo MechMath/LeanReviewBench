@@ -1,0 +1,152 @@
+{
+  "dataset": "imperial-flt",
+  "project_id": "flt-c03",
+  "root": "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one",
+  "input_sha256": "229f6186c8fd360d971a36492ad48d9930a2cd7aa0d642ea93d488aa4ebcd041",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "4a7d40173e875b35ed4425cedb8cdc18e6abc75a9d831b71c727914f03f33c21",
+  "label": "aligned",
+  "reason": "有限维 ℚ-向量空间、ℚ-线性自同构及阿代尔张量积对应；baseChange 实际作用为 v⊗a↦φ(v)⊗a，显式实例使用阿代尔模拓扑，addEquivAddHaarChar 与原文 d 的归一化一致。BorelSpace 仅指定可自然选取的 Borel 可测结构，无实质范围差异。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标记成aligned; confirms aligned for imperial-flt:flt-c03 after checking the finite-dimensional rational vector-space scope, actual scalar-extension map, module topology, Borel structure, and Haar-character normalization.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "model_recommendation": "aligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "绑定原文的有限维有理向量空间自同构扩张至阿代尔后 Haar 因子为 1 的陈述；核对底环、标量扩张的实际数据、模拓扑、Borel 可测结构及 Haar 因子的归一化。",
+  "detailed_review": {
+    "path": "reports/adelic-haar-recheck-2026-11-16/review.json",
+    "sha256": "08b46980797561de6fa678fd8ff6dd4593319d05ad661f1ca36b9956354eb7b3"
+  },
+  "evidence_locations": {
+    "bound_informal": {
+      "path": "datasets/imperial-flt/projects/flt-c03/informal.jsonl",
+      "line": 1,
+      "sha256": "724f36d06c921d0dacd5d5e77de1fed9b578b81c0429469d6732949b92727d8b"
+    },
+    "source_haar_character": {
+      "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+      "line": 31,
+      "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+    },
+    "source_haar_independence": {
+      "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+      "line": 48,
+      "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+    },
+    "source_vector_space_and_topology": {
+      "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+      "line": 850,
+      "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+    },
+    "source_theorem": {
+      "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+      "line": 859,
+      "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+    },
+    "root": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+      "line": 160,
+      "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+    },
+    "continuous_base_change": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+      "line": 130,
+      "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+    },
+    "base_change_on_pure_tensors": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+      "line": 141,
+      "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+    },
+    "right_module_action": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+      "line": 63,
+      "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+    },
+    "module_topology": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+      "line": 153,
+      "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+    },
+    "linear_base_change": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+      "line": 165,
+      "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+    },
+    "linear_equivalence_base_change": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+      "line": 195,
+      "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+    },
+    "adele_notation": {
+      "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/NumberField/AdeleRing.lean",
+      "line": 78,
+      "sha256": "cfaf2f7ca40f2de2d18f7494051a5edd1149c30a256408d1f2e291126ef222b7"
+    },
+    "explicit_graph": {
+      "path": "datasets/imperial-flt/projects/flt-c03/graph/explicit/graph.json",
+      "line": 1,
+      "sha256": "0181fdaa09f8e114e430c3e98b562b1b234ba7706a28d99c87849a57795d9028"
+    }
+  },
+  "external_evidence": [
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/MeasureTheory/Measure/Haar/MulEquivHaarChar.lean",
+      "relative_path": "Mathlib/MeasureTheory/Measure/Haar/MulEquivHaarChar.lean",
+      "line": 38,
+      "sha256": "d03d5bc407e8f8e675f457d6f59f95ec035852a63a8727194595a6dd33118c3b",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    },
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+      "relative_path": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+      "line": 50,
+      "sha256": "43081cf5d6a27218eaf94ea3cfccf62093edb6e6a4d2d748be8fdaa32f00c0d2",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    },
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/MeasureTheory/Constructions/BorelSpace/Basic.lean",
+      "relative_path": "Mathlib/MeasureTheory/Constructions/BorelSpace/Basic.lean",
+      "line": 16,
+      "sha256": "d15ab5af19662b4cd2ae3c3a9665ae52e134d8954ad17d5ded063819b72b7e40",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    }
+  ],
+  "semantic_argument": [
+    "原文数学文字明确使用 ℚ 和 𝔸_ℚ；虽原文 Lean 标记名称没有 rat 后缀，当前根的 ℚ 特例与该文字对应，不把邻接的一般数域版本混入目标。",
+    "Module ℚ V、FiniteDimensional ℚ V、φ:V≃ₗ[ℚ]V 对应原文有限维有理向量空间及线性自同构；并无额外正维数或 Nontrivial 要求。",
+    "𝔸 ℚ 展开为 NumberField.AdeleRing (𝓞 ℚ) ℚ，外部固定版本定义为无限阿代尔与有限阿代尔之积，并有对角 ℚ-代数结构。",
+    "ContinuousLinearEquiv.baseChange 从具体 LinearEquiv.baseChange 构造，并证明连续性；baseChange_apply 在纯张量上给出 φ(v)⊗a，证明为 rfl。逆映射由 φ.symm 扩张，数据对象没有占位。",
+    "显式提取类型使用 RightActions.instTopologicalSpaceOfFinite_dep；该实例的值为 moduleTopology (𝔸 ℚ) (V⊗[ℚ]𝔸 ℚ)，与原文模拓扑相同。",
+    "MeasurableSpace 与 BorelSpace 将可测结构固定为此拓扑的 Borel σ-代数；可直接选取 borel，因而不是任意可测结构或额外数学限制。",
+    "原文 d_A(φ) 满足 d_A(φ)·φ_*μ=μ。固定 Mathlib 的 addEquivAddHaarChar 是 to_additive 生成的加法版本，定义取 haarScalarFactor haar (haar.map φ)，对应 smul_map 定理给出完全相同的等式，且对任意正则 Haar 测度结果不变。",
+    "根结论等于 1 因而准确表达原文保持 Haar 测度；不依赖将缩放因子与其倒数混同。"
+  ],
+  "verification": {
+    "source_and_input_hash_checked": true,
+    "base_change_and_topology_definitions_inspected": true,
+    "explicit_root_topology_instance_checked": true,
+    "local_data_sorry_nodes": [],
+    "root_and_continuous_base_change_match_retained_original": true,
+    "mathlib_commit_verified": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "external_evidence_blobs_match_commit": true,
+    "fresh_lean_build": false,
+    "new_lean_equivalence_proof": false
+  },
+  "limitations": [
+    "本次为陈述及关键定义核对，没有重新编译或独立重证行列式及乘积公式。",
+    "本次按用户确认保存 aligned，保留原文、formal、输入哈希、目标及技术状态；不传播标签到下一题。",
+    "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
+    "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

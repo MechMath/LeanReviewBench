@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from leanreviewbench import Dataset
 from leanreviewbench.dataset import records,digest,encoded
-from leanreviewbench.artifacts import file_hash
+from leanreviewbench.integrity import file_hash
 from migrate import Research,context
 
 

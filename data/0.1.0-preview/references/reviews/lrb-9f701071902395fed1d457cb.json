@@ -1,0 +1,586 @@
+[
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-before",
+    "root": "Eπ.vinogradovBound",
+    "input_sha256": "e17abc9cbbbc4464abd9fa2c3f1fecef0e3cfe47dcc4648b568ef2e63a8795ab",
+    "input_file_sha256": {
+      "project.json": "cc4c37f48b8c6bd24ebcac36c004f48e7e63b07552d2589de474640f298d2045",
+      "informal.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "formal/Main.lean": "dbfabae21d382d694630adcb8777d8bf18e6c53f86074917d97648f4ae8906aa"
+    },
+    "formal_package_sha256": "f62819fe45ba05fcb226b4152d306ccbfcba76688136dc30de94da6e5ee42666",
+    "source_snapshot": {
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+      "path": "PrimeNumberTheoremAnd/Defs.lean",
+      "declaration": "Eπ.vinogradovBound",
+      "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+    },
+    "reviewed_at": "2026-11-09",
+    "review_method": "Model mathematical/source review; no model predictions were consulted; no proof-completion claim.",
+    "label": "undetermined",
+    "reason_cn": "这是缺主 informal 的无效配对，而非尚未算清楚某个数学命题。informal.jsonl 是空文件且 target.informal_id=null；历史源的目标也是无主注释的裸定义。独立来源可核 VK 指数形状，却未给出能合法绑定到该四参数 predicate 的主目标。不能从 formal 反译创建所谓独立目标，再据此给二元标签。",
+    "pair_validity": "invalid_missing_main_informal",
+    "binary_label_applicable": false,
+    "sources": [
+      {
+        "title": "Fiori, Kadiri and Swidinsky, Sharper bounds for the error term in the Prime Number Theorem",
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "version": "arXiv:2206.12557v2, 17 May 2023",
+        "locator": "equations (1), (5), (6); sections 1.1–1.3 and Definition 1",
+        "local_path": "/tmp/pnt-source-review-20261109/fks2.html",
+        "sha256": "1b43c4c5adac407525938322a036f186113562442e28bb7fbbabbe3eb4f04726",
+        "finding_cn": "式 (1) 给出 Eπ=|π−Li|/(x/log x)，Li=∫₂ˣdt/log t。式 (5) 是针对小写 li 的固定常数 VK 不等式，范围 x≥23。Definition 1 定义四/五参数 admissible bound，但其指数形状是 sqrt(log x/R)，不是 VK。不能把这几段拼接后声称原文已定义当前四参数 VK predicate。"
+      },
+      {
+        "title": "Andrei Shubin, Topics in equidistribution and exponential sums",
+        "url": "https://thesis.caltech.edu/14306/1/shubin_andrei_2021.pdf",
+        "version": "Caltech PhD thesis, defended June 28, 2021; title page 2022",
+        "locator": "printed page 4, equation (1.2) and following VK estimate",
+        "local_path": "/tmp/pnt-source-review-20261109/shubin.pdf",
+        "sha256": "0ea81745fcbd066a33e53a8ab00c83b2c5f26c881336abd54b86f1c1c54aec6b",
+        "finding_cn": "以 π(X)=∫₂ˣdu/log u+R(X) 定义余项，继而陈述 R(X)≪X exp(−c(log X)^(3/5)(loglog X)^(−1/5))。这是独立的渐近存在性结果，支持实数分数指数及 Li 起点；没有当前自由 A,B,C,x₀ predicate，更没有 π* 的目标。"
+      }
+    ],
+    "source_search_attempts": [
+      {
+        "source": "Historical handwritten blueprint / source snapshots",
+        "locator": "git show 8012191c:reports/pnt-history/sources/{657ac0e5cf42c45b03b93a662fd8237b6b0be49f,e32cf2d56926389a22109fcc92cc6c2af889161a}/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "两版目标均为无 blueprint statement 的裸定义。before 的 Eπ.vinogradovBound 在182–184行、Eπ_star.vinogradovBound 在195–197行；附近 classical-bound-pi 的 statement 明确仅属于 classicalBound，不能挪绑。Eπ 辅助注释还曾错写分母 Li；独立 FKS2 (1) 能澄清辅助定义，但不能补出不存在的主 statement。"
+      },
+      {
+        "source": "Current upstream Defs.lean",
+        "url": "https://raw.githubusercontent.com/AlexKontorovich/PrimeNumberTheoremAnd/master/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "检索仍见裸 VK 定义，没有独立主自然语言目标。当前代码也不能作为独立 informal。"
+      },
+      {
+        "source": "Terence Tao's personal project log",
+        "url": "https://raw.githubusercontent.com/wiki/AlexKontorovich/PrimeNumberTheoremAnd/Terence-Tao's-personal-log.md",
+        "local_path": "/tmp/pnt-source-review-20261109/tao-log.md",
+        "sha256": "b1b997b66524c407320848969ab3ac0f998c0dc55fb7ec6164808018766c8815",
+        "result_cn": "全文检索 Vinogradov / Korobov / pi-star / 3/5，仅找到无关的 Bombieri–Vinogradov 外部项目讨论，没有这四个定义的主文本。"
+      },
+      {
+        "source": "Johnston–Yang published paper / FKS2 citation of Theorem 1.4",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0022247X23004638",
+        "result_cn": "检索索引及 FKS2 (5) 可确认固定常数 VK 界；本轮直接打开出版社页返回403，未把受阻全文算作已完整核验。固定常数定理与当前任意四参数定义的量词结构不同，且 li/Li 相差常数，不可直接等同。"
+      },
+      {
+        "source": "Tao et al., Analytic Number Theory Exponent Database",
+        "url": "https://teorth.github.io/expdb/blueprint/chap-prime_counting_function.html",
+        "locator": "Theorem 14.4 / historical PNT error table",
+        "result_cn": "独立确认 VK 渐近误差形状；仍是存在常数的 O/≪ 结论，没有当前 bound predicate 或 π* 约定。"
+      },
+      {
+        "source": "Targeted literature searches",
+        "queries": [
+          "\"Vinogradov\" \"Eπ\"",
+          "\"Vinogradov\" \"pi^*\" prime counting",
+          "\"π∗\" \"Korobov\"",
+          "\"vinogradovBound\" informal",
+          "\"Korobov\" \"explicit\" \"A\" \"B\" \"C\" prime error bounds"
+        ],
+        "result_cn": "未定位到同时明确本项目所需量词、误差归一化、Li 起点与 π* 约定的独立主定义。搜索不到并不证明文献不存在；这里只记录本次已完成检索的具体缺口。"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "frozen_pair",
+        "finding_cn": "逐字读取当前 formal/Main.lean、project.json 和空 informal.jsonl；唯一 target 的 informal_id 为 null，preparation.target_bindings[0].text 也为 null。",
+        "locator": "datasets/pnt/projects/vinogradov-pi-before/project.json"
+      },
+      {
+        "kind": "mapping_gap",
+        "finding_cn": "目标是 (A B C x₀ : ℝ) → Prop 的定义，并非已证明某个固定常数组合的定理，也不是 ∃c>0 的渐近 O 结论。将独立文献的固定常数或存在性定理直接映射到此 root 会改变量词和命题类型。"
+      }
+    ],
+    "auxiliary_diagnostics_not_alignment": [
+      {
+        "finding_cn": "两个未标注类型的分数 (3 / 5)、(1 / 5) 被自然数幂实例按 ℕ 除法解释，均为0；因此指数因子退化为 exp(−C)，丢失标准 VK 中随 x 衰减的部分。",
+        "status": "implementation_diagnostic_only",
+        "conditional_consequence_cn": "若日后合法目标明确要求标准实数 3/5 与 1/5 的 VK kernel，这一差异足以支持 misaligned；当前没有可比较的主目标，因此不提前写入二元标签。"
+      }
+    ],
+    "input_change_proposal": {
+      "status": "blocked_no_independent_main_target",
+      "proposed_informal": null,
+      "required_before_binary_label_cn": "恢复或新建有独立来源的主定义，明确 bound 的参数/范围、π 或 π*、Li 起点和误差归一化，给出来源定位并绑定当前 root；完成后重算输入哈希再判标签。不能把现有 formal 的逐句翻译冒充来源。",
+      "label_after_binding": null
+    },
+    "limitations": [
+      "没有主 informal 时，已知实现缺陷或修复不足以单独定义对齐关系。",
+      "本报告未断言数学文献中绝不存在这样的定义；结论限于已核对的冻结输入及列明来源。",
+      "独立来源中的常用 x>1 或充分大范围，不自动定义 formal 对所有实数参数和 x₀ 的总函数约定。"
+    ],
+    "minimal_blocker_cn": "缺一个独立且可定位、采用 Li=∫₂ˣ且误差除以 x/log x 的四参数 VK 主定义。现有独立源给出了部件或不同量词的定理，尚无合法的一对一 root 映射。"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-after",
+    "root": "Eπ.vinogradovBound",
+    "input_sha256": "7661546f6553e64a6d970264f2991e8ea99963f978871ee5055891759c634a06",
+    "input_file_sha256": {
+      "project.json": "f9d469847a49b110dd74f10d53719f477b936ee11e049ae4b4b459352f1f3d33",
+      "informal.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "formal/Main.lean": "c9800046836485e42be2b1434201c496d77ef5f9593fe33ec612ce29cbdaa094"
+    },
+    "formal_package_sha256": "008ab7b1be5ad638861a4b7e745cd6fff5f9fafe1a6936620ac2725f455bb19e",
+    "source_snapshot": {
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+      "path": "PrimeNumberTheoremAnd/Defs.lean",
+      "declaration": "Eπ.vinogradovBound",
+      "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+    },
+    "reviewed_at": "2026-11-09",
+    "review_method": "Model mathematical/source review; no model predictions were consulted; no proof-completion claim.",
+    "label": "undetermined",
+    "reason_cn": "这是缺主 informal 的无效配对，而非尚未算清楚某个数学命题。informal.jsonl 是空文件且 target.informal_id=null；历史源的目标也是无主注释的裸定义。独立来源可核 VK 指数形状，却未给出能合法绑定到该四参数 predicate 的主目标。不能从 formal 反译创建所谓独立目标，再据此给二元标签。",
+    "pair_validity": "invalid_missing_main_informal",
+    "binary_label_applicable": false,
+    "sources": [
+      {
+        "title": "Fiori, Kadiri and Swidinsky, Sharper bounds for the error term in the Prime Number Theorem",
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "version": "arXiv:2206.12557v2, 17 May 2023",
+        "locator": "equations (1), (5), (6); sections 1.1–1.3 and Definition 1",
+        "local_path": "/tmp/pnt-source-review-20261109/fks2.html",
+        "sha256": "1b43c4c5adac407525938322a036f186113562442e28bb7fbbabbe3eb4f04726",
+        "finding_cn": "式 (1) 给出 Eπ=|π−Li|/(x/log x)，Li=∫₂ˣdt/log t。式 (5) 是针对小写 li 的固定常数 VK 不等式，范围 x≥23。Definition 1 定义四/五参数 admissible bound，但其指数形状是 sqrt(log x/R)，不是 VK。不能把这几段拼接后声称原文已定义当前四参数 VK predicate。"
+      },
+      {
+        "title": "Andrei Shubin, Topics in equidistribution and exponential sums",
+        "url": "https://thesis.caltech.edu/14306/1/shubin_andrei_2021.pdf",
+        "version": "Caltech PhD thesis, defended June 28, 2021; title page 2022",
+        "locator": "printed page 4, equation (1.2) and following VK estimate",
+        "local_path": "/tmp/pnt-source-review-20261109/shubin.pdf",
+        "sha256": "0ea81745fcbd066a33e53a8ab00c83b2c5f26c881336abd54b86f1c1c54aec6b",
+        "finding_cn": "以 π(X)=∫₂ˣdu/log u+R(X) 定义余项，继而陈述 R(X)≪X exp(−c(log X)^(3/5)(loglog X)^(−1/5))。这是独立的渐近存在性结果，支持实数分数指数及 Li 起点；没有当前自由 A,B,C,x₀ predicate，更没有 π* 的目标。"
+      }
+    ],
+    "source_search_attempts": [
+      {
+        "source": "Historical handwritten blueprint / source snapshots",
+        "locator": "git show 8012191c:reports/pnt-history/sources/{657ac0e5cf42c45b03b93a662fd8237b6b0be49f,e32cf2d56926389a22109fcc92cc6c2af889161a}/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "两版目标均为无 blueprint statement 的裸定义。before 的 Eπ.vinogradovBound 在182–184行、Eπ_star.vinogradovBound 在195–197行；附近 classical-bound-pi 的 statement 明确仅属于 classicalBound，不能挪绑。Eπ 辅助注释还曾错写分母 Li；独立 FKS2 (1) 能澄清辅助定义，但不能补出不存在的主 statement。"
+      },
+      {
+        "source": "Current upstream Defs.lean",
+        "url": "https://raw.githubusercontent.com/AlexKontorovich/PrimeNumberTheoremAnd/master/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "检索仍见裸 VK 定义，没有独立主自然语言目标。当前代码也不能作为独立 informal。"
+      },
+      {
+        "source": "Terence Tao's personal project log",
+        "url": "https://raw.githubusercontent.com/wiki/AlexKontorovich/PrimeNumberTheoremAnd/Terence-Tao's-personal-log.md",
+        "local_path": "/tmp/pnt-source-review-20261109/tao-log.md",
+        "sha256": "b1b997b66524c407320848969ab3ac0f998c0dc55fb7ec6164808018766c8815",
+        "result_cn": "全文检索 Vinogradov / Korobov / pi-star / 3/5，仅找到无关的 Bombieri–Vinogradov 外部项目讨论，没有这四个定义的主文本。"
+      },
+      {
+        "source": "Johnston–Yang published paper / FKS2 citation of Theorem 1.4",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0022247X23004638",
+        "result_cn": "检索索引及 FKS2 (5) 可确认固定常数 VK 界；本轮直接打开出版社页返回403，未把受阻全文算作已完整核验。固定常数定理与当前任意四参数定义的量词结构不同，且 li/Li 相差常数，不可直接等同。"
+      },
+      {
+        "source": "Tao et al., Analytic Number Theory Exponent Database",
+        "url": "https://teorth.github.io/expdb/blueprint/chap-prime_counting_function.html",
+        "locator": "Theorem 14.4 / historical PNT error table",
+        "result_cn": "独立确认 VK 渐近误差形状；仍是存在常数的 O/≪ 结论，没有当前 bound predicate 或 π* 约定。"
+      },
+      {
+        "source": "Targeted literature searches",
+        "queries": [
+          "\"Vinogradov\" \"Eπ\"",
+          "\"Vinogradov\" \"pi^*\" prime counting",
+          "\"π∗\" \"Korobov\"",
+          "\"vinogradovBound\" informal",
+          "\"Korobov\" \"explicit\" \"A\" \"B\" \"C\" prime error bounds"
+        ],
+        "result_cn": "未定位到同时明确本项目所需量词、误差归一化、Li 起点与 π* 约定的独立主定义。搜索不到并不证明文献不存在；这里只记录本次已完成检索的具体缺口。"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "frozen_pair",
+        "finding_cn": "逐字读取当前 formal/Main.lean、project.json 和空 informal.jsonl；唯一 target 的 informal_id 为 null，preparation.target_bindings[0].text 也为 null。",
+        "locator": "datasets/pnt/projects/vinogradov-pi-after/project.json"
+      },
+      {
+        "kind": "mapping_gap",
+        "finding_cn": "目标是 (A B C x₀ : ℝ) → Prop 的定义，并非已证明某个固定常数组合的定理，也不是 ∃c>0 的渐近 O 结论。将独立文献的固定常数或存在性定理直接映射到此 root 会改变量词和命题类型。"
+      }
+    ],
+    "auxiliary_diagnostics_not_alignment": [
+      {
+        "finding_cn": "after 显式使用 ((3 : ℝ) / 5) 与 ((1 : ℝ) / 5)，幂类型与独立 VK 文献的实数分数指数相符。",
+        "status": "implementation_diagnostic_only",
+        "conditional_consequence_cn": "修复分数类型只是实现一致性的一个局部检查，不能证明尚未指定的主目标整体 aligned。"
+      }
+    ],
+    "input_change_proposal": {
+      "status": "blocked_no_independent_main_target",
+      "proposed_informal": null,
+      "required_before_binary_label_cn": "恢复或新建有独立来源的主定义，明确 bound 的参数/范围、π 或 π*、Li 起点和误差归一化，给出来源定位并绑定当前 root；完成后重算输入哈希再判标签。不能把现有 formal 的逐句翻译冒充来源。",
+      "label_after_binding": null
+    },
+    "limitations": [
+      "没有主 informal 时，已知实现缺陷或修复不足以单独定义对齐关系。",
+      "本报告未断言数学文献中绝不存在这样的定义；结论限于已核对的冻结输入及列明来源。",
+      "独立来源中的常用 x>1 或充分大范围，不自动定义 formal 对所有实数参数和 x₀ 的总函数约定。"
+    ],
+    "minimal_blocker_cn": "缺一个独立且可定位、采用 Li=∫₂ˣ且误差除以 x/log x 的四参数 VK 主定义。现有独立源给出了部件或不同量词的定理，尚无合法的一对一 root 映射。"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-star-before",
+    "root": "Eπ_star.vinogradovBound",
+    "input_sha256": "54fc6f11fda433a485e3cb1344d22c59ef31a558948cbd2d431bc650e997b314",
+    "input_file_sha256": {
+      "project.json": "c6d286fc513d136ae538d3c0489d7fdef2e0f53328ccad20849bb8505c1cc72a",
+      "informal.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "formal/Main.lean": "c5259d2dc1e5f4c74c78ddc9facd147a47565e0a112d589db52674abd7fc9174"
+    },
+    "formal_package_sha256": "bcdd90c5f38a59aa315454ce27748863e61c7d6a2fa5286d92037cd78fe552f4",
+    "source_snapshot": {
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+      "path": "PrimeNumberTheoremAnd/Defs.lean",
+      "declaration": "Eπ_star.vinogradovBound",
+      "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+    },
+    "reviewed_at": "2026-11-09",
+    "review_method": "Model mathematical/source review; no model predictions were consulted; no proof-completion claim.",
+    "label": "undetermined",
+    "reason_cn": "这是缺主 informal 的无效配对，而非尚未算清楚某个数学命题。informal.jsonl 是空文件且 target.informal_id=null；历史源的目标也是无主注释的裸定义。独立来源可核 VK 指数形状，却未给出能合法绑定到该四参数 predicate 的主目标。不能从 formal 反译创建所谓独立目标，再据此给二元标签。",
+    "pair_validity": "invalid_missing_main_informal",
+    "binary_label_applicable": false,
+    "sources": [
+      {
+        "title": "Fiori, Kadiri and Swidinsky, Sharper bounds for the error term in the Prime Number Theorem",
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "version": "arXiv:2206.12557v2, 17 May 2023",
+        "locator": "equations (1), (5), (6); sections 1.1–1.3 and Definition 1",
+        "local_path": "/tmp/pnt-source-review-20261109/fks2.html",
+        "sha256": "1b43c4c5adac407525938322a036f186113562442e28bb7fbbabbe3eb4f04726",
+        "finding_cn": "式 (1) 给出 Eπ=|π−Li|/(x/log x)，Li=∫₂ˣdt/log t。式 (5) 是针对小写 li 的固定常数 VK 不等式，范围 x≥23。Definition 1 定义四/五参数 admissible bound，但其指数形状是 sqrt(log x/R)，不是 VK。不能把这几段拼接后声称原文已定义当前四参数 VK predicate。"
+      },
+      {
+        "title": "Andrei Shubin, Topics in equidistribution and exponential sums",
+        "url": "https://thesis.caltech.edu/14306/1/shubin_andrei_2021.pdf",
+        "version": "Caltech PhD thesis, defended June 28, 2021; title page 2022",
+        "locator": "printed page 4, equation (1.2) and following VK estimate",
+        "local_path": "/tmp/pnt-source-review-20261109/shubin.pdf",
+        "sha256": "0ea81745fcbd066a33e53a8ab00c83b2c5f26c881336abd54b86f1c1c54aec6b",
+        "finding_cn": "以 π(X)=∫₂ˣdu/log u+R(X) 定义余项，继而陈述 R(X)≪X exp(−c(log X)^(3/5)(loglog X)^(−1/5))。这是独立的渐近存在性结果，支持实数分数指数及 Li 起点；没有当前自由 A,B,C,x₀ predicate，更没有 π* 的目标。"
+      }
+    ],
+    "source_search_attempts": [
+      {
+        "source": "Historical handwritten blueprint / source snapshots",
+        "locator": "git show 8012191c:reports/pnt-history/sources/{657ac0e5cf42c45b03b93a662fd8237b6b0be49f,e32cf2d56926389a22109fcc92cc6c2af889161a}/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "两版目标均为无 blueprint statement 的裸定义。before 的 Eπ.vinogradovBound 在182–184行、Eπ_star.vinogradovBound 在195–197行；附近 classical-bound-pi 的 statement 明确仅属于 classicalBound，不能挪绑。Eπ 辅助注释还曾错写分母 Li；独立 FKS2 (1) 能澄清辅助定义，但不能补出不存在的主 statement。"
+      },
+      {
+        "source": "Current upstream Defs.lean",
+        "url": "https://raw.githubusercontent.com/AlexKontorovich/PrimeNumberTheoremAnd/master/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "检索仍见裸 VK 定义，没有独立主自然语言目标。当前代码也不能作为独立 informal。"
+      },
+      {
+        "source": "Terence Tao's personal project log",
+        "url": "https://raw.githubusercontent.com/wiki/AlexKontorovich/PrimeNumberTheoremAnd/Terence-Tao's-personal-log.md",
+        "local_path": "/tmp/pnt-source-review-20261109/tao-log.md",
+        "sha256": "b1b997b66524c407320848969ab3ac0f998c0dc55fb7ec6164808018766c8815",
+        "result_cn": "全文检索 Vinogradov / Korobov / pi-star / 3/5，仅找到无关的 Bombieri–Vinogradov 外部项目讨论，没有这四个定义的主文本。"
+      },
+      {
+        "source": "Johnston–Yang published paper / FKS2 citation of Theorem 1.4",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0022247X23004638",
+        "result_cn": "检索索引及 FKS2 (5) 可确认固定常数 VK 界；本轮直接打开出版社页返回403，未把受阻全文算作已完整核验。固定常数定理与当前任意四参数定义的量词结构不同，且 li/Li 相差常数，不可直接等同。"
+      },
+      {
+        "source": "Tao et al., Analytic Number Theory Exponent Database",
+        "url": "https://teorth.github.io/expdb/blueprint/chap-prime_counting_function.html",
+        "locator": "Theorem 14.4 / historical PNT error table",
+        "result_cn": "独立确认 VK 渐近误差形状；仍是存在常数的 O/≪ 结论，没有当前 bound predicate 或 π* 约定。"
+      },
+      {
+        "source": "Targeted literature searches",
+        "queries": [
+          "\"Vinogradov\" \"Eπ\"",
+          "\"Vinogradov\" \"pi^*\" prime counting",
+          "\"π∗\" \"Korobov\"",
+          "\"vinogradovBound\" informal",
+          "\"Korobov\" \"explicit\" \"A\" \"B\" \"C\" prime error bounds"
+        ],
+        "result_cn": "未定位到同时明确本项目所需量词、误差归一化、Li 起点与 π* 约定的独立主定义。搜索不到并不证明文献不存在；这里只记录本次已完成检索的具体缺口。"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "frozen_pair",
+        "finding_cn": "逐字读取当前 formal/Main.lean、project.json 和空 informal.jsonl；唯一 target 的 informal_id 为 null，preparation.target_bindings[0].text 也为 null。",
+        "locator": "datasets/pnt/projects/vinogradov-pi-star-before/project.json"
+      },
+      {
+        "kind": "mapping_gap",
+        "finding_cn": "目标是 (A B C x₀ : ℝ) → Prop 的定义，并非已证明某个固定常数组合的定理，也不是 ∃c>0 的渐近 O 结论。将独立文献的固定常数或存在性定理直接映射到此 root 会改变量词和命题类型。"
+      },
+      {
+        "kind": "additional_mapping_gap",
+        "finding_cn": "所核 FKS2、Shubin 与 exponent-database 资料针对 π、θ、ψ，没有本项 π* 归一化误差界的主定义。before/after 的 π* 辅助定义也不同，因此不能只凭“Vinogradov”名称选择一种惯例。"
+      }
+    ],
+    "auxiliary_diagnostics_not_alignment": [
+      {
+        "finding_cn": "两个未标注类型的分数 (3 / 5)、(1 / 5) 被自然数幂实例按 ℕ 除法解释，均为0；因此指数因子退化为 exp(−C)，丢失标准 VK 中随 x 衰减的部分。",
+        "status": "implementation_diagnostic_only",
+        "conditional_consequence_cn": "若日后合法目标明确要求标准实数 3/5 与 1/5 的 VK kernel，这一差异足以支持 misaligned；当前没有可比较的主目标，因此不提前写入二元标签。"
+      },
+      {
+        "finding_cn": "before 的 pi_star 为 Σ_{2≤n≤⌊x⌋} Λ(n)/n。与常用 Riemann weighted prime-power count Σ_{k≥1}π(x^(1/k))/k 不同：x=2 时前者 log(2)/2，后者1。",
+        "status": "helper_convention_diagnostic_only",
+        "scope_note_cn": "保留数学定义的 own-version 评价需要已存在的主文本。这里没有主文本，不能擅自把某个外部 π* 惯例升级为本项目标。"
+      }
+    ],
+    "input_change_proposal": {
+      "status": "blocked_no_independent_main_target",
+      "proposed_informal": null,
+      "required_before_binary_label_cn": "恢复或新建有独立来源的主定义，明确 bound 的参数/范围、π 或 π*、Li 起点和误差归一化，给出来源定位并绑定当前 root；完成后重算输入哈希再判标签。不能把现有 formal 的逐句翻译冒充来源。",
+      "label_after_binding": null
+    },
+    "limitations": [
+      "没有主 informal 时，已知实现缺陷或修复不足以单独定义对齐关系。",
+      "本报告未断言数学文献中绝不存在这样的定义；结论限于已核对的冻结输入及列明来源。",
+      "独立来源中的常用 x>1 或充分大范围，不自动定义 formal 对所有实数参数和 x₀ 的总函数约定。"
+    ],
+    "minimal_blocker_cn": "缺一个独立且可定位的 π* VK 主定义，并明确 π* 是何种计数；已知 helper 差异不能取代此缺口。"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-star-after",
+    "root": "Eπ_star.vinogradovBound",
+    "input_sha256": "bf35d853909784cd295144b99af255fffcc32a3bcf9333c42f11a92f7a5e089b",
+    "input_file_sha256": {
+      "project.json": "c45fd7276f1ff7dfe5300449c896bc6338a5f7a5e88927e832a2b13e0c7a5845",
+      "informal.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "formal/Main.lean": "a697259dff0ec35d38d18a2fe6d9c8ba4ea8b7eda617e7c50a41562452def7c0"
+    },
+    "formal_package_sha256": "74e40e41871f42d52c1926fb6ac69686cf486a3f09379bd749aa52ba85387ce3",
+    "source_snapshot": {
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+      "path": "PrimeNumberTheoremAnd/Defs.lean",
+      "declaration": "Eπ_star.vinogradovBound",
+      "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+    },
+    "reviewed_at": "2026-11-09",
+    "review_method": "Model mathematical/source review; no model predictions were consulted; no proof-completion claim.",
+    "label": "undetermined",
+    "reason_cn": "这是缺主 informal 的无效配对，而非尚未算清楚某个数学命题。informal.jsonl 是空文件且 target.informal_id=null；历史源的目标也是无主注释的裸定义。独立来源可核 VK 指数形状，却未给出能合法绑定到该四参数 predicate 的主目标。不能从 formal 反译创建所谓独立目标，再据此给二元标签。",
+    "pair_validity": "invalid_missing_main_informal",
+    "binary_label_applicable": false,
+    "sources": [
+      {
+        "title": "Fiori, Kadiri and Swidinsky, Sharper bounds for the error term in the Prime Number Theorem",
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "version": "arXiv:2206.12557v2, 17 May 2023",
+        "locator": "equations (1), (5), (6); sections 1.1–1.3 and Definition 1",
+        "local_path": "/tmp/pnt-source-review-20261109/fks2.html",
+        "sha256": "1b43c4c5adac407525938322a036f186113562442e28bb7fbbabbe3eb4f04726",
+        "finding_cn": "式 (1) 给出 Eπ=|π−Li|/(x/log x)，Li=∫₂ˣdt/log t。式 (5) 是针对小写 li 的固定常数 VK 不等式，范围 x≥23。Definition 1 定义四/五参数 admissible bound，但其指数形状是 sqrt(log x/R)，不是 VK。不能把这几段拼接后声称原文已定义当前四参数 VK predicate。"
+      },
+      {
+        "title": "Andrei Shubin, Topics in equidistribution and exponential sums",
+        "url": "https://thesis.caltech.edu/14306/1/shubin_andrei_2021.pdf",
+        "version": "Caltech PhD thesis, defended June 28, 2021; title page 2022",
+        "locator": "printed page 4, equation (1.2) and following VK estimate",
+        "local_path": "/tmp/pnt-source-review-20261109/shubin.pdf",
+        "sha256": "0ea81745fcbd066a33e53a8ab00c83b2c5f26c881336abd54b86f1c1c54aec6b",
+        "finding_cn": "以 π(X)=∫₂ˣdu/log u+R(X) 定义余项，继而陈述 R(X)≪X exp(−c(log X)^(3/5)(loglog X)^(−1/5))。这是独立的渐近存在性结果，支持实数分数指数及 Li 起点；没有当前自由 A,B,C,x₀ predicate，更没有 π* 的目标。"
+      }
+    ],
+    "source_search_attempts": [
+      {
+        "source": "Historical handwritten blueprint / source snapshots",
+        "locator": "git show 8012191c:reports/pnt-history/sources/{657ac0e5cf42c45b03b93a662fd8237b6b0be49f,e32cf2d56926389a22109fcc92cc6c2af889161a}/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "两版目标均为无 blueprint statement 的裸定义。before 的 Eπ.vinogradovBound 在182–184行、Eπ_star.vinogradovBound 在195–197行；附近 classical-bound-pi 的 statement 明确仅属于 classicalBound，不能挪绑。Eπ 辅助注释还曾错写分母 Li；独立 FKS2 (1) 能澄清辅助定义，但不能补出不存在的主 statement。"
+      },
+      {
+        "source": "Current upstream Defs.lean",
+        "url": "https://raw.githubusercontent.com/AlexKontorovich/PrimeNumberTheoremAnd/master/PrimeNumberTheoremAnd/Defs.lean",
+        "result_cn": "检索仍见裸 VK 定义，没有独立主自然语言目标。当前代码也不能作为独立 informal。"
+      },
+      {
+        "source": "Terence Tao's personal project log",
+        "url": "https://raw.githubusercontent.com/wiki/AlexKontorovich/PrimeNumberTheoremAnd/Terence-Tao's-personal-log.md",
+        "local_path": "/tmp/pnt-source-review-20261109/tao-log.md",
+        "sha256": "b1b997b66524c407320848969ab3ac0f998c0dc55fb7ec6164808018766c8815",
+        "result_cn": "全文检索 Vinogradov / Korobov / pi-star / 3/5，仅找到无关的 Bombieri–Vinogradov 外部项目讨论，没有这四个定义的主文本。"
+      },
+      {
+        "source": "Johnston–Yang published paper / FKS2 citation of Theorem 1.4",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0022247X23004638",
+        "result_cn": "检索索引及 FKS2 (5) 可确认固定常数 VK 界；本轮直接打开出版社页返回403，未把受阻全文算作已完整核验。固定常数定理与当前任意四参数定义的量词结构不同，且 li/Li 相差常数，不可直接等同。"
+      },
+      {
+        "source": "Tao et al., Analytic Number Theory Exponent Database",
+        "url": "https://teorth.github.io/expdb/blueprint/chap-prime_counting_function.html",
+        "locator": "Theorem 14.4 / historical PNT error table",
+        "result_cn": "独立确认 VK 渐近误差形状；仍是存在常数的 O/≪ 结论，没有当前 bound predicate 或 π* 约定。"
+      },
+      {
+        "source": "Targeted literature searches",
+        "queries": [
+          "\"Vinogradov\" \"Eπ\"",
+          "\"Vinogradov\" \"pi^*\" prime counting",
+          "\"π∗\" \"Korobov\"",
+          "\"vinogradovBound\" informal",
+          "\"Korobov\" \"explicit\" \"A\" \"B\" \"C\" prime error bounds"
+        ],
+        "result_cn": "未定位到同时明确本项目所需量词、误差归一化、Li 起点与 π* 约定的独立主定义。搜索不到并不证明文献不存在；这里只记录本次已完成检索的具体缺口。"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "frozen_pair",
+        "finding_cn": "逐字读取当前 formal/Main.lean、project.json 和空 informal.jsonl；唯一 target 的 informal_id 为 null，preparation.target_bindings[0].text 也为 null。",
+        "locator": "datasets/pnt/projects/vinogradov-pi-star-after/project.json"
+      },
+      {
+        "kind": "mapping_gap",
+        "finding_cn": "目标是 (A B C x₀ : ℝ) → Prop 的定义，并非已证明某个固定常数组合的定理，也不是 ∃c>0 的渐近 O 结论。将独立文献的固定常数或存在性定理直接映射到此 root 会改变量词和命题类型。"
+      },
+      {
+        "kind": "additional_mapping_gap",
+        "finding_cn": "所核 FKS2、Shubin 与 exponent-database 资料针对 π、θ、ψ，没有本项 π* 归一化误差界的主定义。before/after 的 π* 辅助定义也不同，因此不能只凭“Vinogradov”名称选择一种惯例。"
+      }
+    ],
+    "auxiliary_diagnostics_not_alignment": [
+      {
+        "finding_cn": "after 显式使用 ((3 : ℝ) / 5) 与 ((1 : ℝ) / 5)，幂类型与独立 VK 文献的实数分数指数相符。",
+        "status": "implementation_diagnostic_only",
+        "conditional_consequence_cn": "修复分数类型只是实现一致性的一个局部检查，不能证明尚未指定的主目标整体 aligned。"
+      },
+      {
+        "finding_cn": "after 的 pi_star 为 Σ′_{k:ℕ}π(x^(1/k))/k；对通常 x>1，k=0 的总化除法项为0，其余项是常用 prime-power 权重计数。有限 x 的 k 大于 log₂x 时项为0。",
+        "status": "helper_convention_diagnostic_only",
+        "scope_note_cn": "保留数学定义的 own-version 评价需要已存在的主文本。这里没有主文本，不能擅自把某个外部 π* 惯例升级为本项目标。"
+      }
+    ],
+    "input_change_proposal": {
+      "status": "blocked_no_independent_main_target",
+      "proposed_informal": null,
+      "required_before_binary_label_cn": "恢复或新建有独立来源的主定义，明确 bound 的参数/范围、π 或 π*、Li 起点和误差归一化，给出来源定位并绑定当前 root；完成后重算输入哈希再判标签。不能把现有 formal 的逐句翻译冒充来源。",
+      "label_after_binding": null
+    },
+    "limitations": [
+      "没有主 informal 时，已知实现缺陷或修复不足以单独定义对齐关系。",
+      "本报告未断言数学文献中绝不存在这样的定义；结论限于已核对的冻结输入及列明来源。",
+      "独立来源中的常用 x>1 或充分大范围，不自动定义 formal 对所有实数参数和 x₀ 的总函数约定。"
+    ],
+    "minimal_blocker_cn": "缺一个独立且可定位的 π* VK 主定义，并明确 π* 是何种计数；已知 helper 差异不能取代此缺口。"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "bounded-dusart1999-after",
+    "root": "Dusart1999.p_n_upper",
+    "input_sha256": "6fdcc2fec23479f6d9dbfd2787edd4342077bd75bf2efb139e1f19038172d16c",
+    "input_file_sha256": {
+      "project.json": "0014dfd393e5c690fd8c810fb61900f08132309b731c232f3947689f12d01e0d",
+      "informal.jsonl": "5ec4f4fa63b7527c95fe25885ee2e1f5d1a945137887315a790ce56325a9c5c3",
+      "formal/Main.lean": "dfe26c615b047344be4ed859f72118a83eb912063b6e3fcb92c7abc331d8979d"
+    },
+    "formal_package_sha256": "6e688c83c82027857e6ea65311bf50876470a05fa9a66c48e7b8295b41548fc9",
+    "source_snapshot": {
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "commit": "be5e07e04cde20c5ceabf63759bd097a9c88173f",
+      "path": "PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "declaration": "Dusart1999.p_n_upper",
+      "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac"
+    },
+    "reviewed_at": "2026-11-09",
+    "review_method": "Model mathematical/source review; no model predictions were consulted; no proof-completion claim.",
+    "label": "aligned",
+    "reason_cn": "按数学命题对齐标准，以正文明确的条件 n≥39017 与结论 p_n≤n(log n+loglog n−0.9484) 为规范命题；i.e. 括注是重复解释而非另添约束。杜萨尔本人1998博士论文 Théorème 1.8 独立且精确确认同一端点与结论，因此可有依据地把括注 p_n>467473 认定为非规范解释笔误。formal 与该主命题一致。此 aligned 不表示整段文字无笔误：p_39017=467473，括注严格 > 确实错误，已显式登记。",
+    "pair_validity": "valid_with_source_disambiguated_explanatory_typo",
+    "binary_label_applicable": true,
+    "frozen_informal_text": "For $n \\geq 39017$ (i.e., $p_n > 467473$), we have\n  $p_n \\leq n(\\log n + \\log\\log n - 0.9484)$.",
+    "interpretation_policy": {
+      "policy": "normative_main_proposition_with_explicitly_disclosed_explanatory_typo",
+      "main_proposition_cn": "For n≥39017, p_n≤n(log n+loglog n−0.9484).",
+      "why_parenthetical_is_not_an_added_constraint_cn": "i.e. 的语法作用是把已经给出的 n 条件重述成等价的 p_n 条件，不是 and/provided that 形式的新假设；主条件自身完整且明确。独立作者原文采用相同的 n≥39017，没有该错误括注，故有外部证据解决两种读法的优先级。",
+      "rejected_alternative_cn": "若把每个解释括注也视为必须逐字形式化的独立等价断言，则当前 prose 含一个错误断言，不能称文字完全一致；本报告明确不采用这种逐句无错标准。这里不是忽略未解释的端点冲突，而是按原作者主命题消歧。",
+      "scope_cn": "Assess this own-version statement with the retained mathematical definitions. Paper comparison and unresolved domain conventions are recorded separately; no theorem proof-completion claim."
+    },
+    "evidence": [
+      {
+        "kind": "formal_statement",
+        "locator": "datasets/pnt/projects/bounded-dusart1999-after/formal/Main.lean",
+        "finding_cn": "nth_prime′ n = Nat.nth Nat.Prime (n−1)，在 n≥39017 下正是以1起始的第 n 个素数；定理假设 n≥39017、结论≤与主文字一致，常数0.9484一致。"
+      },
+      {
+        "kind": "independent_author_source",
+        "locator": "Dusart thesis printed p.32 / PDF page33, Théorème1.8",
+        "finding_cn": "已下载作者本人站点PDF，pdftotext定位后目视原页确认：Pour k ≥ 39017，p_k ≤ k(ln k + ln₂ k − 0.9484)。严格/非严格符号由图像核实，未依赖会把 ≥ 误读为 > 的提取文本。",
+        "visual_evidence_path": "/tmp/pnt-source-review-20261109/dusart-thesis-p32.png"
+      },
+      {
+        "kind": "endpoint_check",
+        "method": "Independent Eratosthenes sieve through 500000, selecting 1-indexed primes.",
+        "result": {
+          "p_39016": 467471,
+          "p_39017": 467473,
+          "p_39018": 467477
+        },
+        "finding_cn": "因此 n≥39017 等价于 p_n≥467473，而不是 p_n>467473。原括注排除主句包含的端点，笔误必须在审查记录中保留。",
+        "numerical_sanity_check": {
+          "rhs_at_n_39017": 467483.681203808,
+          "margin_above_p_39017": 10.681203807995189
+        },
+        "numerical_check_scope": "浮点结论值仅为端点无矛盾的旁证，aligned 不依赖数值检验证明定理。"
+      },
+      {
+        "kind": "historical_text_origin",
+        "locator": "git show 8012191c:reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean, lines1150–1157",
+        "finding_cn": "当前错误括注忠实保留了本版手写blueprint，而非提取过程中新增。必须登记为源文本解释性笔误，不能伪称原冻结文本已写≥。",
+        "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Pierre Dusart, Autour de la fonction qui compte le nombre de nombres premiers",
+        "url": "https://www.unilim.fr/pages_perso/pierre.dusart/Documents/T1998_01.pdf",
+        "version": "PhD thesis, Université de Limoges, defended26 May1998",
+        "locator": "Théorème1.8, printed page32 / PDF page33",
+        "local_path": "/tmp/pnt-source-review-20261109/dusart-thesis.pdf",
+        "sha256": "fb780e05f58f623ce433559a6f47094a407c3397c902063d9876c22ecdef7e2d",
+        "verification": "PDF downloaded from author university site; theorem visually checked."
+      },
+      {
+        "title": "Pierre Dusart, The kth prime is greater than k(log k + log log k − 1) for k≥2",
+        "url": "https://www.ams.org/mcom/1999-68-225/S0025-5718-99-01037-6/S0025-5718-99-01037-6.pdf",
+        "locator": "Math. Comp.68 (1999), page414, §4",
+        "verification": "Search index corroborated the same upper-bound threshold; direct PDF requests returned403. Not used as the sole evidentiary source."
+      }
+    ],
+    "input_change_proposal": {
+      "required_for_label": false,
+      "status": "optional_textual_erratum_proposed_not_applied",
+      "proposal_cn": "建议把括注的 > 改成 ≥，或者删除括注；主条件、主结论与 formal 均不需改动。",
+      "preferred_corrected_text": "For $n \\geq 39017$ (i.e., $p_n \\geq 467473$), we have\n  $p_n \\leq n(\\log n + \\log\\log n - 0.9484)$.",
+      "reason_cn": "明确纠正解释等价式，消除后续读者把括注当成附加条件的可能；不是改变规范主命题。",
+      "provenance_requirement_cn": "如采用纠错，应将原 own-version 手写文本保持为来源证据，记录此为有独立作者来源支持的编辑修正，并重算输入哈希，不能继续声称文本逐字来自旧blueprint。"
+    },
+    "limitations": [
+      "aligned 采用报告中明确的主命题解释口径；若评测目标要求整段所有解释性断言均逐字正确，应将括注文字质量问题单独评估或先采用纠错提案。",
+      "formal 的证明为 sorry；这里只判断声明对齐，不声称完成 Lean 证明。",
+      "未修改任何项目、informal、标签或旧评测结果；未运行或读取Qwen预测。"
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+NumberField.AdeleRing.DivisionAlgebra.compact_quotient : ∀ (K : Type u_1) [inst : Field K] [inst_1 : NumberField K]
+  (D : Type u_2) [inst_2 : DivisionRing D] [inst_3 : Algebra K D] [inst_4 : FiniteDimensional K D]
+  [Algebra.IsCentral K D],
+  CompactSpace
+    (Quotient
+      (QuotientGroup.rightRel
+        (Subgroup.comap
+          (MeasureTheory.ringHaarCharKer
+              (TensorProduct K D (NumberField.AdeleRing (NumberField.RingOfIntegers K) K))).subtype
+          (NumberField.AdeleRing.DivisionAlgebra.Aux.incl K D).range)))
+'NumberField.AdeleRing.DivisionAlgebra.compact_quotient' depends on axioms: [propext, Classical.choice, Quot.sound]

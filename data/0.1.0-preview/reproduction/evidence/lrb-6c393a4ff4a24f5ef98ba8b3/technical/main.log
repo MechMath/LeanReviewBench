@@ -1,0 +1,9 @@
+MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one : ∀ (V : Type u_1) [inst : AddCommGroup V]
+  [inst_1 : Module ℚ V] [inst_2 : FiniteDimensional ℚ V] (φ : V ≃ₗ[ℚ] V)
+  [inst_3 : MeasurableSpace (TensorProduct ℚ V (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ))]
+  [inst_4 : BorelSpace (TensorProduct ℚ V (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ))],
+  MeasureTheory.addEquivAddHaarChar
+      (TensorProduct.RightActions.ContinuousLinearEquiv.baseChange ℚ
+          (NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ) V V φ).toContinuousAddEquiv =
+    1
+'MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]

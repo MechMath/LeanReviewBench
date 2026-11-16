@@ -1,0 +1,25 @@
+{
+  "dataset": "imperial-flt",
+  "project_id": "flt-c03",
+  "status": "passed",
+  "modules": 82,
+  "targets": [
+    "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
+  ],
+  "compiled_modules": 82,
+  "source_sha256": "b3a7f51c473fdc14ef0801b947858eddd230471ce67067528b31d0d0dc5ce95f",
+  "seconds": 252.29,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 163,
+      "edges": 723
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 163,
+      "edges": 723
+    }
+  },
+  "leantrace_extracted": true
+}

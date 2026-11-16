@@ -1,0 +1,45 @@
+{
+  "url": "https://eprint.iacr.org/2025/902.pdf",
+  "retrieved_at": "2026-11-13T08:55:53Z",
+  "method": "web search/indexed cached PDF text, not downloaded PDF bytes",
+  "document_header_date": "2025-05-27",
+  "version": "Cached text bearing 2025-05-27 header; exact ePrint revision identifier and original PDF SHA256 unavailable",
+  "full_pdf_acquired": false,
+  "full_pdf_sha256": null,
+  "direct_fetch": "403 Forbidden from both web direct-open and escalated curl; cached indexed text succeeds",
+  "locators": [
+    "Lemma 9.1, section 9 opening, printed p.59 in cached pagination",
+    "Construction 9.4 and Definition 9.5, section 9.1, printed pp.59-60 in cached pagination",
+    "Definition 1 (informal), introductory function binding definition"
+  ],
+  "retrievals": [
+    {
+      "path": "reports/pending-extraction-2026-11-13/arklib-function-binding/cgky-web-retrieval.json",
+      "sha256": "373ee6f9753b126ed16ebd42b11a4b0f024aa78ca526b83f9ceee3bb281cdfc2",
+      "representation": "Raw web tool return serialized as JSON; text derivative adjacent"
+    },
+    {
+      "path": "reports/pending-extraction-2026-11-13/arklib-function-binding/cgky_defs-web-retrieval.json",
+      "sha256": "306692dddf564aaa5a352091cada77b92d18e8d4888a2a52b96fb45d0ac09a8e",
+      "representation": "Raw web tool return serialized as JSON; text derivative adjacent"
+    },
+    {
+      "path": "reports/pending-extraction-2026-11-13/arklib-function-binding/cgky_sec3-web-retrieval.json",
+      "sha256": "52e7b6a242e5bf3d383b22e4c5563f4224c660f7e4a21a84ac85c42f3a0fd7d6",
+      "representation": "Raw web tool return serialized as JSON; text derivative adjacent"
+    },
+    {
+      "path": "reports/pending-extraction-2026-11-13/arklib-function-binding/cgky_targeted-web-retrieval.json",
+      "sha256": "5f7f24696cbd2c17cc718f079c0c943d346e7d8711b0e519ccaa286a8ecef7ed",
+      "representation": "Raw web tool return serialized as JSON; text derivative adjacent"
+    }
+  ],
+  "locator_caveat": "Printed pages are inferred from cached page-break markers. No visual PDF verification. Lean cites Definition9.6; retrieved cached edition numbers ARSDH Definition9.5. Do not assert exact edition identity.",
+  "source_revision_status": "exact_numbered_eprint_revision_unverified",
+  "latest_landing_metadata": {
+    "checked_at": "2026-11-13",
+    "url": "https://eprint.iacr.org/2025/902",
+    "history": "2026-06-02: last of 5 revisions; 2025-05-20: received",
+    "note": "Latest landing page does not pin the cached May27,2025 text. Version archive returned403; author publications page links back to same ePrint PDF. EPFL record is CRYPTO2026 bibliographic metadata with no separate fulltext link found."
+  }
+}

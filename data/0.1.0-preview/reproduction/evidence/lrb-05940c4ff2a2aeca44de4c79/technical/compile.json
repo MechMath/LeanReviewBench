@@ -1,0 +1,12 @@
+{
+  "dataset": "equational",
+  "project_id": "etp-fullspectrum-1682",
+  "status": "passed",
+  "modules": 19,
+  "targets": [
+    "FullSpectrum.full_spectrum_Equation1682"
+  ],
+  "compiled_modules": 19,
+  "source_sha256": "454d6b14ede1b52e3860ba3a75c5b36dafd33c7d0d7d76fdd229e9cb91ad415f",
+  "seconds": 1.399
+}

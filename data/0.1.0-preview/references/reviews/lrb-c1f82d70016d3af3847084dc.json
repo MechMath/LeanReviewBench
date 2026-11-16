@@ -1,0 +1,664 @@
+[
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-before",
+    "root": "Eπ.vinogradovBound",
+    "label": "undetermined",
+    "reason": "No main informal statement is frozen (empty informal.jsonl; target informal_id is null). Historical source has an unannotated definition. A generic VK error shape in the literature does not independently specify this exact four-parameter predicate, its all-real parameter conventions, or the pi-star convention. Do not manufacture a target by translating the formal definition.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-before/informal.jsonl",
+        "finding": "Zero bytes; there is no actual bound statement to compare."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "locator": "Eπ.vinogradovBound and Eπ_star.vinogradovBound",
+        "finding": "No direct blueprint statement or independent prose annotation on either definition."
+      },
+      {
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "locator": "Introduction equations (1), (5), and Definition 1",
+        "finding": "Confirms E_pi normalization using Li(x)=integral from 2 to x and the real 3/5 and 1/5 Korobov–Vinogradov exponent shape. Its equation (5) is a particular pi-li theorem; Definition 1 is the classical square-root family, not the requested generic VK predicate."
+      },
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-before/formal/Main.lean",
+        "finding": "Both fractional exponents use untyped natural-number division, so 3/5=1/5=0 and the exponential factor reduces to exp(-C)."
+      }
+    ],
+    "limitations": [
+      "No label is inferred from a historical edit or the name vinogradovBound.",
+      "A source-backed generic definition with explicit domain and error-function convention is still required before evaluation."
+    ],
+    "old_input_sha256": "e17abc9cbbbc4464abd9fa2c3f1fecef0e3cfe47dcc4648b568ef2e63a8795ab",
+    "formal_sha256": "dbfabae21d382d694630adcb8777d8bf18e6c53f86074917d97648f4ae8906aa",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false,
+    "proposed_informal": null,
+    "label_after_binding": "undetermined",
+    "binding_status": "missing_independent_exact_target"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-after",
+    "root": "Eπ.vinogradovBound",
+    "label": "undetermined",
+    "reason": "No main informal statement is frozen (empty informal.jsonl; target informal_id is null). Historical source has an unannotated definition. A generic VK error shape in the literature does not independently specify this exact four-parameter predicate, its all-real parameter conventions, or the pi-star convention. Do not manufacture a target by translating the formal definition.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-after/informal.jsonl",
+        "finding": "Zero bytes; there is no actual bound statement to compare."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "locator": "Eπ.vinogradovBound and Eπ_star.vinogradovBound",
+        "finding": "No direct blueprint statement or independent prose annotation on either definition."
+      },
+      {
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "locator": "Introduction equations (1), (5), and Definition 1",
+        "finding": "Confirms E_pi normalization using Li(x)=integral from 2 to x and the real 3/5 and 1/5 Korobov–Vinogradov exponent shape. Its equation (5) is a particular pi-li theorem; Definition 1 is the classical square-root family, not the requested generic VK predicate."
+      },
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-after/formal/Main.lean",
+        "finding": "The fractional exponents are explicitly real, but this syntactic correction alone does not supply an independent main statement."
+      }
+    ],
+    "limitations": [
+      "No label is inferred from a historical edit or the name vinogradovBound.",
+      "A source-backed generic definition with explicit domain and error-function convention is still required before evaluation."
+    ],
+    "old_input_sha256": "7661546f6553e64a6d970264f2991e8ea99963f978871ee5055891759c634a06",
+    "formal_sha256": "c9800046836485e42be2b1434201c496d77ef5f9593fe33ec612ce29cbdaa094",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false,
+    "proposed_informal": null,
+    "label_after_binding": "undetermined",
+    "binding_status": "missing_independent_exact_target"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-star-before",
+    "root": "Eπ_star.vinogradovBound",
+    "label": "undetermined",
+    "reason": "No main informal statement is frozen (empty informal.jsonl; target informal_id is null). Historical source has an unannotated definition. A generic VK error shape in the literature does not independently specify this exact four-parameter predicate, its all-real parameter conventions, or the pi-star convention. Do not manufacture a target by translating the formal definition.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-star-before/informal.jsonl",
+        "finding": "Zero bytes; there is no actual bound statement to compare."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "locator": "Eπ.vinogradovBound and Eπ_star.vinogradovBound",
+        "finding": "No direct blueprint statement or independent prose annotation on either definition."
+      },
+      {
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "locator": "Introduction equations (1), (5), and Definition 1",
+        "finding": "Confirms E_pi normalization using Li(x)=integral from 2 to x and the real 3/5 and 1/5 Korobov–Vinogradov exponent shape. Its equation (5) is a particular pi-li theorem; Definition 1 is the classical square-root family, not the requested generic VK predicate."
+      },
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-star-before/formal/Main.lean",
+        "finding": "Both fractional exponents use untyped natural-number division, so 3/5=1/5=0 and the exponential factor reduces to exp(-C). The before pi_star is sum Λ(n)/n, whereas after pi_star is sum pi(x^(1/k))/k; independent endpoint and normalization conventions therefore also matter."
+      }
+    ],
+    "limitations": [
+      "No label is inferred from a historical edit or the name vinogradovBound.",
+      "A source-backed generic definition with explicit domain and error-function convention is still required before evaluation."
+    ],
+    "old_input_sha256": "54fc6f11fda433a485e3cb1344d22c59ef31a558948cbd2d431bc650e997b314",
+    "formal_sha256": "c5259d2dc1e5f4c74c78ddc9facd147a47565e0a112d589db52674abd7fc9174",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false,
+    "proposed_informal": null,
+    "label_after_binding": "undetermined",
+    "binding_status": "missing_independent_exact_target"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "vinogradov-pi-star-after",
+    "root": "Eπ_star.vinogradovBound",
+    "label": "undetermined",
+    "reason": "No main informal statement is frozen (empty informal.jsonl; target informal_id is null). Historical source has an unannotated definition. A generic VK error shape in the literature does not independently specify this exact four-parameter predicate, its all-real parameter conventions, or the pi-star convention. Do not manufacture a target by translating the formal definition.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-star-after/informal.jsonl",
+        "finding": "Zero bytes; there is no actual bound statement to compare."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "locator": "Eπ.vinogradovBound and Eπ_star.vinogradovBound",
+        "finding": "No direct blueprint statement or independent prose annotation on either definition."
+      },
+      {
+        "url": "https://arxiv.org/html/2206.12557v2",
+        "locator": "Introduction equations (1), (5), and Definition 1",
+        "finding": "Confirms E_pi normalization using Li(x)=integral from 2 to x and the real 3/5 and 1/5 Korobov–Vinogradov exponent shape. Its equation (5) is a particular pi-li theorem; Definition 1 is the classical square-root family, not the requested generic VK predicate."
+      },
+      {
+        "path": "datasets/pnt/projects/vinogradov-pi-star-after/formal/Main.lean",
+        "finding": "The fractional exponents are explicitly real, but this syntactic correction alone does not supply an independent main statement. The before pi_star is sum Λ(n)/n, whereas after pi_star is sum pi(x^(1/k))/k; independent endpoint and normalization conventions therefore also matter."
+      }
+    ],
+    "limitations": [
+      "No label is inferred from a historical edit or the name vinogradovBound.",
+      "A source-backed generic definition with explicit domain and error-function convention is still required before evaluation."
+    ],
+    "old_input_sha256": "bf35d853909784cd295144b99af255fffcc32a3bcf9333c42f11a92f7a5e089b",
+    "formal_sha256": "a697259dff0ec35d38d18a2fe6d9c8ba4ea8b7eda617e7c50a41562452def7c0",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false,
+    "proposed_informal": null,
+    "label_after_binding": "undetermined",
+    "binding_status": "missing_independent_exact_target"
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "kln-j-before",
+    "root": "KLN.J",
+    "label": "undetermined",
+    "reason": "The current frozen target is absent. A fully checked independent target can now be supplied from KLN (4.17); against that proposed binding this version is misaligned for multiple substantive formula differences.",
+    "evidence": [
+      {
+        "url": "https://www.cs.uleth.ca/~kadiri/articles/Explicit-zero-density-for-the-Riemann-zeta-function-JMAA-May2018.pdf",
+        "sha256": "0d9c10276e8573f1780c34c4fa0d97cbb7ed1066ed84538e608f996854f68492",
+        "locator": "PDF page 11, equations (4.15)–(4.17); pages 5–6 (3.4),(3.5); pages 8–9 (4.1),(4.3),(4.4); page 12 Lemma 4.6",
+        "finding": "Downloaded author-hosted 24-page paper. Equation (4.17) visually checked in rendered PDF page 11; symbols and parentheses independently transcribed. Constants, domain, and surrounding parameter definitions inspected."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+        "locator": "Comment (4.17) immediately preceding J",
+        "finding": "The historical source explicitly identifies the paper equation intended for this definition."
+      },
+      {
+        "path": "datasets/pnt/projects/kln-j-before/formal/Main.lean",
+        "differences": [
+          "The numerator over the first logarithm uses I(β+1/3,0), I(β−2/3,0) in Formal; the source has index 1 in both.",
+          "The first two logarithmic denominators are log(kT) and log(kT)^2 in Formal; the source uses log(T) and log(T)^2.",
+          "In the term involving index 2, Formal divides only the second summand by log(kT)^2. The source divides the entire two-term numerator by log(T)^2.",
+          "The second a2 term uses I(β+1/6,2) in Formal; the source has I(β+1/6,1).",
+          "The retained a2 is 6·0.63/e−Re ζ(1/2)≈2.85093879644; source equation (3.4) fixes a2=2.851.",
+          "The before powers T^(1/6), T^(1/3) elaborate with natural exponent division and equal T^0=1; the source has real fractional powers."
+        ]
+      },
+      {
+        "method": "50-digit mpmath quadrature-equivalent gamma derivative evaluation; numerical corroboration only",
+        "parameters": {
+          "H0": "3.0610046e10",
+          "T": "3.0610046e10",
+          "k": "1",
+          "alpha": "1",
+          "beta": "2"
+        },
+        "paper_J": "0.1727249514247528707290321810933868821358",
+        "paper_shape_with_formal_a2": "0.1727249250036172414521415240326834847887",
+        "formal_J": "0.305550069863475058479421844699837249584",
+        "finding": "Already differs at k=1 (where log(kT)=log T), and still differs if the source formula is evaluated using retained a2. Thus the finding does not depend solely on log notation or rounding a2."
+      }
+    ],
+    "limitations": [
+      "Do not apply label_after_binding to the old empty-target input hash. Freeze the proposed text and recompute the input hash first.",
+      "No kernel-checked inequivalence certificate is claimed; the paper formula was visually checked and numerical evaluation is supplementary.",
+      "The proposed paper comparison is restricted to the paper parameter domain; the unrestricted totalized Lean definition is not asserted to be a paper definition outside that domain."
+    ],
+    "old_input_sha256": "961b26ffc4ac0317a69753eca31cf6feedc88cb50cb86df5f1d97f380a843b40",
+    "formal_sha256": "8dd268f2d8fdc8873c9148b3766ef915ab20a9a0a789998f8520f0d9463ddf94",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false,
+    "label_after_binding": "misaligned",
+    "binding_status": "independent_source_target_ready",
+    "proposed_informal": {
+      "id": "main",
+      "text": "For the parameters used in Section 4, let $H_0=3.0610046\\times10^{10}$, $\\alpha,\\beta>0$, $k\\ge10^9/H_0$, and $T\\ge H_0$. Set $a_1=0.63$, $a_2=2.851$, $b_1=0.62$, $b_2=1.048$, and $m_0=\\sqrt{1+\\frac23\\sqrt{\\frac65}}$. Define\n\\[\n C_1=\\frac6{\\pi^2}+\\frac{b_2}{\\log(kH_0)},\\qquad\n C_2=\\frac{\\pi m_0b_1}{\\log(kH_0)}+\\frac{6m_0}{\\pi kH_0}+\\frac{\\pi m_0b_2}{kH_0\\log(kH_0)},\\qquad r=\\frac{kC_2}{C_1}.\n\\]\nFor a nonnegative integer $n$, write $I(A,n)=\\int_0^\\infty x^A e^{-2\\alpha x^\\beta}(\\log x)^n\\,dx$ for the convergent integrals below. Equation (4.17) defines\n\\[\n\\begin{aligned}\nJ(k,T)={}&I(\\beta+\\tfrac13,0)+rI(\\beta-\\tfrac23,0)\\\\\n&+\\frac{2I(\\beta+\\tfrac13,1)+2rI(\\beta-\\tfrac23,1)}{\\log T}\n+\\frac{I(\\beta+\\tfrac13,2)+rI(\\beta-\\tfrac23,2)}{(\\log T)^2}\\\\\n&+\\frac{2a_2\\bigl(I(\\beta+\\tfrac16,0)+rI(\\beta-\\tfrac56,0)\\bigr)}{a_1T^{1/6}\\log T}\n+\\frac{2a_2\\bigl(I(\\beta+\\tfrac16,1)+rI(\\beta-\\tfrac56,1)\\bigr)}{a_1T^{1/6}(\\log T)^2}\\\\\n&+\\frac{a_2^2\\bigl(I(\\beta,0)+rI(\\beta-1,0)\\bigr)}{a_1^2T^{1/3}(\\log T)^2}.\n\\end{aligned}\n\\]\nAll fractional exponents are real. The dependence of $I$ and $J$ on the fixed parameters is suppressed in the paper's notation.",
+      "scope": "Compare the cited paper definition on its stated parameter domain, including its constants and integral conventions. This does not assert equality of totalized extensions outside that domain.",
+      "origin": "independent_paper_definition_transcribed_and_paraphrased",
+      "role": "main_statement",
+      "source": {
+        "url": "https://www.cs.uleth.ca/~kadiri/articles/Explicit-zero-density-for-the-Riemann-zeta-function-JMAA-May2018.pdf",
+        "locator": "Equation (4.17), PDF p. 11; definitions (3.4),(3.5),(3.15),(4.1),(4.3),(4.4),(4.15)",
+        "sha256": "0d9c10276e8573f1780c34c4fa0d97cbb7ed1066ed84538e608f996854f68492"
+      },
+      "targets": [
+        {
+          "file": "formal/Main.lean",
+          "declaration": "KLN.J",
+          "relation": "describes"
+        }
+      ]
+    }
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "kln-j-after",
+    "root": "KLN.J",
+    "label": "undetermined",
+    "reason": "The current frozen target is absent. A fully checked independent target can now be supplied from KLN (4.17); against that proposed binding this version is misaligned for multiple substantive formula differences.",
+    "evidence": [
+      {
+        "url": "https://www.cs.uleth.ca/~kadiri/articles/Explicit-zero-density-for-the-Riemann-zeta-function-JMAA-May2018.pdf",
+        "sha256": "0d9c10276e8573f1780c34c4fa0d97cbb7ed1066ed84538e608f996854f68492",
+        "locator": "PDF page 11, equations (4.15)–(4.17); pages 5–6 (3.4),(3.5); pages 8–9 (4.1),(4.3),(4.4); page 12 Lemma 4.6",
+        "finding": "Downloaded author-hosted 24-page paper. Equation (4.17) visually checked in rendered PDF page 11; symbols and parentheses independently transcribed. Constants, domain, and surrounding parameter definitions inspected."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+        "locator": "Comment (4.17) immediately preceding J",
+        "finding": "The historical source explicitly identifies the paper equation intended for this definition."
+      },
+      {
+        "path": "datasets/pnt/projects/kln-j-after/formal/Main.lean",
+        "differences": [
+          "The numerator over the first logarithm uses I(β+1/3,0), I(β−2/3,0) in Formal; the source has index 1 in both.",
+          "The first two logarithmic denominators are log(kT) and log(kT)^2 in Formal; the source uses log(T) and log(T)^2.",
+          "In the term involving index 2, Formal divides only the second summand by log(kT)^2. The source divides the entire two-term numerator by log(T)^2.",
+          "The second a2 term uses I(β+1/6,2) in Formal; the source has I(β+1/6,1).",
+          "The retained a2 is 6·0.63/e−Re ζ(1/2)≈2.85093879644; source equation (3.4) fixes a2=2.851.",
+          "The after version fixes only the T fractional-power types; the other discrepancies remain."
+        ]
+      },
+      {
+        "method": "50-digit mpmath quadrature-equivalent gamma derivative evaluation; numerical corroboration only",
+        "parameters": {
+          "H0": "3.0610046e10",
+          "T": "3.0610046e10",
+          "k": "1",
+          "alpha": "1",
+          "beta": "2"
+        },
+        "paper_J": "0.1727249514247528707290321810933868821358",
+        "paper_shape_with_formal_a2": "0.1727249250036172414521415240326834847887",
+        "formal_J": "0.2299127970981341350061299851055832116482",
+        "finding": "Already differs at k=1 (where log(kT)=log T), and still differs if the source formula is evaluated using retained a2. Thus the finding does not depend solely on log notation or rounding a2."
+      }
+    ],
+    "limitations": [
+      "Do not apply label_after_binding to the old empty-target input hash. Freeze the proposed text and recompute the input hash first.",
+      "No kernel-checked inequivalence certificate is claimed; the paper formula was visually checked and numerical evaluation is supplementary.",
+      "The proposed paper comparison is restricted to the paper parameter domain; the unrestricted totalized Lean definition is not asserted to be a paper definition outside that domain."
+    ],
+    "old_input_sha256": "45bfd98b58a708e934721bd332d928f13e1cfa9c93f5f4708ffbd8ff0a150c42",
+    "formal_sha256": "2104d711f0d648c1cfb0ea57713d9b84c725cbeb78997347b045395f57d224b9",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false,
+    "label_after_binding": "misaligned",
+    "binding_status": "independent_source_target_ready",
+    "proposed_informal": {
+      "id": "main",
+      "text": "For the parameters used in Section 4, let $H_0=3.0610046\\times10^{10}$, $\\alpha,\\beta>0$, $k\\ge10^9/H_0$, and $T\\ge H_0$. Set $a_1=0.63$, $a_2=2.851$, $b_1=0.62$, $b_2=1.048$, and $m_0=\\sqrt{1+\\frac23\\sqrt{\\frac65}}$. Define\n\\[\n C_1=\\frac6{\\pi^2}+\\frac{b_2}{\\log(kH_0)},\\qquad\n C_2=\\frac{\\pi m_0b_1}{\\log(kH_0)}+\\frac{6m_0}{\\pi kH_0}+\\frac{\\pi m_0b_2}{kH_0\\log(kH_0)},\\qquad r=\\frac{kC_2}{C_1}.\n\\]\nFor a nonnegative integer $n$, write $I(A,n)=\\int_0^\\infty x^A e^{-2\\alpha x^\\beta}(\\log x)^n\\,dx$ for the convergent integrals below. Equation (4.17) defines\n\\[\n\\begin{aligned}\nJ(k,T)={}&I(\\beta+\\tfrac13,0)+rI(\\beta-\\tfrac23,0)\\\\\n&+\\frac{2I(\\beta+\\tfrac13,1)+2rI(\\beta-\\tfrac23,1)}{\\log T}\n+\\frac{I(\\beta+\\tfrac13,2)+rI(\\beta-\\tfrac23,2)}{(\\log T)^2}\\\\\n&+\\frac{2a_2\\bigl(I(\\beta+\\tfrac16,0)+rI(\\beta-\\tfrac56,0)\\bigr)}{a_1T^{1/6}\\log T}\n+\\frac{2a_2\\bigl(I(\\beta+\\tfrac16,1)+rI(\\beta-\\tfrac56,1)\\bigr)}{a_1T^{1/6}(\\log T)^2}\\\\\n&+\\frac{a_2^2\\bigl(I(\\beta,0)+rI(\\beta-1,0)\\bigr)}{a_1^2T^{1/3}(\\log T)^2}.\n\\end{aligned}\n\\]\nAll fractional exponents are real. The dependence of $I$ and $J$ on the fixed parameters is suppressed in the paper's notation.",
+      "scope": "Compare the cited paper definition on its stated parameter domain, including its constants and integral conventions. This does not assert equality of totalized extensions outside that domain.",
+      "origin": "independent_paper_definition_transcribed_and_paraphrased",
+      "role": "main_statement",
+      "source": {
+        "url": "https://www.cs.uleth.ca/~kadiri/articles/Explicit-zero-density-for-the-Riemann-zeta-function-JMAA-May2018.pdf",
+        "locator": "Equation (4.17), PDF p. 11; definitions (3.4),(3.5),(3.15),(4.1),(4.3),(4.4),(4.15)",
+        "sha256": "0d9c10276e8573f1780c34c4fa0d97cbb7ed1066ed84538e608f996854f68492"
+      },
+      "targets": [
+        {
+          "file": "formal/Main.lean",
+          "declaration": "KLN.J",
+          "relation": "describes"
+        }
+      ]
+    }
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "bounded-dusart-mertens-error-text-before",
+    "root": "Dusart.theorem_5_7",
+    "label": "aligned",
+    "reason": "The old E is explicitly defined in the retained historical dependency as lim_{x→∞}(Σ_{p≤x}log(p)/p−log x), the same mertensConstant used in Formal. It is not an undeclared error term. The threshold, summation and O* remainder match.",
+    "evidence": [
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Dusart, Ramanujan J. 45 (2018), 227–251, DOI 10.1007/s11139-016-9839-4",
+        "finding": "Complete 25-page published article; title, author, DOI and publication details match the author publication list and official Springer landing page. Downloaded via curl with certificate checking disabled because this public mirror has an expired certificate; no subscription bypass or authentication was used."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/RosserSchoenfeld/RosserSchoenfeldPrime.lean",
+        "sha256": "e71767910e96ac444dbb99ecb87f6ab002cbebfe47a48c607e297920cd0b2e1b",
+        "locator": "Lines 897–902, blueprint Mertens-constant / title Mertens constant E; lines 965–966, mertens_first_theorem",
+        "text": "$E := \\lim_{x\\to\\infty}(\\sum_{p\\le x}(\\log p)/p-\\log x)$.",
+        "finding": "This is independent handwritten notation in the retained own-version dependency, directly attached to mertensConstant. The previous claim that the old E was undefined was incorrect."
+      },
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Printed p. 244 / PDF p. 18, Theorem 5.7 and first displayed formula in its proof",
+        "finding": "B3=γ+Σ_{n≥2}Σ_p(log p)/p^n≈1.332582275733221. The theorem uses log x−B3 with remainder at most 0.3/(log x)^2 for x≥912560."
+      },
+      {
+        "method": "Analytic identity plus exact algebra; no rounding of B3",
+        "derivation": [
+          "For y>2, (log y/y)/log y=1/y, whose derivative is −1/y². Thus retained mertensConstant=1−log2+∫₂∞(θ(y)−y)/y² dy.",
+          "The paper proof gives Σ_{p≤x}log p/p=log x−B3+(θ(x)−x)/x−∫ₓ∞(θ(y)−y)/y² dy.",
+          "At x=2, θ(2)=log2 and the prime sum is log2/2. Rearranging yields −B3=1−log2+∫₂∞(θ(y)−y)/y² dy.",
+          "O*(δ) means a residual r with |r|≤δ. Formal explicitly existentially quantifies this residual. The old informal constant E and Formal residual variable E are different semantic roles; bound-variable naming does not change the proposition."
+        ]
+      }
+    ],
+    "limitations": [
+      "Semantic alignment only: theorem proof remains sorry in the retained package.",
+      "The constant bridge is an analytic/source argument, not a newly compiled Lean certificate.",
+      "Before alignment uses the archived handwritten definition of E. If a standalone evaluator receives only the one-line informal statement, supply this definition as retained context; do not silently identify E with the bound residual."
+    ],
+    "old_input_sha256": "2acbffac6e3c88a2a5a60ae3177206b298fd4497be999d65708f3ca8300546e0",
+    "formal_sha256": "c23dfcb38cd81c17ae629b48b754857191bd5fa558012a016aaeaa51f6793c7b",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "bounded-dusart-mertens-error-text-after",
+    "root": "Dusart.theorem_5_7",
+    "label": "aligned",
+    "reason": "The paper constant B3 is the negative of the retained mertensConstant. Thus log x−B3 and Formal log x+mertensConstant agree, and the threshold and O* remainder match.",
+    "evidence": [
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Dusart, Ramanujan J. 45 (2018), 227–251, DOI 10.1007/s11139-016-9839-4",
+        "finding": "Complete 25-page published article; title, author, DOI and publication details match the author publication list and official Springer landing page. Downloaded via curl with certificate checking disabled because this public mirror has an expired certificate; no subscription bypass or authentication was used."
+      },
+      {
+        "archive_commit": "8012191c",
+        "path": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/RosserSchoenfeld/RosserSchoenfeldPrime.lean",
+        "sha256": "e71767910e96ac444dbb99ecb87f6ab002cbebfe47a48c607e297920cd0b2e1b",
+        "locator": "Lines 897–902, blueprint Mertens-constant / title Mertens constant E; lines 965–966, mertens_first_theorem",
+        "text": "$E := \\lim_{x\\to\\infty}(\\sum_{p\\le x}(\\log p)/p-\\log x)$.",
+        "finding": "This is independent handwritten notation in the retained own-version dependency, directly attached to mertensConstant. The previous claim that the old E was undefined was incorrect."
+      },
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Printed p. 244 / PDF p. 18, Theorem 5.7 and first displayed formula in its proof",
+        "finding": "B3=γ+Σ_{n≥2}Σ_p(log p)/p^n≈1.332582275733221. The theorem uses log x−B3 with remainder at most 0.3/(log x)^2 for x≥912560."
+      },
+      {
+        "method": "Analytic identity plus exact algebra; no rounding of B3",
+        "derivation": [
+          "For y>2, (log y/y)/log y=1/y, whose derivative is −1/y². Thus retained mertensConstant=1−log2+∫₂∞(θ(y)−y)/y² dy.",
+          "The paper proof gives Σ_{p≤x}log p/p=log x−B3+(θ(x)−x)/x−∫ₓ∞(θ(y)−y)/y² dy.",
+          "At x=2, θ(2)=log2 and the prime sum is log2/2. Rearranging yields −B3=1−log2+∫₂∞(θ(y)−y)/y² dy.",
+          "O*(δ) means a residual r with |r|≤δ. Formal explicitly existentially quantifies this residual. The old informal constant E and Formal residual variable E are different semantic roles; bound-variable naming does not change the proposition."
+        ]
+      }
+    ],
+    "limitations": [
+      "Semantic alignment only: theorem proof remains sorry in the retained package.",
+      "The constant bridge is an analytic/source argument, not a newly compiled Lean certificate.",
+      "Before alignment uses the archived handwritten definition of E. If a standalone evaluator receives only the one-line informal statement, supply this definition as retained context; do not silently identify E with the bound residual."
+    ],
+    "old_input_sha256": "f5f1709066cc2312e9b456fc706063ce1ed92e4f2aa0ba468691ffa70c4776c8",
+    "formal_sha256": "c23dfcb38cd81c17ae629b48b754857191bd5fa558012a016aaeaa51f6793c7b",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "bounded-dusart-table-error-text-before",
+    "root": "Dusart.proposition_3_2",
+    "label": "misaligned",
+    "reason": "Frozen prose omits division by x (and has an unmatched absolute-value bar), while Formal bounds the normalized error Eψ(x)=|ψ(x)−x|/x. Even granting the evident missing opening bar, its absolute-error bound differs from the normalized bound. This is substantive, not table uncertainty.",
+    "evidence": [
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Dusart, Ramanujan J. 45 (2018), 227–251, DOI 10.1007/s11139-016-9839-4",
+        "finding": "Complete 25-page published article; title, author, DOI and publication details match the author publication list and official Springer landing page. Downloaded via curl with certificate checking disabled because this public mirror has an expired certificate; no subscription bypass or authentication was used."
+      },
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Printed p.233 Proposition 3.2; printed pp.234–235 / PDF pp.8–9 Table 1",
+        "finding": "Proposition gives |ψ(x)−x|≤εx for x≥exp(b). Positive x makes this equivalent to the normalized quotient. Both table pages visually inspected."
+      },
+      {
+        "method": "Parse the two PDF table pages from pdftotext -layout and compare exact decimal values to all six fields of the Lean Table1 tuples using Python Decimal.",
+        "paper_rows": 44,
+        "formal_rows": 44,
+        "fields_per_row": 6,
+        "all_264_values_exactly_equal": true,
+        "finding": "Includes continuation rows b=8000,9000,10000,13900 and the T1=2445999556029 value at b=2500."
+      },
+      {
+        "path": "datasets/pnt/projects/bounded-dusart-table-error-text-before/formal/Main.lean",
+        "finding": "The membership hypothesis ranges over exactly the retained list; the conclusion is Eψ x≤ε; Eψ is |ψ x−x|/x."
+      },
+      {
+        "method": "Mathematical separation of the old normalization",
+        "finding": "At a prime p above exp(20), ψ has jump log p>20, while the b=20 old absolute-error interpretation would force both one-sided errors into [−0.001067,0.001067], allowing a jump at most 0.002134. Thus the missing factor cannot be treated as an equivalent restatement."
+      }
+    ],
+    "limitations": [
+      "The label compares statements and the published table transcription; it does not certify the numerical proof producing the table or resolve later corrections to that proof.",
+      "The retained theorem body contains sorry. No newly compiled witness is claimed."
+    ],
+    "old_input_sha256": "fe4f774e3b712152c073d6587da4e5fbeb7ebb617a9972b3a4881290c9328ac5",
+    "formal_sha256": "c37a2060ae9b18e6a02deb265e1a27c12802701c2195b3801dc7ef76985befb9",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "bounded-dusart-table-error-text-after",
+    "root": "Dusart.proposition_3_2",
+    "label": "aligned",
+    "reason": "Frozen prose states the normalized error bound |ψ(x)−x|/x≤ε for x≥exp(b). Formal unfolds to exactly this statement, and every retained Table1 row matches the cited published table.",
+    "evidence": [
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Dusart, Ramanujan J. 45 (2018), 227–251, DOI 10.1007/s11139-016-9839-4",
+        "finding": "Complete 25-page published article; title, author, DOI and publication details match the author publication list and official Springer landing page. Downloaded via curl with certificate checking disabled because this public mirror has an expired certificate; no subscription bypass or authentication was used."
+      },
+      {
+        "url": "https://piyanit.nl/wp-content/uploads/2020/10/art_10.1007_s11139-016-9839-4.pdf",
+        "sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "locator": "Printed p.233 Proposition 3.2; printed pp.234–235 / PDF pp.8–9 Table 1",
+        "finding": "Proposition gives |ψ(x)−x|≤εx for x≥exp(b). Positive x makes this equivalent to the normalized quotient. Both table pages visually inspected."
+      },
+      {
+        "method": "Parse the two PDF table pages from pdftotext -layout and compare exact decimal values to all six fields of the Lean Table1 tuples using Python Decimal.",
+        "paper_rows": 44,
+        "formal_rows": 44,
+        "fields_per_row": 6,
+        "all_264_values_exactly_equal": true,
+        "finding": "Includes continuation rows b=8000,9000,10000,13900 and the T1=2445999556029 value at b=2500."
+      },
+      {
+        "path": "datasets/pnt/projects/bounded-dusart-table-error-text-after/formal/Main.lean",
+        "finding": "The membership hypothesis ranges over exactly the retained list; the conclusion is Eψ x≤ε; Eψ is |ψ x−x|/x."
+      },
+      {
+        "method": "Mathematical separation of the old normalization",
+        "finding": "At a prime p above exp(20), ψ has jump log p>20, while the b=20 old absolute-error interpretation would force both one-sided errors into [−0.001067,0.001067], allowing a jump at most 0.002134. Thus the missing factor cannot be treated as an equivalent restatement."
+      }
+    ],
+    "limitations": [
+      "The label compares statements and the published table transcription; it does not certify the numerical proof producing the table or resolve later corrections to that proof.",
+      "The retained theorem body contains sorry. No newly compiled witness is claimed."
+    ],
+    "old_input_sha256": "183d7a73767d204609e63a6b9e1bc63f46eae92793278c281cef2a31fe6a5321",
+    "formal_sha256": "c37a2060ae9b18e6a02deb265e1a27c12802701c2195b3801dc7ef76985befb9",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "ik-liouville-before",
+    "root": "ArithmeticFunction.LSeries_liouville_eq",
+    "label": "aligned",
+    "reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/ik-liouville-before/formal/Main.lean",
+        "finding": "liouville=toArithmeticFunction (fun n => (-1:ℤ)^Ω n); hypothesis 1<s.re; conclusion LSeries of liouville = ζ(2*s)/ζ(s)."
+      },
+      {
+        "url": "https://dlmf.nist.gov/27.4.E7",
+        "locator": "NIST DLMF equation 27.4.7",
+        "finding": "Independently states the Liouville Dirichlet-series quotient for Re(s)>1."
+      },
+      {
+        "method": "Convergence and convention check",
+        "finding": "|λ(n)|=1 for n≥1, so absolute convergence follows from Σn^{-Re(s)} when Re(s)>1; the Euler factor is (1+p^{-s})^{-1}=(1−p^{-s})/(1−p^{-2s}). The n=0 arithmetic-function convention is irrelevant because LSeries omits the zero term."
+      }
+    ],
+    "limitations": [
+      "This interprets the word Dirichlet series in its ordinary convergence-domain sense, not as a claim at every complex s.",
+      "No independent claim about the correctness of the historical proof annotation or IK equation numbering is made; theorem bodies retain sorry."
+    ],
+    "old_input_sha256": "3af95d1d845257125a7a62ee71b796ab61dc8d885bd35bd31ef8faa5a6200c5d",
+    "formal_sha256": "3e53b791db197a20654fa8c393cb2542bb382a6e93a972c98413f25928f64b6a",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "ik-liouville-after",
+    "root": "ArithmeticFunction.LSeries_liouville_eq",
+    "label": "aligned",
+    "reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/ik-liouville-after/formal/Main.lean",
+        "finding": "liouville=toArithmeticFunction (fun n => (-1:ℤ)^Ω n); hypothesis 1<s.re; conclusion LSeries of liouville = ζ(2*s)/ζ(s)."
+      },
+      {
+        "url": "https://dlmf.nist.gov/27.4.E7",
+        "locator": "NIST DLMF equation 27.4.7",
+        "finding": "Independently states the Liouville Dirichlet-series quotient for Re(s)>1."
+      },
+      {
+        "method": "Convergence and convention check",
+        "finding": "|λ(n)|=1 for n≥1, so absolute convergence follows from Σn^{-Re(s)} when Re(s)>1; the Euler factor is (1+p^{-s})^{-1}=(1−p^{-s})/(1−p^{-2s}). The n=0 arithmetic-function convention is irrelevant because LSeries omits the zero term."
+      }
+    ],
+    "limitations": [
+      "This interprets the word Dirichlet series in its ordinary convergence-domain sense, not as a claim at every complex s.",
+      "No independent claim about the correctness of the historical proof annotation or IK equation numbering is made; theorem bodies retain sorry."
+    ],
+    "old_input_sha256": "eb64b0e75cb90c84c5e15c900f8656d8d0809364a4528cac8688ceadbcd905ed",
+    "formal_sha256": "6b8b0e246dfcc0d76abb99301e5d83ad9a69e792da316671e445ea8d0de0240f",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "ik-totient-before",
+    "root": "ArithmeticFunction.LSeries_totient_eq",
+    "label": "misaligned",
+    "reason": "The frozen infinite-series equation is interpreted on its ordinary domain of convergence. Formal instead asserts equality for every Re(s)>1, including divergent points, so the extra strip is a real strengthening rather than an omitted harmless condition. At s=3/2 the totalized LSeries is zero while ζ(1/2)/ζ(3/2) is nonzero.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/ik-totient-before/formal/Main.lean",
+        "finding": "Hypothesis is 1<s.re. The conclusion is LSeries totient s=ζ(s−1)/ζ(s)."
+      },
+      {
+        "url": "https://dlmf.nist.gov/27.4.E6",
+        "locator": "NIST DLMF equation 27.4.6",
+        "finding": "Independent totient Dirichlet-series identity has Re(s)>2."
+      },
+      {
+        "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LSeries/Basic.html",
+        "locator": "Main definitions; LSeries.eq_zero_of_not_LSeriesSummable",
+        "finding": "LSeries is the ordinary absolutely convergent sum, with value zero otherwise; it is not the meromorphic continuation."
+      },
+      {
+        "method": "Mathematical separation at s=3/2; not kernel-certified",
+        "derivation": [
+          "For n≥1, φ(n)≥sqrt(n/2): prime-power factors satisfy φ(p^a)/sqrt(p^a)≥1 except p^a=2, whose factor is 1/sqrt2.",
+          "Hence φ(n)/n^(3/2)≥1/(sqrt2·n), so the nonnegative series diverges and Lean’s totalized LSeries equals zero.",
+          "The alternating eta series η(1/2)>0, and ζ(1/2)=η(1/2)/(1−sqrt2)<0, while ζ(3/2)>0. Therefore the quotient is nonzero.",
+          "For Re(s)>2, φ(n)≤n proves absolute convergence, and the Euler factors give ζ(s−1)/ζ(s)."
+        ]
+      }
+    ],
+    "limitations": [
+      "The before decision uses the conventional convergent infinite-series interpretation of the frozen text. Reading that text as an analytic continuation would describe a different object than Lean LSeries.",
+      "The argument is a semantic mathematical review, not a compiled counterexample; IK (1.35) itself was not acquired, and NIST independently confirms the equation and domain.",
+      "The retained theorem proof contains sorry."
+    ],
+    "old_input_sha256": "3513c9caabc4ff346d9ad0f83f51eaba71a67c51b2620488837dd3c91edec416",
+    "formal_sha256": "9d6bd25faf02f6dd20f5a35f7667a9202e40179c6bacf57482e70ab2aa2fe523",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  },
+  {
+    "dataset": "pnt",
+    "project_id": "ik-totient-after",
+    "root": "ArithmeticFunction.LSeries_totient_eq",
+    "label": "aligned",
+    "reason": "Frozen prose explicitly requires Re(s)>2. Formal has exactly that hypothesis and the same totient Dirichlet-series quotient, so both coefficient and convergence-domain conventions agree.",
+    "evidence": [
+      {
+        "path": "datasets/pnt/projects/ik-totient-after/formal/Main.lean",
+        "finding": "Hypothesis is 2<s.re. The conclusion is LSeries totient s=ζ(s−1)/ζ(s)."
+      },
+      {
+        "url": "https://dlmf.nist.gov/27.4.E6",
+        "locator": "NIST DLMF equation 27.4.6",
+        "finding": "Independent totient Dirichlet-series identity has Re(s)>2."
+      },
+      {
+        "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LSeries/Basic.html",
+        "locator": "Main definitions; LSeries.eq_zero_of_not_LSeriesSummable",
+        "finding": "LSeries is the ordinary absolutely convergent sum, with value zero otherwise; it is not the meromorphic continuation."
+      },
+      {
+        "method": "Mathematical separation at s=3/2; not kernel-certified",
+        "derivation": [
+          "For n≥1, φ(n)≥sqrt(n/2): prime-power factors satisfy φ(p^a)/sqrt(p^a)≥1 except p^a=2, whose factor is 1/sqrt2.",
+          "Hence φ(n)/n^(3/2)≥1/(sqrt2·n), so the nonnegative series diverges and Lean’s totalized LSeries equals zero.",
+          "The alternating eta series η(1/2)>0, and ζ(1/2)=η(1/2)/(1−sqrt2)<0, while ζ(3/2)>0. Therefore the quotient is nonzero.",
+          "For Re(s)>2, φ(n)≤n proves absolute convergence, and the Euler factors give ζ(s−1)/ζ(s)."
+        ]
+      }
+    ],
+    "limitations": [
+      "The before decision uses the conventional convergent infinite-series interpretation of the frozen text. Reading that text as an analytic continuation would describe a different object than Lean LSeries.",
+      "The argument is a semantic mathematical review, not a compiled counterexample; IK (1.35) itself was not acquired, and NIST independently confirms the equation and domain.",
+      "The retained theorem proof contains sorry."
+    ],
+    "old_input_sha256": "502db45dcc8ec2b9f954e26fec79ca9185a1c2b5fd58afc8b85ae08d451959b8",
+    "formal_sha256": "92537e51f519d8c2ccf58d94c59833a26f4601fddbb80cfa6903b0a87a9d5c56",
+    "review_scope": "Actual frozen own-version informal plus retained mathematical definitions. Any proposed independent-paper binding is explicitly separate.",
+    "reviewer": "review_pnt_sources agent; independent semantic/source review; not human adjudication",
+    "human_adjudicated": false,
+    "kernel_certificate": false
+  }
+]

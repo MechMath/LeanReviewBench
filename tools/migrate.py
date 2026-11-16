@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
-"""Build local, deterministic release artifacts from a pinned research checkout."""
+"""Build local, deterministic release directories from a pinned research checkout."""
 import argparse
 import csv
 from collections import Counter
-import gzip
 import hashlib
-import io
 import json
 from pathlib import Path
 import shutil
 import subprocess
 import sys
-import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -82,18 +79,19 @@ class Research:
                 return json.loads(raw), dict(self.locations[candidate],binding='historical_packaged_graph' if key=='packaged_receipt' else 'historical_graph')
         raise ValueError('No actual exported context for '+str(directory))
 
-class Pack:
+class DirectoryWriter:
     def __init__(self, path):
-        self.file = path.open('wb')
-        self.gz = gzip.GzipFile(filename='',mode='wb',fileobj=self.file,mtime=0,compresslevel=6)
-        self.tar = tarfile.open(fileobj=self.gz, mode='w|')
+        self.path = path
+        path.mkdir(parents=True,exist_ok=False)
         self.members = []
     def add(self,name,raw):
-        info=tarfile.TarInfo(name);info.size=len(raw);info.mode=0o644;info.mtime=0
-        self.tar.addfile(info,io.BytesIO(raw))
+        target=self.path/name
+        target.parent.mkdir(parents=True,exist_ok=True)
+        if target.exists():raise ValueError('Duplicate data file: '+name)
+        target.write_bytes(raw)
         self.members.append(dict(path=name,size=len(raw),sha256=sha(raw)))
     def close(self):
-        self.tar.close();self.gz.close();self.file.close()
+        pass
 
 # Types and definition values are already exporter-produced Lean expressions.
 # Retain those bytes; exclude docstrings, source paths/ranges and all proofs.
@@ -126,9 +124,9 @@ def migrate(source,version):
     import project_cases
     cfg=json.loads((source/'datasets/project-cases.json').read_text())
     derived={(r['dataset'],r['project_id']):r for r in json.loads((source/'metadata/derived-graphs/index.json').read_text())['records']}
-    out=ROOT/'artifacts'/version
+    out=ROOT/'data'/version
     out.mkdir(parents=True,exist_ok=False)
-    inputs=Pack(out/'inputs.tar.gz');references=Pack(out/'references.tar.gz');reproduction=Pack(out/'reproduction.tar.gz')
+    inputs=DirectoryWriter(out/'inputs');references=DirectoryWriter(out/'references');reproduction=DirectoryWriter(out/'reproduction')
     tasks=[];labels=[];provenance=[];contexts={};blobs=set();repro_projects=[];counts=Counter();graph_kinds=Counter()
     for batch in cfg['datasets']:
         records=[json.loads(l) for l in (source/'metadata/labels'/f'{batch}.jsonl').read_text().splitlines()]
@@ -195,13 +193,12 @@ def migrate(source,version):
     inputs.add('tasks.jsonl',b''.join(encoded(x) for x in tasks));inputs.close()
     references.add('labels.jsonl',b''.join(encoded(x) for x in labels));references.add('provenance.jsonl',b''.join(encoded(x) for x in provenance));references.close()
     reproduction.add('projects.jsonl',b''.join(encoded(x) for x in repro_projects));reproduction.add('environment.json',encoded(cfg));reproduction.close()
-    manifest=dict(schema_version='leanreviewbench-release-1',version=version,stage='local-preview',source_repository='https://github.com/MechMath/PaperLeanBench',source_commit=research.commit,
+    manifest=dict(schema_version='leanreviewbench-release-2',version=version,stage='local-preview',source_repository='https://github.com/MechMath/PaperLeanBench',source_commit=research.commit,
                   inputs=len(tasks),contexts=len(contexts),labels=dict(Counter(r['label'] for r in labels)),batches=dict(counts),
                   reference_ready=sum(bool(r['original_record'].get('reference_ready')) for r in labels),graph_sources=dict(graph_kinds),
-                  artifacts=[])
+                  directories=[])
     for role,pack in [('inputs',inputs),('references',references),('reproduction',reproduction)]:
-        p=out/(role+'.tar.gz')
-        manifest['artifacts'].append(dict(role=role,path=p.name,size=p.stat().st_size,sha256=sha(p.read_bytes()),url=None,members=pack.members))
+        manifest['directories'].append(dict(role=role,path=role,size=sum(m['size'] for m in pack.members),files=pack.members))
     release=ROOT/'releases'/version;release.mkdir(parents=True,exist_ok=False)
     (release/'manifest.json').write_bytes(encoded(manifest))
     with (release/'catalog.csv').open('w',encoding='utf-8',newline='') as stream:
@@ -211,12 +208,12 @@ def migrate(source,version):
     migration=dict(source_commit=research.commit,input_count=len(tasks),formal_files=sum(len(p['files']) for p in repro_projects),unique_formal_blobs=len(blobs),
                    graph_contexts=len(contexts),omitted=['staging','excluded candidates','qwen experiment runs','duplicate graph formats','per-declaration graph files','old research history'],
                    source_locations=research.locations)
-    (out/'migration-audit.json').write_bytes(encoded(migration))
+    (release/'migration-audit.json').write_bytes(encoded(migration))
     for name in ['LICENSE','NOTICE']:
         shutil.copy2(source/name,ROOT/name)
     shutil.copytree(source/'licenses',ROOT/'licenses',dirs_exist_ok=True)
-    print(json.dumps({k:v for k,v in manifest.items() if k!='artifacts'},ensure_ascii=False,indent=2))
-    for a in manifest['artifacts']:print(a['role'],round(a['size']/2**20,2),'MiB',len(a['members']),'archive members')
+    print(json.dumps({k:v for k,v in manifest.items() if k!='directories'},ensure_ascii=False,indent=2))
+    for a in manifest['directories']:print(a['role'],round(a['size']/2**20,2),'MiB',len(a['files']),'files')
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--source',type=Path,required=True);parser.add_argument('--version',required=True)

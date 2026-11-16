@@ -1,12 +1,10 @@
 import hashlib
-import io
 import json
 from pathlib import Path
-import tarfile
 import tempfile
 import unittest
 from leanreviewbench import Dataset
-from leanreviewbench.artifacts import install
+from leanreviewbench.integrity import verify_files
 from leanreviewbench.dataset import encoded,digest,validate_context
 from leanreviewbench.evaluate import score,restore_sources
 
@@ -61,30 +59,31 @@ class ContractTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);fixture(base);p=json.loads((base/'labels.jsonl').read_text());p['payload_sha256']='stale';(base/'labels.jsonl').write_bytes(encoded(p))
             with self.assertRaisesRegex(ValueError,'Stale reference'):score(Dataset(base),base/'predictions.jsonl',base/'labels.jsonl',True)
-    def test_unsafe_archive_member_rejected(self):
+    def test_unsafe_inventory_path_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);p=base/'bad.tar.gz'
-            with tarfile.open(p,'w:gz') as archive:
-                member=tarfile.TarInfo('../escape');member.size=1;archive.addfile(member,io.BytesIO(b'x'))
-            m=dict(schema_version='leanreviewbench-release-1',inputs=1,version='test',artifacts=[dict(role='inputs',path=p.name,size=p.stat().st_size,sha256=digest(p.read_bytes()),members=[dict(path='../escape',size=1,sha256=digest(b'x'))])]);(base/'manifest.json').write_bytes(encoded(m))
-            with self.assertRaisesRegex(ValueError,'Unsafe archive'):install(base/'manifest.json',base,base/'installed')
-            self.assertFalse((base/'escape').exists())
-    def test_archive_digest_and_missing_members_rejected(self):
+            base=Path(tmp)
+            m=dict(schema_version='leanreviewbench-release-2',directories=[dict(role='inputs',path='inputs',size=1,files=[dict(path='../escape',size=1,sha256=digest(b'x'))])])
+            mp=base/'manifest.json';mp.write_bytes(encoded(m))
+            with self.assertRaisesRegex(ValueError,'Unsafe data path'):verify_files(mp,base/'data')
+    def test_inventory_tampering_and_missing_files_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);p=base/'empty.tar.gz'
-            with tarfile.open(p,'w:gz'):pass
-            a=dict(role='inputs',path=p.name,size=p.stat().st_size,sha256='0'*64,members=[])
-            m=dict(schema_version='leanreviewbench-release-1',inputs=0,version='test',artifacts=[a]);mp=base/'manifest.json';mp.write_bytes(encoded(m))
-            with self.assertRaisesRegex(ValueError,'Artifact hash'):install(mp,base,base/'out')
-            a['sha256']=digest(p.read_bytes());a['members']=[dict(path='missing',size=1,sha256=digest(b'x'))];mp.write_bytes(encoded(m))
-            with self.assertRaisesRegex(ValueError,'Missing archive'):install(mp,base,base/'out')
+            base=Path(tmp);data=base/'data';directories=[]
+            for role in ('inputs','references','reproduction'):
+                (data/role).mkdir(parents=True);(data/role/'example').write_bytes(b'x')
+                directories.append(dict(role=role,path=role,size=1,files=[dict(path='example',size=1,sha256=digest(b'x'))]))
+            mp=base/'manifest.json';mp.write_bytes(encoded(dict(schema_version='leanreviewbench-release-2',directories=directories)))
+            self.assertEqual(verify_files(mp,data)['files'],3)
+            (data/'inputs/example').write_bytes(b'y')
+            with self.assertRaisesRegex(ValueError,'Data hash/size'):verify_files(mp,data)
+            (data/'inputs/example').unlink()
+            with self.assertRaisesRegex(ValueError,'Missing data file'):verify_files(mp,data)
 
 
 class LocalDataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base=ROOT/'data/0.1.0-preview'
-        if not cls.base.exists():raise unittest.SkipTest('Install local preview artifacts to run full-data tests')
+        if not cls.base.exists():raise RuntimeError('Tracked preview data is missing')
         cls.dataset=Dataset(cls.base)
     def test_all_inputs_validate_and_labels_bind(self):
         self.assertEqual(self.dataset.validate(),dict(inputs=172,contexts=159))

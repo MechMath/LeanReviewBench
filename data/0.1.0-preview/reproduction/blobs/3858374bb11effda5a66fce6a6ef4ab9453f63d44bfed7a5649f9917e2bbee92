@@ -1,0 +1,4 @@
+import dep.FLT.HaarMeasure.HaarChar.AdeleRing
+
+#check @MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one
+#print axioms MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one

@@ -1,0 +1,174 @@
+import dep.LOS02CombinatorialAuctions.ProofInterface
+
+/-!
+# Paper Interface: Truth Revelation in Approximately Efficient Combinatorial Auctions
+
+Compact human-facing review surface for the LOS 2002 combinatorial-auction
+formalization. Broad proof-facing aliases and migration endpoints live in
+`ProofInterface.lean`.
+-/
+
+namespace LOS02CombinatorialAuctions
+namespace PaperInterface
+
+open EconCSLib.Auction
+
+/-! ## Source Definitions -/
+
+/-- Paper utility in a combinatorial auction. -/
+abbrev utility {Bidder Item : Type*}
+    (M : CombinatorialAuction Bidder Item)
+    (values reports : CombinatorialReport Bidder Item) (i : Bidder) : ℝ :=
+  LOS02CombinatorialAuctions.paper_combinatorial_utility M values reports i
+
+/-- Paper dominant-strategy truthfulness predicate on an admissible domain. -/
+abbrev truthfulOn {Bidder Item : Type*} [DecidableEq Bidder]
+    (M : CombinatorialAuction Bidder Item)
+    (admissible : CombinatorialReport Bidder Item → Prop) : Prop :=
+  LOS02CombinatorialAuctions.paper_combinatorial_truthful_on M admissible
+
+/-- Section 4 generalized Vickrey auction from a supplied allocation rule. -/
+noncomputable abbrev generalizedVickreyAuction
+    {Bidder Item : Type*} [Fintype Bidder] [DecidableEq Bidder]
+    (alloc : CombinatorialReport Bidder Item → BundleAllocation Bidder Item) :
+    CombinatorialAuction Bidder Item :=
+  LOS02CombinatorialAuctions.paper_generalized_vickrey_auction alloc
+
+/-- Paper-facing accepted-set mechanism for single-minded bid profiles. -/
+abbrev singleMindedAcceptedMechanism (Bidder Item : Type*) :=
+  SingleMindedAcceptedMechanism Bidder Item
+
+/-- Truthfulness predicate for single-minded bid-profile mechanisms. -/
+abbrev singleMindedTruthfulOn
+    {Bidder Item : Type*} [DecidableEq Bidder] [DecidableEq Item]
+    (M : SingleMindedAcceptedMechanism Bidder Item)
+    (admissible : (Bidder → SingleMindedBid Item) → Prop) : Prop :=
+  M.TruthfulOn admissible
+
+/-- Nonempty, nonnegative single-minded bid profiles. -/
+abbrev nonnegativeNonemptySingleMindedProfile
+    {Bidder Item : Type*} [DecidableEq Item]
+    (bids : Bidder → SingleMindedBid Item) : Prop :=
+  SingleMindedAcceptedMechanism.NonnegativeNonemptyProfile bids
+
+/-- Weighted set-packing objective used in Theorem 6.1's reduction. -/
+noncomputable abbrev weightedSetPackingValue
+    {Bidder : Type*} [DecidableEq Bidder]
+    (weights : Bidder → ℝ) (selected : Finset Bidder) : ℝ :=
+  LOS02CombinatorialAuctions.paper_weighted_set_packing_value weights selected
+
+/-- Encode a weighted set-packing instance as single-minded bids. -/
+abbrev setPackingSingleMindedBids
+    {Bidder Item : Type*}
+    (sets : Bidder → Finset Item) (weights : Bidder → ℝ) :
+    Bidder → SingleMindedBid Item :=
+  LOS02CombinatorialAuctions.paper_set_packing_single_minded_bids sets weights
+
+/-- Definition 7.1: average amount per good for a single-minded bid. -/
+noncomputable abbrev averageAmountPerGood {Item : Type*} [DecidableEq Item]
+    (b : SingleMindedBid Item) : ℝ :=
+  LOS02CombinatorialAuctions.paper_average_amount_per_good b
+
+/-- Concrete LOS02 order: decreasing average amount per good with deterministic tie-breaks. -/
+noncomputable abbrev averageOrderOf
+    {Bidder Item : Type*} [Fintype Bidder] [DecidableEq Item]
+    [LinearOrder Bidder]
+    (bids : Bidder → SingleMindedBid Item) : List Bidder :=
+  LOS02CombinatorialAuctions.paper_average_order_of bids
+
+/-- Greedy accepted set from an explicit bid order. -/
+abbrev greedyAcceptedFromOrder
+    {Bidder Item : Type*} [DecidableEq Bidder] [DecidableEq Item]
+    (bids : Bidder → SingleMindedBid Item) (order : List Bidder) :
+    Finset Bidder :=
+  LOS02CombinatorialAuctions.paper_single_minded_greedy_accepted_from_order
+    bids order
+
+/-- The paper's concrete average-order greedy accepted set. -/
+noncomputable abbrev averageGreedyAcceptedSet
+    {Bidder Item : Type*} [Fintype Bidder] [DecidableEq Bidder]
+    [DecidableEq Item] [LinearOrder Bidder]
+    (bids : Bidder → SingleMindedBid Item) : Finset Bidder :=
+  LOS02CombinatorialAuctions.paper_average_greedy_accepted_set bids
+
+/-- The paper's concrete average-order Definition 10.1 payment rule. -/
+noncomputable abbrev averageGreedyPayment
+    {Bidder Item : Type*} [Fintype Bidder] [DecidableEq Bidder]
+    [DecidableEq Item] [LinearOrder Bidder]
+    (bids : Bidder → SingleMindedBid Item) (j : Bidder) : ℝ :=
+  LOS02CombinatorialAuctions.paper_average_greedy_payment bids j
+
+/-! ## Sections 4--6 -/
+
+/-- Theorem 4.1: generalized Vickrey auctions are truthful. -/
+abbrev theorem4_1_generalized_vickrey_truthful :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem4_1_generalized_vickrey_truthful
+
+/-- Proposition 4.2: truthful GVA bidder utility is nonnegative. -/
+abbrev proposition4_2_generalized_vickrey_truthful_utility_nonneg :=
+  @LOS02CombinatorialAuctions.ProofInterface.proposition4_2_generalized_vickrey_truthful_utility_nonneg
+
+/-- Theorem 6.1 set-packing feasibility encoding. -/
+abbrev theorem6_1_set_packing_feasibility_encoding_correct :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem6_1_set_packing_feasibility_encoding_correct
+
+/-- Theorem 6.1 set-packing value encoding. -/
+abbrev theorem6_1_set_packing_value_encoding_correct :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem6_1_set_packing_value_encoding_correct
+
+/-- Theorem 6.1 weighted set-packing reduction. -/
+abbrev theorem6_1_weighted_set_packing_reduction :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem6_1_weighted_set_packing_reduction
+
+/-- Theorem 6.1 clique-to-single-minded welfare reduction. -/
+abbrev theorem6_1_clique_decision_single_minded_welfare_reduction :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem6_1_clique_decision_single_minded_welfare_reduction
+
+/-- Theorem 6.1 external exact-solver complexity consequence. -/
+abbrev theorem6_1_external_optimal_solver_np_eq_zpp :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem6_1_external_optimal_solver_np_eq_zpp
+
+/-- Theorem 6.1 external approximation-solver complexity consequence. -/
+abbrev theorem6_1_external_approximation_solver_np_eq_zpp :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem6_1_external_approximation_solver_np_eq_zpp
+
+/-- Complexity-class note: `NP = ZPP` implies the randomized collapse. -/
+abbrev complexity_note_np_eq_zpp_implies_randomized_collapse :=
+  @LOS02CombinatorialAuctions.ProofInterface.complexity_note_np_eq_zpp_implies_randomized_collapse
+
+/-! ## Sections 7--10 -/
+
+/-- Theorem 7.2 greedy allocation square-root approximation. -/
+abbrev theorem7_2_sqrt_norm_approx_of_sorted_order :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem7_2_sqrt_norm_approx_of_sorted_order
+
+/-- Lemma 9.1 critical-value existence from monotonicity. -/
+abbrev lemma9_1_exists_nonnegative_critical_value_of_monotonicity :=
+  @LOS02CombinatorialAuctions.ProofInterface.lemma9_1_exists_nonnegative_critical_value_of_monotonicity
+
+/-- Lemma 9.2 denied-bidder utility is zero. -/
+abbrev lemma9_2_denied_bidder_utility_eq_zero :=
+  @LOS02CombinatorialAuctions.ProofInterface.lemma9_2_denied_bidder_utility_eq_zero
+
+/-- Lemma 9.3 truth-telling utility is nonnegative under critical-value certificates. -/
+abbrev lemma9_3_truthful_utility_nonnegative_of_nonnegative_infinity_certificate :=
+  @LOS02CombinatorialAuctions.ProofInterface.lemma9_3_truthful_utility_nonnegative_of_nonnegative_infinity_certificate
+
+/-- Lemma 9.4 no profitable value-only lie under nonnegative infinity axioms. -/
+abbrev lemma9_4_no_profitable_value_only_lie_of_nonnegative_infinity_axioms :=
+  @LOS02CombinatorialAuctions.ProofInterface.lemma9_4_no_profitable_value_only_lie_of_nonnegative_infinity_axioms
+
+/-- Lemma 9.5 finite threshold monotonicity. -/
+abbrev lemma9_5_finite_threshold_mono_of_nonnegative_infinity_certificate :=
+  @LOS02CombinatorialAuctions.ProofInterface.lemma9_5_finite_threshold_mono_of_nonnegative_infinity_certificate
+
+/-- Theorem 9.6 critical axioms imply truthfulness for single-minded bidders. -/
+abbrev theorem9_6_single_minded_truthful_of_nonnegative_infinity_axioms :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem9_6_single_minded_truthful_of_nonnegative_infinity_axioms
+
+/-- Theorem 10.2 average-order greedy mechanism truthfulness. -/
+abbrev theorem10_2_averageGreedy_truthful :=
+  @LOS02CombinatorialAuctions.ProofInterface.theorem10_2_averageGreedy_truthful
+
+end PaperInterface
+end LOS02CombinatorialAuctions

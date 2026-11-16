@@ -1,0 +1,25 @@
+{
+  "dataset": "arklib",
+  "project_id": "stir-proximity-after",
+  "status": "passed",
+  "modules": 352,
+  "targets": [
+    "STIR.proximity_gap"
+  ],
+  "compiled_modules": 352,
+  "source_sha256": "5c4315a9cff37c8981b650f44f5c0edf5672b45372ad6e05fd394906e53e6181",
+  "seconds": 199.035,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 233,
+      "edges": 740
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 233,
+      "edges": 740
+    }
+  },
+  "leantrace_extracted": true
+}

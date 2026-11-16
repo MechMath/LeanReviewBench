@@ -35,8 +35,8 @@ def score(dataset,predictions_path,reference_path,allow_provisional=False,allow_
 
 
 def restore_sources(root,task_id,destination):
-    """Restore exact formal source/resource bytes from the optional content-addressed pack."""
-    from .artifacts import file_hash
+    """Restore exact formal source/resource bytes from the content-addressed source directory."""
+    from .integrity import file_hash
     base=Path(root)/'reproduction'
     selected=[r for r in records(base/'projects.jsonl') if r['task_id']==task_id]
     require(len(selected)==1,'Unknown reproduction snapshot')

@@ -1,0 +1,60 @@
+{
+  "case_id": "flagship-scalar-reflexive",
+  "root": "FormalSLT.TestTimeMeta.FlagshipComponentWorkedExample.flagshipComponentWorkedExample_scalarAssembly",
+  "revision": "37ed81115a3c898dc432735cb52dd55545547452",
+  "text": "In the finite-sample test-time setting represented by a FlagshipCertificate C, let R and Rhat be its certified population and empirical risks, b its nonnegative loss width, and M, O, G, V, P its certified nonnegative McAllester, online-to-PAC, Gaussian/Bernstein, anytime-Ville, and prefix-kernel contributions. Then R <= Rhat + b*M + O + G + V + P. The component construction requires an application-supplied risk-gap decomposition and the corresponding component gap inequalities; it does not remove these certificate obligations.",
+  "text_status": "frozen_candidate_not_yet_validated_as_selected_root_intent",
+  "origin": "paraphrase_of_independent_repository_paper_section",
+  "sources": [
+    {
+      "url": "https://github.com/Robby955/FormalSLT/blob/37ed81115a3c898dc432735cb52dd55545547452/docs/pac-bayes-test-time-paper-section.md",
+      "revision": "37ed81115a3c898dc432735cb52dd55545547452",
+      "path": "docs/pac-bayes-test-time-paper-section.md",
+      "archive": "reports/formalslt-batch2/specification/flagship-paper-section.md",
+      "sha256": "8b5bbb76f4834bf03343cd2cc256cbdf8e899034eda870cd07450d7bde8cfc31",
+      "acquisition_receipt": "reports/formalslt-rescreen/flagships/37ed8111-docs__pac-bayes-test-time-paper-section.md.json",
+      "receipt_sha256": "9c6135f581fb1d7f00bf277fcedb948535598fcdaf14d8a3fff998bf642d50c7"
+    },
+    {
+      "url": "https://github.com/Robby955/FormalSLT/blob/37ed81115a3c898dc432735cb52dd55545547452/FormalSLT/TestTimeMeta/Flagship.lean",
+      "revision": "37ed81115a3c898dc432735cb52dd55545547452",
+      "path": "FormalSLT/TestTimeMeta/Flagship.lean",
+      "archive": "reports/formalslt-batch2/specification/flagship-public-interface.lean",
+      "sha256": "80f28e4f76af07207be540251cb97c2858131d15f5e5f5c39d7b48d66ee8dfee",
+      "acquisition_receipt": "reports/formalslt-rescreen/flagships/37ed8111-FormalSLT__TestTimeMeta__Flagship.lean.json",
+      "receipt_sha256": "42c8839a583e1db2eca35921e7ec8e3eb131f0d208a33b0f3f8ecd10f02b07ff"
+    }
+  ],
+  "locators": [
+    "paper-section: Paper Theorem; What Not To Claim; explicit scalar assembly theorem block",
+    "Flagship.lean: module docstring and FlagshipCertificate structure"
+  ],
+  "source_excerpts": [
+    {
+      "locator": "Paper Theorem",
+      "text": "Consider the finite-sample test-time setting represented by a Lean certificate"
+    },
+    {
+      "locator": "What Not To Claim",
+      "text": "a concrete application still supplies the component gap decomposition"
+    },
+    {
+      "locator": "Flagship.lean structure FlagshipCertificate",
+      "text": "assembledBound : user.populationRisk ≤ flagshipBound user derived"
+    }
+  ],
+  "scope": "Certificate-qualified deterministic scalar result; not an independently derived statistical population-risk theorem. Does not add any data distribution, sampling model, simultaneous posterior quantifier or confidence-probability assertion absent from the prose.",
+  "independence": "Paper-section is outside selected root module but repository-authored, and directly quotes another Lean API; it is not a separately published mathematical specification.",
+  "semantic_label": "undetermined",
+  "reason": "The selected worked example demonstrably defines populationRisk to equal its bound side, but the independent prose explicitly states a certificate-qualified result and preserves application-specific component gap assumptions. The quoted claim does not require this particular worked example to realize an independently defined statistical risk. Therefore the source supports an important tautology/disclosure lead, but does not by itself ground a precise non-tautological task for this root.",
+  "separating_model": null,
+  "limitations": [
+    "No mathematical countermodel to the certificate-qualified statement is asserted.",
+    "The source root is a specific synthetic worked instance; the paper theorem quantifies over certificates. A direct generic-target vs instance comparison would create an unsupported target/root mapping.",
+    "Author demotion supports investigating the old headline, but cannot supply omitted probability-model hypotheses or define a unique intended population risk.",
+    "If a preexisting full-statistical informal task for this exact worked root is later located, the tautological risk definition may support a provisional misaligned label.",
+    "Graph review pending; no compilation by this reviewer."
+  ],
+  "recommended_dataset_status": "undetermined_after_successful_technical_extraction",
+  "rejected_reconstruction": "Do not replace certificate-qualified source text with a claim that the five contributions independently bound a true population risk with probability at least 1-delta."
+}

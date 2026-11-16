@@ -1,0 +1,12 @@
+{
+  "dataset": "equational",
+  "project_id": "etp-greedy1729",
+  "status": "passed",
+  "modules": 25,
+  "targets": [
+    "Eq1729.not_817"
+  ],
+  "compiled_modules": 25,
+  "source_sha256": "be8c0f669742db4ebfa44cb9fbd95fa6517f3c3748c846d2119c413d24ea1e34",
+  "seconds": 197.658
+}

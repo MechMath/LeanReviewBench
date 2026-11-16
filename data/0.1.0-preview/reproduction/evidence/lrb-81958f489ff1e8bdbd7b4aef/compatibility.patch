@@ -1,0 +1,1811 @@
+--- a/equational_theories/Asterix.lean
++++ b/equational_theories/Asterix.lean
+@@ -1,7 +1,7 @@
+ import equational_theories.FactsSyntax
+ import equational_theories.EquationalResult
+ import Mathlib.Algebra.Order.Ring.Nat
+-import Mathlib.Logic.Denumerable
++import Mathlib.Basic.Denumerable
+ import Mathlib.Tactic.Recall
+ import equational_theories.Equations.Basic
+ 
+--- a/equational_theories/Completeness.lean
++++ b/equational_theories/Completeness.lean
+@@ -89,9 +89,7 @@
+   case Fork =>
+     simp only [Magma.op, ForkWithLaws]
+     repeat rw [FreeMagmaWithLaws.evalInMagmaIsQuot]
+-    rw [Quotient.lift₂]
+-    apply Quot.sound; rw [evalInMagma]
+-    exact ⟨derive'.Ref⟩
++    rfl
+ 
+ @[simp]
+ def LfEmbed {α β} (Γ : Ctx α) : β → FreeMagmaWithLaws β Γ := embed Γ ∘ Lf
+@@ -175,14 +173,10 @@
+     FreeMagmaWithLaws β Γ →◇ G where
+   toFun := FreeMagmaWithLaws.eval φ modelsG
+   map_op' := by
+-    simp only [eval, Magma.op, ForkWithLaws, embed]
+     intro x y
+-    -- hmpf choice again.
+-    have ⟨ x_bar, eqx ⟩ := Quotient.exists_rep x
+-    have ⟨ y_bar, eqy ⟩ := Quotient.exists_rep y
+-    rw [← eqx, ← eqy, Quotient.lift₂_mk]
+-    repeat rw [Quotient.lift_mk]
+-    simp [evalInMagma]
++    refine Quotient.inductionOn₂ x y ?_
++    intro a b
++    rfl
+ 
+ @[simp] theorem FreeMagmaWithLaws.evalHom_leaf {α β G} {Γ : Ctx α} (φ : β → G) [Magma G]
+     (modelsG : G ⊧ Γ) (a : β) : evalHom φ modelsG (embed _ (Leaf a)) = φ a := rfl
+@@ -198,7 +192,7 @@
+ 
+ def FreeMagmaWithLaws.mkMor {α} (Γ : Ctx α) : FreeMagma α →◇ FreeMagmaWithLaws α Γ where
+   toFun a := ⟦a⟧
+-  map_op' := by simp [Magma.op, ForkWithLaws, embed]
++  map_op' := by intros; rfl
+ 
+ -- FIXME: golf this!
+ theorem FreeMagma.EvalFreeMagmaWithLawsUniversalProperty {α G} {Γ : Ctx α}
+--- a/equational_theories/Confluence.lean
++++ b/equational_theories/Confluence.lean
+@@ -210,7 +210,7 @@
+     (hx: bu rw x = x) (hy: bu rw y = y): bu rw (rw (x ⋆ y)) = rw (rw (x ⋆ y)) := by
+   rw [buFixed_rw_op rw hx hy, rw_op_idem rw hx hy]
+ 
+-def ConfMagma := {x : FreeMagma α // bu rw x = x }
++@[reducible] def ConfMagma := {x : FreeMagma α // bu rw x = x }
+ 
+ instance : Coe α (ConfMagma rw) where
+   coe x := ⟨bu rw x, bu_idem rw x⟩
+@@ -227,12 +227,12 @@
+     show (¬ ∀ _,_)
+     push Not
+     first
+-    | (use (0 : Nat); decide)
+-    | (use (0 : Nat), (1 : Nat); decide)
+-    | (use (0 : Nat), (1 : Nat), (2: Nat); decide)
+-    | (use (0 : Nat), (1 : Nat), (2: Nat), (3: Nat); decide)
+-    | (use (0 : Nat), (1 : Nat), (2: Nat), (3: Nat), (4: Nat); decide)
+-    | (use (0 : Nat), (1 : Nat), (2: Nat), (3: Nat), (4: Nat), (5: Nat); decide)
++    | (use (0 : Nat); simp only [ne_eq, Subtype.mk.injEq]; decide +kernel)
++    | (use (0 : Nat), (1 : Nat); simp only [ne_eq, Subtype.mk.injEq]; decide +kernel)
++    | (use (0 : Nat), (1 : Nat), (2: Nat); simp only [ne_eq, Subtype.mk.injEq]; decide +kernel)
++    | (use (0 : Nat), (1 : Nat), (2: Nat), (3: Nat); simp only [ne_eq, Subtype.mk.injEq]; decide +kernel)
++    | (use (0 : Nat), (1 : Nat), (2: Nat), (3: Nat), (4: Nat); simp only [ne_eq, Subtype.mk.injEq]; decide +kernel)
++    | (use (0 : Nat), (1 : Nat), (2: Nat), (3: Nat), (4: Nat), (5: Nat); simp only [ne_eq, Subtype.mk.injEq]; decide +kernel)
+     ))
+ 
+ -- doesn't work in the same file where it's declared
+--- a/equational_theories/Confluence1.lean
++++ b/equational_theories/Confluence1.lean
+@@ -63,7 +63,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw477
+@@ -107,7 +107,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw467
+@@ -151,7 +151,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw504
+@@ -190,7 +190,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw1515
+@@ -229,7 +229,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw2038
+@@ -273,7 +273,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw3140
+@@ -317,7 +317,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw3143
+@@ -361,7 +361,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw3150
+@@ -405,7 +405,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw1110
+@@ -449,7 +449,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw1086
+@@ -493,7 +493,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw2497
+@@ -537,7 +537,7 @@
+   use ConfMagma (@rule Nat _), inferInstance
+   repeat' apply And.intro
+   · rintro ⟨x, hx⟩ ⟨y, hy⟩
+-    simp [Magma.op, bu, hx, hy]
++    simp [Magma.op, bu, hx, hy, Subtype.ext_iff] <;> rfl
+   all_goals refute
+ 
+ end rw2541
+--- a/equational_theories/Confluence2.lean
++++ b/equational_theories/Confluence2.lean
+@@ -200,7 +200,7 @@
+ 
+ rule_system rules {x y z: FreeMagma α} -IsProj
+ | (y ⋆ y) ⋆ (x ⋆ (y ⋆ y)) => x
+-| x ⋆ x => default ⋆ default
++| x ⋆ x => (Lf default) ⋆ (Lf default)
+ 
+ instance: IsProjOrNF (rules : FreeMagma α → _) where
+   proj_or_nf := by
+@@ -219,8 +219,8 @@
+       rfl
+ 
+ theorem comp1_2 {x : FreeMagma α}:
+-    rules (default ⋆ default ⋆ rules (x ⋆ (default ⋆ default))) = x := by
+-  generalize h: rules (x ⋆ (default ⋆ default)) = e
++    rules ((Lf default) ⋆ (Lf default) ⋆ rules (x ⋆ ((Lf default) ⋆ (Lf default)))) = x := by
++  generalize h: rules (x ⋆ ((Lf default) ⋆ (Lf default))) = e
+   simp only [rules.elim] at h
+   separate
+   · apply rules.eq2
+--- a/equational_theories/Confluence3.lean
++++ b/equational_theories/Confluence3.lean
+@@ -9,7 +9,7 @@
+ rule_system rules {x y z: FreeMagma α} -IsProj
+ | y ⋆ (x ⋆ (y ⋆ (z ⋆ z))) => x
+ | (z ⋆ z) ⋆ (x ⋆ (z ⋆ z)) => x
+-| x ⋆ x => default ⋆ default
++| x ⋆ x => (Lf default) ⋆ (Lf default)
+ 
+ instance: IsProjOrNF (rules : FreeMagma α → _) where
+   proj_or_nf := by
+@@ -30,8 +30,8 @@
+       rfl
+ 
+ theorem comp1_2 {x y : FreeMagma α} (hx: NF rules x):
+-    rules (y ⋆ rules (x ⋆ (y ⋆ (default ⋆ default)))) = x := by
+-  generalize h: rules (x ⋆ (y ⋆ (default ⋆ default))) = e
++    rules (y ⋆ rules (x ⋆ (y ⋆ ((Lf default) ⋆ (Lf default))))) = x := by
++  generalize h: rules (x ⋆ (y ⋆ ((Lf default) ⋆ (Lf default)))) = e
+   simp only [rules.elim] at h
+   separate
+   · apply rules.eq3
+@@ -39,16 +39,16 @@
+   · apply rules.eq1
+ 
+ theorem comp2_2 {x : FreeMagma α} (hx: NF rules x):
+-    rules (default ⋆ default ⋆ rules (x ⋆ (default ⋆ default))) = x := by
+-  generalize h: rules (x ⋆ (default ⋆ default)) = e
++    rules ((Lf default) ⋆ (Lf default) ⋆ rules (x ⋆ ((Lf default) ⋆ (Lf default)))) = x := by
++  generalize h: rules (x ⋆ ((Lf default) ⋆ (Lf default))) = e
+   simp only [rules.elim] at h
+   separate
+   · apply rules.eq3
+   · apply rules.eq2
+ 
+ theorem comp1_3 {x y : FreeMagma α} (hx: NF rules x):
+-    rules (y ⋆ rules (x ⋆ rules (y ⋆ (default ⋆ default)))) = x := by
+-  generalize h: rules (y ⋆ (default ⋆ default)) = e
++    rules (y ⋆ rules (x ⋆ rules (y ⋆ ((Lf default) ⋆ (Lf default))))) = x := by
++  generalize h: rules (y ⋆ ((Lf default) ⋆ (Lf default))) = e
+   simp only [rules.elim] at h
+   separate
+   · apply comp2_2 hx
+--- a/equational_theories/Duals/Command.lean
++++ b/equational_theories/Duals/Command.lean
+@@ -57,7 +57,7 @@
+     have h1 : Q(($law1c).map (List.getI $mapc) = ($law2c).dual) := (q(Eq.refl ($law2c).dual) : Expr)
+     have h2 : Q(($law2c).dual.map (List.getI $invc) = $law1c) := (q(Eq.refl $law1c) : Expr)
+     pure q(MagmaLaw.reindex_iff (List.getI $mapc) (List.getI $invc) $h1 $h2)
+-  let result : Q(IsDual $law1c $law2c) ← if flip then
++  let result : Q(MagmaLaw.IsDual $law1c $law2c) ← if flip then
+     pure q(flip_dual $(← go q(($law2c).symm)))
+   else
+     go q($law2c)
+--- a/equational_theories/Equations/Command.lean
++++ b/equational_theories/Equations/Command.lean
+@@ -91,7 +91,7 @@
+   let some (law, is) := (parseMagmaLaw tsyn).run #[] | throwError "invalid magma law"
+   let declMods ← elabModifiers mods
+   let docs := s!"```\nequation {i.getNat} := {← PrettyPrinter.formatTerm tsyn}\n```"
+-  let docs := match ← (declMods.docString?.map Prod.fst).mapM getDocStringText with
++  let docs := match ← (declMods.docString?).mapM getDocStringText with
+     | none => docs
+     | some more => s!"{docs}\n\n---\n{more}"
+   let ranges := {
+--- a/equational_theories/Equations/LawsComplete.lean
++++ b/equational_theories/Equations/LawsComplete.lean
+@@ -1,3 +1,4 @@
++import Mathlib.Data.Set.Function
+ import equational_theories.RArray
+ import equational_theories.MagmaLaw
+ import equational_theories.Equations.All
+--- a/equational_theories/FreeMagma.lean
++++ b/equational_theories/FreeMagma.lean
+@@ -199,7 +199,7 @@
+   funext α m
+   have h (m acc) : @toListTR.go α acc m = toList m ++ acc := by
+     induction m generalizing acc <;> simp [toListTR.go, toList, *]
+-  simpa using (h m []).symm
++  simpa [toListTR] using (h m []).symm
+ 
+ theorem toList_length {α} (m : FreeMagma α) : m.toList.length = m.length := by
+   induction m <;> simp [*]
+@@ -236,7 +236,11 @@
+ theorem evalInMagma_pmap {α β G} [Magma G] {φ : β → G} {ψ : α → G}
+     (m : FreeMagma α) {f : (a : α) → Mem a m → β} (H : ∀ a h, φ (f a h) = ψ a) :
+     m.pmap f ⬝ φ = m ⬝ ψ := by
+-  induction m <;> simp [pmap, evalInMagma, *]
++  induction m with
++  | Leaf a => exact H a rfl
++  | Fork l r ihl ihr =>
++    exact congrArg₂ (fun x y => x ◇ y)
++      (ihl (fun a ha => H a (.inl ha))) (ihr (fun a ha => H a (.inr ha)))
+ 
+ theorem attach_map_val {α} (m : FreeMagma α) : fmapHom (·.val) m.attach = m :=
+   (evalInMagma_pmap _ (by simp)).trans (fmapHom_id _)
+@@ -259,6 +263,11 @@
+ theorem pmap_eq_map {α β} (m : FreeMagma α)
+     (f : (a : α) → Mem a m → β) (g : α → β) (h : ∀ a h, f a h = g a) :
+     m.pmap f = fmapHom g m := by
+-  simp [fmapHom]; induction m <;> simp [evalInMagma, pmap, *]
++  change m.pmap f = m ⬝ (Lf ∘ g)
++  induction m with
++  | Leaf a => exact congrArg Lf (h a rfl)
++  | Fork l r ihl ihr =>
++    exact congrArg₂ Fork
++      (ihl _ (fun a ha => h a (.inl ha))) (ihr _ (fun a ha => h a (.inr ha)))
+ 
+ end FreeMagma
+--- a/equational_theories/FreeSemigroup.lean
++++ b/equational_theories/FreeSemigroup.lean
+@@ -1,4 +1,4 @@
+-import Mathlib.Logic.Basic
++import Mathlib.Basic.Logic.Basic
+ 
+ import equational_theories.Equations.Basic
+ import equational_theories.FreeMagma
+--- a/equational_theories/FreshGenerator.lean
++++ b/equational_theories/FreshGenerator.lean
+@@ -49,7 +49,7 @@
+   induction hL with
+   | slnil => rfl
+   | cons a _ ih => simp [generatorNames', subset_trans ih]
+-  | cons₂ a _ ih => simp [generatorNames']; grind
++  | cons_cons a _ ih => simp [generatorNames']; grind
+ 
+ omit [Infinite α] in
+ theorem generatorNames_mk_le (L : List (α × Bool)) : generatorNames (FreeGroup.mk L) ⊆ generatorNames' L :=
+@@ -262,7 +262,9 @@
+   map_mul' := by intros; simp
+ 
+ @[simp] theorem projectFresh_fresh {S : Finset (FreeGroup α)} : projectFresh S (freshGenerator S) = (1 : ℤ) := by
+-  simp [projectFresh, projectFresh', freshGenerator]
++  change FreeGroup.lift (projectFresh' S) (FreeGroup.of (freshGeneratorName S)) = (1 : ℤ)
++  simp [projectFresh']
++  rfl
+ 
+ theorem projectFresh_old' {S : Finset (FreeGroup α)} (L : List (α × Bool)) :
+     generatorNames' L ⊆ S.biUnion generatorNames → projectFresh S (mk L) = 1 := by
+@@ -273,11 +275,15 @@
+     intro hn
+     simp only [generatorNames', List.singleton_append] at hn
+     rw [← mul_mk, projectFresh, MonoidHom.map_mul, ← projectFresh, ih]
+-    · have : head.1 ∈ S.biUnion generatorNames :=
++    · have hmem : head.1 ∈ S.biUnion generatorNames :=
+         Finset.singleton_subset_iff.mp $ Finset.union_subset_left hn
+-      have : freshGeneratorName S ∉ S.biUnion generatorNames := (existsFreshGeneratorName S).choose_spec
+-      simp [projectFresh, projectFresh']
+-      by_cases head.2 <;> aesop
++      have hfresh : freshGeneratorName S ∉ S.biUnion generatorNames := (existsFreshGeneratorName S).choose_spec
++      have hne : head.1 ≠ freshGeneratorName S := fun h => hfresh (h ▸ hmem)
++      rw [mul_one]
++      change FreeGroup.lift (projectFresh' S) (mk [head]) = 1
++      rw [FreeGroup.lift_mk]
++      cases head with
++      | mk a b => cases b <;> simp [projectFresh', hne] <;> rfl
+     · exact Finset.union_subset_right hn
+ 
+ theorem projectFresh_old {S : Finset (FreeGroup α)} {x} (h : x ∈ S) : projectFresh S x = 1 :=
+--- a/equational_theories/Generated/Greedy/Eq1112.lean
++++ b/equational_theories/Generated/Greedy/Eq1112.lean
+@@ -3,6 +3,9 @@
+ import equational_theories.Superposition
+ import Mathlib.Data.Fintype.EquivFin
+ import Mathlib.Data.Nat.Pairing
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq1112
+ 
+@@ -812,7 +815,7 @@
+ theorem PartialSolution.toMagma_equation1112 :
+     letI := ps.toMagma
+     Equation1112 ℕ := by
+-  simp only [Equation1112]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun (ps.complFun X1 (ps.complFun X0 X1)) X0)
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X0 X1 (ps.complFun X0 X1) (ps.complFun X1 (ps.complFun X0 X1)) (ps.complFun (ps.complFun X1 (ps.complFun X0 X1)) X0)
+--- a/equational_theories/Generated/Greedy/Eq118.lean
++++ b/equational_theories/Generated/Greedy/Eq118.lean
+@@ -2679,7 +2679,7 @@
+ theorem PartialSolution.toMagma_equation118 :
+     letI := ps.toMagma
+     Equation118 ℕ := by
+-  simp only [Equation118]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun (ps.complFun X0 X1) X1)
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X0 X1 (ps.complFun X0 X1) (ps.complFun (ps.complFun X0 X1) X1)
+--- a/equational_theories/Generated/Greedy/Eq1648.lean
++++ b/equational_theories/Generated/Greedy/Eq1648.lean
+@@ -387,7 +387,7 @@
+ theorem PartialSolution.toMagma_equation1648 :
+     letI := ps.toMagma
+     Equation1648 ℕ := by
+-  simp only [Equation1648]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun (ps.complFun X0 X1) (ps.complFun (ps.complFun X0 X1) X1)
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X0 X1 (ps.complFun X0 X1) (ps.complFun (ps.complFun X0 X1) X1)
+--- a/equational_theories/Generated/Greedy/Eq476.lean
++++ b/equational_theories/Generated/Greedy/Eq476.lean
+@@ -1009,7 +1009,7 @@
+ theorem PartialSolution.toMagma_equation476 :
+     letI := ps.toMagma
+     Equation476 ℕ := by
+-  simp only [Equation476]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun X0 (ps.complFun X1 (ps.complFun X1 X0)))
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X1 X0 (ps.complFun X1 X0) (ps.complFun X1 (ps.complFun X1 X0)) (ps.complFun X0 (ps.complFun X1 (ps.complFun X1 X0)))
+--- a/equational_theories/Generated/Greedy/Eq511.lean
++++ b/equational_theories/Generated/Greedy/Eq511.lean
+@@ -2709,7 +2709,7 @@
+ theorem PartialSolution.toMagma_equation511 :
+     letI := ps.toMagma
+     Equation511 ℕ := by
+-  simp only [Equation511]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun X1 (ps.complFun X1 (ps.complFun X0 X1)))
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X0 X1 (ps.complFun X0 X1) (ps.complFun X1 (ps.complFun X0 X1)) (ps.complFun X1 (ps.complFun X1 (ps.complFun X0 X1)))
+--- a/equational_theories/Generated/Greedy/Eq677.lean
++++ b/equational_theories/Generated/Greedy/Eq677.lean
+@@ -693,7 +693,7 @@
+ theorem PartialSolution.toMagma_equation677 :
+     letI := ps.toMagma
+     Equation677 ℕ := by
+-  simp only [Equation677]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun X0 (ps.complFun (ps.complFun X1 X0) X1))
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X1 X0 (ps.complFun X1 X0) (ps.complFun (ps.complFun X1 X0) X1) (ps.complFun X0 (ps.complFun (ps.complFun X1 X0) X1))
+--- a/equational_theories/Generated/Greedy/Eq707.lean
++++ b/equational_theories/Generated/Greedy/Eq707.lean
+@@ -3,6 +3,9 @@
+ import equational_theories.Superposition
+ import Mathlib.Data.Fintype.EquivFin
+ import Mathlib.Data.Nat.Pairing
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq707
+ 
+@@ -526,7 +529,7 @@
+ theorem PartialSolution.toMagma_equation707 :
+     letI := ps.toMagma
+     Equation707 ℕ := by
+-  simp only [Equation707]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun X1 (ps.complFun (ps.complFun X0 X1) X1))
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X0 X1 (ps.complFun X0 X1) (ps.complFun (ps.complFun X0 X1) X1) (ps.complFun X1 (ps.complFun (ps.complFun X0 X1) X1))
+--- a/equational_theories/Generated/Greedy/Eq883.lean
++++ b/equational_theories/Generated/Greedy/Eq883.lean
+@@ -635,7 +635,7 @@
+ theorem PartialSolution.toMagma_equation883 :
+     letI := ps.toMagma
+     Equation883 ℕ := by
+-  simp only [Equation883]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun (ps.complFun X0 X1) (ps.complFun X1 X1))
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X0 X1 (ps.complFun X0 X1) (ps.complFun X1 X1) (ps.complFun (ps.complFun X0 X1) (ps.complFun X1 X1))
+--- a/equational_theories/Generated/Greedy/Eq906.lean
++++ b/equational_theories/Generated/Greedy/Eq906.lean
+@@ -712,7 +712,7 @@
+ theorem PartialSolution.toMagma_equation906 :
+     letI := ps.toMagma
+     Equation906 ℕ := by
+-  simp only [Equation906]
++  change ∀ X0 X1 : ℕ, X0 = ps.complFun X1 (ps.complFun (ps.complFun X1 X0) (ps.complFun X0 X0))
+   intro X0 X1
+   simpa [← PartialSolution.complFun_eq_iff, eq_comm] using
+     ps.compl_rule1 X1 X0 (ps.complFun X1 X0) (ps.complFun X0 X0) (ps.complFun (ps.complFun X1 X0) (ps.complFun X0 X0))
+--- a/equational_theories/Homomorphisms.lean
++++ b/equational_theories/Homomorphisms.lean
+@@ -16,7 +16,7 @@
+ 
+ instance MagmaHom.toFunLike {G H : Type*} [Magma G] [Magma H] : FunLike (G →◇ H) G H where
+   coe := MagmaHom.toFun
+-  coe_injective' _ _ := (mk.injEq ..).mpr
++  coe_injective _ _ := (mk.injEq ..).mpr
+ 
+ instance {G H : Type*} [Magma G] [Magma H] : CoeFun (G →◇ H) (fun _ ↦ G → H) where
+   coe f := f
+@@ -109,7 +109,7 @@
+ 
+ instance MagmaEquiv.toFunLike {G H : Type*} [Magma G] [Magma H] : FunLike (G ≃◇ H) G H where
+   coe := (·.toFun)
+-  coe_injective' _ _ := (mk.injEq ..).mpr ∘ Equiv.coe_inj.mp
++  coe_injective _ _ := (mk.injEq ..).mpr ∘ Equiv.coe_inj.mp
+ 
+ instance {G H : Type*} [Magma G] [Magma H] : CoeFun (G ≃◇ H) (fun _ ↦ G → H) where
+   coe e := e
+--- a/equational_theories/MagmaLaw.lean
++++ b/equational_theories/MagmaLaw.lean
+@@ -285,12 +285,12 @@
+     (·.toNat) '' Γ ⊧ E ↔ Γ ⊧ E :=
+   forall_congr' fun _ => forall_congr' fun _ => imp_congr_left satisfiesSet_toNat
+ 
+-def derive'_map {α β γ} {f : β → γ} : ∀ {Γ : Ctx α} {E : MagmaLaw β}, Γ ⊢' E → Γ ⊢' E.map f
+-  | _, _, .SubstAx h σ => by simp [MagmaLaw.map, evalInMagma_hom]; exact .SubstAx h _
+-  | _, _, .Ref => .Ref
+-  | _, _, .Sym h => .Sym (derive'_map h)
+-  | _, _, .Trans h1 h2 => .Trans (derive'_map h1) (derive'_map h2)
+-  | _, _, .Cong h1 h2 => .Cong (derive'_map h1) (derive'_map h2)
++def derive'_map {α β γ} {f : β → γ} {Γ : Ctx α} : ∀ {E : MagmaLaw β}, Γ ⊢' E → Γ ⊢' E.map f
++  | _, .SubstAx h σ => by simp [MagmaLaw.map, evalInMagma_hom]; exact .SubstAx h _
++  | _, .Ref => .Ref
++  | _, .Sym h => .Sym (derive'_map h)
++  | _, .Trans h1 h2 => .Trans (derive'_map h1) (derive'_map h2)
++  | _, .Cong h1 h2 => .Cong (derive'_map h1) (derive'_map h2)
+ 
+ theorem derive'_map_injective {α β γ} {f : β → γ} (hf : f.Injective) {Γ : Ctx α} {E : MagmaLaw β} :
+     Nonempty (Γ ⊢' E.map f) ↔ Nonempty (Γ ⊢' E) := by
+--- a/equational_theories/ManuallyProved/Equation1076.lean
++++ b/equational_theories/ManuallyProved/Equation1076.lean
+@@ -14,7 +14,12 @@
+ 
+ import Mathlib.Data.FinEnum
+ 
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
++
+ namespace Eq1076
++private abbrev Finset.toSet {α : Type*} (s : Finset α) : Set α := s
++
+ namespace Greedy
+ noncomputable section
+ open AdjoinFresh PartialMagma
+@@ -153,7 +158,10 @@
+   let E1 : Extension1 :=
+     { E, ok, a, b, not_def := (fun h' => h ⟨_, h'⟩)}
+   let FE : FreshExtension _ := ⟨_, E1.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ 
+ variable (e₀ : Extension ℕ)
+@@ -204,8 +212,9 @@
+   finite := List.finite_toSet S
+   func h1 _ h2 := Decidable.by_contra fun h =>
+     have : IsTrans ((ℕ ×ₗ ℕ) × ℕ) (·.1 < ·.1) := ⟨fun _ _ _ => lt_trans⟩
++    haveI : Std.Symm (fun (a b : (ℕ ×ₗ ℕ) × ℕ) => a.1 ≠ b.1) := ⟨fun _ _ h => h.symm⟩
+     (List.isChain_iff_pairwise.1 sorted) |>.imp (fun h => h.ne)
+-      |>.forall (fun _ _ => (·.symm)) h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
++      |>.forall h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
+   laws := {
+   eq1076 := fun h1 h2 => by -- variable names are off, copy pase from 1722 just worked
+     obtain ⟨⟨⟨y, y'⟩,yy⟩, yy_mem, ⟨⟨yy', xyy⟩,x⟩, eq_mem, y_def,
+--- a/equational_theories/ManuallyProved/Equation1289.lean
++++ b/equational_theories/ManuallyProved/Equation1289.lean
+@@ -13,6 +13,9 @@
+ import equational_theories.FactsSyntax
+ import equational_theories.PartialMagma
+ 
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
++
+ namespace Eq1289
+ namespace Greedy
+ noncomputable section
+@@ -118,7 +121,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -235,7 +238,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; match hx with
+@@ -280,7 +283,10 @@
+       not_im_o := fun h => im_o ⟨_,_, h⟩,
+       }
+   let FE : FreshExtension _ := ⟨_, E1.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ theorem lift : ∀ (E : Extension ℕ) (a b : ℕ),
+   ∃ E' : Extension ℕ, E ≤ E' ∧ E' ∈ {e : Extension ℕ | (e.1 a b).Nonempty} := fun ⟨E, ok⟩ a b => by
+@@ -295,7 +301,10 @@
+       b_idem := E''.2.laws.idem_r bb_def,
+     }
+   let FE : FreshExtension _ := ⟨_, E2.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,le_trans le <| le_trans le' FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,le_trans le <| le_trans le' FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ 
+ variable (e₀ : Extension ℕ)
+@@ -349,8 +358,9 @@
+   finite := List.finite_toSet S
+   func h1 _ h2 := Decidable.by_contra fun h =>
+     have : IsTrans ((ℕ ×ₗ ℕ) × ℕ) (·.1 < ·.1) := ⟨fun _ _ _ => lt_trans⟩
++    haveI : Std.Symm (fun (a b : (ℕ ×ₗ ℕ) × ℕ) => a.1 ≠ b.1) := ⟨fun _ _ h => h.symm⟩
+     (List.isChain_iff_pairwise.1 sorted) |>.imp (fun h => h.ne)
+-      |>.forall (fun _ _ => (·.symm)) h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
++      |>.forall h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
+   laws := {
+   eq1289 := fun h1 h2 h3 => by
+     obtain ⟨⟨⟨_,_⟩,_⟩,mem,rfl,rfl,rfl⟩ := eq1289 _ h1 _ h2 _ h3 rfl rfl rfl rfl
+--- a/equational_theories/ManuallyProved/Equation1323.lean
++++ b/equational_theories/ManuallyProved/Equation1323.lean
+@@ -6,6 +6,9 @@
+ import Mathlib.Logic.Equiv.Finset
+ import Mathlib.Tactic.Group
+ import Mathlib.GroupTheory.OrderOfElement
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq1323
+ noncomputable section
+@@ -94,8 +97,8 @@
+ theorem sign_inv_self (a : Sign) : a⁻¹ = a := rfl
+ theorem Sign.div_eq_mul_inv (a b : Sign) : a / b = a * b := rfl
+ instance : CommGroup Sign where
+-  mul_one a := by cases a <;> simp [sign_mul]
+-  one_mul a := by cases a <;> simp [sign_mul]
++  mul_one a := by cases a <;> simp [sign_mul, sign_one]
++  one_mul a := by cases a <;> simp [sign_mul, sign_one]
+   mul_comm a b := by cases a <;> cases b <;> simp [sign_mul]
+   mul_assoc a b c := by cases a <;> cases b <;> cases c <;> simp [sign_mul]
+   inv_mul_cancel a := by simp [sign_one, sign_inv_self]; cases a <;> simp [sign_mul]
+@@ -103,7 +106,7 @@
+ 
+ -- A corresponds to ℚˣ in the blueprint
+ abbrev A₀ := FreeGroup Nat
+-def A := Sign × A₀ deriving DecidableEq
++@[reducible] def A := Sign × A₀ deriving DecidableEq
+ 
+ instance : Countable A := inferInstanceAs (Countable (Sign × A₀))
+ 
+@@ -204,7 +207,7 @@
+   case pos h => simp [ϕ_offset]; rfl
+   case neg h => exfalso; exact h (ϕ_offset a).prop
+ 
+-theorem ϕ'_0 {a : S'} : ϕ' a 0 = 1 := by simp [ϕ']; rfl
++theorem ϕ'_0 {a : S'} : ϕ' a 0 = 1 := by simp [ϕ']
+ 
+ theorem ϕ_duality {a : S'} {b : S} : ϕ a (a + b) = -ϕ a b := by
+   have : a + b + ϕ_offset a = b + ϕ_offset a + a := by
+@@ -259,7 +262,7 @@
+ theorem ϕ_unit_0_or_a {a : S'} {b : S} (h : ϕ' a b = 1) : b = 0 ∨ b = a := by
+   have := ϕ_eq_diff_0_or_a (a := a) (b := b) (c := 0)
+   simp [h] at this
+-  exact this rfl
++  exact this
+ 
+ end Phi
+ 
+@@ -443,8 +446,7 @@
+ abbrev freshA : A := ⟨.plus, FreeGroup.of <| FreshGenerator.freshGeneratorName old⟩
+ abbrev w : R := ⟨1, ⟨invϕ p.y.2 freshA, by
+   apply_fun ϕ' p.y.2
+-  simp
+-  exact FreeGroup.of_ne_one _⟩⟩
++  simpa using FreeGroup.of_ne_one (FreshGenerator.freshGeneratorName old)⟩⟩
+ 
+ def projectFresh (x : A) : ℤ := FreshGenerator.projectFresh old x.2
+ 
+@@ -487,7 +489,9 @@
+       use rel'
+       simp [hc, hx, hy, ←h, newRelation, hk, this, Relation.lhs]
+     apply_fun fun a => projectFresh a.y.1 at h
+-    simpa [←hy, hk, newRelation, w,  hc] using h
++    have hzero : projectFresh (freshA ^ k) = 0 := by
++      simpa [←hy, hk, newRelation, w, hc] using h
++    simpa only [projectFresh_pow, projectFresh_freshA, mul_one, Nat.cast_eq_zero] using hzero
+   | .rem1 k hk =>
+     have : rel'.y.2 ∈ oldSquares := by apply mem_oldSquares_closure hc; simp [Relation.squares]
+     apply_fun fun a => projectFresh (ϕ p.y.2 a.y.2) at h
+--- a/equational_theories/ManuallyProved/Equation1447.lean
++++ b/equational_theories/ManuallyProved/Equation1447.lean
+@@ -58,7 +58,8 @@
+   if x = S (S y) then S y
+   else arbitraryRoot x
+ 
+-noncomputable instance instMagma : Magma M where
++@[instance_reducible]
++noncomputable def instMagma : Magma M where
+   op := magmaOp S arbitraryRoot
+ 
+ -- Observe that `x ⋄ y` is either the square of `x` or a square root of `x`,
+@@ -231,8 +232,7 @@
+ theorem pval_eq_val_eq (m n : PNat) : m = n ↔ m.val = n.val := by simp
+ 
+ lemma n_gt_1_s_eq_div_2 (n : PNat) (hn : n.val > 1) : S n = n.val / 2 := by
+-  simp [S]
+-  aesop
++  simp [S, show n.val ≠ 1 by omega]
+ 
+ lemma n_gt_3_s_s_eq_div_4 (n : PNat) (hn : n.val > 3) : S (S n) = n.val / 4 := by
+   have hn2 := n_gt_1_s_eq_div_2 n (by omega)
+@@ -305,9 +305,7 @@
+ theorem arbitraryRoot_root : ∀ (x : PNat), arbitraryRoot x ∈ square_roots S x := by
+   simp [arbitraryRoot, square_roots, S]
+   intro ⟨n, hn⟩
+-  split_ifs
+-  · case pos h => exfalso; simp [pval_eq_val_eq] at h
+-  · simp
++  rfl
+ 
+ theorem PNat_S_satisfies_Equation1447 : @Equation1447 PNat (instMagma S arbitraryRoot) :=
+   M_satisfies_Equation1447 S S.nofix arbitraryRoot arbitraryRoot_root
+--- a/equational_theories/ManuallyProved/Equation1516.lean
++++ b/equational_theories/ManuallyProved/Equation1516.lean
+@@ -21,6 +21,13 @@
+ import Mathlib.Tactic.Linarith.Frontend
+ import Init.Core
+ import Mathlib.Tactic.Group
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
++noncomputable def Option.iget {α : Type*} [Nonempty α] (o : Option α) : α :=
++  o.getD (Classical.choice inferInstance)
++theorem Option.iget_mem {α : Type*} [Nonempty α] {o : Option α} (h : o.isSome) : o.iget ∈ o := by
++  cases o <;> simp_all [Option.iget]
+ 
+ namespace Rel
+ variable {α β : Type*}
+@@ -84,29 +91,29 @@
+ 
+ @[simp]
+ theorem TE_lookup_exists {E : TE} {a : A} : (∃ d, d ∈ (E ⬝ a)) ↔ a ∈ E := by
+-rw [← TE_lookup_isSome]
+-cases E ⬝ a <;> tauto
++  rw [← TE_lookup_isSome]
++  cases E ⬝ a <;> tauto
+ 
+ theorem TE_lookup_mem' {E : TE} {a d : A} : d ∈ (E ⬝ a) → a ∈ E := by
+-rw [← TE_lookup_isSome]
+-cases E ⬝ a <;> tauto
++  rw [← TE_lookup_isSome]
++  cases E ⬝ a <;> tauto
+ 
+ theorem Finmap.mem_lookup_disjoint_union {α : Type} {β : α → Type} [DecidableEq α] {a : α} {b : β a}
+ {s₁ : Finmap β} {s₂ : Finmap β} (h : s₁.Disjoint s₂) : b ∈ Finmap.lookup a (s₁ ∪ s₂) ↔ b ∈
+ Finmap.lookup a s₁ ∨ b ∈ Finmap.lookup a s₂ := by
+-rw [Finmap.mem_lookup_union]
+-constructor
+-· tauto
+-· intro h'
+-  cases h' with
+-  | inl h' => tauto
+-  | inr h' =>
+-    right
+-    have a_in_s2 : a ∈ s₂ := by
+-      apply Finmap.lookup_isSome.mp
+-      rw [h']
+-      rfl
+-    use Finmap.Disjoint.symm _ _ h a a_in_s2
++  rw [Finmap.mem_lookup_union]
++  constructor
++  · tauto
++  · intro h'
++    cases h' with
++    | inl h' => tauto
++    | inr h' =>
++      right
++      have a_in_s2 : a ∈ s₂ := by
++        apply Finmap.lookup_isSome.mp
++        rw [h']
++        rfl
++      use Finmap.Disjoint.symm _ _ h a a_in_s2
+ 
+ theorem TE_mem_singleton' : ∀ {x y z w : A},  y ∈ ((Finmap.singleton w z : TE) ⬝ x) ↔ x = w ∧ y = z := by
+   intro x y z w
+@@ -1202,7 +1209,7 @@
+       simp only at hps'1 hps'2
+       apply Option.some_injective
+       rw [← hps'1 hyp, ← hps'2 (hf x)]
+-    trans {c ∈ S | b * c ∈ ps.E ⬝ c}.toSet.encard
++    trans (↑({c ∈ S | b * c ∈ ps.E ⬝ c} : Finset A) : Set A).encard
+     · apply Set.encard_le_encard
+       simp only [Option.mem_def, Finset.coe_filter, Set.setOf_subset_setOf, and_imp]
+       exact this
+@@ -1679,7 +1686,7 @@
+       simp_all only [Subtype.mk.injEq, Prod.mk.injEq, add_left_inj, f]
+     calc
+       (n : ENat) = (Finset.range n).card := by rw [Finset.card_range n]
+-      _ = (Finset.range n).toSet.encard := (Set.encard_coe_eq_coe_finsetCard _).symm
++      _ = (↑(Finset.range n) : Set ℕ).encard := (Set.encard_coe_eq_coe_finsetCard _).symm
+       _ = (f '' (Finset.range n)).encard := (f_inj.encard_image _).symm
+       _ ≤ _ := by
+         refine Set.encard_mono fun z hz ↦ ?_
+@@ -1687,10 +1694,6 @@
+         simp_rw [← hz, Set.mem_setOf_eq, f]
+         have hSy' : S (Sum.inr ⟨(y.1.1, y.1.2.1, m + 1), y.2⟩ : G) = d := hSy
+         convert next2_h_c hSy' (Nat.add_one_ne_zero m)
+-        congr 1
+-        apply Subtype.ext
+-        ext
+-        exacts [rfl, rfl, hn]
+ 
+ end Extension2
+ 
+@@ -1724,12 +1727,16 @@
+         exact ⟨E2.next2, fun _ _ _ ↦ (.base ·), ⟨_, .base h_def⟩, Or.inr E2.next2_le_encard⟩
+       else
+         let E1 : Extension1 := { E, ok, d, y, not_def := fun h ↦ hg ⟨_, h⟩ }
+-        match h : E1.next1 with | ⟨E, ok⟩ => ?_
+-        simp_rw [Extension1.next1, Subtype.mk.injEq, eq_comm] at h
+-        have h_def : E d y (Extension1.partL d y) := by convert Extension1.Next1.new
+-        let E2 : Extension2 := { E, ok, d, y, g := _, h_def, n}
+-        refine ⟨E2.next2, fun _ _ _ ha ↦ .base ?_, ⟨_, .base h_def⟩, Or.inr E2.next2_le_encard⟩
+-        convert Extension1.Next1.base ha
++        let E2 : Extension2 := {
++          E := E1.next1.1
++          ok := E1.next1.2
++          d := d
++          y := y
++          g := Extension1.partL d y
++          h_def := @Extension1.Next1.new E1
++          n := n }
++        refine ⟨E2.next2, fun _ _ _ ha ↦ .base ?_, ⟨_, .base E2.h_def⟩, Or.inr E2.next2_le_encard⟩
++        exact @Extension1.Next1.base E1 _ _ _ ha
+   choose! e he L hL_card using h3
+   choose L hL using L
+   have L_of_e {a : A} {y x : G} (n : ℕ) {e₀ : PartialSolution} (he₀ : e₀ ∈ c)
+@@ -1925,8 +1932,8 @@
+ noncomputable def partial_range : Finset G := (partial_range' x).toFinset
+ 
+ lemma exists_not_in_domain_range : ∃ w, w ∉ partial_domain x ∧ w ∉ partial_range x ∧ w ≠ d x := by
+-  have hA : (partial_domain x).toSet.Finite := (partial_domain x).finite_toSet
+-  have hB : (partial_range x).toSet.Finite := (partial_range x).finite_toSet
++  have hA : (↑(partial_domain x) : Set G).Finite := (partial_domain x).finite_toSet
++  have hB : (↑(partial_range x) : Set G).Finite := (partial_range x).finite_toSet
+   have h2 : ¬ Set.Finite (Set.univ : Set G) := Set.finite_univ_iff.mp.mt Infinite.not_finite
+   rcases (Set.Infinite.nontrivial (.diff (.diff h2 hA) hB)).exists_ne (d x) with ⟨x1, hx1, hx2⟩
+   exact ⟨x1, Set.notMem_of_mem_diff (Set.mem_of_mem_diff hx1), ⟨Set.notMem_of_mem_diff hx1, hx2⟩⟩
+@@ -1934,8 +1941,8 @@
+ lemma exists_not_in_domain_range' (z : G) : ∃ w, L (S z) w = x ∧
+     w ∉ partial_domain x ∧ w ∉ partial_range x ∧ w ≠ d x := by
+   have Iinf : ¬ Set.Finite {y : G' | L (S z) y = x} := L_surjective (S z) x
+-  have hA : (partial_domain x).toSet.Finite := (partial_domain x).finite_toSet
+-  have hB : (partial_range x).toSet.Finite := (partial_range x).finite_toSet
++  have hA : (↑(partial_domain x) : Set G).Finite := (partial_domain x).finite_toSet
++  have hB : (↑(partial_range x) : Set G).Finite := (partial_range x).finite_toSet
+   rcases (Set.Infinite.nontrivial (.diff (.diff (.image (fun _ _ _ _ a ↦ Sum.inr_injective a)
+     (L_surjective _ _)) hA) hB)).exists_ne (d x) with ⟨ x1, hx1, hx2⟩
+   have hx1' := Set.mem_of_mem_diff hx1
+--- a/equational_theories/ManuallyProved/Equation1526.lean
++++ b/equational_theories/ManuallyProved/Equation1526.lean
+@@ -13,6 +13,9 @@
+ import equational_theories.FactsSyntax
+ 
+ 
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq1526
+ 
+@@ -244,9 +247,8 @@
+ 
+ theorem eq1526 : Equation1526 (GreedyMagma e₀) := by
+   intro x y
+-  repeat rw [Magma.op, instMagma]
+-  simp only
+-  repeat rw [op]
++  change x = op e₀ (op e₀ y y) (op e₀ y (op e₀ x y))
++  unfold op
+   unfold GreedyMagma at *
+   have := f_eq1526 e₀ (y * x⁻¹)
+   symm
+@@ -289,9 +291,7 @@
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he (x₁^(-1)) x₃,
+     fromList_eval he (x₁^(-1) * x₃^(-1)) x₄, fromList_eval he (x₄*x₃*x₁) x₅] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma -- changes the inequality type, so that decide works
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+ 
+ 
+ @[equational_result]
+@@ -307,8 +307,6 @@
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he x₃ x₄, fromList_eval he (x₄*x₁^(-1)) x₅,
+     fromList_eval he (x₁^(-1)*x₅^(-1)) x₆] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+ 
+ end Eq1526
+--- a/equational_theories/ManuallyProved/Equation1692.lean
++++ b/equational_theories/ManuallyProved/Equation1692.lean
+@@ -8,6 +8,8 @@
+ import Mathlib.RingTheory.SimpleModule.Basic
+ import equational_theories.Equations.All
+ import equational_theories.FactsSyntax
++
++set_option backward.isDefEq.respectTransparency false
+ 
+ -- Implements the magma (an infinite-dimentional vector space) from the proof:
+ -- https://leanprover.zulipchat.com/user_uploads/3121/ASjTo5huToAvNGcg7pOGOOSy/Equation1692.pdf
+@@ -77,7 +79,7 @@
+     match a2 with
+     | 0 => rfl
+     | new_a2 + 1 =>
+-      simp only [↓reduceIte, AddLeftCancelMonoid.add_eq_zero, one_ne_zero, and_false,
++      simp only [↓reduceIte, Nat.add_eq_zero_iff, one_ne_zero, and_false,
+         add_tsub_cancel_right] at funs_eq
+       have not_eq := vals.root_neq
+       simp only [Finsupp.coe_basisSingleOne, Set.mem_range, not_exists] at not_eq
+@@ -87,20 +89,20 @@
+   | new_a1 + 1 =>
+     match a2 with
+     | 0 =>
+-      simp only [AddLeftCancelMonoid.add_eq_zero, one_ne_zero, and_false, ↓reduceIte,
++      simp only [Nat.add_eq_zero_iff, one_ne_zero, and_false, ↓reduceIte,
+         add_tsub_cancel_right] at funs_eq
+       have not_eq := vals.root_neq
+       simp only [Finsupp.coe_basisSingleOne, Set.mem_range, not_exists] at not_eq
+       specialize not_eq new_a1
+       contradiction
+     | new_a2 + 1 =>
+-      simp only [AddLeftCancelMonoid.add_eq_zero, one_ne_zero, and_false, ↓reduceIte,
++      simp only [Nat.add_eq_zero_iff, one_ne_zero, and_false, ↓reduceIte,
+         add_tsub_cancel_right] at funs_eq
+       have apply_eq: (fun₀ | 2 ^ vals.i + new_a1 * 2 ^ (vals.i + 1) => (1 : ℚ)) (2 ^ (vals.i) + new_a1 * 2 ^ ((vals.i) + 1)) = (fun₀ | 2 ^ vals.i + new_a2 * 2 ^ (vals.i + 1) => 1) ((2 ^ (vals.i) + new_a1 * 2 ^ ((vals.i) + 1))) := by
+         rw [funs_eq]
+       simp only [Finsupp.single_eq_same] at apply_eq
+       simp only [Finsupp.single_apply, add_right_inj, mul_eq_mul_right_iff, ne_eq,
+-        AddLeftCancelMonoid.add_eq_zero, one_ne_zero, and_false, not_false_eq_true, pow_eq_zero_iff,
++        Nat.add_eq_zero_iff, one_ne_zero, and_false, not_false_eq_true, pow_eq_zero_iff,
+         OfNat.ofNat_ne_zero, or_false] at apply_eq
+       rw [eq_comm] at apply_eq
+       simp only [add_left_inj]
+@@ -494,7 +496,7 @@
+         intro x hx
+         have support_sub_subset := Finsupp.support_sub (f := tree_comb.a_coords x • vals.x_vals x) (g := tree_comb.b_coords x • vals.x_vals x)
+         have support_union_subset := Finset.union_subset_iff.mpr ⟨supp_single tree_comb.a_coords x hx, supp_single tree_comb.b_coords x hx⟩
+-        simp only at support_union_subset
++        try simp only at support_union_subset
+         exact Finset.Subset.trans support_sub_subset support_union_subset
+       have biunion_subset := (Finset.biUnion_subset (s := Finset.range (treeNum parent))).mpr combined_supp_subset
+       have support_subset := Finsupp.support_finset_sum (s := Finset.range (treeNum parent)) (f := fun x => ((tree_comb.a_coords x • vals.x_vals x - tree_comb.b_coords x • vals.x_vals x)))
+@@ -620,7 +622,7 @@
+         Finsupp.smul_single, smul_eq_mul, mul_one, Finsupp.single_eq_same] at eval_at
+       have root_supp := vals.supp_gt 0
+       simp at root_supp
+-      simp [Finsupp.support_single_ne_zero] at root_supp
++      try simp [Finsupp.support_single_ne_zero] at root_supp
+       have two_i_not_supp: 2^vals.i ∉ vals.root_elem.support := by
+         apply Finset.notMem_of_max_lt_coe
+         simp only [WithBot.coe_pow, WithBot.coe_ofNat]
+@@ -825,7 +827,7 @@
+                 simp [t1_b_zero, t2_b_zero, treeNums_neq] at fun_congr
+               · simp only [TreeNode.getData] at h_eq
+                 have fun_congr := DFunLike.congr h_eq (x := vals.x_to_index (treeNum t1_parent - 1)) rfl
+-                simp only at fun_congr
++                try simp only at fun_congr
+                 have t2_a_zero := eval_larger_a_eq_zero t2_parent (treeNum t1_parent - 1) (by linarith)
+                 have t2_b_zero := eval_larger_b_eq_zero t2_parent (treeNum t1_parent - 1) (by linarith)
+                 have t1_b_zero := eval_larger_b_eq_zero t1_parent (treeNum t1_parent - 1) (by simp)
+@@ -841,7 +843,7 @@
+                   have vals_neq: 2 ^ vals.i + (treeNum t1_parent - 1) * 2 ^ (vals.i + 1) ≠ 2 ^ vals.i + (treeNum t2_parent - 1) * 2 ^ (vals.i + 1) := by
+                     by_contra!
+                     simp only [add_right_inj, mul_eq_mul_right_iff, ne_eq,
+-                      AddLeftCancelMonoid.add_eq_zero, one_ne_zero, and_false, not_false_eq_true,
++                      Nat.add_eq_zero_iff, one_ne_zero, and_false, not_false_eq_true,
+                       pow_eq_zero_iff, OfNat.ofNat_ne_zero, or_false] at this
+                     contradiction
+                   simp [XVals.x_vals, XVals.x_to_index, treeNum_neq_zero, t1_b_zero,
+@@ -1492,9 +1494,9 @@
+           simp [not_supp]
+         · simp [XVals.x_vals, x_eq_zero]
+           have x_minus_lt: x - 1 < (treeNum t2_parent_parent - 1) := by
+-            simp at hx
++            try simp at hx
+             omega
+-          simp [Finsupp.single_apply]
++          try simp [Finsupp.single_apply]
+           omega
+       rw [tree_comb.b_eq] at app_eq
+       simp at app_eq
+@@ -1523,9 +1525,9 @@
+           simp [not_supp]
+         · simp [XVals.x_vals, x_eq_zero]
+           have x_minus_lt: x - 1 < (treeNum t2_parent_parent - 1) := by
+-            simp at hx
++            try simp at hx
+             omega
+-          simp [Finsupp.single_apply]
++          try simp [Finsupp.single_apply]
+           omega
+       rw [tree_comb.b_eq] at app_eq
+       simp at app_eq
+@@ -1595,8 +1597,9 @@
+   have minus_one_not_zero: treeNum t - 1 ≠ 0 := by omega
+   have supp_max_sum: (∑ i ∈ Finset.range (treeNum t), tree_comb.b_coords i • vals.x_vals i).support.max ≤ (vals.x_vals ((treeNum t) - 1)).support.max := by
+     rw [eq_union]
+-    simp [XVals.x_vals]
+-    simp [minus_one_not_zero]
++    simp only [XVals.x_vals]
++    simp only [minus_one_not_zero, ↓reduceIte]
++    simp only [basis_n, Finsupp.coe_basisSingleOne]
+     rw [Finsupp.support_single_ne_zero]
+     simp
+     norm_cast
+@@ -1607,7 +1610,7 @@
+       rw [← ne_eq, ← Finsupp.mem_support_iff] at in_supp
+       have supp_lt := vals.supp_gt (treeNum t - 1 - 1)
+       simp [basis_n] at supp_lt
+-      simp [Finsupp.support_single_ne_zero] at supp_lt
++      try simp [Finsupp.support_single_ne_zero] at supp_lt
+       have a_le_max := Finset.le_max in_supp
+       norm_cast at supp_lt
+       exact le_trans a_le_max (le_of_lt supp_lt)
+@@ -1812,7 +1815,7 @@
+         root_elem := g_enumerate n
+         supp_gt := by
+           intro x
+-          simp [basis_n]
++          simp only [basis_n, Finsupp.coe_basisSingleOne]
+           rw [Finsupp.support_single_ne_zero]
+           · simp
+             norm_cast
+@@ -2190,8 +2193,6 @@
+         simp [Finsupp.support_single_ne_zero]
+       rw [Finsupp.support_add_eq disjoint_supp]
+       simp
+-      rw [Finsupp.support_single_ne_zero _ (by simp), Finsupp.support_single_ne_zero _ (by simp)]
+-      exact rfl
+     have supp_increasing := (f_data (g_to_num ((fun₀ | 1 => (1 : ℚ)) - fun₀ | 7 => 1))).supp_increasing
+     have a_eq := (f_data (g_to_num ((fun₀ | 1 => (1 : ℚ)) - fun₀ | 7 => 1))).a_val
+     simp [a_eq, g_enum_inverse] at supp_increasing
+@@ -2253,8 +2254,6 @@
+       simp [Finsupp.support_single_ne_zero]
+     rw [Finsupp.support_add_eq disjoint_supp]
+     simp
+-    rw [Finsupp.support_single_ne_zero _ (by simp), Finsupp.support_single_ne_zero _ (by simp)]
+-    exact rfl
+   by_cases same_vals: (f_data (g_to_num (x_sum))).cur = x_vals_zero
+   · simp [f]
+     match h_tree: (f_data (g_to_num (x_sum))).tree with
+@@ -2291,7 +2290,7 @@
+             x_vals_zero, pow_zero, zero_add, pow_one] at f_supp_increasing
+           unfold x_sum at x_sum_supp
+           simp [x_sum_supp] at f_supp_increasing
+-          simp [Finsupp.support_single_ne_zero _] at f_supp_increasing
++          try simp [Finsupp.support_single_ne_zero _] at f_supp_increasing
+           rw [← Finsupp.single_neg, sub_eq_add_neg, ← Finsupp.single_neg, Finsupp.support_add_eq _,
+             sub_eq_add_neg, ← Finsupp.single_neg, Finsupp.support_add_eq _] at second_supp_increase
+           simp [Finsupp.support_single_ne_zero _] at second_supp_increase
+@@ -2320,9 +2319,13 @@
+             simp only [add_eq_left, mul_eq_zero, OfNat.ofNat_ne_zero, or_false,
+               ite_eq_right_iff, one_ne_zero, imp_false]
+             refine ⟨?_, ?_⟩
+-            · omega
++            · simp_all [x_vals_zero]
++              norm_cast at f_supp_increasing
++              omega
+             · rw [Finsupp.single_apply]
+               simp only [ite_eq_right_iff, one_ne_zero, imp_false]
++              simp_all [x_vals_zero]
++              norm_cast at f_supp_increasing
+               omega
+         have largest_ne_one: 1 ≠ largest_supp_n := by omega
+         have largest_ne_three: 3 ≠ largest_supp_n := by omega
+@@ -2407,7 +2410,8 @@
+         · simp only [f, Finsupp.support_neg]
+           match h_tree: (f_data (g_to_num (((-fun₀ | 1 => 1) - fun₀ | 3 => 1) : Finsupp _ _))).tree with
+           | .root =>
+-            simp [TreeNode.getData, XVals.x_vals]
++            dsimp only [TreeNode.getData, XVals.x_vals]
++            simp only [Nat.one_ne_zero, ↓reduceIte]
+             rw [Finset.disjoint_iff_ne]
+             intro a ha b hb
+             rw [x_sum_supp] at ha
+@@ -2421,7 +2425,8 @@
+               have a_le_3: a ≤ 3 := Nat.divisor_le ha
+               omega
+           | .left parent =>
+-            simp [TreeNode.getData, XVals.x_vals, treeNum_neq_zero]
++            dsimp only [TreeNode.getData, XVals.x_vals]
++            simp only [treeNum_neq_zero, ↓reduceIte]
+             rw [Finset.disjoint_iff_ne]
+             intro a ha b hb
+             rw [x_sum_supp] at ha
+--- a/equational_theories/ManuallyProved/Equation1722.lean
++++ b/equational_theories/ManuallyProved/Equation1722.lean
+@@ -13,7 +13,11 @@
+ import equational_theories.FactsSyntax
+ import equational_theories.PartialMagma
+ 
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
++
+ namespace Eq1722
++
+ namespace Greedy
+ noncomputable section
+ open AdjoinFresh PartialMagma
+@@ -143,7 +147,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -258,7 +262,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -286,7 +290,10 @@
+   let E1 : Extension1 :=
+     { E, ok, a, b := a, not_def := (fun h' => h ⟨_, h'⟩), b_eq_a := rfl }
+   let FE : FreshExtension _ := ⟨_, E1.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a a) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ theorem lift : ∀ (E : Extension ℕ) (a b : ℕ),
+   ∃ E' : Extension ℕ, E ≤ E' ∧ E' ∈ {e : Extension ℕ | (e.1 a b).Nonempty} := fun ⟨E, ok⟩ a b => by
+@@ -297,7 +304,10 @@
+   let E2 : Extension2 :=
+     { E:= E'.1, ok:= E'.2, a, b, not_def := (fun h'' => h' ⟨_, h''⟩), bb, bb_mem, a_ne_b := by tauto }
+   let FE : FreshExtension _ := ⟨_, E2.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,le_trans le FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,le_trans le FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ 
+ variable (e₀ : Extension ℕ)
+@@ -351,8 +361,9 @@
+   finite := List.finite_toSet S
+   func h1 _ h2 := Decidable.by_contra fun h =>
+     have : IsTrans ((ℕ ×ₗ ℕ) × ℕ) (·.1 < ·.1) := ⟨fun _ _ _ => lt_trans⟩
++    haveI : Std.Symm (fun (a b : (ℕ ×ₗ ℕ) × ℕ) => a.1 ≠ b.1) := ⟨fun _ _ h => h.symm⟩
+     (List.isChain_iff_pairwise.1 sorted) |>.imp (fun h => h.ne)
+-      |>.forall (fun _ _ => (·.symm)) h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
++      |>.forall h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
+   laws := {
+   eq1722 := fun h1 h2 => by
+     obtain ⟨⟨⟨y, y'⟩,yy⟩, yy_mem, ⟨⟨yy', xyy⟩,x⟩, eq_mem, y_def,
+@@ -410,15 +421,13 @@
+     rw [show ((0:GreedyMagma e) ◇ 0) = 1 from fromList_eval he 0 0 1,
+         show ((1:GreedyMagma e) ◇ 1) = 3 from fromList_eval he 1 1 3,
+         show ((3:GreedyMagma e) ◇ 0) = 4 from fromList_eval he 3 0 4] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma
+-    simp
++    have hne : (0 : GreedyMagma e) ≠ 4 := by unfold GreedyMagma; simp
++    exact hne this
+   · have := h 0
+     rw [show ((0:GreedyMagma e) ◇ 0) = 1 from fromList_eval he 0 0 1,
+         show ((1:GreedyMagma e) ◇ 0) = 2 from fromList_eval he 1 0 2,
+         show ((2:GreedyMagma e) ◇ 0) = 3 from fromList_eval he 2 0 3,
+         show ((3:GreedyMagma e) ◇ 0) = 4 from fromList_eval he 3 0 4] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma
+-    simp
++    have hne : (0 : GreedyMagma e) ≠ 4 := by unfold GreedyMagma; simp
++    exact hne this
+ end Eq1722
+--- a/equational_theories/ManuallyProved/Equation1729/ExtensionTheorem.lean
++++ b/equational_theories/ManuallyProved/Equation1729/ExtensionTheorem.lean
+@@ -88,7 +88,7 @@
+   | .inr a, .inl b => .inr <| E.R' b a
+   | .inr a, .inr b => E.rest_map a b
+ 
+-instance extMagmaInst {SM N : Type}
++@[instance_reducible] def extMagmaInst {SM N : Type}
+   [Magma SM] (E : ExtOpsWithProps SM N) : Magma (SM ⊕ N) where
+   op := operation E
+ 
+--- a/equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean
++++ b/equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean
+@@ -5,6 +5,9 @@
+ import equational_theories.FactsSyntax
+ import equational_theories.ManuallyProved.Equation1729.SmallMagma
+ import equational_theories.ManuallyProved.Equation1729.Edit
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
++set_option maxHeartbeats 2000000
+ namespace Eq1729
+ 
+ abbrev axiom_i'' (L₀' : N → N) (Predom : Finset N) := ∀ (x y : N) (_: x ∈ Predom) (_ : L₀' x = y) (n:ℤ), y ∈ fill Predom ∧ L₀' ((e 0)^n * x) = (e 0)^n * y ∧ L₀' ((e 0)^n * y) = (e 0)^(n-1) * x
+@@ -127,10 +130,10 @@
+ 
+ -- for Mathlib?
+ lemma IsChain.IsDirected {α: Type} [Preorder α] {s: Set α} (h: IsChain (fun x y ↦ x ≤ y) s) [Nonempty s] : IsDirected s (fun x y ↦ x ≤ y) := by
+-  rw [← directedOn_univ_iff]
+-  convert (directedOn_image (s := Set.univ) (f := Subtype.val) (r := fun x y ↦ x ≤ y)).mp _
+-  convert IsChain.directedOn h
+-  exact Subtype.coe_image_univ s
++  constructor
++  intro a b
++  obtain ⟨c, hc, hac, hbc⟩ := IsChain.directedOn h a a.property b b.property
++  exact ⟨⟨c, hc⟩, hac, hbc⟩
+ 
+ lemma use_chain {sols : Set PartialSolution} (hchain: IsChain (fun (sol1 sol2 : PartialSolution) => sol1 ≤ sol2) sols ) (hnon: Nonempty sols) (htotal_L₀' : ∀ x : N, ∃ sol ∈ sols, x ∈ sol.Dom_L₀') (htotal_S' : ∀ x : N, ∃ sol ∈ sols, x ∈ sol.Dom_S') (htotal_op : ∀ (x y : N), ∃ sol ∈ sols, (x,y) ∈ sol.Dom_op) : ∃ (G: Type) (_: Magma G), Equation1729 G ∧ ¬ Equation817 G := by
+   let f := Filter.atTop (α := sols)
+@@ -1109,6 +1112,7 @@
+   · apply sol.nequiv_d₀
+     simp [sol.d₀_invis sol.sees_y₀, sol.ad₀_neq_d₀ ha', sol.SSy₀_neq_d₀, sol.d₀_neq_zero.symm, sol.d₀_invis (sol.sees_hA ha')]
+   · simp [ha, R'_axiom_iia', hneq] at ha'
++  · simp [ha, R'_axiom_iia', hneq] at ha'
+   · apply sol.nequiv_d₀
+     simp [sol.Sd₀_neq_d₀, sol.d₀_neq_zero.symm, sol.d₀_invis (sol.sees_hB ha), sol.d₀_invis (sol.I_involved sol.extras hz').2.1, sol.aSy₀_neq_d₀ ha]
+   · apply sol.nequiv_d₀
+@@ -1217,34 +1221,22 @@
+       by_cases hb:b
+       · by_cases hb':b'
+         · simp [hb, hb'] at h ⊢
+-          have : (sol.L₀'_pair data).1 ≈ (sol.L₀'_pair data').1 := calc
+-            _ ≈ (e 0)^n * (sol.L₀'_pair data).1 := rel_of_mul _ n
+-            _ ≈ (e 0)^n' * (sol.L₀'_pair data').1 := by rw [h]
+-            _ ≈ _ := Setoid.symm <| rel_of_mul _ n'
++          have : (sol.L₀'_pair data).1 ≈ (sol.L₀'_pair data').1 := Setoid.trans (rel_of_mul _ n) (h.symm ▸ Setoid.symm (rel_of_mul _ n'))
+           have heq : data = data' := by
+             contrapose! this
+             exact (sol.L₀'_no_collide_2 this).1
+           simp [heq] at h ⊢
+           exact zpow_of_e_inj 0 h
+         simp [hb, hb'] at h ⊢
+-        have : (sol.L₀'_pair data).1 ≈ (sol.L₀'_pair data').2 := calc
+-            _ ≈ (e 0)^n * (sol.L₀'_pair data).1 := rel_of_mul _ n
+-            _ ≈ (e 0)^n' * (sol.L₀'_pair data').2 := by rw [h]
+-            _ ≈ _ := Setoid.symm <| rel_of_mul _ n'
++        have : (sol.L₀'_pair data).1 ≈ (sol.L₀'_pair data').2 := Setoid.trans (rel_of_mul _ n) (h.symm ▸ Setoid.symm (rel_of_mul _ n'))
+         exact sol.L₀'_no_collide_3 _ _ this
+       by_cases hb':b'
+       · simp [hb, hb'] at h
+         simp [hb, hb'] at h ⊢
+-        have : (sol.L₀'_pair data).2 ≈ (sol.L₀'_pair data').1 := calc
+-            _ ≈ (e 0)^n * (sol.L₀'_pair data).2 := rel_of_mul _ n
+-            _ ≈ (e 0)^n' * (sol.L₀'_pair data').1 := by rw [h]
+-            _ ≈ _ := Setoid.symm <| rel_of_mul _ n'
++        have : (sol.L₀'_pair data).2 ≈ (sol.L₀'_pair data').1 := Setoid.trans (rel_of_mul _ n) (h.symm ▸ Setoid.symm (rel_of_mul _ n'))
+         exact sol.L₀'_no_collide_3 _ _ <| Setoid.symm this
+       simp [hb, hb'] at h ⊢
+-      have : (sol.L₀'_pair data).2 ≈ (sol.L₀'_pair data').2 := calc
+-        _ ≈ (e 0)^n * (sol.L₀'_pair data).2 := rel_of_mul _ n
+-        _ ≈ (e 0)^n' * (sol.L₀'_pair data').2 := by rw [h]
+-        _ ≈ _ := Setoid.symm <| rel_of_mul _ n'
++      have : (sol.L₀'_pair data).2 ≈ (sol.L₀'_pair data').2 := Setoid.trans (rel_of_mul _ n) (h.symm ▸ Setoid.symm (rel_of_mul _ n'))
+       have heq : data = data' := by
+         contrapose! this
+         exact (sol.L₀'_no_collide_2 this).2
+@@ -1283,8 +1275,8 @@
+ lemma PartialSolution_with_axioms.new_L₀'_eval' (sol: PartialSolution_with_axioms) (data : L₀'_data sol) (n:ℤ) : sol.new_L₀' ((e 0)^n * (sol.L₀'_pair data).1) = (e 0)^n * (sol.L₀'_pair data).2 := sol.L₀'_embed.edit_of_attains _ _ ⟨data, n, true⟩
+ 
+ lemma PartialSolution_with_axioms.new_L₀'_eval'' (sol: PartialSolution_with_axioms) (data : L₀'_data sol) : sol.new_L₀' (sol.L₀'_pair data).2 = (e 0)⁻¹ * (sol.L₀'_pair data).1 := by
+-    convert sol.L₀'_embed.edit_of_attains _ _ ⟨data, 0, false⟩
+-    norm_num
++  simpa [PartialSolution_with_axioms.L₀'_embed, PartialSolution_with_axioms.L₀'_output] using
++    (sol.L₀'_embed.edit_of_attains sol.L₀' sol.L₀'_output ⟨data, (0 : ℤ), false⟩)
+ 
+ lemma PartialSolution_with_axioms.new_L₀'_eval''' (sol: PartialSolution_with_axioms) (data : L₀'_data sol) (n:ℤ) : sol.new_L₀' ((e 0)^n * (sol.L₀'_pair data).2) = (e 0)^(n-1) * (sol.L₀'_pair data).1 := sol.L₀'_embed.edit_of_attains _ _ ⟨data, n, false⟩
+ 
+@@ -1925,14 +1917,16 @@
+               exact sol.sees_mul (sol.sees_inv (sol.sees_e (sol.reaches_diff (sol.reaches_shift_from_parent ha'' sol.sees_x) (sol.reaches_involved (sol.dom_S'_involved sol.extras hy₀).2)))) (sol.dom_L₀'_involved sol.extras (sol.hB a'' ha'')).2
+             rcases hS with hS | rfl
+             · have hreach₂ : sol.reaches sol.extras sol.d₀ := by
+-                simp [← h, a', sol.new_S_extend hS]
++                rw [← h]
++                change sol.reaches sol.extras (a - sol.new_S y')
++                rw [sol.new_S_extend hS]
+                 exact sol.reaches_diff (sol.reaches_shift_from_parent ha hsee₂) (sol.reaches_involved (sol.dom_S'_involved sol.extras hS).2)
+               exact (fresh_not_in_generators _ _) hreach₂
+             have haS: a = S sol.d₀ := calc
+               _ = a' + sol.new_S x := by simp [a']
+               _ = _ := by rw [sol.new_S_x, SM_square_eq_double, h]
+             have hreach₂ : sol.reaches sol.extras (S sol.d₀) := by
+-              simp [← haS]
++              rw [← haS]
+               exact sol.reaches_shift_from_parent ha hsee₂
+             exact (Sfresh_not_in_generators _ _) hreach₂
+           contrapose! hn'
+--- a/equational_theories/ManuallyProved/Equation1729/SmallMagma.lean
++++ b/equational_theories/ManuallyProved/Equation1729/SmallMagma.lean
+@@ -19,10 +19,7 @@
+ 
+ open AddToMagma -- makes SM a magma automatically
+ 
+-instance SM_countable : Countable SM := by
+-  convert instCountableDFinsupp
+-  . infer_instance
+-  infer_instance
++instance SM_countable : Countable SM := inferInstanceAs (Countable (Π₀ _ : ℕ, ZMod 4))
+ 
+ @[simp]
+ lemma SM_char_four (a : SM) : 4 • a = 0 := by
+@@ -195,9 +192,7 @@
+     exact Nat.lt_of_le_of_ne len_le len_ne
+ }
+ 
+-instance : WellFoundedLT N := {
+-  wf := RelHomClass.wellFounded N_lt_hom_nat_lt IsWellFounded.wf
+-}
++instance : WellFoundedLT N := RelHomClass.wellFounded N_lt_hom_nat_lt Nat.lt_wfRel.wf
+ 
+ instance : LocallyFiniteOrderBot N := LocallyFiniteOrderBot.ofIic
+   (finsetIic := fun x => (List.map (FreeGroup.mk) x.toWord.tails).toFinset)
+@@ -736,7 +731,6 @@
+   simp only [Finset.union_assoc]
+   rw [Finset.union_comm {0} _, Finset.union_assoc, Finset.union_idempotent, ← Finset.union_assoc, ← Finset.image_union]
+   gcongr
+-  apply Finset.image_subset_image
+   intro n hn
+   simp at hn ⊢
+   replace hn := List.Sublist.mem hn (FreeGroup.toWord_mul_sublist x y)
+@@ -891,7 +885,7 @@
+     abel
+   map_smul' := by
+     intros
+-    simp only [smul_eq_mul, RingHom.id_apply, Prod.smul_mk, Prod.mk.injEq, and_true]
++    simp only [smul_eq_mul, RingHom.id_apply, Prod.smul_mk, Prod.smul_fst, Prod.smul_snd, Prod.mk.injEq, and_true]
+     ring
+   left_inv := by
+     intro (_,_)
+@@ -909,7 +903,7 @@
+     simp only [Prod.mk_add_mk]
+   map_smul' := by
+     intros
+-    simp only [smul_eq_mul, RingHom.id_apply, Prod.smul_mk]
++    simp only [smul_eq_mul, RingHom.id_apply, Prod.smul_mk, Prod.smul_fst, Prod.smul_snd]
+   left_inv := by
+     intro (_,_)
+     simp only
+--- a/equational_theories/ManuallyProved/Equation3308.lean
++++ b/equational_theories/ManuallyProved/Equation3308.lean
+@@ -12,6 +12,9 @@
+ import equational_theories.EquationalResult
+ import equational_theories.FactsSyntax
+ import equational_theories.PartialMagma
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Refutation_3308
+ 
+@@ -168,7 +171,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -387,7 +390,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -559,7 +562,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -593,7 +596,10 @@
+     let E2 : Extension2 :=
+       { E, ok, a, b, not_def := (fun h' => h ⟨_, h'⟩), a_ne_b := by tauto, d, ba_def }
+     let FE : FreshExtension Fresh := ⟨_, E2.next_freshSolution⟩
+-    exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++    exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++      have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++      rcases hab with ⟨⟨c, hc⟩⟩
++      exact ⟨c, hc⟩⟩
+ 
+ theorem lift : ∀ (E : Extension ℕ) (a b : ℕ),
+   ∃ E' : Extension ℕ, E ≤ E' ∧ E' ∈ {e : Extension ℕ | (e.1 a b).Nonempty} := fun ⟨E, ok⟩ a b => by
+@@ -601,7 +607,10 @@
+   if b_eq_a : b = a then
+     let E1 : Extension1 := { E, ok, a, b, not_def := (fun h' => h ⟨_, h'⟩), b_eq_a }
+     let FE : FreshExtension Fresh := ⟨_, E1.next_freshSolution⟩
+-    exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++    exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++      have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++      rcases hab with ⟨⟨c, hc⟩⟩
++      exact ⟨c, hc⟩⟩
+   else if h' : (E b a).Nonempty then
+     apply lift2 ; assumption
+   else if a_im_b : ∃ x, a ∈ E x b then
+@@ -620,7 +629,10 @@
+     { E, ok, a, b, not_def := (fun h' => h ⟨_, h'⟩),
+       a_ne_b := by tauto, ba_not_def := by tauto, a_not_im_b := by tauto, b_not_im_a := by tauto}
+     let FE : FreshExtension Fresh := ⟨_, E3.next_freshSolution⟩
+-    exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++    exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++      have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++      rcases hab with ⟨⟨c, hc⟩⟩
++      exact ⟨c, hc⟩⟩
+ 
+ 
+ variable (e₀ : Extension ℕ)
+@@ -680,8 +692,9 @@
+   finite := List.finite_toSet S
+   func h1 _ h2 := Decidable.by_contra fun h =>
+     have : IsTrans ((ℕ ×ₗ ℕ) × ℕ) (·.1 < ·.1) := ⟨fun _ _ _ => lt_trans⟩
++    haveI : Std.Symm (fun (a b : (ℕ ×ₗ ℕ) × ℕ) => a.1 ≠ b.1) := ⟨fun _ _ h => h.symm⟩
+     (List.isChain_iff_pairwise.1 sorted) |>.imp (fun h => h.ne)
+-      |>.forall (fun _ _ => (·.symm)) h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
++      |>.forall h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
+   laws := {
+   eq3308 := fun h1 h2 => by
+     obtain ⟨⟨⟨x, y⟩,xyx⟩, xyx_mem, xyx_def1, xyx_def2,
+@@ -747,13 +760,11 @@
+     rw [show ((0:GreedyMagma e) ◇ 0) = 1 from fromList_eval he 0 0 1,
+         show ((1:GreedyMagma e) ◇ 0) = 2 from fromList_eval he 1 0 2,
+         show ((0:GreedyMagma e) ◇ 2) = 4 from fromList_eval he 0 2 4] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma
+-    simp
++    have hne : (1 : GreedyMagma e) ≠ 4 := by unfold GreedyMagma; simp
++    exact hne this
+   · have := h 0 0
+     rw [show ((0:GreedyMagma e) ◇ 0) = 1 from fromList_eval he 0 0 1,
+         show ((1:GreedyMagma e) ◇ 0) = 2 from fromList_eval he 1 0 2,
+         show ((0:GreedyMagma e) ◇ 2) = 4 from fromList_eval he 0 2 4] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma
+-    simp
++    have hne : (1 : GreedyMagma e) ≠ 4 := by unfold GreedyMagma; simp
++    exact hne this
+--- a/equational_theories/ManuallyProved/Equation713.lean
++++ b/equational_theories/ManuallyProved/Equation713.lean
+@@ -12,6 +12,9 @@
+ import equational_theories.Equations.All
+ import equational_theories.FactsSyntax
+ import equational_theories.PartialMagma
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq713
+ namespace Greedy
+@@ -102,7 +105,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -205,7 +208,7 @@
+ 
+ theorem next_ok : next.OK where
+   finite := by
+-    apply Set.Finite.subset (s := ((domFresh ×ˢ domFresh) ×ˢ domFresh).toSet) (Finset.finite_toSet _)
++    apply Set.Finite.subset (s := (↑((domFresh ×ˢ domFresh) ×ˢ domFresh) : Set _)) (Finset.finite_toSet _)
+     refine fun ((x,y),z) hx => ?_
+     unfold domFresh
+     simp at hx ⊢; cases hx with
+@@ -234,7 +237,10 @@
+   let E1 : Extension1 :=
+     { E, ok, a, b := a, not_def := (fun h' => h ⟨_, h'⟩), b_eq_a := rfl }
+   let FE : FreshExtension _ := ⟨_, E1.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ theorem lift : ∀ (E : Extension ℕ) (a b : ℕ),
+   ∃ E' : Extension ℕ, E ≤ E' ∧ E' ∈ {e : Extension ℕ | (e.1 a b).Nonempty} := fun ⟨E, ok⟩ a b => by
+@@ -243,7 +249,10 @@
+   let E2 : Extension2 :=
+     { E, ok, a, b, not_def := (fun h' => h ⟨_, h'⟩), a_ne_b := by tauto }
+   let FE : FreshExtension _ := ⟨_, E2.next_freshSolution⟩
+-  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by simpa using FE.adjoin_ab_def⟩
++  exact ⟨⟨FE.adjoin,FE.adjoin_ok⟩,FE.adjoin_le, by
++    have hab : Nonempty (FE.adjoin a b) := FE.adjoin_ab_def
++    rcases hab with ⟨⟨c, hc⟩⟩
++    exact ⟨c, hc⟩⟩
+ 
+ 
+ variable (e₀ : Extension ℕ)
+@@ -296,8 +305,9 @@
+   finite := List.finite_toSet S
+   func h1 _ h2 := Decidable.by_contra fun h =>
+     have : IsTrans ((ℕ ×ₗ ℕ) × ℕ) (·.1 < ·.1) := ⟨fun _ _ _ => lt_trans⟩
++    haveI : Std.Symm (fun (a b : (ℕ ×ₗ ℕ) × ℕ) => a.1 ≠ b.1) := ⟨fun _ _ h => h.symm⟩
+     (List.isChain_iff_pairwise.1 sorted) |>.imp (fun h => h.ne)
+-      |>.forall (fun _ _ => (·.symm)) h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
++      |>.forall h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
+   laws := {
+   eq713 := fun h1 h2 => by --TODO variable names are off
+     obtain ⟨⟨⟨y, y'⟩,yy⟩, yy_mem, ⟨⟨yy', xyy⟩,x⟩, eq_mem, y_def,
+--- a/equational_theories/ManuallyProved/Equation73.lean
++++ b/equational_theories/ManuallyProved/Equation73.lean
+@@ -12,6 +12,9 @@
+ import equational_theories.Equations.All
+ import equational_theories.FactsSyntax
+ 
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq73
+ 
+@@ -234,9 +237,8 @@
+ 
+ theorem eq73 : Equation73 (GreedyMagma e₀) := by
+   intro x y
+-  repeat rw [Magma.op, instMagma]
+-  simp only
+-  repeat rw [op]
++  change x = op e₀ y (op e₀ y (op e₀ x y))
++  unfold op
+   unfold GreedyMagma at *
+   have := f_eq73 e₀ (y * x⁻¹)
+   symm
+@@ -279,9 +281,7 @@
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he (x₁^(-1)) x₃,
+     fromList_eval he (x₃ * x₁) x₄] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma -- changes the inequality type, so that decide works
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+   · have := h (1 : A)
+     repeat rw [Magma.op, instMagma] at this
+     simp only at this
+@@ -289,9 +289,7 @@
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he (x₁^(-1)) x₃,
+     fromList_eval he x₁ x₂] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma -- changes the inequality type, so that decide works
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+ 
+ @[equational_result]
+ theorem not_203 : ∃ (G : Type) (_ : Magma G), Facts G [73] [203] := by
+@@ -306,11 +304,9 @@
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he x₁ x₂,
+     fromList_eval he (x₂^(-1)) x₃] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma -- changes the inequality type, so that decide works
+-    decide
+-
+-  @[equational_result]
++    exact absurd this (by unfold GreedyMagma; decide)
++
++@[equational_result]
+ theorem not_255 : ∃ (G : Type) (_ : Magma G), Facts G [73] [255] := by
+   have ⟨e, he⟩ : ∃ e : Extension, e.1 = fromList
+     (E0List ++ [(x₁⁻¹,x₃),(x₁⁻¹*x₃⁻¹,x₄)]) :=
+@@ -323,9 +319,7 @@
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he (x₁^(-1)) x₃,
+     fromList_eval he (x₁^(-1) * x₃^(-1)) x₄] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma -- changes the inequality type, so that decide works
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+ 
+ 
+ end Eq73
+--- a/equational_theories/ManuallyProved/Equation854.lean
++++ b/equational_theories/ManuallyProved/Equation854.lean
+@@ -7,6 +7,9 @@
+ import equational_theories.Mathlib.Data.List.Defs
+ import equational_theories.Mathlib.Order.Greedy
+ 
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
++
+ namespace Refutation_854
+ 
+ def G := FreeMagmaWithLaws ℕ {Law854}
+@@ -42,25 +45,33 @@
+   refine fun h => let ⟨G, _, h1, h2⟩ := not_l1038'; h2 fun x y => ?_
+   let φ := FreeMagmaWithLaws.evalHom (fun | 0 => x | _ => (y ◇ (x ◇ y)) ◇ x) <|
+     Law.satisfiesSet_singleton.2 <| Law854.models_iff.2 h1
+-  simpa [MagmaHom.map_op, X, Y, φ] using congrArg φ h
++  have hh := congrArg φ h
++  simp only [X, Y, MagmaHom.map_op] at hh
++  simpa [φ] using hh
+ 
+ theorem not_l10 : X ≠ X ◇ (Y ◇ X) := by
+   refine fun h => let ⟨G, _, h1, h2⟩ := not_l1038'; h2 fun x y => ?_
+   let φ := FreeMagmaWithLaws.evalHom (fun | 0 => x | _ => y ◇ (x ◇ y)) <|
+     Law.satisfiesSet_singleton.2 <| Law854.models_iff.2 h1
+-  simpa [MagmaHom.map_op, X, Y, φ] using congrArg φ h
++  have hh := congrArg φ h
++  simp only [X, Y, MagmaHom.map_op] at hh
++  simpa [φ] using hh
+ 
+ theorem not_l10_2 : Y ≠ Y ◇ (X ◇ Y) := by
+   refine fun h => let ⟨G, _, h1, h2⟩ := not_l1038'; h2 fun x y => ?_
+   let φ := FreeMagmaWithLaws.evalHom (fun | 1 => x | _ => y ◇ (x ◇ y)) <|
+     Law.satisfiesSet_singleton.2 <| Law854.models_iff.2 h1
+-  simpa [MagmaHom.map_op, X, Y, φ] using congrArg φ h
++  have hh := congrArg φ h
++  simp only [X, Y, MagmaHom.map_op] at hh
++  simpa [φ] using hh
+ 
+ theorem not_l325 : X ◇ Y ≠ X ◇ (Y ◇ X) := by
+   refine fun h => let ⟨G, _, h1, h2⟩ := not_l307'; h2 fun x => ?_
+   let φ := FreeMagmaWithLaws.evalHom (fun _:ℕ => x) <|
+     Law.satisfiesSet_singleton.2 <| Law854.models_iff.2 h1
+-  simpa [MagmaHom.map_op, X, Y, φ] using congrArg φ h
++  have hh := congrArg φ h
++  simp only [X, Y, MagmaHom.map_op] at hh
++  simpa [φ] using hh
+ 
+ inductive Invariant (a b : G) : FreeMagma ℕ → Prop
+   | base {a' b'} : a = ↟a' → b = ↟b' → Invariant a b (a' ◇ b')
+@@ -481,8 +492,8 @@
+     have hpw : List.Pairwise (fun a b : (ℕ × ℕ) × ℕ => a.1 ≠ b.1) S :=
+       (List.isChain_iff_pairwise.1 sorted).imp (fun hab heq => by
+         rcases hab with hab | ⟨_, hab⟩ <;> simp_all)
+-    have hsym : Symmetric (fun a b : (ℕ × ℕ) × ℕ => a.1 ≠ b.1) := fun _ _ => Ne.symm
+-    exact hpw.forall hsym h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
++    haveI : Std.Symm (fun a b : (ℕ × ℕ) × ℕ => a.1 ≠ b.1) := ⟨fun _ _ => Ne.symm⟩
++    exact hpw.forall h1 h2 (by rintro ⟨⟩; exact h rfl) rfl
+   eq854 h1 h2 h3 := eq854 _ h1 _ h2 rfl _ h3 rfl
+   eq8 h1 := eq8 _ h1 rfl
+   eq101 h1 h2 := eq101 _ h1 _ h2 rfl rfl
+--- a/equational_theories/ManuallyProved/Equation917.lean
++++ b/equational_theories/ManuallyProved/Equation917.lean
+@@ -13,6 +13,9 @@
+ import equational_theories.FactsSyntax
+ 
+ 
++
++set_option backward.isDefEq.respectTransparency false
++set_option backward.whnf.reducibleClassField false
+ 
+ namespace Eq917
+ 
+@@ -247,9 +250,8 @@
+ 
+ theorem eq917 : Equation917 (GreedyMagma e₀) := by
+   intro x y
+-  repeat rw [Magma.op, instMagma]
+-  simp only
+-  repeat rw [op]
++  change x = op e₀ y (op e₀ (op e₀ y y) (op e₀ x y))
++  unfold op
+   unfold GreedyMagma at *
+   have := f_eq917 e₀ (y * x⁻¹)
+   symm
+@@ -293,9 +295,7 @@
+     repeat rw [op] at this
+     group at this
+     rw [fromList_eval he 1 x₁, fromList_eval he (x₁^(-1)) x₂, fromList_eval he x₂ x₃] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma -- changes the inequality type, so that decide works
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+ 
+ 
+ @[equational_result]
+@@ -311,8 +311,6 @@
+     group at this
+     rw [fromList_eval he 1 x₁,fromList_eval he (x₁^(-1)) x₂, fromList_eval he (x₂*x₁) x₃,
+     fromList_eval he (x₃^(-1)) x₄] at this
+-    apply Ne.elim _ this
+-    unfold GreedyMagma
+-    decide
++    exact absurd this (by unfold GreedyMagma; decide)
+ 
+ end Eq917
+--- a/equational_theories/Obelix.lean
++++ b/equational_theories/Obelix.lean
+@@ -1,6 +1,6 @@
+ import Mathlib.Algebra.Lie.OfAssociative
+ import Mathlib.Analysis.Normed.Field.Lemmas
+-import Mathlib.Computability.Primrec
++import Mathlib.Computability.Primrec.Basic
+ import Mathlib.Data.DFinsupp.Encodable
+ import Mathlib.Data.DFinsupp.FiniteInfinite
+ import Mathlib.Data.DFinsupp.Multiset
+@@ -64,7 +64,6 @@
+ theorem ExtendImg' (f : PartialSolution) : ∀ {a}, a ∈ f.Dom → f.f a ∉ f.Dom → a - f.f a ∉ f.Im := by
+   intro a h₁ h₂
+   convert f.ExtendImg h₁ h₂
+-  funext x
+   simp only [Im, Finset.mem_image, Set.mem_image, Finset.mem_coe]
+ 
+ /-- The module Π₀ _ : ℕ, ℤ is not a finite rank module over ℤ -/
+@@ -72,17 +71,8 @@
+   /- Prove by giving a series of Module equivalences (LinearEquiv's) between DFinsupp,
+   Finsupp, and finally Polynomial, where we can appeal to Polynomial.not_finite to do the
+   lifting for us. -/
+-  have f : (Polynomial ℤ) ≃ₗ[ℤ] (Finsupp ℕ ℤ) := {
+-    toFun := Polynomial.toFinsupp
+-    invFun := Polynomial.ofFinsupp
+-    map_add' _ _ := by simp; rfl
+-    map_smul' := by
+-      intros
+-      rw [zsmul_eq_mul, eq_intCast, Int.cast_id, ← zsmul_eq_mul]
+-      rfl
+-    left_inv := by simp [Function.LeftInverse]
+-    right_inv := by simp [Function.RightInverse, Function.LeftInverse]
+-  }
++  have f : (Polynomial ℤ) ≃ₗ[ℤ] (Finsupp ℕ ℤ) :=
++    (Polynomial.toFinsuppIsoLinear ℤ).trans (AddMonoidAlgebra.coeffLinearEquiv ℤ)
+   rw [← Module.Finite.equiv_iff (finsuppLequivDFinsupp ℤ), ← Module.Finite.equiv_iff f]
+   exact Polynomial.not_finite
+ 
+@@ -332,11 +322,11 @@
+       intro y hy
+       simp at hy
+       rcases hy with rfl|rfl|hy
+-      · simp [hcbc, hcbb, hzbbc x hx]
++      · simp [hcbc, Ne.symm hcbc, hcbb, hzbbc x hx, Ne.symm (hzbbc x hx)]
+         intro _ _ _ y hy
+         have hyb : y ≠ b := fun h ↦ hb (h ▸ hy)
+         simp [hyb, hzcb y hy, hfzbc y hy]
+-      · simp [hcbb, hccx, hzbcz x hx]
++      · simp [hcbb, hccx, Ne.symm hccx, hzbcz x hx, Ne.symm (hzbcz x hx)]
+         intro _ _ _ y hy
+         have hyb : y ≠ b := fun h ↦ hb (h ▸ hy)
+         simp [hyb, hzcb y hy, hfzcx y hy]
+@@ -345,8 +335,10 @@
+         intro hfyb
+         have hyx : y ≠ x := fun h ↦ hfyb (congrArg f.f h)
+         have hxbyfy : x - b ≠ y - f.f y := fun h ↦ hyx.symm (f.SubInj hx hy h)
+-        simp [hxbyfy]
+-        intro _ hy2 z hz
++        try simp only [hxbyfy, false_or]
++        intro _ hy2
++        refine ⟨Ne.symm (hczfz y hy), Ne.symm hxbyfy, ?_⟩
++        intro z hz
+         have hzb : z ≠ b := fun h ↦ hb (h ▸ hz)
+         have := by simpa using f.ExtendImg hy hy2
+         simpa [hzb, hzcb z hz] using this z hz
+@@ -483,13 +475,15 @@
+       intro y hy
+       simp only [Finset.mem_insert, @eq_comm _ _ x] at hy
+       rcases hy with rfl|hy
+-      · simp [hbdom, hbxb, hbx]
++      · simp [hbdom, hbxb, Ne.symm hbxb, hbx]
+         intro z hz
+         have hxz : x ≠ z := fun h ↦ hx (h ▸ hz)
+         simp [hxz, hb3 z hz]
+       · have hxy : x ≠ y := fun h ↦ hx (h ▸ hy)
+         simp [hxy, hb4 y hy]
+-        intro _ h₂ z hz
++        intro _ h₂
++        refine ⟨Ne.symm (hb4 y hy), ?_⟩
++        intro z hz
+         have hxz : x ≠ z := fun h ↦ hx (h ▸ hz)
+         have := f.ExtendImg hy h₂
+         simp [hxz] at this ⊢
+--- a/equational_theories/ThreeC2.lean
++++ b/equational_theories/ThreeC2.lean
+@@ -164,7 +164,7 @@
+     next hne _ ih => simp_all [red.go]
+ 
+ theorem red_length_le (w : W) : (red w).length ≤ w.length := by
+-  simpa using go [] w
++  simpa [red] using go [] w
+ where
+   go (w v) : (red.go w v).length ≤ w.length + v.length := by
+     induction w, v using red.go.induct <;> simp_all [red.go] <;> omega

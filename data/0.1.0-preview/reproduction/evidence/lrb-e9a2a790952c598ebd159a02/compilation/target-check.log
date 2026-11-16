@@ -1,0 +1,9 @@
+@STIR.proximity_gap : ∀ {F : Type} [inst : Field F] [inst_1 : Fintype F] [inst_2 : DecidableEq F]
+  [inst_3 : SampleableType F] {ι : Type} [inst_4 : Fintype ι] [Nonempty ι] {φ : ι ↪ F} {degree m : ℕ} {δ : NNReal}
+  {f : Fin m → ι → F} {GenFun : F → Fin m → F},
+  0 < δ →
+    δ < 1 - STIR.Bstar ↑(LinearCode.rate (ReedSolomon.code φ degree)) →
+      Pr{let r ← $ᵗ F}[δᵣ(fun x => ∑ j, GenFun r j * f j x, ↑(ReedSolomon.code φ degree)) ≤ ↑δ] >
+          ENNReal.ofReal ↑(STIR.proximityError F degree (↑(LinearCode.rate (ReedSolomon.code φ degree))) δ m) →
+        ∃ S,
+          ↑S.card ≥ (1 - δ) * ↑(Fintype.card ι) ∧ ∀ (i : Fin m), ∃ u ∈ ReedSolomon.code φ degree, ∀ x ∈ S, f i x = u x

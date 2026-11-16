@@ -1,0 +1,25 @@
+{
+  "packet": "kzg-function-binding-before",
+  "root": "KZG.CommitmentScheme.function_binding",
+  "sources": [
+    {
+      "kind": "independent_paper_cached_text",
+      "url": "https://eprint.iacr.org/2025/902.pdf",
+      "locator": "Lemma9.1 p.59; Construction9.4/Definition9.5 pp.59-60 (cached pagination)",
+      "version": "Cached text bearing 2025-05-27 header; exact ePrint revision identifier and original PDF SHA256 unavailable",
+      "evidence": "datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt",
+      "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4",
+      "acquisition_receipt": "datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json"
+    }
+  ],
+  "source_evidence_root": "../../../../reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen",
+  "historical_unresolved_sources": [
+    {
+      "kind": "unresolved",
+      "required_source": "CGKY25 ePrint 2025/902; function-binding/ARSDH target exact version not yet acquired",
+      "note": "Upstream inverse-trapdoor witness exists; independent function-binding target PDF unavailable (403), exact definition correspondence pending."
+    }
+  ],
+  "binding_status": "cached_independent_target_acquired_scope_correspondence_pending",
+  "scope_review": "Independent source is cached paper text, with header 2025-05-27; exact ePrint PDF revision and byte hash remain unavailable. Lemma9.1 concerns ordinary KZG function binding, not state-restoration function binding of batched/linearized KZG or the full Plonk theorem. Cached Definition9.5 differs from the Lean citation number9.6. Paper degree <=D and Lean degree<n suggest n=D+1, but ARSDH cardinality/degree conventions require explicit review; do not silently identify n with D. Paper circuit-size bounds, auxiliary distribution, private tau and group-generator hypotheses must remain visible. Lean hp:p>=n+2 and pairing nondegeneracy are explicit formal qualifications; no claim that paper discharges every Lean qualification. Before version quantifies its hardness assumption over unrestricted Lean adversary functions; relation to the paper size-bounded circuit assumption is unresolved, and an overly strong/vacuous premise does not by itself make the conditional theorem false."
+}

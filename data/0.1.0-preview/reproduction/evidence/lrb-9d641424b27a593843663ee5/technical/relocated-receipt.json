@@ -1,0 +1,25 @@
+{
+  "dataset": "equational-theories",
+  "project_id": "etp-greedy1729",
+  "status": "passed",
+  "modules": 25,
+  "targets": [
+    "Eq1729.not_817"
+  ],
+  "compiled_modules": 25,
+  "source_sha256": "3ee39585d21aea7bfc8f53a8f77f625246ddbc69695fb5036c205d0626cb3f2c",
+  "seconds": 212.656,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 10,
+      "edges": 18
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 10,
+      "edges": 18
+    }
+  },
+  "leantrace_extracted": true
+}

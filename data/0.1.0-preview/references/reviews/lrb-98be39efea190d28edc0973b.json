@@ -1,0 +1,170 @@
+{
+  "dataset": "imperial-flt",
+  "project_id": "flt-c05",
+  "root": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+  "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "05637d38cdb99a070477df15b20f709f05bfcfd22fbf95221b7b1c4a625db2f8",
+  "label": "aligned",
+  "reason": "Dfx 展开为有限阿代尔张量积的单位群，incl₁ 为 d↦d⊗1 的单位群嵌入；DoubleCoset.Quotient 的关系是 y=h*x*u，左侧取 Dˣ 的像，右侧取 U。根仅要求 U 为开放子群，Finite 正是双陪集空间有限；背景数域、有限维和中心除代数条件来自原文上下文。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为aligned; confirms aligned for imperial-flt:flt-c05 after checking finite adeles, the diagonal units embedding, double-coset relation y=h*x*u, the open-subgroup premise, and the finite quotient conclusion.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "model_recommendation": "aligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "独立 blueprint 在数域上的有限维中心除代数上下文中，对任意开放子群 U 的有限阿代尔单位群双陪集空间有限性；核对对象、左右作用、开放条件与有限性结论。",
+  "detailed_review": {
+    "path": "reports/finite-double-coset-recheck-2026-11-16/review.json",
+    "sha256": "f460a0b0b1bfb554f03991b6defa8340c2d3df7312e0014de7014de2549632e6"
+  },
+  "evidence_locations": {
+    "bound_informal": {
+      "path": "datasets/imperial-flt/projects/flt-c05/informal.jsonl",
+      "line": 1,
+      "sha256": "cd562041db447faef044cf27214ae8d3a60aadcf9ccd5ab5a13412b868f7f461"
+    },
+    "source_finite_adele_notation": {
+      "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+      "line": 49,
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+    },
+    "source_scope": {
+      "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+      "line": 69,
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+    },
+    "source_division_hypothesis": {
+      "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+      "line": 85,
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+    },
+    "source_theorem": {
+      "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+      "line": 350,
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+    },
+    "source_open_cover_proof": {
+      "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+      "line": 358,
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+    },
+    "formal_finite_tensor_units": {
+      "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+      "line": 92,
+      "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+    },
+    "diagonal_embedding": {
+      "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+      "line": 108,
+      "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+    },
+    "formal_scope": {
+      "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+      "line": 1070,
+      "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+    },
+    "compact_quotient_input": {
+      "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+      "line": 1084,
+      "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+    },
+    "root": {
+      "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+      "line": 1099,
+      "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+    },
+    "module_topology": {
+      "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/Hacks/RightActionInstances.lean",
+      "line": 153,
+      "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+    },
+    "explicit_graph": {
+      "path": "datasets/imperial-flt/projects/flt-c05/graph/explicit/graph.json",
+      "line": 1,
+      "sha256": "f5a16198593d89254346e369239793ee5cbf4ffbb27fae6f07d2c92dce40a8a2"
+    }
+  },
+  "external_evidence": [
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/GroupTheory/DoubleCoset.lean",
+      "relative_path": "Mathlib/GroupTheory/DoubleCoset.lean",
+      "line": 37,
+      "sha256": "5cd2c2f43e626d29f8de125253ec001c69810eb66d4f756ae130f9cbc46f67dd",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    },
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+      "relative_path": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+      "line": 87,
+      "sha256": "a9eb9b4fa54baa2e2e1f0cfbdf6b230767bfe28730d97b71c4d118a86e9fb4e5",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    },
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Algebra/Constructions.lean",
+      "relative_path": "Mathlib/Topology/Algebra/Constructions.lean",
+      "line": 98,
+      "sha256": "735585000e045eff631ff562bb9655e3494b3bab086e8d9ffdf6bab2bb24dc9d",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    },
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Algebra/Central/Defs.lean",
+      "relative_path": "Mathlib/Algebra/Central/Defs.lean",
+      "line": 63,
+      "sha256": "f7b55686c1e5b36830fcdcc100009c728c4ecde7dd65623a391fc3b941fae8ff",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    },
+    {
+      "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/RingTheory/SimpleRing/Basic.lean",
+      "relative_path": "Mathlib/RingTheory/SimpleRing/Basic.lean",
+      "line": 52,
+      "sha256": "a7533e6639806f0905b9a31bcf07efcc046137eaf607b99257afcfdc43d60a25",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "matches_committed_blob": true
+    }
+  ],
+  "semantic_argument": [
+    "原文将 𝔸_K^∞ 明确定义为有限阿代尔；formal 的 Df=D⊗[K]FiniteAdeleRing (𝓞 K) K，Dfx=(Df K D)ˣ，与该对象一致，没有误用无限阿代尔或全阿代尔的 Haar 核。",
+    "incl₁ 使用 Units.map Algebra.TensorProduct.includeLeftRingHom；Set.range (incl₁ K D) 是实际嵌入后的 Dˣ 子群。函数名之外的数据定义已经给出具体映射。",
+    "固定 Mathlib 中 doubleCoset x H U=H*{x}*U，Quotient 是按双陪集相等取商；当 H、U 为子群时 rel_iff 给出 y=h*x*u。formal 两个参数的顺序对应 Dˣ\\G/U。",
+    "U 的类型是 Subgroup (Dfx K D)，唯一额外参数是 IsOpen (U:Set(Dfx K D))；没有要求 U 紧致、正规或先验有限指数。",
+    "开放性使用有限阿代尔模拓扑所诱导的单位群拓扑，根依赖图确认这些实际实例；不是任意另选的拓扑。",
+    "K 是数域、D 是有限维中心除 K-代数，与原文前文上下文对应；DivisionRing 自动给出原文要求的单性。",
+    "Finite (DoubleCoset.Quotient ...) 断言等价类总数有限，与原文结论一致，不额外要求算法枚举、指定基数或商群结构。",
+    "证明内部从已证明的单陪集商紧致性提取有限子覆盖，与原文证明方向对应；这一中间紧致性不是调用根定理时需要额外提供的前提。"
+  ],
+  "verification": {
+    "source_and_input_hash_checked": true,
+    "finite_adele_and_diagonal_map_checked": true,
+    "double_coset_relation_checked": true,
+    "open_only_subgroup_premise_checked": true,
+    "root_type_topology_dependency_edges": [
+      "IsOpen",
+      "Units.instTopologicalSpaceUnits",
+      "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+      "IsDedekindDomain.instTopologicalSpaceFiniteAdeleRing"
+    ],
+    "root_and_key_definitions_match_retained_original": true,
+    "local_data_sorry_nodes": [],
+    "mathlib_commit_verified": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "external_evidence_blobs_match_commit": true,
+    "fresh_lean_build": false,
+    "new_lean_equivalence_proof": false
+  },
+  "limitations": [
+    "本次核对陈述、依赖定义和现有提取图，没有重新编译或独立重证紧致性与有限覆盖论证。",
+    "本次按用户确认保存 aligned，保留原文、formal、输入哈希、目标及技术状态；不传播标签到下一题。",
+    "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
+    "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

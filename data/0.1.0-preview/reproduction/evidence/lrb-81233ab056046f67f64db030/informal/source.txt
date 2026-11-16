@@ -1,0 +1,1101 @@
+Polynomial Commitments∗
+Aniket Kate Gregory M. Zaverucha Ian Goldberg
+MPI-SWS Certicom Research University of Waterloo
+aniket@mpi-sws.org gzaverucha@rim.com iang@cs.uwaterloo.ca
+December 01, 2010
+Abstract
+We introduce and formally deﬁne polynomial commitment schemes, and provide two eﬃcient
+constructions. A polynomial commitment scheme allows a committer to commit to a polynomial
+with a short string that can be used by a veriﬁer to conﬁrm claimed evaluations of the committed
+polynomial. Although the homomorphic commitment schemes in the literature can be used to
+achieve this goal, the sizes of their commitments are linear in the degree of the committed
+polynomial. On the other hand, polynomial commitments in our schemes are of constant size
+(single elements). The overhead of opening a commitment is also constant; even opening multiple
+evaluations requires only a constant amount of communication overhead. Therefore, our schemes
+are useful tools to reduce the communication cost in cryptographic protocols. On that front, we
+apply our polynomial commitment schemes to four problems in cryptography: veriﬁable secret
+sharing, zero-knowledge sets, credentials and content extraction signatures.
+1 Introduction
+Commitment schemes are fundamental components of many cryptographic protocols. A secure
+commitment scheme allows a committer to publish a value, called the commitment, which binds
+her to a message (binding) without revealing it (hiding). Later, she may open the commitment and
+reveal the committed message to a veriﬁer, who can check that the message is consistent with the
+commitment.
+We review three well-known ways a committer can commit to a message. Let g and h be two
+random generators of a group G of prime orderp. The committer can commit to a random message
+m∈R Zp simply as C⟨g⟩(m) = gm. This scheme is unconditionally binding, and computationally
+hiding under the assumption that the discrete logarithm (DL) problem is hard in G. The second
+scheme, known as a Pedersen commitment [19, 40], is of the form C⟨g,h⟩(m,r ) = gmhr, where r is
+a randomly chosen value in Zp. Pedersen commitments are unconditionally hiding, and computa-
+tionally binding under the DL assumption. Third, the committer may publish H(m) or H(m||r)
+for any one-way function H. In practice a collision-resistant hash function is often used. A survey
+by Damg˚ ard [22] covers the basics of commitment schemes in detail.
+Now consider committing to a polynomial φ(x)∈ Zp[x], a problem motivated by veriﬁable
+secret sharing. Suppose φ(x) has degree t and coeﬃcients φ0,...,φ t. We could commit to the
+string (φ0|φ1|... |φt), or to some other unambiguous string representation of φ(x). Based on the
+commitment function used, this option may have a constant size commitment which uniquely
+∗This is an extended version of our Asiacrypt’10 paper [32]. This research was completed at the University of
+Waterloo.
+1
+
+determines φ(x). However, it limits the options for opening the commitment; opening must reveal
+the entire polynomial. This is not always suitable for cryptographic applications, most notably
+secret sharing, that require evaluations of the polynomial ( i.e., φ(i) for i∈ Zp) be revealed to
+diﬀerent parties or at diﬀerent points in the protocol without revealing the entire polynomial. One
+solution is to commit to the coeﬃcients, e.g.,C = (gφ0,...,g φt), which allows one to easily conﬁrm
+that an opening φ(i) for index i is consistent with C. However, this has the drawback that the size
+of the commitment is now t + 1 elements of G.
+Our Contributions. The main contribution of this paper is an eﬃcient scheme to commit to
+polynomials φ(x)∈ Zp[x] over a bilinear pairing group, called PolyCommitDL, with the following
+features. The size of the commitment is constant, a single group element. The committer can
+eﬃciently open the commitment to any correct evaluation φ(i) along with an element called the
+witness, which allows a veriﬁer to conﬁrm that φ(i) is indeed the evaluation at i of the polynomial
+φ(x). The construction is based on an algebraic property of polynomials φ(x)∈ Zp[x] that (x−i)
+perfectly divides the polynomial φ(x)−φ(i) for any i∈ Zp. The hiding property of the scheme
+is based on the DL assumption. The binding property of the scheme is proven under the SDH
+assumption [8]. Using a technique similar to Pedersen commitments, we also deﬁne a stronger com-
+mitment scheme PolyCommitPed, which achieves unconditional hiding and computational binding
+under the SDH assumption.
+When a set of evaluations{φ(i) :i∈S} is opened at the same time, what we termbatch opening,
+the overhead still remains a single witness element. Security of batch opening assumes that the
+bilinear version of the SDH (BSDH) problem [28] is hard. Further, our schemes are homomorphic
+and easily randomizable. As in other work on reducing communication costs ( e.g., [10]) the global
+system parameters are somewhat large ( O(t) in our case). Reducing communication complexity
+(i.e., the number of bits transferred) is our goal, and to this end we apply the PolyCommit schemes
+to the following four applications.
+First we apply the PolyCommit schemes to the Feldman veriﬁable secret sharing (VSS) proto-
+col [24]. The new VSS protocol requires a broadcast with size O(1) as compared to O(n) required
+in the best known protocols in the literature (where n is the number of participants) [24, 40].
+Second, we deﬁne and use thePolyCommit schemes to construct a relaxed type of zero-knowledge
+set (ZKS) [36]. A ZKS is a commitment to a set S, such that the committer may prove that i∈S,
+or i⁄∈ S without revealing additional information about S, not even |S|. We deﬁne nearly zero-
+knowledge sets as ZKS that do not attempt to hide the size of the committed set. This is suﬃcient
+for most applications of zero-knowledge sets, and our construction has constant size proofs of
+(non)membership as compared to the best known constructions of ZKS that require non-constant
+communication [17, 34]. In our construction, PolyCommitPed is used to commit to the polynomial φ
+such that φ(i) = 0 if i∈S. We apply the same relaxation to elementary zero-knowledge databases
+(ZK-EDB), and achieve constant communication there as well. Here, we view our ZK-EDB scheme
+as a commitment to an indexed list of messages ( i,mi =φ(i)).
+In the next application we leverage the eﬃciency of batch opening, by using the PolyCommit
+schemes in an eﬃcient general construction of a content extraction signature (CES) scheme [45]. A
+CES scheme allows a signature holder to extract signatures for subsections of the signed message.
+The general construction, when instantiated with our commitment scheme and a general secure
+signature scheme, is as eﬃcient as the best known CES scheme, which relies on speciﬁc properties
+of the RSA signature scheme.
+In the special case when the CES scheme is used to authenticate a list of attributes about
+a person, the result is a digital credential with an eﬃcient selective show operation. A selective
+2
+
+show allows the credential holder to reveal only a subset of the attributes, with proof that the
+revealed attributes are signed. More precisely, the communication cost of revealing k attributes
+in a credential with t attributes is O(k), while known credential systems (such as [12, 15]) must
+communicate O(t) bits. We also show how to eﬃciently prove knowledge of committed values,
+allowing predicates on attributes to be proven in zero-knowledge (also with complexity O(k)).
+Outline. In the rest of this section, we compare our contributions with related work (work related
+to each application is included in the respective subsection). In §2, we cover some preliminary
+material and describe the cryptographic assumptions made in the paper. §3 deﬁnes polynomial
+commitments and presents our constructions.§4 is devoted to applications: veriﬁable secret sharing
+(§4.1), zero-knowledge sets and elementary databases (§4.2), and selective disclosure of signed data
+and credentials (§4.3). In§5, we present some open problems. Due to space constraints, all security
+proofs are provided in the appendices.
+Related Work. Similar to our scheme, a Merkle hash tree [35] allows many values to be com-
+mitted to with a single element. Here, the leaves of a binary tree are the messages. Each non-leaf
+node has the value H(L||R) where L and R are its children, and H is a collision-resistant hash
+function. One can open the commitment to an individual message by revealing the message, and
+a path up the tree to the root. The opening has size O(logn) as compared to O(1) in our scheme,
+where n is the total number of elements. Further, this scheme is not homomorphic.
+Chase et al. [18] introduce mercurial commitments to construct ZKS, which eventually led to
+the commitment schemes for committing to a vector of messages [17, 34]. Catalano et al. [17], and
+Libert and Yung [34] construct vector commitment schemes under the name trapdoort-mercurial
+commitments. The security of both of these commitment schemes is based on SDH-like assumptions
+and their system parameters have sizeO(t), as in our scheme. In [17], all messages must be revealed
+when opening, while in [34], the committer may open a commitment to a single message. However,
+in [34], it is not possible to have arbitrary indices for committed messages since each of the t
+committed messages is associated with a value in the system parameters gαj for j∈ [1,t ]. Our
+scheme does not have any such restriction on the domain for the indices, oﬀering greater ﬂexibility.
+Another related primitive is a cryptographic accumulator [4], which aggregates a large set of
+input elements into a single element and can provide a witness as evidence that an element is
+included in the accumulator. Further, it is possible to use a witness to prove (in zero-knowledge)
+that the element is included in the accumulator. Camenisch and Lysyanskaya [14] extend the
+concept to dynamic accumulators , which support eﬃcient updates. Au et al. [1] observe that
+a paring-based accumulator by Nguyen [38] is a bounded accumulator, i.e., only a ﬁxed number
+of elements can be accumulated. They then go on to use bounded accumulators to construct a
+compact e-cash scheme [2]. However, the accumulated elements in this scheme are not ordered,
+which makes it inappropriate for accumulating polynomials. While thePolyCommit schemes provide
+the same features as non-dynamic accumulators, they also have additional features (hiding and
+batch opening) and are more general since we can commit to a polynomial instead of a set.
+2 Preliminaries
+In what follows, all adversaries are probabilistic polynomial time (PPT) algorithms with respect to
+a security parameter κ expect if stated otherwise. Further, they are static and they have to choose
+their nodes before protocol instances start. A function ϵ(·) : N→ R+ is called negligible if for all
+c> 0 there exists a k0 such thatϵ(k)< 1/kc for allk>k 0. In the rest of the paper, ϵ(·) will always
+3
+
+denote a negligible function. We use the notation e : G× G→ GT to denote a symmetric (type
+1) bilinear pairing in groups of prime order p≥ 22κ. The choice of type 1 pairings was made to
+simplify presentation, however, our constructions can easily be modiﬁed to work with pairings of
+types 2 and 3 as well. For details of bilinear pairings, see Appendix A.
+We use the discrete logarithm (DL) assumption [35, Chap. 3], and the t-strong Diﬃe-Hellman
+(t-SDH) assumption [8] to prove the security of the PolyCommitDL and PolyCommitPed schemes.
+Security of two additional properties of the schemes require a generalization of thet-Diﬃe-Hellman
+inversion (t-DHI) assumption [37, 7], and the bilinear version oft-SDH, thet-BSDH assumption [28].
+Deﬁnition 2.1. Discrete logarithm (DL) Assumption. Given a generator g of G∗, where
+G∗ = G or GT , and a∈R Z∗ p, for every adversaryADL, Pr[ADL(g,ga) =a] =ϵ(κ).
+Mitsunari, Sakai and Kasahara [37] introduced the weak Diﬃe-Hellman assumption , which was
+renamed the t-DHI assumption by Boneh and Boyen [7] as this assumption is stronger than the
+Diﬃe-Hellman assumption, especially for large values of t. See Cheon [20] for a security analysis.
+Thet-DHI problem is, on input ⟨g,gα,gα2 ,...,g αt ⟩∈ Gt+1 to output g1/α, or equivalently (see
+[9]),gαt+1 . In this paper, we use a generalization of the t-DHI assumption, whereA has to output a
+pair⟨φ(x),gφ(α)⟩∈ Zp[x]× G such that 2κ> deg(φ)>t . We call this assumption the t-polynomial
+Diﬃe-Hellman (t-polyDH) assumption. This assumption was implicitly made by [1, 2] to support
+their claim that the accumulator of [38] is bounded. 1 In Appendix B, we discuss the generic group
+model security of the t-polyDH assumption.
+Deﬁnition 2.2. t-polynomial Diﬃe-Hellman (t-polyDH) Assumption. Letα∈R Z∗ p. Given
+as input a (t + 1)-tuple⟨g,gα,gα2 ,...,g αt ⟩∈ Gt+1, for every adversaryAt-polyDH, the probability
+Pr[At-polyDH(g,gα, gα2 ,...,g αt ) =⟨φ(x),gφ(α)⟩] = ϵ(κ) for any freely chosen φ(x)∈ Zp[x] such
+that 2κ> deg(φ)>t .
+Boneh and Boyen [8] deﬁned the t-SDH assumption that is related to but stronger than the
+t-DHI assumption and has exponentially many non-trivially diﬀerent solutions, all of which are
+acceptable.
+Deﬁnition 2.3. t-Strong Diﬃe-Hellman ( t-SDH) Assumption. Let α∈R Z∗ p. Given as
+input a ( t + 1)-tuple ⟨g,gα,gα2 ,...,g αt ⟩ ∈Gt+1, for every adversary At-SDH, the probability
+Pr[At-SDH(g,gα, gα2 ,...,g αt ) =⟨c,g 1 α+c⟩] =ϵ(κ) for any value of c∈ Zp\{−α}.
+Security of the batch opening extension of our commitment schemes requires the bilinear version
+of the t-SDH assumption, the t-BSDH assumption [28].
+Deﬁnition 2.4. t-Bilinear Strong Diﬃe-Hellman ( t-BSDH) Assumption. Let α∈R Z∗ p.
+Given as input a ( t + 1)-tuple ⟨g,gα,gα2 ,...,g αt ⟩ ∈Gt+1, for every adversary At-BSDH, the
+probability Pr[At-BSDH(g,gα,g α2 ,...,g αt ) =⟨c,e (g,g ) 1 α+c⟩] =ϵ(κ) for any value ofc∈ Zp\{−α}.
+A similar assumption was also made in [30], but with a diﬀerent solution: ⟨c,e (g,h )1/(α+c)⟩,
+where h∈R G is an additional system parameter.
+1Note that we bound deg(φ) by 2κ as evaluations can be found for polynomials with higher degrees in PPT using
+number theoretic techniques ( e.g., for φ(x) =xp−1, gφ(α) =g for any α∈ Z∗ p). In practice, deg(φ)≪ 2κ.
+4
+
+3 Polynomial Commitments
+In this section we provide a formal deﬁnition of a polynomial commitment scheme, followed by two
+constructions. In the ﬁrst construction the commitments are computationally hiding, while in the
+second they are unconditionally hiding. We also prove the security properties and discuss some
+useful features of our constructions.
+3.1 Deﬁnition
+A polynomial commitment scheme consists of six algorithms: Setup, Commit, Open, VerifyPoly,
+CreateWitness, and VerifyEval.
+Setup(1κ,t ) generates an appropriate algebraic structure G and a commitment public-private key
+pair⟨PK, SK⟩ to commit to a polynomial of degree≤t. For simplicity, we addG to the public
+key PK. Setup is run by a trusted or distributed authority. Note that SK is not required in
+the rest of the scheme.
+Commit(PK,φ (x)) outputs a commitmentC to a polynomialφ(x) for the public key PK, and some
+associated decommitment information d. (In some constructions, d is null.)
+Open(PK,C,φ (x),d ) outputs the polynomial φ(x) used while creating the commitment, with de-
+commitment information d.
+VerifyPoly(PK,C,φ (x),d ) veriﬁes that C is a commitment to φ(x), created with decommitment
+information d. If so the algorithm outputs 1, otherwise it outputs 0.
+CreateWitness(PK,φ (x),i,d ) outputs ⟨i,φ (i),wi⟩, where wi is a witness for the evaluation φ(i) of
+φ(x) at the index i and d is the decommitment information.
+VerifyEval(PK,C,i,φ (i),wi) veriﬁes that φ(i) is indeed the evaluation at the index i of the poly-
+nomial committed inC. If so the algorithm outputs 1, otherwise it outputs 0.
+Note that it is possible to commit to a list of messages ( m1,...,m t+1) by associating each to a
+unique key (index) k1,...,k t+1 in Zp, and interpolating to ﬁnd φ(x)∈ Zp[x], such that deg(φ)≤t
+and φ(kj) =mj.
+In terms of security, a malicious committer should not be able to convincingly present two
+diﬀerent values as φ(i) with respect to C. Further, until more than deg( φ) points are revealed,
+the polynomial should remain hidden. Next, we formally deﬁne the security and correctness of a
+polynomial commitment.
+Deﬁnition 3.1. We say ( Setup, Commit, Open, VerifyPoly, CreateWitness, and VerifyEval) is a
+secure polynomial commitment scheme if it satisﬁes the following properties.
+Correctness. Let PK← Setup(1κ) andC← Commit(PK,φ (x)). For a commitment C output by
+Commit(PK, φ(x)), and all φ(x)∈ Zp[x],
+• the output of Open(PK,C,φ (x)) is successfully veriﬁed by VerifyPoly(PK,C,φ (x)), and,
+• any⟨i,φ (i),wi⟩ output by CreateWitness(PK,φ (x),i ) is successfully veriﬁed byVerifyEval(PK,
+C,i,φ (i),wi).
+5
+
+Polynomial Binding. For all adversariesA:
+Pr
+
+
+PK← Setup(1κ), (C,⟨φ(x),φ′(x)⟩)←A (PK) :
+VerifyPoly(PK,C,φ (x)) = 1∧
+VerifyPoly(PK,C,φ′(x)) = 1∧
+φ(x)⁄=φ′(x)
+
+ =ϵ(κ).
+Evaluation Binding. For all adversariesA:
+Pr
+
+
+PK← Setup(1κ), (C,⟨i,φ (i),wi⟩,⟨i,φ (i)′,w′ i⟩)←A (PK) :
+VerifyEval(PK,C,i,φ (i),wi) = 1∧
+VerifyEval(PK,C,i,φ (i)′,w′ i) = 1∧
+φ(i)⁄=φ(i)′
+
+ =ϵ(κ).
+Hiding. Given⟨PK,C⟩ and{⟨ij,φ (ij),wφij ⟩ :j∈ [1, deg(φ)]} forφ(x)∈R Zp[x] such that VerifyEval
+(PK,C,ij,φ (ij),wφij ) = 1 for each j,
+• no adversary A can determine φ(ˆj) with non-negligible probability for any unqueried
+index ˆj (computational hiding) or
+• no computationally unbounded adversary ˆA has any information about φ(ˆj) for any
+unqueried index ˆj (unconditional hiding).
+3.2 Construction: PolyCommitDL
+We now provide an eﬃcient construction of a polynomial commitment scheme. PolyCommitDL is
+based on an algebraic property of polynomialsφ(x)∈ Zp[x]: (x−i) perfectly divides the polynomial
+φ(x)−φ(i) for i∈ Zp. In the literature, Herzberg et al. [31] have used this technique in their share
+recovery scheme.
+Setup(1κ,t ) computes two groups G, and GT of prime order p (providing κ-bit security) such
+that there exists a symmetric bilinear pairing e : G× G→ GT and for which the t-SDH
+assumption holds. We denote the generated bilinear pairing group as G =⟨e, G, Gt⟩. Choose
+a generator g ∈R G. Let α∈R Z∗ p be SK, generated by a (possibly distributed) trusted
+authority. Setup also generates a (t + 1)-tuple⟨g,gα,gα2 ,...,g αt ⟩∈ Gt+1 and outputs PK =
+⟨G,g,g α,gα2 ,...,g αt ⟩. Note that SK is not required by the other algorithms ofPolyCommitDL,
+and it can be discarded by the authority if t is ﬁxed.
+Commit(PK,φ (x)) computes the commitment C = gφ(α) ∈ G for polynomial φ(x)∈ Zp[X] of
+degree t or less. For φ(x) =∑deg(φ) j=0 φjxj, it outputs C =∏deg(φ) j=0 (gαj )φj as the commitment
+to φ(x).
+Open(PK,C,φ (x)) outputs the committed polynomial φ(x).
+VerifyPoly(PK,C,φ (x)) veriﬁes that C ?=gφ(α). If C =∏deg(φ) j=0 (gαj )φj for φ(x) =∑deg(φ) j=0 φjxj the
+algorithm outputs 1, else it outputs 0. Note that this only works when deg( φ)≤t.
+CreateWitness(PK,φ (x),i ) computes ψi(x) = φ(x)−φ(i) (x−i) ∈ Zp[x] and outputs ⟨i,φ (i),wi⟩, where
+the witness wi =gψi(α) is computed in a manner similar to C, above.
+6
+
+VerifyEval(PK,C,i,φ (i),wi) veriﬁes that φ(i) is the evaluation at the index i of the polynomial
+committed to byC. If e(C,g ) ?=e(wi,gα/gi)e(g,g )φ(i), the algorithm outputs 1, else it outputs
+0.
+VerifyEval is correct because
+e(wi,gα/gi)e(g,g )φ(i) = e(gψi(α),g (α−i))e(g,g )φ(i)
+= e(g,g )ψi(α)(α−i)+φ(i)
+= e(g,g )φ(α) =e(C,g ) as φ(x) =ψi(x)(x−i) +φ(i)
+Theorem 3.2. PolyCommitDL is a secure polynomial commitment scheme (as deﬁned in Deﬁni-
+tion 3.1) provided the DL and t-SDH assumptions hold in G.
+A proof of Theorem 3.2 is provided in Appendix C.1. The proof of the binding property is based
+on the t-SDH assumption, while the proof of the hiding property is based on the DL assumption.
+3.3 Construction: PolyCommitPed
+PolyCommitPed is also based on the same algebraic property of polynomials φ(x)∈ Zp[x]: (x−i)
+perfectly divides the polynomial φ(x)−φ(i) for i∈ Zp; however, it uses an additional random
+polynomial ˆφ(x) to achieve unconditional hiding.
+We use the fact that the basic PolyCommitDL scheme is homomorphic in nature. Observe
+that given PolyCommitDL commitmentsCφ1 andCφ2 associated with polynomials φ1(x) and φ2(x)
+respectively, one can compute the commitmentCφ forφ(x) =φ1(x)+φ2(x) asCφ =Cφ1Cφ2. Further,
+given two witness-tuples⟨i,φ 1(i),wφ1i⟩ and⟨i,φ 2(i),wφ2i⟩ at index i associated with polynomials
+φ1(x) andφ2(x) respectively, the corresponding tuple for indexi for polynomialφ(x) =φ1(x)+φ2(x)
+can be given as⟨i,φ 1(i) +φ2(i),wφ1iwφ2i⟩. The PolyCommitPed construction uses the homomorphic
+property to combine two commitments (one to φ(x), one to ˆφ(x)), although each commitment uses
+a diﬀerent generator. Next, we deﬁne our PolyCommitPed construction.
+Setup(1κ,t ) computes two groups G and GT of prime order p (providing κ-bit security) such
+that there exists a symmetric bilinear pairing e : G× G→ GT and for which the t-SDH
+assumption holds. We denote the generated bilinear pairing group as G =⟨e, G, Gt⟩. Choose
+two generators g,h∈R G. Let α∈R Z∗ p be SK, generated by a (possibly distributed) trusted
+authority. Setup also generates a (2 t + 2)-tuple⟨g,gα,...,g αt ,h,h α,...,h αt ⟩∈ G2t+2 and
+outputs PK =⟨G,g,g α,...,g αt ,h,h α,...,h αt ⟩. Note that SK is not required by the other
+algorithms of the commitment scheme, and it can be discarded by the authority if t is ﬁxed.
+Commit(PK,φ (x)) chooses ˆφ(x)∈R Zp[x] of degreet and computes the commitmentC =gφ(α)h ˆφ(α)∈
+G for the polynomial φ(x) ∈ Zp[X] of degree t or less. For φ(x) = ∑deg(φ) j=0 φjxj and
+ˆφ(x) = ∑deg( ˆφ) j=0 ˆφjxj, it outputs C = ∏deg(φ) j=0 (gαj )φj ∏deg( ˆφ) j=0 (hαj ) ˆφj as the commitment to
+φ(x).
+Open(PK,C,φ (x), ˆφ(x)) outputs the committed polynomials φ(x) and ˆφ(x).
+VerifyPoly(PK,C,φ (x), ˆφ(x)) veriﬁes that C ?=gφ(α)h ˆφ(α). IfC =∏deg(φ) j=0 (gαj )φj ∏deg( ˆφ) j=0 (hαj ) ˆφj for
+φ(x) = ∑deg(φ) j=0 φjxj and ˆφ(x) = ∑deg( ˆφ) j=0 ˆφjxj, the algorithm outputs 1, else it outputs 0.
+Note that this only works when both deg( φ) and deg( ˆφ)≤t.
+7
+
+CreateWitness(PK,φ (x), ˆφ(x),i ) computes ψi(x) = φ(x)−φ(i) (x−i) and ˆψi(x) = ˆφ(x)− ˆφ(i) (x−i) , and outputs
+⟨i,φ (i), ˆφ(i),wi⟩. Here, the witness wi =gψi(α)h ˆψi(α).
+VerifyEval(PK,C,i,φ (i), ˆφ(i),wi) veriﬁes that φ(i) is the evaluation at the indexi of the polynomial
+committed to by C. If e(C,g ) ?= e(wi,gα/gi)e(gφ(i)h ˆφ(i),g ), the algorithm outputs 1, else it
+outputs 0.
+Suppose h =gλ for some unknown λ. Then VerifyEval is correct because
+e(wi,gα/gi)e(gφ(i)h ˆφ(i),g ) = e(gψi(α)+λ ˆψi(α),g (α−i))e(g,g )φ(i)+λ ˆφ(i)
+= e(g,g )(ψi(α)(α−i)+φ(i))+λ( ˆψi(α)(α−i)+ ˆφ(i))
+= e(g,g )φ(α)+λ ˆφ(α) as φ(x) =ψi(x)(x−i) +φ(i) and ˆφ(x) = ˆψi(x)(x−i) + ˆφ(i)
+= e(gφ(α)h ˆφ(α),g ) =e(C,g )
+Theorem 3.3. PolyCommitPed is a secure polynomial commitment scheme (as deﬁned in Deﬁnition
+3.1) provided the t-SDH assumption holds in G.
+A proof of Theorem 3.3 is provided in Appendix C.2. The proof of the binding property is
+based on the t-SDH assumption, while the hiding property is unconditional.
+3.4 Features
+We next discuss some important features of PolyCommitDL and PolyCommitPed.
+Homomorphism. In§3.3, we describe that the PolyCommitDL scheme is (additive) homomorphic
+in nature. It is easy to see that the PolyCommitPed is also homomorphic nature. Observe that
+given PolyCommitPed commitmentsC1 andC2 associated with polynomial pairs ⟨φ1(x), ˆφ1(x)⟩ and
+⟨φ2(x), ˆφ2(x)⟩ respectively, one can compute the commitment C for φ(x) = φ1(x) + φ2(x) and
+ˆφ(x) = ˆφ1(x) + ˆφ2(x) asCφ =Cφ1Cφ2. Further, given two witness-tuples ⟨i,φ 1(i), ˆφ1(i),wφ1i⟩ and
+⟨i,φ 2(i), ˆφ2(i),wφ2i⟩ at index i associated with polynomial pairs ⟨φ1(x), ˆφ1(x)⟩ and⟨φ2(x), ˆφ1(x)⟩
+respectively, the corresponding tuple for index i for polynomial φ(x) = φ1(x) +φ2(x) and ˆφ(x) =
+ˆφ1(x) + ˆφ2(x) can be given as ⟨i,φ 1(i) +φ2(i), ˆφ1(i) + ˆφ2(i),wφ1iwφ2i⟩.
+Unconditional Hiding for PolyCommitDL. Whent′< deg(φ) evaluations have been revealed,
+PolyCommitDL unconditionally hides any unrevealed evaluation, since thet′+1 evaluations⟨α,φ (α)⟩,⟨i1,
+φ(i1)⟩,..., ⟨it′,φ (it′)⟩ are insuﬃcient to interpolate a polynomial of degree>t′. Note that the eval-
+uation pair⟨α,φ (α)⟩ is available in an exponentiated form ⟨gα,gφ(α)⟩.
+Indistinguishability of Commitments. When a polynomial commitment scheme is random-
+ized, an adversary cannot distinguish commitments to chosen sets of key-value pairs. When com-
+mitting to a set of key-value pairs ( ⟨k1,m 1⟩,..., ⟨kt+1,mt+1⟩), if indistinguishable PolyCommitDL
+commitments are required, it is suﬃcient to set one mi to a random value. On the other hand, the
+PolyCommitPed scheme is inherently randomized and can be used directly.
+8
+
+Trapdoor Commitment. The constructions are also trapdoor commitment schemes, where
+SK =α is the trapdoor. For PolyCommitDL, givenα, a simulator can create witnesses for arbitrary
+values with respect to C = gd for an unknown d. To “prove” φ(i) = r (where φ is the polyno-
+mial supposedly committed to by C), output w = [C· g−r]1/(α−i). It can easily be checked that
+VerifyEval(PK,C,i,r,w ) = 1. The same also applies to PolyCommitPed commitments.
+Batch Opening. In the case when multiple evaluations in a PolyCommitDL commitment must
+be opened, the opening may be batched to reduce the computation and the communication of both
+the committer and the veriﬁer; i.e., opening multiple evaluations at the same time is cheaper than
+opening each of those evaluations individually using CreateWitness and VerifyEval. Let B⊂ Zp,
+|B|<t be a set of indices to be opened, for a commitment C =gφ(α) created using PolyCommitDL.
+The witness for the values φ(i), for all i∈ B, is computed as wB = gψB(α) for the polynomial
+ψB(x) = φ(x)−r(x)∏ i∈B(x−i) where r(x) is the remainder of the polynomial division φ(x)/(∏ i∈B(x−i));
+i.e., φ(x) = ψB(x)
+(∏
+i∈B(x−i)
+)
++r(x) and for i∈ B, φ(i) = r(i). We deﬁne two algorithms
+for batch opening. The algorithm CreateWitnessBatch(PK,φ (x),B ) outputs⟨B,r (x),wB⟩ and the
+algorithm VerifyEvalBatch(PK,C,B,r (x),wB) outputs 1 if e(C,g ) ?= e(g ∏ i∈B(α−i),wB)e(g,gr(α))
+holds, degr(x) =|B|, and r(i) =φ(i) for all i∈B.
+In terms of security, since commitments are formed in the same way as the Commit algorithm of
+PolyCommitDL and CreateWitnessBatch reveals no more information than running the CreateWitness
+algorithm of PolyCommitDL for all batch elements individually, the hiding property (proven in
+Theorem 3.2) still holds. For binding, an adversary should not be able to open a batchB containing
+an index i, in a manner that conﬂicts with the value φ(i) output in an individual opening of index
+i. Formally, we say that batch opening is binding if the following holds:
+Pr
+
+
+PK← Setup(1κ,t ), (C,⟨B,wB,r (x)⟩,⟨i∈B,wi,φ (i)⟩)←A (PK) :
+VerifyEvalBatch(PK,C,B,w B,r (x)) = 1∧
+VerifyEval(PK,C,i,w i,φ (i)) = 1∧
+φ(i)⁄=r(i)
+
+ =ϵ(κ).
+Theorem 3.4. The construction of CreateWitnessBatch, VerifyEvalBatch in§3.4 is binding provided
+the t-BSDH assumption holds in G.
+This theorem is proven in Appendix C.3. The above construction of CreateWitnessBatch,
+VerifyEvalBatch can trivially modiﬁed forPolyCommitPed due to homomorphic nature ofPolyCommitDL.
+In Table 1 we show the communication overhead of various commitment schemes, when Alice
+commits to t values, and then must reveal k of them. Overhead excludes the communication cost
+of sending the committed values, as it is the same in all schemes. The values in Table 1 count
+the number of communicated elements for various commitment schemes. The size of each element
+is approximately equal to 2 κ. From the table, we can see that the communication overhead of
+PolyCommitDL is constant when batch opening is used and we suggest PolyCommitDL for opening
+multiple evaluations simultaneously. Without batch opening, the overhead savings is greatest when
+k (the number of openings) is much smaller than t (the number of committed values).
+Strong Correctness. The veriﬁable secret sharing application will require an additional property
+of the PolyCommit scheme: it should not be possible to commit to a polynomial of degree greater
+than t. This is called the strong correctness property.
+To deﬁne strong correctness for the PolyCommit schemes is not easy, e.g., there are many poly-
+nomialsφ′ of degree greater than t such thatφ(α) =z∈R Zp and sogz is trivially a PolyCommitDL
+9
+
+Hash Pedersen PolyCommitDL PolyCommitDL
+(Batch)
+PolyCommitPed PolyCommitPed
+(Batch)
+Commitment size t t 1 1 1 1
+k-opening overhead 0 k random
+values
+k witnesses 1 witness k random +k
+witnesses
+k random +1
+witness
+Total overhead t t +k k + 1 2 k + 2 k + 2
+Total overhead
+when k≈t
+≈t ≈ 2t ≈t + 1 2 t + 2 t + 2
+Table 1: Comparison of commitment scheme communication overhead. A commitment to t mes-
+sages is created, then later k<t messages must be revealed.
+commitment to some polynomial of degree t′ such that 2κ > t′ > t. To avoid this triviality, we
+require that an adversaryA must convince a challengerB that he knowsφ with the following game.
+A creates a commitment to a claimed polynomial φ′ of degree t′.B challengesA witht′ + 1 indices
+I ⊂ Zp. A wins if he is able to produce {⟨i,φ (i),wi)⟩}i∈I accepted by VerifyEval and that the
+interpolation (in exponents) of any t′ + 1 witnesses generates a degree t− 1 polynomial. Similarly
+for PolyCommitPed. Refer to Appendix C.4, for proof of the following theorem.
+Theorem 3.5. PolyCommitDL and PolyCommitPed have the strong correctness property if the t-
+polyDH assumption holds in G.
+Practicality and Eﬃciency Improvements. Here, we discuss the practicality ofSetup (1κ,t ) =
+⟨SK, PK⟩. It is trivial in presence of a trusted authority. In absence of a single trusted party, Setup
+can be distributed. Here, SK =α is computed in a distributed form (i.e., shared by multiple parties
+forming a distributed authority) using the concept of distributed key generation [40] over Zp. PK
+is computed using a distributed multiplication protocol over Zp [3, 27]. As we do not require SK
+during our protocols and as anybody can verify the correctness of PK using pairings, it is possible
+to consider PK as a global reusable set, shared in many systems.
+Further, the exponentiations required when committing and creating witnesses can be triv-
+ially parallelized. Also, since C = gφ(α) is computed as a product of powers (sometimes called
+a multi-exponentiation), we suggest using fast exponentiation techniques [41] instead of a na¨ ıve
+implementation. It is also possible to precompute e(C,g ) and e(g,g ) for use during veriﬁcation.
+4 Applications
+In this section, we describe applications of our commitment schemes to veriﬁable secret sharing
+(§4.1), zero-knowledge sets and elementary databases (§4.2), and selective disclosure of signed data
+and credentials (§4.3).
+4.1 Veriﬁable Secret Sharing (VSS)
+For integers n and t such that n > t≥ 0, an (n,t )-secret sharing scheme [43, 6] is a method used
+by a dealer to share a secret s among a set of n participants in such a way that any subset of t + 1
+or more participants can compute the secret s, but subsets of size t or fewer cannot.
+In secret sharing, nodes may need a procedure to verify the correctness of the dealt values in
+order to prevent malicious behaviour by the dealer. To solve this problem, Choret al. [21] introduced
+veriﬁability in secret sharing, which led to the concept of veriﬁable secret sharing (VSS).
+An (n,t )-VSS scheme consists of two phases: the sharing (Sh) phase and the reconstruction
+(Rec) phase.
+10
+
+Sh phase. A dealer Pd distributes a secret s∈K among n nodes, whereK is a suﬃciently large
+key space. At the end of the Sh phase, each honest node Pi holds a sharesi of the distributed
+secret s.
+Rec phase. In this phase, each node Pi reveals its secret share s′ i and a reconstruction function is
+applied in order to compute the secret s = Rec(s′ 1,s′ 2,...,s ′ n) or output⊥ indicating that Pd
+is malicious. For honest nodes s′ i =si, while for malicious nodes s′ i may be diﬀerent from si
+or even absent.
+VSS schemes have two security requirements: secrecy and correctness.
+Secrecy (VSS-S). A t-limited adversary who can compromise t nodes cannot compute s during
+the Sh phase.
+Correctness (VSS-C). The reconstructed value should be equal to the shared secret s or every
+honest node concludes that the dealer is malicious by outputting ⊥.
+Here, we consider VSS schemes in the computational complexity setting. In this setting, any
+malicious behaviour by Pd is caught by the honest nodes in the Sh phase itself and the VSS-C
+property simpliﬁes to the following: the reconstructed value should be equal to the shared secret s.
+Further, many VSS applications avoid participation by all parties during the Rec phase. It is
+required that broadcasts from anyt+1 honest nodes (or any 2t+1 nodes) is suﬃcient to reconstruct
+s. Therefore, along with secrecy and correctness, we mandate the correctness property that we refer
+as the strong correctness requirement.
+Strong Correctness (VSS-SC). The same unique values is reconstructed regardless of the sub-
+set of nodes (of size greater than 2 t) chosen by the adversary in the Rec algorithm.
+Further, some VSS schemes achieve a stronger secrecy guarantee.
+Strong Secrecy (VSS-SS). The adversary who can compromiset nodes does not have any more
+information about s except what is implied by the public parameters.
+Feldman [24] developed the ﬁrst eﬃcient VSS protocol, which forms the basis of all VSS schemes
+deﬁned in the literature. In the literature, the discrete logarithm commitment or Pedersen com-
+mitment is used in the Feldman VSS achieve the binding (correctness) and the hiding (secrecy)
+properties. Both of these commitment schemes trivially satisfy the strong correctness (VSS-SC)
+property of VSS by the fact that the size of a commitment to a polynomial φ(x)∈ Zp[x] is equal
+to deg(φ) + 1, which is O(n) (since for optimal resiliency, deg( φ) = t =⌊n−1 2 ⌋). However, the
+commitment to a polynomial has to be broadcast to all nodes, which results in a linear-size broad-
+cast for Feldman VSS and their variants and a linear complexity gap between the message and
+the bit complexities. Our goal is to close this gap using one of the PolyCommit schemes. Next,
+we apply PolyCommitDL to existing polynomial-based VSS schemes. By doing so, we reduce the
+broadcast message size of VSS by a linear factor, making it equal to the message complexity. Al-
+though PolyCommitDL can be used in any univariate polynomial-based VSS scheme, we choose the
+Feldman VSS for ease of exposition.
+Our eﬃcient Feldman VSS (eVSS) scheme requires Setup(1κ,t ) of PolyCommitDL be run once,
+which outputs PK =⟨G,g,g α,...,g αt ⟩. Further, as we are working in the synchronous communi-
+cation model, a resiliency bound of n≥ 2t + 1 is required for VSS to provide correctness against
+a t-limited Byzantine adversary as the n−t honest nodes available during the Sh and Rec phases
+should at least be equal tot+1 (the required threshold). In Figure 1, we present eVSS that uses the
+11
+
+Sh Phase
+1. To share a secret s∈ Z∗ p, the dealer Pd chooses a random degree t polynomial φ(x) = ∑t j=0φjxj∈ Zp[x]
+such that φ(0) =φ0 =s. It then broadcasts C = Commit(PK,φ (x)).
+2. For 𝓁∈ [1,n ], Pd computes a share s𝓁 = φ(𝓁), a witness w𝓁 = CreateWitness(PK,φ (x),𝓁 ) and sends
+⟨𝓁,φ (𝓁),w𝓁⟩ to node P𝓁 over a secure and authenticated channel.
+3. After receiving ⟨i,φ (i),wi⟩ fromPd, node Pi runs VerifyEval(PK,C,i,φ (i),wi). If the veriﬁcation fails, Pi
+broadcasts an accusation message against Pd.
+4. If more than t nodes accuse Pd, then it is clearly faulty and is disqualiﬁed. If not, for each accusing
+partyP𝓁, Pd broadcasts the corresponding share and witness ⟨𝓁,φ (𝓁),w𝓁⟩ such that VerifyEval holds.
+5. If any of the revealed shares fails VerifyEval, Pd is disqualiﬁed and the protocol stops. If there is no
+disqualiﬁcation, each node P𝓁 accepts the received share s𝓁.
+Rec Phase
+During reconstruction, any t + 1 or more nodes Pi publish their accepted shares and witnesses ⟨i,si,wi⟩. All
+t + 1 (or more) nodes verify each of the broadcast shares ⟨i,φ (i),wi⟩ using VerifyEval and then interpolate the
+pairs⟨i,φ (i)⟩ to determine the secret s =φ(0).
+Figure 1: eVSS: An eﬃcient Feldman VSS using PolyCommitDL
+PolyCommitDL scheme in the Feldman VSS. In the Sh and the Rec phases of the eVSS scheme, the
+VSS methodology remains exactly the same as that of Feldman VSS except heret+1 commitments
+of the form gφj for φ(x) =∑t j=0φjxj are replaced by a single polynomial commitment C =gφ(α).
+In addition, along with a sharesi,Pd now sends a witnesswi to nodePi. Overall, the eVSS protocol
+needsO(1) broadcast instead ofO(n) required by the Feldman VSS. In case of multiple accusations,
+dealer Pd can use the batch opening feature described in §3.4 to provide a single witness for the
+complete batch. Furthermore, due to the homomorphic nature of PolyCommit, the eVSS scheme
+can easily converted to a distributed key generation protocol [40].
+Theorem 4.1. The eVSS protocol implements a synchronous VSS scheme with the VSS-S and
+VSS-SC properties for n≥ 2t + 1 provided the DL, t-SDH and t-polyDH assumptions hold in G.
+We need to prove the secrecy, correctness and strong correctness properties of a synchronous VSS
+scheme. Secrecy and correctness result directly from Theorem 3.2, while Theorem 3.5 provides the
+strong correctness property. The secrecy provided by eVSS is computational against a t-bounded
+adversary, and unconditional against at−1 bounded adversary. Share correctness is computational.
+PolyCommitDL can easily be replaced by PolyCommitPed in the above eVSS scheme. In that
+case, we achieve the strong secrecy (VSS-SS) property as PolyCommitPed is unconditional hiding
+(Theorem 3.3).
+4.2 Nearly ZKSs and Nearly ZK-EDBs
+In this section, we deﬁne and give an eﬃcient construction of a new primitive called a nearly ZKS.
+Micali et al. [36] deﬁne zero-knowledge sets (ZKSs). Basically a ZKS allows a committer to
+create a short commitment to a set of values S, such that he may later eﬃciently prove statements
+of the form kj∈ S or kj⁄∈ S in zero-knowledge. No additional information about S is revealed.
+Perhaps the most challenging aspect in ZKS construction is that not even an upper bound on |S|
+may be revealed. The closely related notion of zero-knowledge elementary databases (ZK-EDB) is
+also deﬁned in [36]. Loosely speaking, an EDB is a list of key-value pairs, and a ZK-EDB allows
+a committer to prove that a given value is associated with a given key with respect to a short
+commitment.
+12
+
+We argue that relaxing the requirements of a ZKS is suﬃcient for known applications, and show
+this leads to a signiﬁcantly more eﬃcient primitive. In particular, by not hiding |S|, the size of the
+proof that an element is (or is not) in a committed set is reduced by a factor of sixteen or more,
+when compared to the best known ZKS construction.
+Motivation. Much of the literature on ZKSs does not consider applications [17, 18, 26, 34, 42].
+In the applications of ZKSs (and ZK-EDBs) suggested in [36] the size of the set (or DB) is not
+crucial to the intended security or privacy of the application. The applications given are to improve
+privacy and access control when the records of an EDB contain sensitive information about people,
+e.g., medical records. In such cases, revealing a bound on the number of records in the database
+clearly does not aﬀect the privacy of an individual whose information is kept in the database.
+Another use of ZKSs and ZK-EDBs is for committed databases [39]. In this application, a
+database owner commits to the database and then proves for every query that the response is
+consistent with the commitment. For many applications the contents of the committed database
+must be hidden, but the size may be revealed. An example is given in Buldas et al. [13]. Here
+ZK-EDBs are used to increase the accountability of a certiﬁcation authority by preventing it from
+providing inconsistent responses to queries about the validity of a certiﬁcate. Clearly, keeping the
+number of certiﬁcates hidden is not required. Therefore, a weaker type of ZKS primitive that does
+not hide the size of the set will suﬃce for most practical applications of ZKSs. We call a ZKS
+that may leak information about the size of the set a nearly ZKS. Similarly, a nearly ZK-EDB is a
+ZK-EDB that may leak information about the number of records it contains.
+We note that an accumulator also represents a set of values with proofs of membership, and some
+even allow proofs of non-membership (for example, see [23, 33]). Accumulators do not however,
+guarantee hiding (the ZK property), for example, in [23] after seeing responses tot non-membership
+queries we may recover the entire accumulated set.
+Construction of a Nearly ZKS. The construction will use PolyCommitPed, and allows us to
+commit to S⊂ Zp such that|S|≤ t. The basic idea is to commit to a polynomial φ, such that
+φ(kj) = 0 for kj ∈ S, and φ(kj)⁄= 0 for kj ⁄∈ S. Our construction relies on a ZK proof that
+provesφ(kj)⁄= 0 without revealing φ(kj) to maintain privacy for queries when kj⁄∈ S. Although
+a construction based on PolyCommitDL is also possible, we choose PolyCommitPed as the required
+ZK proof is simpler in the latter case. For convenience we describe our protocols assuming the ZK
+proof is non-interactive, however, an interactive ZK proof may be used as well.
+SetupZKS(1κ,t ) outputs PK = Setup(1κ,t ). t is an upper bound on the size of the set which may
+be committed.
+CommitZKS(PK,S ) requires |S| ≤t. Deﬁne φ(x) = ∏ kj∈S(x− kj) ∈ Zp[x]. Output C =
+Commit(PK,φ (x)). Let ˆφ(x)∈ Zp[x] be the random degreet polynomial chosen in PolyCommitPed.
+QueryZKS(PK,C,kj) allows the committer to create a proof that eitherkj∈S orkj⁄∈S. Compute
+⟨kj,φ (kj), ˆφ(kj),wj⟩ = CreateWitness(PK,φ (x), ˆφ(x),kj).
+(i) If kj∈S, output πSj = (kj,wj, ˆφ(kj),⊥).
+(ii) If kj⁄∈ S, create zj = gφ(kj )h ˆφ(kj ) and a ZK proof of knowledge of φ(kj) and ˆφ(kj) in
+zj =gφ(kj )h ˆφ(kj ). Let γj =⟨zj, ZK proof⟩. Output πSj = (kj,wj,⊥,γj).
+VerifyZKS(PK,C,πSj) parses πSj as (kj,wj, ˆφ(kj),γj).
+13
+
+(i) If ˆφ(kj)⁄=⊥, then kj∈S. Output 1 if VerifyEval(PK,C,kj, 0, ˆφ(kj),wj) = 1.
+(ii) If γj⁄=⊥, then kj⁄∈S. Parse γj as⟨zj, ZK proof⟩. If e(C,g ) ?=e(wj,gα−kj)e(zj,g ), and
+the ZK proof of knowledge of zj is valid, output 1. Output 0 if either check fails.
+A security deﬁnition and proof are provided in Appendix D. The ZK proof of knowledge may be
+implemented using any secure ZK proof system allowing proof of knowledge of a discrete logarithm
+(see [16] for examples).
+Construction of a Nearly ZK-EDB. This construction makes use of the above nearly ZKS
+construction and PolyCommitDL. Let D = (K,V )⊂ Zt p× Zt p be a list of key-value pairs that
+will deﬁne the database ( K and V are ordered lists of equal length such that the value mj∈ V
+corresponds to the key kj∈K). The values may repeat, but the keys must be distinct. We write
+D(kj) to denote the value associated to key kj (if kj⁄∈K, then D(kj) =⊥). The underlying idea
+of our construction is to commit to the keys using our nearly ZKS, and also commit to φ, such that
+φ(kj) = mj, using PolyCommitDL, since it is suﬃcient for security and more eﬃcient. The reason
+for using the nearly ZKS is to respond to queries when k⁄∈ D without revealing any additional
+information.
+SetupEDB(1κ,t ) runs SetupZKS(1κ,t ), and outputs PK.
+CommitEDB(PK,D = (K,V )) sets C1 = CommitZKS(PK,K ). It then interpolates the t (or fewer)
+points (kj,mj)∈D, and one or more random points (kr,mr)∈R Zp× Zp to get a polynomial
+φ2(x)∈ Zp[x], assured to be of degreet. SetC2 = Commit(PK,φ 2(x)) and outputE = (C1,C2).
+QueryEDB(PK,E,kj) parses E as (C1,C2).
+(i) If kj∈K, computeπSj = QueryZKS(PK,C1,kj) to show thatkj∈K and⟨kj,mj,wmj⟩ =
+CreateWitness(PK,φ 2(x),kj) to show that D(kj) =mj. Output πDj = (πSi,mj,wmj).
+(ii) If kj ⁄∈ K, we show that kj ⁄∈ K, set πSj = QueryZKS(PK,C1,kj). Output πDj =
+(πSj,⊥,⊥).
+VerifyEDB(PK,E,πDj) parses πDj as (πSj,mj,wmj) andE as (C1,C2).
+(i) If mj⁄=⊥, thenkj∈K, output (kj,mj) if VerifyZKS(PK,C1,πSj) = 1 and VerifyEval(PK,C2,kj,
+mj,wmj) = 1.
+(ii) If mj =⊥, then kj⁄∈K, output 1 if VerifyZKS(PK,C1,πSj) = 1.
+Eﬃciency of our nearly ZKS and ZK-EDBs. The size of the commitment is a single group
+element for a nearly ZKS, or two elements for a nearly ZK-EDB. Proof that kj∈S, consists of two
+group elements, while proof that kj⁄∈S consists of about ﬁve group elements (when ZK proofs are
+implemented using a standard three-move ZK protocol, made non-interactive with the Fiat-Shamir
+heuristic). The proof sizes for our nearly ZK-EDB construction are three and about ﬁve group
+elements (respectively).
+The ZK-EDB in the literature with the shortest proofs is that of Libert and Yung [34] (based
+on their ZKS construction). Asymptotically, (non)membership proofs are O(κ/ log(t)) bits, where
+κ is a security parameter, and t is the size of the system parameters. For the parameter choices
+given [34], proof sizes range from 80–220 group elements. The computation of their scheme and ours
+is nearly equal. Therefore, using nearly ZK-EDBs in the place of ZK-EDBs reduces communication
+costs by at least a factor of sixteen.
+14
+
+4.3 Credentials and Selective Disclosure of Signed Data
+In this section we brieﬂy describe two applications of the PolyCommit schemes, and we will show
+how polynomial commitments can reduce communication costs. Both applications are based on the
+following idea. Suppose Alice has a list of values ( m1,...,m t), which will be signed by Trent. If
+Trent signs the concatenation, then Alice must reveal all mi to allow Bob to verify the signature.
+However, if Trent signsC = Commit(PK,φ (x)) whereφ(i) =mi, then Alice may allow Bob to verify
+that Trent has signedmi without revealing the othermj. Bob veriﬁes the signature onC, and Alice
+produces a witness to prove that C opens to mi at position i, allowing Alice to convince Bob that
+Trent signedmi.
+Content Extraction Signatures. If (m1,...,m t) are parts of a document, then signing a poly-
+nomial commitment is a content extraction signature (CES) scheme. Steinfeld et al. [45] introduce
+CES and give a generic construction of CES signatures. The scheme requires a standard commit-
+ment scheme, which is then used to commit to each of thet sub-messages (m1,...,m t) individually,
+forming a vector of commitments, which is signed. The scheme is secure, provided the signature
+scheme is secure, and the commitment scheme is hiding and binding.
+Since both PolyCommit schemes are hiding and binding, and allow a list of messages to be
+committed, they can be used in the general construction of Steinfeld et al. Along with the commit-
+ment, Trent should also sign t so that Bob knows that only indices {1,...,t } correspond to valid
+sub-messages. The new scheme is nearly as communication eﬃcient as a speciﬁc scheme in [45]
+which has the lowest communication cost. The latter, however, depends on speciﬁc properties of the
+RSA signature scheme and is secure in the random oracle model. Using a polynomial commitment
+scheme gives an eﬃcient generic construction. Therefore, eﬃcient standard model CES schemes
+are possible by combining any of the PolyCommit schemes with a signature scheme secure in the
+standard model.
+Pseudonymous Credentials. If (m1,...,m t) are attributes about Alice, and Trent is an identity
+provider, then the signature Alice holds on C is a digital credential [12] that allows Alice to reveal
+only as much information as is necessary to complete an online transaction. Here, we createC using
+PolyCommitDL, as batched openings are eﬃcient for PolyCommitDL.
+Disclosing a single mi requires Alice to transmit (C, SignTrent(C),⟨i,mi,wi⟩), the size of which
+is independent of t. In the case that Alice reveals a subset of the attributes, a single witness may
+be used to reduce communication even further using batch opening (described in §3.4).
+If Trent signs multiple commitments to the same attributes (but includes an extra randomized
+attribute), Alice may present a diﬀerent commitment to the same veriﬁer unlinkably. This is the
+functionality in the Brands credential system [12]. The Camenisch-Lysyanskaya system [15] allows
+a single credential to be shown many times unlinkably. In both systems, proofs involving the
+credential have computation and communication costs which are O(t) where t is the total number
+of attributes in the credential.
+Let us compare these costs to credentials based on PolyCommitDL. First we consider a selective
+show, where Alice reveals the set of attributes B ={m1,...,m k},k≤t, to Bob. With our creden-
+tials, the communication cost is 2k + 2 elements if we send (m1,w 1),..., (mk,wk), the commitment
+C and Trent’s signature onC.2 Using batch opening (§3.4), only a single witness is required for allk
+attributes, reducing communication to k + 3 elements. For computation we count exponentiations
+and pairings. Alice’s computation is O(tk), since CreateWitness is O(t), however this computation
+2For simplicity we count Trent’s signature as a single group element; in practice it may be larger or smaller, but
+not signiﬁcantly.
+15
+
+only needs to be done once, and all of it may be precomputed (by creating the witness for each of
+the attributes). With batch opening Alice’s computation is O(t), but she must know B in advance
+to precompute the witness. Bob’s computation is O(k) with or without batch opening. However,
+if Bob knows the indices of B in advance and does O(t) precomputation, his online computation is
+constant.
+For many interesting applications of credentials, selective show is insuﬃcient because Alice
+would like to prove something about mi (e.g., mi < 1990) without revealing mi. Appendix E
+describes how Alice may prove knowledge of a nonzero committed value φ(i) without revealing it.
+She may compose this proof with other proofs about mi using standard ZK proof techniques for
+proving knowledge of, relations between or the length of discrete logarithms [16].
+Since the communication costs per attribute of proving knowledge of a committed value are
+constant, if k attributes are involved in showing a credential, the complexity of the show will be
+O(k). However, since the constants are not small, whether this is more eﬃcient than a show with
+complexityO(t) in another system (say, [12]) depends on the relative sizes of t and k.
+5 Open Problems
+Finally, we list a few open problems related to the polynomial commitment schemes. 1. Is it possible
+to construct eﬃcient polynomial commitment schemes under weaker assumptions? 2. What other
+protocols does PolyCommit improve? (For example, can PolyCommit reduce communication of
+asynchronous VSS protocols or veriﬁable shuﬄes? See the protocol of Groth and Ishai [29]) 4.
+We have mainly focused on the communication costs, but our construction asks for nontrivial
+computation. Is it possible to reduce computation cost as well?
+Acknowledgements. We thank the anonymous reviewers for providing many helpful comments,
+and thank Benoit Libert for sending us a preprint of [34]. We gratefully acknowledge the ﬁnancial
+support of NSERC, MITACS, and the David R. Cheriton Graduate Scholarship program.
+References
+[1] M. H. Au, Q. Wu, W. Susilo, and Y. Mu. Compact E-Cash from Bounded Accumulator. In
+Proceedings of CT-RSA’07, pages 178–195, 2007.
+[2] M.H. Au, W. Susilo, and Y. Mu. Practical anonymous divisible e-cash from bounded accumulators. In
+Proceedings of FC’08, pages 287–301, 2008.
+[3] M. Ben-Or, S. Goldwasser, and A. Wigderson. Completeness theorems for non-cryptographic
+fault-tolerant distributed computation. In STOC’88, pages 1–10. ACM, 1988.
+[4] J.C. Benaloh and M. de Mare. One-way accumulators: A decentralized alternative to digital signatures
+(extended abstract). In Proceedings of EUROCRYPT’93, LNCS, pages 274–285. Springer, 1993.
+[5] I. Blake, G. Seroussi, and N. P. Smart, editors. Advances in Elliptic Curve Cryptography . Number 317
+in London Mathematical Society Lecture Note Series. Cambridge University Press, 2005. 183–252.
+[6] G.R. Blakley. Safeguarding cryptographic keys. In Proceedings of the National Computer Conference ,
+pages 313–317, 1979.
+[7] D. Boneh and X. Boyen. Eﬃcient Selective-ID Secure Identity-Based Encryption Without Random
+Oracles. In Proceedings of EUROCRYPT’04, pages 223–238, 2004.
+[8] D. Boneh and X. Boyen. Short Signatures Without Random Oracles. In Proceedings of
+EUROCRYPT’04, volume 3027 of LNCS, pages 56–73. Springer, 2004.
+16
+
+[9] D. Boneh, X. Boyen, and E.J. Goh. Hierarchical identity based encryption with constant size
+ciphertext. In Eurocrypt, volume 3494, pages 440–456. Springer, 2005.
+[10] D. Boneh, C. Gentry, and B. Waters. Collusion resistant broadcast encryption with short ciphertexts
+and private keys. In Proceedings of CRYPTO’05, volume 3621 of LNCS, pages 258–275. Springer,
+2005.
+[11] X. Boyen. The Uber-Assumption Family: A Uniﬁed Complexity Framework for Bilinear Groups. In
+Proceedings of Pairing-Based Cryptography-Pairing 2008, page 39. Springer-Verlag GmbH, 2008.
+[12] S.A. Brands. Rethinking public key infrastructures and digital certiﬁcates: building in privacy . The
+MIT Press, 2000.
+[13] A. Buldas, P. Laud, and H. Lipmaa. Eliminating Counterevidence with Applications to Accountable
+Certiﬁcate Management. Journal of Computer Security , 10(3):273–296, 2002.
+[14] J. Camenisch and A. Lysyanskaya. Dynamic accumulators and application to eﬃcient revocation of
+anonymous credentials. In Proceedings of CRYPTO’02, volume 2442 of LNCS, pages 61–76. Springer,
+2002.
+[15] J. Camenisch and A. Lysyanskaya. A signature scheme with eﬃcient protocols. In Proceedings of
+SCN’02, volume 2576 of LNCS, pages 268–289. Springer, 2003.
+[16] J. Camenisch and M. Stadler. Proof systems for general statements about discrete logarithms.
+Technical report, 1997. 260, Dept. of Computer Science, ETH Zurich.
+[17] D. Catalano, D. Fiore, and M. Messina. Zero-knowledge sets with short proofs. In Proceedings of
+EUROCRYPT’08, volume 4965 of LNCS, pages 433–450. Springer, 2008.
+[18] M. Chase, A. Healy, A. Lysyanskaya, T. Malkin, and L. Reyzin. Mercurial commitments with
+applications to zero-knowledge sets. In Proceedings of EUROCRYPT’05, volume 3494 of LNCS, pages
+422–439. Springer, 2005.
+[19] D. Chaum, I. Damg˚ ard, and J. van de Graaf. Multiparty Computations Ensuring Privacy of Each
+Party’s Input and Correctness of the Result. In Proceedings of CRYPTO’87, pages 87–119. Springer,
+1987.
+[20] J.H. Cheon. Security analysis of the strong Diﬃe-Hellman problem. In Proceedings of
+EUROCRYPT’06, volume 4004 of LNCS, pages 1–13. Springer, 2006.
+[21] B. Chor, S. Goldwasser, S. Micali, and B. Awerbuch. Veriﬁable Secret Sharing and Achieving
+Simultaneity in the Presence of Faults (Extended Abstract). In Proceedings of FOCS’85, pages
+383–395, 1985.
+[22] I. Damg˚ ard. Commitment schemes and zero-knowledge protocols. In Lectures on Data Security,
+volume 1561 of LNCS, pages 63–86. Springer, 1999.
+[23] I. Damg˚ ard and N. Triandopoulos. Supporting non-membership proofs with bilinear-map
+accumulators. 2008. Cryptology ePrint Archive: Report 2008/538.
+[24] P. Feldman. A Practical Scheme for Non-interactive Veriﬁable Secret Sharing. In Proceedings of
+FOCS’87, pages 427–437, 1987.
+[25] S. D. Galbraith, K. G. Paterson, and N. P. Smart. Pairings for cryptographers. Discrete Applied
+Mathematics, 156(16):3113–3121, 2008.
+[26] R. Gennaro and S. Micali. Independent zero-knowledge sets. In Proceedings of ICALP’06, volume
+4052 of LNCS, pages 34–45. Springer, 2006.
+[27] R. Gennaro, M.O. Rabin, and T. Rabin. Simpliﬁed VSS and Fast-Track Multiparty Computations
+with Applications to Threshold Cryptography. In Proceedings of PODC’98, pages 101–111. ACM
+Press, 1998.
+17
+
+[28] V. Goyal. Reducing Trust in the PKG in Identity Based Cryptosystems. In Advances in
+Cryptology—CRYPTO’07, pages 430–447, 2007.
+[29] J. Groth and Y. Ishai. Sub-linear zero-knowledge argument for correctness of a shuﬄe. In Proceedings
+of EUROCRYPT’08, volume 4965 of LNCS, pages 379–396. Springer, 2008.
+[30] F. Guo, Y. Mu, and Z. Chen. Identity-Based Encryption: How to Decrypt Multiple Ciphertexts Using
+a Single Decryption Key. In Proceedings of Pairing’07, volume 4575 of LNCS, pages 392–406.
+Springer, 2007.
+[31] A. Herzberg, S. Jarecki, H. Krawczyk, and M. Yung. Proactive Secret Sharing Or: How to Cope With
+Perpetual Leakage. In Proceedings of CRYPTO’95, volume 963 of LNCS, pages 339–352, 1995.
+[32] A. Kate, G. M. Zaverucha, and I. Goldberg. Constant-Size Commitments to Polynomials and Their
+Applications. In Proceedings of ASIACRYPT’10, volume 6477 of LNCS, pages 177–194. Springer,
+2010.
+[33] J. Li, N. Li, and R. Xue. Universal accumulators with eﬃcient nonmembership proofs. In Proceedings
+of ACNS’07, volume 4521 of LNCS, page 253. Springer, 2007.
+[34] B. Libert and M. Yung. Concise Mercurial Vector Commitments and Independent Zero-Knowledge
+Sets with Short Proofs. In TCC’10, pages 499–517, 2010.
+[35] A. Menezes, P. Van Oorschot, and S. Vanstone. Handbook of Applied Cryptography. CRC Press, 1st
+edition, 1997.
+[36] S. Micali, M. Rabin, and J. Kilian. Zero-knowledge sets. In Proceedings of FOCS’03, pages 80–91.
+IEEE, 2003.
+[37] S. Mitsunari, R. Sakai, and M. Kasahara. A New Traitor Tracing. IEICE Transactions on
+Fundamentals of Electronics, Communications and Computer Sciences , E85-A(2):481–484, 2002.
+[38] L. Nguyen. Accumulators from bilinear pairings and applications. In Proceedings of CT-RSA, volume
+3376 of LNCS, pages 275–292, 2005.
+[39] R. Ostrovsky, C. Rackoﬀ, and A. Smith. Eﬃcient Consistency Proofs for Generalized Queries on a
+Committed Database. In Proceedings of ICALP’04, volume 3142 of LNCS, pages 1041–1053, 2004.
+[40] T. P. Pedersen. Non-Interactive and Information-Theoretic Secure Veriﬁable Secret Sharing. In
+Proceedings of CRYPTO’91, pages 129–140. Springer, 1991.
+[41] N. Pippenger. On the evaluation of powers and related problems. In IEEE SFCS(FOCS)’76, pages
+258–263, 1976.
+[42] M. Prabhakaran and R. Xue. Statistically Hiding Sets. In Proceedings of CT-RSA, volume 5473 of
+LNCS, pages 100–116. Springer, 2009.
+[43] A. Shamir. How to Share a Secret. Commun. ACM, 22(11):612–613, 1979.
+[44] V. Shoup. A Computational Introduction to Number Theory and Algebra . Cambridge University
+Press, 1st edition, 2006.
+[45] R. Steinfeld, L. Bull, and Y. Zheng. Content extraction signatures. In Proceedings of ICISC’01,
+volume 2288 of LNCS, pages 285–304. Springer, 2002.
+A Bilinear Pairings
+For three cyclic groups G, ˆG, and GT (all of which we shall write multiplicatively) of the same
+prime order p, a bilinear pairing e is a map e : G× ˆG→ GT with the following properties.
+• Bilinearity: Forg∈ G, ˆg∈ ˆG and a,b∈ Zp, e(ga, ˆgb) =e(g, ˆg)ab.
+18
+
+• Non-degeneracy: The map does not send all pairs in G× ˆG to unity∈ GT .
+If there is an eﬃcient algorithm to compute e(g, ˆg) for any g∈ G and ˆg∈ ˆG, the pairing e is called
+admissible. We also expect that it is not feasible to invert a pairing. All pairings considered in this
+paper are admissible and infeasible to invert. We call such groups G and ˆG pairing-friendly groups.
+We refer readers to [5, Chap. IX and X] for a detailed mathematical discussion of bilinear pairings.
+Following [25], there are three types of pairings: namely, type 1, 2, and 3. In type 1 pairings,
+an isomorphism φ : ˆG→ G as well as its inverse φ−1 are eﬃciently computable. These are also
+called symmetric pairings as for such pairings e(g, ˆg) = e(φ(ˆg),φ−1(g)) for any g∈ G and ˆg∈ ˆG.
+In type 2 pairings, only the isomorphism φ, but not φ−1, is eﬃciently computable. Finally in type
+3 pairings, neither of φ nor φ−1 can be eﬃciently computed. For the simplicity of the discussion,
+we assume only type 1 (symmetric) pairings in this paper and observe that the work can be easily
+extended to accommodate type 2 and 3 pairings.
+B Generic Group Model Security for the t-polyDH Assumption
+While t-polyDH is a new assumption, it is a member of the “uber-assumption” family of Boneh,
+Boyen and Goh [9], under one of the extensions given by Boyen [11]. The extension allows the
+general lower bound proven in [9] to be applied to problems with expoentially many solutions, such
+as polyDH and SDH (called “ﬂexible challenges” in [11]). For a polyDH problem instance, where
+the adversary must output a polynomial of degree d>t , the generic group model analysis of [9, 11]
+gives an asymptotic lower bound of Ω(
+√
+p/d) group operations.
+The value of d relevant for our use of the polyDH assumption comes from the VSS application
+of Section 4.1. Here the adversary would play the role of the dealer, who may distribute at most n
+shares (one to each of the participants). The polynomial speciﬁed by the adversary may therefore
+have degree at most n, and so the lower bound on the complexity of polyDH in this application is
+Ω(
+√
+p/n).
+C Security Proofs for the PolyCommit Schemes
+C.1 Security of PolyCommitDL – Proof of Theorem 3.2
+We prove that the properties of Deﬁnition 3.1 hold for PolyCommitDL.
+Correctness. We have already proved the correctness in§3.2.
+Polynomial Binding. Suppose there exists an adversary A that breaks polynomial binding for
+a commitmentC by outputting two polynomials φ(x) and φ′(x) that are accepted by VerifyPoly.
+We construct an algorithmB that usesA to eﬃciently compute SK =α.
+For φ(x) and φ′(x) generated by A,C = gφ(α) = gφ′(α). For a polynomial φ′′(x) = φ(x)−
+φ′(x)∈ Zp[x], the corresponding Cφ′′ = gφ′′(α) = gφ(α)/gφ′(α) = 1 as the commitment scheme is
+homomorphic in nature. Therefore, φ′′(α) = 0, i.e.,α is a root of polynomialφ′′(x) and by factoring
+φ′′(x) [44, Chap. 21], B can easily ﬁnd SK =α and solve the instance of the t-SDH problem given
+by the system parameters.
+Evaluation Binding. Suppose there exists an adversary A that breaks the evaluation binding
+property of commitmentC and computes two witness tuples⟨i,φ (i),wi⟩ and⟨i,φ (i)′,w′ i⟩ for index
+19
+
+i that are accepted by VerifyEval. We show how to construct an algorithm B, using A, that can
+break the t-SDH assumption.
+B presents the t-SDH instance ⟨G,g,g α,gα2 ,...,g αt ⟩ as PK toA. A outputs a commitment
+C, and two witness tuples ⟨i,φ (i),wi⟩ and⟨i,φ (i)′,w′ i⟩ for an index i∈ Zp such that e(C,g ) =
+e(wi,gα−i)e(g,g )φ(i) =e(w′ i,gα−i)e(g,g )φ(i)′ . For ψi = loggwi and ψ′ i = loggw′ i,
+ψi(α−i) +φ(i) = ψ′ i(α−i) +φ(i)′
+ψi−ψ′ i
+φ(i)′−φ(i) = 1 α−i
+Therefore, algorithmB computes
+(wi
+w′ i
+) 1
+φ(i)′−φ(i)
+= g
+ψi−ψ′ i
+φ(i)′−φ(i)
+= g
+1
+α−i
+and returns ⟨−i,g
+1
+α−i⟩ as a solution for the t-SDH instance. It is easy to see that the success
+probability of solving the instance is the same as the success probability ofA, and the time required
+is a small constant larger than the time required by A.
+Hiding. Suppose there exists an adversary A that breaks the hiding property of commitment
+C and correctly computes polynomial φ(x) (without loss of generality deg( φ) = t) given t valid
+witness tuples⟨i,φ (i),wi⟩. We show how to useA to construct an algorithmB than can break the
+DL assumption.
+Let⟨g,ga⟩∈ G2 be a DL instance that B needs to solve. B generates PK forA by randomly
+picking α∈R Z∗ p and computing PK =⟨G,g,g α,gα2 ,...,g αt ⟩. B sets⟨j,φ (j)⟩ ∈R Z2 p as poly-
+nomial φ(x)’s evaluations at indices j. It then assumes φ(0) = a, which is the answer for the
+DL instance and computes gφ(α) using t + 1 exponentiated evaluations: ⟨0,ga⟩ and the t other
+chosen pairs⟨j,gφ(j)⟩. Finally, B computes witnesses wj for the t chosen evaluations⟨j,φ (j)⟩ as
+wj = (gφ(α)/gφ(j)) 1 α−j , and sends PK and t witness tuples ⟨j,φ (j),wj⟩ toA. Once A returns
+polynomial φ(x),B returns the constant term φ(0) as the solution for the DL instance.
+It is easy to see that the success probability of solving the DL instance is the same the success
+probability ofA, and the time required is a small constant larger than the time required by A.
+C.2 Security of PolyCommitPed – Proof of Theorem 3.3
+We prove that the properties of Deﬁnition 3.1 hold for PolyCommitPed.
+Correctness. We have already proved the correctness in§3.3.
+Polynomial Binding. Suppose there exists an adversaryA that breaks polynomial binding for a
+commitmentC of PolyCommitPed by outputting two polynomial pairs⟨φ(x), ˆφ(x)⟩ and⟨φ′(x), ˆφ′(x)⟩
+that are accepted by VerifyPoly. We construct an algorithm B that usesA to eﬃciently solve a DL
+instance.
+Given a DL instance (g,h =gλ),B choosesα∈R Z∗ p and presents PK =⟨G,g,g α,...,g αt ,h,h α,...,h αt ⟩
+toA fort speciﬁed byA.A generates a commitmentC, and two polynomial pairs⟨φ(x), ˆφ(x)⟩ and
+⟨φ′(x), ˆφ′(x)⟩ that are accepted by VerifyPoly. It then forwards the commitment and two polynomial
+20
+
+pairs toB. As C =gφ(α)h ˆφ(α) =gφ′(α)h ˆφ′(α),
+gφ(α)+λ ˆφ(α) = gφ′(α)+λ ˆφ′(α)
+gφ(α)−φ′(α)+λ( ˆφ(α)− ˆφ′(α)) = 1
+φ(α)−φ′(α) +λ(ˆφ(α)− ˆφ′(α)) = 0 .
+Therefore,B computes the discrete logarithm valueλ = φ′(α)−φ(α) ˆφ(α)− ˆφ′(α). It is easy to see that the success
+probability of solving the instance is the same as the success probability ofA, and the time required
+is a small constant larger than the time required by A.
+Evaluation Binding. Suppose there exists an adversary A that breaks the evaluation binding
+property of commitmentC and computes two witness tuples⟨i,φ (i), ˆφ(i),wi⟩ and⟨i,φ (i)′, ˆφ(i)′,w′ i⟩
+for indexi that are accepted byVerifyEval with non-negligible probability. We show how to construct
+an algorithmB that breaks the t-SDH assumption with non-negligible probability using A.
+Let the t-SDH instance be ⟨g,gβ,...,g βt ⟩. B chooses a random bit b∈{ 0, 1} and creates an
+input forA based on it.
+b = 0: Letα =β.B choosesλ∈R Z∗ p, computes a t + 1 tuple⟨h,hα,...,h αt ⟩ such thath =gλ and
+presents⟨G,g,g α,..., g αt ,h,h α,...,h αt ⟩ as PK toA.
+b = 1: B chooses α∈R Z∗ p, sets h =gβ and presents⟨G,g,g α,...,g αt ,h,h α,...,h αt ⟩ as PK toA.
+A outputs a commitmentC, and two witness tuples ⟨i,φ (i), ˆφ(i),wi⟩ and⟨i,φ (i)′, ˆφ(i)′,w′ i⟩ for
+an index i∈ Zp such that e(C,g ) =e(wi,gα−i)e(gφ(i)h ˆφ(i),g ) =e(w′ i,gα−i)e(gφ(i)′ h ˆφ(i)′ ,g ).
+After veriﬁcation, there are two cases for B.
+First Case: wi⁄=w′ i
+If b = 1,B aborts the game and returns failure, else B returns the following solution:
+Let wi =gψih ˆψi =gψi+λ ˆψi and w′ i =gψ′ ih ˆψ′i =gψ′ i+λ ˆψ′i.
+(ψi +λ ˆψi)(α−i) +φ(i) +λˆφ(i) = ( ψ′ i +λ ˆψi)′(α−i)) +φ(i)′ +λˆφ(i)′
+(ψi +λ ˆψi)− (ψ′ i +λ ˆψ′i)
+φ(i)′−φ(i) +λ(ˆφ(i)′− ˆφ(i)) = 1 α−i
+Therefore, algorithmB computes
+(wi
+w′ i
+) 1
+φ(i)′−φ(i)+λ( ˆφ(i)′− ˆφ(i))
+= g
+(ψi+λ ˆψi)−(ψ′ i+λ ˆψ′i)
+φ(i)′−φ(i)+λ( ˆφ(i)′− ˆφ(i))
+= g
+1
+α−i
+andB returns⟨−i,g
+1
+α−i⟩ as a solution for the t-SDH instance.
+Second Case: wi =w′ i
+If b = 0,B aborts the game and returns failure, else B returns the following solution:
+For such two tuples⟨i,φ (i), ˆφ(i),wi⟩ and⟨i,φ (i)′, ˆφ(i)′,wi⟩,
+e(gφ(i)h ˆφ(i),g ) = e(gφ(i)′ h ˆφ(i)′ ,g ).
+φ(i) +β ˆφ(i) = φ(i)′ +β ˆφ(i)′,
+andB computes β = loggh = φ′(α)−φ(α) ˆφ(α)− ˆφ′(α). B then chooses c∈R Zp\−β and returns
+⟨c,g
+1
+β+c⟩ as a solution for the t-SDH instance.
+21
+
+Now we analyze B’s success probability. Let δ = δ1 +δ2 isA’s success probability, where δ1
+is the probability that A wins with wi = w′ i and δ2 is the probability that A wins with wi⁄= w′ i.
+B succeeds when b = 0 and wi = w′ i, or when b = 1 and wi ⁄= w′ i. For randomly chosen b,
+Pr[b = 0] = Pr[b = 0] = 1/2. Therefore, Pr[B succeeds] =δ1/2 +δ2/2 =δ/2. If δ is non-negligible,
+B outputs the correct solution to the t-SDH instance with non-negligible probability.
+Hiding. We prove that given a PolyCommitPed public key PK, a commitmentC, and any t valid
+evaluation tuples ⟨i,φ (i), ˆφ(i)⟩i∈I and the associated witnesses wi to an adversary A,A has no
+information about another evaluation tuple ⟨j,φ (j), ˆφ(j)⟩ for any j ∈ {Zp−I}. Let viewφ =
+{PK,C,⟨i,φ (i), ˆφ(i),wi⟩i∈I} be the information available to A. We will show that
+Pr[A computes⟨j,φ (j), ˆφ(j)⟩|viewφ] = Pr[A computes⟨j,φ (j), ˆφ(j)⟩]
+for any j∈{ Zp−I}. Note that I is an arbitrary set of t elements of Zp (possibly chosen byA).
+Both committed polynomials (φ(x) and ˆφ(x)) are of degree less than t. Therefore, the witness
+polynomial φ(x)+λ ˆφ(x)−φ(α)−λ ˆφ(α) x−α is of degree ≤ t− 1 and the witness wj for any j∈ Zp is ﬁxed
+givent input tuples⟨i,φ′(i), ˆφ′(i),wi⟩i∈I.
+For an index j∈{ Zp−I}, it is easy to see that for every φ(j)′∈ Zp there is exactly one ˆφ(j)′
+such that the witness tuple ⟨j,φ (j)′, ˆφ(j)′,wj⟩i∈I is veriﬁed for given C and ﬁxed wj by VerifyEval
+as follows:
+e(C,g ) =e(wj,gα−j)e(gφ(j)′ h ˆφ(j)′ ,g ) =e(wj,gα−j)e(gφ(j)′+λ ˆφ(j)′ ,g )
+Observe that for all such φ(j)′ and ˆφ(j)′ pairs, the valueφ(j)′ +λˆφ(j)′, call it φ(j), is constant.
+Further, there is exactly oneφ′(x)∈ Zp[x] of degreet such thatφ′(j) =φ(j)′ andφ′(i) =φ(i) for the
+t input evaluation tuples and there is exactly one ˆφ′(x)∈ Zp[x] of degree t such that ˆφ′(j) = ˆφ(j)′
+and ˆφ′(i) = ˆφ(i) for the t input evaluation tuples.
+In order to show that viewφ, does not contain any information about the evaluation φ(j) and
+ˆφ(j) at index j of the committed polynomials, it must be shown that the above φ′(x) and ˆφ′(x)
+satisfyC =C′ = gφ′(α)h ˆφ′(α) = gφ′(α)+λ ˆφ′(α) and wi = w′ i = g φ′(i)+λ ˆφ′(i)−φ′(α)−λ ˆφ′(α) i−α for i∈ I. This
+easily follows from the fact thatφ(j) =φ(j)+λˆφ(j) =φ′(j)+λ ˆφ′(j) is ﬁxed. Forφ(i) =φ(i)+λˆφ(i)
+for all i∈I andφ(j), the polynomial φ(x) =φ′(x) +λ ˆφ′(x) of degree≤t is ﬁxed for any candidate
+φ′(x) and ˆφ′(x). As a result, gφ′(α)+λ ˆφ′(α) =C and g φ′(i)+λ ˆφ′(i)−φ′(α)−λ ˆφ′(α) i−α = wi for i∈ I for any
+candidate φ′(x) and ˆφ′(x).
+Note that it also indicates that p possible choices exist for the committed polynomials φ(x) and
+ˆφ(x).
+C.3 Security of Batch Opening – Proof of Theorem 3.4
+Suppose an adversary outputs a commitment C and two veriﬁable openings ⟨B,wB,r (x)⟩, and
+⟨i∈B,wi,φ (i)⟩. We show this adversary can be used to solve the instance of the t-BSDH problem
+given by the system parameters. Let p(x) =∏ j∈B(x−j), and deﬁne p′(x) = p(x)/(x−i). Write
+wB = gb and wi = gy for some b,y ∈ Zp. Since the veriﬁcation equations of VerifyEval and
+VerifyEvalBatch hold,
+e(C,g ) =e(gp(α),wB)e(g,gr(α)) =e(gα−i,wi)e(g,gφ(i))
+22
+
+and so from the exponents:
+p(α)b +r(α) = ( α−i)y +φ(i)
+p(α)b− (α−i)y = φ(i)−r(α).
+Now, write r(α) =r′(α)(α−i) +r(i) for r′(x) = r(x)−r(i) x−i , and substitute for r(α), which gives
+p(α)b− (α−i)y = φ(i)−r′(α)(α−i)−r(i)
+(α−i)[p′(α)b−y +r′(α)] = φ(i)−r(i)
+1
+α−i = p′(α)b−y +r′(α) φ(i)−r(i) .
+Note that since φ(i)⁄= r(i) their diﬀerence is nonzero, and we can compute r′(x) since we know
+r(x). Therefore the solution to the t-BSDH problem is
+e(g,g )1/(α−i) =e(gp′(α),wB)e(gr′(α)/wi,g )1/(φ(i)−r(i)).
+C.4 Strong Correctness – Proof of Theorem 3.5
+We ﬁrst prove the theorem for PolyCommitDL.
+Suppose there exists an adversary A that veriﬁably commits to a polynomial of degree greater
+than t using PK =⟨G,g,g α,gα2 ,...,g αt ⟩. We construct an algorithm B that usesA to break the
+polyDH assumption.
+B presents the polyDH instance ⟨G,g,g α,gα2 ,...,g αt ⟩ as PK toA. A outputs a commitment
+C and t′, where t′ is the claimed degree of the committed polynomial. If t′≤ t, then B returns
+failure and stops, else B chooses and sends a set I of t′ + 1 random indices to A. A returns
+t′ + 1 evaluation tuples of the form ⟨i,φ (i),wi⟩ for i∈ I. B veriﬁes these t′ + 1 evaluation tuples
+using VerifyEval. If a veriﬁcation fails, then B returns failure and stops. Once all veriﬁcations are
+successful,B interpolates t′ + 1 values φ(i) to compute the claimed committed polynomial φ′(x).
+If deg (φ′(x)) < t′, then B returns failure and stops, else B is assured that deg ( φ)≥ t′. t′ + 1
+veriﬁcations does not conﬁrm thatφ′(x) is the committed polynomial φ(x) asφ(x) can be of degree
+>t′. The veriﬁcations only assure that the evaluations of φ′(x) at the veriﬁed indices are equal to
+those ofφ(x). We can representψi(x)|x=α =ψi(α) = φ(α)−φ(i) α−i = φ(i)−φ(α) i−α =ψα(i) =ψα(x)|x=i. To
+conﬁrm that the committed polynomial is of degreet′ and consequentlyφ(x) =f′(x),B interpolates
+(in the exponent) t′ + 1wi values from the evaluation set to generate exponentiated coeﬃcients of
+the polynomial ψα(x). If deg (f) > t′, then ψα(x) should be of degree > t′− 1. Therefore, if the
+coeﬃcientψt′ associated with gαt′ is non-zero, thenB returns failure and stops, elseB returnsφ(x)
+andC as an answer to the polyDH instance. Although it possible that ψα(x) is of degree t′− 1
+for φ(x) with degree greater than t′, the success probability of A to achieve that is negligible for
+indices randomly chosen by the veriﬁer B.
+It is easy to see that the success probability of solving the instance is negligibly less than the
+success probability ofA in veriﬁably committing to a polynomial of degree greater than t, and the
+time required is a small constant larger than the time required by A.
+For PolyCommitPed, given a polyDH instance⟨G,g,g α,gα2 ,...,g αt ⟩B ﬁrst chooses λ∈R Z∗ p and
+sends PK for PolyCommitPed toA as⟨G,g,g α,gα2 ,...,g αt ,h,h α,hα2 ,...,h αt ⟩. The rest of the proof
+remains the nearly the same, except we use the fact that B knowsλ.
+23
+
+D Security of Nearly Zero-Knowledge Databases
+Since nearly ZKS are a special case of nearly ZK-EDBs, we only discuss security of the latter. Our
+description of the security properties for ZK-EDB follows Libert and Yung [34]. A secure nearly
+ZK-EDB must satisfy the following properties.
+Completeness. For all databases D = (K,V ) such that|D|≤ t,
+Pr
+(PK← SetupEDB(1κ,t ),E← CommitEDB(PK,D ), πDj← QueryEDB(PK,E,kj) :
+VerifyEDB(PK,E,πDj) = 1
+)
+= 1−ϵ(κ).
+Soundness. For all databases D = (K,V ) and all PPT adversaries A,
+Pr
+
+
+PK← SetupEDB(1κ,t ), D←A (PK), (E,kj,πDj,π′ Dj)←A (PK,D ) :
+VerifyEDB(PK,E,πDj) = 1∧
+VerifyEDB(PK,E,π′ Dj) = 1∧
+πDj⁄=π′ Dj
+
+ =ϵ(κ).
+Note that πDj and π′ Dj are proofs for same keykj.
+Zero-Knowledge. For any PPT adversary A and database D, such that |D|≤ t, there must
+exist a PPT simulator S with an oracle access to D, such that the outputs of the following
+two experiments are indistinguishable. Note that A andS may keep state throughout the
+experiments.
+Real experiment:
+1. Set PK← SetupEDB(1κ,t ),E← CommitEDB(PK,D )
+2. For j = 1,...,𝓁 ,A outputs kj and is given πDj← QueryEDB(PK,E,kj).
+The output of the experiment is ( PK,E,k 1,...,k 𝓁,πD1,...,π D𝓁).
+Ideal experiment:
+1. Set PK←S (1κ,t ),E′←S (PK).
+2. For j = 1,...,𝓁 ,A outputs kj andS outputs πD′ j.
+The output of the experiment is ( PK,E′,k 1,...,k 𝓁,πD′ 1,...,π D′ 𝓁).
+Theorem D.1. The nearly ZK-EDB construction of§4.2 is secure provided the t-SDH assumption
+holds inG.
+Proof. Completeness is clear. Let E = (C1,C2) be a nearly ZK-EDB. For soundness, there are
+two cases to consider. In the ﬁrst, the adversary must output πDj which shows kj⁄∈ D and πD′ j
+which shows k∈ D. This requires πDj to show that φ1(kj)⁄= 0 with respect to the polynomial
+φ1 committed to in C1, and πD′ j to show that φ1(kj) = 0, also with respect to C1. This is not
+possible since the polynomial commitment scheme is binding. In second case, the adversary must
+output πDj andπD′ j such that veriﬁcation of πDj andπD′ j for respectively (kj,mj) and (kj,m′ j) is
+successful. Here, mj⁄=m′ j. This would violate the binding property with respect to commitment
+C2, since πDj showsφ2(kj) =mj, and πD′ j showsφ2(kj) =m′ j wheremj⁄=m′ j. The PolyCommitDL
+scheme is secure provided the t-SDH assumption holds, therefore the ZK-EDB will be sound under
+these assumptions as well.
+24
+
+For the ZK property, if the setQ ofA’s queries containsK, thenA knows all ofD, and the ZK
+property has no meaning since there is nothing left to hide. Therefore, we only consider the case
+when there is one or more kj∈ K which has not been queried by A, which will occur with high
+probability since CommitZKS adds a random value to the set.
+To prove the ZK property, we describe the simulator S for the ideal experiment above. In
+Step 1 of the ideal experiment, S runs Setup(1κ,t ) honestly, but knows the trapdoor SK = α. S
+then outputsE′← (C′ 1 =gd1hr1,C′ 2 =gd2) for d1,d 2,r 1∈R Zp.C′ 1 is the commitment (nearly ZKS)
+to the keys, andC′ 2 the commitment to the values.
+At this point we note that since S knows α, he can create witnesses for arbitrary values with
+respect to C′ 1 andC′ 2. For example, to prove ( φ1(kj), ˆφ1(kj)) = (v,y ) (where φ1, and ˆφ1 are the
+polynomials supposedly committed to by C′ 1)S outputs gwh ˆw where w = (d1−v)/(α−kj) and
+ˆw = (r1−y)/(α−kj). It can easily be checked that e(C′ 1,g ) ?= e(gwh ˆw,gα−kj)e(gvhy,g ). The
+simulated witnesses have the same distribution as honest witnesses since ˆφ1 is chosen at random.
+We also note that the simulated witnesses satisfy the veriﬁcation equation (of VerifyEval), and they
+may be used in proofs that φ1(i)⁄= 0.
+For Step 2, A provides kj, and S must create πD′ j. First S queries D to learn mj = D(kj).
+S now creates πD′ j by following QueryEDB, exceptS creates simulated witnesses, consistent with
+E. Since the witnesses output by S are (i) distributed identically to real witnesses, and (ii) are
+consistent with some polynomials φ′ 1, φ′ 2, andA does not learn either of φ1, φ2 (recall K⁄⊆Q), as
+a set, the simulated witnesses are consistent.
+Since the outputs from the experiments are indistinguishable, the ZK property is satisﬁed,
+proving the construction is a secure nearly ZK-EDB.
+E Proving Knowledge of a Value Committed with PolyCommitDL
+Suppose Alice has created C = Commit(PK,φ (x)), and would like to prove knowledge of φ(i)⁄= 0
+to Bob, for some public i. Deﬁne wi = CreateWitness(PK,φ (x),i ),A =e(C,g ),B =e(gα−i,wi) and
+C = e(g,g ). VerifyEval must ensure that A = BCφ(i), or equivalently, A/B = Cφ(i) holds in GT .
+However, sinceA/B revealsCφ(i) we must blind wi.
+Alice computes C′ =Cr and w′ i = wr i and sends these to Bob. Both parties compute Y =
+e(C′,g)
+e(gα−i,w′ i). Abstractly, Alice must prove knowledge of r and φ(i) such that C′ = Cr and Y =
+e(g,g )rφ(i).
+Now to implement this proof. Let γ =e(g,g ), andζ be a random element in GT . To prove the
+multiplication, Alice creates C =γφ(i)ζz, C′ =Cr. Now Alice and Bob run the protocol:
+Common Values:C,C′,w′ i,C,C ′,Y
+ZKPK{(r,φ (i),z,x =zr) :C′ =Cr ∧ C =γφ(i)ζz ∧ C′ =Cr ∧ C′/Y =ζx}
+Note that (i) Y is computed by both parties, (ii) the proof that φ(i)⁄= 0 is invalid if Y = 1, and
+(iii) the ﬁrst equation is in G while the other three are in GT .
+25

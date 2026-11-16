@@ -1,0 +1,15 @@
+{
+  "packet": "kzg-binding-before",
+  "root": "KZG.CommitmentScheme.binding",
+  "sources": [
+    {
+      "kind": "independent paper",
+      "file": "targets/KZG10TR.pdf",
+      "sha256": "15cda500272b20c04fc71dda0db8fb31bbc56b1caee4b02172f5ecf41079ff0d",
+      "version": "CACR 2010-10 fixed technical report, December 2010",
+      "locator": "section 2 (PPT adversary convention), section 3.2 (Setup and PolyCommitDL), Theorem 3.2 and Appendix C.1",
+      "scope_note": "KZG polynomial binding target, not function-binding target. Reduction-oracle experiment interpretation remains unresolved for PR1422."
+    }
+  ],
+  "source_evidence_root": "../../../../reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen"
+}

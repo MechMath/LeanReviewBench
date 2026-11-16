@@ -1,0 +1,122 @@
+{
+  "dataset": "arklib",
+  "project_id": "stir-rbr-withdrawn-before",
+  "root": "StirIOP.stir_rbr_soundness",
+  "input_sha256": "545c0e0b9578c2967a56401f6057466057cfe0c7ba5ce4a873027c1ce6a7581a",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "82498a769a1cecd92dcc6ee168fbdea3e4ccdb10bfa8432c09c0a353eb4ae8b2",
+  "label": "misaligned",
+  "reason": "ParamConditions 要求 |L₀|≤d₀，使初始 RS 码率为 1，与非负 δ₀<1-sqrt(ρ₀)=0 矛盾。formal 还将误差作为任意输入却在结论要求其上界，把 err(...,t+s) 写成 err(...,t)+s、折叠参数 k 换成重复次数 t，并以 j≠0 跳过首轮。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好为我标为misaligned; confirms misaligned for arklib:stir-rbr-withdrawn-before after reviewing the inconsistent rate/distance premises, error quantification, and formula/index mismatches.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "当前冻结 blueprint lemma:rnd_by_rnd_soundness 与 StirIOP.stir_rbr_soundness；核对包含 ParamConditions 的完整前提及误差结论。",
+  "evidence_locations": {
+    "informal": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/informal.jsonl",
+      "line": 1,
+      "sha256": "a4dae790585c714fd4e4b8dba9f1ac3dc45a782fd0ceb44824717fe80a22feba"
+    },
+    "source_lemma": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/informal/source.tex",
+      "line": 260,
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+    },
+    "source_error_formulas": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/informal/source.tex",
+      "line": 272,
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+    },
+    "degree_definition": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 50,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "parameter_conditions": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 62,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "root": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 173,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "initial_distance_premise": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 179,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "error_input_parameters": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 184,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "fold_error_argument": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 199,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "round_index_exclusion": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 208,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "shift_error_formulas": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+      "line": 215,
+      "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+    },
+    "rate_formula": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/Data/CodingTheory/ReedSolomon.lean",
+      "line": 301,
+      "sha256": "13772d880e3dd1eecc789ec7ece35b76460832d310f504abf5630b165bc05384"
+    },
+    "sqrt_definition": {
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/ProximityBound.lean",
+      "line": 27,
+      "sha256": "5de0c0e2a1738076cd16daee06bdaa3e3bf4a020dc1f4c9bed52fbcd7b58b2b6"
+    }
+  },
+  "semantic_argument": [
+    "ParamConditions.h_smooth_le 对第 0 轮要求 |ι₀|≤degree(0)。空前缀乘积为 1，因此 degree(0)=P.deg。",
+    "评价域非空，RS 码率公式为 min(P.deg,|ι₀|)/|ι₀|；由上一不等式其值为 1。Bstar(1)=sqrt(1)=1。",
+    "hδ₀ 要求 Dist.δ 0<1-Bstar(rate)=0，而 Dist.δ 0 的类型为 ℝ≥0。这些 formal 前提互相矛盾、没有实例，偏离原文要求正距离且码率低于 1 的有效参数域。",
+    "原文要求存在具有受控各轮误差的协议。formal 将 ε_fold、ε_out、ε_shift、ε_fin 放在存在协议之前作为任意输入，却又在结论中断言输入误差满足各项上界，没有相应输入限制。",
+    "shift 误差原文第二项为 err*(d_i,ρ_i,δ_i,t_{i-1}+s)，formal 实际解析为 proximityError(...,t_{i-1})+s；加法被移到误差函数之外。",
+    "原文初始 folding 误差及 shift 的末项以 k_0/k_i 为误差函数最后参数；formal 对应处使用 P.repeatParam，即 t_0/t_i，未要求两类参数相同。",
+    "formal 以 j:Fin M 对应论文 i=j+1，又要求 j.val≠0，因此排除了论文 i=1 的误差界。"
+  ],
+  "premise_contradiction": {
+    "facts": [
+      "|ι₀|>0",
+      "degree(0)=P.deg",
+      "|ι₀|≤P.deg",
+      "rate=min(P.deg,|ι₀|)/|ι₀|=1",
+      "Dist.δ 0≥0",
+      "Dist.δ 0<1-sqrt(1)=0"
+    ],
+    "conclusion": "No assignment satisfies all the formal premises.",
+    "role": "假设范围错配的证据，不是对带全部前提的 Lean 蕴含定理构造反例。"
+  },
+  "verification": {
+    "source_binding_checked": true,
+    "fresh_lean_build": false,
+    "new_lean_counterexample_proof": false
+  },
+  "limitations": [
+    "由于完整前提已矛盾，不能把任意选过大的 ε_fold 描述为满足全部 formal 前提的反例；本次将量词问题作为陈述差异记录。",
+    "不声称此 Lean 条件定理为假；它可以因前提矛盾而成立。未新建或编译 Lean 矛盾证明。",
+    "判负不依赖 withdrawn 名称或证明中的 sorry，也不将未列出的其他安全性质差异作为依据。",
+    "formal、informal、输入哈希与技术状态均保持原样；不传播标签到下一项 Sumcheck。",
+    "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

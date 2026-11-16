@@ -1,0 +1,2091 @@
+import dep.EconCSLib.Foundations.Probability.FiniteExpectation
+import Mathlib.Data.Set.Disjoint
+import Mathlib.MeasureTheory.Integral.Indicator
+import Mathlib.MeasureTheory.Measure.OpenPos
+import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+import Mathlib.MeasureTheory.Measure.WithDensity
+import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+import Mathlib.Order.Filter.AtTopBot.Basic
+import Mathlib.Probability.Independence.InfinitePi
+import Mathlib.Probability.Moments.SubGaussian
+import Mathlib.Probability.ProductMeasure
+import Mathlib.Probability.ProbabilityMassFunction.Constructions
+import Mathlib.Probability.ProbabilityMassFunction.Integrals
+
+open MeasureTheory
+open ProbabilityTheory
+open Filter
+open scoped ENNReal
+
+namespace EconCSLib
+
+/-!
+# Measure Inequalities
+
+Small reusable measure-theoretic probability lemmas for continuous
+change-of-variables arguments.
+-/
+
+/-- Real-valued probability/mass of an event under a measure. -/
+noncomputable def measureProb {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (p : α → Prop) : ℝ :=
+  (μ {a | p a}).toReal
+
+theorem measureProb_le_of_measure_le
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop)
+    (h : μ {a | p a} ≤ μ {a | q a}) :
+    measureProb μ p ≤ measureProb μ q := by
+  exact ENNReal.toReal_mono (measure_ne_top μ {a | q a}) h
+
+theorem measureProb_lt_of_measure_lt
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop)
+    (h : μ {a | p a} < μ {a | q a}) :
+    measureProb μ p < measureProb μ q := by
+  exact (ENNReal.toReal_lt_toReal
+    (measure_ne_top μ {a | p a}) (measure_ne_top μ {a | q a})).2 h
+
+theorem measureProb_pos_of_measure_ne_zero
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p : α → Prop)
+    (h : μ {a | p a} ≠ 0) :
+    0 < measureProb μ p := by
+  exact ENNReal.toReal_pos h (measure_ne_top μ {a | p a})
+
+/-- Finite measure of a larger set transfers to every subset. -/
+theorem measure_ne_top_of_subset_of_ne_top
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) {s t : Set α}
+    (hsub : s ⊆ t) (hfinite : μ t ≠ ∞) :
+    μ s ≠ ∞ := by
+  exact ne_top_of_le_ne_top hfinite (measure_mono hsub)
+
+/-- Real-valued measure is positive when the underlying `ENNReal` mass is nonzero and finite. -/
+theorem measureReal_pos_of_measure_ne_zero_ne_top
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (s : Set α)
+    (h_ne_zero : μ s ≠ 0)
+    (h_ne_top : μ s ≠ ∞) :
+    0 < μ.real s :=
+  ENNReal.toReal_pos h_ne_zero h_ne_top
+
+/-- Positive real-valued measure implies positive underlying `ENNReal` mass. -/
+theorem measure_pos_of_measureReal_pos
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (s : Set α)
+    (h : 0 < μ.real s) :
+    0 < μ s := by
+  exact (ENNReal.toReal_pos_iff.mp h).1
+
+/--
+Positive measure is monotone under set inclusion.
+-/
+theorem measure_pos_of_subset
+    {α : Type*} [MeasurableSpace α]
+    {μ : Measure α} {A B : Set α}
+    (hAB : A ⊆ B) (hpos : 0 < μ A) : 0 < μ B :=
+  lt_of_lt_of_le hpos (measure_mono hAB)
+
+/--
+An almost-everywhere property cannot fail on a positive-measure event.
+-/
+theorem ae_property_contradicts_positive_failure_mass
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (P Q : α → Prop)
+    (hAE : ∀ᵐ a ∂μ, P a)
+    (hQ_bad : ∀ a, Q a → ¬ P a)
+    (hpos : 0 < μ {a | Q a}) : False := by
+  have hzero : μ {a | Q a} = 0 := by
+    exact measure_mono_null (fun a hQ => hQ_bad a hQ)
+      (MeasureTheory.ae_iff.1 hAE)
+  exact (ne_of_gt hpos) hzero
+
+theorem measureReal_inter_ge_one_sub_add
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ]
+    {P Q : Set α}
+    (hP : MeasurableSet P) (hQ : MeasurableSet Q)
+    {epsP epsQ : ℝ}
+    (hprobP : 1 - epsP ≤ μ.real P)
+    (hprobQ : 1 - epsQ ≤ μ.real Q) :
+    1 - epsP - epsQ ≤ μ.real (P ∩ Q) := by
+  have hPcompl :
+      μ.real Pᶜ ≤ epsP := by
+    have hcompl :
+        μ.real Pᶜ = 1 - μ.real P :=
+      probReal_compl_eq_one_sub (μ := μ) hP
+    linarith
+  have hQcompl :
+      μ.real Qᶜ ≤ epsQ := by
+    have hcompl :
+        μ.real Qᶜ = 1 - μ.real Q :=
+      probReal_compl_eq_one_sub (μ := μ) hQ
+    linarith
+  have hbad :
+      μ.real (Pᶜ ∪ Qᶜ) ≤ epsP + epsQ := by
+    exact (measureReal_union_le (μ := μ) Pᶜ Qᶜ).trans
+      (add_le_add hPcompl hQcompl)
+  have hcompl_inter :
+      μ.real (P ∩ Q)ᶜ = 1 - μ.real (P ∩ Q) :=
+    probReal_compl_eq_one_sub (μ := μ) (hP.inter hQ)
+  have hdeMorgan : (P ∩ Q)ᶜ = Pᶜ ∪ Qᶜ := by
+    ext a
+    by_cases hpa : a ∈ P <;> by_cases hqa : a ∈ Q <;> simp [hpa, hqa]
+  have hbad_inter :
+      μ.real (P ∩ Q)ᶜ ≤ epsP + epsQ := by
+    rwa [hdeMorgan]
+  linarith
+
+theorem isProbabilityMeasure_withDensity_of_lintegral_eq_one
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) (D : α → ENNReal)
+    (hD : ∫⁻ a, D a ∂μ = 1) :
+    IsProbabilityMeasure (μ.withDensity D) := by
+  refine ⟨?_⟩
+  rw [withDensity_apply D MeasurableSet.univ]
+  simpa using hD
+
+theorem setLIntegral_ne_top_of_lintegral_eq_one
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) (D : α → ENNReal)
+    (hD : ∫⁻ a, D a ∂μ = 1) (s : Set α) :
+    (∫⁻ a in s, D a ∂μ) ≠ ∞ := by
+  refine ne_top_of_le_ne_top ENNReal.one_ne_top ?_
+  rw [← hD]
+  exact setLIntegral_le_lintegral s D
+
+theorem withDensity_measure_ne_zero_of_pos_on
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) (D : α → ENNReal)
+    {s : Set α} (hD : Measurable D) (hs : MeasurableSet s)
+    (hμ : μ s ≠ 0) (hpos : ∀ a, a ∈ s → D a ≠ 0) :
+    μ.withDensity D s ≠ 0 := by
+  have hsupport_inter : Function.support D ∩ s = s := by
+    ext a
+    constructor
+    · intro ha
+      exact ha.2
+    · intro ha
+      exact ⟨hpos a ha, ha⟩
+  have hμpos : 0 < μ s := by
+    rwa [pos_iff_ne_zero]
+  have hlin : 0 < ∫⁻ a in s, D a ∂μ := by
+    rw [setLIntegral_pos_iff hD, hsupport_inter]
+    exact hμpos
+  rw [withDensity_apply D hs]
+  exact ne_of_gt hlin
+
+/--
+Positive density on a measurable set gives positive real mass under a finite
+`withDensity` measure.
+-/
+theorem withDensity_measureReal_pos_of_pos_on
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) (D : α → ENNReal)
+    {s : Set α} (hD : Measurable D) (hs : MeasurableSet s)
+    (hμ : μ s ≠ 0) (hfinite : μ.withDensity D s ≠ ∞)
+    (hpos : ∀ a, a ∈ s → D a ≠ 0) :
+    0 < (μ.withDensity D).real s :=
+  measureReal_pos_of_measure_ne_zero_ne_top (μ.withDensity D) s
+    (withDensity_measure_ne_zero_of_pos_on μ D hD hs hμ hpos)
+    hfinite
+
+/--
+Hoeffding upper-tail bound for a finite sum of independent bounded variables,
+centered by their expectations.
+
+This is a thin finite-sum wrapper around Mathlib's sub-Gaussian Hoeffding
+inequality. It keeps EC paper proofs from repeatedly unpacking
+`HasSubgaussianMGF` when they only need a concentration bound for a finite
+family of bounded independent random variables.
+-/
+theorem measure_sum_centered_bounded_ge_le_exp_of_iIndepFun
+    {α ι : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ]
+    {X : ι → α → ℝ}
+    (h_indep : iIndepFun X μ)
+    {s : Finset ι} {a b ε : ℝ}
+    (h_meas : ∀ i ∈ s, AEMeasurable (X i) μ)
+    (h_bound : ∀ i ∈ s, ∀ᵐ ω ∂μ, X i ω ∈ Set.Icc a b)
+    (hε : 0 ≤ ε) :
+    μ.real
+        {ω | ε ≤
+          ∑ i ∈ s, (X i ω - ∫ x, X i x ∂μ)} ≤
+      Real.exp
+        (-ε ^ 2 /
+          (2 * ((∑ _ ∈ s, ((‖b - a‖₊ / 2) ^ 2 : NNReal)) : ℝ))) := by
+  classical
+  let centered : ι → α → ℝ :=
+    fun i ω => X i ω - ∫ x, X i x ∂μ
+  have hcenter_indep : iIndepFun centered μ := by
+    exact h_indep.comp
+      (fun i x => x - ∫ y, X i y ∂μ)
+      (fun _ => measurable_id.sub measurable_const)
+  have hsub :
+      ∀ i ∈ s,
+        HasSubgaussianMGF
+          (centered i)
+          ((‖b - a‖₊ / 2) ^ 2) μ := by
+    intro i hi
+    exact hasSubgaussianMGF_of_mem_Icc (h_meas i hi) (h_bound i hi)
+  simpa [centered] using
+    (HasSubgaussianMGF.measure_sum_ge_le_of_iIndepFun
+      (μ := μ) hcenter_indep (s := s) hsub hε)
+
+/--
+Lower-tail Hoeffding bound for independent `[0,1]` indicators with mean
+`1/2`, in the form used by random half-sample arguments: the probability that
+the observed count is at most one third of the set size is bounded by the
+corresponding centered Hoeffding exponential.
+-/
+theorem measure_sum_half_mean_indicator_le_third_le_exp
+    {α ι : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ]
+    {X : ι → α → ℝ}
+    (h_indep : iIndepFun X μ)
+    {s : Finset ι}
+    (h_meas : ∀ i ∈ s, AEMeasurable (X i) μ)
+    (h_bound : ∀ i ∈ s, ∀ᵐ ω ∂μ, X i ω ∈ Set.Icc (0 : ℝ) 1)
+    (hmean_neg :
+      ∀ i ∈ s, (∫ ω, (-X i ω) ∂μ) = -(1 / 2 : ℝ)) :
+    μ.real
+        {ω | (∑ i ∈ s, X i ω) ≤ (s.card : ℝ) / 3} ≤
+      Real.exp
+        (-((s.card : ℝ) / 6) ^ 2 /
+          (2 * ((∑ _ ∈ s, ((‖(0 : ℝ) - (-1)‖₊ / 2) ^ 2 : NNReal)) : ℝ))) := by
+  classical
+  let Y : ι → α → ℝ := fun i ω => -X i ω
+  have hY_indep : iIndepFun Y μ := by
+    exact h_indep.comp (fun _ x => -x) (fun _ => measurable_id.neg)
+  have hY_meas : ∀ i ∈ s, AEMeasurable (Y i) μ := by
+    intro i hi
+    exact (h_meas i hi).neg
+  have hY_bound : ∀ i ∈ s, ∀ᵐ ω ∂μ, Y i ω ∈ Set.Icc (-1 : ℝ) 0 := by
+    intro i hi
+    filter_upwards [h_bound i hi] with ω hω
+    exact ⟨by linarith [hω.2], by linarith [hω.1]⟩
+  have htail :=
+    measure_sum_centered_bounded_ge_le_exp_of_iIndepFun
+      (μ := μ) (X := Y) hY_indep (s := s)
+      (a := (-1 : ℝ)) (b := 0) (ε := (s.card : ℝ) / 6)
+      hY_meas hY_bound (by positivity)
+  refine le_trans ?_ htail
+  refine measureReal_mono (μ := μ) ?_ (measure_ne_top μ _)
+  intro ω hω
+  have hsum_eq :
+      (∑ i ∈ s, (Y i ω - ∫ x, Y i x ∂μ)) =
+        (s.card : ℝ) / 2 - ∑ i ∈ s, X i ω := by
+    calc
+      (∑ i ∈ s, (Y i ω - ∫ x, Y i x ∂μ))
+          = ∑ i ∈ s, (-X i ω + (1 / 2 : ℝ)) := by
+              refine Finset.sum_congr rfl ?_
+              intro i hi
+              rw [hmean_neg i hi]
+              simp [Y]
+      _ = (s.card : ℝ) / 2 - ∑ i ∈ s, X i ω := by
+              rw [Finset.sum_add_distrib, Finset.sum_neg_distrib]
+              simp
+              ring
+  change (s.card : ℝ) / 3 ≥ ∑ i ∈ s, X i ω at hω
+  change (s.card : ℝ) / 6 ≤
+    ∑ i ∈ s, (Y i ω - ∫ x, Y i x ∂μ)
+  rw [hsum_eq]
+  nlinarith
+
+/-- Fair-coin measure on `Bool`, with mass `1/2` on `true`. -/
+noncomputable def fairBoolMeasure : Measure Bool :=
+  ((PMF.bernoulli (1 / 2 : NNReal) (by norm_num)).toMeasure : Measure Bool)
+
+/-- Product fair-coin measure on Boolean side assignments. -/
+noncomputable def fairBoolProductMeasure (ι : Type*) : Measure (ι → Bool) :=
+  Measure.infinitePi (fun _ : ι => fairBoolMeasure)
+
+theorem fairBoolMeasure_isProbabilityMeasure : IsProbabilityMeasure fairBoolMeasure := by
+  simpa [fairBoolMeasure] using
+    (inferInstance : IsProbabilityMeasure (PMF.bernoulli (1 / 2 : NNReal) (by norm_num)).toMeasure)
+
+theorem fairBoolProductMeasure_isProbabilityMeasure (ι : Type*) :
+    IsProbabilityMeasure (fairBoolProductMeasure ι) := by
+  let P : ι → Measure Bool := fun _ => fairBoolMeasure
+  let hμ : ∀ i : ι, IsProbabilityMeasure (P i) := by
+    intro i
+    simpa [P] using fairBoolMeasure_isProbabilityMeasure
+  simpa [fairBoolProductMeasure, P] using
+    @MeasureTheory.Measure.instIsProbabilityMeasureForallInfinitePi
+      (ι := ι) (X := fun _ : ι => Bool)
+      (mX := fun _ => by infer_instance) (μ := P) hμ
+
+theorem fairBoolProduct_indicator_iIndepFun
+    {ι : Type*} (keep : Bool) :
+    iIndepFun
+      (fun i (side : ι → Bool) => if side i = keep then (1 : ℝ) else 0)
+      (fairBoolProductMeasure ι) := by
+  let P : ι → Measure Bool := fun _ => fairBoolMeasure
+  let hμ : ∀ i : ι, IsProbabilityMeasure (P i) := by
+    intro i
+    simpa [P] using fairBoolMeasure_isProbabilityMeasure
+  have hcoord :
+      iIndepFun (fun i (side : ι → Bool) => side i)
+        (Measure.infinitePi P) := by
+    exact
+      @ProbabilityTheory.iIndepFun_infinitePi
+        (ι := ι) (𝓧 := fun _ => Bool)
+        (m𝓧 := fun _ => by infer_instance)
+        (Ω := fun _ => Bool) (mΩ := fun _ => by infer_instance)
+        (P := P) hμ (X := fun i : ι => (fun b : Bool => b))
+        (mX := fun _ => measurable_id)
+  simpa [fairBoolProductMeasure, P] using hcoord.comp
+    (fun _ b => if b = keep then (1 : ℝ) else 0)
+    (fun _ => measurable_of_finite _)
+
+theorem fairBoolProduct_indicator_integral
+    {ι : Type*} (i : ι) (keep : Bool) :
+  (∫ side : ι → Bool,
+        (if side i = keep then (1 : ℝ) else 0) ∂fairBoolProductMeasure ι) =
+      1 / 2 := by
+  let P : ι → Measure Bool := fun _ => fairBoolMeasure
+  let hμ : ∀ i : ι, IsProbabilityMeasure (P i) := by
+    intro i
+    simpa [P] using fairBoolMeasure_isProbabilityMeasure
+  haveI : IsProbabilityMeasure (Measure.infinitePi P) :=
+    @MeasureTheory.Measure.instIsProbabilityMeasureForallInfinitePi
+      (ι := ι) (X := fun _ : ι => Bool)
+      (mX := fun _ => by infer_instance) (μ := P) hμ
+  let f : Bool → ℝ := fun b => if b = keep then 1 else 0
+  have hf :
+      AEStronglyMeasurable f
+        (Measure.map (fun side : ι → Bool => side i)
+          (fairBoolProductMeasure ι)) :=
+    (measurable_of_finite f).aestronglyMeasurable
+  calc
+    (∫ side : ι → Bool,
+        (if side i = keep then (1 : ℝ) else 0) ∂fairBoolProductMeasure ι)
+        = ∫ side : ι → Bool, f (side i) ∂fairBoolProductMeasure ι := by rfl
+    _ = ∫ b : Bool, f b ∂Measure.map
+          (fun side : ι → Bool => side i) (fairBoolProductMeasure ι) := by
+        exact (integral_map
+          (μ := fairBoolProductMeasure ι)
+          (φ := fun side : ι → Bool => side i)
+          (f := f) (measurable_pi_apply i).aemeasurable hf).symm
+    _ = ∫ b : Bool, f b ∂Measure.map
+          (fun side : ι → Bool => side i) (Measure.infinitePi P) := by
+      simp [fairBoolProductMeasure, P]
+    _ = ∫ b : Bool, f b ∂fairBoolMeasure := by
+        rw [show
+            (Measure.map (fun side : ι → Bool => side i) (Measure.infinitePi P))
+              = fairBoolMeasure from by
+              simpa [P] using
+                (@MeasureTheory.Measure.infinitePi_map_eval
+                  (ι := ι) (X := fun _ : ι => Bool)
+                  (mX := fun _ => by infer_instance) (μ := P) hμ i)]
+    _ = 1 / 2 := by
+        cases keep <;>
+          simp [f, fairBoolMeasure, PMF.integral_eq_sum, PMF.bernoulli]
+
+theorem fairBoolProduct_indicator_lower_tail_le_exp
+    {ι : Type*} (s : Finset ι) (keep : Bool) :
+    (fairBoolProductMeasure ι).real
+        {side | (∑ i ∈ s, if side i = keep then (1 : ℝ) else 0) ≤
+          (s.card : ℝ) / 3} ≤
+    Real.exp
+        (-((s.card : ℝ) / 6) ^ 2 /
+          (2 * ((∑ _ ∈ s, ((‖(0 : ℝ) - (-1)‖₊ / 2) ^ 2 : NNReal)) : ℝ))) := by
+  let P : ι → Measure Bool := fun _ => fairBoolMeasure
+  letI hμ : ∀ i : ι, IsProbabilityMeasure (P i) := by
+    intro i
+    simpa [P] using fairBoolMeasure_isProbabilityMeasure
+  letI : IsProbabilityMeasure (Measure.infinitePi P) :=
+    @MeasureTheory.Measure.instIsProbabilityMeasureForallInfinitePi
+      (ι := ι) (X := fun _ : ι => Bool)
+      (mX := fun _ => by infer_instance) (μ := P) hμ
+  haveI : IsProbabilityMeasure (fairBoolProductMeasure ι) := by
+    simpa [fairBoolProductMeasure, P] using
+      @MeasureTheory.Measure.instIsProbabilityMeasureForallInfinitePi
+        (ι := ι) (X := fun _ : ι => Bool)
+        (mX := fun _ => by infer_instance) (μ := P) hμ
+  refine measure_sum_half_mean_indicator_le_third_le_exp
+    (μ := fairBoolProductMeasure ι)
+    (X := fun i side => if side i = keep then (1 : ℝ) else 0)
+    (fairBoolProduct_indicator_iIndepFun keep)
+    (s := s) ?_ ?_ ?_
+  · intro i _hi
+    exact ((measurable_of_finite
+      (fun b : Bool => if b = keep then (1 : ℝ) else 0)).comp
+        (measurable_pi_apply i)).aemeasurable
+  · intro i _hi
+    exact ae_of_all _ fun side => by
+      by_cases h : side i = keep <;> simp [h]
+  · intro i _hi
+    rw [integral_neg]
+    simp [fairBoolProduct_indicator_integral i keep]
+
+theorem fairBoolProduct_indicator_lower_tail_le_exp_card
+    {ι : Type*} (s : Finset ι) (keep : Bool) :
+    (fairBoolProductMeasure ι).real
+        {side | (∑ i ∈ s, if side i = keep then (1 : ℝ) else 0) ≤
+          (s.card : ℝ) / 3} ≤
+    Real.exp (-(s.card : ℝ) / 18) := by
+  have hraw := fairBoolProduct_indicator_lower_tail_le_exp s keep
+  have hsum :
+      ((∑ _i ∈ s, ((‖(0 : ℝ) - (-1)‖₊ / 2) ^ 2 : NNReal)) : ℝ) =
+        (s.card : ℝ) / 4 := by
+    simp
+    ring
+  have hexp :
+      -((s.card : ℝ) / 6) ^ 2 / (2 * ((s.card : ℝ) / 4)) =
+        -(s.card : ℝ) / 18 := by
+    by_cases hcard : s.card = 0
+    · simp [hcard]
+    · have hcard_ne : (s.card : ℝ) ≠ 0 := by
+        exact_mod_cast hcard
+      field_simp [hcard_ne]
+      ring
+  rw [hsum] at hraw
+  simpa [hexp]
+    using hraw
+
+theorem fairBoolProduct_indicator_lower_tail_le_exp_card_relaxed
+    {ι : Type*} (s : Finset ι) (keep : Bool) :
+    (fairBoolProductMeasure ι).real
+        {side | (∑ i ∈ s, if side i = keep then (1 : ℝ) else 0) ≤
+          (s.card : ℝ) / 3} ≤
+    Real.exp (-(s.card : ℝ) / 36) := by
+  exact le_trans (fairBoolProduct_indicator_lower_tail_le_exp_card s keep)
+    (Real.exp_le_exp.mpr (by
+      have hnonneg : 0 ≤ (s.card : ℝ) := by exact_mod_cast Nat.zero_le s.card
+      nlinarith))
+
+@[simp] theorem measureProb_false
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) :
+    measureProb μ (fun _ => False) = 0 := by
+  simp [measureProb]
+
+theorem measure_le_of_imp
+    {α : Type*} [MeasurableSpace α] (μ : Measure α)
+    (p q : α → Prop)
+    (h : ∀ a, p a → q a) :
+    μ {a | p a} ≤ μ {a | q a} :=
+  measure_mono (by intro a ha; exact h a ha)
+
+/-- Direct monotonicity lemma for `measureProb` under predicate implication. -/
+theorem measureProb_mono
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop) [DecidablePred p] [DecidablePred q]
+    (himp : ∀ a, p a → q a) :
+    measureProb μ p ≤ measureProb μ q :=
+  measureProb_le_of_measure_le μ p q (measure_le_of_imp μ p q himp)
+
+theorem measure_lt_of_imp_of_diff_ne_zero
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop)
+    (hp : MeasurableSet {a | p a}) (hq : MeasurableSet {a | q a})
+    (himp : ∀ a, p a → q a)
+    (hpos : μ ({a | q a} ∩ {a | p a}ᶜ) ≠ 0) :
+    μ {a | p a} < μ {a | q a} := by
+  let P : Set α := {a | p a}
+  let Q : Set α := {a | q a}
+  have hdiff_meas : MeasurableSet (Q ∩ Pᶜ) := hq.inter hp.compl
+  have hsplit : Q = P ∪ (Q ∩ Pᶜ) := by
+    ext a
+    constructor
+    · intro hqa
+      by_cases hpa : a ∈ P
+      · exact Or.inl hpa
+      · exact Or.inr ⟨hqa, hpa⟩
+    · intro ha
+      rcases ha with hpa | hdiff
+      · exact himp a hpa
+      · exact hdiff.1
+  have hdisj : Disjoint P (Q ∩ Pᶜ) := by
+    exact Set.disjoint_left.2 (by
+      intro a hpa hdiff
+      exact hdiff.2 hpa)
+  have hdiff_pos : 0 < μ (Q ∩ Pᶜ) := by
+    rwa [pos_iff_ne_zero]
+  calc
+    μ {a | p a} = μ P + 0 := by simp [P]
+    _ < μ P + μ (Q ∩ Pᶜ) := by
+      exact ENNReal.add_lt_add_left (measure_ne_top μ P) hdiff_pos
+    _ = μ (P ∪ (Q ∩ Pᶜ)) := (measure_union hdisj hdiff_meas).symm
+    _ = μ {a | q a} := by rw [← hsplit]
+
+theorem measure_lt_of_cross_event_measure_lt
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop)
+    (hp : MeasurableSet {a | p a}) (hq : MeasurableSet {a | q a})
+    (hcross :
+      μ ({a | p a} ∩ {a | q a}ᶜ) <
+        μ ({a | q a} ∩ {a | p a}ᶜ)) :
+    μ {a | p a} < μ {a | q a} := by
+  let P : Set α := {a | p a}
+  let Q : Set α := {a | q a}
+  have hcommon : MeasurableSet (P ∩ Q) := hp.inter hq
+  have hPnotQ : MeasurableSet (P ∩ Qᶜ) := hp.inter hq.compl
+  have hQnotP : MeasurableSet (Q ∩ Pᶜ) := hq.inter hp.compl
+  have hP_split : μ P = μ (P ∩ Q) + μ (P ∩ Qᶜ) := by
+    have hunion : P = (P ∩ Q) ∪ (P ∩ Qᶜ) := by
+      ext a
+      by_cases hqa : a ∈ Q <;> simp [P, Q]
+    conv_lhs => rw [hunion]
+    exact measure_union (μ := μ) (s₁ := P ∩ Q) (s₂ := P ∩ Qᶜ)
+      (Set.disjoint_left.2 (by
+      intro a (ha : a ∈ P ∩ Q) (hb : a ∈ P ∩ Qᶜ)
+      exact hb.2 ha.2)) hPnotQ
+  have hQ_split : μ Q = μ (P ∩ Q) + μ (Q ∩ Pᶜ) := by
+    have hunion : Q = (P ∩ Q) ∪ (Q ∩ Pᶜ) := by
+      ext a
+      by_cases hpa : a ∈ P <;> simp [P, Q, hpa, and_comm]
+    conv_lhs => rw [hunion]
+    exact measure_union (μ := μ) (s₁ := P ∩ Q) (s₂ := Q ∩ Pᶜ)
+      (Set.disjoint_left.2 (by
+      intro a (ha : a ∈ P ∩ Q) (hb : a ∈ Q ∩ Pᶜ)
+      exact hb.2 ha.1)) hQnotP
+  calc
+    μ {a | p a} = μ (P ∩ Q) + μ (P ∩ Qᶜ) := hP_split
+    _ < μ (P ∩ Q) + μ (Q ∩ Pᶜ) := by
+      exact ENNReal.add_lt_add_left (measure_ne_top μ (P ∩ Q)) hcross
+    _ = μ {a | q a} := hQ_split.symm
+
+theorem measureProb_lt_of_cross_event_measure_lt
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop)
+    (hp : MeasurableSet {a | p a}) (hq : MeasurableSet {a | q a})
+    (hcross :
+      μ ({a | p a} ∩ {a | q a}ᶜ) <
+        μ ({a | q a} ∩ {a | p a}ᶜ)) :
+    measureProb μ p < measureProb μ q :=
+  measureProb_lt_of_measure_lt μ p q
+    (measure_lt_of_cross_event_measure_lt μ p q hp hq hcross)
+
+/-- Strict monotonicity for `measureProb` from a nonzero residual. -/
+theorem measureProb_lt_of_imp_of_residual_ne_zero
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsFiniteMeasure μ]
+    (p q : α → Prop) [DecidablePred p] [DecidablePred q]
+    (hp : MeasurableSet {a | p a}) (hq : MeasurableSet {a | q a})
+    (himp : ∀ a, p a → q a) (hres : μ ({a | q a} \ {a | p a}) ≠ 0) :
+    measureProb μ p < measureProb μ q := by
+  refine measureProb_lt_of_cross_event_measure_lt μ p q hp hq ?_
+  have hleft : μ ({a | p a} ∩ {a | q a}ᶜ) = 0 := by
+    apply measure_mono_null
+      (s := ({a | p a} ∩ {a | q a}ᶜ : Set α))
+      (t := (∅ : Set α))
+    · intro a ha
+      exact False.elim (ha.2 (himp a ha.1))
+    · simp
+  have hright : μ ({a | q a} ∩ {a | p a}ᶜ) ≠ 0 := by
+    have hres' : ({a | q a} \ {a | p a}) = ({a | q a} ∩ {a | p a}ᶜ) := by
+      ext a
+      simp
+    simpa [hres'] using hres
+  rw [hleft]
+  exact lt_of_le_of_ne (bot_le) hright.symm
+
+/-- Real-valued mass of the lower-left rectangle `{(u,v) : u <= x, v <= y}`. -/
+noncomputable def lowerLeftRectangleMass (μ : Measure (ℝ × ℝ)) (x y : ℝ) : ℝ :=
+  μ.real {p : ℝ × ℝ | p.1 ≤ x ∧ p.2 ≤ y}
+
+/-- Real-valued mass of the first-coordinate lower half-space `{(u,v) : u <= x}`. -/
+noncomputable def firstCoordinateLowerMass (μ : Measure (ℝ × ℝ)) (x : ℝ) : ℝ :=
+  μ.real {p : ℝ × ℝ | p.1 ≤ x}
+
+/-- Real-valued mass of the vertical strip `{(u,v) : u <= x, y <= v}`. -/
+noncomputable def verticalUpperStripMass (μ : Measure (ℝ × ℝ)) (x y : ℝ) : ℝ :=
+  μ.real {p : ℝ × ℝ | p.1 ≤ x ∧ y ≤ p.2}
+
+theorem measurableSet_lowerLeftRectangle (x y : ℝ) :
+    MeasurableSet ({p : ℝ × ℝ | p.1 ≤ x ∧ p.2 ≤ y}) := by
+  exact
+    (isClosed_le continuous_fst continuous_const).measurableSet.inter
+      (isClosed_le continuous_snd continuous_const).measurableSet
+
+theorem measurableSet_firstCoordinateLower (x : ℝ) :
+    MeasurableSet ({p : ℝ × ℝ | p.1 ≤ x}) :=
+  (isClosed_le continuous_fst continuous_const).measurableSet
+
+theorem measurableSet_verticalUpperStrip (x y : ℝ) :
+    MeasurableSet ({p : ℝ × ℝ | p.1 ≤ x ∧ y ≤ p.2}) := by
+  exact
+    (isClosed_le continuous_fst continuous_const).measurableSet.inter
+      (isClosed_le continuous_const continuous_snd).measurableSet
+
+/-- A vertical upper strip has positive mass under a finite open-positive joint law. -/
+theorem verticalUpperStripMass_pos_of_isOpenPosMeasure
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ]
+    [Measure.IsOpenPosMeasure μ] (x y : ℝ) :
+    0 < verticalUpperStripMass μ x y := by
+  let openStrip : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 < x ∧ y < p.2}
+  have hopen : IsOpen openStrip := by
+    have hleft : IsOpen ({p : ℝ × ℝ | p.1 < x}) :=
+      isOpen_lt continuous_fst continuous_const
+    have hright : IsOpen ({p : ℝ × ℝ | y < p.2}) :=
+      isOpen_lt continuous_const continuous_snd
+    simpa [openStrip, Set.setOf_and] using hleft.inter hright
+  have hnonempty : openStrip.Nonempty := by
+    refine ⟨(x - 1, y + 1), ?_⟩
+    simp [openStrip]
+  have hsubset :
+      openStrip ⊆ {p : ℝ × ℝ | p.1 ≤ x ∧ y ≤ p.2} := by
+    intro p hp
+    exact ⟨hp.1.le, hp.2.le⟩
+  have hpos :
+      0 < μ {p : ℝ × ℝ | p.1 ≤ x ∧ y ≤ p.2} :=
+    lt_of_lt_of_le (hopen.measure_pos μ hnonempty) (measure_mono hsubset)
+  exact ENNReal.toReal_pos (ne_of_gt hpos) (measure_ne_top μ _)
+
+/--
+Moving a vertical-upper-strip cutoff left in the first coordinate and up in the
+second coordinate strictly decreases its mass for any finite joint measure that
+is positive on nonempty open sets.
+
+This is the reusable measure-level fact behind displayed terms of the form
+`P(X <= A(q), B(q) <= Y)`: if `A` is strictly decreasing and `B` is monotone
+increasing, then the selected mass strictly falls.
+-/
+theorem verticalUpperStripMass_strictAnti_of_strictAnti_left_monotone_right
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] [Measure.IsOpenPosMeasure μ]
+    {a b : ℝ → ℝ} (ha : StrictAnti a) (hb : Monotone b) :
+    StrictAnti fun q : ℝ => verticalUpperStripMass μ (a q) (b q) := by
+  intro q₁ q₂ hq
+  have hmeasure_lt :
+      μ {p : ℝ × ℝ | p.1 ≤ a q₂ ∧ b q₂ ≤ p.2} <
+        μ {p : ℝ × ℝ | p.1 ≤ a q₁ ∧ b q₁ ≤ p.2} := by
+    refine measure_lt_of_imp_of_diff_ne_zero μ
+      (p := fun p : ℝ × ℝ => p.1 ≤ a q₂ ∧ b q₂ ≤ p.2)
+      (q := fun p : ℝ × ℝ => p.1 ≤ a q₁ ∧ b q₁ ≤ p.2)
+      (measurableSet_verticalUpperStrip (a q₂) (b q₂))
+      (measurableSet_verticalUpperStrip (a q₁) (b q₁)) ?_ ?_
+    · intro p hp
+      exact ⟨hp.1.trans (ha hq).le, (hb hq.le).trans hp.2⟩
+    · let U : Set (ℝ × ℝ) :=
+        {p : ℝ × ℝ | a q₂ < p.1 ∧ p.1 < a q₁ ∧ b q₂ < p.2}
+      have hU_open : IsOpen U := by
+        have hopen_left : IsOpen {p : ℝ × ℝ | a q₂ < p.1} :=
+          isOpen_lt (continuous_const : Continuous fun _ : ℝ × ℝ => a q₂)
+            (continuous_fst : Continuous fun p : ℝ × ℝ => p.1)
+        have hopen_mid : IsOpen {p : ℝ × ℝ | p.1 < a q₁} :=
+          isOpen_lt (continuous_fst : Continuous fun p : ℝ × ℝ => p.1)
+            (continuous_const : Continuous fun _ : ℝ × ℝ => a q₁)
+        have hopen_right : IsOpen {p : ℝ × ℝ | b q₂ < p.2} :=
+          isOpen_lt (continuous_const : Continuous fun _ : ℝ × ℝ => b q₂)
+            (continuous_snd : Continuous fun p : ℝ × ℝ => p.2)
+        simpa [U, Set.setOf_and, Set.inter_assoc] using
+          (hopen_left.inter hopen_mid).inter hopen_right
+      have hU_nonempty : U.Nonempty := by
+        refine ⟨((a q₂ + a q₁) / 2, b q₂ + 1), ?_⟩
+        have haq : a q₂ < a q₁ := ha hq
+        dsimp [U]
+        constructor
+        · nlinarith
+        · constructor
+          · nlinarith
+          · linarith
+      have hU_ne_zero : μ U ≠ 0 :=
+        hU_open.measure_ne_zero μ hU_nonempty
+      intro hzero
+      apply hU_ne_zero
+      refine measure_mono_null ?_ hzero
+      intro p hp
+      rcases hp with ⟨hp_left, hp_between, hp_right⟩
+      exact
+        ⟨⟨hp_between.le, (hb hq.le).trans hp_right.le⟩,
+          fun hnew => not_le_of_gt hp_left hnew.1⟩
+  exact (ENNReal.toReal_lt_toReal
+    (measure_ne_top μ {p : ℝ × ℝ | p.1 ≤ a q₂ ∧ b q₂ ≤ p.2})
+    (measure_ne_top μ {p : ℝ × ℝ | p.1 ≤ a q₁ ∧ b q₁ ≤ p.2})).2
+      hmeasure_lt
+
+/--
+If the upper threshold in a vertical strip tends to `+∞`, then the strip mass
+tends to zero.
+-/
+theorem verticalUpperStripMass_tendsto_zero_of_right_tendsto_atTop
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] {a b : ℝ → ℝ}
+    (hb : Filter.Tendsto b Filter.atTop Filter.atTop) :
+    Filter.Tendsto (fun q : ℝ => verticalUpperStripMass μ (a q) (b q))
+      Filter.atTop (nhds 0) := by
+  have hmeasure :
+      Filter.Tendsto
+        (fun q : ℝ => μ {p : ℝ × ℝ | p.1 ≤ a q ∧ b q ≤ p.2})
+        Filter.atTop (nhds (0 : ℝ≥0∞)) := by
+    simpa using
+      (MeasureTheory.tendsto_measure_of_tendsto_indicator_of_isFiniteMeasure
+        (L := Filter.atTop) (μ := μ)
+        (As := fun q : ℝ =>
+          {p : ℝ × ℝ | p.1 ≤ a q ∧ b q ≤ p.2})
+        (A := (∅ : Set (ℝ × ℝ)))
+        (fun q => measurableSet_verticalUpperStrip (a q) (b q))
+        (by
+          intro p
+          filter_upwards [hb.eventually (Filter.eventually_gt_atTop p.2)]
+            with q hq
+          constructor
+          · intro hp
+            exact False.elim ((not_le_of_gt hq) hp.2)
+          · intro hp
+            exact False.elim hp))
+  change
+    Filter.Tendsto
+      (fun q : ℝ =>
+        (μ {p : ℝ × ℝ | p.1 ≤ a q ∧ b q ≤ p.2}).toReal)
+      Filter.atTop (nhds 0)
+  exact (ENNReal.tendsto_toReal ENNReal.zero_ne_top).comp hmeasure
+
+/--
+If the first-coordinate cutoff tends to `+∞` and the second-coordinate cutoff
+tends to `-∞`, then the vertical strip mass tends to the whole mass.
+-/
+theorem verticalUpperStripMass_tendsto_atBot_univ_of_left_atTop_right_atBot
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] {a b : ℝ → ℝ}
+    (ha : Filter.Tendsto a Filter.atBot Filter.atTop)
+    (hb : Filter.Tendsto b Filter.atBot Filter.atBot) :
+    Filter.Tendsto (fun q : ℝ => verticalUpperStripMass μ (a q) (b q))
+      Filter.atBot (nhds (μ.real Set.univ)) := by
+  have hmeasure :
+      Filter.Tendsto
+        (fun q : ℝ => μ {p : ℝ × ℝ | p.1 ≤ a q ∧ b q ≤ p.2})
+        Filter.atBot (nhds (μ Set.univ)) := by
+    simpa using
+      (MeasureTheory.tendsto_measure_of_tendsto_indicator_of_isFiniteMeasure
+        (L := Filter.atBot) (μ := μ)
+        (As := fun q : ℝ =>
+          {p : ℝ × ℝ | p.1 ≤ a q ∧ b q ≤ p.2})
+        (A := (Set.univ : Set (ℝ × ℝ)))
+        (fun q => measurableSet_verticalUpperStrip (a q) (b q))
+        (by
+          intro p
+          filter_upwards
+            [ha.eventually (Filter.eventually_gt_atTop p.1),
+              hb.eventually (Filter.eventually_lt_atBot p.2)]
+            with q hleft hright
+          constructor
+          · intro _hp
+            trivial
+          · intro _hp
+            exact ⟨hleft.le, hright.le⟩))
+  change
+    Filter.Tendsto
+      (fun q : ℝ =>
+        (μ {p : ℝ × ℝ | p.1 ≤ a q ∧ b q ≤ p.2}).toReal)
+      Filter.atBot (nhds (μ.real Set.univ))
+  simpa [Measure.real] using
+    (ENNReal.tendsto_toReal (measure_ne_top μ Set.univ)).comp hmeasure
+
+/-- A lower-left rectangle has positive mass under a finite open-positive joint law. -/
+theorem lowerLeftRectangleMass_pos_of_isOpenPosMeasure
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ]
+    [Measure.IsOpenPosMeasure μ] (x y : ℝ) :
+    0 < lowerLeftRectangleMass μ x y := by
+  let openRect : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 < x ∧ p.2 < y}
+  have hopen : IsOpen openRect := by
+    have hleft : IsOpen ({p : ℝ × ℝ | p.1 < x}) :=
+      isOpen_lt continuous_fst continuous_const
+    have hright : IsOpen ({p : ℝ × ℝ | p.2 < y}) :=
+      isOpen_lt continuous_snd continuous_const
+    simpa [openRect, Set.setOf_and] using hleft.inter hright
+  have hnonempty : openRect.Nonempty := by
+    refine ⟨(x - 1, y - 1), ?_⟩
+    simp [openRect]
+  have hsubset :
+      openRect ⊆ {p : ℝ × ℝ | p.1 ≤ x ∧ p.2 ≤ y} := by
+    intro p hp
+    exact ⟨hp.1.le, hp.2.le⟩
+  have hpos :
+      0 < μ {p : ℝ × ℝ | p.1 ≤ x ∧ p.2 ≤ y} :=
+    lt_of_lt_of_le (hopen.measure_pos μ hnonempty) (measure_mono hsubset)
+  exact ENNReal.toReal_pos (ne_of_gt hpos) (measure_ne_top μ _)
+
+theorem measurableSet_horizontalBoundaryLeft (x y : ℝ) :
+    MeasurableSet ({p : ℝ × ℝ | p.1 ≤ x ∧ p.2 = y}) := by
+  exact
+    (isClosed_le continuous_fst continuous_const).measurableSet.inter
+      (isClosed_eq continuous_snd continuous_const).measurableSet
+
+/--
+A lower-left rectangle subtracts from the first-coordinate lower half-space to
+give the vertical upper strip, up to a null horizontal boundary.
+
+This is the reusable CDF bookkeeping behind identities of the form
+`P(X <= x, y <= Y) = P(X <= x) - P(X <= x, Y <= y)` for continuous laws.
+-/
+theorem verticalUpperStripMass_eq_firstCoordinateLowerMass_sub_lowerLeftRectangleMass
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] (x y : ℝ)
+    (hboundary : μ.real {p : ℝ × ℝ | p.1 ≤ x ∧ p.2 = y} = 0) :
+    verticalUpperStripMass μ x y =
+      firstCoordinateLowerMass μ x - lowerLeftRectangleMass μ x y := by
+  let left : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 ≤ x}
+  let lower : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 ≤ x ∧ p.2 ≤ y}
+  let strictUpper : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 ≤ x ∧ y < p.2}
+  let upper : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 ≤ x ∧ y ≤ p.2}
+  let boundary : Set (ℝ × ℝ) := {p : ℝ × ℝ | p.1 ≤ x ∧ p.2 = y}
+  have hlower_subset : lower ⊆ left := by
+    intro p hp
+    exact hp.1
+  have hdiff_eq : left \ lower = strictUpper := by
+    ext p
+    constructor
+    · intro hp
+      have hnot : ¬ p.2 ≤ y := by
+        intro hle
+        exact hp.2 ⟨hp.1, hle⟩
+      exact ⟨hp.1, lt_of_not_ge hnot⟩
+    · intro hp
+      exact ⟨hp.1, by intro hlow; exact not_lt.mpr hlow.2 hp.2⟩
+  have hupper_split : upper = strictUpper ∪ boundary := by
+    ext p
+    constructor
+    · intro hp
+      rcases lt_or_eq_of_le hp.2 with hlt | heq
+      · exact Or.inl ⟨hp.1, hlt⟩
+      · exact Or.inr ⟨hp.1, heq.symm⟩
+    · intro hp
+      rcases hp with hstrict | hbd
+      · exact ⟨hstrict.1, hstrict.2.le⟩
+      · exact ⟨hbd.1, hbd.2.ge⟩
+  have hdisj : Disjoint strictUpper boundary := by
+    refine Set.disjoint_left.2 ?_
+    intro p hstrict hbd
+    exact ne_of_gt hstrict.2 hbd.2
+  have hboundary' : μ.real boundary = 0 := by
+    simpa [boundary] using hboundary
+  have hstrict_meas : MeasurableSet strictUpper := by
+    have hleft : MeasurableSet ({p : ℝ × ℝ | p.1 ≤ x}) :=
+      measurableSet_firstCoordinateLower x
+    have hright : MeasurableSet ({p : ℝ × ℝ | y < p.2}) :=
+      (isOpen_lt continuous_const continuous_snd).measurableSet
+    simpa [strictUpper, Set.setOf_and] using hleft.inter hright
+  have hboundary_meas : MeasurableSet boundary := by
+    simpa [boundary] using measurableSet_horizontalBoundaryLeft x y
+  have hupper_mass :
+      μ.real upper = μ.real strictUpper := by
+    rw [hupper_split, measureReal_union hdisj hboundary_meas, hboundary',
+      add_zero]
+  have hstrict_mass :
+      μ.real strictUpper = μ.real left - μ.real lower := by
+    rw [← hdiff_eq]
+    exact measureReal_diff
+      (μ := μ) (s₁ := left) (s₂ := lower) hlower_subset
+      (by simpa [lower] using measurableSet_lowerLeftRectangle x y)
+      (measure_ne_top μ left)
+  calc
+    verticalUpperStripMass μ x y = μ.real upper := rfl
+    _ = μ.real strictUpper := hupper_mass
+    _ = μ.real left - μ.real lower := hstrict_mass
+    _ = firstCoordinateLowerMass μ x - lowerLeftRectangleMass μ x y := rfl
+
+/--
+Continuity of lower-left rectangle mass when the joint law puts zero mass on
+every vertical or horizontal boundary.
+-/
+theorem lowerLeftRectangleMass_continuous_of_boundary_null
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ]
+    (hboundary :
+      ∀ x y : ℝ,
+        μ ({p : ℝ × ℝ | p.1 = x} ∪ {p : ℝ × ℝ | p.2 = y}) = 0) :
+    Continuous fun q : ℝ × ℝ => lowerLeftRectangleMass μ q.1 q.2 := by
+  refine continuous_iff_continuousAt.2 ?_
+  intro q₀
+  have hmeasure :
+      Filter.Tendsto
+        (fun q : ℝ × ℝ =>
+          μ {p : ℝ × ℝ | p.1 ≤ q.1 ∧ p.2 ≤ q.2})
+        (nhds q₀)
+        (nhds (μ {p : ℝ × ℝ | p.1 ≤ q₀.1 ∧ p.2 ≤ q₀.2})) := by
+    refine
+      MeasureTheory.tendsto_measure_of_ae_tendsto_indicator_of_isFiniteMeasure
+        (L := nhds q₀) (μ := μ)
+        (A := {p : ℝ × ℝ | p.1 ≤ q₀.1 ∧ p.2 ≤ q₀.2})
+        (As := fun q : ℝ × ℝ =>
+          {p : ℝ × ℝ | p.1 ≤ q.1 ∧ p.2 ≤ q.2})
+        (measurableSet_lowerLeftRectangle q₀.1 q₀.2)
+        (fun q => measurableSet_lowerLeftRectangle q.1 q.2) ?_
+    have hboundary_ae :
+        ∀ᵐ p ∂μ, p.1 ≠ q₀.1 ∧ p.2 ≠ q₀.2 := by
+      refine (measure_eq_zero_iff_ae_notMem.1 (hboundary q₀.1 q₀.2)).mono ?_
+      intro p hp
+      constructor
+      · intro h
+        exact hp (Or.inl h)
+      · intro h
+        exact hp (Or.inr h)
+    filter_upwards [hboundary_ae] with p hp
+    have hfst_tend :
+        Filter.Tendsto (fun q : ℝ × ℝ => q.1) (nhds q₀) (nhds q₀.1) :=
+      continuous_fst.tendsto q₀
+    have hsnd_tend :
+        Filter.Tendsto (fun q : ℝ × ℝ => q.2) (nhds q₀) (nhds q₀.2) :=
+      continuous_snd.tendsto q₀
+    by_cases hfst_pos : p.1 < q₀.1
+    · have hfst_event :
+          ∀ᶠ q in nhds q₀, p.1 ≤ q.1 :=
+        (hfst_tend.eventually (Ioi_mem_nhds hfst_pos)).mono
+          (fun _ hlt => hlt.le)
+      by_cases hsnd_pos : p.2 < q₀.2
+      · have hsnd_event :
+            ∀ᶠ q in nhds q₀, p.2 ≤ q.2 :=
+          (hsnd_tend.eventually (Ioi_mem_nhds hsnd_pos)).mono
+            (fun _ hlt => hlt.le)
+        filter_upwards [hfst_event, hsnd_event] with q hqfst hqsnd
+        simp [hqfst, hqsnd, hfst_pos.le, hsnd_pos.le]
+      · have hsnd_neg : q₀.2 < p.2 :=
+          lt_of_le_of_ne (le_of_not_gt hsnd_pos) hp.2.symm
+        have hsnd_event :
+            ∀ᶠ q in nhds q₀, ¬ p.2 ≤ q.2 :=
+          (hsnd_tend.eventually (Iio_mem_nhds hsnd_neg)).mono
+            (fun _ hlt => not_le_of_gt hlt)
+        filter_upwards [hsnd_event] with q hqsnd
+        simp [hqsnd, hsnd_neg.not_ge]
+    · have hfst_neg : q₀.1 < p.1 :=
+        lt_of_le_of_ne (le_of_not_gt hfst_pos) hp.1.symm
+      have hfst_event :
+          ∀ᶠ q in nhds q₀, ¬ p.1 ≤ q.1 :=
+        (hfst_tend.eventually (Iio_mem_nhds hfst_neg)).mono
+          (fun _ hlt => not_le_of_gt hlt)
+      filter_upwards [hfst_event] with q hqfst
+      simp [hqfst, hfst_neg.not_ge]
+  change
+    Filter.Tendsto
+      (fun q : ℝ × ℝ =>
+        (μ {p : ℝ × ℝ | p.1 ≤ q.1 ∧ p.2 ≤ q.2}).toReal)
+      (nhds q₀)
+      (nhds ((μ {p : ℝ × ℝ | p.1 ≤ q₀.1 ∧ p.2 ≤ q₀.2}).toReal))
+  exact
+    (ENNReal.tendsto_toReal
+      (measure_ne_top μ {p : ℝ × ℝ | p.1 ≤ q₀.1 ∧ p.2 ≤ q₀.2})).comp
+      hmeasure
+
+/--
+Continuity of lower-left rectangle mass from nonatomic first and second
+marginals.
+-/
+theorem lowerLeftRectangleMass_continuous_of_noAtoms_marginals
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ]
+    [NoAtoms (μ.map Prod.fst)] [NoAtoms (μ.map Prod.snd)] :
+    Continuous fun q : ℝ × ℝ => lowerLeftRectangleMass μ q.1 q.2 := by
+  refine lowerLeftRectangleMass_continuous_of_boundary_null μ ?_
+  intro x y
+  have hleft : μ {p : ℝ × ℝ | p.1 = x} = 0 := by
+    calc
+      μ {p : ℝ × ℝ | p.1 = x}
+          = μ (Prod.fst ⁻¹' ({x} : Set ℝ)) := by
+              rfl
+      _ = (μ.map Prod.fst) ({x} : Set ℝ) := by
+              rw [Measure.map_apply measurable_fst (measurableSet_singleton x)]
+      _ = 0 := by
+              exact measure_singleton x
+  have hright : μ {p : ℝ × ℝ | p.2 = y} = 0 := by
+    calc
+      μ {p : ℝ × ℝ | p.2 = y}
+          = μ (Prod.snd ⁻¹' ({y} : Set ℝ)) := by
+              rfl
+      _ = (μ.map Prod.snd) ({y} : Set ℝ) := by
+              rw [Measure.map_apply measurable_snd (measurableSet_singleton y)]
+      _ = 0 := by
+              exact measure_singleton y
+  exact measure_union_null hleft hright
+
+/-- Real-valued mass of the upper orthant `{(u,v) : x <= u, y <= v}`. -/
+noncomputable def upperOrthantMass (μ : Measure (ℝ × ℝ)) (x y : ℝ) : ℝ :=
+  μ.real {p : ℝ × ℝ | x ≤ p.1 ∧ y ≤ p.2}
+
+theorem measurableSet_upperOrthant (x y : ℝ) :
+    MeasurableSet ({p : ℝ × ℝ | x ≤ p.1 ∧ y ≤ p.2}) := by
+  exact
+    (isClosed_le continuous_const continuous_fst).measurableSet.inter
+      (isClosed_le continuous_const continuous_snd).measurableSet
+
+/--
+Moving an upper-orthant threshold up in both coordinates strictly decreases
+its mass for any finite joint measure that is positive on nonempty open sets.
+
+This is the reusable measure-level fact behind strategic applicant pools:
+if application and admission cutoffs both rise with the school cutoff, the
+joint mass of students above both cutoffs falls strictly.
+-/
+theorem upperOrthantMass_strictAnti_of_strictMono_left_monotone_right
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] [Measure.IsOpenPosMeasure μ]
+    {a b : ℝ → ℝ} (ha : StrictMono a) (hb : Monotone b) :
+    StrictAnti fun q : ℝ => upperOrthantMass μ (a q) (b q) := by
+  intro q₁ q₂ hq
+  have hmeasure_lt :
+      μ {p : ℝ × ℝ | a q₂ ≤ p.1 ∧ b q₂ ≤ p.2} <
+        μ {p : ℝ × ℝ | a q₁ ≤ p.1 ∧ b q₁ ≤ p.2} := by
+    refine measure_lt_of_imp_of_diff_ne_zero μ
+      (p := fun p : ℝ × ℝ => a q₂ ≤ p.1 ∧ b q₂ ≤ p.2)
+      (q := fun p : ℝ × ℝ => a q₁ ≤ p.1 ∧ b q₁ ≤ p.2)
+      (measurableSet_upperOrthant (a q₂) (b q₂))
+      (measurableSet_upperOrthant (a q₁) (b q₁)) ?_ ?_
+    · intro p hp
+      exact ⟨(ha hq).le.trans hp.1, (hb hq.le).trans hp.2⟩
+    · let U : Set (ℝ × ℝ) :=
+        {p : ℝ × ℝ | a q₁ < p.1 ∧ p.1 < a q₂ ∧ b q₂ < p.2}
+      have hU_open : IsOpen U := by
+        have hopen_left : IsOpen {p : ℝ × ℝ | a q₁ < p.1} :=
+          isOpen_lt (continuous_const : Continuous fun _ : ℝ × ℝ => a q₁)
+            (continuous_fst : Continuous fun p : ℝ × ℝ => p.1)
+        have hopen_mid : IsOpen {p : ℝ × ℝ | p.1 < a q₂} :=
+          isOpen_lt (continuous_fst : Continuous fun p : ℝ × ℝ => p.1)
+            (continuous_const : Continuous fun _ : ℝ × ℝ => a q₂)
+        have hopen_right : IsOpen {p : ℝ × ℝ | b q₂ < p.2} :=
+          isOpen_lt (continuous_const : Continuous fun _ : ℝ × ℝ => b q₂)
+            (continuous_snd : Continuous fun p : ℝ × ℝ => p.2)
+        simpa [U, Set.setOf_and, Set.inter_assoc] using
+          (hopen_left.inter hopen_mid).inter hopen_right
+      have hU_nonempty : U.Nonempty := by
+        refine ⟨((a q₁ + a q₂) / 2, b q₂ + 1), ?_⟩
+        have haq : a q₁ < a q₂ := ha hq
+        dsimp [U]
+        constructor
+        · nlinarith
+        · constructor
+          · nlinarith
+          · linarith
+      have hU_ne_zero : μ U ≠ 0 :=
+        hU_open.measure_ne_zero μ hU_nonempty
+      intro hzero
+      apply hU_ne_zero
+      refine measure_mono_null ?_ hzero
+      intro p hp
+      rcases hp with ⟨hp_left, hp_between, hp_right⟩
+      exact
+        ⟨⟨hp_left.le, (hb hq.le).trans hp_right.le⟩,
+          fun hnew => not_le_of_gt hp_between hnew.1⟩
+  exact (ENNReal.toReal_lt_toReal
+    (measure_ne_top μ {p : ℝ × ℝ | a q₂ ≤ p.1 ∧ b q₂ ≤ p.2})
+    (measure_ne_top μ {p : ℝ × ℝ | a q₁ ≤ p.1 ∧ b q₁ ≤ p.2})).2
+      hmeasure_lt
+
+/--
+Along the diagonal path `(q - offset, q)`, upper-orthant mass tends to zero as
+`q -> +∞`.
+-/
+theorem upperOrthantMass_diagonal_tendsto_atTop_zero
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] (offset : ℝ) :
+    Filter.Tendsto (fun q : ℝ => upperOrthantMass μ (q - offset) q)
+      Filter.atTop (nhds 0) := by
+  have hmeasure :
+      Filter.Tendsto
+        (fun q : ℝ =>
+          μ {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2})
+        Filter.atTop (nhds (0 : ℝ≥0∞)) := by
+    simpa using
+      (MeasureTheory.tendsto_measure_of_tendsto_indicator_of_isFiniteMeasure
+        (L := Filter.atTop) (μ := μ)
+        (As := fun q : ℝ =>
+          {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2})
+        (A := (∅ : Set (ℝ × ℝ)))
+        (fun q => measurableSet_upperOrthant (q - offset) q)
+        (by
+          intro p
+          filter_upwards [Filter.eventually_gt_atTop p.2] with q hq
+          constructor
+          · intro hp
+            exact False.elim ((not_le_of_gt hq) hp.2)
+          · intro hp
+            exact False.elim hp))
+  change
+    Filter.Tendsto
+      (fun q : ℝ =>
+        (μ {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2}).toReal)
+      Filter.atTop (nhds 0)
+  exact (ENNReal.tendsto_toReal ENNReal.zero_ne_top).comp hmeasure
+
+/--
+Along the diagonal path `(q - offset, q)`, upper-orthant mass tends to the
+whole mass as `q -> -∞`.
+-/
+theorem upperOrthantMass_diagonal_tendsto_atBot_univ
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] (offset : ℝ) :
+    Filter.Tendsto (fun q : ℝ => upperOrthantMass μ (q - offset) q)
+      Filter.atBot (nhds (μ.real Set.univ)) := by
+  have hmeasure :
+      Filter.Tendsto
+        (fun q : ℝ =>
+          μ {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2})
+        Filter.atBot (nhds (μ Set.univ)) := by
+    simpa using
+      (MeasureTheory.tendsto_measure_of_tendsto_indicator_of_isFiniteMeasure
+        (L := Filter.atBot) (μ := μ)
+        (As := fun q : ℝ =>
+          {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2})
+        (A := (Set.univ : Set (ℝ × ℝ)))
+        (fun q => measurableSet_upperOrthant (q - offset) q)
+        (by
+          intro p
+          filter_upwards [Filter.eventually_lt_atBot (min (p.1 + offset) p.2)] with q hq
+          constructor
+          · intro _hp
+            trivial
+          · intro _hp
+            constructor
+            · linarith [lt_of_lt_of_le hq (min_le_left (p.1 + offset) p.2)]
+            · exact (lt_of_lt_of_le hq (min_le_right (p.1 + offset) p.2)).le))
+  change
+    Filter.Tendsto
+      (fun q : ℝ =>
+        (μ {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2}).toReal)
+      Filter.atBot (nhds (μ.real Set.univ))
+  simpa [Measure.real] using
+    (ENNReal.tendsto_toReal (measure_ne_top μ Set.univ)).comp hmeasure
+
+/--
+Continuity of moving upper-orthant mass along `(q - offset, q)` when the joint
+law puts zero mass on every corresponding vertical or horizontal boundary.
+-/
+theorem upperOrthantMass_diagonal_continuous_of_boundary_null
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ] (offset : ℝ)
+    (hboundary :
+      ∀ q : ℝ,
+        μ ({p : ℝ × ℝ | p.1 = q - offset} ∪ {p : ℝ × ℝ | p.2 = q}) = 0) :
+    Continuous fun q : ℝ => upperOrthantMass μ (q - offset) q := by
+  refine continuous_iff_continuousAt.2 ?_
+  intro q₀
+  have hmeasure :
+      Filter.Tendsto
+        (fun q : ℝ =>
+          μ {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2})
+        (nhds q₀)
+        (nhds (μ {p : ℝ × ℝ | q₀ - offset ≤ p.1 ∧ q₀ ≤ p.2})) := by
+    refine
+      MeasureTheory.tendsto_measure_of_ae_tendsto_indicator_of_isFiniteMeasure
+        (L := nhds q₀) (μ := μ)
+        (A := {p : ℝ × ℝ | q₀ - offset ≤ p.1 ∧ q₀ ≤ p.2})
+        (As := fun q : ℝ =>
+          {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2})
+        (measurableSet_upperOrthant (q₀ - offset) q₀)
+        (fun q => measurableSet_upperOrthant (q - offset) q) ?_
+    have hboundary_ae :
+        ∀ᵐ p ∂μ, p.1 ≠ q₀ - offset ∧ p.2 ≠ q₀ := by
+      refine (measure_eq_zero_iff_ae_notMem.1 (hboundary q₀)).mono ?_
+      intro p hp
+      constructor
+      · intro h
+        exact hp (Or.inl h)
+      · intro h
+        exact hp (Or.inr h)
+    filter_upwards [hboundary_ae] with p hp
+    have hsub_tend :
+        Filter.Tendsto (fun q : ℝ => q - offset) (nhds q₀)
+          (nhds (q₀ - offset)) :=
+      (continuous_id.sub continuous_const).tendsto q₀
+    by_cases hsub_pos : q₀ - offset < p.1
+    · have hsub_event :
+          ∀ᶠ q in nhds q₀, q - offset ≤ p.1 :=
+        (hsub_tend.eventually (Iio_mem_nhds hsub_pos)).mono
+          (fun _ hlt => hlt.le)
+      by_cases hadmit_pos : q₀ < p.2
+      · have hadmit_event :
+            ∀ᶠ q in nhds q₀, q ≤ p.2 :=
+          (tendsto_id.eventually (Iio_mem_nhds hadmit_pos)).mono
+            (fun _ hlt => hlt.le)
+        filter_upwards [hsub_event, hadmit_event] with q hqsub hqadmit
+        simp [hqsub, hqadmit, hsub_pos.le, hadmit_pos.le]
+      · have hadmit_neg : p.2 < q₀ :=
+          lt_of_le_of_ne (le_of_not_gt hadmit_pos) hp.2
+        have hadmit_event :
+            ∀ᶠ q in nhds q₀, ¬ q ≤ p.2 :=
+          (tendsto_id.eventually (Ioi_mem_nhds hadmit_neg)).mono
+            (fun _ hgt => not_le_of_gt hgt)
+        filter_upwards [hadmit_event] with q hqadmit
+        simp [hqadmit, hadmit_neg.not_ge]
+    · have hsub_neg : p.1 < q₀ - offset :=
+        lt_of_le_of_ne (le_of_not_gt hsub_pos) hp.1
+      have hsub_event :
+          ∀ᶠ q in nhds q₀, ¬ q - offset ≤ p.1 :=
+        (hsub_tend.eventually (Ioi_mem_nhds hsub_neg)).mono
+          (fun _ hgt => not_le_of_gt hgt)
+      filter_upwards [hsub_event] with q hqsub
+      simp [hqsub, hsub_neg.not_ge]
+  change
+    Filter.Tendsto
+      (fun q : ℝ =>
+        (μ {p : ℝ × ℝ | q - offset ≤ p.1 ∧ q ≤ p.2}).toReal)
+      (nhds q₀)
+      (nhds ((μ {p : ℝ × ℝ | q₀ - offset ≤ p.1 ∧ q₀ ≤ p.2}).toReal))
+  exact
+    (ENNReal.tendsto_toReal
+      (measure_ne_top μ {p : ℝ × ℝ | q₀ - offset ≤ p.1 ∧ q₀ ≤ p.2})).comp
+      hmeasure
+
+/--
+Continuity of moving upper-orthant mass from nonatomic first and second
+marginals.
+-/
+theorem upperOrthantMass_diagonal_continuous_of_noAtoms_marginals
+    (μ : Measure (ℝ × ℝ)) [IsFiniteMeasure μ]
+    [NoAtoms (μ.map Prod.fst)] [NoAtoms (μ.map Prod.snd)] (offset : ℝ) :
+    Continuous fun q : ℝ => upperOrthantMass μ (q - offset) q := by
+  refine upperOrthantMass_diagonal_continuous_of_boundary_null μ offset ?_
+  intro q
+  have hleft : μ {p : ℝ × ℝ | p.1 = q - offset} = 0 := by
+    calc
+      μ {p : ℝ × ℝ | p.1 = q - offset}
+          = μ (Prod.fst ⁻¹' ({q - offset} : Set ℝ)) := by
+              rfl
+      _ = (μ.map Prod.fst) ({q - offset} : Set ℝ) := by
+              rw [Measure.map_apply measurable_fst (measurableSet_singleton (q - offset))]
+      _ = 0 := by
+              exact measure_singleton (q - offset)
+  have hright : μ {p : ℝ × ℝ | p.2 = q} = 0 := by
+    calc
+      μ {p : ℝ × ℝ | p.2 = q}
+          = μ (Prod.snd ⁻¹' ({q} : Set ℝ)) := by
+              rfl
+      _ = (μ.map Prod.snd) ({q} : Set ℝ) := by
+              rw [Measure.map_apply measurable_snd (measurableSet_singleton q)]
+      _ = 0 := by
+              exact measure_singleton q
+  exact measure_union_null hleft hright
+
+theorem volume_prod_vertical_line (x : ℝ) :
+    (volume : Measure (ℝ × ℝ)) {p : ℝ × ℝ | p.1 = x} = 0 := by
+  have hset :
+      ({p : ℝ × ℝ | p.1 = x} : Set (ℝ × ℝ)) =
+        ({x} : Set ℝ) ×ˢ (Set.univ : Set ℝ) := by
+    ext p
+    simp
+  rw [hset, Measure.volume_eq_prod ℝ ℝ,
+    Measure.prod_prod ({x} : Set ℝ) (Set.univ : Set ℝ)]
+  simp
+
+theorem volume_prod_horizontal_line (y : ℝ) :
+    (volume : Measure (ℝ × ℝ)) {p : ℝ × ℝ | p.2 = y} = 0 := by
+  have hset :
+      ({p : ℝ × ℝ | p.2 = y} : Set (ℝ × ℝ)) =
+        (Set.univ : Set ℝ) ×ˢ ({y} : Set ℝ) := by
+    ext p
+    simp
+  rw [hset, Measure.volume_eq_prod ℝ ℝ,
+    Measure.prod_prod (Set.univ : Set ℝ) ({y} : Set ℝ)]
+  simp
+
+theorem volume_withDensity_vertical_horizontal_boundary_null
+    (D : ℝ × ℝ → ℝ≥0∞) (x y : ℝ) :
+    ((volume : Measure (ℝ × ℝ)).withDensity D)
+        ({p : ℝ × ℝ | p.1 = x} ∪ {p : ℝ × ℝ | p.2 = y}) = 0 := by
+  have hac :
+      ((volume : Measure (ℝ × ℝ)).withDensity D) ≪
+        (volume : Measure (ℝ × ℝ)) :=
+    withDensity_absolutelyContinuous (volume : Measure (ℝ × ℝ)) D
+  have hleft :
+      ((volume : Measure (ℝ × ℝ)).withDensity D)
+          {p : ℝ × ℝ | p.1 = x} = 0 :=
+    hac (volume_prod_vertical_line x)
+  have hright :
+      ((volume : Measure (ℝ × ℝ)).withDensity D)
+          {p : ℝ × ℝ | p.2 = y} = 0 :=
+    hac (volume_prod_horizontal_line y)
+  exact measure_union_null hleft hright
+
+theorem volume_withDensity_isOpenPosMeasure_of_ae_ne_zero
+    (D : ℝ × ℝ → ℝ≥0∞)
+    (hD : AEMeasurable D (volume : Measure (ℝ × ℝ)))
+    (hD_ne_zero : ∀ᵐ p ∂(volume : Measure (ℝ × ℝ)), D p ≠ 0) :
+    Measure.IsOpenPosMeasure
+      ((volume : Measure (ℝ × ℝ)).withDensity D) := by
+  have h_ac :
+      (volume : Measure (ℝ × ℝ)) ≪
+        ((volume : Measure (ℝ × ℝ)).withDensity D) :=
+    withDensity_absolutelyContinuous' hD hD_ne_zero
+  exact h_ac.isOpenPosMeasure
+
+theorem upperOrthantMass_diagonal_continuous_of_volume_withDensity
+    (D : ℝ × ℝ → ℝ≥0∞)
+    [IsFiniteMeasure ((volume : Measure (ℝ × ℝ)).withDensity D)]
+    (offset : ℝ) :
+    Continuous fun q : ℝ =>
+      upperOrthantMass ((volume : Measure (ℝ × ℝ)).withDensity D)
+        (q - offset) q := by
+  refine
+    upperOrthantMass_diagonal_continuous_of_boundary_null
+      ((volume : Measure (ℝ × ℝ)).withDensity D) offset ?_
+  intro q
+  exact volume_withDensity_vertical_horizontal_boundary_null D (q - offset) q
+
+/--
+If a probability measure is pushed forward to a countable measurable space and
+then converted to a `PMF`, finite `pmfProb` agrees with the source-measure
+preimage mass.
+-/
+theorem pmfProb_toPMF_map_eq_measureProb
+    {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+    [Fintype β] [DecidableEq β] [MeasurableSingletonClass β]
+    (μ : Measure α) [IsProbabilityMeasure μ]
+    (f : α → β) (hf : Measurable f)
+    (p : β → Prop) [DecidablePred p]
+    (hp : MeasurableSet {b | p b}) :
+    pmfProb
+        (@Measure.toPMF β _ _ _ (μ.map f)
+          (Measure.isProbabilityMeasure_map hf.aemeasurable)) p =
+      measureProb μ (fun a => p (f a)) := by
+  classical
+  haveI : IsProbabilityMeasure (μ.map f) :=
+    Measure.isProbabilityMeasure_map hf.aemeasurable
+  unfold measureProb
+  rw [pmfProb_eq_toOuterMeasure_toReal]
+  rw [← PMF.toMeasure_apply_eq_toOuterMeasure_apply ((μ.map f).toPMF) hp]
+  rw [Measure.toPMF_toMeasure]
+  rw [Measure.map_apply hf hp]
+  rfl
+
+/--
+Compare continuous probability deltas by reducing to the finite image of a
+measurable summary map.
+
+This is the measure-level analogue of
+`pmfProb_sub_le_pmfProb_sub_of_forall_indicator_sub_le`: the pointwise
+indicator comparison only needs to hold on the source space, not on every value
+of the finite codomain.
+-/
+theorem measureProb_sub_le_measureProb_sub_of_forall_indicator_sub_le
+    {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+    [Fintype β] [DecidableEq β] [MeasurableSingletonClass β]
+    (μ : Measure α) [IsProbabilityMeasure μ]
+    (f : α → β) (hf : Measurable f)
+    (p q r s : β → Prop)
+    [DecidablePred p] [DecidablePred q] [DecidablePred r] [DecidablePred s]
+    (hp : MeasurableSet {b | p b}) (hq : MeasurableSet {b | q b})
+    (hr : MeasurableSet {b | r b}) (hs : MeasurableSet {b | s b})
+    (h : ∀ a,
+      (if p (f a) then (1 : ℝ) else 0) - (if q (f a) then (1 : ℝ) else 0) ≤
+        (if r (f a) then (1 : ℝ) else 0) - (if s (f a) then (1 : ℝ) else 0)) :
+    measureProb μ (fun a => p (f a)) - measureProb μ (fun a => q (f a)) ≤
+      measureProb μ (fun a => r (f a)) - measureProb μ (fun a => s (f a)) := by
+  classical
+  let γ : Type _ := {b : β // b ∈ Set.range f}
+  let g : α → γ := fun a => ⟨f a, ⟨a, rfl⟩⟩
+  have hg : Measurable g := hf.subtype_mk
+  have hpγ : MeasurableSet {b : γ | p b.1} :=
+    hp.preimage measurable_subtype_coe
+  have hqγ : MeasurableSet {b : γ | q b.1} :=
+    hq.preimage measurable_subtype_coe
+  have hrγ : MeasurableSet {b : γ | r b.1} :=
+    hr.preimage measurable_subtype_coe
+  have hsγ : MeasurableSet {b : γ | s b.1} :=
+    hs.preimage measurable_subtype_coe
+  let ν : PMF γ := @Measure.toPMF γ _ _ _ (μ.map g)
+    (Measure.isProbabilityMeasure_map hg.aemeasurable)
+  have hpmf :
+      pmfProb ν (fun b : γ => p b.1) - pmfProb ν (fun b : γ => q b.1) ≤
+        pmfProb ν (fun b : γ => r b.1) - pmfProb ν (fun b : γ => s b.1) := by
+    refine pmfProb_sub_le_pmfProb_sub_of_forall_indicator_sub_le ν
+      (fun b : γ => p b.1) (fun b : γ => q b.1)
+      (fun b : γ => r b.1) (fun b : γ => s b.1) ?_
+    intro b
+    rcases b with ⟨b, hb⟩
+    rcases hb with ⟨a, ha⟩
+    subst b
+    exact h a
+  have hp_eq :
+      pmfProb ν (fun b : γ => p b.1) = measureProb μ (fun a => p (f a)) := by
+    simpa [ν, g] using pmfProb_toPMF_map_eq_measureProb μ g hg
+      (fun b : γ => p b.1) hpγ
+  have hq_eq :
+      pmfProb ν (fun b : γ => q b.1) = measureProb μ (fun a => q (f a)) := by
+    simpa [ν, g] using pmfProb_toPMF_map_eq_measureProb μ g hg
+      (fun b : γ => q b.1) hqγ
+  have hr_eq :
+      pmfProb ν (fun b : γ => r b.1) = measureProb μ (fun a => r (f a)) := by
+    simpa [ν, g] using pmfProb_toPMF_map_eq_measureProb μ g hg
+      (fun b : γ => r b.1) hrγ
+  have hs_eq :
+      pmfProb ν (fun b : γ => s b.1) = measureProb μ (fun a => s (f a)) := by
+    simpa [ν, g] using pmfProb_toPMF_map_eq_measureProb μ g hg
+      (fun b : γ => s b.1) hsγ
+  rw [hp_eq, hq_eq, hr_eq, hs_eq] at hpmf
+  exact hpmf
+
+/--
+Change-of-variables mass comparison for a with-density measure.
+
+If `e` preserves the base measure `μ`, maps source set `s` into target set `t`,
+and the density at each source point is at most the density at its image, then
+the `μ.withDensity D` mass of `s` is at most the mass of `t`.
+-/
+theorem withDensity_measure_le_of_measurableEquiv_image_subset_density_le
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (e : α ≃ᵐ α) (hmp : MeasurePreserving e μ μ)
+    (D : α → ℝ≥0∞) {s t : Set α} (hs : MeasurableSet s) (ht : MeasurableSet t)
+    (hmap : ∀ a, a ∈ s → e a ∈ t)
+    (hdens : ∀ a, a ∈ s → D a ≤ D (e a)) :
+    μ.withDensity D s ≤ μ.withDensity D t := by
+  rw [withDensity_apply D hs, withDensity_apply D ht]
+  calc
+    ∫⁻ a in s, D a ∂μ ≤ ∫⁻ a in s, D (e a) ∂μ := by
+      exact setLIntegral_mono' hs hdens
+    _ = ∫⁻ b in e '' s, D b ∂μ := by
+      exact hmp.setLIntegral_comp_emb e.measurableEmbedding D s
+    _ ≤ ∫⁻ b in t, D b ∂μ := by
+      exact lintegral_mono_set (Set.image_subset_iff.mpr hmap)
+
+/--
+Strict change-of-variables mass comparison for a with-density measure.
+
+This strengthens `withDensity_measure_le_of_measurableEquiv_image_subset_density_le`:
+if the density inequality is strict on a positive-base-measure subset `u` of
+`s`, and the source integral is finite, then the with-density mass comparison
+is strict.
+-/
+theorem withDensity_measure_lt_of_measurableEquiv_image_subset_density_lt_on
+    {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (e : α ≃ᵐ α) (hmp : MeasurePreserving e μ μ)
+    (D : α → ℝ≥0∞) (hD : Measurable D)
+    {s t u : Set α} (hs : MeasurableSet s) (ht : MeasurableSet t) (hu : MeasurableSet u)
+    (hmap : ∀ a, a ∈ s → e a ∈ t)
+    (hdens_le : ∀ a, a ∈ s → D a ≤ D (e a))
+    (hfi : ∫⁻ a in s, D a ∂μ ≠ ∞)
+    (hu_subset : u ⊆ s)
+    (hu_pos : μ u ≠ 0)
+    (hdens_lt : ∀ a, a ∈ u → D a < D (e a)) :
+    μ.withDensity D s < μ.withDensity D t := by
+  rw [withDensity_apply D hs, withDensity_apply D ht]
+  have hstrict :
+      ∫⁻ a in s, D a ∂μ < ∫⁻ a in s, D (e a) ∂μ := by
+    refine lintegral_strict_mono_of_ae_le_of_ae_lt_on
+      (μ := μ.restrict s) (s := u)
+      ((hD.comp e.measurable).aemeasurable)
+      hfi
+      ((ae_restrict_iff' hs).2 (ae_of_all μ hdens_le))
+      ?_ ?_
+    · rw [Measure.restrict_apply hu]
+      rwa [Set.inter_eq_left.mpr hu_subset]
+    · exact ae_of_all _ (fun a ha => hdens_lt a ha)
+  calc
+    ∫⁻ a in s, D a ∂μ < ∫⁻ a in s, D (e a) ∂μ := hstrict
+    _ = ∫⁻ b in e '' s, D b ∂μ := by
+      exact hmp.setLIntegral_comp_emb e.measurableEmbedding D s
+    _ ≤ ∫⁻ b in t, D b ∂μ := by
+      exact lintegral_mono_set (Set.image_subset_iff.mpr hmap)
+
+
+--  Bonferroni inequalities
+
+/-- First-order union bound for finite families. -/
+theorem measureProb_biUnion_finset_le
+    {α ι : Type*} [MeasurableSpace α]
+    (μ : Measure α) (s : Finset ι) (p : ι → α → Prop) :
+    measureProb μ (fun a => ∃ i ∈ s, p i a) ≤
+      ∑ i ∈ s, measureProb μ (fun a => p i a) := by
+  let U : Set α := {a : α | ∃ i ∈ s, p i a}
+  have hset : U = ⋃ i ∈ s, {a : α | p i a} := by
+    ext a
+    simp [U]
+  change (μ U).toReal ≤ ∑ i ∈ s, measureProb μ (fun a => p i a)
+  rw [hset]
+  simpa [measureProb] using
+    (measureReal_biUnion_finset_le (μ := μ) (s := s) (f := fun i => {a : α | p i a}))
+
+/-- First-order complement lower bound for finite intersections. -/
+theorem measureProb_inter_ge_one_sub_sum_compl
+    {α ι : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ] (s : Finset ι) (p : ι → α → Prop)
+    (hm : ∀ i ∈ s, MeasurableSet {a : α | p i a}) :
+    1 - ∑ i ∈ s, measureProb μ (fun a => ¬ p i a) ≤
+      measureProb μ (fun a => ∀ i ∈ s, p i a) := by
+  classical
+  let U : Set α := {a : α | ∀ i ∈ s, p i a}
+  let C : Set α := ⋃ i ∈ s, {a : α | ¬ p i a}
+  have hU : MeasurableSet U := by
+    have hU' : U = ⋂ i ∈ s, {a : α | p i a} := by
+      ext a
+      simp [U]
+    rw [hU']
+    exact Finset.measurableSet_biInter (s := s)
+      (f := fun i : ι => {a : α | p i a}) hm
+  have hC : MeasurableSet C := by
+    simpa [C] using Finset.measurableSet_biUnion (s := s)
+      (f := fun i : ι => {a : α | ¬ p i a})
+      (fun i hi => (hm i hi).compl)
+  have hdeMorgan : Uᶜ = C := by
+    ext a
+    constructor
+    · intro ha
+      by_cases hC : a ∈ C
+      · exact hC
+      · exfalso
+        apply ha
+        simp [U]
+        intro i hi
+        by_contra hpi
+        apply hC
+        change a ∈ ⋃ i ∈ s, {a : α | ¬ p i a}
+        exact Set.mem_iUnion.mpr
+          ⟨i, Set.mem_iUnion.mpr ⟨hi, by simpa using hpi⟩⟩
+    · intro hC
+      change a ∈ ⋃ i ∈ s, {a : α | ¬ p i a} at hC
+      rcases Set.mem_iUnion.mp hC with ⟨i, hCi⟩
+      rcases Set.mem_iUnion.mp hCi with ⟨hi, hpi⟩
+      intro hUA
+      exact hpi (hUA i hi)
+  have hcomp : μ.real C ≤ ∑ i ∈ s, measureProb μ (fun a => ¬ p i a) := by
+    have hCset : C = ⋃ i ∈ s, {a : α | ¬ p i a} := by
+      ext a
+      simp [C]
+    rw [hCset]
+    simpa [measureProb, Measure.real] using
+      (measureReal_biUnion_finset_le (μ := μ) (s := s)
+        (f := fun i => {a : α | ¬ p i a}))
+  have hprob : 1 - ∑ i ∈ s, measureProb μ (fun a => ¬ p i a) ≤ μ.real U := by
+    have hCeq : μ.real C = 1 - μ.real U := by
+      have hcompl := probReal_compl_eq_one_sub (μ := μ) hU
+      simpa [hdeMorgan] using hcompl
+    calc
+      1 - ∑ i ∈ s, measureProb μ (fun a => ¬ p i a) ≤ 1 - μ.real C := by
+        nlinarith [hcomp]
+      _ = μ.real U := by linarith [hCeq]
+  simpa [measureProb, U] using hprob
+
+private theorem sum_filter_choose_eq
+    {ι α : Type*} (s : Finset ι) (p : ι → α → Prop) (ω : α) (k : ℕ)
+    [DecidablePred (fun i => p i ω)] :
+    (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) =
+      ((s.filter (fun i => p i ω)).card.choose k : ℝ) := by
+  have hfilter :
+      (s.powersetCard k).filter (fun t => ∀ i ∈ t, p i ω) =
+        (s.filter (fun i => p i ω)).powersetCard k := by
+    ext t
+    constructor
+    · intro ht
+      rcases Finset.mem_filter.mp ht with ⟨ht, hpt⟩
+      rcases Finset.mem_powersetCard.mp ht with ⟨hts, htk⟩
+      exact Finset.mem_powersetCard.mpr
+        ⟨fun i hi => Finset.mem_filter.mpr ⟨hts hi, hpt i hi⟩, htk⟩
+    · intro ht
+      rcases Finset.mem_powersetCard.mp ht with ⟨hts, htk⟩
+      refine Finset.mem_filter.mpr ?_
+      refine ⟨Finset.mem_powersetCard.mpr
+        ⟨fun i hi => (Finset.mem_filter.mp (hts hi)).1, htk⟩, ?_⟩
+      intro i hi
+      exact (Finset.mem_filter.mp (hts hi)).2
+  calc
+    (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+        = ∑ t ∈ (s.powersetCard k).filter (fun t => ∀ i ∈ t, p i ω), (1 : ℝ) := by
+          simpa [Finset.sum_filter]
+    _ = (((s.powersetCard k).filter (fun t => ∀ i ∈ t, p i ω)).card : ℝ) := by simp
+    _ = (((s.filter (fun i => p i ω)).powersetCard k).card : ℝ) := by rw [hfilter]
+    _ = ((s.filter (fun i => p i ω)).card.choose k : ℝ) := by
+      simp [Finset.card_powersetCard]
+
+private theorem sum_choose_zero_eq_one (m : ℕ) :
+    (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * ((0 : ℕ).choose k : ℝ)) = 1 := by
+  induction m with
+  | zero => simp
+  | succ m ih =>
+      simp [Finset.sum_range_succ, ih, Nat.choose_eq_zero_of_lt (Nat.succ_pos m)]
+
+private theorem alternating_sum_choose_real_eq_odd
+    {n m : ℕ} (hn : 0 < n) (hm : Odd m) :
+    (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * (n.choose k : ℝ))
+      = -((n - 1).choose m : ℝ) := by
+  have hcast :
+      (∑ k ∈ Finset.range (m + 1), ((-1 : ℤ)^k * (n.choose k : ℤ) : ℤ))
+          = (-1 : ℤ)^m * (n - 1).choose m := by
+    simpa [Nat.sub_add_cancel hn] using
+      (Int.alternating_sum_range_choose_eq_choose (n := n - 1) (m := m))
+  have hcast' :
+      (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * (n.choose k : ℝ))
+      = (∑ k ∈ Finset.range (m + 1), (((-1 : ℤ)^k * (n.choose k : ℤ) : ℤ) : ℝ)) := by
+    refine Finset.sum_congr rfl ?_
+    intro k hk
+    norm_num [Int.cast_mul, Int.cast_pow]
+  calc
+    (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * (n.choose k : ℝ))
+        = (∑ k ∈ Finset.range (m + 1),
+            (((-1 : ℤ)^k * (n.choose k : ℤ) : ℤ) : ℝ)) := hcast'
+    _ = ((-1 : ℝ)^m) * (n - 1).choose m := by
+      exact_mod_cast hcast
+    _ = -((n - 1).choose m : ℝ) := by simpa [hm.neg_one_pow]
+
+private theorem alternating_sum_choose_real_eq_even
+    {n m : ℕ} (hn : 0 < n) (hm : Even m) :
+    (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * (n.choose k : ℝ))
+      = ((n - 1).choose m : ℝ) := by
+  have hcast :
+      (∑ k ∈ Finset.range (m + 1), ((-1 : ℤ)^k * (n.choose k : ℤ) : ℤ))
+          = (-1 : ℤ)^m * (n - 1).choose m := by
+    simpa [Nat.sub_add_cancel hn] using
+      (Int.alternating_sum_range_choose_eq_choose (n := n - 1) (m := m))
+  have hcast' :
+      (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * (n.choose k : ℝ))
+      = (∑ k ∈ Finset.range (m + 1), (((-1 : ℤ)^k * (n.choose k : ℤ) : ℤ) : ℝ)) := by
+    refine Finset.sum_congr rfl ?_
+    intro k hk
+    norm_num [Int.cast_mul, Int.cast_pow]
+  calc
+    (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) * (n.choose k : ℝ))
+        = (∑ k ∈ Finset.range (m + 1),
+            (((-1 : ℤ)^k * (n.choose k : ℤ) : ℤ) : ℝ)) := hcast'
+    _ = ((-1 : ℝ)^m) * (n - 1).choose m := by
+      exact_mod_cast hcast
+    _ = ((n - 1).choose m : ℝ) := by simpa [hm.neg_one_pow]
+
+--  Bonferroni (finite odd-order truncation upper bound)
+theorem measureProb_biUnion_finset_bonferroni_odd
+    {α ι : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ] (s : Finset ι) (p : ι → α → Prop)
+    (m : ℕ) (hm : ∀ i ∈ s, MeasurableSet {a : α | p i a}) (hodd : Odd m) :
+    measureProb μ (fun a => ∃ i ∈ s, p i a) ≤
+      1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+      ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+  classical
+  let U : Set α := {a : α | ∃ i ∈ s, p i a}
+  have hU : MeasurableSet U := by
+    have hU' : U = ⋃ i ∈ s, {a : α | p i a} := by
+      ext a
+      simp [U]
+    rw [hU']
+    exact Finset.measurableSet_biUnion (s := s)
+      (f := fun i : ι => {a : α | p i a}) hm
+  let LHS : α → ℝ := U.indicator (fun _ : α => (1 : ℝ))
+  let RHS : α → ℝ :=
+    fun ω =>
+      1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+        ∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+  have hpoint :
+      ∀ ω, LHS ω ≤ RHS ω := by
+    intro ω
+    by_cases hUω : ω ∈ U
+    · have hnzero : 0 < (s.filter (fun i => p i ω)).card := by
+        rcases hUω with ⟨i, his, hp⟩
+        exact Finset.card_pos.mpr ⟨i, by simp [his, hp]⟩
+      have hsum :
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+            ) ) = -((s.filter (fun i => p i ω)).card - 1).choose m := by
+        calc
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+              )
+              = (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+                  ((s.filter (fun i => p i ω)).card.choose k : ℝ)) := by
+                  refine Finset.sum_congr rfl ?_
+                  intro k hk
+                  rw [sum_filter_choose_eq (s := s) (p := p) (ω := ω) (k := k)]
+          _ = -((s.filter (fun i => p i ω)).card - 1).choose m := by
+                exact alternating_sum_choose_real_eq_odd
+                  (hm := hodd) (n := (s.filter (fun i => p i ω)).card) hnzero
+      have hchoose_nonneg : 0 ≤ (((s.filter (fun i => p i ω)).card - 1).choose m : ℝ) := by
+        exact_mod_cast (Nat.zero_le (((s.filter (fun i => p i ω)).card - 1).choose m))
+      have hrhs :
+          RHS ω = 1 + (((s.filter (fun i => p i ω)).card - 1).choose m : ℝ) := by
+        dsimp [RHS]
+        nlinarith [hsum]
+      have hLHS : LHS ω = (1 : ℝ) := by simp [LHS, hUω]
+      rw [hLHS, hrhs]
+      exact le_add_of_nonneg_right hchoose_nonneg
+    · have hcard : (s.filter (fun i => p i ω)).card = 0 := by
+        by_contra hcard
+        rcases Finset.card_pos.mp (Nat.pos_of_ne_zero hcard) with ⟨i, hi⟩
+        exact hUω ⟨i, (Finset.mem_filter.mp hi).1, (Finset.mem_filter.mp hi).2⟩
+      have hsum :
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+            ) ) = 1 := by
+        calc
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+              )
+              )
+              = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+                  ((s.filter (fun i => p i ω)).card.choose k : ℝ) := by
+                    refine Finset.sum_congr rfl ?_
+                    intro k hk
+                    rw [sum_filter_choose_eq (s := s) (p := p) (ω := ω) (k := k)]
+              _ = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+                    ((0 : ℕ).choose k : ℝ) := by simp [hcard]
+              _ = 1 := sum_choose_zero_eq_one m
+      have hrhs : RHS ω = 0 := by
+        dsimp [RHS]
+        nlinarith [hsum]
+      have hLHS : LHS ω = 0 := by simp [LHS, hUω]
+      simpa [hLHS, hrhs]
+  have hLInt : Integrable LHS μ := by
+    refine (MeasureTheory.integrable_indicator_iff hU).2 ?_
+    exact MeasureTheory.integrableOn_const (μ := μ) (s := U)
+      (hs := measure_ne_top_of_subset (by simp) (measure_ne_top μ Set.univ))
+  have hindicator_eq :
+      ∀ (t : Finset ι), ∀ (ω : α),
+        (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) =
+          (⋂ i ∈ t, {a : α | p i a}).indicator (fun _ : α => (1 : ℝ)) ω := by
+    intro t ω
+    by_cases hforall : ∀ i ∈ t, p i ω
+    · have hmem : ω ∈ ⋂ i ∈ t, {a : α | p i a} := by
+        simpa [Set.mem_iInter] using hforall
+      rw [if_pos hforall]
+      simp [hmem]
+    · have hnotmem : ω ∉ ⋂ i ∈ t, {a : α | p i a} := by
+        intro hmem
+        exact hforall (by simpa [Set.mem_iInter] using hmem)
+      rw [if_neg hforall]
+      simp [hnotmem]
+  have hInnerInt :
+      ∀ k, ∀ t ∈ s.powersetCard k,
+      Integrable (fun ω => (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) μ := by
+    intro k t ht
+    let A : Set α := ⋂ i ∈ t, {a : α | p i a}
+    have hA : MeasurableSet A := by
+      refine t.measurableSet_biInter ?_
+      intro i hi
+      exact hm i ((Finset.mem_powersetCard.mp ht).1 hi)
+    have hAint : Integrable (A.indicator (fun _ : α => (1 : ℝ))) μ := by
+      refine (MeasureTheory.integrable_indicator_iff hA).2 ?_
+      exact MeasureTheory.integrableOn_const (μ := μ) (s := A)
+        (hs := measure_ne_top_of_subset (by simp) (measure_ne_top μ Set.univ))
+    have hEq :
+        (fun ω => (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+          = (fun ω => A.indicator (fun _ : α => (1 : ℝ)) ω) := by
+      funext ω
+      simpa [A] using hindicator_eq t ω
+    exact hEq ▸ hAint
+  have hInnerSumInt :
+      ∀ k, Integrable (fun ω =>
+        ∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) μ := by
+    intro k
+    refine MeasureTheory.integrable_finset_sum (s := s.powersetCard k) ?_
+    intro t ht
+    exact hInnerInt k t ht
+  have hInnerMeasure :
+      ∀ k,
+      (∫ ω, (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ) =
+        ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+    intro k
+    calc
+      (∫ ω, (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ)
+          = ∑ t ∈ s.powersetCard k, ∫ ω, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ∂μ := by
+            refine MeasureTheory.integral_finset_sum (s := s.powersetCard k) ?_
+            intro t ht
+            exact hInnerInt k t ht
+      _ = ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+            refine Finset.sum_congr rfl ?_
+            intro t ht
+            let A : Set α := ⋂ i ∈ t, {a : α | p i a}
+            have hA : MeasurableSet A := by
+              refine t.measurableSet_biInter ?_
+              intro i hi
+              exact hm i ((Finset.mem_powersetCard.mp ht).1 hi)
+            have hAeq : A = {a : α | ∀ i ∈ t, p i a} := by
+              ext a
+              simp [A, Set.mem_iInter]
+            have hEq :
+                (fun ω => (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+                  = (fun ω => A.indicator (fun _ : α => (1 : ℝ)) ω) := by
+              funext ω
+              simpa [A] using hindicator_eq t ω
+            calc
+              ∫ ω, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ∂μ
+                  = ∫ ω, A.indicator (fun _ : α => (1 : ℝ)) ω ∂μ := by
+                    exact congrArg (fun g => ∫ ω, g ω ∂μ) hEq
+              _ = ∫ ω in A, (1 : ℝ) ∂μ := by
+                    rw [MeasureTheory.integral_indicator hA]
+              _ = μ.real A := by
+                    simpa using (MeasureTheory.setIntegral_one_eq_measureReal (μ := μ) (s := A))
+              _ = measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+                    have hAeq' : μ.real A = μ.real {a : α | ∀ i ∈ t, p i a} := by
+                      simpa [hAeq]
+                    simpa [measureProb, Measure.real] using hAeq'
+  have hOuterInt :
+      Integrable (fun ω =>
+        ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+          (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ) μ := by
+    refine MeasureTheory.integrable_finset_sum (s := Finset.range (m + 1)) ?_
+    intro k hk
+    exact (hInnerSumInt k).const_mul ((-1 : ℝ)^k)
+  have hRHSInt : Integrable RHS μ := by
+    have hconstInt : Integrable (fun _ : α => (1 : ℝ)) μ := by
+      simpa using (MeasureTheory.integrable_const (μ := μ) (c := (1 : ℝ)))
+    exact (hconstInt.sub hOuterInt)
+  have hOuterSum :
+      (∫ ω, ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+        (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ)
+          = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+    calc
+      ∫ ω, ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+          (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ
+          = ∑ k ∈ Finset.range (m + 1), ∫ ω, ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k,
+                (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ := by
+                exact MeasureTheory.integral_finset_sum (s := Finset.range (m + 1))
+                  (f := fun k ω => ((-1 : ℝ)^k) *
+                    (∑ t ∈ s.powersetCard k,
+                      (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+                  ) (fun k hk => (hInnerSumInt k).const_mul ((-1 : ℝ)^k))
+      _ = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+        ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+          refine Finset.sum_congr rfl ?_
+          intro k hk
+          calc
+            ∫ ω, ((-1 : ℝ)^k) *
+                (∑ t ∈ s.powersetCard k,
+                  (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ
+                = ((-1 : ℝ)^k) * ∫ ω, (∑ t ∈ s.powersetCard k,
+                    (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ := by
+                      simpa using (MeasureTheory.integral_const_mul ((-1 : ℝ)^k)
+                        (fun ω => ∑ t ∈ s.powersetCard k,
+                          (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) )
+              _ = ((-1 : ℝ)^k) * (∑ t ∈ s.powersetCard k,
+                    measureProb μ (fun a => ∀ i ∈ t, p i a)) := by
+                    rw [hInnerMeasure k]
+  have hRHSIntEq :
+      ∫ ω, RHS ω ∂μ =
+        1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+          ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+    have hconstInt : Integrable (fun _ : α => (1 : ℝ)) μ := by
+      simpa using (MeasureTheory.integrable_const (μ := μ) (c := (1 : ℝ)))
+    calc
+      (∫ ω, RHS ω ∂μ)
+          = (∫ ω, (1 : ℝ) ∂μ) - ∫ ω, (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ) ) ∂μ := by
+                simpa [RHS] using (MeasureTheory.integral_sub hconstInt hOuterInt)
+      _ = 1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+              rw [hOuterSum]
+              simp [MeasureTheory.integral_const]
+  have hLHSInt :
+      (∫ ω, LHS ω ∂μ) = measureProb μ (fun a => ∃ i ∈ s, p i a) := by
+    calc
+      (∫ ω, LHS ω ∂μ) = ∫ ω, U.indicator (fun _ : α => (1 : ℝ)) ω ∂μ := by
+        simp [LHS]
+      _ = ∫ ω in U, (1 : ℝ) ∂μ := by
+        simpa using (MeasureTheory.integral_indicator (s := U) (f := fun _ : α => (1 : ℝ)) hU)
+      _ = μ.real U := by
+        simpa using (MeasureTheory.setIntegral_one_eq_measureReal (μ := μ) (s := U))
+      _ = measureProb μ (fun a => ∃ i ∈ s, p i a) := by
+        simp [measureProb, Measure.real, U]
+  have hInt := MeasureTheory.integral_mono hLInt hRHSInt hpoint
+  simpa [hLHSInt, hRHSIntEq] using hInt
+
+--  Bonferroni (finite even-order truncation lower bound)
+theorem measureProb_biUnion_finset_bonferroni_even
+    {α ι : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ] (s : Finset ι) (p : ι → α → Prop)
+    (m : ℕ) (hm : ∀ i ∈ s, MeasurableSet {a : α | p i a}) (hme : Even m) :
+    1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+      ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) ≤
+      measureProb μ (fun a => ∃ i ∈ s, p i a) := by
+  classical
+  let U : Set α := {a : α | ∃ i ∈ s, p i a}
+  have hU : MeasurableSet U := by
+    have hU' : U = ⋃ i ∈ s, {a : α | p i a} := by
+      ext a
+      simp [U]
+    rw [hU']
+    exact Finset.measurableSet_biUnion (s := s) (f := fun i : ι => {a : α | p i a}) hm
+  let LHS : α → ℝ := U.indicator (fun _ : α => (1 : ℝ))
+  let RHS : α → ℝ :=
+    fun ω =>
+      1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+        ∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+  have hpoint :
+      ∀ ω, RHS ω ≤ LHS ω := by
+    intro ω
+    by_cases hUω : ω ∈ U
+    · have hnzero : 0 < (s.filter (fun i => p i ω)).card := by
+        rcases hUω with ⟨i, his, hp⟩
+        exact Finset.card_pos.mpr ⟨i, by simp [his, hp]⟩
+      have hsum :
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+            ) ) = ((s.filter (fun i => p i ω)).card - 1).choose m := by
+        calc
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+              )
+              )
+              = (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+                  ((s.filter (fun i => p i ω)).card.choose k : ℝ)) := by
+                    refine Finset.sum_congr rfl ?_
+                    intro k hk
+                    rw [sum_filter_choose_eq (s := s) (p := p) (ω := ω) (k := k)]
+          _ = ((s.filter (fun i => p i ω)).card - 1).choose m := by
+                exact alternating_sum_choose_real_eq_even
+                  (hm := hme) (n := (s.filter (fun i => p i ω)).card) hnzero
+      have hchoose_nonneg : 0 ≤ (((s.filter (fun i => p i ω)).card - 1).choose m : ℝ) := by
+        exact_mod_cast (Nat.zero_le (((s.filter (fun i => p i ω)).card - 1).choose m))
+      have hrhs :
+          RHS ω = 1 - (((s.filter (fun i => p i ω)).card - 1).choose m : ℝ) := by
+        dsimp [RHS]
+        nlinarith [hsum]
+      have hLHS : LHS ω = (1 : ℝ) := by simp [LHS, hUω]
+      rw [hrhs, hLHS]
+      nlinarith
+    · have hcard : (s.filter (fun i => p i ω)).card = 0 := by
+        by_contra hcard
+        rcases Finset.card_pos.mp (Nat.pos_of_ne_zero hcard) with ⟨i, hi⟩
+        exact hUω ⟨i, (Finset.mem_filter.mp hi).1, (Finset.mem_filter.mp hi).2⟩
+      have hsum :
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+            ) ) = 1 := by
+        calc
+          (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)
+              )
+              )
+              = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+                  ((s.filter (fun i => p i ω)).card.choose k : ℝ) := by
+                    refine Finset.sum_congr rfl ?_
+                    intro k hk
+                    rw [sum_filter_choose_eq (s := s) (p := p) (ω := ω) (k := k)]
+              _ = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+                    ((0 : ℕ).choose k : ℝ) := by simp [hcard]
+              _ = 1 := sum_choose_zero_eq_one m
+      have hrhs : RHS ω = 0 := by
+        dsimp [RHS]
+        nlinarith [hsum]
+      have hLHS : LHS ω = 0 := by simp [LHS, hUω]
+      simpa [hLHS, hrhs]
+  have hLInt : Integrable LHS μ := by
+    refine (MeasureTheory.integrable_indicator_iff hU).2 ?_
+    exact MeasureTheory.integrableOn_const (μ := μ) (s := U)
+      (hs := measure_ne_top_of_subset (by simp) (measure_ne_top μ Set.univ))
+  have hindicator_eq :
+      ∀ (t : Finset ι), ∀ (ω : α),
+        (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) =
+          (⋂ i ∈ t, {a : α | p i a}).indicator (fun _ : α => (1 : ℝ)) ω := by
+    intro t ω
+    by_cases hforall : ∀ i ∈ t, p i ω
+    · have hmem : ω ∈ ⋂ i ∈ t, {a : α | p i a} := by
+        simpa [Set.mem_iInter] using hforall
+      rw [if_pos hforall]
+      simp [hmem]
+    · have hnotmem : ω ∉ ⋂ i ∈ t, {a : α | p i a} := by
+        intro hmem
+        exact hforall (by simpa [Set.mem_iInter] using hmem)
+      rw [if_neg hforall]
+      simp [hnotmem]
+  have hInnerInt :
+      ∀ k, ∀ t ∈ s.powersetCard k,
+      Integrable (fun ω => (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) μ := by
+    intro k t ht
+    let A : Set α := ⋂ i ∈ t, {a : α | p i a}
+    have hA : MeasurableSet A := by
+      refine t.measurableSet_biInter ?_
+      intro i hi
+      exact hm i ((Finset.mem_powersetCard.mp ht).1 hi)
+    have hAint : Integrable (A.indicator (fun _ : α => (1 : ℝ))) μ := by
+      refine (MeasureTheory.integrable_indicator_iff hA).2 ?_
+      exact MeasureTheory.integrableOn_const (μ := μ) (s := A)
+        (hs := measure_ne_top_of_subset (by simp) (measure_ne_top μ Set.univ))
+    have hEq :
+        (fun ω => (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+          = (fun ω => A.indicator (fun _ : α => (1 : ℝ)) ω) := by
+      funext ω
+      simpa [A] using hindicator_eq t ω
+    exact hEq ▸ hAint
+  have hInnerSumInt :
+      ∀ k, Integrable (fun ω =>
+        ∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) μ := by
+    intro k
+    refine MeasureTheory.integrable_finset_sum (s := s.powersetCard k) ?_
+    intro t ht
+    exact hInnerInt k t ht
+  have hInnerMeasure :
+      ∀ k,
+      (∫ ω, (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ) =
+        ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+    intro k
+    calc
+      (∫ ω, (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ)
+          = ∑ t ∈ s.powersetCard k, ∫ ω, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ∂μ := by
+            refine MeasureTheory.integral_finset_sum (s := s.powersetCard k) ?_
+            intro t ht
+            exact hInnerInt k t ht
+      _ = ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+            refine Finset.sum_congr rfl ?_
+            intro t ht
+            let A : Set α := ⋂ i ∈ t, {a : α | p i a}
+            have hA : MeasurableSet A := by
+              refine t.measurableSet_biInter ?_
+              intro i hi
+              exact hm i ((Finset.mem_powersetCard.mp ht).1 hi)
+            have hAeq : A = {a : α | ∀ i ∈ t, p i a} := by
+              ext a
+              simp [A, Set.mem_iInter]
+            have hEq :
+                (fun ω => (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+                  = (fun ω => A.indicator (fun _ : α => (1 : ℝ)) ω) := by
+              funext ω
+              simpa [A] using hindicator_eq t ω
+            calc
+              ∫ ω, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ∂μ
+                  = ∫ ω, A.indicator (fun _ : α => (1 : ℝ)) ω ∂μ := by
+                    exact congrArg (fun g => ∫ ω, g ω ∂μ) hEq
+              _ = ∫ ω in A, (1 : ℝ) ∂μ := by
+                    rw [MeasureTheory.integral_indicator hA]
+              _ = μ.real A := by
+                    simpa using (MeasureTheory.setIntegral_one_eq_measureReal (μ := μ) (s := A))
+              _ = measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+                    have hAeq' : μ.real A = μ.real {a : α | ∀ i ∈ t, p i a} := by
+                      simpa [hAeq]
+                    simpa [measureProb, Measure.real] using hAeq'
+  have hOuterInt :
+      Integrable (fun ω =>
+        ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+          (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ) μ := by
+    refine MeasureTheory.integrable_finset_sum (s := Finset.range (m + 1)) ?_
+    intro k hk
+    exact (hInnerSumInt k).const_mul ((-1 : ℝ)^k)
+  have hRHSInt : Integrable RHS μ := by
+    have hconstInt : Integrable (fun _ : α => (1 : ℝ)) μ := by
+      simpa using (MeasureTheory.integrable_const (μ := μ) (c := (1 : ℝ)))
+    exact (hconstInt.sub hOuterInt)
+  have hOuterSum :
+      (∫ ω, ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+        (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ)
+          = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+    calc
+      ∫ ω, ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+          (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ
+          = ∑ k ∈ Finset.range (m + 1), ∫ ω, ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k,
+                (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ := by
+                exact MeasureTheory.integral_finset_sum (s := Finset.range (m + 1))
+                  (f := fun k ω => ((-1 : ℝ)^k) *
+                    (∑ t ∈ s.powersetCard k,
+                      (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
+                  ) (fun k hk => (hInnerSumInt k).const_mul ((-1 : ℝ)^k))
+      _ = ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+        ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+          refine Finset.sum_congr rfl ?_
+          intro k hk
+          calc
+            ∫ ω, ((-1 : ℝ)^k) *
+                (∑ t ∈ s.powersetCard k,
+                  (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ
+                = ((-1 : ℝ)^k) * ∫ ω, (∑ t ∈ s.powersetCard k,
+                    (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ := by
+                      simpa using (MeasureTheory.integral_const_mul ((-1 : ℝ)^k)
+                        (fun ω => ∑ t ∈ s.powersetCard k,
+                          (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) )
+              _ = ((-1 : ℝ)^k) * (∑ t ∈ s.powersetCard k,
+                    measureProb μ (fun a => ∀ i ∈ t, p i a)) := by
+                    rw [hInnerMeasure k]
+  have hRHSIntEq :
+      ∫ ω, RHS ω ∂μ =
+        1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+          ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+    have hconstInt : Integrable (fun _ : α => (1 : ℝ)) μ := by
+      simpa using (MeasureTheory.integrable_const (μ := μ) (c := (1 : ℝ)))
+    calc
+      (∫ ω, RHS ω ∂μ)
+          = (∫ ω, (1 : ℝ) ∂μ) - ∫ ω, (∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+              (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ) ) ∂μ := by
+                simpa [RHS] using (MeasureTheory.integral_sub hconstInt hOuterInt)
+      _ = 1 - ∑ k ∈ Finset.range (m + 1), ((-1 : ℝ)^k) *
+            ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
+              rw [hOuterSum]
+              simp [MeasureTheory.integral_const]
+  have hLHSInt :
+      (∫ ω, LHS ω ∂μ) = measureProb μ (fun a => ∃ i ∈ s, p i a) := by
+    calc
+      (∫ ω, LHS ω ∂μ) = ∫ ω, U.indicator (fun _ : α => (1 : ℝ)) ω ∂μ := by
+        simp [LHS]
+      _ = ∫ ω in U, (1 : ℝ) ∂μ := by
+        simpa using (MeasureTheory.integral_indicator (s := U) (f := fun _ : α => (1 : ℝ)) hU)
+      _ = μ.real U := by
+        simpa using (MeasureTheory.setIntegral_one_eq_measureReal (μ := μ) (s := U))
+      _ = measureProb μ (fun a => ∃ i ∈ s, p i a) := by
+        simp [measureProb, Measure.real, U]
+  have hInt := MeasureTheory.integral_mono hRHSInt hLInt hpoint
+  simpa [hLHSInt, hRHSIntEq] using hInt
+
+end EconCSLib

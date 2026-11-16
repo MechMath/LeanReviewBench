@@ -1,0 +1,26 @@
+{
+  "packet": "sumcheck-full-rbr-after",
+  "root": "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness",
+  "sources": [
+    {
+      "kind": "preexisting natural-language blueprint",
+      "revision": "1e0241333c18d8b22cb68f9522da5f9fb88f9a06",
+      "file": "blueprint/src/proof_systems/sumcheck.tex",
+      "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00",
+      "labels": [
+        "thm:sumcheck_rbr_knowledge_soundness_standard",
+        "thm:sumcheck_single_round_soundness"
+      ],
+      "archive": "sources/1e0241333c18d8b22cb68f9522da5f9fb88f9a06.tar.gz"
+    },
+    {
+      "kind": "independent paper",
+      "file": "targets/BBS24.pdf",
+      "sha256": "049bb9d62355af60bb74135a06379e4fcbcfb496127d035019d96b3710473669",
+      "version": "arXiv 2402.06093v1, fixed original PDF",
+      "locator": "Introduction sumcheck problem over field F; section III sumcheck protocol and security proof",
+      "scope_note": "Finite-field target supports domain restriction; exact error/n-round formalization still reviewed, no automatic alignment label."
+    }
+  ],
+  "source_evidence_root": "../../../../reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen"
+}

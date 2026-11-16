@@ -1,0 +1,25 @@
+{
+  "dataset": "arklib",
+  "project_id": "stir-rbr-withdrawn-before",
+  "status": "passed",
+  "modules": 188,
+  "targets": [
+    "StirIOP.stir_rbr_soundness"
+  ],
+  "compiled_modules": 188,
+  "source_sha256": "a192b8c68f3ec7f4712058c38505aefb0d297a2f29f22d54ffb74558b3ceaa1c",
+  "seconds": 34.772,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 653,
+      "edges": 4256
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 653,
+      "edges": 4256
+    }
+  },
+  "leantrace_extracted": true
+}

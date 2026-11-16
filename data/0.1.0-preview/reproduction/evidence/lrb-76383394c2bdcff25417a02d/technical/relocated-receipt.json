@@ -1,0 +1,26 @@
+{
+  "dataset": "equational-theories",
+  "project_id": "etp-sheffer",
+  "status": "passed",
+  "modules": 21,
+  "targets": [
+    "Sheffer.Equation345169_is_Boolean",
+    "Sheffer.Sheffer_Equation345169"
+  ],
+  "compiled_modules": 21,
+  "source_sha256": "ee10a8345e2bf75db5ff3549d5de3a59ed9cf7682eb31ff552cc79ca449aa43e",
+  "seconds": 24.703,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 82,
+      "edges": 334
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 82,
+      "edges": 334
+    }
+  },
+  "leantrace_extracted": true
+}

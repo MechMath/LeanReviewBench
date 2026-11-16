@@ -1,0 +1,105 @@
+{
+  "dataset": "equational-theories",
+  "project_id": "etp-greedy1729",
+  "root": "Eq1729.not_817",
+  "input_sha256": "99e78a223d32421d861b5da9b5570cf09b80b660989b70a948522a8ba131e40f",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "808da9fbf857e0d3dffab4cc27e90c336a12667a2c61ae84a8e2f0142f926177",
+  "label": "aligned",
+  "reason": "原文与 formal 均要求存在同一个 magma 满足等式 1729 且不满足等式 817；独立编号表中的变量与括号对应，否定作用于整个全称等式律。根声明没有额外前提，扩张与链覆盖条件在证明内处理；空 magma 会满足 817，不能充当见证。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好为我标成aligned; confirms aligned for equational-theories:etp-greedy1729 after reviewing the shared magma witness, equation definitions, negation scope, and absence of extra root premises.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "当前独立 blueprint 的 1729 does not imply 817 定理及独立论文编号表，与 Eq1729.not_817 的同一 magma 存在性陈述；核对根证明对贪心链及扩张条件的内部调用。",
+  "evidence_locations": {
+    "informal_and_scope": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/informal.jsonl",
+      "line": 1,
+      "sha256": "6e614c03655f2cf66718441998156ee4382e216e212a7e67bd2a05f8272699ad"
+    },
+    "source_theorem_and_construction": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/blueprint/src/chapter/1729.tex",
+      "line": 299,
+      "sha256": "5cbd7b2f319f9e0ed6d85dca8541e13430ef464d9fab088b62adb2c74363eb96"
+    },
+    "independent_equation_817": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/paper/numbering.tex",
+      "line": 80,
+      "sha256": "0ea1d1ceedfd7a1066fe92f3f36f77adea95d96620fab6a64bad7308070a46f2"
+    },
+    "independent_equation_1729": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/paper/numbering.tex",
+      "line": 95,
+      "sha256": "0ea1d1ceedfd7a1066fe92f3f36f77adea95d96620fab6a64bad7308070a46f2"
+    },
+    "root_and_greedy_chain": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729.lean",
+      "line": 15,
+      "sha256": "97b9142dac5c13bb03904e19194d171b87e3e8d03e1dd67d5aa5aa81a8531c94"
+    },
+    "extension_obligations": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729.lean",
+      "line": 32,
+      "sha256": "97b9142dac5c13bb03904e19194d171b87e3e8d03e1dd67d5aa5aa81a8531c94"
+    },
+    "formal_equation_817": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Equations/Basic.lean",
+      "line": 95,
+      "sha256": "97d9e447d1071685db6a3d4515adab686fb797c8fc3a331c08b66a1a560c962d"
+    },
+    "formal_equation_1729": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Equations/Eqns1000_1999.lean",
+      "line": 735,
+      "sha256": "44155045d2091d0ca3478ad596c4c3cd3abb5408260e2b3684db598310a1612b"
+    },
+    "universal_equation_elaboration": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Equations/Command.lean",
+      "line": 106,
+      "sha256": "09edfbeb822f086d8b360879cec45fa58f7a75814aac4304b648bb7f18cf5e00"
+    },
+    "magma_definition": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Magma.lean",
+      "line": 10,
+      "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+    },
+    "initial_partial_solution": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean",
+      "line": 59,
+      "sha256": "30a3d49c86aa919f84b1e783607108f1b7759eee57fc455502ee5c48063ef47f"
+    },
+    "chain_to_complete_model": {
+      "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean",
+      "line": 138,
+      "sha256": "30a3d49c86aa919f84b1e783607108f1b7759eee57fc455502ee5c48063ef47f"
+    }
+  },
+  "semantic_argument": [
+    "根结论为 ∃G:Type,∃M:Magma G, Equation1729 G ∧ ¬Equation817 G。两个性质使用同一载体及同一运算，与存在一个反模型的原文一致。",
+    "Equation1729 是 ∀x,y, x=(y◇y)◇((y◇x)◇y)；Equation817 是 ∀x, x=x◇((x◇x)◇(x◇x))。两者均与独立论文编号表逐项对应。",
+    "否定位于 Equation817 之外，即否定其对所有元素成立；在通常经典语义下等价于存在至少一个元素违反该等式，而非要求每个元素都违反它。",
+    "Magma 仅要求二元运算，根声明没有加入有限性、结合律等限制。尽管类型本身允许为空，空类型会真空满足 Equation817，因此无法满足根结论的否定部分，不能成为虚假存在性见证。",
+    "原文从初始部分解出发，反复扩张并取链的极限。根证明使用 TrivialPartialSolution、exists_greedy_chain 及 use_chain，并调用 enlarge_L₀、enlarge_S、enlarge_op 对应扩张义务；所需条件在证明内部提供，没有作为根声明的附加前提。"
+  ],
+  "verification": {
+    "source_binding_checked": true,
+    "independent_equation_numbering_checked": true,
+    "root_and_chain_interface_inspected": true,
+    "fresh_lean_build": false,
+    "new_lean_equivalence_proof": false
+  },
+  "limitations": [
+    "本次为陈述、等式定义和关键构造接口的语义核对，未重新编译项目或独立重证整个贪心扩张闭包。",
+    "不要求存在有限反模型：绑定原文只要求一般 magma，未提出有限性。",
+    "不以编译状态、定理名称或历史审计建议代替本次语义核对。",
+    "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态，不传播标签到下一题。",
+    "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+  ]
+}

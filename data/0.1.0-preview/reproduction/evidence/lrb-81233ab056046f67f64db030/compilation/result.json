@@ -1,0 +1,25 @@
+{
+  "dataset": "arklib",
+  "project_id": "kzg-binding-after",
+  "status": "passed",
+  "modules": 193,
+  "targets": [
+    "KZG.CommitmentScheme.binding"
+  ],
+  "compiled_modules": 193,
+  "source_sha256": "74cdd11820de14eb03848c03f509bd4958f18a453f12142a790b3aae3a99b391",
+  "seconds": 2.348,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 687,
+      "edges": 5201
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 687,
+      "edges": 5201
+    }
+  },
+  "leantrace_extracted": true
+}

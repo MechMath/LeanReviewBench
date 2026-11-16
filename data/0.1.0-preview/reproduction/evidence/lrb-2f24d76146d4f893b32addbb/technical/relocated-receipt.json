@@ -1,0 +1,25 @@
+{
+  "dataset": "imperial-flt",
+  "project_id": "flt-c01",
+  "status": "passed",
+  "modules": 26,
+  "targets": [
+    "FreyPackage.mazur"
+  ],
+  "compiled_modules": 26,
+  "source_sha256": "8153468c24e63305043fd5b6ab5475e230ddf7e4afa2f3210ea44e1d265bfd35",
+  "seconds": 76.717,
+  "extraction": {
+    "default": {
+      "status": "passed",
+      "nodes": 166,
+      "edges": 484
+    },
+    "explicit": {
+      "status": "passed",
+      "nodes": 166,
+      "edges": 484
+    }
+  },
+  "leantrace_extracted": true
+}

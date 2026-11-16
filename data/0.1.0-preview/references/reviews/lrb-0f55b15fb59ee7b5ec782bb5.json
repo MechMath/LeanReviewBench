@@ -1,0 +1,82 @@
+{
+  "dataset": "arklib",
+  "project_id": "kzg-binding-before",
+  "root": "KZG.CommitmentScheme.binding",
+  "input_sha256": "66e220c62b628b2d22836be33f160662204c7d4cffbc9d4a93bff627a61668ab",
+  "review_date": "2026-11-16",
+  "previous_label": null,
+  "previous_status": "undetermined",
+  "previous_alignment_reference": null,
+  "previous_project_sha256": "ba4c46a6090e29f1660f8361a88a68c4cc2ebc073d7c953ce85d38219c781f0b",
+  "label": "misaligned",
+  "reason": "原文将攻击者限制为概率多项式时间（PPT），formal 的 tSdhAssumption 却量化所有该 Lean 类型的函数。无资源限制的函数可从 SRS 中的 g₂^τ 恢复 τ，并以概率 1 赢得 t-SDH 实验，使 error<1 时的困难性前提不成立，偏离原文的计算困难性假设。",
+  "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 请为我标为misaligned; confirms misaligned for arklib:kzg-binding-before after inspecting its unrestricted tSdhAssumption and the paper PPT requirement.",
+  "decision_author": "user",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "review_scope": "当前冻结 KZG 求值绑定声明及论文的 PPT 攻击者上下文；仅 kzg-binding-before 输入。",
+  "evidence_locations": {
+    "informal": {
+      "path": "datasets/arklib/projects/kzg-binding-before/informal.jsonl",
+      "line": 1,
+      "sha256": "458a8d90e1de7d6ac83754de9b73bffb55e21d168665b792ccd94e71b966228a"
+    },
+    "paper_PPT_context": {
+      "path": "datasets/arklib/projects/kzg-binding-before/informal/source.txt",
+      "line": 130,
+      "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e"
+    },
+    "root": {
+      "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/Binding.lean",
+      "line": 751,
+      "sha256": "b68056f84dffa02fbb18d965ab488d3baad02dc31df03430c80f2947e3efb24d"
+    },
+    "adversary_type": {
+      "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+      "line": 55,
+      "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+    },
+    "winning_condition": {
+      "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+      "line": 60,
+      "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+    },
+    "unrestricted_assumption": {
+      "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+      "line": 90,
+      "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+    },
+    "corroborating_after_lemma": {
+      "path": "datasets/arklib/projects/kzg-binding-after/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+      "line": 116,
+      "sha256": "6ce955312c7bc6e5333511c25fbaaff40c89b1d4d73efcc2616f572aa0911087"
+    }
+  },
+  "semantic_argument": [
+    "论文 §2 将攻击者限制为相对于安全参数的 PPT 算法；当前 tSdhAssumption 对 tSdhAdversary 类型的全部函数量化，没有资源或模型类别约束。",
+    "根假设 pairing(g₁,g₂)≠0 蕴含 g₂≠1；在素数阶群中非单位 g₂ 生成该群，τ↦g₂^τ 在 ZMod p 上单射。",
+    "SRS 的第二个 verifier 群元素包含 g₂^τ。不受计算资源限制的 Lean 函数可通过该指数映射的逆函数恢复 τ。",
+    "该攻击者输出 (c,h)=(1-τ,g₁)。由于 τ+c=1≠0，且 g₁^(1/(τ+c))=g₁，tSdhCondition 对每个采样的 τ 都成立，成功概率为 1。",
+    "因此 error<1 时 formal 的困难性假设无实例。error≥1 时概率上界没有非平凡的安全内容。这不是论文所使用的 PPT 困难性条件。"
+  ],
+  "corroboration": {
+    "declaration": "Groups.not_tSdhAssumption_univ",
+    "location": "corroborating_after_lemma",
+    "role": "同一 before/after 对中 after 源码给出 unrestricted-class 假设在 error<1 时不成立的 Lean 证明；本次仅阅读及核对定义，未重新编译。"
+  },
+  "verification": {
+    "source_binding_checked": true,
+    "fresh_lean_build": false,
+    "new_lean_counterexample_proof": false
+  },
+  "limitations": [
+    "判负依据为困难性前提的攻击者范围错配，不声称带该前提的 Lean 蕴含定理自身为假。",
+    "无界逆函数不是 PPT 攻击，不据此声称破解论文的密码学假设。",
+    "本次决定不修改已标为 aligned 的 kzg-binding-after，也不传播到不带困难性假设的 reduction 根。",
+    "保留现有 provisional 标签约定及 evaluation_eligible=false，不自动升级为人类金标。"
+  ]
+}
