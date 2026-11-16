@@ -1,0 +1,15 @@
+{
+  "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+  "inputs": 172,
+  "formal_files": 8734,
+  "compiled_in_original_source": 164,
+  "labels_unchanged": true,
+  "informal_text_unchanged": true,
+  "normalized_contexts_match": true,
+  "all_source_bytes_match": true,
+  "labels": {
+    "misaligned": 90,
+    "aligned": 82
+  },
+  "contexts": 159
+}

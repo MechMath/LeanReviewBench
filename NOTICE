@@ -1,0 +1,49 @@
+PaperLeanBench source attribution
+
+This publication candidate contains selected Lean sources and mathematical
+text from the following twelve project batches:
+
+  nikhgarg/AppliedModelingLib
+  fpvandoorn/carleson
+  scottnarmstrong/CoarseDeGiorgi
+  thefundamentaltheor3m/Sphere-Packing-Lean
+  Robby955/FormalSLT
+  cameronfreer/vaught-conjecture-counterexample
+  YuanheZ/lean-stat-learning-theory
+  Lean-MoDS/StatsMLlib
+  RemyDegenne/brownian-motion
+  teorth/pfr
+  leanprover-community/sphere-eversion
+  AlexKontorovich/PrimeNumberTheoremAnd
+
+The PFR batch also contains two energy inputs from
+leanprover-community/add-combi. Retained supporting sources include
+Homogenization modules from scottnarmstrong/CoarseGraining and Mathlib-derived
+helpers. Their per-file copyright, authorship and license notices are preserved.
+The PNT batch's four Vinogradov informal targets adapt documentation from
+teorth/IEANTN, Copyright (c) 2026 IEANTN contributors, Authors: Terence Tao,
+released under Apache-2.0. The source commit records Claude Opus 5 co-authorship.
+These later documentation bindings are identified in their source-review report;
+the retained historical Formal files are unchanged.
+Exact input source revisions, license-copy hashes and evidence locations are
+recorded in licenses/index.json. See licenses/README.md for the scope and the
+AppliedModelingLib historical-license-copy gap. A successful integrity check
+does not resolve that gap or establish publication clearance.
+
+FormalSLT's MIT copyright notice, Copyright (c) 2026 Robby Sneiderman, is
+preserved with the full license at licenses/formalslt/LICENSE. Other retained
+software license copies and individual source notices remain authoritative;
+the repository's own Apache-2.0 LICENSE does not override third-party terms.
+Software licensing does not automatically extend to source-paper excerpts,
+blueprints or other separately authored material.
+
+Local changes include selected statement/definition closures, import relocation,
+documented Lean compatibility adjustments, source metadata, informal target
+bindings and provisional reference decisions. Original definition values and
+historical proof holes are retained and disclosed. Compilation evidence is not
+semantic adjudication or a proof-correctness assessment.
+
+Complete historical construction material remains recoverable at
+8012191c69c75a008356ba7b7bd422f0d57d2884; earlier batch provenance also records
+964f2d92e71b1b911e568790a7196a6fb7e1250b. Historical archives, excluded datasets
+and external dependency installations are not part of this candidate's inputs.
