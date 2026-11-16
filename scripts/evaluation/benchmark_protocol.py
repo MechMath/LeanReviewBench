@@ -177,7 +177,7 @@ def task_content(package, mode):
             'resources': [{'id': 'input', 'path': 'input.json',
                            'sha256': hashlib.sha256(json_bytes(payload)).hexdigest()},
                           {'id': 'output_schema', 'path': 'prediction.schema.json',
-                           'sha256': digest(BASE / 'protocol/v1/prediction.schema.json')}],
+                           'sha256': digest(BASE / 'scripts/evaluation/prediction.schema.json')}],
             'execution': {'transport': 'local_process', 'isolation': 'adapter_managed',
                           'network_policy': 'forbidden', 'allowed_inputs': 'task_package_only'}}
     return task, payload
@@ -227,7 +227,7 @@ def export_tasks(args):
         directory = output / hashlib.sha256(sample.encode()).hexdigest()[:24]
         directory.mkdir()
         write(directory / 'input.json', payload)
-        shutil.copyfile(BASE / 'protocol/v1/prediction.schema.json', directory / 'prediction.schema.json')
+        shutil.copyfile(BASE / 'scripts/evaluation/prediction.schema.json', directory / 'prediction.schema.json')
         write(directory / 'task.json', task)
         index.append({'task_id': sample, 'directory': directory.name,
                       'task_sha256': digest(directory / 'task.json'), 'development_draft': not ready})

@@ -27,8 +27,7 @@ The 30 ArkLib, Imperial FLT, Equational Theories and APAP inputs remain. The fiv
 | Current tracked data tree | Files | File-content bytes | MiB |
 | --- | ---: | ---: | ---: |
 | `datasets/` | 9,265 | 192,154,028 | 183.25 |
-| `metadata/` | 193 | 69,603,567 | 66.38 |
-| `reports/` | 69 | 437,120 | 0.42 |
+| `metadata/` | 263 | 70,051,615 | 66.81 |
 | `licenses/` | 24 | 255,547 | 0.24 |
 
 These are uncompressed checkout file-content sizes, not clone transfer or compressed Git storage. Restoring ordinary per-project source paths repeats shared imports across packages, so this layout is larger than the earlier deduplicated 139.36 MiB prototype. It remains much smaller than the research checkout's approximately 1,437.9 MiB / 58,886 tracked files. Per-declaration graph files, repeated graph encodings, experiment outputs, staging/excluded candidates and build caches remain omitted. The final test-focused selection also omits expanded `original/` source clones, patches, build logs and optional source acquisition caches; see [PACKAGING.md](PACKAGING.md).
@@ -46,3 +45,7 @@ The original `check_release_candidate.py` passes: registered scope, indexes, has
 This restores the latest native data contract, not a newly frozen model export. Package metadata and source modules include history, comments and proofs, and must not be copied wholesale into prompts. The original protocol tools remain available for separately supplied complete evaluation packages, exactly as upstream documented; a native conversion and its exact reference bindings are still separate work. The current native dataset has binary labels; older transport abstention is not a third gold class.
 
 All labels remain provisional. Three legacy aligned labels have empty reasons; no justifications have been invented. The two KZG function-binding inputs still lack a verified exact original PDF revision/hash. The AppliedModelingLib historical license-copy gap remains recorded. No Lean recompilation, proof completeness certification or semantic re-annotation is claimed by this migration. The original research checkout and remote data branches remain unchanged apart from read-only remote reference fetching; no release push has been performed.
+
+## Directory consolidation
+
+The runtime loader and inspector now live in `scripts/data/`, release helpers in `scripts/maintenance/`, and protocol docs/schema beside the runner in `scripts/evaluation/`. The empty reference-guide directory and duplicate wrappers/templates are removed. All 69 required evidence files move under `metadata/reports/` with identical bytes; the original `reports/...` locators remain in records and are resolved through `scripts/data/paths.py`. This is a storage and code organization change, not a new input/label format.

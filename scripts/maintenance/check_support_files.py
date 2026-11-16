@@ -10,10 +10,12 @@ import sys
 import tomllib
 import urllib.parse
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT))
+from scripts.data.paths import resolve
 INVENTORY=Path('docs/support-inventory.json')
-TREES=('docs','scripts','protocol','tests','tools','leanreviewbench')
-FILES=('README.md','LICENSE','NOTICE','.gitignore','.gitattributes','.env.example','pyproject.toml','references/README.md','datasets/README.md','metadata/README.md')
+TREES=('docs','scripts','tests')
+FILES=('README.md','LICENSE','NOTICE','.gitignore','.gitattributes','.env.example','pyproject.toml','datasets/README.md','metadata/README.md')
 
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -35,8 +37,8 @@ def audit(root):
         changed=[k for k in current.keys()|inventory['files_sha256'].keys() if current.get(k)!=inventory['files_sha256'].get(k)]
         errors.append('Support inventory mismatch: '+', '.join(sorted(changed)[:12]))
     # These are publication guides, not hash-bound historical report documents.
-    docs=[root/'README.md',root/'datasets/README.md',root/'references/README.md']
-    for tree in ['docs','scripts','protocol','metadata','licenses']:
+    docs=[root/'README.md',root/'datasets/README.md']
+    for tree in ['docs','scripts','metadata','licenses']:
         docs.extend((root/tree).rglob('*.md'))
     docs.extend((root/'datasets').glob('*/README.md'))
     for path in docs:
@@ -47,7 +49,7 @@ def audit(root):
             if not destination.is_relative_to(root) or not destination.exists():
                 errors.append(f'Broken local doc link: {path.relative_to(root)} -> {target}')
     python=[root/f for f in current if f.endswith('.py')]
-    local={p.stem for p in python}|{'leanreviewbench'}
+    local={p.stem for p in python}|{'scripts'}
     for path in python:
         for node in ast.walk(ast.parse(path.read_text(),filename=str(path))):
             names=[]
@@ -57,11 +59,13 @@ def audit(root):
                 if name not in sys.stdlib_module_names and name not in local:
                     errors.append(f'Undeclared Python dependency: {path.relative_to(root)} -> {name}')
     tomllib.loads((root/'pyproject.toml').read_text())
+    layout=json.loads((root/'metadata/layout.json').read_text())
+    if layout['evidence_prefix_aliases']!={'reports/':'metadata/reports/'}:errors.append('Evidence path aliases differ from the resolver')
     cfg=json.loads((root/'datasets/project-cases.json').read_text())
     expected=('leanprover/lean4:v4.34.1','d13f23b723b8a846827a245b89c10fc7d3f11612','7c8f6c0f67015df29b152fdcffaf7850db2e9185')
     pins=(cfg['lean_toolchain'],cfg['external_libraries']['mathlib']['commit'],cfg['external_libraries']['cslib']['commit'])
     if pins!=expected:errors.append('Shared environment pins differ from the reviewed publication')
-    for name in ['.env.example','scripts/evaluation/.env.example','protocol/testing/.env.example']:
+    for name in ['.env.example','scripts/evaluation/.env.example']:
         for line in (root/name).read_text().splitlines():
             if '=' in line and not line.lstrip().startswith('#'):
                 key,value=line.split('=',1)
@@ -77,7 +81,7 @@ def audit(root):
     for row in derived['records']:
         required[row['graph_path']]=row['graph_sha256'];required[row['receipt_path']]=row['receipt_sha256']
     for name,expected in required.items():
-        path=root/name
+        path=resolve(root,name)
         if not path.is_file() or sha(path)!=expected:errors.append('Missing/changed runtime evidence: '+name)
     # Material paths are source provenance, not files required for evaluation.
     materials=json.loads((root/'metadata/materials/index.json').read_text())

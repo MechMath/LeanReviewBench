@@ -6,10 +6,11 @@ import json
 from pathlib import Path
 import sys
 from research_source import Research,sha
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
-from leanreviewbench import Dataset
-from leanreviewbench.dataset import file_hash,records
+from scripts.data.dataset import Dataset
+from scripts.data.dataset import file_hash,records
+from scripts.data.paths import resolve
 
 
 def verify(source,release):
@@ -30,7 +31,7 @@ def verify(source,release):
         count+=len(actual);compiled+=bool(dataset.project(identity)['project']['compiled_lean434'])
     for row in graphs:
         source_binding=row['graph_source'];raw=research.git('show',source_binding['commit']+':'+source_binding['path'])
-        assert sha(raw)==row['graph_sha256']==file_hash(release/row['graph_path'])
+        assert sha(raw)==row['graph_sha256']==file_hash(resolve(release,row['graph_path']))
     return dict(source_commit=research.commit,inputs=len(dataset),formal_files=count,compiled_in_original_source=compiled,
                 project_metadata_bytes_unchanged=True,informal_records_bytes_unchanged=True,labels_bytes_unchanged=True,
                 all_source_bytes_match=True,all_original_graph_bytes_match=True,graph_bindings=len(graphs),labels=dict(labels))

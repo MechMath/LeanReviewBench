@@ -10,7 +10,7 @@ import subprocess
 import sys
 from research_source import Research
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
@@ -28,10 +28,10 @@ def migrate(source,output,research_revision):
     if output.exists():raise ValueError('Migration destination must be fresh')
     output.mkdir(parents=True)
     def copy(relative):
-        target=output/relative;target.parent.mkdir(parents=True,exist_ok=True)
+        target=output/('metadata/'+relative if relative.startswith('reports/') else relative);target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(source/relative,target)
     def tree(relative):
-        shutil.copytree(source/relative,output/relative,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+        shutil.copytree(source/relative,output/('metadata/'+relative if relative.startswith('reports/') else relative),ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     cfg=json.loads((source/'datasets/project-cases.json').read_text())
     derived=json.loads((source/'metadata/derived-graphs/index.json').read_text())
     lookup={(r['dataset'],r['project_id']):r for r in derived['records']}
@@ -45,7 +45,7 @@ def migrate(source,output,research_revision):
         copy('scripts/construction/'+name)
     for name in ['DATA-FORMAT.md','PROJECT-CASE-WORKFLOW.md','CONSTRUCTION.md','ENVIRONMENT.md','MISALIGNMENT-TAXONOMY.md']:
         copy('docs/'+name)
-    for relative in research.git('ls-files','-z','--','protocol','scripts/evaluation').decode().split('\0'):
+    for relative in research.git('ls-files','-z','--','scripts/evaluation').decode().split('\0'):
         if relative:copy(relative)
     # Preserve the actual latest remote research docs, including dated statements,
     # separately from current integration documentation.
@@ -63,7 +63,9 @@ def migrate(source,output,research_revision):
             copy(receipt['explicit_graph_path'])
             for component in receipt['components']:
                 relative=str(Path(component['project_path']).parent)
-                tree(relative)
+                copy(relative+'/project.json')
+                copy(relative+'/informal.jsonl')
+                tree(relative+'/formal')
                 copy(component['receipt_path'])
                 for mode in ['default','explicit']:copy(component[mode]['path'])
     existing={r['graph_sha256']:r['graph_path'] for r in derived['records']}
@@ -103,7 +105,7 @@ def migrate(source,output,research_revision):
                 except (FileNotFoundError,subprocess.CalledProcessError):
                     if expected:raise
                     continue
-                target=output/report;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw)
+                target=output/'metadata'/report;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw)
     write_json(output/'metadata/derived-graphs/retained-index.json',dict(
         schema_version='paperlean-retained-graphs-1',purpose='Local access to exact historical graphs; no fresh compilation or semantic re-annotation.',records=graph_records))
     write_json(output/'metadata/release.json',dict(schema_version='paperlean-local-release-1',
@@ -118,7 +120,7 @@ def migrate(source,output,research_revision):
     for relative in [*support['files_sha256'],'docs/support-inventory.json']:
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(ROOT/relative,destination)
-    for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json']:
+    for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json','metadata/layout.json']:
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,destination)
     for batch in cfg['datasets']:
         shutil.copy2(ROOT/'datasets'/batch/'README.md',output/'datasets'/batch/'README.md')

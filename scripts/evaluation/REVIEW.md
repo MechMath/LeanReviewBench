@@ -33,10 +33,10 @@ package file. The old OpenAI pilot selection is preserved in `11_9_shenhao`
 alongside the removed datasets. Prepare pending review records:
 
 ```sh
-python3 scripts/benchmark_protocol.py export \
+python3 scripts/evaluation/benchmark_protocol.py export \
   --packages /absolute/path/to/pilot-packages.jsonl --mode theorem_only --allow-draft \
   --output build/main-statement-pilot-tasks
-python3 scripts/benchmark_scoring.py prepare \
+python3 scripts/evaluation/benchmark_scoring.py prepare \
   --tasks build/main-statement-pilot-tasks \
   --output build/main-statement-pilot-reviews.json
 ```
@@ -46,7 +46,7 @@ Have two reviewers independently annotate all selected tasks, then reconcile dis
 Set each resolved record to `adjudicated`, fill `label`, retain `reviews`, fill `adjudication`, and set `reference_ready` true only after reference/context checks. This is human review work; the prepare command leaves every record pending. For an export without draft permission, use the same selection and completed reviews:
 
 ```sh
-python3 scripts/benchmark_protocol.py export \
+python3 scripts/evaluation/benchmark_protocol.py export \
   --packages /absolute/path/to/pilot-packages.jsonl --mode theorem_only \
   --reviews build/main-statement-pilot-reviews.json \
   --output build/main-statement-pilot-ready
@@ -56,14 +56,14 @@ Only selected records are required; a review document may cover additional roots
 
 ## Scoring
 
-Run a batch against the intended task export using the [protocol runner](../README.md), then score its receipts and predictions. This offline example uses the mock, which always abstains and validates the pipeline only. For actual evaluation, replace its command with the configured model adapter:
+Run a batch against the intended task export using the [protocol runner](README.md), then score its receipts and predictions. This offline example uses the mock, which always abstains and validates the pipeline only. For actual evaluation, replace its command with the configured model adapter:
 
 ```sh
-python3 scripts/benchmark_protocol.py batch \
+python3 scripts/evaluation/benchmark_protocol.py batch \
   --tasks build/main-statement-pilot-ready \
   --output build/main-statement-pilot-runs --timeout 30 -- \
-  python3 "$PWD/protocol/v1/mock_system.py"
-python3 scripts/benchmark_scoring.py score \
+  python3 "$PWD/scripts/evaluation/mock_system.py"
+python3 scripts/evaluation/benchmark_scoring.py score \
   --tasks build/main-statement-pilot-ready \
   --reviews build/main-statement-pilot-reviews.json \
   --batch build/main-statement-pilot-runs \

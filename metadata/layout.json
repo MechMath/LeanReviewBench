@@ -1,0 +1,7 @@
+{
+  "schema_version": "paperlean-publication-layout-1",
+  "evidence_prefix_aliases": {
+    "reports/": "metadata/reports/"
+  },
+  "meaning": "Storage relocation only. Original label, receipt and graph-index contents and hashes remain unchanged."
+}

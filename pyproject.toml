@@ -11,7 +11,10 @@ license = {text = "Apache-2.0"}
 dependencies = []
 
 [project.scripts]
-leanreviewbench = "leanreviewbench.__main__:main"
+leanreviewbench = "scripts.data.inspect_dataset:main"
 
 [tool.setuptools.packages.find]
-include = ["leanreviewbench*"]
+include = ["scripts*"]
+
+[tool.setuptools.package-data]
+"scripts.evaluation" = ["*.json", "*.md", ".env.example"]

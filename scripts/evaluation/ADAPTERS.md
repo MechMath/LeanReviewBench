@@ -1,6 +1,6 @@
 # Model and agent adapters
 
-An adapter is a trusted executable launched once per task by the [local protocol runner](../README.md). It reads the copied task package through `PAPERLEAN_TASK_DIR` and writes one final prediction to `PAPERLEAN_SUBMISSION_PATH`. Use absolute paths for scripts and configuration because the runner changes the working directory to the task workspace. Logs are diagnostic; stdout is not a submission.
+An adapter is a trusted executable launched once per task by the [local protocol runner](README.md). It reads the copied task package through `PAPERLEAN_TASK_DIR` and writes one final prediction to `PAPERLEAN_SUBMISSION_PATH`. Use absolute paths for scripts and configuration because the runner changes the working directory to the task workspace. Logs are diagnostic; stdout is not a submission.
 
 ## Responses adapter
 
@@ -23,7 +23,7 @@ Without a configuration file, settings come from the process environment. Dotenv
 | `OPENAI_BASE_URL` | Defaults to `https://api.openai.com/v1`; include the API prefix if needed |
 | `OPENAI_REASONING_EFFORT` | Optional value passed through to the provider |
 
-Dotenv entries are literal: blank lines, comments, optional `export`, and single/double quotes are supported. Shell commands, substitutions, and variable interpolation are not evaluated. See [live setup](../testing/README.md) for the local template and a complete runner command.
+Dotenv entries are literal: blank lines, comments, optional `export`, and single/double quotes are supported. Shell commands, substitutions, and variable interpolation are not evaluated. See [live setup](LIVE-TESTING.md) for the local template and a complete runner command.
 
 TOML mode reads `model`, `model_provider`, optional `model_reasoning_effort`, and the selected entry in `model_providers`. That provider must have `wire_api = "responses"` and an HTTPS `base_url`. Authentication uses `experimental_bearer_token` if present, otherwise the environment variable named by `env_key` (default `OPENAI_API_KEY`). Compatibility depends on the actual provider response, not the configuration file format.
 
@@ -40,7 +40,7 @@ For this bundled adapter, the runner records effective non-secret model settings
 Custom adapters can implement internal agent loops under the same submission contract. Declare additional local dependencies with repeatable `--fingerprint-file` options and external revisions with `--adapter-version`, before the runner's `--` separator. For example:
 
 ```sh
-python3 scripts/benchmark_protocol.py batch \
+python3 scripts/evaluation/benchmark_protocol.py batch \
   --tasks build/custom-tasks --output build/custom-runs \
   --fingerprint-file /absolute/path/to/prompt.txt \
   --adapter-version agent-v1 -- \

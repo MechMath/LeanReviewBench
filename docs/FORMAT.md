@@ -12,4 +12,4 @@ Original derived records remain in `metadata/derived-graphs/index.json` and pass
 
 `metadata/manifest.json` retains the original `paperlean-candidate-manifest-1` byte inventory contract. `metadata/provenance.json` retains `paperlean-provenance-2`. `metadata/release.json` records the publication's source and documentation commits and current counts; it does not redefine project inputs or labels.
 
-The older `protocol/v1` transport and its runner are preserved for separately supplied compatible evaluation packages. As documented upstream, this native project-case collection does not yet have a frozen task export. Binary reference labels and optional model abstention are separate concepts.
+The protocol v1 transport in `scripts/evaluation/PROTOCOL.md` and its runner are preserved for separately supplied compatible evaluation packages. As documented upstream, this native project-case collection does not yet have a frozen task export. Binary reference labels and optional model abstention are separate concepts.

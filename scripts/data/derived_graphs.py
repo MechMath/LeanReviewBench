@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 
+from paths import resolve
 from project_cases import formal_files, input_digest, target_roots
 
 
@@ -14,7 +15,7 @@ def retained_file(base, relative, expected):
     path = Path(relative)
     if not path.parts or path.is_absolute() or '..' in path.parts or path.parts[0] not in ('metadata', 'reports'):
         raise ValueError('Unsafe derived-graph evidence path')
-    path = base / path
+    path = resolve(base,path)
     if not path.is_file() or sha(path) != expected:
         raise ValueError('Derived-graph evidence hash mismatch: ' + relative)
     return path

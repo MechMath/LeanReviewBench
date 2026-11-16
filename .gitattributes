@@ -1,5 +1,4 @@
 # Preserve exact input, evidence, upstream license and integrity bytes.
 datasets/** -text
 metadata/** -text
-reports/** -text
 licenses/** -text

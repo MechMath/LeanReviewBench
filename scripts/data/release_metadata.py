@@ -16,7 +16,7 @@ def sha(raw):
 
 def inventory(base):
     excluded = {'metadata/manifest.json', 'metadata/README.md', 'datasets/README.md'}
-    files = [p for tree in ('datasets', 'metadata', 'licenses', 'references')
+    files = [p for tree in ('datasets', 'metadata', 'licenses')
              for p in sorted((base / tree).rglob('*')) if p.is_file()]
     files += [base / name for name in ('LICENSE', 'NOTICE') if (base / name).is_file()]
     # Unreviewed staging packets have an independent, explicit inventory.

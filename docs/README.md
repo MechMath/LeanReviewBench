@@ -9,6 +9,6 @@ The current collection has 172 versioned inputs across 17 registered batches. It
 - [Testing](testing.md), [configuration](CONFIGURATION.md) and [packaging policy](PACKAGING.md)
 - [Migration and verification](MIGRATION.md)
 - [Publication graph inventory](FORMAT.md)
-- [Original protocol documentation](../protocol/v1/README.md)
+- [Original protocol documentation](../scripts/evaluation/PROTOCOL.md)
 
 Run `python3 scripts/data/check_release_candidate.py` for native static checks. The copied research documents preserve dated historical statements; current scope and status are defined by the registered inventory and exact retained records. The native data are not a frozen model prompt/scoring export.

@@ -3,7 +3,7 @@
 Use Python 3.11+. Offline checks require no credentials, network, Lean or research checkout:
 
 ```sh
-python3 tools/check_support_files.py
+python3 scripts/maintenance/check_support_files.py
 python3 scripts/data/check_release_candidate.py
 python3 scripts/data/annotation_coverage.py
 python3 -m unittest discover -s tests -v

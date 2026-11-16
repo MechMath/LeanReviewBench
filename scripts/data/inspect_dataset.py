@@ -3,7 +3,8 @@ import json
 from pathlib import Path
 import subprocess
 import sys
-from .dataset import Dataset
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from scripts.data.dataset import Dataset
 
 
 def main():

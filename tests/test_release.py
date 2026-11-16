@@ -6,8 +6,8 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from leanreviewbench import Dataset
-from leanreviewbench.dataset import records,file_hash
+from scripts.data.dataset import Dataset
+from scripts.data.dataset import records,file_hash
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -70,12 +70,21 @@ class NativeContractTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Unsafe graph'):Dataset(base).graph('example:sample')
     def test_no_implicit_model_export(self):
         self.assertFalse(hasattr(Dataset,'task'))
-        self.assertFalse((ROOT/'leanreviewbench/evaluate.py').exists())
+        self.assertFalse((ROOT/'scripts/data/evaluate.py').exists())
 
 
 class PublicationTests(unittest.TestCase):
+    def test_consolidated_evidence_paths(self):
+        from scripts.data.paths import resolve
+        self.assertFalse((ROOT/'reports').exists())
+        for row in records(ROOT/'metadata/labels/arklib.jsonl'):
+            path=resolve(ROOT,row['review_report'])
+            self.assertTrue(path.is_relative_to(ROOT/'metadata/reports'))
+            self.assertEqual(file_hash(path),row['review_report_sha256'])
+        with self.assertRaises(ValueError):resolve(ROOT,'../outside')
+
     def test_required_support_files(self):
-        result=subprocess.run([sys.executable,"tools/check_support_files.py"],cwd=ROOT,capture_output=True,text=True)
+        result=subprocess.run([sys.executable,"scripts/maintenance/check_support_files.py"],cwd=ROOT,capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
 
     def test_original_release_candidate_checks(self):

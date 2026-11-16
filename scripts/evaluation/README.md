@@ -1,7 +1,7 @@
 # Evaluation tools
 
 This guide covers task export, model/agent execution, provider setup and scoring.
-The [versioned protocol](../../protocol/v1/README.md) defines input visibility,
+The [versioned protocol](PROTOCOL.md) defines input visibility,
 adapter I/O, predictions and export-bound references. Implementations are:
 
 | Script | Role |
@@ -33,7 +33,7 @@ establish live provider compatibility.
 
 ## Export and run
 
-Supply an existing JSONL matching the [export contract](../../protocol/v1/README.md#export-input).
+Supply an existing JSONL matching the [export contract](PROTOCOL.md#export-input).
 Export and run outputs require fresh paths:
 
 ```sh
@@ -149,7 +149,7 @@ the batch exits nonzero if a task fails. No retries or parallel scheduling are
 automatic. The runner enforces a process timeout; adapters/deployment enforce
 filesystem/network restrictions and model/tool budgets.
 
-Custom adapters obey the [local adapter contract](../../protocol/v1/README.md#local-adapter-contract).
+Custom adapters obey the [local adapter contract](PROTOCOL.md#local-adapter-contract).
 Declare other code, prompts or config with repeatable
 `--fingerprint-file /absolute/path/to/file` and external revisions with
 `--adapter-version VERSION`, before `--`. File arguments must be absolute,
@@ -160,7 +160,7 @@ Arbitrary imports, custom environment and remote revisions need explicit declara
 
 ## Scoring setup
 
-The [reference/scoring contract](../../protocol/v1/README.md#reference-review-and-scoring)
+The [reference/scoring contract](PROTOCOL.md#reference-review-and-scoring)
 describes existing tooling, not the final annotation policy. Prepare pending
 records from an exported theorem-only inventory:
 

@@ -8,6 +8,8 @@
 
 Python 3.11+; ordinary checks use the standard library and need no external tool setup. See [testing](../docs/testing.md), [configuration](../docs/CONFIGURATION.md) and the [evaluation guide](evaluation/README.md).
 
-`project_cases.py` at this directory's top level is the original compatibility entry point for native data and compilation commands. The evaluation compatibility entry points delegate to `evaluation/` and require explicitly supplied complete packages. Archived `--dataset` exports and obsolete frozen-release/staging utilities are not part of this publication.
+Use the canonical entries directly: `python3 scripts/data/project_cases.py check`, `python3 scripts/data/inspect_dataset.py inspect --id stacks:STK-0B34`, and `python3 scripts/evaluation/benchmark_protocol.py --help`. Redundant top-level compatibility wrappers have been removed.
+
+`scripts/maintenance/` contains publication migration, byte comparison and support-file checks. These are separate from normal model execution and optional Lean compilation.
 
 A native project package is not a filtered prompt. Model task export and export-bound reference review remain separate steps. Local provider settings stay outside task directories; templates contain no credentials.

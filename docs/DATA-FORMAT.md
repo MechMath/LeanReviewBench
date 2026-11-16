@@ -42,3 +42,7 @@ Compilation success is not proof completeness or semantic approval. The two reta
 ## Refactor integration compatibility
 
 Explicit `target_mode: joint` packages retain refactor’s hash over the full targets and target mode, and must bind one shared joint informal record and the complete roots in their label. Previously reviewed research multi-root packages without that marker retain their established root-plus-roots hash. Both include non-Lean runtime resources when present. The integration must not silently change the digest scheme of an already labeled input.
+
+## Publication directory consolidation
+
+The release stores required evidence under `metadata/reports/`. Historical `reports/...` fields inside original labels, receipt records and graph indexes remain byte-for-byte unchanged; `scripts/data/paths.py` resolves these to the new location. `metadata/layout.json` records the mapping. Model/package contents and original input digests are unchanged. Python tools live under `scripts/data/`, `scripts/construction/`, `scripts/evaluation/` and `scripts/maintenance/`; the evaluation contract is now `scripts/evaluation/PROTOCOL.md`.

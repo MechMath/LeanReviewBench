@@ -10,6 +10,10 @@ The registered inventory contains 172 project-case inputs across 17 batches. Lab
 | `derived-graphs/retained-index.json` | Local hash-bound access to every active input's original exported graph |
 | `provenance.json` | Original project bindings and archive locators |
 | `manifest.json` | Native publication SHA-256 inventory |
+| `reports/` | Hash-bound review reports and graph/composition evidence, relocated from the old root `reports/` |
+| `layout.json` | Prefix aliases that preserve original hash-bound evidence references |
 | `release.json` | Source/documentation commit pins, active counts and packaging exclusions |
 
 Historical `reports/...` paths not retained locally remain archive locators, resolvable with `scripts/data/provenance.py`. All currently hashed review reports required by the label audit are retained at their original paths. Compiled contexts, recovered contexts, proof completeness and semantic reference readiness are separate facts. See [the contract](../docs/DATA-FORMAT.md).
+
+Runtime evidence is consolidated in `metadata/reports/`. Fields in original records still use `reports/...`; `scripts/data/paths.py` resolves them without changing any record bytes or evidence hash. The former `references/` directory contained only a redundant guide; authoritative provisional labels remain in `metadata/labels/`.

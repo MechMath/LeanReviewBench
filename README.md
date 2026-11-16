@@ -26,21 +26,26 @@ metadata/
   provenance.json
   manifest.json
   release.json
-reports/                         # Retained bound reviews and extraction evidence
+  reports/                       # Retained bound reviews and extraction evidence
+scripts/
+  data/                          # Dataset loading, inspection and native checks
+  construction/                  # Optional Lean compilation
+  evaluation/                    # Protocol, schema, runner and adapter
+  maintenance/                   # Migration and publication integrity
 licenses/
 ```
 
-Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes and label records are unchanged.
+Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes and label records are unchanged. Historical `reports/...` fields resolve to `metadata/reports/` through a shared path resolver; the hashed record contents are preserved.
 
 ## Validate and inspect
 
 Python 3.11+; static checks have no third-party dependencies and need neither Lean nor network access:
 
 ```sh
-python3 tools/check_support_files.py
+python3 scripts/maintenance/check_support_files.py
 python3 scripts/data/check_release_candidate.py
 python3 scripts/data/annotation_coverage.py
-python3 -m leanreviewbench validate
+python3 scripts/data/inspect_dataset.py validate
 python3 -m unittest discover -s tests -v
 ```
 
@@ -49,11 +54,11 @@ The native checker validates registered scope, project indexes and input hashes,
 Open `datasets/<batch>/projects/<id>/formal/Main.lean` directly to read a source snapshot. No blob restoration step is required. To inspect native metadata and complete informal records:
 
 ```sh
-python3 -m leanreviewbench inspect --id stacks:STK-0B34
+python3 scripts/data/inspect_dataset.py inspect --id stacks:STK-0B34
 ```
 
 ```python
-from leanreviewbench import Dataset
+from scripts.data.dataset import Dataset
 
 bench = Dataset('.')
 package = bench.project('stacks:STK-0B34')
@@ -70,7 +75,7 @@ These are curator-facing package records, including source/history metadata. The
 
 The current dataset contract uses binary semantic labels and requires mathematical reasons and declaration evidence for negative decisions. It is a preparation/publication format, **not a frozen model evaluation export**. Exporting requires selected independent targets and qualifications, formal roots/context, comment/proof filtering, exclusion of review/history clues, and fresh export-bound task/reference hashes. This migration does not assert that all scope notes can be copied directly into a prompt: curator scope notes are not independent quotations.
 
-The original [evaluation tools](scripts/evaluation/README.md) and [protocol/v1](protocol/v1/README.md) are retained unchanged for compatibility with separately supplied complete packages. That older transport supports `insufficient_information` as a model abstention and is not a third gold class. It does not consume native project-case packages directly. No alternative release-only prediction schema or automatic native-to-model conversion is introduced here.
+The [evaluation tools](scripts/evaluation/README.md) and [protocol v1 contract](scripts/evaluation/PROTOCOL.md) retain their original behavior for compatibility with separately supplied complete packages. That older transport supports `insufficient_information` as a model abstention and is not a third gold class. It does not consume native project-case packages directly. No alternative release-only prediction schema or automatic native-to-model conversion is introduced here.
 
 ## Reproduction and maintenance
 
@@ -86,7 +91,7 @@ This packaging migration performs static verification, not a fresh Lean build. H
 To rebuild this publication layout from the pinned research checkout and its local archive Git objects:
 
 ```sh
-python3 tools/migrate.py --source /path/to/clean/research-checkout \
+python3 scripts/maintenance/migrate.py --source /path/to/clean/research-checkout \
   --output /path/to/fresh-publication-directory
 ```
 

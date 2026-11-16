@@ -4,67 +4,67 @@
 
 2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-left` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 T0，遗漏原文非 quasi-sober 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。旧标签、论证和用户确认见 [标注记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/user-annotations-2026-11-16/STK-0B34-left.json)。
 
-2026-11-16 按用户逐题确认，将 `stacks:STK-08ZR` 从 `undetermined` 改为 `misaligned`：原文 Hausdorff 前提被严格更弱的 R1Space 替换，适用范围扩大，按 A 类判负；局部紧致性概念对应，保留这是正确推广的说明。旧标签、论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/STK-08ZR.json)。
+2026-11-16 按用户逐题确认，将 `stacks:STK-08ZR` 从 `undetermined` 改为 `misaligned`：原文 Hausdorff 前提被严格更弱的 R1Space 替换，适用范围扩大，按 A 类判负；局部紧致性概念对应，保留这是正确推广的说明。旧标签、论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/STK-08ZR.json)。
 
-2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c05` 新增 `aligned` 标签：有限阿代尔单位群、对角嵌入、左右双陪集关系、开放子群条件和有限性结论均与原文对应。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/flt-c05.json)。
+2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c05` 新增 `aligned` 标签：有限阿代尔单位群、对角嵌入、左右双陪集关系、开放子群条件和有限性结论均与原文对应。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/flt-c05.json)。
 
-2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c04` 新增 `aligned` 标签：数域、有限维、中心除代数条件有原文上下文依据；Haar 核、全局单位嵌入、Hx 陪集方向和商拓扑对应。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/flt-c04.json)。
+2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c04` 新增 `aligned` 标签：数域、有限维、中心除代数条件有原文上下文依据；Haar 核、全局单位嵌入、Hx 陪集方向和商拓扑对应。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/flt-c04.json)。
 
-2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c03` 新增 `aligned` 标签：有限维有理向量空间及自同构、实际标量扩张、阿代尔模拓扑和 Haar 因子归一化与原文对应；Borel 条件不增加实质范围限制。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/flt-c03.json)。
+2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c03` 新增 `aligned` 标签：有限维有理向量空间及自同构、实际标量扩张、阿代尔模拓扑和 Haar 因子归一化与原文对应；Borel 条件不增加实质范围限制。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/flt-c03.json)。
 
-2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c02` 新增 `aligned` 标签：FreyPackage 字段与原文定义对应，一对互素加费马方程可推出两两互素。按绑定 lemma 的存在性结论评价，保留声明未保证输出指数等于输入指数的范围说明。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/flt-c02.json)。
+2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c02` 新增 `aligned` 标签：FreyPackage 字段与原文定义对应，一对互素加费马方程可推出两两互素。按绑定 lemma 的存在性结论评价，保留声明未保证输出指数等于输入指数的范围说明。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/flt-c02.json)。
 
-2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c01` 新增 `misaligned` 标签：galoisRep 整体为数据占位，缺少与原文自然伽罗瓦作用的绑定，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。保留已确认的参数、曲线及不可约性对应。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/flt-c01.json)。
+2026-11-16 按用户逐题确认，为 `imperial-flt:flt-c01` 新增 `misaligned` 标签：galoisRep 整体为数据占位，缺少与原文自然伽罗瓦作用的绑定，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。保留已确认的参数、曲线及不可约性对应。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/flt-c01.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-sheffer` 新增 `misaligned` 标签：独立原文允许空 magma，而 formal 的逆向构造要求 Inhabited；空载体满足等式却无法承载 BooleanAlgebra。按原文范围裁定，保留元数据摘要补写非空条件的范围说明。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-sheffer.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-sheffer` 新增 `misaligned` 标签：独立原文允许空 magma，而 formal 的逆向构造要求 Inhabited；空载体满足等式却无法承载 BooleanAlgebra。按原文范围裁定，保留元数据摘要补写非空条件的范围说明。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-sheffer.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-obelix` 新增 `aligned` 标签：Facts 展开为同一 magma 满足 1491 且违反 65，与独立 blueprint 的 Obelix 非 Asterix 推论对应；具体初始部分解、closure 构造和失败见证均有绑定。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-obelix.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-obelix` 新增 `aligned` 标签：Facts 展开为同一 magma 满足 1491 且违反 65，与独立 blueprint 的 Obelix 非 Asterix 推论对应；具体初始部分解、closure 构造和失败见证均有绑定。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-obelix.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-law-coverage` 新增 `aligned` 标签：按已选定的覆盖性目标，运算次数≤4、一般 magma 上的语义等价及具体定律表对应；规范化在证明内部完成，Nat 仅编码变量名。不扩展到编号唯一性或完整蕴含图。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-law-coverage.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-law-coverage` 新增 `aligned` 标签：按已选定的覆盖性目标，运算次数≤4、一般 magma 上的语义等价及具体定律表对应；规范化在证明内部完成，Nat 仅编码变量名。不扩展到编号唯一性或完整蕴含图。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-law-coverage.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-greedy1729` 新增 `aligned` 标签：同一个 magma 满足 1729 并违反 817 的存在性、独立编号表中的等式及否定范围对应；根声明没有额外前提，扩张与链覆盖条件在证明内部处理。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-greedy1729.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-greedy1729` 新增 `aligned` 标签：同一个 magma 满足 1729 并违反 817 的存在性、独立编号表中的等式及否定范围对应；根声明没有额外前提，扩张与链覆盖条件在证明内部处理。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-greedy1729.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-fullspectrum-1682` 新增 `aligned` 标签：各大小模型存在性、等式括号与分段构造对应；n=2 的模 2 加法及 n≤1 的投影覆盖小尺寸，额外 n=0 分支可无条件补出。按已选定的单律构造端点评价。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-fullspectrum-1682.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-fullspectrum-1682` 新增 `aligned` 标签：各大小模型存在性、等式括号与分段构造对应；n=2 的模 2 加法及 n≤1 的投影覆盖小尺寸，额外 n=0 分支可无条件补出。按已选定的单律构造端点评价。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-fullspectrum-1682.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-fullspectrum-1482` 新增 `aligned` 标签：各正整数大小的模型存在性、等式括号与大部分取值为常量的显式构造对应；额外 n=0 分支可由空类型上的运算与全称等式无条件补出。按已选定的单律构造端点评价。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-fullspectrum-1482.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-fullspectrum-1482` 新增 `aligned` 标签：各正整数大小的模型存在性、等式括号与大部分取值为常量的显式构造对应；额外 n=0 分支可由空类型上的运算与全称等式无条件补出。按已选定的单律构造端点评价。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-fullspectrum-1482.json)。
 
-2026-11-16 按用户逐题确认，为 `equational-theories:etp-endtoend` 新增 `aligned` 标签：4694 条律的全部有序对均返回检查通过的推导或反驳证据，并断言一般 magma 上的对应数学结论；具体证书、定律表和带证明的正负事实表均有绑定。按当前所选端点评价，不将背景统计或有限 magma 图纳入结论。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/etp-endtoend.json)。
+2026-11-16 按用户逐题确认，为 `equational-theories:etp-endtoend` 新增 `aligned` 标签：4694 条律的全部有序对均返回检查通过的推导或反驳证据，并断言一般 magma 上的对应数学结论；具体证书、定律表和带证明的正负事实表均有绑定。按当前所选端点评价，不将背景统计或有限 magma 图纳入结论。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/etp-endtoend.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:sumcheck-full-rbr-before` 新增 `misaligned` 标签：原文要求有限整环，before 连 IsDomain 也未要求，容许有零因子的 Z/4Z 等结构。判负依据为适用范围差异，不将此结构区分例声称为协议反例。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/sumcheck-full-rbr-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:sumcheck-full-rbr-before` 新增 `misaligned` 标签：原文要求有限整环，before 连 IsDomain 也未要求，容许有零因子的 Z/4Z 等结构。判负依据为适用范围差异，不将此结构区分例声称为协议反例。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/sumcheck-full-rbr-before.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:sumcheck-full-rbr-after` 新增 `misaligned` 标签：原文要求有限整环，formal 的有限交换半环加 IsDomain 仍容许没有加法逆元的布尔半环，适用范围扩大。此例区分参数域，不声称推翻概率界。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/sumcheck-full-rbr-after.json)。
+2026-11-16 按用户逐题确认，为 `arklib:sumcheck-full-rbr-after` 新增 `misaligned` 标签：原文要求有限整环，formal 的有限交换半环加 IsDomain 仍容许没有加法逆元的布尔半环，适用范围扩大。此例区分参数域，不声称推翻概率界。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/sumcheck-full-rbr-after.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:stir-rbr-withdrawn-before` 新增 `misaligned` 标签：参数条件使初始码率为 1，与非负距离严格小于 0 矛盾；误差输入量词、+s 的位置、folding 参数与首轮索引亦错配。不将矛盾前提下的条件定理声称为假。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/stir-rbr-withdrawn-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:stir-rbr-withdrawn-before` 新增 `misaligned` 标签：参数条件使初始码率为 1，与非负距离严格小于 0 矛盾；误差输入量词、+s 的位置、folding 参数与首轮索引亦错配。不将矛盾前提下的条件定理声称为假。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/stir-rbr-withdrawn-before.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:stir-proximity-before` 新增 `misaligned` 标签：无约束 GenFun 替代原文 r^j；F_5 上四点评价域的零生成器反例满足概率前提，却不存在要求的三点一致集合。反例、精确枚举结果和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/stir-proximity-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:stir-proximity-before` 新增 `misaligned` 标签：无约束 GenFun 替代原文 r^j；F_5 上四点评价域的零生成器反例满足概率前提，却不存在要求的三点一致集合。反例、精确枚举结果和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/stir-proximity-before.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:stir-proximity-after` 新增 `aligned` 标签：均匀随机幂组合、共享一致子集及两段误差公式对应；按原文含 1/ρ 的有定义参数域解释正次数条件。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/stir-proximity-after.json)。
+2026-11-16 按用户逐题确认，为 `arklib:stir-proximity-after` 新增 `aligned` 标签：均匀随机幂组合、共享一致子集及两段误差公式对应；按原文含 1/ρ 的有定义参数域解释正次数条件。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/stir-proximity-after.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:stir-main-withdrawn-before` 新增 `misaligned` 标签：域大小下界被改为上界，复杂度参数未绑定到存在协议，且渐近常数缺少统一性。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/stir-main-withdrawn-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:stir-main-withdrawn-before` 新增 `misaligned` 标签：域大小下界被改为上界，复杂度参数未绑定到存在协议，且渐近常数缺少统一性。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/stir-main-withdrawn-before.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:kzg-function-binding-before` 新增 `misaligned` 标签：ARSDH 假设量化所有 Lean 攻击者，无界函数可恢复 τ 并以概率 1 成功，使 error<1 的前提不成立；同时缺少原文具体电路规模开销。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-function-binding-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:kzg-function-binding-before` 新增 `misaligned` 标签：ARSDH 假设量化所有 Lean 攻击者，无界函数可恢复 τ 并以概率 1 成功，使 error<1 的前提不成立；同时缺少原文具体电路规模开销。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/kzg-function-binding-before.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:kzg-function-binding-after` 新增 `misaligned` 标签：当前原文明确要求电路规模及具体归约开销，formal 仅表达抽象类上的概率界，并将归约属于该类作为 hAdv 前提，未建立所需资源保证。论证、参数核对和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-function-binding-after.json)。
+2026-11-16 按用户逐题确认，为 `arklib:kzg-function-binding-after` 新增 `misaligned` 标签：当前原文明确要求电路规模及具体归约开销，formal 仅表达抽象类上的概率界，并将归约属于该类作为 hAdv 前提，未建立所需资源保证。论证、参数核对和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/kzg-function-binding-after.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-reduction-before` 新增 `misaligned` 标签：原文要求的概率等式和效率结论仍未完整表达；确定性攻击者的区分例同样得到绑定概率 0、t-SDH 概率 1/(p-1)，不受 before 随机查询处理器的影响。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-reduction-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-reduction-before` 新增 `misaligned` 标签：原文要求的概率等式和效率结论仍未完整表达；确定性攻击者的区分例同样得到绑定概率 0、t-SDH 概率 1/(p-1)，不受 before 随机查询处理器的影响。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/kzg-binding-reduction-before.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-reduction-after` 新增 `misaligned` 标签：当前完整原文要求相等成功概率及少量运行时间开销，formal 仅表达单向概率界。归约忽略验证结果的具体例子得到绑定概率 0、t-SDH 概率 1/(p-1)，且缺少效率结论。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-reduction-after.json)。
+2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-reduction-after` 新增 `misaligned` 标签：当前完整原文要求相等成功概率及少量运行时间开销，formal 仅表达单向概率界。归约忽略验证结果的具体例子得到绑定概率 0、t-SDH 概率 1/(p-1)，且缺少效率结论。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/kzg-binding-reduction-after.json)。
 
-2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-before` 新增 `misaligned` 标签：困难性假设量化所有 Lean 函数，而原文只考虑 PPT 攻击者；无界函数可恢复 trapdoor，使 error<1 时的前提不成立。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-before.json)。
+2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-before` 新增 `misaligned` 标签：困难性假设量化所有 Lean 函数，而原文只考虑 PPT 攻击者；无界函数可恢复 trapdoor，使 error<1 时的前提不成立。论证和用户确认见 [标注记录](../reports/user-annotations-2026-11-16/kzg-binding-before.json)。
 
-2026-11-16 用户查看完整 informal、formal 及详细复核后，为 `arklib:kzg-binding-after` 指定 `aligned` 标签。此前模型的 `undetermined` 建议及随机实验、攻击者类相关证据继续保留，本次没有新增等价证明或修改输入。用户决定见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-after.json)，此前分析见 [复核记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/kzg-binding-after-recheck-2026-11-16/review.json)。
+2026-11-16 用户查看完整 informal、formal 及详细复核后，为 `arklib:kzg-binding-after` 指定 `aligned` 标签。此前模型的 `undetermined` 建议及随机实验、攻击者类相关证据继续保留，本次没有新增等价证明或修改输入。用户决定见 [标注记录](../reports/user-annotations-2026-11-16/kzg-binding-after.json)，此前分析见 [复核记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/kzg-binding-after-recheck-2026-11-16/review.json)。
 
-2026-11-16 按用户逐题确认，为 `apap:int-uniform-before` 新增 `misaligned` 标签：输入与 `int-sign-after` 完全相同，同样把统一 c 的存在量词放在 A、N 之后。输入一致性核对、论证和本题用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/int-uniform-before.json)。
+2026-11-16 按用户逐题确认，为 `apap:int-uniform-before` 新增 `misaligned` 标签：输入与 `int-sign-after` 完全相同，同样把统一 c 的存在量词放在 A、N 之后。输入一致性核对、论证和本题用户确认见 [复核记录](../reports/user-annotations-2026-11-16/int-uniform-before.json)。
 
-2026-11-16 按用户逐题确认，为 `apap:int-uniform-after` 新增 `aligned` 标签：统一 c、指数符号及 1/12 幂对应，未使用的 C 可消去，端点可平移。双方共同的小 N 缺陷仍待来源修订，evaluation_eligible 保持 false。论证和用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/int-uniform-after.json)。
+2026-11-16 按用户逐题确认，为 `apap:int-uniform-after` 新增 `aligned` 标签：统一 c、指数符号及 1/12 幂对应，未使用的 C 可消去，端点可平移。双方共同的小 N 缺陷仍待来源修订，evaluation_eligible 保持 false。论证和用户确认见 [复核记录](../reports/user-annotations-2026-11-16/int-uniform-after.json)。
 
-2026-11-16 按用户逐题确认，为 `apap:int-sign-before` 新增 `misaligned` 标签：formal 分母的负指数将衰减界变为增长界，单凭 A⊆range N 即满足结论；同时仍缺少独立于 A、N 的统一 c。论证和用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/int-sign-before.json)。
+2026-11-16 按用户逐题确认，为 `apap:int-sign-before` 新增 `misaligned` 标签：formal 分母的负指数将衰减界变为增长界，单凭 A⊆range N 即满足结论；同时仍缺少独立于 A、N 的统一 c。论证和用户确认见 [复核记录](../reports/user-annotations-2026-11-16/int-sign-before.json)。
 
-2026-11-16 按用户逐题确认，为 `apap:int-sign-after` 新增 `misaligned` 标签：原文要求统一 c>0，formal 在 A、N 及假设之后存在量化 c，允许常数依赖输入。两边共同存在的小 N 来源问题单独记录，端点平移差异不作为判负依据。论证和用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/int-sign-after.json)。
+2026-11-16 按用户逐题确认，为 `apap:int-sign-after` 新增 `misaligned` 标签：原文要求统一 c>0，formal 在 A、N 及假设之后存在量化 c，允许常数依赖输入。两边共同存在的小 N 来源问题单独记录，端点平移差异不作为判负依据。论证和用户确认见 [复核记录](../reports/user-annotations-2026-11-16/int-sign-after.json)。
 
-2026-11-16 按用户逐题确认，为 `apap:bohr-regular-before` 新增 `misaligned` 标签：同样存在 rank 错配，且 κ 的范围为 d/100，而非原文预期的 1/(100d)。Z/2 区分例在 before 的整个检查区间仍满足 formal，却违反原文。具体论证和用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/bohr-regular-before.json)。
+2026-11-16 按用户逐题确认，为 `apap:bohr-regular-before` 新增 `misaligned` 标签：同样存在 rank 错配，且 κ 的范围为 d/100，而非原文预期的 1/(100d)。Z/2 区分例在 before 的整个检查区间仍满足 formal，却违反原文。具体论证和用户确认见 [复核记录](../reports/user-annotations-2026-11-16/bohr-regular-before.json)。
 
-2026-11-16 按用户逐题确认，为 `apap:bohr-regular-after` 新增 `misaligned` 标签：formal 的 rank 统计有限宽度字符，原文统计宽度小于 2 的字符；Z/2 上的区分例说明两种正则性不等价。输入、源码及技术状态保持不变。理由、精确算术核对和用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/bohr-regular-after.json)。
+2026-11-16 按用户逐题确认，为 `apap:bohr-regular-after` 新增 `misaligned` 标签：formal 的 rank 统计有限宽度字符，原文统计宽度小于 2 的字符；Z/2 上的区分例说明两种正则性不等价。输入、源码及技术状态保持不变。理由、精确算术核对和用户确认见 [复核记录](../reports/user-annotations-2026-11-16/bohr-regular-after.json)。
 
 **当前 173 个版本化输入中，173 个有标签记录：91 misaligned、82 aligned、0 undetermined；另有 0 个尚无标签记录，二分类待处理合计 0 个。** 本次为用户确认的暂定标签，未升级为人类金标。以下为历史复核记录。
 
@@ -82,17 +82,17 @@
 
 项目的 `status` 和 `index.csv` 已直接更新：初次迁移时将 11 个旧 undetermined 改为 misaligned；2026-11-09 按用户确认将 CAR-01-before、CAR-01-after、CAR-CTRL-02 和 CAR-CTRL-03 从 undetermined 改为 misaligned，同日按用户确认将 GCG24UserItemFairness-before 和 GCG24UserItemFairness-after-spec 改为 misaligned，原四批共 37 个负例；补回历史记录后共 46 个负例。原状态保存在 `historical_status`，编译/提取状态在 `technical_status` 与原技术字段中。所有标签仍为模型暂定判断，不是人类金标。
 
-CAR-01-before 的新依据是全空间与球内 Lipschitz 范数导致消去性前提不等价；完整的 ℚ₂ 区分构造、精确算术核查和旧标签保存在 [2026-11-09 复核记录](../../reports/carleson-review-2026-11-09/CAR-01-before.json)。该结论涉及适用条件，不宣称 formal 主结论为假，也不以尚未闭合的 toReal 问题判负。数学论证尚未编码为 Lean 机器验证证明。
+CAR-01-before 的新依据是全空间与球内 Lipschitz 范数导致消去性前提不等价；完整的 ℚ₂ 区分构造、精确算术核查和旧标签保存在 [2026-11-09 复核记录](../reports/carleson-review-2026-11-09/CAR-01-before.json)。该结论涉及适用条件，不宣称 formal 主结论为假，也不以尚未闭合的 toReal 问题判负。数学论证尚未编码为 Lean 机器验证证明。
 
-CAR-01-after 经独立核对后也确认了该范数差异；完整区分构造与原标签保存在 [CAR-01-after 复核记录](../../reports/carleson-review-2026-11-09/CAR-01-after.json)。其 hT 已直接使用 ENNReal，此次判负不涉及 toReal；数学论证尚未做 Lean 机器认证。
+CAR-01-after 经独立核对后也确认了该范数差异；完整区分构造与原标签保存在 [CAR-01-after 复核记录](../reports/carleson-review-2026-11-09/CAR-01-after.json)。其 hT 已直接使用 ENNReal，此次判负不涉及 toReal；数学论证尚未做 Lean 机器认证。
 
-CAR-CTRL-02 和 CAR-CTRL-03 的新依据是消去测试函数类扩大：formal 要求球内 Lipschitz 范数有限、球外为零，原文要求全局 Lipschitz。固定 a=4、Θ={0,id} 和 d_B=2^18R 的实数轴模型满足原文消去条件，却被 formal 的开球指示函数测试排除。取零核（CTRL-03 再取常值 Q）可同时满足其余假设。详细推导及旧标签见 [CAR-CTRL-02](../../reports/carleson-review-2026-11-09/CAR-CTRL-02.json) 和 [CAR-CTRL-03](../../reports/carleson-review-2026-11-09/CAR-CTRL-03.json)。判定固定同一辅助度量，不排除另行重选度量的等价论证；尚未做 Lean 机器认证。CTRL-03 的全相位量词正确，此次判负不涉及 CAR-02 的量词问题。
+CAR-CTRL-02 和 CAR-CTRL-03 的新依据是消去测试函数类扩大：formal 要求球内 Lipschitz 范数有限、球外为零，原文要求全局 Lipschitz。固定 a=4、Θ={0,id} 和 d_B=2^18R 的实数轴模型满足原文消去条件，却被 formal 的开球指示函数测试排除。取零核（CTRL-03 再取常值 Q）可同时满足其余假设。详细推导及旧标签见 [CAR-CTRL-02](../reports/carleson-review-2026-11-09/CAR-CTRL-02.json) 和 [CAR-CTRL-03](../reports/carleson-review-2026-11-09/CAR-CTRL-03.json)。判定固定同一辅助度量，不排除另行重选度量的等价论证；尚未做 Lean 机器认证。CTRL-03 的全相位量词正确，此次判负不涉及 CAR-02 的量词问题。
 
-GCG24UserItemFairness-after-spec 的新依据是人数与比例的桥接矛盾：canonicalReduction 使用整数人数权重，twoTypeReducedModel 使用 α、1−α，而 hred 要求结构严格相等，与 0<α<1 冲突。相关原始定义片段已在 Lean 4.12.0-rc1 独立验证，无 sorryAx；并非完整快照的编译认证，也不使用缺少后半区间的旧理由。原标签、证明代码与日志见 [2026-11-09 复核记录](../../reports/applied-modeling-lib-review-2026-11-09/GCG24UserItemFairness-after-spec.json)。
+GCG24UserItemFairness-after-spec 的新依据是人数与比例的桥接矛盾：canonicalReduction 使用整数人数权重，twoTypeReducedModel 使用 α、1−α，而 hred 要求结构严格相等，与 0<α<1 冲突。相关原始定义片段已在 Lean 4.12.0-rc1 独立验证，无 sorryAx；并非完整快照的编译认证，也不使用缺少后半区间的旧理由。原标签、证明代码与日志见 [2026-11-09 复核记录](../reports/applied-modeling-lib-review-2026-11-09/GCG24UserItemFairness-after-spec.json)。
 
-GCG24UserItemFairness-before 的新依据同样是人数权重与比例权重混用：根定理 hred 将未归一化的人数与 α 严格等同，由第一类至少有一名用户及 α<1 得到矛盾，使 formal 前提无实例。定义位置、数学推导和旧标签见 [before 复核记录](../../reports/applied-modeling-review-2026-11-09/GCG24UserItemFairness-before.json)。此判定不依赖前半区间的覆盖争议；本次 before 复核未做 Lean 编译认证，技术状态仍为 blocked。
+GCG24UserItemFairness-before 的新依据同样是人数权重与比例权重混用：根定理 hred 将未归一化的人数与 α 严格等同，由第一类至少有一名用户及 α<1 得到矛盾，使 formal 前提无实例。定义位置、数学推导和旧标签见 [before 复核记录](../reports/applied-modeling-review-2026-11-09/GCG24UserItemFairness-before.json)。此判定不依赖前半区间的覆盖争议；本次 before 复核未做 Lean 编译认证，技术状态仍为 blocked。
 
-GHW-theorem9_3_deterministic_truthful_lower_bound 经完整上下文复核改为 aligned：采用原稿 §2、§5.1 的匿名报价集合模型，并以原作者后续对早期结果的明确归属佐证；这不是从一般诚实性推出匿名性。固定报价 1 的派生机制将 formal 见证传回实际 min=1、max=H 的输入，保留 O(1/H) 和 F≥αH。模型解释、数学桥接与旧标签见 [2026-11-09 复核记录](../../reports/applied-modeling-lib-review-2026-11-09/GHW-theorem9_3_deterministic_truthful_lower_bound.json)。本判定不覆盖任意身份定价的非匿名机制；桥接尚未做 Lean 机器认证。项目正标签对应现有状态词 ready，标签本身为 aligned。
+GHW-theorem9_3_deterministic_truthful_lower_bound 经完整上下文复核改为 aligned：采用原稿 §2、§5.1 的匿名报价集合模型，并以原作者后续对早期结果的明确归属佐证；这不是从一般诚实性推出匿名性。固定报价 1 的派生机制将 formal 见证传回实际 min=1、max=H 的输入，保留 O(1/H) 和 F≥αH。模型解释、数学桥接与旧标签见 [2026-11-09 复核记录](../reports/applied-modeling-lib-review-2026-11-09/GHW-theorem9_3_deterministic_truthful_lower_bound.json)。本判定不覆盖任意身份定价的非匿名机制；桥接尚未做 Lean 机器认证。项目正标签对应现有状态词 ready，标签本身为 aligned。
 
 标签文件保存具体原因与输入哈希；`status-changes.json` 保存状态变更。语义待定与技术受阻分别记录。GHW 9.1 经固定报价 1 的派生规则归约改为 aligned；SLT 经局部上确界的可积性及空球面分支归约改为 aligned，但其技术状态仍为 blocked。
 

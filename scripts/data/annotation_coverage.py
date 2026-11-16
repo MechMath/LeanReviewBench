@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+from paths import resolve
 
 BASE = Path(__file__).resolve().parents[2]
 NEW_BATCHES = {'arklib', 'imperial-flt', 'equational-theories', 'apap'}
@@ -63,7 +64,7 @@ def audit():
             if batch in NEW_BATCHES and not (report_path and report_hash):
                 errors.append(f'{key}: missing bound review report')
             if report_path and report_hash:
-                report = BASE / report_path
+                report = resolve(BASE,report_path)
                 if not report.is_file() or hashlib.sha256(report.read_bytes()).hexdigest() != report_hash:
                     errors.append(f'{key}: review report hash mismatch')
                     continue

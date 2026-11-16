@@ -4,12 +4,11 @@ The shared environment is defined by [datasets/project-cases.json](../datasets/p
 
 | File | Purpose |
 | --- | --- |
-| `pyproject.toml` | Python 3.11+, CLI entry point and package metadata; no runtime third-party dependencies |
+| `pyproject.toml` | Python 3.11+, inspection CLI entry point and package metadata; no runtime third-party dependencies |
 | `datasets/project-cases.json` | Registered scope, Lean/library pins and external tool environment variable names |
 | `.env.example` | Optional construction path template; no credentials or machine paths |
 | `scripts/evaluation/.env.example` | Original optional provider template |
-| `protocol/testing/.env.example` | Original compatibility provider template |
-| `protocol/v1/prediction.schema.json` | Original prediction contract for separately supplied evaluation packages |
+| `scripts/evaluation/prediction.schema.json` | Original prediction contract for separately supplied evaluation packages |
 | `.gitignore` | Generated outputs, Lean caches, local settings and credentials |
 | `.gitattributes` | Exact-byte preservation for input, evidence and upstream license files |
 

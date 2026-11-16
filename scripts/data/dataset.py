@@ -3,6 +3,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+from .paths import resolve
 
 
 def file_hash(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -43,7 +44,7 @@ class Dataset:
         row=selected[0];path=Path(row['graph_path'])
         if not path.parts or path.is_absolute() or '..' in path.parts or (path.parts[:2]!=('metadata','derived-graphs') and path.parts[0]!='reports'):
             raise ValueError('Unsafe graph path')
-        path=self.root/path
+        path=resolve(self.root,path)
         if file_hash(path)!=row['graph_sha256']:raise ValueError('Retained graph hash mismatch')
         meta=self.project(identity)['project']
         if row['input_sha256']!=meta['input_sha256'] or row['roots']!=[t['declaration'] for t in meta['targets']]:

@@ -1,20 +1,20 @@
 # Live model setup and troubleshooting
 
-Use Python 3.11 or later. See the [adapter reference](../adapters/README.md) for options and configuration precedence, and the [validation guide](../../docs/testing.md) for the complete offline workflow.
+Use Python 3.11 or later. See the [adapter reference](ADAPTERS.md) for options and configuration precedence, and the [validation guide](../../docs/testing.md) for the complete offline workflow.
 
 ## Local configuration
 
 Copy `.env.example` to `.env` in this directory and fill in a credential, base URL, and model authorized for testing. Local `.env` files are ignored by Git. Keep the file outside exported task directories and use an absolute path when invoking an adapter from the runner.
 
 ```sh
-cp protocol/testing/.env.example protocol/testing/.env
+cp scripts/evaluation/.env.example scripts/evaluation/.env
 ```
 
 Then use the normal protocol runner with this adapter command:
 
 ```sh
-python3 /absolute/path/to/protocol/adapters/responses_llm.py \
-  --env-file /absolute/path/to/protocol/testing/.env
+python3 /absolute/path/to/scripts/evaluation/responses_llm.py \
+  --env-file /absolute/path/to/scripts/evaluation/.env
 ```
 
 `OPENAI_BASE_URL` includes any API prefix, e.g. `https://api.openai.com/v1`. The adapter appends `/responses`. `OPENAI_API_KEY` and `OPENAI_MODEL` are required; `OPENAI_REASONING_EFFORT` is optional. Process environment variables override dotenv values. TOML configuration via `--config` remains an alternative; it cannot be combined with `--env-file`.
@@ -37,14 +37,14 @@ Protocol regression tests also reject extra task files and symlinked resources, 
 
 ## Live request
 
-Export a frozen task using the [protocol example](../README.md#example) before invoking the adapter. Select its directory from the export's `index.json`. Use a fresh output directory for each attempt:
+Export a frozen task using the [protocol example](README.md#example) before invoking the adapter. Select its directory from the export's `index.json`. Use a fresh output directory for each attempt:
 
 ```sh
-python3 scripts/benchmark_protocol.py run \
+python3 scripts/evaluation/benchmark_protocol.py run \
   --task /absolute/path/to/exported/task \
   --output build/llm-smoke/new-run --timeout 180 -- \
-  python3 /absolute/path/to/protocol/adapters/responses_llm.py \
-  --env-file /absolute/path/to/protocol/testing/.env
+  python3 /absolute/path/to/scripts/evaluation/responses_llm.py \
+  --env-file /absolute/path/to/scripts/evaluation/.env
 ```
 
 If the configured base URL has no API prefix, explicitly test `--api-path /v1/responses`. Inspect `run.json` and `stderr.log` in the output directory. A failed request is an execution failure, not an alignment verdict.

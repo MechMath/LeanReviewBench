@@ -35,7 +35,7 @@ library identities/types and the complete retained dependency graph.
 Validation rejects duplicate identities, disconnected or dangling edges,
 unexpected context fields, proof bodies and prohibited definition-value traversal
 from theorem/proof nodes. See `task_content`, `model_pair` and `validate_context`
-in [the implementation](../../scripts/evaluation/benchmark_protocol.py).
+in [the implementation](benchmark_protocol.py).
 
 These packages contain fragments and resolved types, not a standalone compilable
 Lean environment. No truncation or implicit retrieval is performed.
@@ -133,7 +133,7 @@ caller's environment; adapters manage authentication and any filesystem/network
 isolation or tool/token limits. Task input and provider configuration are separate.
 
 Provider-specific settings, commands and troubleshooting live in the
-[evaluation tool guide](../../scripts/evaluation/README.md).
+[evaluation tool guide](README.md).
 
 ## Reference review and scoring
 
