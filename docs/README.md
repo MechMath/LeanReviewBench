@@ -6,6 +6,7 @@ The current collection has 172 versioned inputs across 17 registered batches. It
 - [Current statistics](PROJECT-CASE-STATS.md)
 - [Construction](CONSTRUCTION.md) and [environment](ENVIRONMENT.md)
 - [Misalignment taxonomy](MISALIGNMENT-TAXONOMY.md)
+- [Testing](testing.md), [configuration](CONFIGURATION.md) and [packaging policy](PACKAGING.md)
 - [Migration and verification](MIGRATION.md)
 - [Publication graph inventory](FORMAT.md)
 - [Original protocol documentation](../protocol/v1/README.md)

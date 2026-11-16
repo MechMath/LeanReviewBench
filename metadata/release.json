@@ -35,6 +35,7 @@
     "qwen experiment runs",
     "per-declaration and duplicate graph encodings",
     "build caches",
-    "original-source.tar.gz copies (original/ contents retained)"
-  ]
+    "optional original/ copies, source caches, patches and construction logs"
+  ],
+  "packaging_policy": "Test/runtime dependencies only; optional construction materials use immutable archive links."
 }

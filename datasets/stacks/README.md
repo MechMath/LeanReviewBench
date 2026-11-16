@@ -15,11 +15,11 @@ misaligned against the bound Hausdorff target on 2026-11-12. On the same date,
 the two 0B34 entries were merged at the user's request. The joint target covers
 both conclusions; its misaligned label retains only the weaker-assumption
 objection. Previous inputs and decisions are archived in the
-[merge record](../../reports/stacks-admission/merges/STK-0B34.json).
+[merge record](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/merges/STK-0B34.json).
 
-See [index.csv](index.csv), [admission and limitations](../../reports/stacks-admission/README.md),
+See [index.csv](index.csv), [admission and limitations](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/README.md),
 [provisional labels](../../metadata/labels/stacks.jsonl), and
-[screening evidence](../../reports/stacks-admission/screening/README.md).
+[screening evidence](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/screening/README.md).
 All Stacks inputs share the repository split `optpku/stacks`; the two 0B34 roots
 also share a source family. Before/after IDs are reciprocal. New Picard,
 pure-codimension and obstruction-class leads remain outside this population.

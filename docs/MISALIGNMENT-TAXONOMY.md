@@ -3,7 +3,7 @@
 This taxonomy classifies semantic differences between a bound informal target and
 its formal statement. Each misaligned case receives one to three distinct labels.
 Labels describe the difference, not proof correctness, blame, or compilation status.
-The current coverage audit is in [the case review](../reports/misalignment-taxonomy-2026-11-10/README.md).
+The current coverage audit is in [the case review](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/misalignment-taxonomy-2026-11-10/README.md).
 
 ## Categories
 

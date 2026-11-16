@@ -23,6 +23,8 @@ def write_json(path,value):
 def migrate(source,output,research_revision):
     research=Research(source)
     if research.git('status','--porcelain').strip():raise ValueError('Research checkout must be clean')
+    template=json.loads((ROOT/'metadata/release.json').read_text())
+    if research.commit!=template['source_commit']:raise ValueError('Use the pinned source commit; publication updates require a deliberate new baseline')
     if output.exists():raise ValueError('Migration destination must be fresh')
     output.mkdir(parents=True)
     def copy(relative):
@@ -75,11 +77,12 @@ def migrate(source,output,research_revision):
             meta=json.loads(original.read_text())
             # Exact native files and resources, with directly readable Lean paths.
             # Graph formats are represented once through the retained graph index.
+            keep={'project.json','informal.jsonl','formal'}
+            if meta.get('changes'):keep.add(Path(meta['changes']).parts[0])
             for child in original.parent.iterdir():
-                if child.name in ('graph','context','original-source.tar.gz'):continue
+                if child.name not in keep:continue
                 dest=output/relative/child.name;dest.parent.mkdir(parents=True,exist_ok=True)
-                if child.is_dir():
-                    shutil.copytree(child,dest,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+                if child.is_dir():shutil.copytree(child,dest)
                 else:shutil.copy2(child,dest)
             formal_count+=sum(f.is_file() for f in (original.parent/'formal').rglob('*'))
             graph,binding=research.graph(original.parent,meta,lookup)
@@ -92,13 +95,10 @@ def migrate(source,output,research_revision):
             record=dict(dataset=batch,project_id=meta['id'],input_sha256=meta['input_sha256'],
                         roots=[t['declaration'] for t in meta['targets']],graph_path=existing[h],graph_sha256=h,
                         graph_source=binding,fresh_compilation=False)
-            for field,value in meta.get('preparation',{}).items():
-                if 'receipt' in field and isinstance(value,str) and (source/value).is_file():
-                    copy(value);record.setdefault('retained_receipts',[]).append(dict(path=value,sha256=sha((source/value).read_bytes())))
             graph_records.append(record);counts[batch]+=1
         for label in label_rows:
             report=label.get('review_report');expected=label.get('review_report_sha256')
-            if report:
+            if report and expected:
                 try:raw=research.read(report,expected)
                 except (FileNotFoundError,subprocess.CalledProcessError):
                     if expected:raise
@@ -111,7 +111,17 @@ def migrate(source,output,research_revision):
         dataset_schema='paperlean-project-case-1',inputs=sum(counts.values()),batches=dict(counts),labels=dict(labels),
         formal_files=formal_count,reference_ready=0,
         model_export_status='Native project-case data; no frozen model task export is asserted.',
-        omitted=['staging and excluded candidates','qwen experiment runs','per-declaration and duplicate graph encodings','build caches','original-source.tar.gz copies (original/ contents retained)']))
+        packaging_policy='Test/runtime dependencies only; optional construction materials use immutable archive links.',
+        omitted=['staging and excluded candidates','qwen experiment runs','per-declaration and duplicate graph encodings','build caches','optional original/ copies, source caches, patches and construction logs']))
+    # Carry the reviewed release support files and configuration, not local settings.
+    support=json.loads((ROOT/'docs/support-inventory.json').read_text())
+    for relative in [*support['files_sha256'],'docs/support-inventory.json']:
+        destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copy2(ROOT/relative,destination)
+    for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json']:
+        destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,destination)
+    for batch in cfg['datasets']:
+        shutil.copy2(ROOT/'datasets'/batch/'README.md',output/'datasets'/batch/'README.md')
     # Reuse the original inventory contract and checks rather than a new schema.
     subprocess.run([sys.executable,'scripts/data/release_metadata.py','freeze'],cwd=output,check=True)
     subprocess.run([sys.executable,'scripts/data/check_release_candidate.py'],cwd=output,check=True,stdout=subprocess.DEVNULL)

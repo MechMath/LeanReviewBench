@@ -1,5 +1,0 @@
-FreyPackage.mazur : ∀ (P : FreyPackage),
-  let E := P.freyCurve;
-  let p := P.p;
-  have this := ⋯;
-  (E.galoisRep p ⋯).IsIrreducible

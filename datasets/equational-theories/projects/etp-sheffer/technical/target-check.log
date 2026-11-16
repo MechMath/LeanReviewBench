@@ -1,3 +1,0 @@
-Sheffer.Equation345169_is_Boolean : (G : Type u_1) →
-  [inst : Magma G] → Equation345169 G → [Inhabited G] → BooleanAlgebra G
-Sheffer.Sheffer_Equation345169 : ∀ (B : Type u_1) [inst : BooleanAlgebra B], Equation345169 B

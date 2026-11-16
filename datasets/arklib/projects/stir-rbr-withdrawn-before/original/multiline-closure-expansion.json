@@ -1,6 +1,0 @@
-{
-  "parser": "nested comments removed; import header whitespace may span lines",
-  "added_modules": [],
-  "original_reachable_modules": 182,
-  "note": "Original dependency source bytes added before compatibility transforms; no roots/assumptions changed"
-}

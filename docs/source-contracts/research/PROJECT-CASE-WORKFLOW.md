@@ -1,10 +1,10 @@
 # Real-project case maintenance
 
-The original thirteen batches registered in [project-cases.json](../datasets/project-cases.json)
+The original thirteen batches registered in [project-cases.json](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/datasets/project-cases.json)
 contain 143 versioned inputs, 100 repository/root declaration names (92 with
 extracted snapshots) and 50 before/after pairs. These are not independent
-mathematical-case counts. See the [generated statistics](PROJECT-CASE-STATS.md)
-and [construction procedure](CONSTRUCTION.md).
+mathematical-case counts. See the [generated statistics](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/PROJECT-CASE-STATS.md)
+and [construction procedure](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/CONSTRUCTION.md).
 
 ## Files and responsibilities
 
@@ -44,7 +44,7 @@ compilation or semantic approval follows from static checks.
 ## Evidence and labels
 
 Only explicit upstream statements are retained in
-[upstream-evidence](../metadata/upstream-evidence/README.md). Each excerpt keeps
+[upstream-evidence](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/metadata/upstream-evidence/README.md). Each excerpt keeps
 its original source field, archive locator and links to current input hashes.
 Association notes are curator explanations, not upstream quotes. Version links
 do not assert that the upstream claim holds for each linked snapshot.
@@ -99,7 +99,7 @@ availability. Even a compiled project may lack an independent informal target.
 ## External environment and checks
 
 Lean, Mathlib, Cslib and extraction tools use the explicit external configuration
-documented in [ENVIRONMENT.md](ENVIRONMENT.md). To inspect or compile:
+documented in [ENVIRONMENT.md](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/ENVIRONMENT.md). To inspect or compile:
 
 ```sh
 python3 scripts/construction/compile_projects.py env
@@ -128,6 +128,6 @@ Full construction recipes, graphs, logs and unsuccessful attempts remain in
 the historical archive. `scripts/data/provenance.py --path <original-path>`
 resolves historical `reports/...` locators to immutable URLs.
 
-Stacks admission adds six technically extracted inputs: two provisionally aligned, one misaligned and three unresolved scopes. See [admission](../reports/stacks-admission/README.md). Earlier dated 137-input review summaries above remain historical; current totals are generated in PROJECT-CASE-STATS.md.
+Stacks admission adds six technically extracted inputs: two provisionally aligned, one misaligned and three unresolved scopes. See [admission](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/reports/stacks-admission/README.md). Earlier dated 137-input review summaries above remain historical; current totals are generated in PROJECT-CASE-STATS.md.
 
-The 2026-11-13 extraction branch adds explicitly registered packages with separate technical receipts and unresolved human scope review. See [current extraction results](../reports/pending-extraction-2026-11-13/README.md) and regenerated statistics for current totals.
+The 2026-11-13 extraction branch adds explicitly registered packages with separate technical receipts and unresolved human scope review. See [current extraction results](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/reports/pending-extraction-2026-11-13/README.md) and regenerated statistics for current totals.

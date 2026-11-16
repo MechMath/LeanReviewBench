@@ -5,18 +5,18 @@ format is called the project-case format (`paperlean-project-case-1`);
 AppliedModelingLib is one source repository, not the format name.
 Original OpenAI/OAI, FLT and Kakeya inputs remain excluded.
 
-- [Scope and counts](../README.md)
-- [Project-case format and maintenance](PROJECT-CASE-WORKFLOW.md)
-- [Upstream evidence and integrity](../metadata/README.md)
-- [Statistics and counting limits](PROJECT-CASE-STATS.md)
-- [Statement misalignment taxonomy](MISALIGNMENT-TAXONOMY.md)
-- [Historical classification of the original 70 misaligned cases](../reports/misalignment-taxonomy-2026-11-10/README.md)
-- [Construction method](CONSTRUCTION.md)
-- [External dependency configuration](ENVIRONMENT.md)
-- [Current layout](DIRECTORY-CLEANUP.md)
-- [Validation and tests](testing.md)
-- [Evaluation tools and setup](../scripts/evaluation/README.md)
-- [Versioned evaluation contract](../protocol/v1/README.md)
+- [Scope and counts](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/README.md)
+- [Project-case format and maintenance](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/PROJECT-CASE-WORKFLOW.md)
+- [Upstream evidence and integrity](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/metadata/README.md)
+- [Statistics and counting limits](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/PROJECT-CASE-STATS.md)
+- [Statement misalignment taxonomy](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/MISALIGNMENT-TAXONOMY.md)
+- [Historical classification of the original 70 misaligned cases](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/reports/misalignment-taxonomy-2026-11-10/README.md)
+- [Construction method](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/CONSTRUCTION.md)
+- [External dependency configuration](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/ENVIRONMENT.md)
+- [Current layout](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/DIRECTORY-CLEANUP.md)
+- [Validation and tests](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/testing.md)
+- [Evaluation tools and setup](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/scripts/evaluation/README.md)
+- [Versioned evaluation contract](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/protocol/v1/README.md)
 
 Run `python3 scripts/data/check_release_candidate.py` for current scope, input,
 upstream evidence and metadata checks. The candidate has no frozen native evaluation

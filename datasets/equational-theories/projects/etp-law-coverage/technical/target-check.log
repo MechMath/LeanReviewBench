@@ -1,1 +1,0 @@
-laws_complete' : ∀ (l : Law.MagmaLaw ℕ), l.forks ≤ 4 → ∃ i, Law.MagmaLaw.iff laws[i] l

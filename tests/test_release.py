@@ -74,6 +74,10 @@ class NativeContractTests(unittest.TestCase):
 
 
 class PublicationTests(unittest.TestCase):
+    def test_required_support_files(self):
+        result=subprocess.run([sys.executable,"tools/check_support_files.py"],cwd=ROOT,capture_output=True,text=True)
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+
     def test_original_release_candidate_checks(self):
         result=subprocess.run([sys.executable,'scripts/data/check_release_candidate.py'],cwd=ROOT,capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)

@@ -1,8 +1,8 @@
 # Case construction method
 
 The canonical data are the batches registered in
-`datasets/project-cases.json`. Follow the [project format and status rules](PROJECT-CASE-WORKFLOW.md)
-and use the [generated statistics](PROJECT-CASE-STATS.md). The original
+`datasets/project-cases.json`. Follow the [project format and status rules](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/PROJECT-CASE-WORKFLOW.md)
+and use the [generated statistics](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/PROJECT-CASE-STATS.md). The original
 OpenAI/FLT/Kakeya release remains in the historical archive and is excluded from
 this publication candidate.
 
@@ -56,5 +56,5 @@ graphs and logs stay in the archive; this publication is not a complete pipeline
 for remaking every case from scratch. The compact metadata checker verifies
 published input and upstream evidence bindings, not fresh graph extraction.
 
-See [metadata](../metadata/README.md), [tool responsibilities](../scripts/README.md)
-and [external dependency configuration](ENVIRONMENT.md).
+See [metadata](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/metadata/README.md), [tool responsibilities](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/scripts/README.md)
+and [external dependency configuration](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/ENVIRONMENT.md).

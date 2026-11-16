@@ -4,7 +4,7 @@ Current integration scope: **172 inputs across 17 batches**, with 172 binary lab
 
 The original reviewed baseline contains **13 datasets and 143 versioned inputs**.
 The current branch additionally registers 30 snapshots from the four retained handoff repositories
-(ArkLib, Imperial FLT, Equational Theories, APAP); see [extraction results](../reports/pending-extraction-2026-11-13/README.md).
+(ArkLib, Imperial FLT, Equational Theories, APAP); see [extraction results](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/README.md).
 All current batches are registered in
 [project-cases.json](project-cases.json), indexed by CSV, with reviewed labels
 in `metadata/labels/`. OpenAI, Kakeya and FLT and their frozen release manifest
@@ -50,6 +50,6 @@ The registered batches use CSV indexes. Their evaluation export and reference
 binding still need separate preparation before using the frozen-package runner.
 See [maintenance](../docs/PROJECT-CASE-WORKFLOW.md).
 
-Historical staging remains in [the staging batch](staging/real-repairs-2026-11-12/README.md).
+Historical staging remains in [the staging batch](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/staging/real-repairs-2026-11-12/README.md).
 The new formal packages record fresh compilation and graph extraction after relocation.
 Unreviewed inputs remain ineligible for evaluation and have no assigned binary reference label.

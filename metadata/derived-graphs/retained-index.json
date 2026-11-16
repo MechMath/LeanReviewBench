@@ -2346,17 +2346,7 @@
         "sha256": "dfab9c6a68c00a58e772c0a23e17bf55f85ce7a9481be6e23c5febb8ad254614",
         "binding": "verified_derived_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/stacks-admission/technical/STK-004Y/receipt.json",
-          "sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
-        },
-        {
-          "path": "reports/stacks-admission/technical/STK-004Y/receipt.json",
-          "sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "stacks",
@@ -2373,17 +2363,7 @@
         "sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
         "binding": "verified_derived_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
-          "sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
-        },
-        {
-          "path": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
-          "sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "stacks",
@@ -2400,17 +2380,7 @@
         "sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
         "binding": "verified_derived_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
-          "sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
-        },
-        {
-          "path": "reports/stacks-admission/technical/STK-09Y5-after/receipt.json",
-          "sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "stacks",
@@ -2427,17 +2397,7 @@
         "sha256": "9079946a52fd94bbcefc52ce27196481f9a7060235688ab0804e2c2a1683ab02",
         "binding": "verified_derived_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/stacks-admission/technical/STK-09Y5-before/receipt.json",
-          "sha256": "255197982f24aa3d719862219672c7a3c098d631f9c6a6296a59095b7179d51a"
-        },
-        {
-          "path": "reports/stacks-admission/technical/STK-09Y5-before/receipt.json",
-          "sha256": "255197982f24aa3d719862219672c7a3c098d631f9c6a6296a59095b7179d51a"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "stacks",
@@ -2455,17 +2415,7 @@
         "sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
         "binding": "verified_derived_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/stacks-admission/technical/STK-0B34/receipt.json",
-          "sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
-        },
-        {
-          "path": "reports/stacks-admission/technical/STK-0B34/receipt.json",
-          "sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "arklib",
@@ -2891,17 +2841,7 @@
         "sha256": "6a0f8fdb3008a9319bd7304448a6780f6b32fbc11ad6a888ca3646d30bf0c6f9",
         "binding": "retained_preparation_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-after/receipt.json",
-          "sha256": "1f39fec97e8d5cd1d57435dbf55bc9d7f36a2b9a55edf6e58588607917eae454"
-        },
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-after/receipt.json",
-          "sha256": "1f39fec97e8d5cd1d57435dbf55bc9d7f36a2b9a55edf6e58588607917eae454"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "apap",
@@ -2918,17 +2858,7 @@
         "sha256": "fe6c19b8007432d1541b5f2e6018b69af6e58a4d9971a0ed745242aa7f3f644e",
         "binding": "retained_preparation_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/receipt.json",
-          "sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84"
-        },
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/bohr-regular-before/receipt.json",
-          "sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "apap",
@@ -2945,17 +2875,7 @@
         "sha256": "5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c",
         "binding": "retained_preparation_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
-          "sha256": "5795acc2e4664cbb8122a709894f0dbf9b16f0d71774b9019114c2991c23f81c"
-        },
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
-          "sha256": "5795acc2e4664cbb8122a709894f0dbf9b16f0d71774b9019114c2991c23f81c"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "apap",
@@ -2972,17 +2892,7 @@
         "sha256": "8e4574f0306517e8e568fafdb78f9da4ccbed450305d650ddbe7544afd0a6d82",
         "binding": "retained_preparation_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
-          "sha256": "0cc82310cd04b01ae1eab1a76404c7223681b779dd1600efb57380c0d22fc869"
-        },
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
-          "sha256": "0cc82310cd04b01ae1eab1a76404c7223681b779dd1600efb57380c0d22fc869"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "apap",
@@ -2999,17 +2909,7 @@
         "sha256": "5426cb90db843608e1b4de17d2e26c3b14a09571ef7bd569501d05ae8114b8f5",
         "binding": "retained_preparation_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
-          "sha256": "4c7a0d28f1f7a502db6062c09ed6ef337645b76da045c338d29f840b6daf1057"
-        },
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
-          "sha256": "4c7a0d28f1f7a502db6062c09ed6ef337645b76da045c338d29f840b6daf1057"
-        }
-      ]
+      "fresh_compilation": false
     },
     {
       "dataset": "apap",
@@ -3026,17 +2926,7 @@
         "sha256": "5a4c0e5f811240d622b7c5f1b7036e03ee1bf8d925fab5eba9218742b972d62c",
         "binding": "retained_preparation_graph"
       },
-      "fresh_compilation": false,
-      "retained_receipts": [
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-before/receipt.json",
-          "sha256": "4bfeff5aeeda9273edb1d884aac1ebcf7dc95a8e1c4207502444f8fef4925639"
-        },
-        {
-          "path": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-before/receipt.json",
-          "sha256": "4bfeff5aeeda9273edb1d884aac1ebcf7dc95a8e1c4207502444f8fef4925639"
-        }
-      ]
+      "fresh_compilation": false
     }
   ]
 }

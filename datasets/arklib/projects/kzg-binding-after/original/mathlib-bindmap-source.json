@@ -1,6 +1,0 @@
-{
-  "repository": "https://github.com/leanprover-community/mathlib4",
-  "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
-  "sha256": "72f97049bce3682d8705130ef62f785d58f4cfdcf3bc3daf6e549117e60283f5",
-  "subset": "Original theorem MeasureTheory.Measure.bind_map with original proof; no existing declaration shadowed"
-}

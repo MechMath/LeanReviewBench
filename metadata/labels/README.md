@@ -1,8 +1,8 @@
 # 当前项目复核标注
 
-2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-right` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 quasi-sober，遗漏原文非 T0 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。本轮 33 个待处理输入均已完成二分类标注。旧标签、论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/STK-0B34-right.json)。
+2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-right` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 quasi-sober，遗漏原文非 T0 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。本轮 33 个待处理输入均已完成二分类标注。旧标签、论证和用户确认见 [标注记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/user-annotations-2026-11-16/STK-0B34-right.json)。
 
-2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-left` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 T0，遗漏原文非 quasi-sober 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。旧标签、论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/STK-0B34-left.json)。
+2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-left` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 T0，遗漏原文非 quasi-sober 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。旧标签、论证和用户确认见 [标注记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/user-annotations-2026-11-16/STK-0B34-left.json)。
 
 2026-11-16 按用户逐题确认，将 `stacks:STK-08ZR` 从 `undetermined` 改为 `misaligned`：原文 Hausdorff 前提被严格更弱的 R1Space 替换，适用范围扩大，按 A 类判负；局部紧致性概念对应，保留这是正确推广的说明。旧标签、论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/STK-08ZR.json)。
 
@@ -52,7 +52,7 @@
 
 2026-11-16 按用户逐题确认，为 `arklib:kzg-binding-before` 新增 `misaligned` 标签：困难性假设量化所有 Lean 函数，而原文只考虑 PPT 攻击者；无界函数可恢复 trapdoor，使 error<1 时的前提不成立。论证和用户确认见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-before.json)。
 
-2026-11-16 用户查看完整 informal、formal 及详细复核后，为 `arklib:kzg-binding-after` 指定 `aligned` 标签。此前模型的 `undetermined` 建议及随机实验、攻击者类相关证据继续保留，本次没有新增等价证明或修改输入。用户决定见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-after.json)，此前分析见 [复核记录](../../reports/kzg-binding-after-recheck-2026-11-16/review.json)。
+2026-11-16 用户查看完整 informal、formal 及详细复核后，为 `arklib:kzg-binding-after` 指定 `aligned` 标签。此前模型的 `undetermined` 建议及随机实验、攻击者类相关证据继续保留，本次没有新增等价证明或修改输入。用户决定见 [标注记录](../../reports/user-annotations-2026-11-16/kzg-binding-after.json)，此前分析见 [复核记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/kzg-binding-after-recheck-2026-11-16/review.json)。
 
 2026-11-16 按用户逐题确认，为 `apap:int-uniform-before` 新增 `misaligned` 标签：输入与 `int-sign-after` 完全相同，同样把统一 c 的存在量词放在 A、N 之后。输入一致性核对、论证和本题用户确认见 [复核记录](../../reports/user-annotations-2026-11-16/int-uniform-before.json)。
 
@@ -72,11 +72,11 @@
 
 **137 个项目：70 misaligned、67 aligned、0 undetermined。** 全部项目均有暂定二分类标签。
 
-2026-11-09 按用户要求继续查仓库，在迁移后的 IEANTN 初始提交 `0885c4e7` 找到完整 Vinogradov bound、Eπ/Eπ′、π/π*/Li 的自然语言定义，为最后四项补入共同目标。两个 after 判 aligned，两个 before 判 misaligned：before 的分数指数均被自然数除法算成 0，π* before 还使用不同的计数函数。全文历史检索确认旧目标从入库起即为空，所以本次明确记录为后续来源的新绑定，不冒充恢复旧主注释。来源提交含 Claude Opus 5 协作署名；标签仍是模型暂定判断。完整来源、定义域约定、旧空输入和新哈希见 [review.json](../../reports/vinogradov-target-search-2026-11-09/review.json)，具体数学区分见 [upstream-search.json](../../reports/vinogradov-target-search-2026-11-09/upstream-search.json)。现有 Qwen 结果与其旧输入、标签快照保持原样。
+2026-11-09 按用户要求继续查仓库，在迁移后的 IEANTN 初始提交 `0885c4e7` 找到完整 Vinogradov bound、Eπ/Eπ′、π/π*/Li 的自然语言定义，为最后四项补入共同目标。两个 after 判 aligned，两个 before 判 misaligned：before 的分数指数均被自然数除法算成 0，π* before 还使用不同的计数函数。全文历史检索确认旧目标从入库起即为空，所以本次明确记录为后续来源的新绑定，不冒充恢复旧主注释。来源提交含 Claude Opus 5 协作署名；标签仍是模型暂定判断。完整来源、定义域约定、旧空输入和新哈希见 [review.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/review.json)，具体数学区分见 [upstream-search.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/upstream-search.json)。现有 Qwen 结果与其旧输入、标签快照保持原样。
 
-2026-11-09 继续复核剩余 13 项：6 项改为 aligned，3 项改为 misaligned，4 个 Vinogradov 条目仍缺主陈述。PFR independent-blocks 两项和 StatsML 两项补入有独立来源的数学目标后重新绑定输入哈希；所有 formal 均未修改。逐项理由见 [decisions.csv](../../reports/undetermined-review-2026-11-09/decisions.csv)，旧标签、旧 informal、输入变更和审查范围见 [review.json](../../reports/undetermined-review-2026-11-09/review.json)。杜萨尔 after 按独立作者原文确认的主条件判 aligned，冲突括注登记为解释性笔误；immersion-after 按同修订明确使用的实有限维、n=∞ 映射判 aligned。Vaught coupled 的额外前提现已有新上游反例，核对冻结定义后判 misaligned，不声称 R1 本身被反驳。此前 Qwen 评测保留原始标签和输入快照。
+2026-11-09 继续复核剩余 13 项：6 项改为 aligned，3 项改为 misaligned，4 个 Vinogradov 条目仍缺主陈述。PFR independent-blocks 两项和 StatsML 两项补入有独立来源的数学目标后重新绑定输入哈希；所有 formal 均未修改。逐项理由见 [decisions.csv](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/decisions.csv)，旧标签、旧 informal、输入变更和审查范围见 [review.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/review.json)。杜萨尔 after 按独立作者原文确认的主条件判 aligned，冲突括注登记为解释性笔误；immersion-after 按同修订明确使用的实有限维、n=∞ 映射判 aligned。Vaught coupled 的额外前提现已有新上游反例，核对冻结定义后判 misaligned，不声称 R1 本身被反驳。此前 Qwen 评测保留原始标签和输入快照。
 
-2026-11-09 在恢复历史后，按用户要求并行复核全部 60 个待定项：28 项改为 aligned，19 项改为 misaligned，13 项保留待定并记录具体障碍。逐项结论见 [decisions.csv](../../reports/pre-qwen-review-2026-11-09/decisions.csv)，完整旧记录、证据及复核见 [review.json](../../reports/pre-qwen-review-2026-11-09/review.json)。KLN 两项从作者论文式 (4.17) 补入独立 informal 并重新绑定哈希；其余输入未变。此次判断仍是模型暂定标注，不是人类金标或新 Lean 编译认证。
+2026-11-09 在恢复历史后，按用户要求并行复核全部 60 个待定项：28 项改为 aligned，19 项改为 misaligned，13 项保留待定并记录具体障碍。逐项结论见 [decisions.csv](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pre-qwen-review-2026-11-09/decisions.csv)，完整旧记录、证据及复核见 [review.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pre-qwen-review-2026-11-09/review.json)。KLN 两项从作者论文式 (4.17) 补入独立 informal 并重新绑定哈希；其余输入未变。此次判断仍是模型暂定标注，不是人类金标或新 Lean 编译认证。
 
 2026-11-09 按用户要求，从 `d6a463a1` 的 `metadata/labels/` 恢复其余 84 项历史记录（9 misaligned、16 aligned、59 undetermined）。每项的项目标识、根声明和输入哈希均与当前版本一致；保留原判断及原因，不覆盖已有 53 项的较新复核，也不重新采用已被撤回的早期标签。恢复清单见 [history-restoration-2026-11-09.json](history-restoration-2026-11-09.json)。历史 `reports/...` 证据路径通过 `scripts/data/provenance.py` 解析。此次恢复不是新的语义认证；待定项不参与二分类准确率计分。
 
@@ -96,7 +96,7 @@ GHW-theorem9_3_deterministic_truthful_lower_bound 经完整上下文复核改为
 
 标签文件保存具体原因与输入哈希；`status-changes.json` 保存状态变更。语义待定与技术受阻分别记录。GHW 9.1 经固定报价 1 的派生规则归约改为 aligned；SLT 经局部上确界的可积性及空球面分支归约改为 aligned，但其技术状态仍为 blocked。
 
-上一轮 13 个待定项的原始记录保留在 [旧 unresolved.json](../../reports/pre-qwen-review-2026-11-09/unresolved.json)。其中四个 Vinogradov 曾按用户要求暂时留空，旧检索和局部实现诊断仍保留在 [PNT 记录](../../reports/undetermined-review-2026-11-09/pnt-decisions.json)。随后按用户指示扩大到迁移仓库，找到了可新绑定的完整来源；当前待定清单已为空，见 [unresolved.json](../../reports/vinogradov-target-search-2026-11-09/unresolved.json)。
+上一轮 13 个待定项的原始记录保留在 [旧 unresolved.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pre-qwen-review-2026-11-09/unresolved.json)。其中四个 Vinogradov 曾按用户要求暂时留空，旧检索和局部实现诊断仍保留在 [PNT 记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/pnt-decisions.json)。随后按用户指示扩大到迁移仓库，找到了可新绑定的完整来源；当前待定清单已为空，见 [unresolved.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/unresolved.json)。
 
 LG21 交叉引理等负例保留原审查口径：完整论文命题与局部引理的范围不匹配，不宣称引理本身错误。
 
@@ -104,11 +104,11 @@ LG21 交叉引理等负例保留原审查口径：完整论文命题与局部引
 
 OpenAI/FLT/Kakeya 数据与活动标签已从主分支移除，完整旧版本保存在 `11_9_shenhao` 分支（`07e36bb64b0cff457694cfe9f1e156a3966a0dbc`）。当前记录覆盖全部 137 个项目。跨数据集的历史复核报告保留原文，供现有标签追溯；其中旧数据集的条目及汇总不属于当前 benchmark。
 
-Stacks has five input-bound reviews after merging the two 0B34 components: 2 aligned, 3 misaligned and 0 undetermined. Current totals are 142 records (73 misaligned, 69 aligned, 0 undetermined); the dated 137-input review account above remains historical. See [Stacks admission](../../reports/stacks-admission/README.md).
+Stacks has five input-bound reviews after merging the two 0B34 components: 2 aligned, 3 misaligned and 0 undetermined. Current totals are 142 records (73 misaligned, 69 aligned, 0 undetermined); the dated 137-input review account above remains historical. See [Stacks admission](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/README.md).
 
-2026-11-12 按用户明确指示，将 STK-08ZR 从 undetermined 改为 misaligned：绑定原文要求 Hausdorff，而形式化使用更弱的 R1Space 假设，扩大了适用域，属于适用条件不匹配（A）。作者明确声明的推广不作为当前原文目标的精确对齐；该判断不否定推广定理的正确性。旧审核及用户指示保存在 [reviews.json](../../reports/stacks-admission/reviews.json)。沿用已有用户确认标签的暂定记录格式；formal、informal 和输入哈希均未改变。
+2026-11-12 按用户明确指示，将 STK-08ZR 从 undetermined 改为 misaligned：绑定原文要求 Hausdorff，而形式化使用更弱的 R1Space 假设，扩大了适用域，属于适用条件不匹配（A）。作者明确声明的推广不作为当前原文目标的精确对齐；该判断不否定推广定理的正确性。旧审核及用户指示保存在 [reviews.json](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/reviews.json)。沿用已有用户确认标签的暂定记录格式；formal、informal 和输入哈希均未改变。
 
-2026-11-12 的单根审核曾按用户指示将 STK-0B34-left 改为 misaligned，理由包含条件更弱（A）和只覆盖一半结论（P）；STK-0B34-right 当时仍为 undetermined。这些判断现作为历史记录保存在 [合并记录](../../reports/stacks-admission/merges/STK-0B34.json)。
+2026-11-12 的单根审核曾按用户指示将 STK-0B34-left 改为 misaligned，理由包含条件更弱（A）和只覆盖一半结论（P）；STK-0B34-right 当时仍为 undetermined。这些判断现作为历史记录保存在 [合并记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/merges/STK-0B34.json)。
 
 随后按用户指示合并为 STK-0B34：两个根声明共同绑定一条完整的原文 informal，作为一个样本审核。合并后的两条结论共同覆盖原文合取，因此撤回 P 理由；沿用用户确认的 formal 假设更弱这一 A 类差异，标签仍为 misaligned。原文正文和 formal 源码字节均保持不变，联合绑定生成新的输入哈希；其余 141 个输入哈希不变。旧条目、标签和技术证据均可从合并记录追溯。
 

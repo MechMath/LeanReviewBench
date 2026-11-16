@@ -37,6 +37,7 @@ Each package preserves its original metadata, full informal records, target bind
 Python 3.11+; static checks have no third-party dependencies and need neither Lean nor network access:
 
 ```sh
+python3 tools/check_support_files.py
 python3 scripts/data/check_release_candidate.py
 python3 scripts/data/annotation_coverage.py
 python3 -m leanreviewbench validate
@@ -89,7 +90,7 @@ python3 tools/migrate.py --source /path/to/clean/research-checkout \
   --output /path/to/fresh-publication-directory
 ```
 
-See [migration verification](docs/MIGRATION.md) for byte comparisons, exclusions, sizes and remaining source limitations. After an intentional data change, review input/reference bindings before regenerating `metadata/manifest.json` with `python3 scripts/data/release_metadata.py freeze`.
+See [configuration](docs/CONFIGURATION.md), [packaging policy](docs/PACKAGING.md) and [migration verification](docs/MIGRATION.md) for byte comparisons, exclusions, sizes and remaining source limitations. After an intentional data change, review input/reference bindings before regenerating `metadata/manifest.json` with `python3 scripts/data/release_metadata.py freeze`.
 
 ## Attribution and review status
 

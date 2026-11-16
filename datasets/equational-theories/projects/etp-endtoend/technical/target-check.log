@@ -1,9 +1,0 @@
-EndToEnd.end_to_end1 : ∀ (n m : ℕ),
-  n < 4694 →
-    m < 4694 →
-      match EndToEnd.resolveImplication EndToEnd.cert EndToEnd.pos EndToEnd.neg n m with
-      | Sum.inl c =>
-        EndToEnd.checkImplication EndToEnd.pos n m c = true ∧ Law.MagmaLaw.implies (EndToEnd.lawOf n) (EndToEnd.lawOf m)
-      | Sum.inr r =>
-        EndToEnd.checkRefutation EndToEnd.pos EndToEnd.neg n m r = true ∧
-          ¬Law.MagmaLaw.implies (EndToEnd.lawOf n) (EndToEnd.lawOf m)

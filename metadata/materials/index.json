@@ -1,0 +1,2170 @@
+{
+  "schema_version": "paperlean-material-inventory-1",
+  "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+  "meaning": "Source locator inventory only. Archive-only source copies are intentionally omitted; native informal text is retained verbatim for benchmark tests.",
+  "counts": {
+    "archive_only": 135
+  },
+  "entries": [
+    {
+      "dataset": "formalslt",
+      "project_id": "dudley-covering-number",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/formalslt-batch2/specification/dudley.json",
+      "status": "archive_only",
+      "path": "reports/formalslt-batch2/specification/dudley.json",
+      "sha256": "1d1dfd924d5c2d266e10e53312d917d19c8d620951f7a54ec7c04708115147bf",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-batch2/specification/dudley.json",
+        "sha256": "1d1dfd924d5c2d266e10e53312d917d19c8d620951f7a54ec7c04708115147bf"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/formalslt-batch2/specification/dudley.json"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/formalslt-history/specification/howard-v6.json",
+      "status": "archive_only",
+      "path": "reports/formalslt-history/specification/howard-v6.json",
+      "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/specification/howard-v6.json",
+        "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/formalslt-history/specification/howard-v6.json"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/formalslt-history/specification/howard-v6.json",
+      "status": "archive_only",
+      "path": "reports/formalslt-history/specification/howard-v6.json",
+      "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/specification/howard-v6.json",
+        "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/formalslt-history/specification/howard-v6.json"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "flagship-scalar-reflexive",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/formalslt-batch2/specification/flagship-informal.json",
+      "status": "archive_only",
+      "path": "reports/formalslt-batch2/specification/flagship-informal.json",
+      "sha256": "406e0646d16b2040daa471a68d775525d43e4f7225ad431081635dd6ade68764",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-batch2/specification/flagship-informal.json",
+        "sha256": "406e0646d16b2040daa471a68d775525d43e4f7225ad431081635dd6ade68764"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/formalslt-batch2/specification/flagship-informal.json"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/formalslt-history/specification/howard-v6.json",
+      "status": "archive_only",
+      "path": "reports/formalslt-history/specification/howard-v6.json",
+      "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/specification/howard-v6.json",
+        "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/formalslt-history/specification/howard-v6.json"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/formalslt-history/specification/howard-v6.json",
+      "status": "archive_only",
+      "path": "reports/formalslt-history/specification/howard-v6.json",
+      "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/formalslt-history/specification/howard-v6.json",
+        "sha256": "e5bc99b393bf0423b70d9da06c45b7919a36242eb8bdeb968ffd4a8d90243c87"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/formalslt-history/specification/howard-v6.json"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "coupled-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/vaught-preparation/specification/targets.json",
+      "status": "archive_only",
+      "path": "reports/vaught-preparation/specification/targets.json",
+      "sha256": "333ec666fe1087a17d84f02e50bfa14c245bd14f6e19ebea13b5691d00daac65",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/vaught-preparation/specification/targets.json",
+        "sha256": "333ec666fe1087a17d84f02e50bfa14c245bd14f6e19ebea13b5691d00daac65"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/vaught-preparation/specification/targets.json"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "gate-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/vaught-preparation/specification/targets.json",
+      "status": "archive_only",
+      "path": "reports/vaught-preparation/specification/targets.json",
+      "sha256": "333ec666fe1087a17d84f02e50bfa14c245bd14f6e19ebea13b5691d00daac65",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/vaught-preparation/specification/targets.json",
+        "sha256": "333ec666fe1087a17d84f02e50bfa14c245bd14f6e19ebea13b5691d00daac65"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/vaught-preparation/specification/targets.json"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "twoface-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "../../../../reports/vaught-preparation/specification/targets.json",
+      "status": "archive_only",
+      "path": "reports/vaught-preparation/specification/targets.json",
+      "sha256": "333ec666fe1087a17d84f02e50bfa14c245bd14f6e19ebea13b5691d00daac65",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/vaught-preparation/specification/targets.json",
+        "sha256": "333ec666fe1087a17d84f02e50bfa14c245bd14f6e19ebea13b5691d00daac65"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/vaught-preparation/specification/targets.json"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html",
+      "sha256": "1b1ce94df9d0edb5c52a3950e7427faaceb2ac406943c339a7dc6e9754489215",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html",
+        "sha256": "1b1ce94df9d0edb5c52a3950e7427faaceb2ac406943c339a7dc6e9754489215"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-after",
+      "informal_id": "main",
+      "field": "/source/supporting_sources/0/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf",
+      "sha256": "74a84750b60f8ab926a3eb6deded9346a7bb6b82adfcbcf5ed8538c538acfdee",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf",
+        "sha256": "74a84750b60f8ab926a3eb6deded9346a7bb6b82adfcbcf5ed8538c538acfdee"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-after",
+      "informal_id": "main",
+      "field": "/source/supporting_sources/1/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+        "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html",
+      "sha256": "1b1ce94df9d0edb5c52a3950e7427faaceb2ac406943c339a7dc6e9754489215",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html",
+        "sha256": "1b1ce94df9d0edb5c52a3950e7427faaceb2ac406943c339a7dc6e9754489215"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/statsml-website-index-aa54bf55.html"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-before",
+      "informal_id": "main",
+      "field": "/source/supporting_sources/0/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf",
+      "sha256": "74a84750b60f8ab926a3eb6deded9346a7bb6b82adfcbcf5ed8538c538acfdee",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf",
+        "sha256": "74a84750b60f8ab926a3eb6deded9346a7bb6b82adfcbcf5ed8538c538acfdee"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/statsml-itp2026.pdf"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-before",
+      "informal_id": "main",
+      "field": "/source/supporting_sources/1/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+        "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-cs",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-history/sources/295/after/blueprint/src/chapter/approx_hom_pfr.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-history/sources/295/after/blueprint/src/chapter/approx_hom_pfr.tex",
+      "sha256": "ad785276e013f79b3eac31816f26d3ac0ca7befd204773c1c30266c2e262e57c",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-history/sources/295/after/blueprint/src/chapter/approx_hom_pfr.tex",
+        "sha256": "ad785276e013f79b3eac31816f26d3ac0ca7befd204773c1c30266c2e262e57c"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-history/sources/295/after/blueprint/src/chapter/approx_hom_pfr.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-definition",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-history/sources/295/before/blueprint/src/chapter/approx_hom_pfr.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-history/sources/295/before/blueprint/src/chapter/approx_hom_pfr.tex",
+      "sha256": "5e420970debb344b850e4e228fe9c548bdd1c51e300a652d1dbc089d83d08783",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-history/sources/295/before/blueprint/src/chapter/approx_hom_pfr.tex",
+        "sha256": "5e420970debb344b850e4e228fe9c548bdd1c51e300a652d1dbc089d83d08783"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-history/sources/295/before/blueprint/src/chapter/approx_hom_pfr.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-history/sources/301/after/blueprint/src/chapter/entropy_pfr.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-history/sources/301/after/blueprint/src/chapter/entropy_pfr.tex",
+      "sha256": "1f00cfda18fcd2bce97a22ca308fba09a12b49d75e4be93f012d7f1133700c02",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-history/sources/301/after/blueprint/src/chapter/entropy_pfr.tex",
+        "sha256": "1f00cfda18fcd2bce97a22ca308fba09a12b49d75e4be93f012d7f1133700c02"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-history/sources/301/after/blueprint/src/chapter/entropy_pfr.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-history/sources/301/before/blueprint/src/chapter/entropy_pfr.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-history/sources/301/before/blueprint/src/chapter/entropy_pfr.tex",
+      "sha256": "1f00cfda18fcd2bce97a22ca308fba09a12b49d75e4be93f012d7f1133700c02",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-history/sources/301/before/blueprint/src/chapter/entropy_pfr.tex",
+        "sha256": "1f00cfda18fcd2bce97a22ca308fba09a12b49d75e4be93f012d7f1133700c02"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-history/sources/301/before/blueprint/src/chapter/entropy_pfr.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf",
+      "sha256": "a055d6d80a4469bdbf941a776b80673be496954d16e6a5835df7f841def39cbf",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf",
+        "sha256": "a055d6d80a4469bdbf941a776b80673be496954d16e6a5835df7f841def39cbf"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-after",
+      "informal_id": "main",
+      "field": "/source/supporting_sources/0/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+        "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf",
+      "sha256": "a055d6d80a4469bdbf941a776b80673be496954d16e6a5835df7f841def39cbf",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf",
+        "sha256": "a055d6d80a4469bdbf941a776b80673be496954d16e6a5835df7f841def39cbf"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/heilman-507a.pdf"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-before",
+      "informal_id": "main",
+      "field": "/source/supporting_sources/0/retained_path",
+      "original_locator": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "status": "archive_only",
+      "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+      "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json",
+        "sha256": "ab9e5c894bc218a8caf2d5562161fea15d8baff58a38462138527a3c755a091d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/undetermined-review-2026-11-09/sources/missing-target/upstream-intent-excerpts.json"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/f11632354891514b2ad56ed3ff2c45624c6d8715/blueprint/src/chapter/distance.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/f11632354891514b2ad56ed3ff2c45624c6d8715/blueprint/src/chapter/distance.tex",
+      "sha256": "f9e6e28c553375f258259cd303ffc0a1b39ac609110dd49084975f9e9e4bc148",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/f11632354891514b2ad56ed3ff2c45624c6d8715/blueprint/src/chapter/distance.tex",
+        "sha256": "f9e6e28c553375f258259cd303ffc0a1b39ac609110dd49084975f9e9e4bc148"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/f11632354891514b2ad56ed3ff2c45624c6d8715/blueprint/src/chapter/distance.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/7347e1422d12ecd324f7bc9a56a9284fc140ea83/blueprint/src/chapter/distance.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/7347e1422d12ecd324f7bc9a56a9284fc140ea83/blueprint/src/chapter/distance.tex",
+      "sha256": "f9e6e28c553375f258259cd303ffc0a1b39ac609110dd49084975f9e9e4bc148",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/7347e1422d12ecd324f7bc9a56a9284fc140ea83/blueprint/src/chapter/distance.tex",
+        "sha256": "f9e6e28c553375f258259cd303ffc0a1b39ac609110dd49084975f9e9e4bc148"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/7347e1422d12ecd324f7bc9a56a9284fc140ea83/blueprint/src/chapter/distance.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-nonneg",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+      "sha256": "c58f4c4a00dd69bbedd689dccde250baca2e2252cb69a812b1af8b5db1b9d0ab",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "c58f4c4a00dd69bbedd689dccde250baca2e2252cb69a812b1af8b5db1b9d0ab"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-zero",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+      "sha256": "c58f4c4a00dd69bbedd689dccde250baca2e2252cb69a812b1af8b5db1b9d0ab",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "c58f4c4a00dd69bbedd689dccde250baca2e2252cb69a812b1af8b5db1b9d0ab"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/420af883a0ddf1975cca1e1a49db587feef6f4bb/blueprint/src/chapter/further_improvement.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-nonneg",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+      "sha256": "7562efdd2bb61da9ac18c011fc3adfbcf9357bdc8f66492fa6cffc44881e3788",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "7562efdd2bb61da9ac18c011fc3adfbcf9357bdc8f66492fa6cffc44881e3788"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-zero",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+      "sha256": "7562efdd2bb61da9ac18c011fc3adfbcf9357bdc8f66492fa6cffc44881e3788",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "7562efdd2bb61da9ac18c011fc3adfbcf9357bdc8f66492fa6cffc44881e3788"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/238db8a8e77897bd2f996837ae9c8711c6aebce5/blueprint/src/chapter/further_improvement.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/238db8a8e77897bd2f996837ae9c8711c6aebce5/blueprint/src/chapter/further_improvement.tex",
+      "sha256": "1cd52a9fc9c968eb366dd25925600765b84aa324033d6080c244cc9b239e0cfb",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/238db8a8e77897bd2f996837ae9c8711c6aebce5/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "1cd52a9fc9c968eb366dd25925600765b84aa324033d6080c244cc9b239e0cfb"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/238db8a8e77897bd2f996837ae9c8711c6aebce5/blueprint/src/chapter/further_improvement.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/3d68572315e488ec2e75aa35dc760d2d21a34479/blueprint/src/chapter/further_improvement.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/3d68572315e488ec2e75aa35dc760d2d21a34479/blueprint/src/chapter/further_improvement.tex",
+      "sha256": "f9643241ec326e353e868fd0765d440cfd3561ceb91cbc54b08657c8bdd7ad65",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/3d68572315e488ec2e75aa35dc760d2d21a34479/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "f9643241ec326e353e868fd0765d440cfd3561ceb91cbc54b08657c8bdd7ad65"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/3d68572315e488ec2e75aa35dc760d2d21a34479/blueprint/src/chapter/further_improvement.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/e7218bb78ede5124aeac5f9e3beb01190e028af0/blueprint/src/chapter/approx_hom_pfr.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/e7218bb78ede5124aeac5f9e3beb01190e028af0/blueprint/src/chapter/approx_hom_pfr.tex",
+      "sha256": "c3a89f026bcde667b47304bfaa78fdc248d2e348accf42315dee57e0be1c4525",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/e7218bb78ede5124aeac5f9e3beb01190e028af0/blueprint/src/chapter/approx_hom_pfr.tex",
+        "sha256": "c3a89f026bcde667b47304bfaa78fdc248d2e348accf42315dee57e0be1c4525"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/e7218bb78ede5124aeac5f9e3beb01190e028af0/blueprint/src/chapter/approx_hom_pfr.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/3a3e20cb71942aefe62ada0dc0b6416645b1b0e8/blueprint/src/chapter/approx_hom_pfr.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/3a3e20cb71942aefe62ada0dc0b6416645b1b0e8/blueprint/src/chapter/approx_hom_pfr.tex",
+      "sha256": "24dafffb97c5054e530531ae283354e74f09dfb569819391b1236ffe497f7bf4",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/3a3e20cb71942aefe62ada0dc0b6416645b1b0e8/blueprint/src/chapter/approx_hom_pfr.tex",
+        "sha256": "24dafffb97c5054e530531ae283354e74f09dfb569819391b1236ffe497f7bf4"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/3a3e20cb71942aefe62ada0dc0b6416645b1b0e8/blueprint/src/chapter/approx_hom_pfr.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/47299fac2eb0a561f093204237dc6a5a82babf81/blueprint/src/chapter/improved_exponent.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/47299fac2eb0a561f093204237dc6a5a82babf81/blueprint/src/chapter/improved_exponent.tex",
+      "sha256": "9559b9aab195f25005cd20d5dd689da43b59b78437cff80111f156a27438e2c9",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/47299fac2eb0a561f093204237dc6a5a82babf81/blueprint/src/chapter/improved_exponent.tex",
+        "sha256": "9559b9aab195f25005cd20d5dd689da43b59b78437cff80111f156a27438e2c9"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/47299fac2eb0a561f093204237dc6a5a82babf81/blueprint/src/chapter/improved_exponent.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/dc2291513cc1020a91fc5024d8f78a17b8c8b746/blueprint/src/chapter/improved_exponent.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/dc2291513cc1020a91fc5024d8f78a17b8c8b746/blueprint/src/chapter/improved_exponent.tex",
+      "sha256": "278f8e68751f267925e5beecd5636b53c991056484641b51dba0497dc6cdbcf6",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/dc2291513cc1020a91fc5024d8f78a17b8c8b746/blueprint/src/chapter/improved_exponent.tex",
+        "sha256": "278f8e68751f267925e5beecd5636b53c991056484641b51dba0497dc6cdbcf6"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/dc2291513cc1020a91fc5024d8f78a17b8c8b746/blueprint/src/chapter/improved_exponent.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/ebe97805ab718bec2ca0ab5268f3e4a69ae76b81/blueprint/src/chapter/torsion.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/ebe97805ab718bec2ca0ab5268f3e4a69ae76b81/blueprint/src/chapter/torsion.tex",
+      "sha256": "246dfa2d3a9c4dc1ba998a83e35ac40b4ac1693cd3705be81abe3a71db48df45",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/ebe97805ab718bec2ca0ab5268f3e4a69ae76b81/blueprint/src/chapter/torsion.tex",
+        "sha256": "246dfa2d3a9c4dc1ba998a83e35ac40b4ac1693cd3705be81abe3a71db48df45"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/ebe97805ab718bec2ca0ab5268f3e4a69ae76b81/blueprint/src/chapter/torsion.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/eb5557e9556a89a3418c4e8bdd717a5cf736c060/blueprint/src/chapter/torsion.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/eb5557e9556a89a3418c4e8bdd717a5cf736c060/blueprint/src/chapter/torsion.tex",
+      "sha256": "aa07f3da6c2004de883e23703f8f839071539e2ff42d40d8599612d95ac5e3e9",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/eb5557e9556a89a3418c4e8bdd717a5cf736c060/blueprint/src/chapter/torsion.tex",
+        "sha256": "aa07f3da6c2004de883e23703f8f839071539e2ff42d40d8599612d95ac5e3e9"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/eb5557e9556a89a3418c4e8bdd717a5cf736c060/blueprint/src/chapter/torsion.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/distance.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/distance.tex",
+      "sha256": "1044c13a04e57adf1c1a7a5ab8754f009d7efcef06797041d3bfe09252f1c366",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/distance.tex",
+        "sha256": "1044c13a04e57adf1c1a7a5ab8754f009d7efcef06797041d3bfe09252f1c366"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32/blueprint/src/chapter/distance.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/ce7d2919453ab3a3349700841e76f230740359dd/blueprint/src/chapter/distance.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/ce7d2919453ab3a3349700841e76f230740359dd/blueprint/src/chapter/distance.tex",
+      "sha256": "1044c13a04e57adf1c1a7a5ab8754f009d7efcef06797041d3bfe09252f1c366",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/ce7d2919453ab3a3349700841e76f230740359dd/blueprint/src/chapter/distance.tex",
+        "sha256": "1044c13a04e57adf1c1a7a5ab8754f009d7efcef06797041d3bfe09252f1c366"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/ce7d2919453ab3a3349700841e76f230740359dd/blueprint/src/chapter/distance.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/blueprint/src/chapter/distance.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/blueprint/src/chapter/distance.tex",
+      "sha256": "0e59178dcee8ccc5a8e84c44a0ebedf75b8519b6a152f23a5ef176d001e9597d",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/blueprint/src/chapter/distance.tex",
+        "sha256": "0e59178dcee8ccc5a8e84c44a0ebedf75b8519b6a152f23a5ef176d001e9597d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/blueprint/src/chapter/distance.tex"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pfr-candidates/sources/f84e5ae7b9d619fff50c155858dddf09b59493c9/blueprint/src/chapter/distance.tex",
+      "status": "archive_only",
+      "path": "reports/pfr-candidates/sources/f84e5ae7b9d619fff50c155858dddf09b59493c9/blueprint/src/chapter/distance.tex",
+      "sha256": "0e59178dcee8ccc5a8e84c44a0ebedf75b8519b6a152f23a5ef176d001e9597d",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-candidates/sources/f84e5ae7b9d619fff50c155858dddf09b59493c9/blueprint/src/chapter/distance.tex",
+        "sha256": "0e59178dcee8ccc5a8e84c44a0ebedf75b8519b6a152f23a5ef176d001e9597d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-candidates/sources/f84e5ae7b9d619fff50c155858dddf09b59493c9/blueprint/src/chapter/distance.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-extraction/sources/27a2c7fdff78bb5509831699899796eaffe62a4b/blueprint/src/introduction.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-extraction/sources/27a2c7fdff78bb5509831699899796eaffe62a4b/blueprint/src/introduction.tex",
+      "sha256": "260cc22335407d58c300896fd3ae8f047a27544b8b89c0aff19e82ed04485a34",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/sources/27a2c7fdff78bb5509831699899796eaffe62a4b/blueprint/src/introduction.tex",
+        "sha256": "260cc22335407d58c300896fd3ae8f047a27544b8b89c0aff19e82ed04485a34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-extraction/sources/27a2c7fdff78bb5509831699899796eaffe62a4b/blueprint/src/introduction.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-extraction/sources/e7f4e9109e586404f4bf130e23e26ffd031f2459/blueprint/src/introduction.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-extraction/sources/e7f4e9109e586404f4bf130e23e26ffd031f2459/blueprint/src/introduction.tex",
+      "sha256": "260cc22335407d58c300896fd3ae8f047a27544b8b89c0aff19e82ed04485a34",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/sources/e7f4e9109e586404f4bf130e23e26ffd031f2459/blueprint/src/introduction.tex",
+        "sha256": "260cc22335407d58c300896fd3ae8f047a27544b8b89c0aff19e82ed04485a34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-extraction/sources/e7f4e9109e586404f4bf130e23e26ffd031f2459/blueprint/src/introduction.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-extraction/sources/094437437b24ee7a8b6a8f1f28da241a1ba9f280/blueprint/src/loops.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-extraction/sources/094437437b24ee7a8b6a8f1f28da241a1ba9f280/blueprint/src/loops.tex",
+      "sha256": "31739287f4e11f2452b7ae1ca8ea194009bdd57a0e5f8d3d983751691e474592",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/sources/094437437b24ee7a8b6a8f1f28da241a1ba9f280/blueprint/src/loops.tex",
+        "sha256": "31739287f4e11f2452b7ae1ca8ea194009bdd57a0e5f8d3d983751691e474592"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-extraction/sources/094437437b24ee7a8b6a8f1f28da241a1ba9f280/blueprint/src/loops.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-extraction/sources/9380572eecd1f143accb73dbf114e8052626dc31/blueprint/src/loops.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-extraction/sources/9380572eecd1f143accb73dbf114e8052626dc31/blueprint/src/loops.tex",
+      "sha256": "a2c2f726dde84d8cc11d440cd1e843775f6dc291c8ab39fe27c0302092a6d7e5",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/sources/9380572eecd1f143accb73dbf114e8052626dc31/blueprint/src/loops.tex",
+        "sha256": "a2c2f726dde84d8cc11d440cd1e843775f6dc291c8ab39fe27c0302092a6d7e5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-extraction/sources/9380572eecd1f143accb73dbf114e8052626dc31/blueprint/src/loops.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+      "sha256": "9058633bb89b317932020f5394c04abd110b85a2b8561c29e9f3d79b332c6486",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+        "sha256": "9058633bb89b317932020f5394c04abd110b85a2b8561c29e9f3d79b332c6486"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-after",
+      "informal_id": "lemma-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+      "sha256": "9058633bb89b317932020f5394c04abd110b85a2b8561c29e9f3d79b332c6486",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+        "sha256": "9058633bb89b317932020f5394c04abd110b85a2b8561c29e9f3d79b332c6486"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/sphere-eversion-pr51/sources/a8898f0d4208052375450d4bdc7271197e7021c1/blueprint/src/loops.tex",
+      "status": "archive_only",
+      "path": "reports/sphere-eversion-pr51/sources/a8898f0d4208052375450d4bdc7271197e7021c1/blueprint/src/loops.tex",
+      "sha256": "26331dfcea5108fd2b3f9e428280f8eb24cc2e47c8aad9197e0ca8af5999ea72",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-pr51/sources/a8898f0d4208052375450d4bdc7271197e7021c1/blueprint/src/loops.tex",
+        "sha256": "26331dfcea5108fd2b3f9e428280f8eb24cc2e47c8aad9197e0ca8af5999ea72"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-pr51/sources/a8898f0d4208052375450d4bdc7271197e7021c1/blueprint/src/loops.tex"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "sha256": "f0f0c9e41c532c4a81b66cbe8b682b2ae977e6986b8547bfb42cdd744d98cbda",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "f0f0c9e41c532c4a81b66cbe8b682b2ae977e6986b8547bfb42cdd744d98cbda"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-prime-interval",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-psi-theta",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+      "sha256": "f0f0c9e41c532c4a81b66cbe8b682b2ae977e6986b8547bfb42cdd744d98cbda",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "f0f0c9e41c532c4a81b66cbe8b682b2ae977e6986b8547bfb42cdd744d98cbda"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/c2a7a3920719e05ccfb338b836140799a396461b/PrimeNumberTheoremAnd/IEANTN/Dusart.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "sha256": "90e0824b8ebd5e81e032ab0800ef02451f27e4061264e3f9b73625d1d6149dd6",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "90e0824b8ebd5e81e032ab0800ef02451f27e4061264e3f9b73625d1d6149dd6"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+      "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "sha256": "90e0824b8ebd5e81e032ab0800ef02451f27e4061264e3f9b73625d1d6149dd6",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "90e0824b8ebd5e81e032ab0800ef02451f27e4061264e3f9b73625d1d6149dd6"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/253828569c34a1b0e2f493bf92b4ec2513de2bab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+      "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+      "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+      "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-after",
+      "informal_id": "counting-and-integral-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+        "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-after",
+      "informal_id": "normalized-error-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-before",
+      "informal_id": "counting-and-integral-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+        "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-before",
+      "informal_id": "normalized-error-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-after",
+      "informal_id": "counting-and-integral-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+        "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-after",
+      "informal_id": "normalized-error-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-before",
+      "informal_id": "counting-and-integral-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean",
+        "sha256": "ff46c70252ac31f5f33aae9940bf029c36c2d466ff60a8615198b31b319a84c5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/PrimeCounting.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-before",
+      "informal_id": "normalized-error-context",
+      "field": "/source/retained_path",
+      "original_locator": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "status": "archive_only",
+      "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean",
+        "sha256": "f8f5be9702892e5b861e9b273946f02a13aa692eec11a4369b6db0db4f62bf34"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/vinogradov-target-search-2026-11-09/sources/IEANTN/0885c4e7bf9308ea11b40f2d79eda72ae00cb408/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "status": "archive_only",
+      "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+      "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac",
+      "source": {
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-004Y",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/stacks-admission/sources/004Y.html",
+      "status": "archive_only",
+      "path": "reports/stacks-admission/sources/004Y.html",
+      "sha256": "019baceee6ed58fbfd146f53bddde130fe408901ffefbe0c9e4f0b0b926918b8",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/sources/004Y.html",
+        "sha256": "019baceee6ed58fbfd146f53bddde130fe408901ffefbe0c9e4f0b0b926918b8"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/sources/004Y.html"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-08ZR",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/stacks-admission/sources/08ZR.html",
+      "status": "archive_only",
+      "path": "reports/stacks-admission/sources/08ZR.html",
+      "sha256": "670b5972f3eca471b45a1641ca4f70b0a9955f9e5b1f97b135d86445a146c41d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/sources/08ZR.html",
+        "sha256": "670b5972f3eca471b45a1641ca4f70b0a9955f9e5b1f97b135d86445a146c41d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/sources/08ZR.html"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/stacks-admission/sources/09Y5-context-web.json",
+      "status": "archive_only",
+      "path": "reports/stacks-admission/sources/09Y5-context-web.json",
+      "sha256": "1c7e4550f0f4845a60ba771de32715ba9223848a87041748c8a73968878c515e",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/sources/09Y5-context-web.json",
+        "sha256": "1c7e4550f0f4845a60ba771de32715ba9223848a87041748c8a73968878c515e"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/sources/09Y5-context-web.json"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/stacks-admission/sources/09Y5-context-web.json",
+      "status": "archive_only",
+      "path": "reports/stacks-admission/sources/09Y5-context-web.json",
+      "sha256": "1c7e4550f0f4845a60ba771de32715ba9223848a87041748c8a73968878c515e",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/sources/09Y5-context-web.json",
+        "sha256": "1c7e4550f0f4845a60ba771de32715ba9223848a87041748c8a73968878c515e"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/sources/09Y5-context-web.json"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-0B34",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/stacks-admission/sources/0B34.html",
+      "status": "archive_only",
+      "path": "reports/stacks-admission/sources/0B34.html",
+      "sha256": "e72a1bb25fc237699ddf055e55325e5da7ea9e0901e8e41d3201bb619365d687",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/stacks-admission/sources/0B34.html",
+        "sha256": "e72a1bb25fc237699ddf055e55325e5da7ea9e0901e8e41d3201bb619365d687"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/sources/0B34.html"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.txt",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-binding-after/informal/source.txt",
+      "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-after/informal/source.txt",
+        "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-binding-after/informal/source.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.txt",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-binding-before/informal/source.txt",
+      "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-before/informal/source.txt",
+        "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-binding-before/informal/source.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+      "status": "archive_only",
+      "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+      "sha256": "15cda500272b20c04fc71dda0db8fb31bbc56b1caee4b02172f5ecf41079ff0d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+        "sha256": "15cda500272b20c04fc71dda0db8fb31bbc56b1caee4b02172f5ecf41079ff0d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-after",
+      "informal_id": "main",
+      "field": "/source/text_evidence",
+      "original_locator": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+      "status": "archive_only",
+      "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+      "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+        "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-after",
+      "informal_id": "main",
+      "field": "/source/excerpt_evidence",
+      "original_locator": "datasets/arklib/projects/kzg-binding-reduction-after/target/independent-excerpts.txt",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-binding-reduction-after/target/independent-excerpts.txt",
+      "sha256": "ef77baa852259ec58ebb73813f37f697c9e92fac0037f5f0ad7d35c2eb863459",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-reduction-after/target/independent-excerpts.txt",
+        "sha256": "ef77baa852259ec58ebb73813f37f697c9e92fac0037f5f0ad7d35c2eb863459"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-binding-reduction-after/target/independent-excerpts.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+      "status": "archive_only",
+      "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+      "sha256": "15cda500272b20c04fc71dda0db8fb31bbc56b1caee4b02172f5ecf41079ff0d",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf",
+        "sha256": "15cda500272b20c04fc71dda0db8fb31bbc56b1caee4b02172f5ecf41079ff0d"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.pdf"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-before",
+      "informal_id": "main",
+      "field": "/source/text_evidence",
+      "original_locator": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+      "status": "archive_only",
+      "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+      "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt",
+        "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/source-screening-2026-11-12/Verified-zkEVM--ArkLib/deep-screen/targets/KZG10TR.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-before",
+      "informal_id": "main",
+      "field": "/source/excerpt_evidence",
+      "original_locator": "datasets/arklib/projects/kzg-binding-reduction-before/target/independent-excerpts.txt",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-binding-reduction-before/target/independent-excerpts.txt",
+      "sha256": "ef77baa852259ec58ebb73813f37f697c9e92fac0037f5f0ad7d35c2eb863459",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/target/independent-excerpts.txt",
+        "sha256": "ef77baa852259ec58ebb73813f37f697c9e92fac0037f5f0ad7d35c2eb863459"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-binding-reduction-before/target/independent-excerpts.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "datasets/arklib/projects/kzg-function-binding-after/target/cgky25-cached-target.txt",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-function-binding-after/target/cgky25-cached-target.txt",
+      "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-function-binding-after/target/cgky25-cached-target.txt",
+        "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-function-binding-after/target/cgky25-cached-target.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-after",
+      "informal_id": "main",
+      "field": "/source/acquisition_receipt",
+      "original_locator": "datasets/arklib/projects/kzg-function-binding-after/target/source-acquisition.json",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-function-binding-after/target/source-acquisition.json",
+      "sha256": "d62b96815d19c643a9171b8415c5163b5a0a0387939cf657c47ca6aca4852276",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-function-binding-after/target/source-acquisition.json",
+        "sha256": "d62b96815d19c643a9171b8415c5163b5a0a0387939cf657c47ca6aca4852276"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-function-binding-after/target/source-acquisition.json"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt",
+      "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt",
+        "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-before",
+      "informal_id": "main",
+      "field": "/source/acquisition_receipt",
+      "original_locator": "datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json",
+      "sha256": "d62b96815d19c643a9171b8415c5163b5a0a0387939cf657c47ca6aca4852276",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json",
+        "sha256": "d62b96815d19c643a9171b8415c5163b5a0a0387939cf657c47ca6aca4852276"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-main-withdrawn-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/stir-proximity-after/informal/source.tex",
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-proximity-after/informal/source.tex",
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/stir-proximity-after/informal/source.tex"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/stir-proximity-before/informal/source.tex",
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-proximity-before/informal/source.tex",
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/stir-proximity-before/informal/source.tex"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-rbr-withdrawn-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/informal/source.tex",
+      "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/informal/source.tex",
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/stir-rbr-withdrawn-before/informal/source.tex"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-after",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/sumcheck-full-rbr-after/informal/source.tex",
+      "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/informal/source.tex",
+        "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/sumcheck-full-rbr-after/informal/source.tex"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-before",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/arklib/projects/sumcheck-full-rbr-before/informal/source.tex",
+      "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/informal/source.tex",
+        "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/arklib/projects/sumcheck-full-rbr-before/informal/source.tex"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c01",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/imperial-flt/projects/flt-c01/informal/source.tex"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c02",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/imperial-flt/projects/flt-c02/informal/source.tex",
+      "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c02/informal/source.tex",
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/imperial-flt/projects/flt-c02/informal/source.tex"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c03",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+      "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+        "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/imperial-flt/projects/flt-c03/informal/source.tex"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c04",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/imperial-flt/projects/flt-c04/informal/source.tex"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c05",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal/source.tex",
+      "status": "archive_only",
+      "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+      "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/imperial-flt/projects/flt-c05/informal/source.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-endtoend",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/paper/foundations.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-endtoend/informal-source/paper/foundations.tex",
+      "sha256": "e1ff996e652f7b692ab3e4717270b61fc0fe318c5895a471ab4e554b685621fa",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-endtoend/informal-source/paper/foundations.tex",
+        "sha256": "e1ff996e652f7b692ab3e4717270b61fc0fe318c5895a471ab4e554b685621fa"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-endtoend/informal-source/paper/foundations.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1482",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/paper/spectrum.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+      "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1682",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/paper/spectrum.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal-source/paper/spectrum.tex",
+      "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal-source/paper/spectrum.tex",
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-fullspectrum-1682/informal-source/paper/spectrum.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-greedy1729",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/blueprint/src/chapter/1729.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/blueprint/src/chapter/1729.tex",
+      "sha256": "5cbd7b2f319f9e0ed6d85dca8541e13430ef464d9fab088b62adb2c74363eb96",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/blueprint/src/chapter/1729.tex",
+        "sha256": "5cbd7b2f319f9e0ed6d85dca8541e13430ef464d9fab088b62adb2c74363eb96"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-greedy1729/informal-source/blueprint/src/chapter/1729.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-law-coverage",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/paper/intro.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+      "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+        "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-obelix",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/blueprint/src/chapter/infinite_magma_constructions.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/infinite_magma_constructions.tex",
+      "sha256": "93a3a48e01d9509172d12ed67e8ec18bcc7ebeb391d8d6b12b5c9d79e8681543",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/infinite_magma_constructions.tex",
+        "sha256": "93a3a48e01d9509172d12ed67e8ec18bcc7ebeb391d8d6b12b5c9d79e8681543"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/infinite_magma_constructions.tex"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-sheffer",
+      "informal_id": "main",
+      "field": "/source/retained_path",
+      "original_locator": "informal-source/blueprint/src/chapter/implications.tex",
+      "status": "archive_only",
+      "path": "datasets/equational-theories/projects/etp-sheffer/informal-source/blueprint/src/chapter/implications.tex",
+      "sha256": "bdac0b20158d29ff3e002255b89c2ecc828f78cb9cbab653362ce80d8a9355a6",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "datasets/equational-theories/projects/etp-sheffer/informal-source/blueprint/src/chapter/implications.tex",
+        "sha256": "bdac0b20158d29ff3e002255b89c2ecc828f78cb9cbab653362ce80d8a9355a6"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/equational-theories/projects/etp-sheffer/informal-source/blueprint/src/chapter/implications.tex"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex",
+      "status": "archive_only",
+      "path": "reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex",
+      "sha256": "180a2a3fddda9d348c2973b2582469a1be9e75d0e5be234bb638f0806dec91f8",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex",
+        "sha256": "180a2a3fddda9d348c2973b2582469a1be9e75d0e5be234bb638f0806dec91f8"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex",
+      "status": "archive_only",
+      "path": "reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex",
+      "sha256": "180a2a3fddda9d348c2973b2582469a1be9e75d0e5be234bb638f0806dec91f8",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex",
+        "sha256": "180a2a3fddda9d348c2973b2582469a1be9e75d0e5be234bb638f0806dec91f8"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/apap/bohr-candidates/bohr-before/bohr.tex"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "status": "archive_only",
+      "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+        "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/apap/sources/README.md"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "status": "archive_only",
+      "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+        "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/apap/sources/README.md"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-after",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "status": "archive_only",
+      "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+        "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/apap/sources/README.md"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-before",
+      "informal_id": "main",
+      "field": "/source/evidence",
+      "original_locator": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "status": "archive_only",
+      "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+      "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1",
+      "source": {
+        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+        "path": "reports/pending-extraction-2026-11-13/apap/sources/README.md",
+        "sha256": "7db39afabee47ef0255003c29cdaec242f370a1fc40bb4e23d57e40fc7260be1"
+      },
+      "archive_url": "https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/apap/sources/README.md"
+    }
+  ]
+}

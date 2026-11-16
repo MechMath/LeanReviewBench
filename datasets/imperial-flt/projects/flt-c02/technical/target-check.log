@@ -1,2 +1,0 @@
-@FreyPackage.of_not_FermatLastTheoremFor_p_ge_5 : ∀ {p : ℕ},
-  Nat.Prime p → 5 ≤ p → ¬FermatLastTheoremFor p → Nonempty FreyPackage

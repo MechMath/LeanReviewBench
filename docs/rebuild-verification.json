@@ -1,5 +1,7 @@
 {
   "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
   "native_manifest_reproduced": true,
-  "inventory_files": 10153
+  "inventory_files": 9482,
+  "reviewed_support_files_copied": true,
+  "rebuilt_support_audit_errors": []
 }

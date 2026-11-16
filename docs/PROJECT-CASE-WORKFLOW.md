@@ -130,9 +130,9 @@ Full construction recipes, graphs, logs and unsuccessful attempts remain in
 the historical archive. `scripts/data/provenance.py --path <original-path>`
 resolves historical `reports/...` locators to immutable URLs.
 
-Stacks admission adds six technically extracted inputs: two provisionally aligned, one misaligned and three unresolved scopes. See [admission](../reports/stacks-admission/README.md). Earlier dated 137-input review summaries above remain historical; current totals are generated in PROJECT-CASE-STATS.md.
+Stacks admission adds six technically extracted inputs: two provisionally aligned, one misaligned and three unresolved scopes. See [admission](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/stacks-admission/README.md). Earlier dated 137-input review summaries above remain historical; current totals are generated in PROJECT-CASE-STATS.md.
 
-The 2026-11-13 extraction branch adds explicitly registered packages with separate technical receipts and unresolved human scope review. See [current extraction results](../reports/pending-extraction-2026-11-13/README.md) and regenerated statistics for current totals.
+The 2026-11-13 extraction branch adds explicitly registered packages with separate technical receipts and unresolved human scope review. See [current extraction results](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/README.md) and regenerated statistics for current totals.
 
 
-The merge format and review/reference-state distinctions are specified in [DATA-FORMAT.md](DATA-FORMAT.md). The latest research label coverage and baseline merge preflight are recorded in [the 2026-11-16 audit](../reports/merge-readiness-2026-11-16/README.md).
+The merge format and review/reference-state distinctions are specified in [DATA-FORMAT.md](DATA-FORMAT.md). The latest research label coverage and baseline merge preflight are recorded in [the 2026-11-16 audit](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/merge-readiness-2026-11-16/README.md).
