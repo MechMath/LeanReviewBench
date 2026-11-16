@@ -1,6 +1,6 @@
 # Benchmark maintenance
 
-The current collection has 172 versioned inputs across 17 registered batches. Its authoritative format is `paperlean-project-case-1`.
+The current collection has 171 versioned inputs across 16 registered batches. Its authoritative format is `paperlean-project-case-1`.
 
 - [Dataset format](DATA-FORMAT.md) and [project maintenance](PROJECT-CASE-WORKFLOW.md)
 - [Current statistics](PROJECT-CASE-STATS.md)
@@ -12,3 +12,5 @@ The current collection has 172 versioned inputs across 17 registered batches. It
 - [Original protocol documentation](../scripts/evaluation/PROTOCOL.md)
 
 Run `python3 scripts/data/check_release_candidate.py` for native static checks. The copied research documents preserve dated historical statements; current scope and status are defined by the registered inventory and exact retained records. The native data are not a frozen model prompt/scoring export.
+
+The SLT batch was excluded by curator decision; see [the scope update](MIGRATION.md).

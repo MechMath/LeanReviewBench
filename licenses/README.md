@@ -14,7 +14,6 @@ The repository-level [LICENSE](../LICENSE) does not override upstream terms.
 | sphere-packing | Apache-2.0 | [License copy](sphere-packing/LICENSE) |
 | formalslt | MIT | [License copy and copyright](formalslt/LICENSE) |
 | vaught | Apache-2.0 | [License copy](vaught/LICENSE) |
-| stat-learning-theory | Apache-2.0 | [License copy](stat-learning-theory/LICENSE) |
 | statsmllib | Apache-2.0 | [License copy](statsmllib/LICENSE) |
 | brownian-motion | Apache-2.0 | [License copy](brownian-motion/LICENSE) |
 | pfr | Apache-2.0 | [License copy](pfr/LICENSE) |

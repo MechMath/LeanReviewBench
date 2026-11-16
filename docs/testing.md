@@ -9,7 +9,7 @@ python3 scripts/data/annotation_coverage.py
 python3 -m unittest discover -s tests -v
 ```
 
-The support check verifies the required docs/configuration/tool inventory, local documentation links and declared Python imports. The native checker verifies the 17 registered batches, source/resource digests, target/index bindings, provisional labels, graph receipts, provenance, upstream evidence, licensing and the data manifest. The annotation audit checks currently hashed review reports without promoting labels to gold.
+The support check verifies the required docs/configuration/tool inventory, local documentation links and declared Python imports. The native checker verifies the 16 registered batches, source/resource digests, target/index bindings, provisional labels, graph receipts, provenance, upstream evidence, licensing and the data manifest. The annotation audit checks currently hashed review reports without promoting labels to gold.
 
 The migrated upstream regression tests exercise formal-context filtering, model output validation, batch identity/resume, abstention/scoring, provider settings with mocked network responses, Lean dependency parsing and environment resolution. Additional release tests cover native input hashes and exact local graph access. These tests use temporary fixtures and do not contact a model provider or run Lean compilation.
 

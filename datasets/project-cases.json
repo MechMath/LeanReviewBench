@@ -22,7 +22,6 @@
     "sphere-packing": "thefundamentaltheor3m/Sphere-Packing-Lean",
     "formalslt": "Robby955/FormalSLT",
     "vaught": "cameronfreer/vaught-conjecture-counterexample",
-    "stat-learning-theory": "YuanheZ/lean-stat-learning-theory",
     "statsmllib": "Lean-MoDS/StatsMLlib",
     "brownian-motion": "RemyDegenne/brownian-motion",
     "pfr": "teorth/pfr",

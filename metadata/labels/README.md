@@ -1,5 +1,8 @@
 # 当前项目复核标注
 
+Current release scope excludes `stat-learning-theory:slt-master`: **171 inputs across 16 batches**, with **81 aligned and 90 misaligned provisional labels**. Dated historical records below retain their original scope.
+
+
 2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-right` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 quasi-sober，遗漏原文非 T0 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。本轮 33 个待处理输入均已完成二分类标注。旧标签、论证和用户确认见 [标注记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/user-annotations-2026-11-16/STK-0B34-right.json)。
 
 2026-11-16 按用户逐题确认，将 `stacks:STK-0B34-left` 从 `undetermined` 改为 `misaligned`：选定根只覆盖非 T0，遗漏原文非 quasi-sober 的独立结论（P），并推广了具体空间条件（A）。不以 sorry 判负，不合并同文件的未选定根。旧标签、论证和用户确认见 [标注记录](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/user-annotations-2026-11-16/STK-0B34-left.json)。

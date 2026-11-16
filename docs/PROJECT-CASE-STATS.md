@@ -3,8 +3,8 @@
 Generated from `datasets/project-cases.json`, registered project metadata and
 `metadata/upstream-evidence/`. The tables below cover all registered batches.
 
-Main contains **172 versioned inputs**
-in **172 project directories**.
+Main contains **171 versioned inputs**
+in **171 project directories**.
 
 Reproduce: `python3 scripts/data/project_case_stats.py > docs/PROJECT-CASE-STATS.md`.
 Machine-readable output: `python3 scripts/data/project_case_stats.py --json`.
@@ -25,7 +25,6 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 | sphere-packing | 6 | 6 | 9 | 2 | 8 | 1 | 3 |
 | formalslt | 4 | 4 | 6 | 2 | 4 | 2 | 2 |
 | vaught | 3 | 3 | 3 | 3 | 3 | 0 | 1 |
-| stat-learning-theory | 1 | 0 | 1 | 0 | 0 | 1 | 0 |
 | statsmllib | 2 | 2 | 2 | 1 | 2 | 0 | 1 |
 | brownian-motion | 1 | 1 | 2 | 0 | 0 | 2 | 1 |
 | pfr | 14 | 14 | 24 | 10 | 22 | 2 | 11 |
@@ -36,7 +35,7 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 | imperial-flt | 5 | 5 | 5 | 0 | 0 | 5 | 0 |
 | equational-theories | 8 | 8 | 7 | 0 | 0 | 7 | 0 |
 | apap | 2 | 2 | 6 | 0 | 0 | 6 | 3 |
-| Total | 122 | 114 | 172 | 34 | 89 | 83 | 58 |
+| Total | 121 | 114 | 171 | 34 | 89 | 82 | 58 |
 
 | Batch | Compiled/extracted inputs | Historical ready | Historical unresolved | Blocked | Both-extracted pairs |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -46,7 +45,6 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 | sphere-packing | 9 | 9 | 0 | 0 | 3 |
 | formalslt | 6 | 5 | 1 | 0 | 2 |
 | vaught | 3 | 2 | 1 | 0 | 1 |
-| stat-learning-theory | 0 | 0 | 0 | 1 | 0 |
 | statsmllib | 2 | 0 | 2 | 0 | 1 |
 | brownian-motion | 2 | 2 | 0 | 0 | 1 |
 | pfr | 24 | 10 | 14 | 0 | 11 |
@@ -57,10 +55,10 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 | imperial-flt | 5 | 0 | 5 | 0 | 0 |
 | equational-theories | 7 | 0 | 7 | 0 | 0 |
 | apap | 6 | 0 | 6 | 0 | 3 |
-| Total | 164 | 57 | 107 | 8 | 57 |
+| Total | 164 | 57 | 107 | 7 | 57 |
 
 The 58 explicit reciprocal before/after links cover 116 inputs;
-56 inputs have no registered pair. Pairs include text-only revisions,
+55 inputs have no registered pair. Pairs include text-only revisions,
 renamed declarations and scope changes; after does not imply a successful repair.
 
 Historical status values use `historical_status` where a review updated `status`. In particular,

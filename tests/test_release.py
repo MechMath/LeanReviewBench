@@ -94,16 +94,17 @@ class PublicationTests(unittest.TestCase):
         result=subprocess.run([sys.executable,'scripts/data/annotation_coverage.py'],cwd=ROOT,capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
         obj=json.loads(result.stdout)
-        self.assertEqual(obj['totals']['inputs'],172)
+        self.assertEqual(obj['totals']['inputs'],171)
         self.assertEqual(obj['totals']['reference_ready'],0)
     def test_all_original_graph_bindings_available(self):
-        self.assertEqual(Dataset(ROOT).validate(),dict(inputs=172,graphs=172))
+        self.assertEqual(Dataset(ROOT).validate(),dict(inputs=171,graphs=171))
     def test_binary_labels_and_joint_roots(self):
         data=Dataset(ROOT);labels=[r for path in (ROOT/'metadata/labels').glob('*.jsonl') for r in records(path)]
-        self.assertEqual(len(labels),172)
-        self.assertEqual(sum(r['label']=='aligned' for r in labels),82)
+        self.assertEqual(len(labels),171)
+        self.assertEqual(sum(r['label']=='aligned' for r in labels),81)
         self.assertEqual(sum(r['label']=='misaligned' for r in labels),90)
         self.assertTrue(all(r['reference_ready'] is False for r in labels))
+        self.assertNotIn('stat-learning-theory:slt-master',data.ids())
         self.assertNotIn('stacks:STK-0B34-left',data.ids())
         self.assertEqual(len(data.project('stacks:STK-0B34')['project']['targets']),2)
         self.assertEqual(len(data.project('equational-theories:etp-sheffer')['project']['targets']),2)

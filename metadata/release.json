@@ -3,7 +3,7 @@
   "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
   "research_docs_commit": "2f471585a4b71adb32f6e3fac214e366ce8979ae",
   "dataset_schema": "paperlean-project-case-1",
-  "inputs": 172,
+  "inputs": 171,
   "batches": {
     "applied-modeling-lib": 30,
     "carleson": 7,
@@ -11,7 +11,6 @@
     "sphere-packing": 9,
     "formalslt": 6,
     "vaught": 3,
-    "stat-learning-theory": 1,
     "statsmllib": 2,
     "brownian-motion": 2,
     "pfr": 24,
@@ -25,9 +24,9 @@
   },
   "labels": {
     "misaligned": 90,
-    "aligned": 82
+    "aligned": 81
   },
-  "formal_files": 8734,
+  "formal_files": 8694,
   "reference_ready": 0,
   "model_export_status": "Native project-case data; no frozen model task export is asserted.",
   "omitted": [
@@ -37,5 +36,12 @@
     "build caches",
     "optional original/ copies, source caches, patches and construction logs"
   ],
-  "packaging_policy": "Test/runtime dependencies only; optional construction materials use immutable archive links."
+  "packaging_policy": "Test/runtime dependencies only; optional construction materials use immutable archive links.",
+  "excluded_batches": {
+    "stat-learning-theory": {
+      "repository": "YuanheZ/lean-stat-learning-theory",
+      "inputs": 1,
+      "reason": "Excluded by curator decision: full historical migration remains incomplete; statement-only context recovery does not qualify this batch for the retained release."
+    }
+  }
 }

@@ -10,21 +10,27 @@ Labels return to `metadata/labels/<batch>.jsonl`; upstream evidence, provenance,
 
 The earlier release-only input/context schemas, centralized task table, source blobs, archive installer, custom prediction/scoring interface and `data/0.1.0-preview` tree have been removed. They are not the published contract. All required local input and evidence files are uncompressed and tracked by Git. Optional acquisition materials are represented by pinned archive locators. Git history has not been rewritten.
 
+## Release scope update
+
+The publication now excludes `YuanheZ/lean-stat-learning-theory` and its sole input `slt-master` by curator decision. Its recovered statement-only context did not resolve the full historical migration. The retained collection has 171 inputs, 121 root names and 16 batches, with 81 aligned and 90 misaligned provisional labels. The exclusion is applied by `scripts/maintenance/release_scope.py`, including archive rebuilds. Remaining project, informal, formal and per-batch label bytes are unchanged. Dated source-contract copies, review-history records and the earlier rebuild verification remain historical evidence, not current inventory.
+
 ## Retained inventory
 
 | Item | Result |
 | --- | ---: |
-| Active inputs / registered batches | 172 / 17 |
-| Aligned / misaligned provisional labels | 82 / 90 |
+| Active inputs / registered batches | 171 / 16 |
+| Aligned / misaligned provisional labels | 81 / 90 |
 | Reference-ready labels | 0 |
-| Formal source/resource files across active packages | 8,734 |
-| Exact original graph bindings available locally | 172 |
+| Formal source/resource files across active packages | 8,694 |
+| Exact original graph bindings available locally | 171 |
 | Inputs marked compiled in the original source | 164 |
-| Historically blocked full compilation, with recovered contexts | 8 |
+| Legacy blocked flags, with recovered contexts | 7 |
 
 The 30 ArkLib, Imperial FLT, Equational Theories and APAP inputs remain. The five excluded repositories and four high-cost Binius/Hachi inputs remain excluded. Stacks `STK-0B34` remains one joint two-root input, as previously agreed; its archived component evidence remains under reports, outside active input counts. Equational Sheffer also remains one two-root input.
 
-| Current tracked data tree | Files | File-content bytes | MiB |
+The following size measurements describe the original 172-input migration, before the exclusion above.
+
+| Original tracked data tree | Files | File-content bytes | MiB |
 | --- | ---: | ---: | ---: |
 | `datasets/` | 9,265 | 192,154,028 | 183.25 |
 | `metadata/` | 263 | 70,051,615 | 66.81 |
@@ -34,11 +40,13 @@ These are uncompressed checkout file-content sizes, not clone transfer or compre
 
 ## Verification
 
-The [byte comparison](migration-verification.json) confirms that all active `project.json` files, complete informal records, original label files, 8,734 source/resource files and retained original graph bytes match the pinned research snapshot. Input digests are checked using the original `project_cases.input_digest`, including the two established multi-root schemes and non-Lean runtime resources.
+The [retained-subset byte comparison](migration-verification.json) confirms that all active `project.json` files, complete informal records, retained per-batch label files, 8,694 source/resource files and retained original graph bytes match the pinned research snapshot. Input digests are checked using the original `project_cases.input_digest`, including the two established multi-root schemes and non-Lean runtime resources.
 
-The original `check_release_candidate.py` passes: registered scope, indexes, hashes, labels, 13 derived graph/receipt bindings, 34 upstream evidence records, provenance and licensing inventory. The annotation coverage audit passes with 172 binary labels and zero reference-ready records. The release and upstream regression tests cover native metadata preservation, changed Lean/resource rejection, graph hashes/input bindings, unsafe paths, joint roots and complete publication integrity. A fresh-clone check needs no research checkout, archive download or data preparation. The test-focused layout was rebuilt into a fresh directory; its native inventory matches byte-for-byte and its support-file audit passes. See [the rebuild record](rebuild-verification.json).
+The original `check_release_candidate.py` passes: registered scope, indexes, hashes, labels, 12 derived graph/receipt bindings, 34 upstream evidence records, provenance and licensing inventory. The annotation coverage audit passes with 171 binary labels and zero reference-ready records. The release and upstream regression tests cover native metadata preservation, changed Lean/resource rejection, graph hashes/input bindings, unsafe paths, joint roots and complete publication integrity. A fresh-clone check needs no research checkout, archive download or data preparation. The test-focused layout was rebuilt into a fresh directory; its native inventory matches byte-for-byte and its support-file audit passes. See [the rebuild record](rebuild-verification.json).
 
 `metadata/derived-graphs/retained-index.json` adds local access to the original graphs for every active input without changing original project metadata. It records source commit/path/hash and explicitly marks this migration as not performing a fresh build. Original derived records and composition evidence retain their original validation paths.
+
+The seven retained legacy-blocked inputs have supplemental context receipts: six record statement-type elaboration, while CDG-L94 records original-theorem compilation. The original 164 compiled-input flags are preserved rather than silently relabelled.
 
 ## Evaluation and remaining limits
 

@@ -80,17 +80,6 @@
       "receipt_sha256": "b55c18cbbf2536e9473cab2004a1da281465191c31adabd2db2c4a7adb97c5dc"
     },
     {
-      "dataset": "stat-learning-theory",
-      "project_id": "slt-master",
-      "input_sha256": "fd65f2d8805f8dbd8c24e3eb8711cae28479a488adca9e0698fc0369441bed86",
-      "graph_sha256": "1f51954e06372b5abaa59df20fd21b2e40358c41617a0015ae1e76ee79ab3ea5",
-      "evidence": "elaborated_statement_type",
-      "root": "LeastSquares.master_error_bound",
-      "graph_path": "metadata/derived-graphs/graphs/stat-learning-theory--slt-master.json",
-      "receipt_path": "reports/bench-export-repair-2026-11-09/slt-statement-graph/receipt.json",
-      "receipt_sha256": "72ed2abe1ad85ceae0333ed99fb5af102c6e40f2b95cec8dcac27903592a3bbc"
-    },
-    {
       "dataset": "stacks",
       "project_id": "STK-004Y",
       "root": "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton",

@@ -1,16 +1,17 @@
 {
   "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
-  "inputs": 172,
-  "formal_files": 8734,
+  "inputs": 171,
+  "formal_files": 8694,
   "compiled_in_original_source": 164,
   "project_metadata_bytes_unchanged": true,
   "informal_records_bytes_unchanged": true,
   "labels_bytes_unchanged": true,
   "all_source_bytes_match": true,
   "all_original_graph_bytes_match": true,
-  "graph_bindings": 172,
+  "graph_bindings": 171,
   "labels": {
     "misaligned": 90,
-    "aligned": 82
-  }
+    "aligned": 81
+  },
+  "verification_scope": "Retained subset after stat-learning-theory exclusion; original per-input and retained label bytes unchanged."
 }

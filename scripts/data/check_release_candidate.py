@@ -12,7 +12,7 @@ from derived_graphs import verify as verify_derived_graphs
 BASE = Path(__file__).resolve().parents[2]
 EXPECTED = {
     'applied-modeling-lib', 'carleson', 'coarse-degiorgi', 'sphere-packing',
-    'formalslt', 'vaught', 'stat-learning-theory', 'statsmllib',
+    'formalslt', 'vaught', 'statsmllib',
     'brownian-motion', 'pfr', 'sphere-eversion', 'pnt', 'stacks',
 }
 EXTRACTION_BATCHES = {
@@ -23,7 +23,7 @@ EXTRACTION_BATCHES = {
 def check_scope(base, config):
     registered = set(config['datasets'])
     project_cases.require(EXPECTED <= registered and registered <= EXPECTED | EXTRACTION_BATCHES,
-                          'Candidate configuration must contain exactly the thirteen original batches plus explicitly approved extraction batches')
+                          'Candidate configuration must contain the twelve retained original batches plus explicitly approved extraction batches')
     actual = {p.name for p in (base / 'datasets').iterdir() if p.is_dir()}
     # Preparation packets are checked separately and never registered/exported
     # as part of the registered publication candidate.

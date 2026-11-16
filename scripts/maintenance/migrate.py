@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import sys
 from research_source import Research
+from release_scope import EXCLUDED_BATCH, apply_exclusions
 
 ROOT=Path(__file__).resolve().parents[2]
 
@@ -120,14 +121,20 @@ def migrate(source,output,research_revision):
     for relative in [*support['files_sha256'],'docs/support-inventory.json']:
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(ROOT/relative,destination)
-    for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json','metadata/layout.json']:
+    for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json','metadata/layout.json','licenses/README.md']:
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,destination)
     for batch in cfg['datasets']:
+        if batch == EXCLUDED_BATCH:
+            continue
         shutil.copy2(ROOT/'datasets'/batch/'README.md',output/'datasets'/batch/'README.md')
+    # Keep deliberate release exclusions when rebuilding the pinned archive.
+    apply_exclusions(output)
     # Reuse the original inventory contract and checks rather than a new schema.
     subprocess.run([sys.executable,'scripts/data/release_metadata.py','freeze'],cwd=output,check=True)
     subprocess.run([sys.executable,'scripts/data/check_release_candidate.py'],cwd=output,check=True,stdout=subprocess.DEVNULL)
-    print(json.dumps(dict(inputs=sum(counts.values()),formal_files=formal_count,labels=dict(labels),graphs=len(graph_records)),indent=2))
+    retained=json.loads((output/'metadata/release.json').read_text())
+    print(json.dumps(dict(inputs=retained['inputs'],formal_files=retained['formal_files'],
+                          labels=retained['labels'],graphs=retained['inputs']),indent=2))
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)

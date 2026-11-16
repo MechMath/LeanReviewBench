@@ -7,7 +7,7 @@ The release includes what is needed to inspect the current benchmark, validate i
 | Registered `project.json`, full `informal.jsonl`, formal Lean sources and runtime resources | Actual benchmark inputs and native input hashes |
 | Referenced `CHANGES.md` | Native package contract and compatibility notes |
 | Common Lean/library pins and external tool configuration | Optional compilation environment |
-| One exact retained dependency graph per exported context | Local access to all 172 inputs' formal meaning |
+| One exact retained dependency graph per exported context | Local access to all 171 inputs' formal meaning |
 | Native labels, upstream evidence and source/license attribution | Label bindings and required provenance |
 | Currently hashed review reports and derived/composed graph evidence | Files actually consumed by current validators |
 | Protocol schemas, provider templates, runtime scripts and relevant upstream tests | Offline tool operation and regression coverage |

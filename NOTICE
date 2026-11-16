@@ -1,7 +1,7 @@
 PaperLeanBench source attribution
 
 This publication candidate contains selected Lean sources and mathematical
-text from the following twelve project batches:
+text from the following sixteen project batches:
 
   nikhgarg/AppliedModelingLib
   fpvandoorn/carleson
@@ -9,12 +9,16 @@ text from the following twelve project batches:
   thefundamentaltheor3m/Sphere-Packing-Lean
   Robby955/FormalSLT
   cameronfreer/vaught-conjecture-counterexample
-  YuanheZ/lean-stat-learning-theory
   Lean-MoDS/StatsMLlib
   RemyDegenne/brownian-motion
   teorth/pfr
   leanprover-community/sphere-eversion
   AlexKontorovich/PrimeNumberTheoremAnd
+  optpku/stacks
+  Verified-zkEVM/ArkLib
+  ImperialCollegeLondon/FLT
+  teorth/equational_theories
+  YaelDillies/apap
 
 The PFR batch also contains two energy inputs from
 leanprover-community/add-combi. Retained supporting sources include

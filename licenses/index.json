@@ -277,31 +277,6 @@
         "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
       }
     },
-    "stat-learning-theory": {
-      "repository": "https://github.com/YuanheZ/lean-stat-learning-theory",
-      "source_revisions": [
-        {
-          "repository": "https://github.com/YuanheZ/lean-stat-learning-theory",
-          "commit": "d0f506f0a695018265dccb33bcb05e2f5ca1c876"
-        }
-      ],
-      "license_id": "Apache-2.0",
-      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
-      "status": "license-copy-retained",
-      "license_files": [
-        {
-          "file": "licenses/stat-learning-theory/LICENSE",
-          "sha256": "4de930b76b7b4c78953ea8e0783b7e54ee71d1275769896c6e4b124cff23ef70"
-        }
-      ],
-      "evidence": {
-        "kind": "immutable-benchmark-archive",
-        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
-        "path": "licenses/lean-stat-learning-theory/LICENSE",
-        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/licenses/lean-stat-learning-theory/LICENSE",
-        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
-      }
-    },
     "statsmllib": {
       "repository": "https://github.com/Lean-MoDS/StatsMLlib",
       "source_revisions": [

@@ -1,6 +1,6 @@
 # Benchmark metadata
 
-The registered inventory contains 172 project-case inputs across 17 batches. Labels and source/review metadata are outside model-visible task exports.
+The registered inventory contains 171 project-case inputs across 16 batches. Labels and source/review metadata are outside model-visible task exports.
 
 | Path | Purpose |
 | --- | --- |
@@ -17,3 +17,5 @@ The registered inventory contains 172 project-case inputs across 17 batches. Lab
 Historical `reports/...` paths not retained locally remain archive locators, resolvable with `scripts/data/provenance.py`. All currently hashed review reports required by the label audit are retained at their original paths. Compiled contexts, recovered contexts, proof completeness and semantic reference readiness are separate facts. See [the contract](../docs/DATA-FORMAT.md).
 
 Runtime evidence is consolidated in `metadata/reports/`. Fields in original records still use `reports/...`; `scripts/data/paths.py` resolves them without changing any record bytes or evidence hash. The former `references/` directory contained only a redundant guide; authoritative provisional labels remain in `metadata/labels/`.
+
+The SLT batch was excluded by curator decision; see [the scope update](../docs/MIGRATION.md).

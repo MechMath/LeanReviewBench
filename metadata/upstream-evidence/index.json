@@ -39,12 +39,6 @@
       "inputs_with_evidence": 3,
       "inputs_without_retained_evidence": 0
     },
-    "stat-learning-theory": {
-      "file": null,
-      "evidence_records": 0,
-      "inputs_with_evidence": 0,
-      "inputs_without_retained_evidence": 1
-    },
     "statsmllib": {
       "file": "statsmllib.jsonl",
       "evidence_records": 1,

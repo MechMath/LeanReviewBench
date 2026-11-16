@@ -2,7 +2,7 @@
 
 A benchmark for informal–formal statement alignment in real Lean projects.
 
-This local publication preview retains **172 versioned inputs across 17 registered batches**, with **82 aligned and 90 misaligned provisional labels**. It uses the original **`paperlean-project-case-1`** format described in the paper's construction appendix and the research branch documentation. All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
+This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned provisional labels**. It uses the original **`paperlean-project-case-1`** format described in the paper's construction appendix and the research branch documentation. All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
 ```text
 datasets/
@@ -22,7 +22,7 @@ metadata/
   upstream-evidence/
   derived-graphs/
     index.json                   # Original derived-graph/receipt bindings
-    retained-index.json          # Local access to all 172 original contexts
+    retained-index.json          # Local access to all 171 original contexts
   provenance.json
   manifest.json
   release.json
@@ -49,7 +49,7 @@ python3 scripts/data/inspect_dataset.py validate
 python3 -m unittest discover -s tests -v
 ```
 
-The native checker validates registered scope, project indexes and input hashes, label bindings, graph receipts, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command also checks local graph availability for all 172 inputs.
+The native checker validates registered scope, project indexes and input hashes, label bindings, graph receipts, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command also checks local graph availability for all 171 inputs.
 
 Open `datasets/<batch>/projects/<id>/formal/Main.lean` directly to read a source snapshot. No blob restoration step is required. To inspect native metadata and complete informal records:
 
@@ -86,7 +86,7 @@ python3 scripts/construction/compile_projects.py env
 python3 scripts/construction/compile_projects.py compile --dataset carleson --ids CAR-01-before
 ```
 
-This packaging migration performs static verification, not a fresh Lean build. Historical full-project compilation remains blocked for eight packages with recovered exported contexts. Compilation is separate from proof completeness and semantic labeling.
+This packaging migration performs static verification, not a fresh Lean build. Seven retained inputs have legacy blocked flags and recovered contexts: six have statement-type elaboration evidence, and CDG-L94 has a subsequent original-theorem compilation receipt. These records do not assert fresh compilation of the packaged checkout. Compilation is separate from proof completeness and semantic labeling.
 
 To rebuild this publication layout from the pinned research checkout and its local archive Git objects:
 
@@ -101,4 +101,4 @@ See [configuration](docs/CONFIGURATION.md), [packaging policy](docs/PACKAGING.md
 
 Code follows [LICENSE](LICENSE); upstream sources retain their own [license records](licenses/index.json) and [NOTICE](NOTICE). This is not a blanket relicensing of source material. The historical AppliedModelingLib license-copy gap remains recorded.
 
-All 172 labels remain provisional with `reference_ready=false`. User decisions and model reviews are preserved without promoting them to human gold. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.
+All 171 labels remain provisional with `reference_ready=false`. User decisions and model reviews are preserved without promoting them to human gold. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.

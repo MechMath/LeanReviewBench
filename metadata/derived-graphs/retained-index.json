@@ -1057,23 +1057,6 @@
       "fresh_compilation": false
     },
     {
-      "dataset": "stat-learning-theory",
-      "project_id": "slt-master",
-      "input_sha256": "fd65f2d8805f8dbd8c24e3eb8711cae28479a488adca9e0698fc0369441bed86",
-      "roots": [
-        "LeastSquares.master_error_bound"
-      ],
-      "graph_path": "metadata/derived-graphs/graphs/stat-learning-theory--slt-master.json",
-      "graph_sha256": "1f51954e06372b5abaa59df20fd21b2e40358c41617a0015ae1e76ee79ab3ea5",
-      "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
-        "path": "metadata/derived-graphs/graphs/stat-learning-theory--slt-master.json",
-        "sha256": "1f51954e06372b5abaa59df20fd21b2e40358c41617a0015ae1e76ee79ab3ea5",
-        "binding": "verified_derived_graph"
-      },
-      "fresh_compilation": false
-    },
-    {
       "dataset": "statsmllib",
       "project_id": "statsml-after",
       "input_sha256": "69affdea181000403cce345a0d2edccc0390e2c4b3ffec15160e075bc9b7cd53",
