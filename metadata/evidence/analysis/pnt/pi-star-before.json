@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "pi-star-before",
+  "task_id": "pnt:pi-star-before",
+  "input_sha256": "022a26b94e3693432178be5c51ec33485038d163b8dd8294971cf5d48be4c9a4",
+  "label": "aligned",
+  "reason": "当前文字定义就是截至x的Λ(n)/n之和；formal用Ioc 1 floor(x)。n=1项Λ(1)=0，去掉它不改值，取整恰好编码整数n≤x。此判定不将其替换成另一篇论文的半权prime-power计数。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "pi_star"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1658"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr293-before",
+  "task_id": "pfr:pr293-before",
+  "input_sha256": "b6007219cf3c6367cddd1b2628e05b897526d11ec3f72eb1d746828d27e60c7a",
+  "label": "aligned",
+  "reason": "Formal constants 144/122 imply the older weaker 172/146 bound since density<=1 and the assumptions force K>=1. The newer target matches the constants; use the own-version finite elementary-2-group scope.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "approx_hom_pfr'"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-293"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

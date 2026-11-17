@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-T31-HIST",
+  "task_id": "aml:LG21-T31-HIST",
+  "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+  "label": "misaligned",
+  "reason": "完整 Theorem 3.1 要求实际均衡的策略具有阈值并满足不公平结论；此根对每个抽象 e 构造 ∃W，却未把 W.takes/W.reports 绑定为 e 的真实行为。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Complete paper Theorem 3.1, user-authorized scope; source pairing fixed in this review.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-B-EIG",
+  "task_id": "sphere-packing:SP-B-EIG",
+  "input_sha256": "0308328261c13dc76e1cd22f02f2100a5ed40ea737bf6f61f4fe077d0354e104",
+  "label": "misaligned",
+  "reason": "目标引用的 b 定义中，最后的 i→i∞ 积分系数是 +2；论文定义式 (52) 是 −2。其余路径方向和 ψ 对应后，此差异改变被讨论的函数。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "MagicFunction.b.Fourier.eig_b"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-packing.jsonl",
+      "id": "pr-504"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

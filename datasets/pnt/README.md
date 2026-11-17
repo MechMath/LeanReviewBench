@@ -13,7 +13,7 @@ The two KLN inputs gained independently checked paper definitions on 2026-11-09,
 with updated input hashes; see `reports/pre-qwen-review-2026-11-09/`.
 
 All Formal files match checked packages. Historical proof holes are disclosed
-in metadata. [Explicit upstream reports](../../metadata/upstream-evidence/pnt.jsonl)
+in metadata. [Explicit upstream reports](../../metadata/evidence/upstream/pnt.jsonl)
 are retained outside the inputs without alignment labels. All projects share
 pnt-ieantn-migration-family. Full paper checks and deferred-case notes remain
 in the historical archive, accessible through provenance locators.

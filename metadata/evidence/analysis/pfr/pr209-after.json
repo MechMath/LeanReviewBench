@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr209-after",
+  "task_id": "pfr:pr209-after",
+  "input_sha256": "2a9fc7f2e8f6c4709a0ee991ecd4884ecc89ab3fe2175cd4cf548cdfe1ec3675",
+  "label": "aligned",
+  "reason": "Relative to the finite-group chapter scope, finite conditioning codomains satisfy every version's finite/countable/finite-range requirements. The conclusion supplies measurable variables, a probability measure, both joint laws and conditional independence. Wider generic-codomain readings are not the selected target.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "ProbabilityTheory.condIndep_copies"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-209"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

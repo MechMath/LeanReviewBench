@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "statsmllib",
+  "project_id": "statsml-before",
+  "task_id": "statsmllib:statsml-before",
+  "input_sha256": "4790b7a06521ca2baa50c37939b9dfff11e11c5cf627e907c36a08dec7ebf50b",
+  "label": "aligned",
+  "reason": "已发表 ITP 2026 论文 §§2–4 给出概率模型、绝对值经验/期望 Rademacher 复杂度、uniform deviation 与尾界；StatsML 官方网站 2026-07-31 固定提交在完整公式前明确可分、第一可数及参数逐点连续，并在公式后直接命名 before 根。此目标早于 issue77/PR78，故无需从 formal 反译补齐函数类范围。before 根逐项覆盖该目标，复杂度定义保留绝对值，系数 2 与指数分母 2b² 一致；formal 还允许 n=0，不影响其覆盖源文 n≥1 范围。",
+  "review_status": "model_remaining_undetermined_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "uniform_deviation_tail_bound_separable_of_pos"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/statsmllib.jsonl",
+      "id": "pr-78"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/missing-target-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "ik-totient-before",
+  "task_id": "pnt:ik-totient-before",
+  "input_sha256": "3513c9caabc4ff346d9ad0f83f51eaba71a67c51b2620488837dd3c91edec416",
+  "label": "misaligned",
+  "reason": "The frozen infinite-series equation is interpreted on its ordinary domain of convergence. Formal instead asserts equality for every Re(s)>1, including divergent points, so the extra strip is a real strengthening rather than an omitted harmless condition. At s=3/2 the totalized LSeries is zero while ζ(1/2)/ζ(3/2) is nonzero.",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "ArithmeticFunction.LSeries_totient_eq"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1626"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

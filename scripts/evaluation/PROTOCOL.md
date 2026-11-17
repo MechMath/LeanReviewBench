@@ -139,7 +139,7 @@ Provider-specific settings, commands and troubleshooting live in the
 
 These are existing tool contracts, not the final annotation policy for the
 current dataset. No scoring labels or review records are published. Explicit
-[upstream evidence](../../metadata/upstream-evidence/README.md) is not a reference.
+[upstream evidence](../../metadata/evidence/upstream/README.md) is not a reference.
 Review data stay outside task workspaces and are distinct from removed model
 metadata reviews.
 

@@ -1,0 +1,34 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-L94",
+  "task_id": "coarse-degiorgi:CDG-L94",
+  "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
+  "label": "misaligned",
+  "reason": "按已固定的 Lemma 9.4 定量指数范围，Lean 的半径损失指数 γ6 与论文不同。d=3,p=10,q=2,s=1/100,t=3/10 时，γ6_paper=209/3，γ6_Lean=3005/42，相差 79/42。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/candidates.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

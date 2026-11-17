@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GS62-T2-before",
+  "task_id": "aml:GS62-T2-before",
+  "input_sha256": "25cf090557ad123b49bd2b51aa85ced298c6ca85f57bfc4c595acc527c009cd1",
+  "label": "misaligned",
+  "reason": "形式结论是存在一个 applicant-optimal stable matching；绑定的原文婚姻特例要求给定 deferred-acceptance 程序产出的匹配具有此最优性。根没有算法输出绑定。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

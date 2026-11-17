@@ -125,7 +125,10 @@ def migrate(source,output,research_revision):
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,destination)
     # Diagnostic classifications are curated release metadata, independent of the
     # pinned construction snapshot. Preserve their standards and provenance.
-    shutil.copytree(ROOT/'metadata/taxonomy', output/'metadata/taxonomy')
+    # Preserve the curated publication metadata layout and exact current evidence.
+    # The pinned construction metadata above is used for source/input verification.
+    shutil.rmtree(output/'metadata')
+    shutil.copytree(ROOT/'metadata', output/'metadata')
     for batch in cfg['datasets']:
         if batch == EXCLUDED_BATCH:
             continue

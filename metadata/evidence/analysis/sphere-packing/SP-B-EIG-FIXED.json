@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-B-EIG-FIXED",
+  "task_id": "sphere-packing:SP-B-EIG-FIXED",
+  "input_sha256": "d3952d4fbb6e2b93a151b9dbb9ba4e54790536edec0900d2611e8abf21686d76",
+  "label": "aligned",
+  "reason": "",
+  "review_status": "historical_model_review_packaged_input_not_reassessed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "MagicFunction.b.Fourier.eig_b"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-packing.jsonl",
+      "id": "pr-504"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-repairs-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "reason_missing",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

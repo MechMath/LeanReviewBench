@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-dusart-table-error-text-before",
+  "task_id": "pnt:bounded-dusart-table-error-text-before",
+  "input_sha256": "fe4f774e3b712152c073d6587da4e5fbeb7ebb617a9972b3a4881290c9328ac5",
+  "label": "misaligned",
+  "reason": "Frozen prose omits division by x (and has an unmatched absolute-value bar), while Formal bounds the normalized error Eψ(x)=|ψ(x)−x|/x. Even granting the evident missing opening bar, its absolute-error bound differs from the normalized bound. This is substantive, not table uncertainty.",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Dusart.proposition_3_2"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1670"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

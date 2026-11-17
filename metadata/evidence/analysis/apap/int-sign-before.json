@@ -1,0 +1,91 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "int-sign-before",
+  "task_id": "apap:int-sign-before",
+  "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+  "label": "misaligned",
+  "reason": "指数符号与原文相反：formal 的分母为 exp(-c*(log N)^(1/12))，使上界成为 N*exp(c*(log N)^(1/12)) 的增长界，N≥1 时仅由 |A|≤N 即成立；同时 c 在 A、N 及假设之后存在量化，未表达原文要求的统一正常数。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "int"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/int-sign-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-sign-before 输入。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "int-sign-before",
+    "root": "int",
+    "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "指数符号与原文相反：formal 的分母为 exp(-c*(log N)^(1/12))，使上界成为 N*exp(c*(log N)^(1/12)) 的增长界，N≥1 时仅由 |A|≤N 即成立；同时 c 在 A、N 及假设之后存在量化，未表达原文要求的统一正常数。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 这个看上去也是不对齐？如果你也认可的话为我标为misaligned; assistant agrees on the exponent-sign and quantifier-order mismatches for apap:int-sign-before.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-sign-before 输入。",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/int-sign-before/informal.jsonl:1",
+      "root": "datasets/apap/projects/int-sign-before/formal/Main.lean:10"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/int-sign-before/informal.jsonl": "6fbfb7eda4c213b1c0da1898802478b09892291475f5f93fe56fcae712590f13",
+      "datasets/apap/projects/int-sign-before/formal/Main.lean": "9ba2eb6c97ca9ff7fe8037a854d1b5fd74e75d20291067fa4fed359a4557b1a8"
+    },
+    "formula_comparison": {
+      "source": "|A| <= N / exp(c * (log N)^(1/12)) = N * exp(-c * (log N)^(1/12))",
+      "formal": "|A| <= N / exp(-c * (log N)^(1/12)) = N * exp(c * (log N)^(1/12))"
+    },
+    "quantifier_comparison": {
+      "source": "exists c > 0, forall N A, P(A,N) -> bound(c,A,N)",
+      "formal": "forall N A, P(A,N) -> exists c > 0, bound(c,A,N)",
+      "formal_binders": "A and N are implicit universal parameters; hAN and hA precede the existential c."
+    },
+    "semantic_argument": [
+      "N≥1 时 log N≥0，令 L=(log N)^(1/12)≥0；对任意 c>0，0<exp(-cL)≤1。",
+      "因此 formal 右端 N/exp(-cL)=N*exp(cL)≥N；A⊆range N 已给出 |A|≤N，无需 ThreeAPFree。",
+      "N=0 时 A⊆range 0 迫使 A=∅，右端为 0，数值结论同样成立。可在所有这些分支选择 c=1。",
+      "对 N>1，原文的正指数分母给出严格小于 N 的上界；formal 的负指数分母给出严格大于 N 的上界，丢失密度衰减内容。",
+      "此外 formal 在 A、N 及假设之后存在量化 c，未保留原文统一常数的量词顺序。"
+    ],
+    "endpoint_convention": "将 range N 中元素逐一加 1 得到 {1,...,N} 的子集，保持基数及非平凡三项等差数列性质；该端点差异不作为判负依据。",
+    "separate_source_issue": {
+      "N": 2,
+      "source_A": [
+        1,
+        2
+      ],
+      "argument": "原文二元素区间没有非平凡三项等差数列，但对任意 c>0，其衰减上界严格小于 2，故当前原文缺少小 N 处理。此 before 的增长界没有这个失败。",
+      "needed_source_clarification": "原文需补充适当的小 N 处理条件；本次保留冻结输入，只记录来源问题。",
+      "relation_to_label": "指数符号和统一常数量词已足以支持判负，不依赖小 N 来源缺陷。"
+    },
+    "verification": {
+      "method": "Source statement and binder comparison, with symbolic inequalities using exp positivity and monotonicity.",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "冻结原文使用小写 log n 并有多余括号，数学解读按上下文理解为 log N，原文文件保持原样。",
+      "未纳入 README 后续章节另述的 1/9 改进。",
+      "用户确认已记录；沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+    ]
+  }
+}

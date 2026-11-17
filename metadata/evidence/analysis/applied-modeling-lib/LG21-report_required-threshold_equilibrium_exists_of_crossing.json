@@ -1,0 +1,34 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-report_required-threshold_equilibrium_exists_of_crossing",
+  "task_id": "aml:LG21-report_required-threshold_equilibrium_exists_of_crossing",
+  "input_sha256": "e5863d8528273da40981f0b7a9e206c6089fe717cdf483783c0c9b082d0f4e03",
+  "label": "misaligned",
+  "reason": "Lean 从连续性、严格单调性和交叉条件推出阈值均衡存在；完整 Theorem 3.1 要刻画每个实际均衡并给出公平性失败，根不包含这些结论。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr227-before-zero",
+  "task_id": "pfr:pr227-before-zero",
+  "input_sha256": "cf43ca25e4dd593c11ddcf7ea69c9f2fd575a06d8537aa403d9a33ff807aff91",
+  "label": "misaligned",
+  "reason": "formal 的实数 log/division 在零分母处把不同点质量的 KL 变为 0，令零值判据错误识别相同分布；原文按无穷处理该输入，故定义与谓词不对应。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "KL_div_eq_zero_iff_identDistrib"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-227"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

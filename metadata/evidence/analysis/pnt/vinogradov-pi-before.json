@@ -1,0 +1,44 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-before",
+  "task_id": "pnt:vinogradov-pi-before",
+  "input_sha256": "bf7cee854c5f0c1e5958f3266f11be0c411f778a6b23c17743e7c46bba54872d",
+  "label": "misaligned",
+  "reason": "在显式新绑定下，当前 formal 的 (3/5)、(1/5) 被自然数幂解释，自然数除法结果均为0，衰减因子成为 exp(-C)，不是来源所定义的3/5、1/5实指数Vinogradov形状。 完整 predicate 的区分见上游检索报告：取 x₀=e²、B=C=1、M=sup(Eπ(x)/log x)>0、A=eM，则旧 formal 成立而新来源目标不成立。 此标签针对明确补入的后续上游定义及其全实域运算约定；不是恢复冻结版本的原始主注释。",
+  "review_status": "model_later_upstream_target_rebinding",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Eπ.vinogradovBound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel repository source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

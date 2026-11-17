@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "carleson",
+  "project_id": "CAR-02-after",
+  "task_id": "carleson:CAR-02-after",
+  "input_sha256": "c8aad7c04babc5e94ad5ce1bfbe4f8ef40634d08c4d1fde4a53ce7430d0c3172",
+  "label": "misaligned",
+  "reason": "蓝图假设对所有 phase θ 的算子范数控制；Lean 的 hT 只对隐式单个 θ 成立，却推出不含该 θ 的 linearizedCarleson 结论，量词范围不匹配。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "linearized_metric_carleson"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/migration-semantic-review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

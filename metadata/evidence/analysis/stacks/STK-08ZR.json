@@ -1,0 +1,177 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "stacks",
+  "project_id": "STK-08ZR",
+  "task_id": "stacks:STK-08ZR",
+  "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+  "label": "misaligned",
+  "reason": "原文要求 Hausdorff/T2Space，formal 仅要求严格更弱的 R1Space，扩大适用范围；两点不可分拓扑满足 R1 而非 Hausdorff。两端局部紧致性概念对应，formal 是正确推广，但按绑定原文的适用条件一致性判为 misaligned（A）。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "locallyCompactSpace_iff_weaklyLocallyCompactSpace"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/STK-08ZR.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_path",
+      "locator": "reports/stacks-08zr-recheck-2026-11-16/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按绑定的 Hausdorff 原文与实际 R1Space 根声明比较适用范围；不以可取 Hausdorff 特例代替实际根，不将正确推广称为假定理。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "stacks",
+    "project_id": "STK-08ZR",
+    "root": "locallyCompactSpace_iff_weaklyLocallyCompactSpace",
+    "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "原文要求 Hausdorff/T2Space，formal 仅要求严格更弱的 R1Space，扩大适用范围；两点不可分拓扑满足 R1 而非 Hausdorff。两端局部紧致性概念对应，formal 是正确推广，但按绑定原文的适用条件一致性判为 misaligned（A）。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我判为misaligned 谢谢; confirms misaligned for stacks:STK-08ZR because the bound Hausdorff premise is replaced by the strictly weaker R1Space premise, broadening applicability under the repository statement-alignment criterion.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "model_recommendation": "misaligned",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "按绑定的 Hausdorff 原文与实际 R1Space 根声明比较适用范围；不以可取 Hausdorff 特例代替实际根，不将正确推广称为假定理。",
+    "detailed_review": {
+      "path": "reports/stacks-08zr-recheck-2026-11-16/review.json",
+      "sha256": "b9937c0bd935e8d5092537cb296cfef8d90ba6be893a17023f7d0b21cb96036e"
+    },
+    "evidence_locations": {
+      "bound_informal": {
+        "path": "datasets/stacks/projects/STK-08ZR/informal.jsonl",
+        "line": 1,
+        "sha256": "55271cb692ec5d91b566f4dd959859c94f545961ce7438077bfc11f56d0aaeab"
+      },
+      "archived_original_statement": {
+        "path": "reports/stacks-admission/sources/08ZR.html",
+        "line": 175,
+        "sha256": "670b5972f3eca471b45a1641ca4f70b0a9955f9e5b1f97b135d86445a146c41d"
+      },
+      "formal_root": {
+        "path": "datasets/stacks/projects/STK-08ZR/formal/Main.lean",
+        "line": 29,
+        "sha256": "f52fdc05df15e81ad034746b1057ff0d204d345ba6d768bca697350ec8451b23"
+      },
+      "original_formal_source": {
+        "path": "reports/stacks-admission/original/STK-08ZR/Main.lean",
+        "line": 29,
+        "sha256": "f52fdc05df15e81ad034746b1057ff0d204d345ba6d768bca697350ec8451b23"
+      },
+      "explicit_graph": {
+        "path": "reports/stacks-admission/technical/STK-08ZR/explicit/graph.json",
+        "line": 1,
+        "sha256": "41e74287f6ef1ae8a4fe5f4c1fb0ca94720d05a3a15abcc877268e11bde3a179"
+      },
+      "receipt": {
+        "path": "reports/stacks-admission/technical/STK-08ZR/receipt.json",
+        "line": 1,
+        "sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
+      },
+      "applicability_criterion": {
+        "path": "docs/MISALIGNMENT-TAXONOMY.md",
+        "line": 13,
+        "sha256": "c24ff66b62a5177b46acf930b6826c50b6ca9f9120aa28777eb26540b7dee02c"
+      }
+    },
+    "external_evidence": [
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Separation/Basic.lean",
+        "line": 936,
+        "sha256": "96c74f410b14c3adecc1cb06d90d9d7a61bbb1529c18000426687bee99ba6991",
+        "relative_path": "Mathlib/Topology/Separation/Basic.lean",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Separation/Hausdorff.lean",
+        "line": 81,
+        "sha256": "95c58f7ad7ef3ea627d5af8d2427c7d7e08a47207ed084e51945217f32566f06",
+        "relative_path": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Defs/Filter.lean",
+        "line": 307,
+        "sha256": "3b2ffc8154a531b4f0d3b36aa75ee08635c0df31884ba83baf1b0b0283c13748",
+        "relative_path": "Mathlib/Topology/Defs/Filter.lean",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Compactness/LocallyCompact.lean",
+        "line": 72,
+        "sha256": "4b6595bb61a6c53eee398a96f7fb2301cf24f400f82ce9fdfe4ee1d5dd3e64ce",
+        "relative_path": "Mathlib/Topology/Compactness/LocallyCompact.lean",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Compactness/Compact.lean",
+        "line": 386,
+        "sha256": "3fc7ffe7db4db0a2de07d6fdf0e65da486b3dced1f3bac4d58ab869a92f4ac64",
+        "relative_path": "Mathlib/Topology/Compactness/Compact.lean",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      }
+    ],
+    "web_crosschecks": [
+      {
+        "url": "https://stacks.math.columbia.edu/tag/08ZR",
+        "access_date": "2026-11-16",
+        "finding": "The current statement retains the same Hausdorff assumption as the archived bound source."
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0068",
+        "access_date": "2026-11-16",
+        "finding": "Locally quasi-compact means that every point has a fundamental system of quasi-compact neighbourhoods; this checks terminology, without replacing the archived target."
+      }
+    ],
+    "taxonomy": [
+      {
+        "label": "A",
+        "explanation": "The bound source assumes Hausdorff (T2Space), whereas the formal root assumes only R1Space. The latter admits non-Hausdorff spaces, including the two-point indiscrete space. This is an applicability generalization, not a refutation of the formal theorem."
+      }
+    ],
+    "semantic_argument": [
+      "Mathlib LocallyCompactSpace.local_compact_nhds requires a compact neighbourhood inside every neighbourhood. WeaklyLocallyCompactSpace requires one compact neighbourhood at every point. These match the two source predicates; IsCompact has the finite-subcover characterization without a Hausdorff requirement.",
+      "The explicit root contains only TopologicalSpace and R1Space assumptions, with no T0Space, T1Space or T2Space. Neither compactness class supplies such a separation assumption.",
+      "Mathlib T2Space.r1Space proves Hausdorff implies R1. Mathlib also derives T2 from R1 plus T0, but the root does not require T0.",
+      "For X={0,1} with open sets exactly empty and X, all points have identical neighbourhoods, so R1 holds. Distinct points cannot have disjoint neighbourhoods, so Hausdorff fails. The whole finite space is compact and is the sole neighbourhood of each point, so both local compactness properties hold. This distinguishes the premise domains, not the truth values of the two theorems.",
+      "The source file explicitly describes the result as generalized to R1Space. The reverse implication uses the existing Mathlib WeaklyLocallyCompactSpace.locallyCompactSpace instance under R1; this is not an unbound predicate or a missing data definition.",
+      "Specializing the formal theorem to T2Space recovers the source assertion. Under a separate policy accepting correct generalizations this could be considered aligned, but no such exception is assumed over the current repository applicability criterion."
+    ],
+    "verification": {
+      "input_digest_checked": true,
+      "archived_source_hash_checked": true,
+      "graph_hashes_checked": true,
+      "formal_matches_original_bytes": true,
+      "mathlib_pin_and_relevant_git_blobs_verified": true,
+      "root_has_no_hidden_hausdorff_assumption": true,
+      "fresh_lean_build": false,
+      "machine_checked_distinguishing_example": false
+    },
+    "limitations": [
+      "两点拓扑例子为直接数学论证，未新增 Lean 机器验证；本次未重新编译。",
+      "用户确认更新为 misaligned；旧 undetermined 标签、原文、formal、输入哈希和技术状态保留。",
+      "标签保持暂定，human_adjudicated=false、reference_ready=false、evaluation_eligible=false，不升级为人类金标。"
+    ]
+  }
+}

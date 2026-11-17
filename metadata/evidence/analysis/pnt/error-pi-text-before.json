@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "error-pi-text-before",
+  "task_id": "pnt:error-pi-text-before",
+  "input_sha256": "d99c940e7cdfeebdc3ecc9dbe8e8917e09c3335a2951128d8cee5873eac594ef",
+  "label": "misaligned",
+  "reason": "Own-version definition uses Li(x) as denominator; unchanged Formal uses x/log(x). At x=2 the old text evaluates to zero under Lean real-division totalization, whereas Formal is strictly positive. The hole-free kernel witness establishes separation. FKS2 equation (1) independently confirms the intended x/log(x) normalization on the positive domain.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Eπ"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1642"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

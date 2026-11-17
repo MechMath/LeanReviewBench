@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "loop-support-after",
+  "task_id": "sphere-eversion:loop-support-after",
+  "input_sha256": "136c5d0b26cf0be74f8ad5addca0fa70f1039756c2af1510e2f9ce726822252e",
+  "label": "aligned",
+  "reason": "The revised independent definition uses the closure of the nonconstant-loop locus, exactly matching loop.support and loop.is_const. The Formal bytes are unchanged; this is a target-text correction control, not a second formal repair.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "loop.support"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-eversion.jsonl",
+      "id": "pr-47"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

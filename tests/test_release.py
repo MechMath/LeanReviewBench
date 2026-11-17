@@ -79,8 +79,10 @@ class PublicationTests(unittest.TestCase):
         self.assertFalse((ROOT/'reports').exists())
         for row in records(ROOT/'metadata/labels/arklib.jsonl'):
             path=resolve(ROOT,row['review_report'])
-            self.assertTrue(path.is_relative_to(ROOT/'metadata/reports'))
+            self.assertTrue(path.is_relative_to(ROOT/'metadata/evidence/analysis'))
             self.assertEqual(file_hash(path),row['review_report_sha256'])
+        self.assertFalse((ROOT/'metadata/reports').exists())
+        self.assertFalse((ROOT/'metadata/upstream-evidence').exists())
         with self.assertRaises(ValueError):resolve(ROOT,'../outside')
 
     def test_required_support_files(self):

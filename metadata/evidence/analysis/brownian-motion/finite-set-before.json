@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "brownian-motion",
+  "project_id": "finite-set-before",
+  "task_id": "brownian-motion:finite-set-before",
+  "input_sha256": "27fcc7defc6da97b4ba96850a567947b127f3fce9ab22d9a38684957e554824a",
+  "label": "misaligned",
+  "reason": "The independent finite-set corollary assumes a finite index set. The historical formal root omits J.Finite and allows an infinite-index spike counterexample.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "ProbabilityTheory.finite_set_bound_of_edist_le"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/brownian-motion-history/finite-set-review.md",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

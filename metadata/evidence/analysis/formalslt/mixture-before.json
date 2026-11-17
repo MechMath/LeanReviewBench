@@ -1,0 +1,49 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "formalslt",
+  "project_id": "mixture-before",
+  "task_id": "formalslt:mixture-before",
+  "input_sha256": "1f4be19364a75f455f8503470c5a13d1b114bcff36faf60b4c0b53c542fce3a5",
+  "label": "misaligned",
+  "reason": "根命题要求 StronglyAdapted ℱ X，即每个 X_k 对同一时刻 ℱ_k 强可测；informal 只要求对 ℱ_(k+1) 可测。结合可积性与 E[X_k|ℱ_k]=0，formal 的假设实际迫使每个 X_k=0 几乎处处，因此把一般非平凡鞅差序列缩成零增量模型。结论和混合定义虽然吻合，模型范围有实质差异。",
+  "review_status": "independent_blinded_subagent_label",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/formalslt.jsonl",
+      "id": "mixture-vacuity"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/formalslt-history/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "labeling_review",
+      "locator": {
+        "path": "reports/formalslt-labeling/case-p2.json",
+        "sha256": "0ab0192acb90902d5e07d2465ad3234dbc5e28442d7fa9463a36eef61b92bc5b",
+        "case_id": "case-p2",
+        "packet_path": "reports/formalslt-labeling/inputs/case-p2.json",
+        "packet_sha256": "91c5ef929d9570102ac0adb5eac21242d33650f3e4321420f5223e5aae84015a",
+        "reviewed_input_sha256": "1f4be19364a75f455f8503470c5a13d1b114bcff36faf60b4c0b53c542fce3a5",
+        "review_kind": "independent_blinded_subagent",
+        "source_review_path": "reports/formalslt-history/semantic-review.json",
+        "proofs_and_existing_labels_shown": false,
+        "confidence": 0.99,
+        "confidence_kind": "uncalibrated_self_report"
+      },
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

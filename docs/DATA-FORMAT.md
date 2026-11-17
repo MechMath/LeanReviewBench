@@ -13,7 +13,7 @@ This is the repository's preparation/merge format. It is not a frozen scoring ex
 | `technical/`, `graph/`, `context/` and receipt locators | Compilation logs, actual exporter results and source bindings. Consult the package's metadata/receipt path rather than assuming every historical batch uses the same graph directory |
 | `datasets/<batch>/index.csv` | Generated from project metadata. Exact columns: `id,root,commit,group_id,before_ids,after_ids,status`. The root column joins all selected declaration names with semicolons; authoritative root metadata remains in `targets` |
 | `metadata/labels/<batch>.jsonl` | One input-bound label record per registered project: dataset, project ID, root, `aligned`/`misaligned` label, reason, input hash, review provenance and adjudication state. `undetermined` is accepted by legacy validation but none remains in the audited latest research snapshot |
-| `reports/user-annotations-2026-11-16/<id>.json` | Detailed review and explicit user decision provenance for the newly reviewed inputs, hashed by each label record. For multi-root Sheffer, the review's `roots` array covers both targets |
+| `metadata/evidence/analysis/<batch>/<id>.json` | Input-bound judgment evidence and available detailed reasoning, hashed by each label record. The outer `roots` array covers every selected target; coverage status distinguishes detailed reviews, reason-only records, and missing reasons |
 | `metadata/provenance.json`, `metadata/manifest.json`, `licenses/index.json` | Project provenance, current byte inventory and source-license attribution. Regenerate after accepted metadata changes |
 
 Project `status` is historical workflow metadata: `ready` commonly corresponds to an aligned label, but an aligned input can remain technically `blocked`. Use the label file for semantic labels, and compilation/extraction flags plus receipts for technical availability. Before does not imply misaligned; after does not imply aligned.
@@ -45,4 +45,12 @@ Explicit `target_mode: joint` packages retain refactor’s hash over the full ta
 
 ## Publication directory consolidation
 
-The release stores required evidence under `metadata/reports/`. Historical `reports/...` fields inside original labels, receipt records and graph indexes remain byte-for-byte unchanged; `scripts/data/paths.py` resolves these to the new location. `metadata/layout.json` records the mapping. Model/package contents and original input digests are unchanged. Python tools live under `scripts/data/`, `scripts/construction/`, `scripts/evaluation/` and `scripts/maintenance/`; the evaluation contract is now `scripts/evaluation/PROTOCOL.md`.
+The release groups upstream statements under `metadata/evidence/upstream/` and
+our current judgment evidence under `metadata/evidence/analysis/<batch>/<id>.json`.
+Each label directly references its analysis path and SHA-256. Graph receipts and
+composition inputs live under `metadata/derived-graphs/`; exact aliases in
+`metadata/layout.json` resolve embedded retained historical locators. Active
+indexes use canonical paths. Verdicts, reasons, root bindings and input digests
+are unchanged; metadata path references and their hashes are refreshed.
+Python tools remain under `scripts/`; the evaluation contract is
+`scripts/evaluation/PROTOCOL.md`.

@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "reparametrization-after",
+  "task_id": "sphere-eversion:reparametrization-after",
+  "input_sha256": "0f1a59da5ea09772acd6db2f477cc668b120e325950de93078f8e62bcc17b111",
+  "label": "aligned",
+  "reason": "For the selected own-version average clause, the root asserts precisely that the reparametrized loop has average g(x). Its concrete witness is an equivariant real equivalence, hence descends to a circle equivalence. Existing smoothness and zero lemmas for the same witness are separate supporting declarations; a checked bridge derives the combined existence bundle. This is a scoped average-clause control, not a claim that the single root alone expresses the full lemma.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "smooth_surrounding_family.reparametrize_average"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

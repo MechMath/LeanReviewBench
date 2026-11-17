@@ -1,0 +1,34 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+  "task_id": "aml:EOS-lemma6_stable_assignment_slot_envy_free",
+  "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+  "label": "misaligned",
+  "reason": "原 Lemma 6（作者稿 Lemma 2）从稳定结果得到实现它的 locally envy-free GSP 均衡；Lean 只推出 SlotEnvyFree，没有存在 bids 和 GSP/Nash 实现的结论。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

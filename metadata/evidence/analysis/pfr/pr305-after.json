@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr305-after",
+  "task_id": "pfr:pr305-after",
+  "input_sha256": "9a589f1ad45de05960d4ffcdddaf669842d7ee82f52c7f0c279fbed297f212fd",
+  "label": "aligned",
+  "reason": "原文的 torsion 约定给 m≥2 及 mx=0；自然 Z/mZ 模的子模与加法子群等价。根的有限性、覆盖及大小条件对应自身版本，严格覆盖数界比原文的至多界更强。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "torsion_PFR"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-305"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

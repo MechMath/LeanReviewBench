@@ -60,7 +60,13 @@ def audit(root):
                     errors.append(f'Undeclared Python dependency: {path.relative_to(root)} -> {name}')
     tomllib.loads((root/'pyproject.toml').read_text())
     layout=json.loads((root/'metadata/layout.json').read_text())
-    if layout['evidence_prefix_aliases']!={'reports/':'metadata/reports/'}:errors.append('Evidence path aliases differ from the resolver')
+    if layout.get('schema_version')!='leanreviewbench-metadata-layout-2':errors.append('Unsupported metadata layout')
+    for old,target in layout.get('path_aliases',{}).items():
+        if not old.startswith(('reports/','metadata/reports/')) or not target.startswith(('metadata/evidence/analysis/','metadata/derived-graphs/')):
+            errors.append('Unexpected evidence compatibility locator: '+old)
+        else:
+            path=resolve(root,old)
+            if not path.is_file():errors.append('Missing relocated evidence: '+old)
     cfg=json.loads((root/'datasets/project-cases.json').read_text())
     expected=('leanprover/lean4:v4.34.1','d13f23b723b8a846827a245b89c10fc7d3f11612','7c8f6c0f67015df29b152fdcffaf7850db2e9185')
     pins=(cfg['lean_toolchain'],cfg['external_libraries']['mathlib']['commit'],cfg['external_libraries']['cslib']['commit'])

@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "brownian-motion",
+  "project_id": "finite-set-after",
+  "task_id": "brownian-motion:finite-set-after",
+  "input_sha256": "9143a071c5bc6389a770d53b4ff59f79ee92f4f9f4f10037f2c8361dc9204bdb",
+  "label": "aligned",
+  "reason": "The repaired root explicitly assumes J.Finite; its bound and inherited hypotheses match the independently frozen finite-set corollary. Finite diameter follows from its other assumptions.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "ProbabilityTheory.finite_set_bound_of_edist_le"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/brownian-motion-history/finite-set-review.md",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-endtoend",
+  "task_id": "equational-theories:etp-endtoend",
+  "input_sha256": "67b7134fb649809dc6818fa1e1791b21e6a908b464034e773581c7e245630acd",
+  "label": "aligned",
+  "reason": "对 4694 条等式律的所有有序对，formal 根据固定证书返回蕴含或反驳证据，并同时断言检查通过及对应数学结论。lawOf 正确绑定定律列表，implies 量化一般 magma，正负事实表携带证明或模型证据，与原文选定的 end_to_end1 覆盖和正确性目标一致。",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "EndToEnd.end_to_end1"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-endtoend.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前独立论文 foundations.tex 所描述的 EndToEnd.end_to_end1：4694 条律之间的所有有序对，由项目证书给出检查通过的推导或模型反驳，并建立一般 magma 的对应蕴含或非蕴含；工程统计与有限 magma 图不作为本题端点。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-endtoend",
+    "root": "EndToEnd.end_to_end1",
+    "input_sha256": "67b7134fb649809dc6818fa1e1791b21e6a908b464034e773581c7e245630acd",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "对 4694 条等式律的所有有序对，formal 根据固定证书返回蕴含或反驳证据，并同时断言检查通过及对应数学结论。lawOf 正确绑定定律列表，implies 量化一般 magma，正负事实表携带证明或模型证据，与原文选定的 end_to_end1 覆盖和正确性目标一致。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标注aligned; confirms aligned for equational-theories:etp-endtoend after reviewing all-pairs coverage, checked implication/refutation witnesses, concrete certificate bindings, and the general-magma scope.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前独立论文 foundations.tex 所描述的 EndToEnd.end_to_end1：4694 条律之间的所有有序对，由项目证书给出检查通过的推导或模型反驳，并建立一般 magma 的对应蕴含或非蕴含；工程统计与有限 magma 图不作为本题端点。",
+    "evidence_locations": {
+      "informal_and_selected_scope": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/informal.jsonl",
+        "line": 1,
+        "sha256": "fa72250a5161af3447caf877b34dd5803a8f16c73b8fb5f0e4cd7b7e7fea023a"
+      },
+      "source_paragraph": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/informal-source/paper/foundations.tex",
+        "line": 105,
+        "sha256": "e1ff996e652f7b692ab3e4717270b61fc0fe318c5895a471ab4e554b685621fa"
+      },
+      "root": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Verified.lean",
+        "line": 27,
+        "sha256": "5ef53ca1ecae88fb14c023ba39318ef64cd67ca979a8a3e426776d6b5506d772"
+      },
+      "certificate_validity": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Verified.lean",
+        "line": 22,
+        "sha256": "5ef53ca1ecae88fb14c023ba39318ef64cd67ca979a8a3e426776d6b5506d772"
+      },
+      "law_lookup": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Basic.lean",
+        "line": 82,
+        "sha256": "bbf3313a0a1f1d444522502a3d1749fc9efcdce74f60f0930de6dc50e79e2dd4"
+      },
+      "law_list_construction": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/Equations/LawsComplete.lean",
+        "line": 20,
+        "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+      },
+      "positive_facts": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Basic.lean",
+        "line": 85,
+        "sha256": "bbf3313a0a1f1d444522502a3d1749fc9efcdce74f60f0930de6dc50e79e2dd4"
+      },
+      "negative_facts": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Basic.lean",
+        "line": 94,
+        "sha256": "bbf3313a0a1f1d444522502a3d1749fc9efcdce74f60f0930de6dc50e79e2dd4"
+      },
+      "implication_checker": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Basic.lean",
+        "line": 118,
+        "sha256": "bbf3313a0a1f1d444522502a3d1749fc9efcdce74f60f0930de6dc50e79e2dd4"
+      },
+      "refutation_checker": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/EndToEnd/Basic.lean",
+        "line": 125,
+        "sha256": "bbf3313a0a1f1d444522502a3d1749fc9efcdce74f60f0930de6dc50e79e2dd4"
+      },
+      "general_magma_implication": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/Preorder.lean",
+        "line": 15,
+        "sha256": "f17def52e0ec5a50d7c4b7c6d405e7bf68d2c7d193af1191ec45ff6826c95278"
+      },
+      "fixed_certificate": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/Generated/EndToEndCertificate/Data.lean",
+        "line": 16,
+        "sha256": "32708bd557e62a49814e4071055f7474e5163db933a5c7cd4d8888d640a16509"
+      },
+      "fixed_positive_table": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/Generated/EndToEndCertificate/Pos.lean",
+        "line": 13,
+        "sha256": "a60c43c464c62f5fcf2e6a5b2bf010d716b34d4d1b5a1422b8ca777b64fa4720"
+      },
+      "fixed_negative_table": {
+        "path": "datasets/equational-theories/projects/etp-endtoend/formal/dep/equational_theories/Generated/EndToEndCertificate/Neg.lean",
+        "line": 15,
+        "sha256": "3e26a57286a3cfc40071b0fbc02aed117f245a8b3f7f40d2d11cad4fd1ad0afe"
+      }
+    },
+    "semantic_argument": [
+      "根声明全称量化 n,m:Nat 并限制 n,m<4694，覆盖所选 4694 条律的所有有序对。lawOf i=laws.get i，laws 的构造将 0 起始索引 i 对应到 Law(i+1)。",
+      "resolveImplication 的返回类型为 Implication ⊕ Refutation，根结论逐分支要求相应 checker=true，同时要求 (lawOf n).implies(lawOf m) 或其否定，包含证据可检查性和数学正确性。",
+      "PosFact.proof 是对应蕴含的证明；checkImplication 检查索引链逐步连接。NegFact.h 给出一个 magma 同时满足 satisfies 列表并违反 refutes 列表，checkRefutation 将该模型通过两条已检查的蕴含链连接到目标 n,m。",
+      "implies 的定义为 ∀G:Type [Magma G], satisfies G l₁ → satisfies G l₂，没有有限性或代数公理的额外限制，与原文 general magmas 范围一致。",
+      "根声明使用具体定义的 cert、pos、neg，而非假设调用者另行提供完整证书。cert_valid 是项目内部定理，根结论没有证书有效性的未绑定前提。",
+      "独立原文及冻结 scope 明确将有限 magma 图排除在该端点之外。原段落的工程统计描述项目背景；本次标注评价选定的全有序对决策及其正确性陈述。"
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "certificate_and_fact_definitions_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "本次是对冻结原文、根陈述及关键定义的语义核对，未重新编译 752 模块闭包或重新运行整个证书计算。",
+      "不将 aligned 解释为证明了原文背景统计数字与当前生成表的条目数相等；本题绑定的端点是 end_to_end1 的覆盖和正确性。",
+      "不扩展到有限 magma 图、论文所有工程或分类结论，也不传播标签到下一题。",
+      "formal、informal、输入哈希和技术状态均保持原样；项目状态由 undetermined 改为 ready 仅反映本次正向标注及已有编译提取状态。",
+      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+    ]
+  }
+}

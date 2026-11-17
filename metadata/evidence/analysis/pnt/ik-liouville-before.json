@@ -1,0 +1,43 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "ik-liouville-before",
+  "task_id": "pnt:ik-liouville-before",
+  "input_sha256": "3af95d1d845257125a7a62ee71b796ab61dc8d885bd35bd31ef8faa5a6200c5d",
+  "label": "aligned",
+  "reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "ArithmeticFunction.LSeries_liouville_eq"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1632"
+    },
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1660"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

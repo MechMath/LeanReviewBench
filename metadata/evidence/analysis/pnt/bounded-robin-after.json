@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-robin-after",
+  "task_id": "pnt:bounded-robin-after",
+  "input_sha256": "70f05adfacc0da5d111b9b78f3169beae68a20199d16118f9898961de913a8dd",
+  "label": "aligned",
+  "reason": "与自己的冻结版本逐项一致：nth_prime′ n=Nat.nth Prime(n−1)对应从1开始的p_n；n和p_n上的阈值、严格/非严格不等号、自然对数项及常数均按当前文字保留。不同版本之间的阈值变化不构成各自配对的不一致。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Robin.p_n_lower_const1"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1706"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

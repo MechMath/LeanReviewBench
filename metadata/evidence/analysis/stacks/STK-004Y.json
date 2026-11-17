@@ -1,0 +1,27 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "stacks",
+  "project_id": "STK-004Y",
+  "task_id": "stacks:STK-004Y",
+  "input_sha256": "143a9abe794373e0de6fd780354f4a4fd8e7b23d53da1ba0c7d35994fdc24257",
+  "label": "aligned",
+  "reason": "Matches the explicitly selected irreducible-closed-subset direction of source Example 004Y.",
+  "review_status": "provisional_single_model_review",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/stacks-admission/reviews.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Selects the irreducible-closed-subset direction of Example 004Y, not the entire example.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr228-before",
+  "task_id": "pfr:pr228-before",
+  "input_sha256": "48e96fc0a7daff061584e48d64cfad01664fa9264e8fbf54f8cf99afeecfddad",
+  "label": "misaligned",
+  "reason": "formal 的下确界允许非概率输出并沿用零分母总化 KL；在完全有限标准目标中已得到与原文不同的数值，因此不是仅凭候选集合写法不同判负。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "rho_minus"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-228"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

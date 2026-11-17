@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "riemann-von-mangoldt-text-before",
+  "task_id": "pnt:riemann-von-mangoldt-text-before",
+  "input_sha256": "dab5eecee3e9e3b3893c95a2c0c12ca486b8e6f46dc17978fca4aefd673b8877",
+  "label": "misaligned",
+  "reason": "即使善意补齐文字缺失的左绝对值符号，文字误差内为N(T)−T/(2π)log(T/(2πe))+7/8；formal展开后末项是−7/8，相差7/4。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "riemannZeta.Riemann_vonMangoldt_bound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

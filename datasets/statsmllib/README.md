@@ -12,6 +12,6 @@ Labels remain model judgments, not human gold.
 
 Sources retain original statements and proofs; only local imports are relocated. Mathlib remains external at the shared pin. Compilation/extraction and packaged compilation are recorded separately.
 
-This repository and its migration predecessor/successor share one split group to prevent leakage. Explicit upstream statements, when retained, are outside model inputs in [upstream evidence](../../metadata/upstream-evidence/README.md).
+This repository and its migration predecessor/successor share one split group to prevent leakage. Explicit upstream statements, when retained, are outside model inputs in [upstream evidence](../../metadata/evidence/upstream/README.md).
 
 See [preparation and extraction](https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/stat-learning-extraction/README.md).

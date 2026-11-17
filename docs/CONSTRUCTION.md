@@ -27,7 +27,7 @@ this publication candidate.
    successful receipts and indispensable evidence; send new temporary outputs
    to `build/construction/<repo>/<run>/`.
 5. Retain explicit upstream statements with exact excerpts, original URLs,
-   source versions and input bindings in `metadata/upstream-evidence/`.
+   source versions and input bindings in `metadata/evidence/upstream/`.
    Skip generic repair leads and local model judgments. Preserve upstream
    qualifications and AI-use disclosures. These claims are not scoring labels.
 6. Admit usable and unresolved extracted inputs into project-case layout. Missing main

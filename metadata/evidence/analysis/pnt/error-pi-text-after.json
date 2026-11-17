@@ -1,0 +1,31 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "error-pi-text-after",
+  "task_id": "pnt:error-pi-text-after",
+  "input_sha256": "e42226a9137de3d93e105462ea8c80993fdda6e520c0cd232733f9fb97b3b692",
+  "label": "aligned",
+  "reason": "The revised own-version numerator-absolute-value formula matches the retained Formal definition exactly for every real x, checked by definitional equality. This label assesses that explicit source definition, not global agreement with the paper quotient-absolute-value formula. The separately checked x>1 bridge records the paper-domain scope.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Eπ"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1642"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

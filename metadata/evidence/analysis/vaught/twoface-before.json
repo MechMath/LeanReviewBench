@@ -1,0 +1,37 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "vaught",
+  "project_id": "twoface-before",
+  "task_id": "vaught:twoface-before",
+  "input_sha256": "a76ef85aea40657c3e19e8c78c1720fc2300dfae646ab84d239b701074f406cd",
+  "label": "misaligned",
+  "reason": "The independent zero-or-limit-stage apex coatom-extension goal has no universal two-face-lifting premise. The formal root adds that premise, refuted at every stage by the upstream legal-seed witness, so it does not express the frozen completion criterion. This is a goal-relative mismatch, not a claim that its explicitly conditional docstring is false.",
+  "review_status": "single_agent_source_and_graph_review_independent_review_pending",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/vaught.jsonl",
+      "id": "twoface-refutation"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/vaught-preparation/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review_packet",
+      "locator": "reports/vaught-preparation/inputs/case-r7.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Frozen independent roadmap completion criterion; not the conditional theorem docstring. Author disclosures are evidence, not exclusion grounds.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "vaught",
+  "project_id": "gate-before",
+  "task_id": "vaught:gate-before",
+  "input_sha256": "67f479b72414f3df259b16ae7814b96113703590370402fe3e6491546921871a",
+  "label": "misaligned",
+  "reason": "The independent R1 goal requires receiving for every model without a universal gated-extension premise. The formal root assumes HasGatedPinnedExtensions, which the upstream legal-type witness refutes at every stage. Its true conditional statement does not express that frozen goal; its conditional docstring is not alleged to be false.",
+  "review_status": "single_agent_source_and_graph_review_independent_review_pending",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasGatedPinnedExtensions"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/vaught.jsonl",
+      "id": "gate-refutation"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/vaught-preparation/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review_packet",
+      "locator": "reports/vaught-preparation/inputs/case-b2.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Frozen independent roadmap completion criterion; not the conditional theorem docstring. Author disclosures are evidence, not exclusion grounds.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

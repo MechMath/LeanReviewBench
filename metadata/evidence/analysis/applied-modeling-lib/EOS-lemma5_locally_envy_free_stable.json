@@ -1,0 +1,34 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "EOS-lemma5_locally_envy_free_stable",
+  "task_id": "aml:EOS-lemma5_locally_envy_free_stable",
+  "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
+  "label": "misaligned",
+  "reason": "论文稳定性是 assignment game 无阻挡对；Lean 的 StableAssignment 只有可行、个体理性和对已分配槽位的无获利偏离，遗漏未分配槽位的阻挡。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

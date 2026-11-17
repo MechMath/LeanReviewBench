@@ -42,8 +42,9 @@ file, input hash, and supporting review. Historical evidence locators and issue
 links are provenance; an issue link does not assert its current open/closed
 status. Archive-only reviews are marked explicitly. `source_reason` follows the
 current binary record; category explanations are the diagnostic classification.
-For the two added Stacks cases whose detailed reports are archive-only, the
-classification cites the local label record and states that evidence limitation.
+Classification records cite current input-bound analysis evidence; those records
+explicitly distinguish detailed local reviews from reason-only summaries and
+retain archive-only source locators where relevant.
 All categories still require human review, especially the documented boundaries.
 
 These files are evaluation-side metadata and must not be included in model inputs.

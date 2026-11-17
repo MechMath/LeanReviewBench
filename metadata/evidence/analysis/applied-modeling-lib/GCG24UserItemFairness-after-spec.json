@@ -1,0 +1,124 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GCG24UserItemFairness-after-spec",
+  "task_id": "aml:GCG24UserItemFairness-after-spec",
+  "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+  "label": "misaligned",
+  "reason": "约化模型 canonicalReduction 使用用户人数 typeCard 作为权重，而 twoTypeReducedModel 使用比例 α、1−α；主规格的 hred 要求两者结构严格相等，取第 0 类权重即得 (typeCard S.types 0 : ℝ)=α，与 0<α<1 矛盾，导致全部前提不可满足。判负依据是人数与比例之间缺失归一化，不使用仅陈述前半区间的旧理由。相关原始定义片段已在 Lean 4.12.0-rc1 独立证明 hred 不可能成立，无 sorryAx；此验证不等于完整快照编译认证。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/applied-modeling-lib-review-2026-11-09/GCG24UserItemFairness-after-spec.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "applied-modeling-lib",
+    "project_id": "GCG24UserItemFairness-after-spec",
+    "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec",
+    "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+    "review_date": "2026-11-09",
+    "label": "misaligned",
+    "reason": "约化模型 canonicalReduction 使用用户人数 typeCard 作为权重，而 twoTypeReducedModel 使用比例 α、1−α；主规格的 hred 要求两者结构严格相等，取第 0 类权重即得 (typeCard S.types 0 : ℝ)=α，与 0<α<1 矛盾，导致全部前提不可满足。判负依据是人数与比例之间缺失归一化，不使用仅陈述前半区间的旧理由。相关原始定义片段已在 Lean 4.12.0-rc1 独立证明 hred 不可能成立，无 sorryAx；此验证不等于完整快照编译认证。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-09: 好 请为我改一下标注谢谢; follows the review recommending misaligned for GCG24UserItemFairness-after-spec.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+    "informal_source": {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/cf836efd32fd53493e02d26670f04d46-Paper-Conference.pdf",
+      "locator": "Theorem 3, printed p6; model and theorem repeated Appendix D, printed p27",
+      "pdf_sha256": "a4d9c4d67fedebf5da13158ac5dd13abeb1bcf8c506050c550bfe6ea747ea1e2"
+    },
+    "evidence_locations": {
+      "informal": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/informal.jsonl:2",
+      "target": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/formal/Main.lean:474",
+      "count_and_weight": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/formal/dep/GCG24UserItemFairness/LPReduction.lean:299",
+      "canonical_reduction": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/formal/dep/GCG24UserItemFairness/LPReduction.lean:1347",
+      "fractional_weights": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/formal/dep/GCG24UserItemFairness/OpposingTypes.lean:2049",
+      "type_swap_symmetry": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/formal/dep/GCG24UserItemFairness/OpposingTypes.lean:2431"
+    },
+    "contradiction": [
+      "Let N0 := RecommendationModel.UserTypeAssignment.typeCard S.types 0, a natural number.",
+      "canonicalReductionOfSurjective gives the reduced model weight 0 equal to (N0 : ℝ), with no division by m.",
+      "twoTypeReducedModel alpha v gives weight 0 equal to alpha.",
+      "Applying congrArg (fun T => T.weight 0) to hred forces (N0 : ℝ) = alpha.",
+      "The hypotheses 0 < alpha and alpha < 1 would place a natural number strictly between 0 and 1, which is impossible.",
+      "Thus even the first hred cannot hold; the full selected specification has no admissible instances. This is a mismatch of hypotheses and does not falsify the paper monotonicity inequality."
+    ],
+    "paper_model_example": {
+      "m": 4,
+      "n": 2,
+      "item_values": [
+        2,
+        1
+      ],
+      "opposing_item_values": [
+        1,
+        2
+      ],
+      "type_counts": [
+        1,
+        3
+      ],
+      "alpha": "1/4",
+      "canonical_weights": [
+        1,
+        3
+      ],
+      "twoTypeReducedModel_weights": [
+        "1/4",
+        "3/4"
+      ],
+      "explanation": "The weights are proportional but not equal. Common scaling may preserve normalized utilities, but hred is literal structure equality and does not quotient by scaling."
+    },
+    "verification": {
+      "result": "passed",
+      "method": "Independent Lean check of 14 verbatim source spans and a lemma negating the hred premise under 0 < alpha < 1.",
+      "lean_version": "Lean 4.12.0-rc1, commit e9e858a44849, x86_64-unknown-linux-gnu",
+      "mathlib_checkout_commit": "36a333acab7d3d491bc1aa43306cced21189ab3a",
+      "mathlib_cache": "Existing /home/shenhao/mathlib4/.lake/build/lib and package .lake/build/lib directories supplied through LEAN_PATH.",
+      "command": "lean -j 1 PremiseCheck.lean",
+      "exit_code": 0,
+      "theorem": "GCG24UserItemFairness.selected_spec_hred_impossible",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "contains_sorryAx": false,
+      "full_snapshot_compilation": false,
+      "artifacts_sha256": {
+        "reports/applied-modeling-lib-review-2026-11-09/GCG24UserItemFairness-after-spec/PremiseCheck.lean": "2179e1f8bc36372678add2ae5d728cf6f455f6e6cd4ad1e769a56569a5aa7213",
+        "reports/applied-modeling-lib-review-2026-11-09/GCG24UserItemFairness-after-spec/source-bindings.json": "dbadd01cae2b5b6fd8dffe1c4bb302752160db51dfb3c4a3d991920707b65f5d",
+        "reports/applied-modeling-lib-review-2026-11-09/GCG24UserItemFairness-after-spec/verification.log": "70b6b52fa19045fd62bf36fe2ed03f0b022c02965da8e8fad1518fa748279275"
+      }
+    },
+    "limitations": [
+      "The independent source-slice proof used Lean 4.12.0-rc1 rather than the snapshot pinned toolchain; no complete Lean 4.34.1 snapshot build is claimed.",
+      "Original missing-module and technical-compilation statuses are retained.",
+      "The frozen formal and informal inputs are unchanged. This decision is only for GCG24UserItemFairness-after-spec.",
+      "User authorization changes the provisional model label; it does not convert the record into a human gold label."
+    ]
+  }
+}

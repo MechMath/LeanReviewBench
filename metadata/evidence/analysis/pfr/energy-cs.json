@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "energy-cs",
+  "task_id": "pfr:energy-cs",
+  "input_sha256": "3b06907580f43a60f291a35bb25cf52ac984969478fda3256d30e3af4d5e51a8",
+  "label": "aligned",
+  "reason": "Use the normalized target and its normalized energy definition. The formal inequality generalizes A x A to s x t; specialize s=t=A. The raw formulation is equivalent after cardinality rescaling.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Finset.card_sq_le_card_mul_addEnergy'"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

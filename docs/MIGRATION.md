@@ -57,3 +57,14 @@ All labels remain provisional. Three legacy aligned labels have empty reasons; n
 ## Directory consolidation
 
 The runtime loader and inspector now live in `scripts/data/`, release helpers in `scripts/maintenance/`, and protocol docs/schema beside the runner in `scripts/evaluation/`. The empty reference-guide directory and duplicate wrappers/templates are removed. All 69 required evidence files move under `metadata/reports/` with identical bytes; the original `reports/...` locators remain in records and are resolved through `scripts/data/paths.py`. This is a storage and code organization change, not a new input/label format.
+
+## Result-oriented metadata layout
+
+The current release replaces `metadata/reports/` and `metadata/upstream-evidence/`
+with `metadata/evidence/{upstream,analysis}/` and per-input technical artifacts in
+`metadata/derived-graphs/`. Labels reference current input-bound analysis files;
+their metadata hashes and taxonomy evidence bindings are refreshed. Verdicts,
+reason text, review states, dataset files, graph bytes and extraction receipt
+bytes remain unchanged. Exact compatibility aliases preserve embedded technical
+locators. The rebuild helper carries this curated publication metadata after
+verifying source inputs against the pinned construction snapshot.

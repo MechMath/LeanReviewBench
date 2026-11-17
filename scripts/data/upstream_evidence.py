@@ -23,7 +23,7 @@ def pointer(value, path):
 
 
 def read_index(base):
-    return json.loads((base / 'metadata/upstream-evidence/index.json').read_text())
+    return json.loads((base / 'metadata/evidence/upstream/index.json').read_text())
 
 
 def read_records(base, batch, entry):
@@ -31,7 +31,7 @@ def read_records(base, batch, entry):
         return []
     require(entry['file'] == batch + '.jsonl', 'Unexpected evidence filename')
     return [json.loads(line) for line in
-            (base / 'metadata/upstream-evidence' / entry['file']).read_text().splitlines()]
+            (base / 'metadata/evidence/upstream' / entry['file']).read_text().splitlines()]
 
 
 def verify_record(base, batch, record, archives=False):
@@ -96,7 +96,7 @@ def verify(base, config, archives=False):
     require(index['schema_version'] == 'paperlean-upstream-evidence-index-1', 'Unsupported evidence index')
     require(set(index['datasets']) == set(config['datasets']), 'Evidence scope differs from candidate')
     expected_files = {entry['file'] for entry in index['datasets'].values() if entry['file']}
-    actual_files = {p.name for p in (base / 'metadata/upstream-evidence').glob('*.jsonl')}
+    actual_files = {p.name for p in (base / 'metadata/evidence/upstream').glob('*.jsonl')}
     require(actual_files == expected_files, 'Unindexed or missing evidence files')
     total = covered = 0
     for batch, entry in index['datasets'].items():

@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "riemann-von-mangoldt-text-after",
+  "task_id": "pnt:riemann-von-mangoldt-text-after",
+  "input_sha256": "cd7383940e6ee321108205881dbdee3d645fa941420f5e7972a77ac031e8786e",
+  "label": "aligned",
+  "reason": "T≥2时log(T/(2πe))=log(T/(2π))−1，formal绝对值内展开正是当前文字的−7/8版本；三个误差系数与范围均相同。按scope使用保留的N定义（0<Imρ<T并按重数），不替换成其他文章的计数端点约定。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "riemannZeta.Riemann_vonMangoldt_bound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

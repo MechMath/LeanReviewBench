@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-A-CUTOFF",
+  "task_id": "sphere-packing:SP-A-CUTOFF",
+  "input_sha256": "37347a3702dc529069d76157a539ff4a08a4749c916414049759e35a4d26b601",
+  "label": "misaligned",
+  "reason": "根声称 a(0)=−8640i/π，但实际六个 Schwartz 积分构件均经 ofDecayOn(a:=1) 乘平滑 cutoff；原点 cutoff 为 0，因此包装后的 a(0)=0。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "MagicFunction.a.SpecialValues.a_zero"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-packing.jsonl",
+      "id": "pr-485"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

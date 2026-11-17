@@ -1,0 +1,35 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "formalslt",
+  "project_id": "flagship-scalar-reflexive",
+  "task_id": "formalslt:flagship-scalar-reflexive",
+  "input_sha256": "86d5472db793e6a1ed1501391c61ae1274b98cff6f84ac54f201c7de90e92af0",
+  "label": "misaligned",
+  "reason": "The actual frozen informal is a scalar inequality for an arbitrary FlagshipCertificate C, with application-supplied component obligations retained. The selected root has no certificate, user, or derived-contribution parameter: it proves the inequality for one closed worked example whose populationRisk is defined to be the displayed bound side. This is a concrete loss of the frozen universal scope. The judgment does not demand an independently defined statistical risk or a probability theorem absent from the frozen text.",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "FormalSLT.TestTimeMeta.FlagshipComponentWorkedExample.flagshipComponentWorkedExample_scalarAssembly"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/other-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_path",
+      "locator": "reports/formalslt-batch2/review/flagship-semantic.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "review_scope": "Reflexive formal worked example confirmed; intended informal task correspondence unresolved.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

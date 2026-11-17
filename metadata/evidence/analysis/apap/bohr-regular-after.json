@@ -1,0 +1,85 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "bohr-regular-after",
+  "task_id": "apap:bohr-regular-after",
+  "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
+  "label": "misaligned",
+  "reason": "形式化将 rank 定义为有限宽度字符数，原文则统计宽度小于 2 的字符。该差异改变正则性的检查范围及误差界；存在 formal 判为 regular、原文判为非 regular 的输入。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "BohrSet.IsRegular"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/bohr-regular-after.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 after 输入。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "bohr-regular-after",
+    "root": "BohrSet.IsRegular",
+    "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "形式化将 rank 定义为有限宽度字符数，原文则统计宽度小于 2 的字符。该差异改变正则性的检查范围及误差界；存在 formal 判为 regular、原文判为非 regular 的输入。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标注misaligned; confirms the preceding rank-mismatch explanation for apap:bohr-regular-after only.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 after 输入。",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/bohr-regular-after/informal.jsonl:1",
+      "finite_width_frequencies": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean:25",
+      "rank": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean:227",
+      "regularity": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Regular.lean:15"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/bohr-regular-after/informal.jsonl": "73a435e3e0b09cc6579239095d89d227395a444934c03cd5351b9bd9cdac719b",
+      "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean": "663182eed6ffe9b5b85cf2530bec451193c386b23cd6bb152026a9d39d88d624",
+      "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Regular.lean": "d7a8f037d45dd4904a0cf5fe050abe1e616234644ee134ce007bf8741fb2cdda"
+    },
+    "witness": {
+      "group": "Z/2",
+      "width_trivial_character": "3",
+      "width_sign_character": "1000/503",
+      "initial_bohr_set": "{0}",
+      "source_rank": 1,
+      "formal_rank": 2,
+      "formal_kappa_upper_bound": "1/200",
+      "source_kappa_upper_bound": "1/100",
+      "jump_kappa": "3/500",
+      "formal_max_expanded_sign_width": "1005/503",
+      "expanded_sign_width_at_jump": "2",
+      "cardinality_ratio_at_jump": 2,
+      "source_upper_bound_at_jump": "8/5",
+      "formal_regular": true,
+      "source_regular": false,
+      "argument": "平凡字符始终不限制集合；符号字符在非零元素处的距离为 2。0≤κ≤1/200 时，膨胀和收缩的集合均为 {0}，formal 两个不等式成立。κ=3/500 时膨胀集变为整个 Z/2，大小比 2 超过原文的上界 8/5。"
+    },
+    "verification": {
+      "exact_rational_checks": "passed",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "这是陈述/定义的语义错配，不声称形式化自身的定义逻辑矛盾。",
+      "使用正的 source rank=1；该例不依赖 d=0 或原文 1/100d 的排版歧义。",
+      "用户确认已记录；仍沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+    ]
+  }
+}

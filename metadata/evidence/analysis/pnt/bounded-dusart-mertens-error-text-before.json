@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-dusart-mertens-error-text-before",
+  "task_id": "pnt:bounded-dusart-mertens-error-text-before",
+  "input_sha256": "2acbffac6e3c88a2a5a60ae3177206b298fd4497be999d65708f3ca8300546e0",
+  "label": "aligned",
+  "reason": "The old E is explicitly defined in the retained historical dependency as lim_{x→∞}(Σ_{p≤x}log(p)/p−log x), the same mertensConstant used in Formal. It is not an undeclared error term. The threshold, summation and O* remainder match.",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Dusart.theorem_5_7"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1670"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

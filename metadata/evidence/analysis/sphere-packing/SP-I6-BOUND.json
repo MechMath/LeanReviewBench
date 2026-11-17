@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-I6-BOUND",
+  "task_id": "sphere-packing:SP-I6-BOUND",
+  "input_sha256": "1873690a1cb1b62241e75411efb80824b634c347415d96dd2eb68700bd7a3dd0",
+  "label": "misaligned",
+  "reason": "绑定原文是存在一个与半径无关的常数控制所有半径；Lean 将常数放在 r 之后，变成 ∀r≥0,∃C 的逐点界。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "MagicFunction.a.IntegralEstimates.I₆.I₆'_bounding"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-packing.jsonl",
+      "id": "pr-504"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

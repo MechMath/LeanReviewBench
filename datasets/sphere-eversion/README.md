@@ -17,4 +17,4 @@ and interpretation limits. Version variants are not independent mathematical cas
 All inputs share one repository split group.
 
 See [index.csv](index.csv), [semantic review and evidence](https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-admission/README.md)
-and [explicit upstream evidence](../../metadata/upstream-evidence/sphere-eversion.jsonl).
+and [explicit upstream evidence](../../metadata/evidence/upstream/sphere-eversion.jsonl).

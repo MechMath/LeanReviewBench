@@ -1,5 +1,9 @@
 """Apply approved batch exclusions to a publication tree, including rebuilds."""
 from collections import Counter
+import sys
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from scripts.data.paths import resolve
 import json
 import shutil
 
@@ -17,7 +21,7 @@ def apply_exclusions(root):
             path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n')
 
     for relative in ['datasets/project-cases.json', 'licenses/index.json',
-                     'metadata/upstream-evidence/index.json']:
+                     'metadata/evidence/upstream/index.json']:
         update(relative, lambda obj: obj['datasets'].pop(EXCLUDED_BATCH, None))
     update('metadata/provenance.json', lambda obj: obj.update(projects={
         key: value for key, value in obj['projects'].items()
@@ -36,7 +40,7 @@ def apply_exclusions(root):
                 for key in ['graph_path', 'receipt_path']:
                     name = row.get(key)
                     if name and name not in remaining:
-                        target = root / ('metadata/' + name if name.startswith('reports/') else name)
+                        target = resolve(root,name)
                         target.unlink(missing_ok=True)
             path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n')
     def prune_materials(obj):
@@ -48,7 +52,7 @@ def apply_exclusions(root):
         if path.exists():
             shutil.rmtree(path)
     (root / 'metadata/labels' / (EXCLUDED_BATCH + '.jsonl')).unlink(missing_ok=True)
-    (root / 'metadata/upstream-evidence' / (EXCLUDED_BATCH + '.jsonl')).unlink(missing_ok=True)
+    (root / 'metadata/evidence/upstream' / (EXCLUDED_BATCH + '.jsonl')).unlink(missing_ok=True)
     def refresh_release(obj):
         obj['batches'].pop(EXCLUDED_BATCH, None)
         obj['inputs'] = sum(obj['batches'].values())

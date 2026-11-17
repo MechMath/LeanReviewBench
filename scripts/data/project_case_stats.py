@@ -49,7 +49,7 @@ def collect():
 def markdown(data):
     lines = ['# Registered project-case batch statistics', '',
         'Generated from `datasets/project-cases.json`, registered project metadata and',
-        '`metadata/upstream-evidence/`. The tables below cover all registered batches.', '',
+        '`metadata/evidence/upstream/`. The tables below cover all registered batches.', '',
         f"Main contains **{data['total_task_snapshots']} versioned inputs**",
         f"in **{data['total_project_directories']} project directories**.", '',
         'Reproduce: `python3 scripts/data/project_case_stats.py > docs/PROJECT-CASE-STATS.md`.',

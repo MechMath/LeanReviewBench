@@ -21,7 +21,7 @@ datasets/<repo>/
     formal/
       Main.lean
       dep/                 # Transitive repository-local imports
-metadata/upstream-evidence/
+metadata/evidence/upstream/
 ```
 
 `project.json` records upstream repository, full commit, original root/module,
@@ -46,13 +46,13 @@ compilation or semantic approval follows from static checks.
 ## Evidence and labels
 
 Only explicit upstream statements are retained in
-[upstream-evidence](../metadata/upstream-evidence/README.md). Each excerpt keeps
+[upstream-evidence](../metadata/evidence/upstream/README.md). Each excerpt keeps
 its original source field, archive locator and links to current input hashes.
 Association notes are curator explanations, not upstream quotes. Version links
 do not assert that the upstream claim holds for each linked snapshot.
 
 The restored 2026-11-05 provisional reviews for the original four batches and
-subsequent updates live in `metadata/labels/`, with their evidence under `reports/`.
+subsequent updates live in `metadata/labels/`, with current evidence under `metadata/evidence/analysis/`.
 Those dated reviews cover the original 137 inputs: 70 misaligned and 67 aligned, with none undetermined.
 The other eight batches' 84 records were restored from `d6a463a1` on 2026-11-09
 after matching exact input hashes and roots. Their reasons remain unchanged;

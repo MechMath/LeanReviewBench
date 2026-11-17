@@ -1,0 +1,44 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-star-before",
+  "task_id": "pnt:vinogradov-pi-star-before",
+  "input_sha256": "f8a7f7c7db2d7657abdf081d336c1da9f7aa2c9e354ea16330240b4ea389a9b7",
+  "label": "misaligned",
+  "reason": "在显式新绑定下，当前 formal 的 (3/5)、(1/5) 被自然数幂解释，自然数除法结果均为0，衰减因子成为 exp(-C)，不是来源所定义的3/5、1/5实指数Vinogradov形状。 另当前pi_star是ΣΛ(n)/n；新共同来源π*是Σ_{k≥1}π(x^(1/k))/k，x=2时分别为(log2)/2和1。这是需在新绑定中明示的函数规范变化。 完整 predicate 也不等价：旧误差趋于1，新误差趋于0；取 A=1/2、B=C=0 及足够大 x₀，新来源目标成立而旧 formal 不成立。 此标签针对明确补入的后续上游定义及其全实域运算约定；不是恢复冻结版本的原始主注释。",
+  "review_status": "model_later_upstream_target_rebinding",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Eπ_star.vinogradovBound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel repository source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-T1",
+  "task_id": "aml:GN21-T1",
+  "input_sha256": "4d6755735c17fad6a79a90a18169fb589089a748f194c96b3ba941907728e6f3",
+  "label": "aligned",
+  "reason": "沿用既有case明确限定的正收益、有限可积单状态域，将informal定位到Appendix C.2的非退化分支，而非声称覆盖整个Theorem1。C.2原文独立明确先假设F({τ:w(τ)>0})>0，并将其余零收益情况分开说为trivial；所以正收益限制有原文支撑。有限概率μ、非负可测w且支付与τ可积时，正质量正支付集合等价于formal总支付>0。λ>0对应Poisson率；thresholdRatePolicy逐正τ定义τ∈σ iff c≤wτ/τ，方向和非严格边界与原文一致；singleStateMeasurableOptimal量化全部可行可测策略；renewal reward精确为λ∫σw/(1+λ∫στ)。未用作者注释替代独立原文。若另将target改成完整Theorem1，则本root漏掉w≡0分支：例如μ为[1,2]均匀分布、λ=1、w=0满足原模型且c=0的accept-all最优，但root正总支付假设不成立。这是覆盖差，不是当前已冻结非退化target的负例。",
+  "review_status": "historical_model_review_packaged_input_not_reassessed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.theorem1_single_state_threshold_best_response"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

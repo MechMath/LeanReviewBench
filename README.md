@@ -19,14 +19,16 @@ datasets/
         dep/
 metadata/
   labels/<batch>.jsonl
-  upstream-evidence/
+  evidence/
+    upstream/                    # Original upstream claims and input associations
+    analysis/<batch>/<id>.json    # Current per-input judgment evidence
+  taxonomy/                      # Classification standard and all negative labels
   derived-graphs/
-    index.json                   # Original derived-graph/receipt bindings
+    index.json                   # Current derived-graph/receipt bindings
     retained-index.json          # Local access to all 171 original contexts
   provenance.json
   manifest.json
   release.json
-  reports/                       # Retained bound reviews and extraction evidence
 scripts/
   data/                          # Dataset loading, inspection and native checks
   construction/                  # Optional Lean compilation
@@ -35,7 +37,7 @@ scripts/
 licenses/
 ```
 
-Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes and label records are unchanged. Historical `reports/...` fields resolve to `metadata/reports/` through a shared path resolver; the hashed record contents are preserved.
+Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes, verdicts, reasons and review states are unchanged. Labels point to input-bound analysis under `metadata/evidence/analysis/`; upstream claims are separate under `metadata/evidence/upstream/`. Technical receipts and composition evidence live under `metadata/derived-graphs/`. Exact compatibility aliases in `metadata/layout.json` resolve embedded historical receipt locators.
 
 ## Validate and inspect
 

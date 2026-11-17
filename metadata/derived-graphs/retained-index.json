@@ -2321,7 +2321,7 @@
       "roots": [
         "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton"
       ],
-      "graph_path": "reports/stacks-admission/technical/STK-004Y/default/graph.json",
+      "graph_path": "metadata/derived-graphs/components/stacks/STK-004Y/default/graph.json",
       "graph_sha256": "dfab9c6a68c00a58e772c0a23e17bf55f85ce7a9481be6e23c5febb8ad254614",
       "graph_source": {
         "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
@@ -2338,7 +2338,7 @@
       "roots": [
         "locallyCompactSpace_iff_weaklyLocallyCompactSpace"
       ],
-      "graph_path": "reports/stacks-admission/technical/STK-08ZR/default/graph.json",
+      "graph_path": "metadata/derived-graphs/components/stacks/STK-08ZR/default/graph.json",
       "graph_sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
       "graph_source": {
         "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
@@ -2355,7 +2355,7 @@
       "roots": [
         "LocallyClosedPartition.exists_finite_good_refinement"
       ],
-      "graph_path": "reports/stacks-admission/technical/STK-09Y5-after/default/graph.json",
+      "graph_path": "metadata/derived-graphs/components/stacks/STK-09Y5-after/default/graph.json",
       "graph_sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
       "graph_source": {
         "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
@@ -2372,7 +2372,7 @@
       "roots": [
         "Setoid.Partitions.exists_finite_good_refinement"
       ],
-      "graph_path": "reports/stacks-admission/technical/STK-09Y5-before/default/graph.json",
+      "graph_path": "metadata/derived-graphs/components/stacks/STK-09Y5-before/default/graph.json",
       "graph_sha256": "9079946a52fd94bbcefc52ce27196481f9a7060235688ab0804e2c2a1683ab02",
       "graph_source": {
         "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
@@ -2390,7 +2390,7 @@
         "Sum.not_t0_of_not_t0_left",
         "Sum.not_quasiSober_of_not_quasiSober_right"
       ],
-      "graph_path": "reports/stacks-admission/technical/STK-0B34/default/graph.json",
+      "graph_path": "metadata/derived-graphs/components/stacks/STK-0B34/default/graph.json",
       "graph_sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
       "graph_source": {
         "commit": "18086147ad0f8bcac09485289aeda217747de2f6",

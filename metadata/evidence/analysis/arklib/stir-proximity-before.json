@@ -1,0 +1,132 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "stir-proximity-before",
+  "task_id": "arklib:stir-proximity-before",
+  "input_sha256": "a38ff234f155559235f797245d6ca0c2788b83bf92efb6da705ea8220a4683be",
+  "label": "misaligned",
+  "reason": "原文固定随机组合系数为 r^j，formal 却量化无约束的 GenFun。取 GenFun=0，组合恒为零码字，概率前提可在原函数远离码时成立。F_5 上四点评价域、degree=m=1、δ=1/4、f_0(x)=x 给出前提真而结论假的具体反例。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "STIR.proximity_gap"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/stir-proximity-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前冻结 blueprint thm:proximity_gap 与 before 根 STIR.proximity_gap；判负针对无约束系数生成器。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "stir-proximity-before",
+    "root": "STIR.proximity_gap",
+    "input_sha256": "a38ff234f155559235f797245d6ca0c2788b83bf92efb6da705ea8220a4683be",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "原文固定随机组合系数为 r^j，formal 却量化无约束的 GenFun。取 GenFun=0，组合恒为零码字，概率前提可在原函数远离码时成立。F_5 上四点评价域、degree=m=1、δ=1/4、f_0(x)=x 给出前提真而结论假的具体反例。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 请为我标为misaligned谢谢; confirms misaligned for arklib:stir-proximity-before after reviewing the unrestricted GenFun and the exact finite-field counterexample.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前冻结 blueprint thm:proximity_gap 与 before 根 STIR.proximity_gap；判负针对无约束系数生成器。",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/stir-proximity-before/informal.jsonl",
+        "line": 1,
+        "sha256": "567c2a71eaafce96daf4eec59fe6a4fb9ec5eb8a611198adffc9eadf3dcfff9f"
+      },
+      "source_theorem_and_power_coefficients": {
+        "path": "datasets/arklib/projects/stir-proximity-before/informal/source.tex",
+        "line": 10,
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "source_error_branches": {
+        "path": "datasets/arklib/projects/stir-proximity-before/informal/source.tex",
+        "line": 26,
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "root_and_unrestricted_GenFun": {
+        "path": "datasets/arklib/projects/stir-proximity-before/formal/dep/ArkLib/ProofSystem/Stir/ProximityGap.lean",
+        "line": 43,
+        "sha256": "f3f5da9e6a1fd19f106c3274962e173d343a46225de13d414091938a7816dbdf"
+      },
+      "formal_error_definition": {
+        "path": "datasets/arklib/projects/stir-proximity-before/formal/dep/ArkLib/ProofSystem/Stir/ProximityBound.lean",
+        "line": 34,
+        "sha256": "5de0c0e2a1738076cd16daee06bdaa3e3bf4a020dc1f4c9bed52fbcd7b58b2b6"
+      },
+      "reed_solomon_code": {
+        "path": "datasets/arklib/projects/stir-proximity-before/formal/dep/ArkLib/Data/CodingTheory/ReedSolomon.lean",
+        "line": 65,
+        "sha256": "13772d880e3dd1eecc789ec7ece35b76460832d310f504abf5630b165bc05384"
+      },
+      "relative_distance": {
+        "path": "datasets/arklib/projects/stir-proximity-before/formal/dep/ArkLib/Data/CodingTheory/Basic/RelativeDistance.lean",
+        "line": 42,
+        "sha256": "1146bdc2a86ec8bb150ca8b9f375636646d758df319a1e78359a39db8d4cbce5"
+      }
+    },
+    "semantic_argument": [
+      "原文的系数由同一个 r 的幂 r^j 唯一指定。formal 增加隐式参数 GenFun:F→Fin m→F，并在随机组合中使用 GenFun r j，却没有任何幂结构或其他约束。",
+      "取有限域 F_5，评价域 L={0,1,2,3}，degree=1、m=1、δ=1/4，并令 f_0(x)=x。code φ 1 是次数小于 1 的多项式的取值，恰为五个常数码字。",
+      "码率 ρ=1/4，故 1-sqrt(ρ)=1/2，满足 0<δ<1/2；且 δ=1/4≤(1-ρ)/2=3/8，处于第一个误差分支。m-1=0 给出 proximityError=0。",
+      "取 GenFun(r,0)=0。对每个 r，formal 的组合为零码字，到码的距离为 0，故事件概率为 1>0，满足概率前提。",
+      "formal 结论要求共享集合大小至少 (1-δ)|L|=3，并存在一个常数码字与 f_0 在其上相同。f_0 在四个点上互异，与任何常数最多在一个点一致，因此结论不成立。",
+      "原文在 m=1 时使用系数 r^0=1，组合为 f_0，到常数码的距离为 3/4>δ，事件概率为 0，严格概率前提不成立。区分由 GenFun 的自由度造成。"
+    ],
+    "counterexample": {
+      "field": "F_5",
+      "evaluation_points": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "degree": 1,
+      "m": 1,
+      "delta": "1/4",
+      "rate": "1/4",
+      "functions": [
+        "f_0(x)=x"
+      ],
+      "generator": "GenFun(r,0)=0",
+      "codewords": "All five constant vectors over F_5 on the four evaluation points.",
+      "error_threshold": "0",
+      "formal_event_probability": "1",
+      "paper_event_probability": "0",
+      "distance_to_code": "3/4",
+      "required_subset_cardinality": 3,
+      "maximum_agreement_cardinality": 1,
+      "formal_premises_hold": true,
+      "formal_conclusion_holds": false,
+      "exact_check": "上一轮以 Python Fraction 和模 5 整数运算枚举全部五个常数码字、五个随机 r 和所有子集，确认上述距离、概率与结论。"
+    },
+    "verification": {
+      "source_binding_checked": true,
+      "exact_finite_enumeration": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "反例采用正 degree 和非空评价域，不依赖零码率、除零总化或端点歧义。",
+      "这是数学反例与精确有限枚举核对，尚未编码为新的 Lean 反例证明。",
+      "判负依据是陈述中的系数生成器错配，不以证明中的 sorry 或 before 命名定案。",
+      "formal、informal、输入哈希与技术状态均保持原样；不修改已确认的 after 标签。",
+      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+    ]
+  }
+}

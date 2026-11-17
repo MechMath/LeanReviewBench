@@ -1,0 +1,34 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-GAUSSIAN-P42",
+  "task_id": "aml:LG21-GAUSSIAN-P42",
+  "input_sha256": "19f9dff7d1edef0d005ed1ceb8172c56708d0ada781110e013408f4edf014d71",
+  "label": "misaligned",
+  "reason": "Lean 假设条件输出律已经等于给定 Gaussian laws 且均值严格不同，再推出不公平；原 Proposition 4.2 从观测 access 与 Bayesian policy 得出此分布及不公平，根缺少这一模型到输出律的联系。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "LG21TestOptionalPolicies.paper_interface_proposition4_2_not_law_latent_skill_fair_of_gaussian_mean_gap"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

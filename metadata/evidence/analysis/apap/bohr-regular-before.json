@@ -1,0 +1,91 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "bohr-regular-before",
+  "task_id": "apap:bohr-regular-before",
+  "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
+  "label": "misaligned",
+  "reason": "rank 统计口径与原文不同：formal 统计有限宽度字符，原文统计宽度小于 2 的字符，导致正则性定义不等价；此外，κ 的检查范围写成了 d/100，而非原文预期的 1/(100d)。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "BohrSet.IsRegular"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/bohr-regular-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 before 输入。原文 1/100d 按现有 scope 的预期分母 100*d 解释。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "bohr-regular-before",
+    "root": "BohrSet.IsRegular",
+    "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "rank 统计口径与原文不同：formal 统计有限宽度字符，原文统计宽度小于 2 的字符，导致正则性定义不等价；此外，κ 的检查范围写成了 d/100，而非原文预期的 1/(100d)。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标注misaligned然后下一题; confirms the preceding rank and kappa-range mismatch explanation for apap:bohr-regular-before.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 before 输入。原文 1/100d 按现有 scope 的预期分母 100*d 解释。",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/bohr-regular-before/informal.jsonl:1",
+      "finite_width_frequencies": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean:25",
+      "rank": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean:227",
+      "regularity": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Regular.lean:15"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/bohr-regular-before/informal.jsonl": "73a435e3e0b09cc6579239095d89d227395a444934c03cd5351b9bd9cdac719b",
+      "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean": "663182eed6ffe9b5b85cf2530bec451193c386b23cd6bb152026a9d39d88d624",
+      "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Regular.lean": "84449439c68137b2fa5c739bf4945dd8e789ad94d88142a0625128e8ea8bc8c9"
+    },
+    "witness": {
+      "group": "Z/2",
+      "width_trivial_character": "3",
+      "width_sign_character": "1000/503",
+      "initial_bohr_set": "{0}",
+      "source_rank": 1,
+      "formal_rank": 2,
+      "formal_kappa_upper_bound": "1/50",
+      "source_kappa_upper_bound": "1/100",
+      "jump_kappa": "3/500",
+      "expanded_sign_width_at_jump": "2",
+      "cardinality_ratio_at_jump": 2,
+      "formal_upper_bound_at_jump": "11/5",
+      "source_upper_bound_at_jump": "8/5",
+      "formal_regular": true,
+      "source_regular": false,
+      "argument": "平凡字符始终不限制集合。0≤κ<3/500 时膨胀集为 {0}，大小比为 1，满足 formal 上界。3/500≤κ≤1/50 时膨胀集为整个 Z/2，大小比为 2，而 formal 上界 1+200κ 至少为 11/5。整个检查区间内收缩集均为 {0}，下界 1-200κ≤1，故 formal regular。原文在 κ=3/500 时只允许上界 8/5，大小比 2 违反该界。"
+    },
+    "verification": {
+      "exact_rational_checks": "passed",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "这是陈述/定义的语义错配，不声称形式化自身的定义逻辑矛盾。",
+      "使用正的 source rank=1；该例不依赖 d=0 或原文 1/100d 的排版歧义。",
+      "用户确认已记录；仍沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+    ],
+    "additional_formula_mismatch": {
+      "formal": "kappa <= d / 100",
+      "source_intended": "|kappa| <= 1 / (100*d)",
+      "source_typography": "1/100d",
+      "scope_note": "分母按当前冻结 scope 的预期解释。rank 区分例中 source d=1，两种排版解释均给出 1/100；rank 判负依据不依赖此歧义。"
+    }
+  }
+}

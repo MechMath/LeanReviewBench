@@ -1,0 +1,34 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-SMALL-final_sign",
+  "task_id": "aml:GN21-SMALL-final_sign",
+  "input_sha256": "ef01f29a17eea986583a4abd770ec20d0602dab7a202eca6af2139035659ce3a",
+  "label": "misaligned",
+  "reason": "完整 Theorem 3 同时规定分情形的最优结构与几乎处处唯一性；目标只是结构化正质量可测策略下的激励相容/符号结论，未给出完整唯一性及一般分支。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_final_sign"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

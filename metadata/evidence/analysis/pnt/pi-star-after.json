@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "pi-star-after",
+  "task_id": "pnt:pi-star-after",
+  "input_sha256": "ba8531bb0b37e077873e6c86b65d9fffdc3d8f5e84d54de9b67861b01b4370c3",
+  "label": "aligned",
+  "reason": "对当前文字Σ_{k≥1} π(x^(1/k))/k，formal多出的k=0项因实数除零总化为0；其余项逐项相同。π使用floor与primeCounting，编码≤x；正x下k足够大时x^(1/k)<2，和只有有限非零项。",
+  "review_status": "model_pre_qwen_semantic_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "pi_star"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1658"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

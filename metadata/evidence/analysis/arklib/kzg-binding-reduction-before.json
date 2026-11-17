@@ -1,0 +1,176 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "kzg-binding-reduction-before",
+  "task_id": "arklib:kzg-binding-reduction-before",
+  "input_sha256": "7ccd9e57a27f8ad0e9e698f071e3bba4cdd26cb6776f4d7a41a34ec4613faae7",
+  "label": "misaligned",
+  "reason": "当前绑定的附录 C.1 原文要求成功概率相等及少量额外运行时间；before 的 formal 根仅给出单向概率界。归约仍忽略验证结果，同一确定性例子得到绑定概率 0、t-SDH 概率 1/(p-1)>0，且未表达运行时间或 PPT 保持结论。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/kzg-binding-reduction-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前冻结 informal 所绑定的 Appendix C.1 求值绑定到 t-SDH 的完整归约，包括成功概率等式和运行时间说明；不缩小为单向概率归约。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "kzg-binding-reduction-before",
+    "root": "KZG.CommitmentScheme.binding_reduces_to_tSdh",
+    "input_sha256": "7ccd9e57a27f8ad0e9e698f071e3bba4cdd26cb6776f4d7a41a34ec4613faae7",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "当前绑定的附录 C.1 原文要求成功概率相等及少量额外运行时间；before 的 formal 根仅给出单向概率界。归约仍忽略验证结果，同一确定性例子得到绑定概率 0、t-SDH 概率 1/(p-1)>0，且未表达运行时间或 PPT 保持结论。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 请为我标成misaligned然后让我看下一题谢谢; confirms misaligned for arklib:kzg-binding-reduction-before after checking that the strict probability inequality witness and missing runtime conclusion also apply to this snapshot.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前冻结 informal 所绑定的 Appendix C.1 求值绑定到 t-SDH 的完整归约，包括成功概率等式和运行时间说明；不缩小为单向概率归约。",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/informal.jsonl",
+        "line": 1,
+        "sha256": "0a7bdead3f5bfcd5e2685c64b37e2f6d3a2a96522bd7d257c93e9210b22e6610"
+      },
+      "scope": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/target/experiment-scope.md",
+        "line": 1,
+        "sha256": "3e484f2e428204fd64760270ea6896ada4a49352e0af2dc4ccc2aed68a4e3f40"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/KZG/Binding.lean",
+        "line": 769,
+        "sha256": "123607065d23e6487e53033cecdce556926bd1f01b340068839eeeb29abe577e"
+      },
+      "unconditional_map": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/KZG/Binding.lean",
+        "line": 127,
+        "sha256": "123607065d23e6487e53033cecdce556926bd1f01b340068839eeeb29abe577e"
+      },
+      "reduction": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/KZG/Binding.lean",
+        "line": 255,
+        "sha256": "123607065d23e6487e53033cecdce556926bd1f01b340068839eeeb29abe577e"
+      },
+      "binding_condition": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/Basic.lean",
+        "line": 176,
+        "sha256": "6b10b480974c6dc24aaf7b1af049bbb8e69bd3f7ee67d3b143c50da6b356c106"
+      },
+      "verification_equation": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/KZG/Basic.lean",
+        "line": 72,
+        "sha256": "1e241675ffc926ceb9d2e5916fe2fecefbbc655bbe1b400a5a5d38d886724e7a"
+      },
+      "sdh_game_and_condition": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 65,
+        "sha256": "6ce955312c7bc6e5333511c25fbaaff40c89b1d4d73efcc2616f572aa0911087"
+      },
+      "private_sampling": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/Commitments/Functional/KZG/Sampling.lean",
+        "line": 37,
+        "sha256": "b2654db9f440ad7f0836ca583163eab22d569be6b701e424ce62ea1a8fa1d7d4"
+      },
+      "execution_retains_false_verdict": {
+        "path": "datasets/arklib/projects/kzg-binding-reduction-before/formal/dep/ArkLib/OracleReduction/Execution.lean",
+        "line": 220,
+        "sha256": "9efb819700b5becdd42baa8c8ff32330d6e589550b0789d654b0020961e2f7a1"
+      },
+      "annotation_standard": {
+        "path": "docs/MISALIGNMENT-TAXONOMY.md",
+        "line": 82,
+        "sha256": "c24ff66b62a5177b46acf930b6826c50b6ca9f9120aa28777eb26540b7dee02c"
+      }
+    },
+    "semantic_argument": [
+      "归约的代数映射 (-i,(w1/w2)^(1/(v2-v1))) 与原文对应；该根没有 tSdhAssumption，不沿用上一题的困难性前提真空论证。",
+      "原文明确声称归约与绑定攻击的成功概率相同，且运行时间只增加少量开销。根陈述仅给出 bindingExperiment ≤ tSdhExperiment(bindingReduction)。",
+      "mapBindingInstanceToTsdh 丢弃两个 accept 字段；bindingReduction 在返回候选解前不要求它们为真。正常结束但 verifier 输出 false 的执行仍保留证明元素。",
+      "令攻击者固定输出承诺 C=1、位置 i=0、不同取值 v1=0,v2=1，以及证明 w1=g1,w2=1。素数阶且 pairing(g1,g2)≠0，τ 从非零域元素均匀采样。",
+      "第一份验证要求 0=τ，第二份验证要求 -1=0，在此采样范围都为假。绑定成功概率为 0。",
+      "formal 归约仍输出 (c,h)=(0,g1)。该候选解恰在 τ=1 时满足 t-SDH 条件，成功概率为 1/(p-1)>0；因此对 formal 所允许的攻击者，概率不等式可严格成立。",
+      "此外，根与所用攻击者类型、归约定义没有运行成本模型或 PPT 保持结论；具体概率界没有覆盖当前绑定原文的效率说明。",
+      "before 使用缓存式 randomOracle，但本例攻击者完全不调用随机查询；其确定性输出和独立均匀非零 τ 使同一概率区分成立，不依赖对随机攻击者的实验翻译。"
+    ],
+    "witness": {
+      "model": "素数阶循环群，以 ZMod p 中的生成元指数表示；配对在指数上为乘法。",
+      "adversary": {
+        "commitment": "1",
+        "query": 0,
+        "response_1": 0,
+        "response_2": 1,
+        "proof_1": "g1",
+        "proof_2": "1"
+      },
+      "trapdoor_distribution": "uniform on ZMod p excluding 0",
+      "binding_probability": "0",
+      "reduction_probability": "1/(p-1)",
+      "method": "Python 整数模运算、模逆及 Fraction 精确枚举；与冻结定义的代数方程核对。",
+      "exact_enumeration_from_prior_review": [
+        {
+          "p": 2,
+          "binding": "0",
+          "reduction": "1"
+        },
+        {
+          "p": 3,
+          "binding": "0",
+          "reduction": "1/2"
+        },
+        {
+          "p": 5,
+          "binding": "0",
+          "reduction": "1/4"
+        },
+        {
+          "p": 7,
+          "binding": "0",
+          "reduction": "1/6"
+        },
+        {
+          "p": 11,
+          "binding": "0",
+          "reduction": "1/10"
+        },
+        {
+          "p": 17,
+          "binding": "0",
+          "reduction": "1/16"
+        }
+      ],
+      "before_transfer": "已核对 before 的验证方程、无条件映射及 t-SDH 采样定义；本例无攻击者随机查询，after 的精确模运算核对适用于同一方程。"
+    },
+    "verification": {
+      "source_binding_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "这是相对于当前完整绑定目标的判断；如果目标另行明确缩为不损失成功概率的代数归约，核心公式与单向界相符。当前输入及范围没有修改。",
+      "区分例证明两个 formal 实验的成功概率可不相等，不反驳已证明的单向界，不声称破解 KZG 或 t-SDH。",
+      "原文若隐含失败时中止，可通过检查有效性构造另一个归约；当前 formal 指定归约没有该检查。此处不声称原文不存在满足等式的其他归约。",
+      "PPT 攻击者域本身扩大不单独作为本题判负依据；记录的是缺少原文承诺的效率结论。",
+      "初始审计中的 undetermined 建议保留为历史记录；此次新证据及用户决定只作用于本输入。",
+      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。",
+      "本题未将缓存随机预言机与私有随机数的普遍语义差异作为额外定案依据；不修改任何其他输入的标签。"
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "kzg-function-binding-before",
+  "task_id": "arklib:kzg-function-binding-before",
+  "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
+  "label": "misaligned",
+  "reason": "原文的 ARSDH 假设限定电路规模，before 的 arsdhAssumption 却量化所有该类型的 Lean 函数。无资源限制的函数可恢复 τ，选取 n+1 个避开 τ 的点并构造 ARSDH 解，以概率 1 成功，使 error<1 时的困难性前提无法成立；此外，formal 未表达原文的具体归约电路开销。",
+  "review_status": "model_rechecked_misaligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "KZG.CommitmentScheme.function_binding"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/kzg-function-binding-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路的 ARSDH 困难性假设与具体归约规模开销；仅本 before 输入。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "kzg-function-binding-before",
+    "root": "KZG.CommitmentScheme.function_binding",
+    "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "原文的 ARSDH 假设限定电路规模，before 的 arsdhAssumption 却量化所有该类型的 Lean 函数。无资源限制的函数可恢复 τ，选取 n+1 个避开 τ 的点并构造 ARSDH 解，以概率 1 成功，使 error<1 时的困难性前提无法成立；此外，formal 未表达原文的具体归约电路开销。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为misaligned; confirms misaligned for arklib:kzg-function-binding-before after reviewing the unrestricted-adversary hardness assumption and the missing circuit-size guarantee.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路的 ARSDH 困难性假设与具体归约规模开销；仅本 before 输入。",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/informal.jsonl",
+        "line": 1,
+        "sha256": "bc05cdb3c34a0b75fd5d9cebf240d2c6c97f23eae4a7f57e086d6aebbd8e4185"
+      },
+      "cached_target": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt",
+        "line": 3,
+        "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4"
+      },
+      "source_acquisition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json",
+        "line": 1,
+        "sha256": "d62b96815d19c643a9171b8415c5163b5a0a0387939cf657c47ca6aca4852276"
+      },
+      "scope_metadata": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/sources.json",
+        "line": 24,
+        "sha256": "1671dcf6e522524a7cee0b9fc83d0598f80c0f244fcf5e28e06f83eed70ae895"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/FunctionBinding/Basic.lean",
+        "line": 635,
+        "sha256": "053a8d71f7c600bd05128878a8f74c0265ed6d29956da67be44909637db487dd"
+      },
+      "adversary_type_and_message_space": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/FunctionBinding/Basic.lean",
+        "line": 108,
+        "sha256": "053a8d71f7c600bd05128878a8f74c0265ed6d29956da67be44909637db487dd"
+      },
+      "reduction": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/FunctionBinding/Basic.lean",
+        "line": 118,
+        "sha256": "053a8d71f7c600bd05128878a8f74c0265ed6d29956da67be44909637db487dd"
+      },
+      "function_binding_condition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/Basic.lean",
+        "line": 284,
+        "sha256": "6b10b480974c6dc24aaf7b1af049bbb8e69bd3f7ee67d3b143c50da6b356c106"
+      },
+      "arsdh_condition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 101,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "unrestricted_hardness": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 127,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "srs_definition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/Algebra.lean",
+        "line": 48,
+        "sha256": "edd48b9618397ec48016b69b5f3e92309d167ac7b5b0523849b0b0f5e827698b"
+      },
+      "arsdh_adversary_type": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 96,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "arsdh_game": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 108,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "corroborating_after_lemma": {
+        "path": "datasets/arklib/projects/kzg-function-binding-after/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 185,
+        "sha256": "6ce955312c7bc6e5333511c25fbaaff40c89b1d4d73efcc2616f572aa0911087"
+      }
+    },
+    "semantic_argument": [
+      "原文对规模受限的 ARSDH 电路施加成功概率上界；before 的 arsdhAssumption 对 arsdhAdversary 类型的所有函数量化，没有任何计算资源或攻击者类限制。",
+      "根中的 pairing(g1,g2)≠0 蕴含 g2≠1。在素数阶群中，非单位 g2 的指数映射 τ↦g2^τ 单射。SRS 公开 g2^τ，无资源限制的函数可取该映射的逆恢复 τ。",
+      "根前提 p≥n+2 保证域中除去 τ 后仍有至少 n+1 个点。攻击者选取大小为 n+1、避开 τ 的集合 S，因而 Z_S(τ)=∏_{s∈S}(τ-s)≠0。",
+      "输出 (S,h1,h2)=(S,g1,g1^(1/Z_S(τ)))，由 hg1:g1≠1 满足全部 arsdhCondition 条件。对每个采样的 τ 均成功，故 ARSDH 成功概率为 1。",
+      "因此 arsdhError<1 时，before 的困难性前提无法成立；error≥1 时只给出平凡概率界。这偏离原文针对受限电路的计算困难性假设。",
+      "原文还明确要求 t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)²。formal 的根和相关攻击者、归约定义没有表达该电路规模保证。",
+      "函数绑定成功事件的结构与原文对应，且双方均为概率不等式；本次不使用前面 evaluation-binding reduction 的概率等式问题判负。"
+    ],
+    "parameter_cross_check": {
+      "formal_message_space": "Fin (n + 1) → ZMod p",
+      "degree_interpretation": "n+1 个系数，对应次数至多 n",
+      "arsdh_cardinality": "S.card = n + 1",
+      "paper_correspondence": "就次数和集合大小约定而言，应对应 n=D。",
+      "scope_note_correction": "现有 scope 中 Lean degree<n 并建议 n=D+1 的说明与实际源码不符；不修改冻结输入，也不以此说明制造 off-by-one 判负理由。"
+    },
+    "verification": {
+      "source_binding_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "当前来源是带日期的论文缓存转写，未获得原 PDF 的精确修订号及字节哈希；本决定针对当前绑定文本。",
+      "无界逆函数不代表规模受限的攻击电路；不声称破解原文密码学假设。",
+      "判负针对困难性前提范围及结论覆盖，不声称带该前提的 Lean 条件定理自身为假。",
+      "缺少电路规模形式化不意味着实际归约必然超预算；此处没有证明实际复杂度下界。",
+      "随机实验、辅助输入分布及其他前提不作为额外判负依据，不修改其他输入的标签。",
+      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+    ],
+    "corroboration": {
+      "declaration": "Groups.not_arsdhAssumption_univ",
+      "location": "corroborating_after_lemma",
+      "role": "对应 after 的源码给出非单位生成元、p≥D+2、error<1 时 unrestricted-class ARSDH 假设不成立的 Lean 证明；本次已阅读并与 before 的实验定义核对，未重新编译。"
+    }
+  }
+}

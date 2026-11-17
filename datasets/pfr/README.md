@@ -11,7 +11,7 @@ source with different own-version blueprint targets. All PFR projects share
 one repository split; KL and rho share a mechanism group.
 
 See [index.csv](index.csv), [review and limitations](https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-admission/README.md)
-and [explicit upstream evidence](../../metadata/upstream-evidence/pfr.jsonl). Two unextracted historical
+and [explicit upstream evidence](../../metadata/evidence/upstream/pfr.jsonl). Two unextracted historical
 leads are deferred outside this dataset. On 2026-11-09, both independent-blocks
 snapshots gained an independent probability-text target with arbitrary block index
 set and finite disjoint coordinate blocks. Both are provisionally aligned, using

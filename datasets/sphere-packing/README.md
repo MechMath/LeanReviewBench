@@ -18,7 +18,7 @@ See [maintenance and environment setup](../../docs/PROJECT-CASE-WORKFLOW.md) and
 [fixed dependency versions](../project-cases.json). Dependency locations are read
 from `PAPERLEAN_MATHLIB` and `PAPERLEAN_CSLIB`; no checkout location is assumed.
 Explicit upstream statements, when retained, are indexed in
-[upstream evidence](../../metadata/upstream-evidence/README.md), outside model inputs.
+[upstream evidence](../../metadata/evidence/upstream/README.md), outside model inputs.
 There is no `tasks.jsonl` in this batch.
 
 The preparation archive is pinned at

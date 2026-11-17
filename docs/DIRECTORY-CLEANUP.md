@@ -18,4 +18,13 @@ Source code and mathematical inputs are uncompressed and Git-tracked. Generated 
 
 The new release repository has no imported research Git history. Earlier local preview commits remain local history; this cleanup does not rewrite them. Historical provenance is pinned to the source commits recorded in `metadata/release.json`.
 
-The former top-level `leanreviewbench/`, `references/`, `reports/`, `protocol/` and `tools/` directories have been consolidated. Python code lives in `scripts/`; evidence lives in `metadata/`. `metadata/layout.json` records the `reports/` prefix alias, preserving old hash-bound references without rewriting labels or receipts. The only provider template is `scripts/evaluation/.env.example`.
+The former top-level `leanreviewbench/`, `references/`, `reports/`, `protocol/` and `tools/` directories have been consolidated. Python code lives in `scripts/`; evidence lives in `metadata/`. `metadata/layout.json` records exact aliases for embedded technical locators; active labels and indexes use canonical paths. The only provider template is `scripts/evaluation/.env.example`.
+
+## Current evidence layout
+
+Semantic evidence is now grouped under `metadata/evidence/upstream/` and
+`metadata/evidence/analysis/`. Technical receipts and composition artifacts are
+under `metadata/derived-graphs/`. `metadata/reports/` and
+`metadata/upstream-evidence/` are no longer present. Exact path aliases replace
+the former reports-prefix mapping; active label and graph references use current
+paths. Classification standard and results are in `metadata/taxonomy/`.

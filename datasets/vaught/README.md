@@ -9,7 +9,7 @@ text, not from the conditional root docstrings or from reverse-translating Lean.
 
 Historical upstream commits report the universal two-face and gated-extension
 hypotheses as refuted and the replacement coupled hypothesis as open. Those
-historical statements remain preserved in [upstream evidence](../../metadata/upstream-evidence/vaught.jsonl).
+historical statements remain preserved in [upstream evidence](../../metadata/evidence/upstream/vaught.jsonl).
 A later pinned upstream revision (`e9f465e1`) also refutes the coupled hypothesis
 at every stage above 1. The 2026-11-09 follow-up review checks that the relevant
 definitions match this dataset's frozen snapshot and marks coupled-after

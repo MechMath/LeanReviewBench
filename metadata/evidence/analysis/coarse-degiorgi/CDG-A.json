@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-A",
+  "task_id": "coarse-degiorgi:CDG-A",
+  "input_sha256": "478e3568ffb91e335c26a5721a892aa6c46515eac528ae8e513f97131851f613",
+  "label": "aligned",
+  "reason": "Source-level structure matches, including the shared γ and constants chosen before coefficient/function. External geometry/averaging definitions and elaborated instance choices remain technical verification tasks.",
+  "review_status": "historical_model_review_packaged_input_not_reassessed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.local_boundedness"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/alignment-review-01/review-controls.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

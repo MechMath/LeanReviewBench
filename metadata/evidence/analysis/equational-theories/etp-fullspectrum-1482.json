@@ -1,0 +1,120 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-fullspectrum-1482",
+  "task_id": "equational-theories:etp-fullspectrum-1482",
+  "input_sha256": "9ac50a67eefde62663e5170b2fb1970a24e4ab1f79e8caac36ae909807e412ac",
+  "label": "aligned",
+  "reason": "EqFullSpectrum 表达每个 n 的 Fin n 上存在满足等式 1482 的 magma，与原文所有正整数大小的模型存在性对应。额外 n=0 分支由空类型上的二元运算及全称等式真空成立无条件补出；等式括号一致，证明给出原文所述大部分取值为常量的运算并处理小尺寸。",
+  "review_status": "model_rechecked_aligned_user_confirmed",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "FullSpectrum.full_spectrum_Equation1482"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-fullspectrum-1482.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "当前独立 spectrum.tex 中明确选定的等式 1482 的所有正整数大小模型构造；不包含整段的 3074 条律分类、对偶律或分类完备性结论。",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-fullspectrum-1482",
+    "root": "FullSpectrum.full_spectrum_Equation1482",
+    "input_sha256": "9ac50a67eefde62663e5170b2fb1970a24e4ab1f79e8caac36ae909807e412ac",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "EqFullSpectrum 表达每个 n 的 Fin n 上存在满足等式 1482 的 magma，与原文所有正整数大小的模型存在性对应。额外 n=0 分支由空类型上的二元运算及全称等式真空成立无条件补出；等式括号一致，证明给出原文所述大部分取值为常量的运算并处理小尺寸。",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 请为我标为aligned; confirms aligned for equational-theories:etp-fullspectrum-1482 after reviewing the positive-size model requirement, the harmless empty-carrier branch, equation syntax, and the mostly-constant construction.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "当前独立 spectrum.tex 中明确选定的等式 1482 的所有正整数大小模型构造；不包含整段的 3074 条律分类、对偶律或分类完备性结论。",
+    "evidence_locations": {
+      "informal_and_selected_scope": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal.jsonl",
+        "line": 1,
+        "sha256": "b21198fcabad91f204203ca4e348a296cbe12a777491b60bccd76069a1b22f58"
+      },
+      "positive_size_spectrum": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "line": 3,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "source_model_construction": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "line": 20,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "source_all_sizes_claim": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "line": 22,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "spectrum_definition_and_notation": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 25,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "root_and_constructed_operation": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 127,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "small_size_branch": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 158,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "equation_1482": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/Equations/Eqns1000_1999.lean",
+        "line": 488,
+        "sha256": "44155045d2091d0ca3478ad596c4c3cd3abb5408260e2b3684db598310a1612b"
+      },
+      "universal_equation_elaboration": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/Equations/Command.lean",
+        "line": 106,
+        "sha256": "09edfbeb822f086d8b360879cec45fa58f7a75814aac4304b648bb7f18cf5e00"
+      },
+      "magma_definition": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/Magma.lean",
+        "line": 10,
+        "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+      }
+    },
+    "semantic_argument": [
+      "HasFullSpectrum [1482] 展开为 EqFullSpectrum Equation1482，即 ∀n:ℕ,∃M:Magma(Fin n),Equation1482 (Fin n) M。Fin n 恰有 n 个元素。任意 n 元有限模型可经双射将运算搬到 Fin n，等式成立性保持不变。",
+      "Equation1482 的定义为 ∀x,y, x=(y◇x)◇(x◇(y◇y))，变量、重复出现次数和括号与本题选定的非形式化等式一致。",
+      "formal 对所有自然数 n 量化，原文讨论正整数大小。n=0 时 Magma 只需 Fin 0→Fin 0→Fin 0 的二元运算，该运算存在且唯一；全称等式因不存在 x,y 而成立。因此此额外分支可无条件补出，全部自然数版本与正整数版本等价。",
+      "n>1 时证明显式定义运算：y=1 且 x>1 时返回 x，x=y=1 时返回 0，x=1 且 y>1 时返回 y，其他情况返回 1。这与原文所述大部分表项为常量的模型构造相符。",
+      "n≤1 时证明采用投影运算 fun x y=>x，覆盖空类型及单元素类型，没有遗漏 n=1 的非空模型。",
+      "冻结的目标 scope 明确只选择等式 1482 的各有限大小模型构造；FullSpectrum 文件中关于 7+32 律分类完整性的 TODO 不属于本题待对齐结论。"
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "equation_and_construction_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "本次为定义、陈述及显式构造的语义核对，未新建 Lean 等价证明或重新编译项目。",
+      "对 n=0 的无害性判断依赖当前 Magma 只有二元运算字段、没有非空公理，以及 Equation1482 是全称等式。",
+      "不将该标签扩展到 3074 条律的分类、分类完备性或下一题等式 1682。",
+      "formal、informal、输入哈希和技术状态均保持原样；项目状态改为 ready 反映本次正向标注及已有编译提取状态。",
+      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "immersion-before",
+  "task_id": "sphere-eversion:immersion-before",
+  "input_sha256": "467e7839ad7f4ad935d38c3ea1d3f2e239c304d55d53a132b3feefda7eafd79e",
+  "label": "misaligned",
+  "reason": "按冻结文字所引用的光滑 jet/holonomic-section 范畴审查 immersion 这个谓词，而非额外先假定被测函数光滑。完整同版本 blueprint 将 j¹f 定义于光滑映射，相关 section 的基映射也光滑；因此源中的 immersion 谓词包含 C∞ 正则性。before 对任意 f 只要求 mfderiv 单射，允许 f(x)=x+x|x| 这类 C¹ 但非 C² 的映射。该例在最普通的实一维光滑流形上处处导数 1+2|x|>0，满足 formal，却不是源范畴的光滑 immersion。不是凭缺少字段判负，也不是利用导数的 junk value。",
+  "review_status": "model_remaining_undetermined_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Immersion"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-eversion.jsonl",
+      "id": "immersion-definition"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/sphere-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

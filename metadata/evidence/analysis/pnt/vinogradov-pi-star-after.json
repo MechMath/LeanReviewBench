@@ -1,0 +1,44 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-star-after",
+  "task_id": "pnt:vinogradov-pi-star-after",
+  "input_sha256": "f76fa8a562349919f7d19c45e4a35abb4a9d3bd0d54183e75a743a02e850ce25",
+  "label": "aligned",
+  "reason": "在显式新绑定下，主公式、绝对值、x/log x归一化、offset Li、四实参数和∀x≥x₀全部对应。 after 的k=0求和项为0，去零项后由k↦k+1重索引与来源π*一致。 此标签针对明确补入的后续上游定义及其全实域运算约定；不是恢复冻结版本的原始主注释。",
+  "review_status": "model_later_upstream_target_rebinding",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Eπ_star.vinogradovBound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel repository source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

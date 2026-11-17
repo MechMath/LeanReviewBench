@@ -1,0 +1,27 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "stacks",
+  "project_id": "STK-09Y5-after",
+  "task_id": "stacks:STK-09Y5-after",
+  "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
+  "label": "aligned",
+  "reason": "Input LocallyClosedPartition restores source Definition 09XZ and the finite good refinement matches source Definition 09Y0.",
+  "review_status": "provisional_single_model_review",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "LocallyClosedPartition.exists_finite_good_refinement"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/stacks-admission/reviews.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Locally closed is required by source Definition 09XZ. Good means the frontier condition of Definition 09Y0.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

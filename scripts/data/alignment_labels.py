@@ -35,3 +35,5 @@ def verify(base):
             if (path.parents[2].name, project['id']) not in seen:
                 raise ValueError('Project has no review label: ' + project['id'])
     print(f'PASS: {len(seen)} provisional review labels bound to current inputs')
+    from analysis_evidence import verify as verify_analysis
+    verify_analysis(base)

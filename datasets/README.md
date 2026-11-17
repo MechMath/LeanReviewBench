@@ -35,7 +35,7 @@ family splits, reciprocal version links, technical status and provenance.
 Informal records retain exact source text and target bindings; missing complete
 targets are disclosed. Formal closures retain definition values and historical
 proof holes. Explicit upstream statements live outside inputs in
-`metadata/upstream-evidence/`. Provisional review labels for 143 inputs are in
+`metadata/evidence/upstream/`. Provisional review labels for 143 inputs are in
 `metadata/labels/`, outside model-visible task exports; no gold labels are supplied.
 
 Project input bytes are unchanged by metadata cleanup. Historical

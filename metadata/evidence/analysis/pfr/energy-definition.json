@@ -1,0 +1,26 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "energy-definition",
+  "task_id": "pfr:energy-definition",
+  "input_sha256": "372e5370723959676b5f83cc7418fa49a261ab57e8fd76bbc34284e6325ab3b9",
+  "label": "misaligned",
+  "reason": "On the diagonal A=A, the requested old raw quadruple count differs from the normalized formal value; the retained ZMod 2 witness gives 1 versus 1/8.",
+  "review_status": "provisional",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Finset.addEnergy'"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

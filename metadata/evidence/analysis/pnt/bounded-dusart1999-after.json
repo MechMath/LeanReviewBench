@@ -1,0 +1,44 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-dusart1999-after",
+  "task_id": "pnt:bounded-dusart1999-after",
+  "input_sha256": "6fdcc2fec23479f6d9dbfd2787edd4342077bd75bf2efb139e1f19038172d16c",
+  "label": "aligned",
+  "reason": "按数学命题对齐标准，以正文明确的条件 n≥39017 与结论 p_n≤n(log n+loglog n−0.9484) 为规范命题；i.e. 括注是重复解释而非另添约束。杜萨尔本人1998博士论文 Théorème 1.8 独立且精确确认同一端点与结论，因此可有依据地把括注 p_n>467473 认定为非规范解释笔误。formal 与该主命题一致。此 aligned 不表示整段文字无笔误：p_39017=467473，括注严格 > 确实错误，已显式登记。",
+  "review_status": "model_remaining_undetermined_recheck",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "Dusart1999.p_n_upper"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1706"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/pnt-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}

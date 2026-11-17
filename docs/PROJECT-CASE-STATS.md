@@ -1,7 +1,7 @@
 # Registered project-case batch statistics
 
 Generated from `datasets/project-cases.json`, registered project metadata and
-`metadata/upstream-evidence/`. The tables below cover all registered batches.
+`metadata/evidence/upstream/`. The tables below cover all registered batches.
 
 Main contains **171 versioned inputs**
 in **171 project directories**.

@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-D1",
+  "task_id": "coarse-degiorgi:CDG-D1",
+  "input_sha256": "dbc2aa78a055b4c1591436113e249f50c8d0c5dc77225d832fc6588877713a0e",
+  "label": "misaligned",
+  "reason": "固定配对的完整 Theorem D 包含 ∞ 端点；Lean 以实数 p,q>1 及有限指数公式建模，未表达 ∞ 端点分支。",
+  "review_status": "model_strict_recheck_confirmed_misaligned",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.moment_bounds_lebesgue"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/coarse-degiorgi.jsonl",
+      "id": "theorem-d-finite-exponents"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/alignment-review-01/review-d1-d2.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+}
