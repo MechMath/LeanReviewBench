@@ -123,6 +123,9 @@ def migrate(source,output,research_revision):
         shutil.copy2(ROOT/relative,destination)
     for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json','metadata/layout.json','licenses/README.md']:
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,destination)
+    # Diagnostic classifications are curated release metadata, independent of the
+    # pinned construction snapshot. Preserve their standards and provenance.
+    shutil.copytree(ROOT/'metadata/taxonomy', output/'metadata/taxonomy')
     for batch in cfg['datasets']:
         if batch == EXCLUDED_BATCH:
             continue

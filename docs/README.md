@@ -5,7 +5,7 @@ The current collection has 171 versioned inputs across 16 registered batches. It
 - [Dataset format](DATA-FORMAT.md) and [project maintenance](PROJECT-CASE-WORKFLOW.md)
 - [Current statistics](PROJECT-CASE-STATS.md)
 - [Construction](CONSTRUCTION.md) and [environment](ENVIRONMENT.md)
-- [Misalignment taxonomy](MISALIGNMENT-TAXONOMY.md)
+- [Misalignment standard and classifications](../metadata/taxonomy/README.md)
 - [Testing](testing.md), [configuration](CONFIGURATION.md) and [packaging policy](PACKAGING.md)
 - [Migration and verification](MIGRATION.md)
 - [Publication graph inventory](FORMAT.md)

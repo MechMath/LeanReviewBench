@@ -1,0 +1,34 @@
+{
+  "schema_version": "paperlean-taxonomy-summary-1",
+  "date": "2026-11-17",
+  "taxonomy": "metadata/taxonomy/standard.md",
+  "taxonomy_sha256": "beb7d62b6c0fc123f29cab4456a33e0e776f5e619a8dda5fa4808b362bc3dac8",
+  "cases_sha256": "5c437d0cb869624f67d7398ab1aec9798cbf4ff02a94e77e91cbe1cfd7605bb0",
+  "case_count": 90,
+  "current_misaligned_inputs": 90,
+  "unclassified": 0,
+  "category_case_counts": {
+    "A": 38,
+    "F": 30,
+    "O": 15,
+    "P": 20,
+    "Q": 8
+  },
+  "primary_category_counts": {
+    "A": 31,
+    "F": 28,
+    "O": 13,
+    "P": 13,
+    "Q": 5
+  },
+  "label_count_distribution": {
+    "1": 70,
+    "2": 19,
+    "3": 1
+  },
+  "all_input_hashes_match": true,
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "counting_unit": "Versioned misaligned inputs; categories overlap and linked versions are not independent mathematical errors.",
+  "migration": "70 existing classifications plus 20 new classifications. Closed-certificate specialization (formalslt:flagship-scalar-reflexive) updated from Q to A under current boundary rule 2. Binary labels and inputs unchanged."
+}

@@ -17,7 +17,7 @@ Historical source clones under `original/`, duplicate original tarballs, patches
 
 `metadata/materials/index.json` records independent-source attachment locators and byte hashes, with pinned archive URLs instead of copying those optional acquisition materials. The independently supplied mathematical text remains verbatim in each `informal.jsonl`. Archive-only source material is not a dependency of local validation or offline tests, and its archival availability does not establish exact original PDF version or mathematical adequacy.
 
-`metadata/reports/` contains only current hashed review reports and evidence required by the derived/composed graph checks. Archived Stacks component inputs remain there solely because the joint-graph validator consumes them; they are not active tasks. Other historical report links are fixed commit URLs.
+`metadata/reports/` contains current hashed review reports and evidence required by the derived/composed graph checks. `metadata/taxonomy/` retains the five-category standard and provisional diagnostic classifications, with input-bound records, evidence provenance, and coverage metadata. Archived Stacks component inputs remain in `metadata/reports/` solely because the joint-graph validator consumes them; they are not active tasks. Other historical report links are fixed commit URLs.
 
 The native project-case collection still requires a deliberate filtered model task export and export-bound reference review before official scoring. The retained protocol tests use temporary packages and mocked provider calls. Passing those tests does not create gold labels or demonstrate model accuracy.
 

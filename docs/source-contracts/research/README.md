@@ -10,7 +10,7 @@ Original OpenAI/OAI, FLT and Kakeya inputs remain excluded.
 - [Upstream evidence and integrity](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/metadata/README.md)
 - [Statistics and counting limits](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/PROJECT-CASE-STATS.md)
 - [Statement misalignment taxonomy](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/MISALIGNMENT-TAXONOMY.md)
-- [Historical classification of the original 70 misaligned cases](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/reports/misalignment-taxonomy-2026-11-10/README.md)
+- [Current misalignment classifications](../../../metadata/taxonomy/README.md)
 - [Construction method](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/CONSTRUCTION.md)
 - [External dependency configuration](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/ENVIRONMENT.md)
 - [Current layout](https://github.com/MechMath/PaperLeanBench/blob/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs/DIRECTORY-CLEANUP.md)
