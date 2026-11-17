@@ -10,8 +10,8 @@
   "projects": {
     "applied-modeling-lib/EOS-lemma5_locally_envy_free_stable.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-lemma5_locally_envy_free_stable/project.json",
-      "project_sha256": "cbd13f3b2642d8e63b145fbc9495c376c97cc2091c64f74e23bf28846831884d",
-      "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
+      "project_sha256": "fed190617db6ea58de3c7e79881dff137822b0c81e21c023ed4a18aba859f554",
+      "input_sha256": "176d94f84158aae462287484e66a116254707640beb99c08bcf03b52b652bad4",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -26,8 +26,8 @@
     },
     "applied-modeling-lib/EOS-lemma6_stable_assignment_slot_envy_free.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-lemma6_stable_assignment_slot_envy_free/project.json",
-      "project_sha256": "cc7b3360d53811ada9a0532233990c1c6fe157ab458e977c2e36959f13a6cc76",
-      "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+      "project_sha256": "ec6dbc7e66288ec9d79105d701664b5748a8b2e2fb23c73d7be1fb5aad6e9911",
+      "input_sha256": "7723bc8658d665d92d7b3d810ec18d94a0b775e3142504399ae1a1f0641b8d44",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -42,8 +42,8 @@
     },
     "applied-modeling-lib/EOS-theorem7_no_positive_transfer_conclusion.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-theorem7_no_positive_transfer_conclusion/project.json",
-      "project_sha256": "fa2e671a1ac26c65b0e217e4bb0c4e34c106c50205b0a3d6e3e73b93844174e4",
-      "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
+      "project_sha256": "7f652d7bcb298861251bb52e6c568e0915bc76758207635c248ea0c4eb067cdc",
+      "input_sha256": "975471b171db9b98f671a5f33a2e682a14da2b60acb3746541a6456e43b869b3",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -58,8 +58,8 @@
     },
     "applied-modeling-lib/GCG24UserItemFairness-after-spec.json": {
       "project": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/project.json",
-      "project_sha256": "06e6c80f6b220e95915e36f81c70928a7c539374d685cd44b5c265101146df6e",
-      "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+      "project_sha256": "8870551928de9677feeb3a1d88af5492efa317d9a581e7cf30e3cb143ddfa7f9",
+      "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -74,8 +74,8 @@
     },
     "applied-modeling-lib/GCG24UserItemFairness-before.json": {
       "project": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/project.json",
-      "project_sha256": "8dc2427c9c9303deeeffbc1846fdd09aec021c53804fc5e7d490f5d66fc61a4e",
-      "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+      "project_sha256": "6bb5c0716cb9d34fe8c4d638fadc82d50b1476f5c553764cedf5e72d7d9004ab",
+      "input_sha256": "36433fc1db471bf0b7a6586db3732784eef80e9b7c7ae6971a3b7414f42e417f",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -376,8 +376,8 @@
     },
     "applied-modeling-lib/LG21-T31-HIST.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-T31-HIST/project.json",
-      "project_sha256": "95b9a454c8194c124d38a7127630d0dd5a1af5b10ce9adf70a3b4dc1701669ab",
-      "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+      "project_sha256": "0ab327bc5340ca641afe84d3ba08e342190eab12d4c22ba5fc19573344164c2d",
+      "input_sha256": "74e8097264ece5a35261e30c459ca3edd691ac048a7072766a657ad6d2adf2d1",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {

@@ -49,7 +49,7 @@ tests/                 Offline regression tests
 licenses/              Source attribution and license copies
 ```
 
-`metadata/derived-graphs/retained-index.json` binds all 171 inputs to local graph paths, SHA-256 hashes, ordered roots and source commit/path records. Its `fresh_compilation=false` records that retaining these artifacts did not perform a new build. The separate `index.json` registers 12 recovered or composed contexts with extraction receipts. Graphs contain Lean types, non-proof values and dependency edges; raw graphs can also contain source documentation and require filtering before model use. The graph storage and evaluation input design remain separate questions.
+`metadata/derived-graphs/retained-index.json` binds all 171 inputs to local graph paths, SHA-256 hashes, ordered roots and source provenance. Its per-input `fresh_compilation` flag distinguishes new compilation from retained historical evidence. The separate `index.json` registers 12 recovered or composed contexts with extraction receipts. Graphs contain Lean types, non-proof values and dependency edges; raw graphs can also contain source documentation and require filtering before model use. The graph storage and evaluation input design remain separate questions.
 
 `metadata/evidence/analysis/index.json` associates each input with its current analysis file and hash. `metadata/layout.json` resolves exact historical paths embedded in technical receipts; active indexes use canonical paths. The taxonomy standard and classification records are documented in [metadata/taxonomy](../metadata/taxonomy/README.md).
 
@@ -57,7 +57,7 @@ licenses/              Source attribution and license copies
 
 ## Technical states and limits
 
-All 171 inputs have retained context graphs. The original compilation/extraction flags identify 164 inputs as compiled/extracted and seven as historically blocked. Six of those seven have recovered statement-type elaboration evidence; CDG-L94 has a subsequent original-theorem compilation receipt. These receipts do not claim a fresh compilation of the current checkout. Compilation, proof completeness and semantic alignment are distinct properties.
+All 171 inputs have local context graphs. Compilation/extraction flags now identify 170 inputs as compiled/extracted. Six formerly blocked AppliedModelingLib inputs have target-specific native slices and fresh Lean 4.34.1 compilation/extraction receipts; the migrated roots also type-check against their historical elaborated types. CDG-L94 retains its historical blocked flag and a subsequent original-theorem compilation receipt. Other retained receipts do not establish a fresh build of this checkout. Compilation, proof completeness and semantic alignment are distinct properties.
 
 Three sphere-packing aligned records have empty reasons; the coverage audit reports them without inventing justifications. Two KZG function-binding inputs lack a verified exact original PDF revision/hash. The AppliedModelingLib historical license-copy gap is recorded in `licenses/index.json`.
 

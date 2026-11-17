@@ -30,25 +30,21 @@
   ],
   "after_ids": [],
   "status": "misaligned",
-  "compiled_lean434": false,
-  "leantrace_extracted": false,
-  "packaged_compilation": "not-rerun-after-import-relocation",
-  "missing_modules": [
-    "EconCSLib.Basic",
-    "EconCSLib.LibraryDefinitionAudit",
-    "EconCSLib.SocialChoice.FairDivision.Chores"
-  ],
-  "pending_reason": null,
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
   "external_imports": [
+    "Mathlib",
     "Mathlib.Algebra.BigOperators.Field",
     "Mathlib.Algebra.BigOperators.Fin",
     "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
     "Mathlib.Algebra.BigOperators.Group.List.Basic",
     "Mathlib.Algebra.BigOperators.Ring.Finset",
     "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
     "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
     "Mathlib.Algebra.Order.Chebyshev",
-    "Mathlib.Analysis.Convex.Extreme",
     "Mathlib.Analysis.Convex.StdSimplex",
     "Mathlib.Data.Fin.Basic",
     "Mathlib.Data.Finset.Lattice.Basic",
@@ -60,7 +56,6 @@
     "Mathlib.Data.List.GetD",
     "Mathlib.Data.List.Sort",
     "Mathlib.Data.Real.Basic",
-    "Mathlib.Order.Interval.Finset.Fin",
     "Mathlib.Probability.ProbabilityMassFunction.Constructions",
     "Mathlib.Probability.ProbabilityMassFunction.Integrals",
     "Mathlib.Probability.ProbabilityMassFunction.Monad",
@@ -81,7 +76,7 @@
     "graph": null,
     "review": null
   },
-  "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+  "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -90,11 +85,11 @@
   ],
   "changes": null,
   "formal": {
-    "file_count": 20,
-    "sha256": "9138b9e6ad03b3f027de01f28648db1d27c5f89be40dd7b368be75418a00e39d",
-    "effective_root_sha256": "bbaee14817b79d2d1aac54cb65ea94b89462fd2f83fb769b1533925c4ba97e5c"
+    "file_count": 15,
+    "sha256": "a63fdbb05ebbf08b7d6184e687e19d85f0ea92070877837adce369e088666c89",
+    "effective_root_sha256": "c9f458751858f79d5109dba09e62c5855f5d5959a1133e444a489f233e074d7d"
   },
   "historical_status": "blocked",
-  "technical_status": "blocked",
+  "technical_status": "compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

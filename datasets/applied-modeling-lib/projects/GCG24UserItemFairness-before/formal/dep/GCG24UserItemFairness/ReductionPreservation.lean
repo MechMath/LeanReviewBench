@@ -851,7 +851,8 @@ theorem sourceNormalPullback_itemEqualityNormal
                 (R.reduced.utility k j /
                   RecommendationModel.itemNormalizer R.data.model j) := by
                 simpa [sourceNormalPullback,
-                  RecommendationModel.UserSymmetricEqualityLP.itemEqualityNormal] using hfiber
+                  RecommendationModel.UserSymmetricEqualityLP.itemEqualityNormal,
+                  RecommendationModel.UserSymmetricEqualityLP.ofSymmetricData] using hfiber
         _ = R.reduced.weight k * R.reduced.utility k j /
               TypeWeightedRecommendationModel.itemNormalizer R.reduced j := by
               rw [R.weight_eq_typeWeight k]
@@ -1152,7 +1153,7 @@ theorem sourceNormalPullback_typeSymmetryNormal
     · have htype' :
         ¬(RecommendationModel.UserSymmetricEqualityLP.ofSymmetricData R.data).types.toType u1 =
           (RecommendationModel.UserSymmetricEqualityLP.ofSymmetricData R.data).types.toType u2 := by
-        simpa using htype
+        simpa only [RecommendationModel.UserSymmetricEqualityLP.ofSymmetricData] using htype
       simp [sourceNormalPullback,
         RecommendationModel.UserSymmetricEqualityLP.constraintNormal,
         UserTypeAssignment.typeSymmetryLinearCoefficient, htype']
@@ -1187,10 +1188,7 @@ theorem sourceNormalPullback_constraintNormal
             (TypeWeightedRecommendationModel.equalityLPItemNormal R.reduced) cRed
       | none => 0 := by
   rcases c with ((j | u) | cSymm) | ⟨u, j⟩
-  · simpa [sourceConstraintReducedImage,
-      RecommendationModel.UserSymmetricEqualityLP.constraintNormal,
-      TypePolicy.reducedEqualityLPConstraintNormal] using
-      sourceNormalPullback_itemEqualityNormal (R := R) j
+  · exact sourceNormalPullback_itemEqualityNormal (R := R) j
   · simpa [sourceConstraintReducedImage] using
       sourceNormalPullback_simplexNormal (R := R) u
   · simpa [sourceConstraintReducedImage] using
@@ -1576,10 +1574,7 @@ theorem sourceNormalPullback_representativeSourceConstraintNormal
       TypePolicy.reducedEqualityLPConstraintNormal
         (TypeWeightedRecommendationModel.equalityLPItemNormal R.reduced) c := by
   rcases c with (j | k) | ⟨k, j⟩
-  · simpa [representativeSourceConstraint,
-      RecommendationModel.UserSymmetricEqualityLP.constraintNormal,
-      TypePolicy.reducedEqualityLPConstraintNormal] using
-      sourceNormalPullback_itemEqualityNormal (R := R) j
+  · exact sourceNormalPullback_itemEqualityNormal (R := R) j
   · exact sourceNormalPullback_representative_simplexNormal
       (R := R) (reps := reps) k
   · exact sourceNormalPullback_representative_nonnegativityNormal

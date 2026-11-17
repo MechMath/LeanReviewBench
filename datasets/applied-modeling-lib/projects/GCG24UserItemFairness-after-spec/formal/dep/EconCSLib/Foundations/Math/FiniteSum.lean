@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.BigOperators.Group.List.Basic
 import Mathlib.Algebra.BigOperators.Fin
@@ -286,13 +287,13 @@ theorem product_failure_difference_le_of_pointwise_ratio_floor
     exact Finset.prod_pos hlow_failure_pos
   have hlowProd_le_one : lowProd ≤ 1 := by
     dsimp [lowProd]
-    exact Finset.prod_le_one hlow_nonneg hlow_failure_le_one
+    exact Finset.prod_le_one₀ hlow_nonneg hlow_failure_le_one
   have hfloor_le_ratioProd : globalFloor ≤ ratioProd := by
     calc
       globalFloor ≤ ∏ i ∈ s, ratioFloor i := hprod_floor
       _ ≤ ratioProd := by
         dsimp [ratioProd]
-        exact Finset.prod_le_prod hratio_nonneg hratio
+        exact Finset.prod_le_prod₀ hratio_nonneg hratio
   have hratioProd_eq : ratioProd = highProd / lowProd := by
     dsimp [ratioProd, highProd, lowProd]
     exact Finset.prod_div_distrib (s := s)

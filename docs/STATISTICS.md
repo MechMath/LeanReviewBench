@@ -19,7 +19,7 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 
 | Batch | Roots | Extracted roots | Inputs | Upstream records | Linked inputs | No retained evidence | Pairs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| applied-modeling-lib | 26 | 20 | 30 | 0 | 0 | 30 | 6 |
+| applied-modeling-lib | 26 | 26 | 30 | 0 | 0 | 30 | 6 |
 | carleson | 5 | 5 | 7 | 1 | 2 | 5 | 2 |
 | coarse-degiorgi | 7 | 6 | 7 | 2 | 4 | 3 | 0 |
 | sphere-packing | 6 | 6 | 9 | 2 | 8 | 1 | 3 |
@@ -35,11 +35,11 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 | imperial-flt | 5 | 5 | 5 | 0 | 0 | 5 | 0 |
 | equational-theories | 8 | 8 | 7 | 0 | 0 | 7 | 0 |
 | apap | 2 | 2 | 6 | 0 | 0 | 6 | 3 |
-| Total | 121 | 114 | 171 | 34 | 89 | 82 | 58 |
+| Total | 121 | 120 | 171 | 34 | 89 | 82 | 58 |
 
-| Batch | Compiled/extracted inputs | Historical ready | Historical unresolved | Blocked | Both-extracted pairs |
+| Batch | Compiled/extracted inputs | Historical ready | Historical unresolved | Historical blocked | Both-extracted pairs |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| applied-modeling-lib | 24 | 11 | 13 | 6 | 5 |
+| applied-modeling-lib | 30 | 11 | 13 | 6 | 6 |
 | carleson | 7 | 3 | 4 | 0 | 2 |
 | coarse-degiorgi | 6 | 6 | 0 | 1 | 0 |
 | sphere-packing | 9 | 9 | 0 | 0 | 3 |
@@ -55,7 +55,7 @@ including scope changes; linked inputs do not automatically inherit a verdict.
 | imperial-flt | 5 | 0 | 5 | 0 | 0 |
 | equational-theories | 7 | 0 | 7 | 0 | 0 |
 | apap | 6 | 0 | 6 | 0 | 3 |
-| Total | 164 | 57 | 107 | 7 | 57 |
+| Total | 170 | 57 | 107 | 7 | 58 |
 
 The 58 explicit reciprocal before/after links cover 116 inputs;
 55 inputs have no registered pair. Pairs include text-only revisions,

@@ -3,96 +3,118 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GCG24UserItemFairness-before",
   "status": "passed",
-  "evidence": "elaborated_statement_type",
+  "evidence": "compiled_environment",
   "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
-  "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
-  "graph_sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
-  "graph": "reports/bench-export-repair-2026-11-09/aml/GCG24UserItemFairness-before/graph.json",
-  "source_map": "reports/bench-export-repair-2026-11-09/aml/GCG24UserItemFairness-before/source-map.json",
-  "source_map_sha256": "888ef6461fda9507d3f92025ffc4770cf56ce274ffb0453d09134c5c14a0e838",
+  "input_sha256": "36433fc1db471bf0b7a6586db3732784eef80e9b7c7ae6971a3b7414f42e417f",
+  "graph_sha256": "9e7d41de5980921fb5bb3d7f6f61f8845defa207f8f7d067f1656b7c16ed95a8",
+  "graph": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
   "original_source_commit": "fa5379e08df8c13e2bbfb85757bd2675b201d124",
-  "compiled_modules": [
-    "dep.EconCSLib.Foundations.Math.FiniteOptimization",
-    "dep.EconCSLib.Foundations.Probability.FiniteExpectation",
-    "dep.EconCSLib.Applications.RecommenderSystems.Policy",
-    "dep.GCG24UserItemFairness.Basic",
-    "dep.GCG24UserItemFairness.Optimization",
-    "dep.EconCSLib.Applications.RecommenderSystems.Classwise",
-    "dep.GCG24UserItemFairness.Symmetry",
-    "dep.GCG24UserItemFairness.LPReduction",
-    "dep.GCG24UserItemFairness.OpposingTypes",
-    "Probe"
-  ],
+  "fresh_compilation": true,
   "new_sorry_or_axioms": false,
-  "canonical_dataset_changed": false,
-  "original_project_full_build_passed": false,
-  "original_theorem_proof_checked": false,
-  "root_definition_checked": false,
-  "source_fragments_exact": true,
-  "supplemental_legacy_declarations": [],
-  "source_manifest": {
-    "Probe.lean": {
-      "sha256": "83d74a8305968235f1c9240d9660f70052033431d0a40796adf4615b0c34d05f",
-      "bytes": 8919
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "root_definition_checked": true,
+  "root_proof_dependencies_checked": true,
+  "source_manifest": [
+    {
+      "path": "formal/Main.lean",
+      "sha256": "c6fa8bc177e67f6c1d974db086338dcc712e3740b892071f68a395bb6f9beb28"
     },
-    "dep/EconCSLib/Applications/RecommenderSystems/Classwise.lean": {
-      "sha256": "142e0064f6aa73c275a5546ddcdf86223f5997d582e97cb934fb5a9969e9da52",
-      "bytes": 1011
+    {
+      "path": "formal/dep/EconCSLib/Applications/RecommenderSystems/Classwise.lean",
+      "sha256": "5fa716b34c8a6d2c681a973b880389f3c6fb3d12a077452b96e0a68d58cd4feb"
     },
-    "dep/EconCSLib/Applications/RecommenderSystems/Policy.lean": {
-      "sha256": "6289b8c4d4776f6cb09fff4f26905217a5a8e95a6981bfadca00216140d94873",
-      "bytes": 728
+    {
+      "path": "formal/dep/EconCSLib/Applications/RecommenderSystems/Policy.lean",
+      "sha256": "ec755ad76e475a9cdd5186a85b1e20c8f2ddf24d9784e443fc3fdfdced007c02"
     },
-    "dep/EconCSLib/Foundations/Math/FiniteOptimization.lean": {
-      "sha256": "ad86f068b7c2c002ea6b2c40c78a60e49b028ade0b4f4301c2e926f35c3cc820",
-      "bytes": 748
+    {
+      "path": "formal/dep/EconCSLib/Applications/RecommenderSystems/PolicyAveraging.lean",
+      "sha256": "ea28d25f56069cd39964606cb0df59f2a957df28367f9ce61c93f9ce33be1722"
     },
-    "dep/EconCSLib/Foundations/Probability/FiniteExpectation.lean": {
-      "sha256": "44ae45f41468713c5ef0df5354d917171c8b24cf68f8e839aaf9f1672f229353",
-      "bytes": 455
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Math/FiniteOptimization.lean",
+      "sha256": "acc6233f46e1e355be79898adeb72b7f1fa0ea514e1b3a3e66966fd36ac868fd"
     },
-    "dep/GCG24UserItemFairness/Basic.lean": {
-      "sha256": "3b256fc9d99bf3dd479230f843ebedbd81f72a5a964b8eebaaaa8a0531afb1b4",
-      "bytes": 3207
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Math/FiniteSum.lean",
+      "sha256": "7321eefba24e8621022ea2f863e483391594e178ed1355b0ff116a92fc355b35"
     },
-    "dep/GCG24UserItemFairness/LPReduction.lean": {
-      "sha256": "f163430156348609f969fd76b18836276d6cc832ee3b6441a5f4436e8fb2f318",
-      "bytes": 4246
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Probability/FiniteExpectation.lean",
+      "sha256": "283f5eb2410c7e404af3f4b7e18e840f0879066bb4f6ffd58697e8e99a71a9aa"
     },
-    "dep/GCG24UserItemFairness/OpposingTypes.lean": {
-      "sha256": "41c7e9c4091bf57a2e776745c188f90f0406f303526e42aa6feb3ce99c4af60d",
-      "bytes": 1762
+    {
+      "path": "formal/dep/GCG24UserItemFairness/Assumptions.lean",
+      "sha256": "b4995b68626fecaaba7b0ab90293129e2e41aae621bd92b328b3e540bbe4e4f6"
     },
-    "dep/GCG24UserItemFairness/Optimization.lean": {
-      "sha256": "197effde9c9d496bf796531e87c23f9ceabe1c54020b236b1704bbbd6c0cd00b",
-      "bytes": 3051
+    {
+      "path": "formal/dep/GCG24UserItemFairness/Basic.lean",
+      "sha256": "a99c3fc8f3ea51a05fd73c24c475c1210ed13838066f806708405d3de28d5bfb"
     },
-    "dep/GCG24UserItemFairness/Symmetry.lean": {
-      "sha256": "97b88d0d09d9a283f3921a799eeb50bf367911bc5e08e7ccfaf4057c3a494507",
-      "bytes": 1565
+    {
+      "path": "formal/dep/GCG24UserItemFairness/LPReduction.lean",
+      "sha256": "5da74e2d99af22958afbffe009cc756610c6a28ef23df8c9431d1246d7a38081"
+    },
+    {
+      "path": "formal/dep/GCG24UserItemFairness/MainTheorems.lean",
+      "sha256": "373ab8a6747a2e6d8707a1d7c41537a2955bb419bbd23afb75d093ada31bc342"
+    },
+    {
+      "path": "formal/dep/GCG24UserItemFairness/OpposingTypes.lean",
+      "sha256": "56abffdaeecde972379a90b54d8b01712aaddd59eee301ed5cf3b0d23964e439"
+    },
+    {
+      "path": "formal/dep/GCG24UserItemFairness/Optimization.lean",
+      "sha256": "0912c4f35d55183104a032cd341eac02fefe362b9a8b0e35f687dece329ed68b"
+    },
+    {
+      "path": "formal/dep/GCG24UserItemFairness/ReductionPreservation.lean",
+      "sha256": "35e3df132a2a7e9f34d038e749053f419a1dd0f8fe85969ec90bcbe9667a634a"
+    },
+    {
+      "path": "formal/dep/GCG24UserItemFairness/Symmetrization.lean",
+      "sha256": "1118ee8629513fcc2da078d95f8cc008cd63eb0d6ea28fe7df04f4da82ea25f8"
+    },
+    {
+      "path": "formal/dep/GCG24UserItemFairness/Symmetry.lean",
+      "sha256": "1eb95a03498c253c54d5a4be5752b7127752661a3b8418ceb3b9dab443d71362"
+    }
+  ],
+  "module_count": 16,
+  "graph_nodes": 135,
+  "graph_edges": 676,
+  "root_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "root_type_check": {
+    "status": "passed",
+    "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
+    "historical_type": "∀ {m n : ℕ} [inst : NeZero m] [inst_1 : NeZero n] (S S' : RecommendationModel.SymmetricData m n 2)\n  (hTypes : Function.Surjective S.types.toType) (hTypes' : Function.Surjective S'.types.toType) {alpha alpha' : ℝ}\n  {v : Item n → ℝ},\n  (S.canonicalReductionOfSurjective hTypes).reduced = OpposingTypes.twoTypeReducedModel alpha v →\n    (S'.canonicalReductionOfSurjective hTypes').reduced = OpposingTypes.twoTypeReducedModel alpha' v →\n      0 < alpha →\n        alpha < 1 →\n          0 < alpha' →\n            alpha' < 1 →\n              alpha ≤ alpha' →\n                alpha ≤ 1 / 2 →\n                  alpha' ≤ 1 / 2 →\n                    (∀ (j : Item n), 0 < v j) →\n                      OpposingTypes.StrictlyDecreasingByIndex v → S'.model.priceOfFairness ≤ S.model.priceOfFairness",
+    "check": "Lean kernel checks the migrated root against the historical elaborated type."
+  },
+  "previous_input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+  "previous_formal": {
+    "file_count": 19,
+    "sha256": "9913cb797d1f458a9c9bafbe9427b66f3048a12568de79426acc481c951bb0fa",
+    "effective_root_sha256": "9b201e02b64b4ab0908284e06a1f3dc80cd690aa0ddad37be88e1b800d65e586"
+  },
+  "previous_graph": {
+    "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+    "graph_sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
+    "graph_source": {
+      "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+      "path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
+      "sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
+      "binding": "verified_derived_graph"
     }
   },
-  "replay_command": "python3 build/bench-export-repair-20261109/aml/compile_sliced.py GCG24UserItemFairness-before",
-  "build_result": {
-    "project_id": "GCG24UserItemFairness-before",
-    "status": "passed",
-    "compiled_modules": [
-      "dep.EconCSLib.Foundations.Math.FiniteOptimization",
-      "dep.EconCSLib.Foundations.Probability.FiniteExpectation",
-      "dep.EconCSLib.Applications.RecommenderSystems.Policy",
-      "dep.GCG24UserItemFairness.Basic",
-      "dep.GCG24UserItemFairness.Optimization",
-      "dep.EconCSLib.Applications.RecommenderSystems.Classwise",
-      "dep.GCG24UserItemFairness.Symmetry",
-      "dep.GCG24UserItemFairness.LPReduction",
-      "dep.GCG24UserItemFairness.OpposingTypes",
-      "Probe"
-    ],
-    "elapsed_seconds": 20.013763427734375,
-    "lean_path": "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/aml/projects/GCG24UserItemFairness-before/slice-lib:/tmp/paperlean-mathlib-434-20261109/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/Qq/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/plausible/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/aesop/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/batteries/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/proofwidgets/.lake/build/lib/lean"
-  },
-  "review_method": "model",
-  "limitations_cn": "证据是原始声明类型/原生Prop定义的真实Lean展开，未声称整项目或原theorem证明通过Lean4.34.1。"
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "replay_command": "python3 scripts/construction/extract_projects.py --dataset applied-modeling-lib --ids GCG24UserItemFairness-before",
+  "migration_scope": "Target-specific native module/declaration slice; complete retained proof bodies. Compatibility changes affect proofs and Lean/mathlib interfaces, not the target statement or semantic label."
 }

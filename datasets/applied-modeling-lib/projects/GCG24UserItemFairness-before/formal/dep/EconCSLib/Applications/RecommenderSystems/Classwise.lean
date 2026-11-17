@@ -125,7 +125,7 @@ theorem finiteMin_comp_of_fiberRepresentatives {α κ : Type*}
     intro k _hk
     have hle := Finset.inf'_le (s := (Finset.univ : Finset α))
       (f := fun a : α => f (τ a)) (b := reps.repr k) (by simp)
-    simpa [reps.repr_spec k] using hle
+    simpa only [reps.repr_spec k] using hle
   · apply Finset.le_inf'
     intro a _ha
     exact Finset.inf'_le (s := (Finset.univ : Finset κ))

@@ -27,14 +27,13 @@
   "before_ids": [],
   "after_ids": [],
   "status": "misaligned",
-  "compiled_lean434": false,
-  "leantrace_extracted": false,
-  "packaged_compilation": "not-rerun-after-import-relocation",
-  "missing_modules": [
-    "EconCSLib.MechanismDesign.Auctions.MainTheorems"
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
   ],
-  "pending_reason": "Full-paper semantic pairing resolved on 2026-11-05; technical compilation/extraction remains incomplete. Missing modules, if any, are unchanged.",
-  "external_imports": [],
   "preparation": {
     "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
     "catalog": {
@@ -44,7 +43,7 @@
     "graph": null,
     "review": null
   },
-  "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+  "input_sha256": "7723bc8658d665d92d7b3d810ec18d94a0b775e3142504399ae1a1f0641b8d44",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -54,10 +53,10 @@
   "changes": null,
   "formal": {
     "file_count": 4,
-    "sha256": "849c57e70efac74e03f4aced353fb38168f4d70260ac4c14aa5efc61bcae83ae",
-    "effective_root_sha256": "4662efec3ff231e00fe6965ef53e490e00f6cf74b443197416ee7c83bb398524"
+    "sha256": "0ff725959629a9c0db1b4f4128b2f850d97f0dd073966a02351cb318a82c0560",
+    "effective_root_sha256": "48baba8ad2edfdcea725a42997d00e3ba8d76fd08a9bed4004cd3af0fa4e8306"
   },
   "historical_status": "blocked",
-  "technical_status": "blocked",
+  "technical_status": "compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

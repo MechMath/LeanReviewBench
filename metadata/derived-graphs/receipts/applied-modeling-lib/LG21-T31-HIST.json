@@ -3,60 +3,90 @@
   "dataset": "applied-modeling-lib",
   "project_id": "LG21-T31-HIST",
   "status": "passed",
-  "evidence": "elaborated_statement_type",
+  "evidence": "compiled_environment",
   "root": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
-  "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
-  "graph_sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
-  "graph": "reports/bench-export-repair-2026-11-09/aml/LG21-T31-HIST/graph.json",
-  "source_map": "reports/bench-export-repair-2026-11-09/aml/LG21-T31-HIST/source-map.json",
-  "source_map_sha256": "c0f0bc9432b3094c8a7e003e8faa2598b6c3e440922a75fb01301cad108a64b7",
+  "input_sha256": "74e8097264ece5a35261e30c459ca3edd691ac048a7072766a657ad6d2adf2d1",
+  "graph_sha256": "f1fc6ee73a94c74c0678c241d069a684b59e71be1cf3c683c3960376fb7ca0f5",
+  "graph": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
   "original_source_commit": "dbfa918c02cd35c8279f8f8a9183f6bcbe72c817",
-  "compiled_modules": [
-    "dep.EconCSLib.Foundations.Probability.Gaussian",
-    "dep.LG21TestOptionalPolicies.MainTheorems",
-    "dep.LG21TestOptionalPolicies.ProofInterface",
-    "Probe"
-  ],
+  "fresh_compilation": true,
   "new_sorry_or_axioms": false,
-  "canonical_dataset_changed": false,
-  "original_project_full_build_passed": false,
-  "original_theorem_proof_checked": false,
-  "root_definition_checked": false,
-  "source_fragments_exact": true,
-  "supplemental_legacy_declarations": [],
-  "source_manifest": {
-    "Probe.lean": {
-      "sha256": "f05713b265fefaf1e0d4a0f4cc5d41c7c87bd4f4fc3003547d3006ed946411c2",
-      "bytes": 9563
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "root_definition_checked": true,
+  "root_proof_dependencies_checked": true,
+  "source_manifest": [
+    {
+      "path": "formal/Main.lean",
+      "sha256": "fc8079fe6eb9f2546ddca9405bdc0b892925609262ae836fd8682c040ac63a6a"
     },
-    "dep/EconCSLib/Foundations/Probability/Gaussian.lean": {
-      "sha256": "37b1bd629ab987620e27dcfee0a5f84352d7c02c5b7bf194138e3fea98824272",
-      "bytes": 7953
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Math/AffineThreshold.lean",
+      "sha256": "3967d05686c8e81492dc675a6087df0e576388d992e80adcd7d95d5bcdcc2167"
     },
-    "dep/LG21TestOptionalPolicies/MainTheorems.lean": {
-      "sha256": "3530c12559b1ec04255ce155e9578b95d76cdfbd52cf456b7f53bebfe54a09f6",
-      "bytes": 11692
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Math/ThresholdCharacterization.lean",
+      "sha256": "ae54f17712068cd1c3b208509ce41d89129356dd638b507e87a0999d039e195c"
     },
-    "dep/LG21TestOptionalPolicies/ProofInterface.lean": {
-      "sha256": "27f8e830209618a8ce4291125d5257e4da948666ad7b0674bcc51097dd30fc37",
-      "bytes": 1486
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Probability/Gaussian.lean",
+      "sha256": "33b20f9dd4f49efdc98d17576bb81958f9f9ff18e2f07340889ebfe1edabb4e1"
+    },
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Probability/GaussianMathlib.lean",
+      "sha256": "8beb7f488e7f7015a7dc57200cdbb0cfec04ae414b7c7b7dd8434b53b0821961"
+    },
+    {
+      "path": "formal/dep/EconCSLib/Foundations/Probability/GaussianMills.lean",
+      "sha256": "c012527de8a05807f1eafccd7f44d8256e606f6f38f62449899410ce29aa85bc"
+    },
+    {
+      "path": "formal/dep/LG21TestOptionalPolicies/MainTheorems.lean",
+      "sha256": "5f08d1e57cd9899690783e74148b010ba3ec5bc1630b1c4b557bb081f488ffcd"
+    },
+    {
+      "path": "formal/dep/LG21TestOptionalPolicies/PostPaperAudit.lean",
+      "sha256": "cebe79db837f66f6babbb56dc45b854f49836211728a75f4d0d0204c3bea1477"
+    },
+    {
+      "path": "formal/dep/LG21TestOptionalPolicies/ProofInterface.lean",
+      "sha256": "8db7a1df74b7e35fb04611f580d9394db732cf8b5b91d6fec6dfae6f94783d86"
+    }
+  ],
+  "module_count": 9,
+  "graph_nodes": 119,
+  "graph_edges": 490,
+  "root_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "root_type_check": {
+    "status": "passed",
+    "root": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
+    "historical_type": "∀ {Feature : Type u_1} {Base : Type u_2} {Equilibrium : Type u_3} [inst : Fintype Feature]\n  [inst_1 : DecidableEq Feature] [Nonempty Base] (skillGivenBase : Equilibrium → Base → PMF ℝ)\n  (baseProfile : Equilibrium → PMF Base) (M : Base → GaussianOffsetSignalFamily Feature) (theta : Base → Feature → ℝ)\n  (k : Feature) (accessFraction baseOnlyEstimate : Equilibrium → Base → ℝ)\n  (scoreLaw : Equilibrium → Base → GaussianScaleLaw),\n  (∀ (e : Equilibrium) (base : Base), 0 ≤ accessFraction e base) →\n    (∀ (e : Equilibrium) (base : Base), accessFraction e base < 1) →\n      (∀ (base : Base) (test : ℝ) (action : LG21AccessAction),\n          (paperSchoolInformationSetFromAccessAction false base test action).accessStatus = none) ∧\n        ∀ (e : Equilibrium),\n          ∃ W : LG21OptionalReportingStrategicWithholdingSourceWitness Base,\n            (∀ (base : Base) (skill : ℝ), W.takes base skill) ∧\n              (∃ base score, ¬W.reports base score) ∧\n                (∀ (base : Base), ∃ cutoff, ∀ (score : ℝ), W.reports base score ↔ cutoff ≤ score) ∧\n                  ¬lg21SourceLawLatentSkillFair\n                        (paperBaseMixedGaussianPosteriorLawSurface (skillGivenBase e) (baseProfile e) M theta k\n                          (scoreLaw e) (baseOnlyEstimate e)) ∧\n                    ¬lg21SourceLawObservablyFair\n                          (paperBaseMixedGaussianPosteriorLawSurface (skillGivenBase e) (baseProfile e) M theta k\n                            (scoreLaw e) (baseOnlyEstimate e)) ∧\n                      ¬lg21SourceLawDemographicallyFair\n                          (paperBaseMixedGaussianPosteriorLawSurface (skillGivenBase e) (baseProfile e) M theta k\n                            (scoreLaw e) (baseOnlyEstimate e))",
+    "check": "Lean kernel checks the migrated root against the historical elaborated type."
+  },
+  "previous_input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+  "previous_formal": {
+    "file_count": 25,
+    "sha256": "01a7dde57b10604590458f6f66d01de7323a6e7c3963b139808aa2ca93cf23c0",
+    "effective_root_sha256": "c0e02999e9f0dc6098b3e27f7a849e5e801e618c26c355ed45d7f51b806ce680"
+  },
+  "previous_graph": {
+    "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+    "graph_sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+    "graph_source": {
+      "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+      "path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
+      "sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+      "binding": "verified_derived_graph"
     }
   },
-  "replay_command": "python3 build/bench-export-repair-20261109/aml/compile_sliced.py LG21-T31-HIST",
-  "build_result": {
-    "project_id": "LG21-T31-HIST",
-    "status": "passed",
-    "compiled_modules": [
-      "dep.EconCSLib.Foundations.Probability.Gaussian",
-      "dep.LG21TestOptionalPolicies.MainTheorems",
-      "dep.LG21TestOptionalPolicies.ProofInterface",
-      "Probe"
-    ],
-    "elapsed_seconds": 9.987369060516357,
-    "lean_path": "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/aml/projects/LG21-T31-HIST/slice-lib:/tmp/paperlean-mathlib-434-20261109/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/Qq/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/plausible/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/aesop/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/batteries/.lake/build/lib/lean:/tmp/paperlean-mathlib-434-20261109/.lake/packages/proofwidgets/.lake/build/lib/lean"
-  },
-  "review_method": "model",
-  "limitations_cn": "证据是原始声明类型/原生Prop定义的真实Lean展开，未声称整项目或原theorem证明通过Lean4.34.1。"
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "replay_command": "python3 scripts/construction/extract_projects.py --dataset applied-modeling-lib --ids LG21-T31-HIST",
+  "migration_scope": "Target-specific native module/declaration slice; complete retained proof bodies. Compatibility changes affect proofs and Lean/mathlib interfaces, not the target statement or semantic label."
 }

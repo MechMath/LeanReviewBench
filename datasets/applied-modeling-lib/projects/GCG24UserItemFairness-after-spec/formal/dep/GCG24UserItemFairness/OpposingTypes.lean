@@ -638,7 +638,7 @@ theorem typeOneShare_continuousOn_Icc
         (lt_of_lt_of_le halphaLeft0 halpha.1)
         (lt_of_le_of_lt halpha.2 halphaRight1)
         hleft hright)
-  simpa [typeOneShare, div_eq_mul_inv] using hnum.mul (hden.inv₀ hden_ne)
+  exact hnum.div hden hden_ne
 
 /-- The indexed share `q_j(α)` is continuous on compact subintervals of `(0,1)`. -/
 theorem pairShare_continuousOn_Icc
@@ -3326,7 +3326,8 @@ theorem problem6BoundaryGap_continuousOn_Icc {n : ℕ}
             (lt_of_lt_of_le halphaLeft0 halpha.1)
             (lt_of_le_of_lt halpha.2 halphaRight1)
             hpos)
-      simpa [hjt] using hq.inv₀ hq_ne
+      simp only [hjt, if_true]
+      exact hq.inv₀ hq_ne
     · simpa [hjt] using
         (continuousOn_const :
           ContinuousOn (fun _ : ℝ => (0 : ℝ))
@@ -3350,7 +3351,8 @@ theorem problem6BoundaryGap_continuousOn_Icc {n : ℕ}
             (lt_of_lt_of_le halphaLeft0 halpha.1)
             (lt_of_le_of_lt halpha.2 halphaRight1)
             hpos)
-      simpa [htj] using hq.inv₀ hq_ne
+      simp only [htj, if_true]
+      exact hq.inv₀ hq_ne
     · simpa [htj] using
         (continuousOn_const :
           ContinuousOn (fun _ : ℝ => (0 : ℝ))
@@ -3709,7 +3711,7 @@ theorem problem6ClosedValue_half_succ_center_gt_inv_card {n : ℕ} [NeZero n]
             (1 - pairShare (1 / 2) v lastItem)⁻¹ else 0) <
           if t < (lastItem : Item n) then (2 : ℝ) else 0
       have htlast_fin : t < (lastItem : Item n) := by
-        simpa using htlast
+        exact htlast
       simpa [htlast_fin] using hinv_lt
   have hright_count :
       (∑ j : Item n, if t.val < j.val then (2 : ℝ) else 0) =
@@ -13848,7 +13850,7 @@ theorem theorem3_typeFairness_mono_across_adjacent_closed_boundary
         (problem6ClosedPolicy alphaBoundary v t
           halphaBoundary0 halphaBoundary1 hpos hpivotBoundaryT)
         (problem6ClosedValue alphaBoundary v t) := by
-    dsimp [hpivotBoundaryT, certBoundaryT]
+    try dsimp [hpivotBoundaryT, certBoundaryT]
     exact
       problem6EqualizedBasicOptimal_of_closed_certificate
         halphaBoundary0 halphaBoundary1 hpos certBoundaryT
@@ -13857,7 +13859,7 @@ theorem theorem3_typeFairness_mono_across_adjacent_closed_boundary
         (problem6ClosedPolicy alphaBoundary v u
           halphaBoundary0 halphaBoundary1 hpos hpivotBoundaryU)
         (problem6ClosedValue alphaBoundary v u) := by
-    dsimp [hpivotBoundaryU, certBoundaryU]
+    try dsimp [hpivotBoundaryU, certBoundaryU]
     exact
       problem6EqualizedBasicOptimal_of_closed_certificate
         halphaBoundary0 halphaBoundary1 hpos certBoundaryU
@@ -14579,7 +14581,7 @@ theorem problem6FirstClosedPolicy_optimalTypeFairnessAtLevel_one_eq_of_feasible_
       Problem6EqualizedBasicOptimal alpha v
         (problem6ClosedPolicy alpha v t halpha0 halpha1 hpos hpivot)
         (problem6ClosedValue alpha v t) := by
-    dsimp [cert, hpivot]
+    try dsimp [cert, hpivot]
     exact problem6EqualizedBasicOptimal_of_closed_certificate
       halpha0 halpha1 hpos cert
   have hvalue :
@@ -14695,7 +14697,7 @@ theorem problem6FirstClosedPolicy_optimalTypeFairnessAtLevel_one_eq_of_alpha_le_
       Problem6EqualizedBasicOptimal alpha v
         (problem6ClosedPolicy alpha v t halpha0 halpha1 hpos hpivot)
         (problem6ClosedValue alpha v t) := by
-    dsimp [cert, hpivot]
+    try dsimp [cert, hpivot]
     exact problem6EqualizedBasicOptimal_of_closed_certificate
       halpha0 halpha1 hpos cert
   have hvalue :
@@ -14777,7 +14779,7 @@ theorem problem6FirstClosedPolicy_feasibleAtLevel_one
       Problem6EqualizedBasicOptimal alpha v
         (problem6ClosedPolicy alpha v t halpha0 halpha1 hpos hpivot)
         (problem6ClosedValue alpha v t) := by
-    dsimp [cert, hpivot]
+    try dsimp [cert, hpivot]
     exact problem6EqualizedBasicOptimal_of_closed_certificate
       halpha0 halpha1 hpos cert
   have hpolicy :
@@ -14856,7 +14858,7 @@ theorem problem6FirstClosedPolicy_isOptimalAtLevel_one_of_feasible_canonicalizat
       Problem6EqualizedBasicOptimal alpha v
         (problem6ClosedPolicy alpha v t halpha0 halpha1 hpos hpivot)
         (problem6ClosedValue alpha v t) := by
-    dsimp [cert, hpivot]
+    try dsimp [cert, hpivot]
     exact problem6EqualizedBasicOptimal_of_closed_certificate
       halpha0 halpha1 hpos cert
   have hpolicy :

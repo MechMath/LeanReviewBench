@@ -88,7 +88,7 @@ python3 scripts/construction/compile_projects.py env
 python3 scripts/construction/compile_projects.py compile --dataset carleson --ids CAR-01-before
 ```
 
-This packaging migration performs static verification, not a fresh Lean build. Seven retained inputs have legacy blocked flags and recovered contexts: six have statement-type elaboration evidence, and CDG-L94 has a subsequent original-theorem compilation receipt. These records do not assert fresh compilation of the packaged checkout. Compilation is separate from proof completeness and semantic labeling.
+Six previously blocked AppliedModelingLib inputs now contain target-specific native dependency slices, freshly compiled and re-extracted with Lean 4.34.1. Their receipts record the source inventory, root-type checks and axiom dependencies. CDG-L94 retains its historical blocked flag and a subsequent original-theorem compilation receipt. Compilation is separate from semantic labeling. See the [construction instructions](docs/CONSTRUCTION.md) for replay.
 
 To rebuild this publication layout from the pinned research checkout and its local archive Git objects:
 

@@ -689,7 +689,7 @@ theorem inactivePairsCard_ge_n_sub_one_of_twoTypeThresholdSupport
   have hinactive_card :
       Fintype.card {p : UserType 2 × Item n // p ∈ inactiveTypeItemPairs ρ} =
         inactiveTypeItemPairsCard ρ := by
-    simpa [inactiveTypeItemPairsCard, inactiveTypeItemPairs] using
+    simpa [inactiveTypeItemPairsCard, inactiveTypeItemPairs, EconCSLib.Policy.inactivePairsCard] using
       (Fintype.card_coe (inactiveTypeItemPairs ρ))
   calc
     n - 1 = Fintype.card {j : Item n // j ∈ s} := hs_card.symm
@@ -817,7 +817,7 @@ theorem card_items_add_sharedItems_le_activePairsCard {K n : ℕ}
         (activeTypeItemPairs ρ).card := by
     exact Fintype.card_coe (activeTypeItemPairs ρ)
   rw [hdomain, hcodomain] at hcard
-  simpa [activeTypeItemPairsCard] using hcard
+  simpa [activeTypeItemPairsCard, activeTypeItemPairs, EconCSLib.Policy.activePairsCard] using hcard
 
 theorem sharedItemsBound_of_activePairsBound_of_item_coverage {K n : ℕ}
     [NeZero K]

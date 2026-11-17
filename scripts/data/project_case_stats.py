@@ -66,7 +66,7 @@ def markdown(data):
     keys = ['roots', 'compiled_roots', 'inputs', 'upstream_records', 'inputs_with_evidence', 'inputs_without_evidence', 'pairs']
     for row in data['batches'] + [dict(batch='Total', **data['totals'])]:
         lines.append('| ' + row['batch'] + ' | ' + ' | '.join(str(row[k]) for k in keys) + ' |')
-    lines += ['', '| Batch | Compiled/extracted inputs | Historical ready | Historical unresolved | Blocked | Both-extracted pairs |',
+    lines += ['', '| Batch | Compiled/extracted inputs | Historical ready | Historical unresolved | Historical blocked | Both-extracted pairs |',
               '| --- | ---: | ---: | ---: | ---: | ---: |']
     for row in data['batches'] + [dict(batch='Total', **data['totals'])]:
         lines.append('| ' + row['batch'] + ' | ' + ' | '.join(str(row[k]) for k in

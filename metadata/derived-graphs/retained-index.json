@@ -1,91 +1,96 @@
 {
   "schema_version": "paperlean-retained-graphs-1",
-  "purpose": "Local access to exact historical graphs; no fresh compilation or semantic re-annotation.",
+  "purpose": "Input-bound formal context graphs; fresh compilation is recorded per input alongside retained historical evidence.",
   "records": [
     {
       "dataset": "applied-modeling-lib",
       "project_id": "EOS-lemma5_locally_envy_free_stable",
-      "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
+      "input_sha256": "176d94f84158aae462287484e66a116254707640beb99c08bcf03b52b652bad4",
       "roots": [
         "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
       ],
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
-      "graph_sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
+      "graph_sha256": "f322b5b6b96cf5fcbba59e6f20bc39f1dee54081fea3da141bf821bcf051e3dc",
       "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
         "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
-        "sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
-        "binding": "verified_derived_graph"
+        "sha256": "f322b5b6b96cf5fcbba59e6f20bc39f1dee54081fea3da141bf821bcf051e3dc",
+        "binding": "fresh_compilation_and_leantrace_extraction",
+        "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/EOS-lemma5_locally_envy_free_stable.json",
+        "receipt_sha256": "da4d3b78bfb44c9bb4d853af711b942afcf1faf5ad1a34c3347d08d483495afc"
       },
-      "fresh_compilation": false
+      "fresh_compilation": true
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
-      "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
+      "input_sha256": "7723bc8658d665d92d7b3d810ec18d94a0b775e3142504399ae1a1f0641b8d44",
       "roots": [
         "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
       ],
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma6_stable_assignment_slot_envy_free.json",
-      "graph_sha256": "70244e7329b5b6ef26952cf51eba4458dd5a059305a4ef7b14bbb35790acd9a6",
+      "graph_sha256": "eb5b115817b3ce4278af785535f7717b57084d6b5dd37b1a59c843aeb3e6f0fd",
       "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
         "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma6_stable_assignment_slot_envy_free.json",
-        "sha256": "70244e7329b5b6ef26952cf51eba4458dd5a059305a4ef7b14bbb35790acd9a6",
-        "binding": "verified_derived_graph"
+        "sha256": "eb5b115817b3ce4278af785535f7717b57084d6b5dd37b1a59c843aeb3e6f0fd",
+        "binding": "fresh_compilation_and_leantrace_extraction",
+        "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/EOS-lemma6_stable_assignment_slot_envy_free.json",
+        "receipt_sha256": "3b8749b77e6e61a19e7ac714dc74f8acb20b0efd37bf3145ac9feada605a527d"
       },
-      "fresh_compilation": false
+      "fresh_compilation": true
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
-      "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
+      "input_sha256": "975471b171db9b98f671a5f33a2e682a14da2b60acb3746541a6456e43b869b3",
       "roots": [
         "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
       ],
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
-      "graph_sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
+      "graph_sha256": "b1b573fbafa84c7966f5b3957200f3e5897d34b1fb2a3f6d5486d917383bb02c",
       "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
         "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
-        "sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
-        "binding": "verified_derived_graph"
+        "sha256": "b1b573fbafa84c7966f5b3957200f3e5897d34b1fb2a3f6d5486d917383bb02c",
+        "binding": "fresh_compilation_and_leantrace_extraction",
+        "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/EOS-theorem7_no_positive_transfer_conclusion.json",
+        "receipt_sha256": "7053639326214da4050a1bfe90ed56a85bfb5cf3dac991f9607e98ad99b71f0c"
       },
-      "fresh_compilation": false
+      "fresh_compilation": true
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "GCG24UserItemFairness-after-spec",
-      "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
+      "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
       "roots": [
         "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
       ],
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-after-spec.json",
-      "graph_sha256": "5acb7d85a727b12a3d70d96c2bbbf09a78cd7514e392e8d1c6dbc0e954cb59a8",
+      "graph_sha256": "2b989de75199e854de5144a77e03415d6a90e22141db06d95dd7264fc0d9e10e",
       "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
         "path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-after-spec.json",
-        "sha256": "5acb7d85a727b12a3d70d96c2bbbf09a78cd7514e392e8d1c6dbc0e954cb59a8",
-        "binding": "verified_derived_graph"
+        "sha256": "2b989de75199e854de5144a77e03415d6a90e22141db06d95dd7264fc0d9e10e",
+        "binding": "fresh_compilation_and_leantrace_extraction",
+        "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GCG24UserItemFairness-after-spec.json",
+        "receipt_sha256": "565cfba45c287a6ade990b8fb0d30afcf065609d52e124b1f2ea2ff4fb6d29ce"
       },
-      "fresh_compilation": false
+      "fresh_compilation": true
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "GCG24UserItemFairness-before",
-      "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+      "input_sha256": "36433fc1db471bf0b7a6586db3732784eef80e9b7c7ae6971a3b7414f42e417f",
       "roots": [
         "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
       ],
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
-      "graph_sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
+      "graph_sha256": "9e7d41de5980921fb5bb3d7f6f61f8845defa207f8f7d067f1656b7c16ed95a8",
       "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
         "path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
-        "sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
-        "binding": "verified_derived_graph"
+        "sha256": "9e7d41de5980921fb5bb3d7f6f61f8845defa207f8f7d067f1656b7c16ed95a8",
+        "binding": "fresh_compilation_and_leantrace_extraction",
+        "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GCG24UserItemFairness-before.json",
+        "receipt_sha256": "f6c7b0a3396ca12131755bf85f7714b09ed7c15eb12ff80d53dc7f50f0455d70"
       },
-      "fresh_compilation": false
+      "fresh_compilation": true
     },
     {
       "dataset": "applied-modeling-lib",
@@ -311,19 +316,20 @@
     {
       "dataset": "applied-modeling-lib",
       "project_id": "LG21-T31-HIST",
-      "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
+      "input_sha256": "74e8097264ece5a35261e30c459ca3edd691ac048a7072766a657ad6d2adf2d1",
       "roots": [
         "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
       ],
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
-      "graph_sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
+      "graph_sha256": "f1fc6ee73a94c74c0678c241d069a684b59e71be1cf3c683c3960376fb7ca0f5",
       "graph_source": {
-        "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
         "path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
-        "sha256": "6679093e478c069dd43f16bd3dc3f8093f0ae94600622e015938329a0017163f",
-        "binding": "verified_derived_graph"
+        "sha256": "f1fc6ee73a94c74c0678c241d069a684b59e71be1cf3c683c3960376fb7ca0f5",
+        "binding": "fresh_compilation_and_leantrace_extraction",
+        "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-T31-HIST.json",
+        "receipt_sha256": "3afb32c1a79905c65c4b852ed510df16b098e86552970140eaf49333b98f7c5b"
       },
-      "fresh_compilation": false
+      "fresh_compilation": true
     },
     {
       "dataset": "applied-modeling-lib",

@@ -47,10 +47,8 @@ theorem finiteProbabilitySimplex_isClosed
     IsClosed {mass : α → ℝ | FiniteProbabilitySimplex mass} := by
   have hnonneg :
       IsClosed {mass : α → ℝ | ∀ i : α, 0 ≤ mass i} := by
-    simpa [Set.setOf_forall] using
-      (isClosed_iInter fun i : α =>
-        (isClosed_Ici.preimage (continuous_apply i) :
-          IsClosed {mass : α → ℝ | mass i ∈ Set.Ici (0 : ℝ)}))
+    rw [Set.ofPred_forall]
+    exact isClosed_iInter fun i => isClosed_le continuous_const (continuous_apply i)
   have hsum_cont : Continuous (fun mass : α → ℝ => ∑ i : α, mass i) :=
     continuous_finset_sum _ fun i _hi => continuous_apply i
   have hsum :

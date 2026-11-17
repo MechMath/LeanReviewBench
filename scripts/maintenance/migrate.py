@@ -121,6 +121,17 @@ def migrate(source,output,research_revision):
     # The pinned construction metadata above is used for source/input verification.
     shutil.rmtree(output/'metadata')
     shutil.copytree(ROOT/'metadata', output/'metadata')
+    # Freshly migrated native packages supersede their historical archive copies.
+    # Their current source inventories and input hashes are bound by receipts.
+    current_graphs=json.loads((ROOT/'metadata/derived-graphs/index.json').read_text())
+    for row in current_graphs['records']:
+        receipt=json.loads((ROOT/row['receipt_path']).read_text())
+        if (receipt.get('canonical_dataset_changed') is True
+                and receipt.get('packaged_project_full_build_passed') is True
+                and receipt.get('fresh_compilation') is True):
+            relative=Path('datasets')/row['dataset']/'projects'/row['project_id']
+            shutil.rmtree(output/relative)
+            shutil.copytree(ROOT/relative,output/relative)
     for batch in cfg['datasets']:
         if batch == EXCLUDED_BATCH:
             continue

@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "EOS-lemma5_locally_envy_free_stable",
   "task_id": "aml:EOS-lemma5_locally_envy_free_stable",
-  "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
+  "input_sha256": "176d94f84158aae462287484e66a116254707640beb99c08bcf03b52b652bad4",
   "label": "misaligned",
   "reason": "StableAssignment omits the no-blocking requirement for unassigned slots.",
   "review_status": "human_reviewed",

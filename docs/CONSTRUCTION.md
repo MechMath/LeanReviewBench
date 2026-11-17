@@ -37,6 +37,39 @@ and use the [generated statistics](STATISTICS.md). The registered inventory defi
    Keep reviewed labels outside model inputs; final scoring references need a separate export-bound review
    contract and review. Keep related versions in the same split and preserve input identities when updating metadata.
 
-The published tools provide a shared compiler and configurable tool resolution, not a complete pipeline for rebuilding every case from its upstream repository. Historical source acquisition and extraction recipes remain in the pinned research archive identified by `metadata/release.json`. Retaining historical receipts does not establish fresh compilation of the current checkout.
+The published tools compile native inputs and re-extract statement graphs using a configured compatible LeanTrace bundle. They do not provide a complete pipeline for rebuilding every case from its upstream repository. Historical source acquisition and extraction recipes remain in the pinned research archive identified by `metadata/release.json`. Retaining historical receipts does not establish fresh compilation of the current checkout.
 
 See [data format](DATA-FORMAT.md), [environment](ENVIRONMENT.md), [maintenance](MAINTENANCE.md), and the [taxonomy standard](../metadata/taxonomy/standard.md). Binary alignment verdicts are human reviewed; taxonomy assignments have their own review state.
+
+## AppliedModelingLib dependency slices
+
+EconCSLib is part of the historical AppliedModelingLib repository. The six
+formerly blocked inputs vendor only the local modules/declarations needed by
+their targets under `formal/dep/`. They preserve their own historical versions;
+EconCSLib is not a new shared external boundary library. EOS auction declarations
+missing at the recorded source revision are recovered from the historical
+revision recorded in each receipt. Complete retained proof bodies are checked;
+no new `sorry` or axioms are introduced. This certifies the packaged slices,
+not a build of the entire upstream repository.
+
+With the [construction environment](ENVIRONMENT.md) configured, replay compilation
+and extraction directly from the released Lean files:
+
+```sh
+python3 scripts/construction/extract_projects.py --dataset applied-modeling-lib --ids \
+  EOS-lemma5_locally_envy_free_stable \
+  EOS-lemma6_stable_assignment_slot_envy_free \
+  EOS-theorem7_no_positive_transfer_conclusion \
+  GCG24UserItemFairness-before \
+  GCG24UserItemFairness-after-spec \
+  LG21-T31-HIST
+```
+
+The command writes build logs, graphs and receipts under `build/extracted-projects/`.
+It does not update published metadata. Fresh compilation and extraction for these
+six inputs use only their native source packages and the configured tools and
+external libraries; retained graphs are not construction inputs. Published receipts
+in `metadata/derived-graphs/receipts/applied-modeling-lib/` also record kernel checks
+of the historical root types, with explicit annotations for pretty-printed
+existential binders where needed. Binary labels and taxonomy assignments are
+preserved; their input/hash bindings follow the migrated packages.
