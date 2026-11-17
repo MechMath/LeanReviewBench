@@ -2,7 +2,7 @@
 
 A benchmark for informal–formal statement alignment in real Lean projects.
 
-This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format described in the paper's construction appendix and the research branch documentation. All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
+This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format documented in [the data contract](docs/DATA-FORMAT.md). All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
 ```text
 datasets/
@@ -73,7 +73,7 @@ These are curator-facing package records, including source/history metadata. The
 
 ## Data contract and evaluation boundary
 
-[DATA-FORMAT.md](docs/DATA-FORMAT.md) and [PROJECT-CASE-WORKFLOW.md](docs/PROJECT-CASE-WORKFLOW.md) define the native format. The [paper appendix snapshot](docs/source-contracts/paper/app_imple_detail.tex) describes the same layout. Copies of the [latest fetched research documents](docs/source-contracts/research/README.md) are pinned to commit `2f471585`; dated counts in those copies are historical. The retained data come from integration commit `18086147`, preserving the agreed refactor joint-input layout.
+[DATA-FORMAT.md](docs/DATA-FORMAT.md) defines the native format, label/evidence relationships and current limitations. The [documentation index](docs/README.md) links construction, environment, statistics and maintenance guides. Source revisions are pinned in `metadata/release.json`.
 
 The current dataset contract uses binary semantic labels and requires mathematical reasons and declaration evidence for negative decisions. It is a preparation/publication format, **not a frozen model evaluation export**. Exporting requires selected independent targets and qualifications, formal roots/context, comment/proof filtering, exclusion of review/history clues, and fresh export-bound task/reference hashes. This migration does not assert that all scope notes can be copied directly into a prompt: curator scope notes are not independent quotations.
 
@@ -97,7 +97,7 @@ python3 scripts/maintenance/migrate.py --source /path/to/clean/research-checkout
   --output /path/to/fresh-publication-directory
 ```
 
-See [configuration](docs/CONFIGURATION.md), [packaging policy](docs/PACKAGING.md) and [migration verification](docs/MIGRATION.md) for byte comparisons, exclusions, sizes and remaining source limitations. After an intentional data change, review input/reference bindings before regenerating `metadata/manifest.json` with `python3 scripts/data/release_metadata.py freeze`.
+See [environment configuration](docs/ENVIRONMENT.md), [validation](docs/VALIDATION.md) and [maintenance](docs/MAINTENANCE.md) for current procedures. Refresh the support inventory before the data manifest after intentional changes.
 
 ## Attribution and review status
 

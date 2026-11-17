@@ -29,7 +29,7 @@ The latter have the same root types as the original exports. Root axioms are
 Historical model reviews remain in the archive; source, input, export and preparation bindings remain available through project provenance.
 
 The [index](index.csv) and text projects follow the
-[project-case workflow](../../docs/PROJECT-CASE-WORKFLOW.md). See
+[project-case workflow](../../docs/DATA-FORMAT.md). See
 [specification and semantic review](https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/vaught-preparation/README.md),
 [compilation evidence](https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/vaught-build/README.md), and
 [upstream Apache-2.0 license](../../licenses/vaught/LICENSE).

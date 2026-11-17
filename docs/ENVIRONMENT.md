@@ -1,4 +1,6 @@
-# External construction dependencies
+# Environment and configuration
+
+Reading data, static checks and offline tests require Python 3.11+ and its standard library; Lean and model credentials are optional. `pyproject.toml` defines package metadata and the inspection CLI.
 
 Locations are configuration inputs, not machine-specific paths in dataset files.
 The shared pins and environment-variable names are declared in
@@ -30,3 +32,5 @@ configurable tool resolution, not a complete from-scratch production pipeline.
 
 Optional model-provider settings are separate from these construction
 dependencies; see [model-provider setup](../scripts/evaluation/README.md#model-provider-setup).
+
+The root `.env.example` documents optional construction variables; construction scripts read exported process variables rather than loading that file automatically. No root Lake workspace is required for static inspection. `.gitignore` excludes build outputs, local settings and credentials; `.gitattributes` preserves exact bytes for source, evidence and licenses. Model-provider setup and its separate environment template remain in the [evaluation guide](../scripts/evaluation/README.md#model-provider-setup).

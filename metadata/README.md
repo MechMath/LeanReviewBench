@@ -13,6 +13,7 @@ outside model-visible task exports.
 | [derived-graphs/](derived-graphs/README.md) | Context graphs, extraction receipts, and composition validation inputs |
 | `provenance.json` | Source project bindings and archive locators |
 | `materials/` | Independent-source acquisition locators and byte hashes |
+| `support-inventory.json` | Current documentation, configuration, scripts and test hashes |
 | `manifest.json` | Current publication SHA-256 inventory |
 | `layout.json` | Exact compatibility aliases for embedded retained evidence locators |
 | `release.json` | Source/documentation pins, active counts, and exclusions |
@@ -20,4 +21,4 @@ outside model-visible task exports.
 Upstream claims, our semantic judgment, and technical extraction evidence are
 separate kinds of evidence. Compilation, proof completeness, and reference
 readiness are also separate facts. See [the data contract](../docs/DATA-FORMAT.md).
-The SLT batch remains excluded; see [the scope update](../docs/MIGRATION.md).
+The SLT batch remains excluded; see [the release scope](../docs/DATA-FORMAT.md#technical-states-and-limits).

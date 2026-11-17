@@ -12,7 +12,7 @@ are excluded; the complete previous main is preserved on branch `11_9_shenhao`
 at commit `07e36bb64b0cff457694cfe9f1e156a3966a0dbc`.
 
 There are 143 versioned inputs, 100 repository/root declaration names (92 extracted)
-and 50 before/after pairs. See [statistics](../docs/PROJECT-CASE-STATS.md)
+and 50 before/after pairs. See [statistics](../docs/STATISTICS.md)
 for per-batch counts and counting limits. Retained blocked or undetermined inputs
 are not automatically eligible evaluation tasks.
 
@@ -48,7 +48,7 @@ python3 scripts/data/project_case_stats.py --json
 
 The registered batches use CSV indexes. Their evaluation export and reference
 binding still need separate preparation before using the frozen-package runner.
-See [maintenance](../docs/PROJECT-CASE-WORKFLOW.md).
+See [maintenance](../docs/DATA-FORMAT.md).
 
 Historical staging remains in [the staging batch](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/datasets/staging/real-repairs-2026-11-12/README.md).
 The new formal packages record fresh compilation and graph extraction after relocation.

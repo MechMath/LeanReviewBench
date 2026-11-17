@@ -14,7 +14,7 @@ proof correctness is outside the benchmark task. This conservative packaging
 retains source context instead of synthesizing Lean declarations from pretty
 printed extraction graphs.
 
-See [maintenance and environment setup](../../docs/PROJECT-CASE-WORKFLOW.md) and
+See [maintenance and environment setup](../../docs/DATA-FORMAT.md) and
 [fixed dependency versions](../project-cases.json). Dependency locations are read
 from `PAPERLEAN_MATHLIB` and `PAPERLEAN_CSLIB`; no checkout location is assumed.
 Explicit upstream statements, when retained, are indexed in

@@ -6,7 +6,7 @@ Generated from `datasets/project-cases.json`, registered project metadata and
 Main contains **171 versioned inputs**
 in **171 project directories**.
 
-Reproduce: `python3 scripts/data/project_case_stats.py > docs/PROJECT-CASE-STATS.md`.
+Reproduce: `python3 scripts/data/project_case_stats.py > docs/STATISTICS.md`.
 Machine-readable output: `python3 scripts/data/project_case_stats.py --json`.
 
 `Roots` counts distinct declaration names within each repository; renamed

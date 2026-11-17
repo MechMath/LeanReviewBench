@@ -13,7 +13,7 @@ import urllib.parse
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from scripts.data.paths import resolve
-INVENTORY=Path('docs/support-inventory.json')
+INVENTORY=Path('metadata/support-inventory.json')
 TREES=('docs','scripts','tests')
 FILES=('README.md','LICENSE','NOTICE','.gitignore','.gitattributes','.env.example','pyproject.toml','datasets/README.md','metadata/README.md')
 

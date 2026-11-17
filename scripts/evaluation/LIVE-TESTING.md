@@ -1,6 +1,6 @@
 # Live model setup and troubleshooting
 
-Use Python 3.11 or later. See the [adapter reference](ADAPTERS.md) for options and configuration precedence, and the [validation guide](../../docs/testing.md) for the complete offline workflow.
+Use Python 3.11 or later. See the [adapter reference](ADAPTERS.md) for options and configuration precedence, and the [validation guide](../../docs/VALIDATION.md) for the complete offline workflow.
 
 ## Local configuration
 

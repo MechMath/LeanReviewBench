@@ -1,6 +1,6 @@
 # Registered project data format
 
-This is the repository's preparation/merge format. It is not a frozen scoring export. A retained input is one project snapshot; a multi-root snapshot remains one input and one label record. Related versions share group/split identities and reciprocal version links. Root counts and input counts must be reported separately.
+The native dataset schema is `paperlean-project-case-1`. It is not a frozen scoring export. A retained input is one project snapshot; a multi-root snapshot remains one input and one label record. Related versions share group/split identities and reciprocal version links. Root counts and input counts must be reported separately.
 
 ## Authoritative files
 
@@ -10,7 +10,7 @@ This is the repository's preparation/merge format. It is not a frozen scoring ex
 | `datasets/<batch>/projects/<id>/project.json` | `paperlean-project-case-1`: source repository, full commit, targets, informal IDs, version/group links, formal inventory, input digest and independent technical/label states |
 | `informal.jsonl` | One JSON object per line: ID, independently sourced text, source version/locator/hash, scope and selected target declaration(s). Empty inputs must be disclosed; never synthesize a target from Lean |
 | `formal/Main.lean`, `formal/dep/` | Selected source plus repository-local import closure and required runtime resources; external libraries remain pinned boundaries |
-| `technical/`, `graph/`, `context/` and receipt locators | Compilation logs, actual exporter results and source bindings. Consult the package's metadata/receipt path rather than assuming every historical batch uses the same graph directory |
+| `metadata/derived-graphs/` | Retained context graphs, extraction receipts and composition evidence. Embedded historical locators resolve through `metadata/layout.json` |
 | `datasets/<batch>/index.csv` | Generated from project metadata. Exact columns: `id,root,commit,group_id,before_ids,after_ids,status`. The root column joins all selected declaration names with semicolons; authoritative root metadata remains in `targets` |
 | `metadata/labels/<batch>.jsonl` | One input-bound label record per registered project: dataset, project ID, root, `aligned`/`misaligned` label, concise English reason and scope, input hash, and current human-review state. `undetermined` is accepted by legacy validation but none remains in the audited latest research snapshot |
 | `metadata/evidence/analysis/<batch>/<id>.json` | Input-bound judgment evidence and available detailed reasoning, hashed by the analysis index. The outer `roots` array covers every selected target; coverage status distinguishes detailed reviews, reason-only records, and missing reasons |
@@ -31,32 +31,42 @@ A task loader must construct the mathematical input from the selected informal t
 
 Existing legacy eligibility fields are not sufficient to establish reference readiness: the audited repository has six legacy inputs with `evaluation_eligible=true`, but zero `reference_ready=true`. A scoring release must require a deliberate reference-readiness decision and appropriate technical/material checks.
 
-## Verification
-
-```sh
-python3 scripts/data/project_cases.py check
-python3 scripts/data/annotation_coverage.py
-python3 scripts/data/check_release_candidate.py
-python3 -m unittest discover -s tests -p 'test_*.py'
-```
-
-The coverage audit checks exact input/label bindings, binary coverage, root scope and current hashed review reports. Historical archive report locators without current report hashes are not treated as local missing files. Three legacy sphere-packing aligned records have empty reasons; the audit reports these as warnings without inventing justifications.
-
-Compilation success is not proof completeness or semantic approval. The two retained KZG function-binding inputs still have only dated cached paper text; the exact original PDF revision/hash is unverified. Preserve that qualification in any merge or release.
-
 ## Refactor integration compatibility
 
 Explicit `target_mode: joint` packages retain refactor’s hash over the full targets and target mode, and must bind one shared joint informal record and the complete roots in their label. Previously reviewed research multi-root packages without that marker retain their established root-plus-roots hash. Both include non-Lean runtime resources when present. The integration must not silently change the digest scheme of an already labeled input.
 
-## Publication directory consolidation
+## Release layout
 
-The release groups upstream statements under `metadata/evidence/upstream/` and
-our current judgment evidence under `metadata/evidence/analysis/<batch>/<id>.json`.
-The analysis index binds input identities and hashes to analysis paths and SHA-256. Graph receipts and
-composition inputs live under `metadata/derived-graphs/`; exact aliases in
-`metadata/layout.json` resolve embedded retained historical locators. Active
-indexes use canonical paths. Verdicts, root bindings and input digests are unchanged. Reasons and scope are
-normalized to concise English, human-review status is explicit, and evidence
-index hashes are refreshed.
-Python tools remain under `scripts/`; the evaluation contract is
-`scripts/evaluation/PROTOCOL.md`.
+```text
+datasets/              Registered formal/informal packages and batch indexes
+metadata/              Labels, evidence, taxonomy, graphs and integrity inventories
+scripts/data/          Dataset inspection and native validation
+scripts/construction/  Optional Lean compilation and tool resolution
+scripts/evaluation/    Existing task protocol, runner, adapters and scorer
+scripts/maintenance/   Release maintenance and integrity tools
+docs/                  Current documentation
+tests/                 Offline regression tests
+licenses/              Source attribution and license copies
+```
+
+`metadata/derived-graphs/retained-index.json` binds all 171 inputs to local graph paths, SHA-256 hashes, ordered roots and source commit/path records. Its `fresh_compilation=false` records that retaining these artifacts did not perform a new build. The separate `index.json` registers 12 recovered or composed contexts with extraction receipts. Graphs contain Lean types, non-proof values and dependency edges; raw graphs can also contain source documentation and require filtering before model use. The graph storage and evaluation input design remain separate questions.
+
+`metadata/evidence/analysis/index.json` associates each input with its current analysis file and hash. `metadata/layout.json` resolves exact historical paths embedded in technical receipts; active indexes use canonical paths. The taxonomy standard and classification records are documented in [metadata/taxonomy](../metadata/taxonomy/README.md).
+
+`metadata/manifest.json` inventories data, metadata and license bytes. `metadata/support-inventory.json` inventories current documentation, configuration, scripts and tests. Source attribution and archive locators are recorded in `metadata/provenance.json`, `metadata/materials/index.json` and `metadata/release.json`.
+
+## Technical states and limits
+
+All 171 inputs have retained context graphs. The original compilation/extraction flags identify 164 inputs as compiled/extracted and seven as historically blocked. Six of those seven have recovered statement-type elaboration evidence; CDG-L94 has a subsequent original-theorem compilation receipt. These receipts do not claim a fresh compilation of the current checkout. Compilation, proof completeness and semantic alignment are distinct properties.
+
+Three sphere-packing aligned records have empty reasons; the coverage audit reports them without inventing justifications. Two KZG function-binding inputs lack a verified exact original PDF revision/hash. The AppliedModelingLib historical license-copy gap is recorded in `licenses/index.json`.
+
+The release excludes `YuanheZ/lean-stat-learning-theory` and its sole input `slt-master`: statement-only context recovery did not resolve its full historical migration. This does not exclude the separate FormalSLT batch. Registered scope and exclusions are defined by `datasets/project-cases.json` and `metadata/release.json`.
+
+## Packaging and evaluation boundary
+
+The release retains registered source/resource files, complete informal records, compatibility notes, labels, evidence, graph bindings and source licenses. Build caches, experiment outputs, excluded candidates, duplicate source archives, optional acquisition caches and historical production logs are omitted. Independent mathematical text remains in `informal.jsonl`; optional acquired materials have pinned archive locators and hashes in `metadata/materials/index.json`.
+
+Native packages preserve modules with proofs, comments and historical metadata. They are reconstruction sources, not model prompts. Existing [evaluation tools](../scripts/evaluation/PROTOCOL.md) construct `input.json` from separately supplied evaluation JSONL packages; they do not currently convert native inputs or read `metadata/derived-graphs/` automatically. Model input scope and native conversion are tracked in [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
+
+The active source snapshot is pinned in `metadata/release.json`. Historical research documentation can be consulted at the [recorded documentation revision](https://github.com/MechMath/PaperLeanBench/tree/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs); it does not override the current release contract.

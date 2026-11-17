@@ -44,16 +44,8 @@ def migrate(source,output,research_revision):
         copy('scripts/data/'+name)
     for name in ['compile_projects.py','compiler.py','environment.py','lean_imports.py']:
         copy('scripts/construction/'+name)
-    for name in ['DATA-FORMAT.md','PROJECT-CASE-WORKFLOW.md','CONSTRUCTION.md','ENVIRONMENT.md','MISALIGNMENT-TAXONOMY.md']:
-        copy('docs/'+name)
     for relative in research.git('ls-files','-z','--','scripts/evaluation').decode().split('\0'):
         if relative:copy(relative)
-    # Preserve the actual latest remote research docs, including dated statements,
-    # separately from current integration documentation.
-    for name in ['PROJECT-CASE-WORKFLOW.md','CONSTRUCTION.md','README.md']:
-        raw=research.git('show',research_revision+':docs/'+name)
-        path=output/'docs/source-contracts/research'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw)
-    copy('docs/PROJECT-CASE-STATS.md')
     # Native derived graph validation needs the original receipts and, for joint
     # Stacks, archived component inputs/graphs. These remain outside active data.
     for record in derived['records']:
@@ -117,8 +109,8 @@ def migrate(source,output,research_revision):
         packaging_policy='Test/runtime dependencies only; optional construction materials use immutable archive links.',
         omitted=['staging and excluded candidates','qwen experiment runs','per-declaration and duplicate graph encodings','build caches','optional original/ copies, source caches, patches and construction logs']))
     # Carry the reviewed release support files and configuration, not local settings.
-    support=json.loads((ROOT/'docs/support-inventory.json').read_text())
-    for relative in [*support['files_sha256'],'docs/support-inventory.json']:
+    support=json.loads((ROOT/'metadata/support-inventory.json').read_text())
+    for relative in [*support['files_sha256'],'metadata/support-inventory.json']:
         destination=output/relative;destination.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(ROOT/relative,destination)
     for relative in ['metadata/materials/index.json','metadata/README.md','metadata/labels/README.md','metadata/release.json','metadata/layout.json','licenses/README.md']:

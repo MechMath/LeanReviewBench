@@ -1,16 +1,13 @@
-# Benchmark maintenance
+# Documentation
 
-The current collection has 171 versioned inputs across 16 registered batches. Its authoritative format is `paperlean-project-case-1`.
+The release contains 171 inputs across 16 batches, with 81 aligned and 90 misaligned human-reviewed labels.
 
-- [Dataset format](DATA-FORMAT.md) and [project maintenance](PROJECT-CASE-WORKFLOW.md)
-- [Current statistics](PROJECT-CASE-STATS.md)
-- [Construction](CONSTRUCTION.md) and [environment](ENVIRONMENT.md)
-- [Misalignment standard and classifications](../metadata/taxonomy/README.md)
-- [Testing](testing.md), [configuration](CONFIGURATION.md) and [packaging policy](PACKAGING.md)
-- [Migration and verification](MIGRATION.md)
-- [Publication graph inventory](FORMAT.md)
-- [Original protocol documentation](../scripts/evaluation/PROTOCOL.md)
+- [Data format](DATA-FORMAT.md): layout, input/root identities, labels, evidence and technical states.
+- [Statistics](STATISTICS.md): generated counts and counting conventions.
+- [Construction](CONSTRUCTION.md): source selection and formal/informal reconstruction methods.
+- [Environment](ENVIRONMENT.md): compiler, library pins and optional tool configuration.
+- [Validation](VALIDATION.md): integrity checks, tests and their limits.
+- [Maintenance](MAINTENANCE.md): updating inputs, metadata and inventories.
 
-Run `python3 scripts/data/check_release_candidate.py` for native static checks. The copied research documents preserve dated historical statements; current scope and status are defined by the registered inventory and exact retained records. The native data are not a frozen model prompt/scoring export.
-
-The SLT batch was excluded by curator decision; see [the scope update](MIGRATION.md).
+Annotation details live with the [labels](../metadata/labels/README.md), [evidence](../metadata/evidence/README.md) and [taxonomy](../metadata/taxonomy/README.md).
+The [evaluation tools](../scripts/evaluation/README.md) accept separately supplied evaluation packages; native task conversion and model input scope remain under [discussion](https://github.com/MechMath/LeanReviewBench/issues/1).

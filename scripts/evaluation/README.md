@@ -28,7 +28,7 @@ python3 -m unittest discover -s tests -p 'test_benchmark_protocol.py' -v
 
 These tests use temporary synthetic packages and mocked model responses. They
 need no labels, Lean, credentials or network access. See the repository-wide
-[testing guide](../../docs/testing.md) for the full suite. Offline tests do not
+[testing guide](../../docs/VALIDATION.md) for the full suite. Offline tests do not
 establish live provider compatibility.
 
 ## Export and run
