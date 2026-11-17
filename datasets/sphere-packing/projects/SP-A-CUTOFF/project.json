@@ -30,9 +30,8 @@
   "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Mathlib.Algebra.Field.ZMod",
     "Mathlib.Algebra.Order.Star.Real",
@@ -78,7 +77,7 @@
       "sha256": "4729ceae9b3c6110e2ffccadce12904061e20fe2eb1f3ab10fa9d00d53b5d15b"
     }
   },
-  "input_sha256": "37347a3702dc529069d76157a539ff4a08a4749c916414049759e35a4d26b601",
+  "input_sha256": "f9f2a70e3467e76bec6300654c0584838b43b4502281bd12d15e5bb187da01ae",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -87,11 +86,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 16,
-    "sha256": "0bba728c0f3b63540494674377aa0e4bd9e80f0274bd33a1071e89501af4bf62",
-    "effective_root_sha256": "3b8be55d7cdf8f287415251aab24a911b9b4b3c87940d39f7b19c42c432b9afa"
+    "file_count": 11,
+    "sha256": "08113a969f9ea479b815262df7ae48df8bbf1a84a09537a2d7af136dbd8b0254",
+    "effective_root_sha256": "4f407ad0b3d41f52038656aa2a94216508989d56b5f38f19d1b6f7c69208175d",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/sphere-packing.jsonl"
 }

@@ -1,0 +1,43 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "apap",
+  "project_id": "bohr-regular-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "BohrSet.IsRegular"
+  ],
+  "input_sha256": "39665cf983a484eeff9fe4d48dda52ad67fedee2ba7c7d62a4c7a966adcad689",
+  "graph_sha256": "20fdd213536d64748e9b2838b9f6dca077a037eb9882a6d926e261f16e593977",
+  "graph_path": "metadata/derived-graphs/graphs/apap--bohr-regular-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "494466f3992662dad2de8d1501fc2fe7656371feb931de44974a0e8202e0b270"
+    ],
+    [
+      "formal/dep/APAP/Prereqs/Bohr/Basic.lean",
+      "7d8bc3099edc10634dddfa5cdd4b4221bb1091501eeb29c5eed56e5f47d65d01"
+    ],
+    [
+      "formal/dep/APAP/Prereqs/Bohr/Regular.lean",
+      "58a8ba2fea4ded1d658b20bcef8ab30208afc22532f225e1d3edcf05acc09831"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 3,
+  "nodes": 100,
+  "edges": 197,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

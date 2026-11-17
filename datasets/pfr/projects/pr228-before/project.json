@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "formal 的下确界允许非概率输出并沿用零分母总化 KL；在完全有限标准目标中已得到与原文不同的数值，因此不是仅凭候选集合写法不同判负。",
   "external_imports": [
     "Mathlib.Analysis.SpecialFunctions.Log.Basic",
     "Mathlib.MeasureTheory.Measure.Real",
@@ -48,7 +47,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 2,
-    "sha256": "aac47295c4d60bd84924262670b088714f16f756fdb01bd6a1fee0e6f2fd64c7"
+    "sha256": "892ab607effd46c2c681d5683372ee68172e52b43280b8c9bbdd0a135b662595",
+    "effective_root_sha256": "88e7521d6de0dff53cf8fe8ccde28c704135bf9beabbf3504b6583d65564272a",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-repair/repaired/pr228-before/20261104T091723218206Z/receipt.json",
@@ -78,8 +80,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "definition_preserving_slice"
   },
-  "input_sha256": "48e96fc0a7daff061584e48d64cfad01664fa9264e8fbf54f8cf99afeecfddad",
+  "input_sha256": "ba4e066413fad52422b5aa234182173d97b4c614df046775817971777a420037",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

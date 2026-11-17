@@ -1,0 +1,55 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LMMS04FairDivision-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+  ],
+  "input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+  "graph_sha256": "76acb41a2b166e2236b60dddfd75b218fcef7ef52d1994c8d65e48b9932188e7",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LMMS04FairDivision-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "37b7a6e7b084b10f4af48c4f80df60872511c74d32d71c48f5107dd0408bc8f4"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Optimization/Certificate.lean",
+      "59f8197d46abafcb9acd09f10380f5f21771748dd2c403725260b6ec1ce6d574"
+    ],
+    [
+      "formal/dep/EconCSLib/SocialChoice/FairDivision/IndivisibleGoods.lean",
+      "b8c50e0f61a188eb3e16c8dc1929e70c92df6b8fc5581f5e5faed87abd445b1e"
+    ],
+    [
+      "formal/dep/EconCSLib/SocialChoice/FairDivision/LMMSAlgorithm.lean",
+      "2cc11920f26850bc7dcb6cb89fb1b5243f5eabf0400a3d7fc98ff5719a1e92e6"
+    ],
+    [
+      "formal/dep/LMMS04FairDivision/MainTheorems.lean",
+      "4882ef22f2464b715e928bd82a6b37aa3c80af0ccfe239e0c8f8c97a8ed508b7"
+    ],
+    [
+      "formal/dep/LMMS04FairDivision/ProofInterface.lean",
+      "e5e648447ff2da373d3c69787db5642a53e6ecdd5f586665e2676c9974e70f91"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 6,
+  "nodes": 87,
+  "edges": 469,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

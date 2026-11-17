@@ -8,7 +8,7 @@
    "type":
    "∀ {Bidder : Type u_1} {Slot : Type u_2} [inst : DecidableEq Bidder] (E : EconCSLib.Auction.PositionEnvironment Slot)\n  (M : EconCSLib.Auction.PositionMechanism Bidder Slot) (values bids : Bidder → ℝ),\n  (M bids).FeasibleAssignment →\n    EconCSLib.Auction.PositionOutcome.IndividuallyRational E (M bids) values →\n      EconCSLib.Auction.PositionMechanism.LocallyEnvyFreeEquilibrium E M values bids →\n        EconCSLib.Auction.PositionOutcome.StableAssignment E (M bids) values",
    "source_range":
-   {"start_line": 3, "start_column": 0, "end_line": 4, "end_column": 72},
+   {"start_line": 6, "start_column": 0, "end_line": 12, "end_column": 103},
    "proof_valued": true,
    "projection": false,
    "private": false,
@@ -37,7 +37,7 @@
   {"value": null,
    "type": "Type u_1 → Type u_1",
    "source_range":
-   {"start_line": 15, "start_column": 0, "end_line": 16, "end_column": 29},
+   {"start_line": 9, "start_column": 0, "end_line": 10, "end_column": 29},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -52,7 +52,7 @@
    "fun Bidder Slot => (Bidder → ℝ) → EconCSLib.Auction.PositionOutcome Bidder Slot",
    "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 52, "start_column": 0, "end_line": 53, "end_column": 44},
+   {"start_line": 37, "start_column": 0, "end_line": 38, "end_column": 44},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -83,7 +83,7 @@
    "type":
    "{Bidder : Type u_1} → {Slot : Type u_2} → EconCSLib.Auction.PositionOutcome Bidder Slot → Prop",
    "source_range":
-   {"start_line": 38, "start_column": 0, "end_line": 40, "end_column": 53},
+   {"start_line": 27, "start_column": 0, "end_line": 29, "end_column": 53},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -99,7 +99,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    EconCSLib.Auction.PositionEnvironment Slot → EconCSLib.Auction.PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
    "source_range":
-   {"start_line": 43, "start_column": 0, "end_line": 45, "end_column": 31},
+   {"start_line": 31, "start_column": 0, "end_line": 33, "end_column": 31},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -115,7 +115,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    [DecidableEq Bidder] →\n      EconCSLib.Auction.PositionEnvironment Slot →\n        EconCSLib.Auction.PositionMechanism Bidder Slot → (Bidder → ℝ) → (Bidder → ℝ) → Prop",
    "source_range":
-   {"start_line": 148, "start_column": 0, "end_line": 152, "end_column": 34},
+   {"start_line": 88, "start_column": 0, "end_line": 92, "end_column": 34},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -131,7 +131,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    EconCSLib.Auction.PositionEnvironment Slot → EconCSLib.Auction.PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
    "source_range":
-   {"start_line": 114, "start_column": 0, "end_line": 118, "end_column": 50},
+   {"start_line": 76, "start_column": 0, "end_line": 80, "end_column": 50},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -146,7 +146,7 @@
    "type":
    "{Slot : Type u_1} → (Slot → ℝ) → EconCSLib.Auction.PositionEnvironment Slot",
    "source_range":
-   {"start_line": 15, "start_column": 10, "end_line": 15, "end_column": 29},
+   {"start_line": 9, "start_column": 10, "end_line": 9, "end_column": 29},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -160,7 +160,7 @@
   {"value": null,
    "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 22, "start_column": 0, "end_line": 24, "end_column": 30},
+   {"start_line": 12, "start_column": 0, "end_line": 14, "end_column": 30},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -205,7 +205,7 @@
    "type":
    "{Bidder : Type u_1} → {Slot : Type u_2} → EconCSLib.Auction.PositionOutcome Bidder Slot → Bidder → Option Slot",
    "source_range":
-   {"start_line": 23, "start_column": 2, "end_line": 23, "end_column": 8},
+   {"start_line": 13, "start_column": 2, "end_line": 13, "end_column": 8},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -307,7 +307,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    EconCSLib.Auction.PositionEnvironment Slot →\n      EconCSLib.Auction.PositionOutcome Bidder Slot → (Bidder → ℝ) → Bidder → ℝ",
    "source_range":
-   {"start_line": 30, "start_column": 0, "end_line": 35, "end_column": 69},
+   {"start_line": 20, "start_column": 0, "end_line": 25, "end_column": 69},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -338,7 +338,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    [DecidableEq Bidder] →\n      EconCSLib.Auction.PositionEnvironment Slot →\n        EconCSLib.Auction.PositionMechanism Bidder Slot → (Bidder → ℝ) → (Bidder → ℝ) → Prop",
    "source_range":
-   {"start_line": 66, "start_column": 0, "end_line": 71, "end_column": 31},
+   {"start_line": 49, "start_column": 0, "end_line": 54, "end_column": 31},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -354,7 +354,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    EconCSLib.Auction.PositionEnvironment Slot → EconCSLib.Auction.PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
    "source_range":
-   {"start_line": 94, "start_column": 0, "end_line": 99, "end_column": 28},
+   {"start_line": 62, "start_column": 0, "end_line": 67, "end_column": 28},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -370,7 +370,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    EconCSLib.Auction.PositionEnvironment Slot → EconCSLib.Auction.PositionOutcome Bidder Slot → (Bidder → ℝ) → Prop",
    "source_range":
-   {"start_line": 101, "start_column": 0, "end_line": 106, "end_column": 28},
+   {"start_line": 69, "start_column": 0, "end_line": 74, "end_column": 28},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -385,7 +385,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} → (Bidder → Option Slot) → (Bidder → ℝ) → EconCSLib.Auction.PositionOutcome Bidder Slot",
    "source_range":
-   {"start_line": 22, "start_column": 10, "end_line": 22, "end_column": 25},
+   {"start_line": 12, "start_column": 10, "end_line": 12, "end_column": 25},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -474,7 +474,7 @@
    "type":
    "{Slot : Type u_1} → EconCSLib.Auction.PositionEnvironment Slot → Slot → ℝ",
    "source_range":
-   {"start_line": 16, "start_column": 2, "end_line": 16, "end_column": 18},
+   {"start_line": 10, "start_column": 2, "end_line": 10, "end_column": 18},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -533,7 +533,7 @@
    "type":
    "{Bidder : Type u_1} → {Slot : Type u_2} → EconCSLib.Auction.PositionOutcome Bidder Slot → Bidder → ℝ",
    "source_range":
-   {"start_line": 24, "start_column": 2, "end_line": 24, "end_column": 17},
+   {"start_line": 14, "start_column": 2, "end_line": 14, "end_column": 17},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -549,7 +549,7 @@
    "type":
    "{Bidder : Type u_1} →\n  {Slot : Type u_2} →\n    EconCSLib.Auction.PositionEnvironment Slot →\n      EconCSLib.Auction.PositionMechanism Bidder Slot → (Bidder → ℝ) → (Bidder → ℝ) → Bidder → ℝ",
    "source_range":
-   {"start_line": 60, "start_column": 0, "end_line": 63, "end_column": 29},
+   {"start_line": 44, "start_column": 0, "end_line": 47, "end_column": 29},
    "proof_valued": false,
    "projection": false,
    "private": false,

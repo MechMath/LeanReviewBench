@@ -9,7 +9,8 @@ The native dataset schema is `paperlean-project-case-1`. It is not a frozen scor
 | `datasets/project-cases.json` | Registered batches and pinned Lean/Mathlib/Cslib environment; directories outside this inventory are not evaluation inputs |
 | `datasets/<batch>/projects/<id>/project.json` | `paperlean-project-case-1`: source repository, full commit, targets, informal IDs, version/group links, formal inventory, input digest and independent technical/label states |
 | `informal.jsonl` | One JSON object per line: ID, independently sourced text, source version/locator/hash, scope and selected target declaration(s). Empty inputs must be disclosed; never synthesize a target from Lean |
-| `formal/Main.lean`, `formal/dep/` | Selected source plus repository-local import closure and required runtime resources; external libraries remain pinned boundaries |
+| `formal/Main.lean`, `formal/dep/` | Statement-only declaration closure, necessary source elaboration support and runtime resources; external libraries remain pinned boundaries |
+| `CHANGES.md` | Concise per-input Lean migration changes and statement-context packaging notes |
 | `metadata/derived-graphs/` | Retained context graphs, extraction receipts and composition evidence. Embedded historical locators resolve through `metadata/layout.json` |
 | `datasets/<batch>/index.csv` | Generated from project metadata. Exact columns: `id,root,commit,group_id,before_ids,after_ids,status`. The root column joins all selected declaration names with semicolons; authoritative root metadata remains in `targets` |
 | `metadata/labels/<batch>.jsonl` | One input-bound label record per registered project: dataset, project ID, root, `aligned`/`misaligned` label, concise English reason and scope, input hash, and current human-review state. `undetermined` is accepted by legacy validation but none remains in the audited latest research snapshot |
@@ -49,7 +50,7 @@ tests/                 Offline regression tests
 licenses/              Source attribution and license copies
 ```
 
-`metadata/derived-graphs/retained-index.json` binds all 171 inputs to local graph paths, SHA-256 hashes, ordered roots and source provenance. Its per-input `fresh_compilation` flag distinguishes new compilation from retained historical evidence. The separate `index.json` registers 12 recovered or composed contexts with extraction receipts. Graphs contain Lean types, non-proof values and dependency edges; raw graphs can also contain source documentation and require filtering before model use. The graph storage and evaluation input design remain separate questions.
+`metadata/derived-graphs/retained-index.json` binds all 171 inputs to freshly extracted graphs, SHA-256 hashes, ordered roots and receipts. The matching `index.json` registers all 171 current extraction receipts. Each records intentional proof erasure and successful statement/non-proof-definition preservation checks, without claiming certification of original proofs. Historical graph/composition evidence remains available separately. Raw graphs can contain documentation and still require filtering before model use.
 
 `metadata/evidence/analysis/index.json` associates each input with its current analysis file and hash. `metadata/layout.json` resolves exact historical paths embedded in technical receipts; active indexes use canonical paths. The taxonomy standard and classification records are documented in [metadata/taxonomy](../metadata/taxonomy/README.md).
 
@@ -57,7 +58,7 @@ licenses/              Source attribution and license copies
 
 ## Technical states and limits
 
-All 171 inputs have local context graphs. Compilation/extraction flags now identify 170 inputs as compiled/extracted. Six formerly blocked AppliedModelingLib inputs have target-specific native slices and fresh Lean 4.34.1 compilation/extraction receipts; the migrated roots also type-check against their historical elaborated types. CDG-L94 retains its historical blocked flag and a subsequent original-theorem compilation receipt. Other retained receipts do not establish a fresh build of this checkout. Compilation, proof completeness and semantic alignment are distinct properties.
+All 171 released statement contexts compile with Lean 4.34.1 and support fresh dependency extraction from their Lean files. Each `formal` inventory records `declaration_slice=true` and `proofs_erased=true`. The retained declarations preserve root types and necessary computational definitions; theorem/lemma proofs and proof-valued declaration bodies are replaced by `sorry`. Proof-valued tactic blocks inside data definitions are erased while computational tactic blocks remain. Source-level notation, aliases, instances and compiler support may be required in addition to the mathematical graph closure. Compilation of these contexts does not establish proof completeness or semantic alignment.
 
 Three sphere-packing aligned records have empty reasons; the coverage audit reports them without inventing justifications. Two KZG function-binding inputs lack a verified exact original PDF revision/hash. The AppliedModelingLib historical license-copy gap is recorded in `licenses/index.json`.
 
@@ -67,6 +68,6 @@ The release excludes `YuanheZ/lean-stat-learning-theory` and its sole input `slt
 
 The release retains registered source/resource files, complete informal records, compatibility notes, labels, evidence, graph bindings and source licenses. Build caches, experiment outputs, excluded candidates, duplicate source archives, optional acquisition caches and historical production logs are omitted. Independent mathematical text remains in `informal.jsonl`; optional acquired materials have pinned archive locators and hashes in `metadata/materials/index.json`.
 
-Native packages preserve modules with proofs, comments and historical metadata. They are reconstruction sources, not model prompts. Existing [evaluation tools](../scripts/evaluation/PROTOCOL.md) construct `input.json` from separately supplied evaluation JSONL packages; they do not currently convert native inputs or read `metadata/derived-graphs/` automatically. Model input scope and native conversion are tracked in [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
+Native packages contain proof-erased declaration contexts, source comments and curator metadata. They still require a deliberate model-input export. Existing [evaluation tools](../scripts/evaluation/PROTOCOL.md) construct `input.json` from separately supplied evaluation JSONL packages; they do not currently convert native inputs or read `metadata/derived-graphs/` automatically. Model input scope and native conversion are tracked in [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
 
 The active source snapshot is pinned in `metadata/release.json`. Historical research documentation can be consulted at the [recorded documentation revision](https://github.com/MechMath/PaperLeanBench/tree/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs); it does not override the current release contract.

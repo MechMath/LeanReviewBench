@@ -1,27 +1,200 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import dep.ArkLib.OracleReduction.Composition.Sequential.Append
-
-/-!
-  # Sequential Composition of Many Oracle Reductions
-
-  This file defines the sequential composition of an arbitrary `m + 1` number of oracle reductions.
-  This is defined by iterating the composition of two reductions, as defined in `Append.lean`.
-
-  The soundness and knowledge-soundness claims inherit the admitted binary security contracts;
-  their per-step error reindexing is proved
-  (`ProtocolSpec.apply_seqComposeChallengeIdxToSigma_eq_sumElim`). The proved worst-case
-  round-by-round knowledge-soundness interface for guarded chains is
-  `Sequential/GuardedRoundByRound.lean`.
-  The false fixed-init completeness contracts have been removed. Proved completeness interfaces
-  live in `Sequential/Completeness.lean`, `Sequential/GuardedNary.lean`, and
-  `Sequential/OracleCompleteness.lean`, with explicit shared-state hypotheses.
--/
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Logic.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.OneMessage
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.StateFunction
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.ArkLib.OracleReduction.Security.Guarded
+public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -53,22 +226,6 @@ def seqCompose
   | 0 => Prover.id
   | _ + 1 => append (P 0) (seqCompose (Stmt ∘ Fin.succ) (Wit ∘ Fin.succ) (fun i => P (Fin.succ i)))
 
-@[simp]
-lemma seqCompose_zero
-    (Stmt : Fin 1 → Type) (Wit : Fin 1 → Type) {n : Fin 0 → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (P : (i : Fin 0) →
-      Prover oSpec (Stmt i.castSucc) (Wit i.castSucc) (Stmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt Wit P = Prover.id := rfl
-
-@[simp]
-lemma seqCompose_succ {m : ℕ}
-    (Stmt : Fin (m + 2) → Type) (Wit : Fin (m + 2) → Type)
-    {n : Fin (m + 1) → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (P : (i : Fin (m + 1)) →
-      Prover oSpec (Stmt i.castSucc) (Wit i.castSucc) (Stmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt Wit P =
-      append (P 0) (seqCompose (Stmt ∘ Fin.succ) (Wit ∘ Fin.succ) (fun i => P (Fin.succ i))) := rfl
-
 end Prover
 
 namespace Verifier
@@ -88,40 +245,6 @@ def seqCompose {m : ℕ} (Stmt : Fin (m + 1) → Type)
   | 0 => Verifier.id
   | _ + 1 => append (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => V (Fin.succ i)))
 
-@[simp]
-lemma seqCompose_zero (Stmt : Fin 1 → Type)
-    {n : Fin 0 → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (V : (i : Fin 0) → Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i)) :
-    seqCompose Stmt V = Verifier.id := rfl
-
-@[simp]
-lemma seqCompose_succ {m : ℕ} (Stmt : Fin (m + 2) → Type)
-    {n : Fin (m + 1) → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (V : (i : Fin (m + 1)) → Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i)) :
-    seqCompose Stmt V = append (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => V (Fin.succ i))) := rfl
-
-/-- A deterministic invariant for sequential verification. If each component takes its
-designated input state to the next one, the composed verifier takes the first state to the
-last. This statement concerns verification only and imposes no honesty on transcripts. -/
-theorem seqCompose_run_eq_pure {m : ℕ} (Stmt : Fin (m + 1) → Type)
-    {n : Fin m → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (V : (i : Fin m) → Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i))
-    (tr : ∀ i, (pSpec i).FullTranscript) (state : ∀ i, Stmt i)
-    (hstep : ∀ i, (V i).run (state i.castSucc) (tr i) = pure (state i.succ)) :
-    (seqCompose Stmt V).run (state 0) (FullTranscript.seqCompose tr) =
-      pure (state (Fin.last m)) := by
-  induction m with
-  | zero => rfl
-  | succ m ih =>
-    have hzero := hstep 0
-    simp only [Fin.castSucc_zero] at hzero
-    change ((V 0).append (seqCompose (Stmt ∘ Fin.succ) (fun i ↦ V i.succ))).run
-      (state 0) (tr 0 ++ₜ FullTranscript.seqCompose (fun i ↦ tr i.succ)) = _
-    erw [append_run,
-      FullTranscript.append_fst, FullTranscript.append_snd, hzero, pure_bind]
-    exact ih (Stmt ∘ Fin.succ) (fun i ↦ V i.succ) (fun i ↦ tr i.succ)
-      (fun i ↦ state i.succ) (fun i ↦ hstep i.succ)
-
 end Verifier
 
 namespace Reduction
@@ -140,22 +263,6 @@ def seqCompose {m : ℕ} (Stmt : Fin (m + 1) → Type) (Wit : Fin (m + 1) → Ty
   prover := Prover.seqCompose Stmt Wit (fun i => (R i).prover)
   verifier := Verifier.seqCompose Stmt (fun i => (R i).verifier)
 
-@[simp]
-lemma seqCompose_zero (Stmt : Fin 1 → Type) (Wit : Fin 1 → Type)
-    {n : Fin 0 → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (R : (i : Fin 0) →
-      Reduction oSpec (Stmt i.castSucc) (Wit i.castSucc) (Stmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt Wit R = Reduction.id := rfl
-
-@[simp]
-lemma seqCompose_succ {m : ℕ}
-    (Stmt : Fin (m + 2) → Type) (Wit : Fin (m + 2) → Type)
-    {n : Fin (m + 1) → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (R : (i : Fin (m + 1)) →
-      Reduction oSpec (Stmt i.castSucc) (Wit i.castSucc) (Stmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt Wit R =
-      append (R 0) (seqCompose (Stmt ∘ Fin.succ) (Wit ∘ Fin.succ) (fun i => R (Fin.succ i))) := rfl
-
 end Reduction
 
 namespace OracleProver
@@ -172,16 +279,6 @@ def seqCompose {m : ℕ}
     OracleProver oSpec (Stmt 0) (OStmt 0) (Wit 0) (Stmt (Fin.last m)) (OStmt (Fin.last m))
       (Wit (Fin.last m)) (seqCompose pSpec) :=
   Prover.seqCompose (fun i => Stmt i × (∀ j, OStmt i j)) Wit P
-
-@[simp]
-lemma seqCompose_def {m : ℕ}
-    (Stmt : Fin (m + 1) → Type) {ιₛ : Fin (m + 1) → Type} (OStmt : (i : Fin (m + 1)) → ιₛ i → Type)
-    (Wit : Fin (m + 1) → Type) {n : Fin m → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    (P : (i : Fin m) →
-      OracleProver oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Wit i.castSucc)
-        (Stmt i.succ) (OStmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt OStmt Wit P = Prover.seqCompose (fun i => Stmt i × (∀ j, OStmt i j)) Wit P :=
-  rfl
 
 end OracleProver
 
@@ -223,55 +320,6 @@ def seqCompose {m : ℕ}
       (seqCompose pSpec) :=
   seqCompose' Stmt OStmt Oₛ Oₘ V
 
-@[simp]
-lemma seqCompose_zero
-    (Stmt : Fin 1 → Type)
-    {ιₛ : Fin 1 → Type} (OStmt : (i : Fin 1) → ιₛ i → Type)
-    [Oₛ : ∀ i, ∀ j, OracleInterface (OStmt i j)]
-    {n : Fin 0 → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    [Oₘ : ∀ i, ∀ j, OracleInterface ((pSpec i).Message j)]
-    (V : (i : Fin 0) → OracleVerifier oSpec
-      (Stmt i.castSucc) (OStmt i.castSucc) (Stmt i.succ) (OStmt i.succ) (pSpec i)) :
-    seqCompose Stmt OStmt V = OracleVerifier.id := rfl
-
-@[simp]
-lemma seqCompose_succ {m : ℕ}
-    (Stmt : Fin (m + 2) → Type)
-    {ιₛ : Fin (m + 2) → Type} (OStmt : (i : Fin (m + 2)) → ιₛ i → Type)
-    [Oₛ : ∀ i, ∀ j, OracleInterface (OStmt i j)]
-    {n : Fin (m + 1) → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    [Oₘ : ∀ i, ∀ j, OracleInterface ((pSpec i).Message j)]
-    (V : (i : Fin (m + 1)) → OracleVerifier oSpec
-      (Stmt i.castSucc) (OStmt i.castSucc) (Stmt i.succ) (OStmt i.succ) (pSpec i)) :
-    seqCompose Stmt OStmt V =
-      append (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => OStmt (Fin.succ i))
-        (Oₛ := fun i => Oₛ (Fin.succ i)) (Oₘ := fun i => Oₘ (Fin.succ i))
-          (fun i => V (Fin.succ i))) := rfl
-
-@[simp]
-lemma seqCompose_toVerifier {m : ℕ}
-    (Stmt : Fin (m + 1) → Type)
-    {ιₛ : Fin (m + 1) → Type} (OStmt : (i : Fin (m + 1)) → ιₛ i → Type)
-    [Oₛ : ∀ i, ∀ j, OracleInterface (OStmt i j)]
-    {n : Fin m → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    [Oₘ : ∀ i, ∀ j, OracleInterface ((pSpec i).Message j)]
-    (V : (i : Fin m) →
-      OracleVerifier oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Stmt i.succ) (OStmt i.succ)
-        (pSpec i)) :
-    (seqCompose Stmt OStmt V).toVerifier =
-      Verifier.seqCompose (fun i => Stmt i × (∀ j, OStmt i j)) (fun i => (V i).toVerifier) := by
-  induction m with
-  | zero =>
-    simp only [Fin.isValue, Fin.reduceLast, Fin.vsum_zero, seqCompose_zero, Nat.reduceAdd,
-      Verifier.seqCompose_zero]
-    exact OracleVerifier.id_toVerifier
-  | succ m ih =>
-    simp only [seqCompose_succ, Verifier.seqCompose_succ]
-    have h1 := OracleVerifier.append_toVerifier (V 0) (seqCompose (Stmt ∘ Fin.succ)
-      (fun i => OStmt (Fin.succ i)) (fun i => V (Fin.succ i)))
-    exact h1.trans (congrArg ((V 0).toVerifier.append ·)
-      (ih (Stmt ∘ Fin.succ) (fun i => OStmt (Fin.succ i)) (fun i => V (Fin.succ i))))
-
 end OracleVerifier
 
 namespace OracleReduction
@@ -293,63 +341,6 @@ def seqCompose {m : ℕ}
   prover := OracleProver.seqCompose Stmt OStmt Wit (fun i => (R i).prover)
   verifier := OracleVerifier.seqCompose Stmt OStmt (fun i => (R i).verifier)
 
-@[simp]
-lemma seqCompose_zero
-    (Stmt : Fin 1 → Type)
-    {ιₛ : Fin 1 → Type} (OStmt : (i : Fin 1) → ιₛ i → Type)
-    [Oₛ : ∀ i, ∀ j, OracleInterface (OStmt i j)]
-    (Wit : Fin 1 → Type)
-    {n : Fin 0 → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    [Oₘ : ∀ i, ∀ j, OracleInterface ((pSpec i).Message j)]
-    (R : (i : Fin 0) →
-      OracleReduction oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Wit i.castSucc)
-        (Stmt i.succ) (OStmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt OStmt Wit R =
-      @OracleReduction.id ι oSpec (Stmt 0) (ιₛ 0) (OStmt 0) (Wit 0) (Oₛ 0) := rfl
-
-@[simp]
-lemma seqCompose_succ {m : ℕ}
-    (Stmt : Fin (m + 2) → Type)
-    {ιₛ : Fin (m + 2) → Type} (OStmt : (i : Fin (m + 2)) → ιₛ i → Type)
-    [Oₛ : ∀ i, ∀ j, OracleInterface (OStmt i j)]
-    (Wit : Fin (m + 2) → Type)
-    {n : Fin (m + 1) → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    [Oₘ : ∀ i, ∀ j, OracleInterface ((pSpec i).Message j)]
-    (R : (i : Fin (m + 1)) →
-      OracleReduction oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Wit i.castSucc)
-        (Stmt i.succ) (OStmt i.succ) (Wit i.succ) (pSpec i)) :
-    seqCompose Stmt OStmt Wit R =
-      append (R 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => OStmt (Fin.succ i)) (Wit ∘ Fin.succ)
-        (Oₛ := fun i => Oₛ (Fin.succ i)) (Oₘ := fun i => Oₘ (Fin.succ i))
-          (fun i => R (Fin.succ i))) := rfl
-
-@[simp]
-lemma seqCompose_toReduction {m : ℕ}
-    (Stmt : Fin (m + 1) → Type)
-    {ιₛ : Fin (m + 1) → Type} (OStmt : (i : Fin (m + 1)) → ιₛ i → Type)
-    [Oₛ : ∀ i, ∀ j, OracleInterface (OStmt i j)]
-    (Wit : Fin (m + 1) → Type)
-    {n : Fin m → ℕ} {pSpec : ∀ i, ProtocolSpec (n i)}
-    [Oₘ : ∀ i, ∀ j, OracleInterface ((pSpec i).Message j)]
-    (R : (i : Fin m) →
-      OracleReduction oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Wit i.castSucc)
-        (Stmt i.succ) (OStmt i.succ) (Wit i.succ) (pSpec i)) :
-    (seqCompose Stmt OStmt Wit R).toReduction =
-      Reduction.seqCompose (fun i => Stmt i × (∀ j, OStmt i j)) Wit
-        (fun i => (R i).toReduction) := by
-  induction m with
-  | zero =>
-    simp only [Fin.isValue, Fin.reduceLast, Fin.vsum_zero, seqCompose_zero, Nat.reduceAdd,
-      Reduction.seqCompose_zero]
-    exact OracleReduction.id_toReduction
-  | succ m ih =>
-    simp only [seqCompose_succ, Reduction.seqCompose_succ]
-    have h1 := OracleReduction.append_toReduction (R 0) (seqCompose (Stmt ∘ Fin.succ)
-      (fun i => OStmt (Fin.succ i)) (Wit ∘ Fin.succ) (fun i => R (Fin.succ i)))
-    exact h1.trans (congrArg ((R 0).toReduction.append ·)
-      (ih (Stmt ∘ Fin.succ) (fun i => OStmt (Fin.succ i)) (Wit ∘ Fin.succ)
-        (fun i => R (Fin.succ i))))
-
 end OracleReduction
 
 end Composition
@@ -364,56 +355,7 @@ variable {m : ℕ}
     [∀ i, ∀ j, SampleableType ((pSpec i).Challenge j)]
     {σ : Type} {init : ProbComp σ} {impl : QueryImpl oSpec (StateT σ ProbComp)}
 
--- section Execution
-
--- -- Executing .
--- theorem Reduction.run_seqCompose
---     (stmt : Stmt 0) (wit : Wit 0)
---     (R : ∀ i, Reduction oSpec (Stmt i.castSucc) (Wit i.castSucc) (Stmt i.succ) (Wit i.succ)
---       (pSpec i)) :
---       (Reduction.seqCompose R).run stmt wit := by
---   sorry
-
--- end Execution
-
 namespace ProtocolSpec
-
-/-- A function of a component challenge index, evaluated at the decoding of a combined challenge
-index, is its value at any component index the combined index's round splits into. -/
-theorem apply_seqComposeChallengeIdxToSigma {m : ℕ} {n : Fin m → ℕ}
-    {pSpec : ∀ i, ProtocolSpec (n i)} {α : Sort*}
-    (f : (i : Fin m) → (pSpec i).ChallengeIdx → α) (k : (seqCompose pSpec).ChallengeIdx)
-    (a : Fin m) (b : (pSpec a).ChallengeIdx) (h : Fin.splitSum k.1 = ⟨a, b.1⟩) :
-    f (seqComposeChallengeIdxToSigma k).1 (seqComposeChallengeIdxToSigma k).2 = f a b := by
-  have key : ∀ (s : (i : Fin m) × Fin (n i)) (hs : (pSpec s.1).dir s.2 = .V_to_P),
-      s = ⟨a, b.1⟩ → f s.1 ⟨s.2, hs⟩ = f a b := by
-    rintro s hs rfl
-    rfl
-  exact key _ _ h
-
-/-- **Error reindexing for one step of `seqCompose`.** A per-component function of challenge
-indices, read through `seqComposeChallengeIdxToSigma` on `pSpec 0 ++ₚ seqCompose (pSpec ∘ succ)`,
-is the first component's function on the left and the reindexed tail's on the right. This is the
-error bookkeeping of an induction that composes the head with the tail by `append`. -/
-theorem apply_seqComposeChallengeIdxToSigma_eq_sumElim {m : ℕ} {n : Fin (m + 1) → ℕ}
-    {pSpec : ∀ i, ProtocolSpec (n i)} {α : Type*}
-    (f : (i : Fin (m + 1)) → (pSpec i).ChallengeIdx → α) :
-    (fun k => f (seqComposeChallengeIdxToSigma k).1 (seqComposeChallengeIdxToSigma k).2) =
-      Sum.elim (f 0) (fun k => f (seqComposeChallengeIdxToSigma k).1.succ
-        (seqComposeChallengeIdxToSigma k).2) ∘
-        (ChallengeIdx.sumEquiv (pSpec₁ := pSpec 0)
-          (pSpec₂ := seqCompose fun i => pSpec i.succ)).symm := by
-  funext k
-  obtain ⟨k, rfl⟩ := (ChallengeIdx.sumEquiv (pSpec₁ := pSpec 0)
-    (pSpec₂ := seqCompose fun i => pSpec i.succ)).surjective k
-  rcases k with i | k
-  · simp only [Function.comp_apply, Equiv.symm_apply_apply, Sum.elim_inl]
-    exact apply_seqComposeChallengeIdxToSigma f _ 0 i (Fin.splitSum_embedSum (n := n) 0 i.1)
-  · simp only [Function.comp_apply, Equiv.symm_apply_apply, Sum.elim_inr]
-    refine apply_seqComposeChallengeIdxToSigma f _ _ _ ?_
-    have h := Fin.splitSum_embedSum (n := n) (Fin.splitSum k.1).1.succ (Fin.splitSum k.1).2
-    rw [Fin.embedSum_succ_succ, Fin.embedSum_splitSum] at h
-    exact h
 
 end ProtocolSpec
 
@@ -423,188 +365,9 @@ open scoped NNReal
 
 namespace Verifier
 
-/-- If all verifiers in a sequence satisfy soundness with respective soundness errors, then their
-    sequential composition also satisfies soundness.
-    The soundness error of the seqComposed verifier is the sum of the individual errors. -/
-theorem seqCompose_soundness
-    (lang : (i : Fin (m + 1)) → Set (Stmt i))
-    (V : (i : Fin m) → Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i))
-    (soundnessError : Fin m → ℝ≥0)
-    (h : ∀ i, (V i).soundness init impl (lang i.castSucc) (lang i.succ) (soundnessError i)) :
-      (Verifier.seqCompose Stmt V).soundness init impl (lang 0) (lang (Fin.last m))
-        (∑ i, soundnessError i) := by
-  induction m with
-  | zero =>
-    simp only [Fin.isValue, Fin.reduceLast, Fin.vsum_zero, seqCompose_zero,
-      Finset.univ_eq_empty, Finset.sum_empty]
-    exact Verifier.id_soundness init impl
-  | succ m ih =>
-    simp only [Fin.vsum_succ, seqCompose_succ, Fin.castSucc_zero, Fin.succ_zero_eq_one,
-      Function.comp_apply, Fin.succ_last, Nat.succ_eq_add_one]
-    have := ih (fun i => lang i.succ) (fun i => V i.succ)
-      (fun i => soundnessError i.succ) (fun i => h i.succ)
-    simp only [Fin.succ_zero_eq_one, Fin.succ_last, Nat.succ_eq_add_one] at this
-    rw [Fin.sum_univ_succ]
-    exact append_soundness (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => V i.succ))
-      (h 0) this
-
-/-- If all verifiers in a sequence satisfy knowledge soundness with respective knowledge errors,
-    then their sequential composition also satisfies knowledge soundness.
-    The knowledge error of the seqComposed verifier is the sum of the individual errors. -/
-theorem seqCompose_knowledgeSoundness
-    (rel : (i : Fin (m + 1)) → Set (Stmt i × Wit i))
-    (V : (i : Fin m) → Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i))
-    (knowledgeError : Fin m → ℝ≥0)
-    (h : ∀ i, (V i).knowledgeSoundness init impl (rel i.castSucc) (rel i.succ) (knowledgeError i)) :
-      (Verifier.seqCompose Stmt V).knowledgeSoundness init impl (rel 0) (rel (Fin.last m))
-        (∑ i, knowledgeError i) := by
-  induction m with
-  | zero =>
-    simp only [Fin.isValue, Fin.reduceLast, Fin.vsum_zero, seqCompose_zero,
-      Finset.univ_eq_empty, Finset.sum_empty]
-    exact Verifier.id_knowledgeSoundness init impl
-  | succ m ih =>
-    simp only [Fin.vsum_succ, seqCompose_succ, Fin.castSucc_zero, Fin.succ_zero_eq_one,
-      Function.comp_apply, Fin.succ_last, Nat.succ_eq_add_one]
-    have := ih (fun i => rel i.succ) (fun i => V i.succ)
-      (fun i => knowledgeError i.succ) (fun i => h i.succ)
-    simp only [Fin.succ_zero_eq_one, Fin.succ_last, Nat.succ_eq_add_one] at this
-    rw [Fin.sum_univ_succ]
-    exact append_knowledgeSoundness (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => V i.succ))
-      (h 0) this
-
-/-- If all verifiers in a sequence satisfy round-by-round soundness with respective RBR soundness
-    errors, then their sequential composition also satisfies round-by-round soundness. -/
-theorem seqCompose_rbrSoundness
-    (lang : (i : Fin (m + 1)) → Set (Stmt i))
-    (V : (i : Fin m) → Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i))
-    (rbrSoundnessError : ∀ i, (pSpec i).ChallengeIdx → ℝ≥0)
-    (h : ∀ i, (V i).rbrSoundness init impl (lang i.castSucc) (lang i.succ) (rbrSoundnessError i)) :
-      (Verifier.seqCompose Stmt V).rbrSoundness init impl (lang 0) (lang (Fin.last m))
-        (fun combinedIdx =>
-          letI ij := seqComposeChallengeIdxToSigma combinedIdx
-          rbrSoundnessError ij.1 ij.2) := by
-  induction m with
-  | zero =>
-    have herr : (fun combinedIdx =>
-        letI ij := seqComposeChallengeIdxToSigma combinedIdx
-        rbrSoundnessError ij.1 ij.2) = 0 := by
-      funext i
-      exact Fin.elim0 i.val
-    rw [herr]
-    rw [Verifier.seqCompose_zero]
-    exact Verifier.id_rbrSoundness init impl
-  | succ m ih =>
-    rw [ProtocolSpec.apply_seqComposeChallengeIdxToSigma_eq_sumElim]
-    exact append_rbrSoundness (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => V i.succ)) (h 0)
-      (ih (fun i => lang i.succ) (fun i => V i.succ) (fun i => rbrSoundnessError i.succ)
-        (fun i => h i.succ))
-
-/-- If all verifiers in a sequence satisfy round-by-round knowledge soundness with respective RBR
-    knowledge errors, then their sequential composition also satisfies round-by-round knowledge
-    soundness. -/
-theorem seqCompose_rbrKnowledgeSoundness
-    (rel : ∀ i, Set (Stmt i × Wit i))
-    (V : ∀ i, Verifier oSpec (Stmt i.castSucc) (Stmt i.succ) (pSpec i))
-    (rbrKnowledgeError : ∀ i, (pSpec i).ChallengeIdx → ℝ≥0)
-    (h : ∀ i, (V i).rbrKnowledgeSoundness init impl
-      (rel i.castSucc) (rel i.succ) (rbrKnowledgeError i)) :
-      (Verifier.seqCompose Stmt V).rbrKnowledgeSoundness init impl (rel 0) (rel (Fin.last m))
-        (fun combinedIdx =>
-          letI ij := seqComposeChallengeIdxToSigma combinedIdx
-          rbrKnowledgeError ij.1 ij.2) := by
-  induction m with
-  | zero =>
-    have herr : (fun combinedIdx =>
-        letI ij := seqComposeChallengeIdxToSigma combinedIdx
-        rbrKnowledgeError ij.1 ij.2) = 0 := by
-      funext i
-      exact Fin.elim0 i.val
-    rw [herr]
-    rw [Verifier.seqCompose_zero]
-    exact Verifier.id_rbrKnowledgeSoundness init impl
-  | succ m ih =>
-    rw [ProtocolSpec.apply_seqComposeChallengeIdxToSigma_eq_sumElim]
-    exact append_rbrKnowledgeSoundness (V 0) (seqCompose (Stmt ∘ Fin.succ) (fun i => V i.succ))
-      (h 0) (ih (fun i => rel i.succ) (fun i => V i.succ) (fun i => rbrKnowledgeError i.succ)
-        (fun i => h i.succ))
-
 end Verifier
 
 namespace OracleVerifier
-
-/-- If all verifiers in a sequence satisfy soundness with respective soundness errors, then their
-  sequential composition also satisfies soundness.
-  The soundness error of the sequentially composed oracle verifier is the sum of the individual
-  errors. -/
-theorem seqCompose_soundness
-    (lang : (i : Fin (m + 1)) → Set (Stmt i × ∀ j, OStmt i j))
-    (V : (i : Fin m) →
-      OracleVerifier oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Stmt i.succ) (OStmt i.succ)
-        (pSpec i))
-    (soundnessError : Fin m → ℝ≥0)
-    (h : ∀ i, (V i).soundness init impl (lang i.castSucc) (lang i.succ) (soundnessError i)) :
-      (OracleVerifier.seqCompose Stmt OStmt V).soundness init impl (lang 0) (lang (Fin.last m))
-        (∑ i, soundnessError i) := by
-  unfold OracleVerifier.soundness
-  convert Verifier.seqCompose_soundness lang (fun i => (V i).toVerifier) soundnessError h
-  simp only [seqCompose_toVerifier]
-
-/-- If all verifiers in a sequence satisfy knowledge soundness with respective knowledge errors,
-    then their sequential composition also satisfies knowledge soundness.
-    The knowledge error of the sequentially composed oracle verifier is the sum of the individual
-    errors. -/
-theorem seqCompose_knowledgeSoundness
-    (rel : (i : Fin (m + 1)) → Set ((Stmt i × ∀ j, OStmt i j) × Wit i))
-    (V : (i : Fin m) →
-      OracleVerifier oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Stmt i.succ) (OStmt i.succ)
-        (pSpec i))
-    (knowledgeError : Fin m → ℝ≥0)
-    (h : ∀ i, (V i).knowledgeSoundness init impl (rel i.castSucc) (rel i.succ) (knowledgeError i)) :
-      (OracleVerifier.seqCompose Stmt OStmt V).knowledgeSoundness
-        init impl (rel 0) (rel (Fin.last m)) (∑ i, knowledgeError i) := by
-  unfold OracleVerifier.knowledgeSoundness
-  convert Verifier.seqCompose_knowledgeSoundness rel (fun i => (V i).toVerifier) knowledgeError h
-  simp only [seqCompose_toVerifier]
-
-/-- If all verifiers in a sequence satisfy round-by-round soundness with respective RBR soundness
-    errors, then their sequential composition also satisfies round-by-round soundness. -/
-theorem seqCompose_rbrSoundness
-    (lang : (i : Fin (m + 1)) → Set (Stmt i × ∀ j, OStmt i j))
-    (V : (i : Fin m) →
-      OracleVerifier oSpec (Stmt i.castSucc) (OStmt i.castSucc) (Stmt i.succ) (OStmt i.succ)
-        (pSpec i))
-    (rbrSoundnessError : ∀ i, (pSpec i).ChallengeIdx → ℝ≥0)
-    (h : ∀ i, (V i).rbrSoundness init impl (lang i.castSucc) (lang i.succ) (rbrSoundnessError i)) :
-      (OracleVerifier.seqCompose Stmt OStmt V).rbrSoundness
-        init impl (lang 0) (lang (Fin.last m))
-        (fun combinedIdx =>
-          letI ij := seqComposeChallengeIdxToSigma combinedIdx
-          rbrSoundnessError ij.1 ij.2) := by
-  unfold OracleVerifier.rbrSoundness
-  convert Verifier.seqCompose_rbrSoundness lang (fun i => (V i).toVerifier)
-    rbrSoundnessError h
-  simp only [seqCompose_toVerifier]
-
-/-- If all verifiers in a sequence satisfy round-by-round knowledge soundness with respective RBR
-    knowledge errors, then their sequential composition also satisfies round-by-round knowledge
-    soundness. -/
-theorem seqCompose_rbrKnowledgeSoundness
-    (rel : ∀ i, Set ((Stmt i × ∀ j, OStmt i j) × Wit i))
-    (V : (i : Fin m) → OracleVerifier oSpec (Stmt i.castSucc) (OStmt i.castSucc)
-      (Stmt i.succ) (OStmt i.succ) (pSpec i))
-    (rbrKnowledgeError : ∀ i, (pSpec i).ChallengeIdx → ℝ≥0)
-    (h : ∀ i, (V i).rbrKnowledgeSoundness init impl
-      (rel i.castSucc) (rel i.succ) (rbrKnowledgeError i)) :
-    (OracleVerifier.seqCompose Stmt OStmt V).rbrKnowledgeSoundness
-        init impl (rel 0) (rel (Fin.last m))
-        (fun combinedIdx =>
-          letI ij := seqComposeChallengeIdxToSigma combinedIdx
-          rbrKnowledgeError ij.1 ij.2) := by
-  unfold OracleVerifier.rbrKnowledgeSoundness
-  convert Verifier.seqCompose_rbrKnowledgeSoundness rel (fun i => (V i).toVerifier)
-    rbrKnowledgeError h
-  simp only [seqCompose_toVerifier]
 
 end OracleVerifier
 

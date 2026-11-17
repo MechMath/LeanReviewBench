@@ -14,4 +14,9 @@ These changes prepare historical Formal for Lean 4.34.1. Upstream before/after f
 
 Packaging additionally relocates the target module to `formal/Main.lean`, places retained local imports under `formal/dep/`, and rewrites only local import paths. Namespaces, declaration names, binders, definition values and proof source are retained.
 
-Recorded compatibility edits affect `CoarseDeGiorgi/Harnack/WeakHarnack/SelectionAdapters.lean`.
+Before context pruning, compatibility edits affected `CoarseDeGiorgi/Harnack/WeakHarnack/SelectionAdapters.lean`.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

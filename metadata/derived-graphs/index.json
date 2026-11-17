@@ -1,127 +1,2152 @@
 {
   "schema_version": "paperlean-derived-graphs-1",
-  "purpose": "Hash-bound derived statement graphs recovered from frozen inputs; extraction evidence does not imply original proof certification.",
+  "purpose": "Fresh compilation/extraction receipts for statement-only contexts; original theorem proofs are intentionally not certified.",
   "records": [
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-after",
+      "roots": [
+        "BohrSet.IsRegular"
+      ],
+      "input_sha256": "39665cf983a484eeff9fe4d48dda52ad67fedee2ba7c7d62a4c7a966adcad689",
+      "graph_sha256": "20fdd213536d64748e9b2838b9f6dca077a037eb9882a6d926e261f16e593977",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/apap--bohr-regular-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/apap/bohr-regular-after.json",
+      "receipt_sha256": "0c36367f96b54ecae470823c4136673a5ba9d99637d1b82976ab274d7f7b2051"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-before",
+      "roots": [
+        "BohrSet.IsRegular"
+      ],
+      "input_sha256": "ab02d0b07cd21d13c8d0acad23e9a4083bc93f42bce63cf9f0a8fd0c4b52814f",
+      "graph_sha256": "26cd6379207564261a2ce42c95010f06ba3cfd3ef8b37910d7fd2159d375c9cf",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/apap--bohr-regular-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/apap/bohr-regular-before.json",
+      "receipt_sha256": "9e59746c7ef9e8553d77d7fa49b8f2a5913ba09e57d4cc32357ccc2c2ae54467"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-after",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "graph_sha256": "214be4043547d73c8c90bb614a7045c0f8e006d25bb0b3b397277eb45b9dca13",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/apap--int-sign-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/apap/int-sign-after.json",
+      "receipt_sha256": "093bd996014af8ea475d72b7d559c174243e8f95bc589a544bc6c6413dbac27f"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-before",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+      "graph_sha256": "00c24552296469941cc4dba14bcb69561711bc9e865251f0d91d4dcdef936013",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/apap--int-sign-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/apap/int-sign-before.json",
+      "receipt_sha256": "279382dc63574528dba07a56bba5e6ca9344934621f25690c9b97993a4744a11"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-after",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
+      "graph_sha256": "332a78a50a60045298c381b67fcc06823d8cd2ad77a7a55af55776c613b85121",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/apap--int-uniform-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/apap/int-uniform-after.json",
+      "receipt_sha256": "fc2742e602ac35701ba074594299a632829fdecc49f9c54c53bad1afa82b23b8"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-before",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "graph_sha256": "214be4043547d73c8c90bb614a7045c0f8e006d25bb0b3b397277eb45b9dca13",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/apap--int-uniform-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/apap/int-uniform-before.json",
+      "receipt_sha256": "86447f0812011376ecab3c9b02f0e7a4a28e3663f6b7fd9bd294c6021ad45c1e"
+    },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "EOS-lemma5_locally_envy_free_stable",
-      "root": "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable",
-      "input_sha256": "176d94f84158aae462287484e66a116254707640beb99c08bcf03b52b652bad4",
-      "graph_sha256": "f322b5b6b96cf5fcbba59e6f20bc39f1dee54081fea3da141bf821bcf051e3dc",
+      "roots": [
+        "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
+      ],
+      "input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+      "graph_sha256": "d499743aba824cd7d6f8435217f197b6553d94317347b2fec5b9beceaebfb348",
       "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
       "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/EOS-lemma5_locally_envy_free_stable.json",
-      "receipt_sha256": "da4d3b78bfb44c9bb4d853af711b942afcf1faf5ad1a34c3347d08d483495afc"
+      "receipt_sha256": "15139a4871f0d72201c0338e129086b56465f445634c701ea2d7847037d3530b"
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
-      "root": "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free",
-      "input_sha256": "7723bc8658d665d92d7b3d810ec18d94a0b775e3142504399ae1a1f0641b8d44",
-      "graph_sha256": "eb5b115817b3ce4278af785535f7717b57084d6b5dd37b1a59c843aeb3e6f0fd",
+      "roots": [
+        "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
+      ],
+      "input_sha256": "47183187af11d4d13e5e7407e029f368f2bc78f24516a4931ddef79c1daf32b1",
+      "graph_sha256": "aa4affc30b64ed6f8da88b33cb577add936bdc876b4b77dbcc6b8d5b83c55bf8",
       "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma6_stable_assignment_slot_envy_free.json",
       "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/EOS-lemma6_stable_assignment_slot_envy_free.json",
-      "receipt_sha256": "3b8749b77e6e61a19e7ac714dc74f8acb20b0efd37bf3145ac9feada605a527d"
+      "receipt_sha256": "bc0decd26045d2499271efb03bc177c652346de7cb302f8ef53acc0719798312"
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
-      "root": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
-      "input_sha256": "975471b171db9b98f671a5f33a2e682a14da2b60acb3746541a6456e43b869b3",
-      "graph_sha256": "b1b573fbafa84c7966f5b3957200f3e5897d34b1fb2a3f6d5486d917383bb02c",
+      "roots": [
+        "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
+      ],
+      "input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+      "graph_sha256": "c31c86f2177c3a81a0459a50266456eb019f5c1f8cfebf12fbcd971d363f5458",
       "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
       "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/EOS-theorem7_no_positive_transfer_conclusion.json",
-      "receipt_sha256": "7053639326214da4050a1bfe90ed56a85bfb5cf3dac991f9607e98ad99b71f0c"
+      "receipt_sha256": "c586434e58fb8279c71d67e0df0a2a945d3df39746fd0a007186bfd456de4468"
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "GCG24UserItemFairness-after-spec",
-      "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec",
-      "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
-      "graph_sha256": "2b989de75199e854de5144a77e03415d6a90e22141db06d95dd7264fc0d9e10e",
+      "roots": [
+        "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
+      ],
+      "input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+      "graph_sha256": "7f66949879c822495b72db757382bf19fc18b41a8d8e67dce3c51c3fa9b436e1",
       "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-after-spec.json",
       "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GCG24UserItemFairness-after-spec.json",
-      "receipt_sha256": "565cfba45c287a6ade990b8fb0d30afcf065609d52e124b1f2ea2ff4fb6d29ce"
+      "receipt_sha256": "e7480a8320c8509140095b2efccb19610296c6030625eb9a6d36aa0175c80624"
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "GCG24UserItemFairness-before",
-      "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
-      "input_sha256": "36433fc1db471bf0b7a6586db3732784eef80e9b7c7ae6971a3b7414f42e417f",
-      "graph_sha256": "9e7d41de5980921fb5bb3d7f6f61f8845defa207f8f7d067f1656b7c16ed95a8",
+      "roots": [
+        "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
+      ],
+      "input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+      "graph_sha256": "c6c5881e3ce424577134e8106b36b591750155929aa4e43565990ee74f891ca3",
       "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
       "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GCG24UserItemFairness-before.json",
-      "receipt_sha256": "f6c7b0a3396ca12131755bf85f7714b09ed7c15eb12ff80d53dc7f50f0455d70"
+      "receipt_sha256": "d8e0a7b8a10fc463e3d76d0cfd1d9c34d5e75b1f1612cd5839042e75c45ef1f3"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GHW-theorem9_1_bid_independent_lower_bound",
+      "roots": [
+        "GHW01DigitalGoods.PaperInterface.theorem9_1_bid_independent_lower_bound"
+      ],
+      "input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+      "graph_sha256": "8c7bf7adc271fbc988d0fad353f12dd342202055dc16e3f036d158013b823d29",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GHW-theorem9_1_bid_independent_lower_bound.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GHW-theorem9_1_bid_independent_lower_bound.json",
+      "receipt_sha256": "cf11fda56227faad0840d11c4cdb37c454070c3ff2dcc3bbff1d5679b4c5eae7"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GHW-theorem9_3_deterministic_truthful_lower_bound",
+      "roots": [
+        "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound"
+      ],
+      "input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
+      "graph_sha256": "8920a23e4d99cc7763390d4370889a73346b71a0f2d98f46ba4f7f07d8a42af4",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GHW-theorem9_3_deterministic_truthful_lower_bound.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GHW-theorem9_3_deterministic_truthful_lower_bound.json",
+      "receipt_sha256": "063d746b6799653054f75ff988c2492202318a572f598ccbb232c2657838ecfe"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GJ19OptimalBinaryRatingSystems-after-spec",
+      "roots": [
+        "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographicSpec"
+      ],
+      "input_sha256": "d38104dc76629d73b397ba7e88ba2b64be46b3aa3cfbe7809d6ea671739cd16b",
+      "graph_sha256": "bdee5f82991a28dd6f3986188b29ca50f365b522fcfef2da74f0d8e4aefe530f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GJ19OptimalBinaryRatingSystems-after-spec.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GJ19OptimalBinaryRatingSystems-after-spec.json",
+      "receipt_sha256": "48adc4aa563b9df960f9aaf08cb4faf9da0dbfd57dc501416cd54636804cbe5e"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GJ19OptimalBinaryRatingSystems-before",
+      "roots": [
+        "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographic"
+      ],
+      "input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+      "graph_sha256": "814367a9c9a9f5774bb4c900fb7016c787eb008d75db0ef0a0d10f2f0686d938",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GJ19OptimalBinaryRatingSystems-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GJ19OptimalBinaryRatingSystems-before.json",
+      "receipt_sha256": "295e0d86af4bf792b9c670afb1ab11cb7fb782491b69e70a396bef49b9d26606"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-AFFINE-P31",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
+      ],
+      "input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+      "graph_sha256": "73c9885267da3fc530fa2c1036de56fd5ab7ed5cc622852c106131921e424581",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-AFFINE-P31.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GN21-AFFINE-P31.json",
+      "receipt_sha256": "7e901b99b9a1462980b02c4fe15523904fdf5c8cf2cf8cac2f92d9310a426001"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-CROSS",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields"
+      ],
+      "input_sha256": "55beff8f9378e77fa64f86b4024bcd12155f6d774e4dec5fbe95121571c92a11",
+      "graph_sha256": "55b9d101442f24af3673cbbf59bca0d6165291fae509f254ca88f5f39d42be8f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-CROSS.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GN21-CROSS.json",
+      "receipt_sha256": "f1f4e13b979f3cdade16f9106e965b9207bede1654a3a2d516c3b756f164f5f5"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-final_sign",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_final_sign"
+      ],
+      "input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+      "graph_sha256": "c46417956609422bb745242d0a265f2037b9e3aed7e2fcc1897dba9446147a94",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-SMALL-final_sign.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GN21-SMALL-final_sign.json",
+      "receipt_sha256": "23e04479b6b1b5c2c89bf19d9567129908088c957050e352ac858ce22493b2aa"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-interval_final_sign",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_interval_final_sign"
+      ],
+      "input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+      "graph_sha256": "80d4e9b40ba64a093be9e268a7f18f39b911b20bb5b4e8d4dfe8e023ebc65f51",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-SMALL-interval_final_sign.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GN21-SMALL-interval_final_sign.json",
+      "receipt_sha256": "c45d6a644f1057a793e54614b70c8d59f0f80f918abe31b0639fb53fbf7ecc82"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-mass_affine_interval_final_sign",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign"
+      ],
+      "input_sha256": "291967b4618e8d0c1927e2ae54eb10cecb3edce0dbe046d69d20d6bd63c9fbe4",
+      "graph_sha256": "aacc45f1c0fcba7323643a792967524a89dbaff5980d1df5d9245994913082b7",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-SMALL-mass_affine_interval_final_sign.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GN21-SMALL-mass_affine_interval_final_sign.json",
+      "receipt_sha256": "936c72ad4fb2b824b2c346fc5095a335e9924d014a86ec4043449473f2e1112a"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-T1",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem1_single_state_threshold_best_response"
+      ],
+      "input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+      "graph_sha256": "7367481a38e2f3dd4e9e6693e1272e85d9ea95e8ac676dd6711cdcda1595a5c0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-T1.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GN21-T1.json",
+      "receipt_sha256": "aab2fab7c56975228b005350045e761773170b63f9e7de6f20f034130a24959d"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GS62-T2-after",
+      "roots": [
+        "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+      ],
+      "input_sha256": "b8fe5e99a1a274c95b3442e699a253e012f4d37582b11e2793ebdd272de31c2d",
+      "graph_sha256": "b70eb138173350c9ea7c18c4a55fe98afcb24c8dc6a37199807ad8db4d67f236",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GS62-T2-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GS62-T2-after.json",
+      "receipt_sha256": "0950b299a3b66a2cbe87a3058434e0733add1e7954ba8010f225c4e022e54e19"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GS62-T2-before",
+      "roots": [
+        "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+      ],
+      "input_sha256": "a0514f5af13db2729f7ea8574f9438904166877e4d8d6dc3cb19e16a5131c92f",
+      "graph_sha256": "e4ff296e1729da8a795e16bbf5766dd7a4e01c8da7116f6809131514246fa514",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GS62-T2-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/GS62-T2-before.json",
+      "receipt_sha256": "49d1c92833b561d71d1ceb127a12897396a84006b740cfe07f999b92aac9650f"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-GAUSSIAN-P42",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_proposition4_2_not_law_latent_skill_fair_of_gaussian_mean_gap"
+      ],
+      "input_sha256": "16007ac2377130870ed5820e7598b58ef568d029d70e83ce9be5ea6e4382c467",
+      "graph_sha256": "76a3c6cbdf92e5f111b7af1a03bc2f25a30d25347fb622f47e0cf874021e8ce0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-GAUSSIAN-P42.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-GAUSSIAN-P42.json",
+      "receipt_sha256": "3a28ac04edf6f0d4010ce0ed5a796b9d6f192e98783808d5a3910936f399d884"
     },
     {
       "dataset": "applied-modeling-lib",
       "project_id": "LG21-T31-HIST",
-      "root": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
-      "input_sha256": "74e8097264ece5a35261e30c459ca3edd691ac048a7072766a657ad6d2adf2d1",
-      "graph_sha256": "f1fc6ee73a94c74c0678c241d069a684b59e71be1cf3c683c3960376fb7ca0f5",
+      "roots": [
+        "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
+      ],
+      "input_sha256": "a126460ba1c5dd2346d25bc7768030724f69060bd58b8b3528f79861ce7215d4",
+      "graph_sha256": "61eb8bbcf436263bae605d6b74f5219fd6a905e219b0e16d91b82d0d8846e7f5",
       "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-T31-HIST.json",
       "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-T31-HIST.json",
-      "receipt_sha256": "3afb32c1a79905c65c4b852ed510df16b098e86552970140eaf49333b98f7c5b"
+      "receipt_sha256": "2893e04aef04de2a13078aac77820b719de9f0dfc5121addc135bd6acaa6aefc"
     },
     {
-      "root": "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli",
-      "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
-      "graph_sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10",
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-optional_reporting-source_witness_of_base_crossings",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_source_witness_of_base_crossings"
+      ],
+      "input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+      "graph_sha256": "ef99eef14179f28e8f4f122681a8ecc14be549cdb219731dcbfd3d5215b7a836",
       "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-optional_reporting-source_witness_of_base_crossings.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-optional_reporting-source_witness_of_base_crossings.json",
+      "receipt_sha256": "02c95583cc2106f67c2dcc06ab38809661eb7e574862fe243d2684c8f1babd32"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-optional_reporting-threshold_equilibrium_exists_of_crossing",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_threshold_equilibrium_exists_of_crossing"
+      ],
+      "input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+      "graph_sha256": "e66b575f3ee09bcead5ce00f0efa81a3f64c177e7e1bc2ff422bb945ae4785cf",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-optional_reporting-threshold_equilibrium_exists_of_crossing.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-optional_reporting-threshold_equilibrium_exists_of_crossing.json",
+      "receipt_sha256": "1e2432afb01f07c8efcf257707e713c8152f9837d290aee9819c2f88bf120b25"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-report_required-source_witness_of_base_crossings",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings"
+      ],
+      "input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+      "graph_sha256": "c46c29a193d43d0ac67cd02bfca2ee50473a8f28ab3a1950a059ae1e3782b388",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-report_required-source_witness_of_base_crossings.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-report_required-source_witness_of_base_crossings.json",
+      "receipt_sha256": "e7b80a20bc0950d0940ecd86ce219119ead0d06debbd0e1eb0f491c7f67516e4"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-report_required-threshold_equilibrium_exists_of_crossing",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing"
+      ],
+      "input_sha256": "68b8e27bb1dc5c264f504f3e5d3770ba5d913100653ccca9ba67b36d74c93822",
+      "graph_sha256": "8daa4ccb1ec077d10df5c732a3634188a080189ec7b815a4f264d8678945062c",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-report_required-threshold_equilibrium_exists_of_crossing.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LG21-report_required-threshold_equilibrium_exists_of_crossing.json",
+      "receipt_sha256": "7a403752160746ce1f2505d4aede4685cbbb3c9d44dcfb24ea458021ae1b8202"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LMMS04FairDivision-after",
+      "roots": [
+        "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+      ],
+      "input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+      "graph_sha256": "76acb41a2b166e2236b60dddfd75b218fcef7ef52d1994c8d65e48b9932188e7",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LMMS04FairDivision-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LMMS04FairDivision-after.json",
+      "receipt_sha256": "7c7d2a6895cfb6cd879bc5ab28958b588eaad78156fd6f2d5edf6189f0e3bf91"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LMMS04FairDivision-before",
+      "roots": [
+        "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+      ],
+      "input_sha256": "0b3fcaa6b94ede3ba0954e1d97fb9626f4fcce9e7b91fdf228047ce40ca9c8d0",
+      "graph_sha256": "6b1ddb80fa3f8e2c1ecf80157c108eb45df94b9f069aaa0db6385a4ae441d2b7",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LMMS04FairDivision-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LMMS04FairDivision-before.json",
+      "receipt_sha256": "a0bf5494a3d3c04e4af91f702b28173e3422dae50984a4031169aab94470381e"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LOS02CombinatorialAuctions-after",
+      "roots": [
+        "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+      ],
+      "input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+      "graph_sha256": "0296d461d5035dadb95edc9208bbbcc901d82c59b8276faa9f032d15f1c46948",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LOS02CombinatorialAuctions-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LOS02CombinatorialAuctions-after.json",
+      "receipt_sha256": "6f7144434c54ec3200261accedf2a03eec34a7013612ff96d4e50494bdea1480"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LOS02CombinatorialAuctions-before",
+      "roots": [
+        "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+      ],
+      "input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+      "graph_sha256": "5a293a608b365fc95eb6cb14d831e1b9758e6c4fe604df1082c86787c42bf7b5",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LOS02CombinatorialAuctions-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/LOS02CombinatorialAuctions-before.json",
+      "receipt_sha256": "83630a3486085113349f8e26f0a56b28798c4ba61720c46fe36a6679b0d7feb5"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "MBJG-VARIANCE-INTERIOR",
+      "roots": [
+        "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
+      ],
+      "input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+      "graph_sha256": "a65b33bd3a718cd51695ca676172328df8e9cc6f7710d26680e73e66a3a7a9a2",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--MBJG-VARIANCE-INTERIOR.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/MBJG-VARIANCE-INTERIOR.json",
+      "receipt_sha256": "1af3c24a112d411223cf34977e808723dabf769126e1ec4b475d8984dd5d97f8"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "PRPKG-P4-after",
+      "roots": [
+        "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+      ],
+      "input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+      "graph_sha256": "17f09d2b11bb3a38c32cb86c602e0a5af8063eafe69b946111e3993cb99bb1ed",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--PRPKG-P4-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/PRPKG-P4-after.json",
+      "receipt_sha256": "5b2d85738969f634a5f35d35b25a2a0403786a77185c9fe16fdd9605ea55e4a3"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "PRPKG-P4-before",
+      "roots": [
+        "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+      ],
+      "input_sha256": "24e1e843df770864b7a6ae4ec715f20ccb9bb82e55b5e17693848d5beee80bdf",
+      "graph_sha256": "331a767d680cbaa2b1aea265c60194ac819131c6679cb2d19cf1ef312aff6852",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--PRPKG-P4-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/applied-modeling-lib/PRPKG-P4-before.json",
+      "receipt_sha256": "5a5de055f373059b32c23751e89fa03db1637b196f743567068e0d6361df41c8"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-after",
+      "roots": [
+        "KZG.CommitmentScheme.binding"
+      ],
+      "input_sha256": "2e115ec742a1c59bafee5003498a7333fe5a0bf3b71f3a8d7d50d37f1b31e26d",
+      "graph_sha256": "47b22d4463a2dec0388bebbed802356c34a84183c8199c42e831dd0587fe2020",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--kzg-binding-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/kzg-binding-after.json",
+      "receipt_sha256": "66483fcdf79706fafb1d0d53523edeaaddd61c92366b487fdc2e0beef03a3d2c"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-before",
+      "roots": [
+        "KZG.CommitmentScheme.binding"
+      ],
+      "input_sha256": "b3df2ad1857a26ef2757d381041b7863be464ba585f19dfc94b9308311230825",
+      "graph_sha256": "f31de2bc4930d105ddbea98f7c9adc769fb35f7b593c6366df76ad036591a882",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--kzg-binding-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/kzg-binding-before.json",
+      "receipt_sha256": "157d1282db4a906784082848f0d3f3c25e4b44a4ba4a75ba2f28bd784c852b09"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-after",
+      "roots": [
+        "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+      ],
+      "input_sha256": "48b54101e47ef47d0d80addd124d7e285949c9bfb995e02bd08788c7fd334125",
+      "graph_sha256": "13865788e5b1a4d28675d737bc547d69ab2b8615ad6860a5665e673c360be4fb",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--kzg-binding-reduction-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/kzg-binding-reduction-after.json",
+      "receipt_sha256": "205d9417a46c8414c2200a15bc2b746bbd66417378cc09c9f004a4ffe4321561"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-before",
+      "roots": [
+        "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+      ],
+      "input_sha256": "f50980429a6fa80863bfbab9b77fe30285c6ba1187c7a1139779920afa8696b6",
+      "graph_sha256": "163e82abd64c0f90856f0d9e8feb543fe4db0c08da590c39a082d443204bee2f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--kzg-binding-reduction-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/kzg-binding-reduction-before.json",
+      "receipt_sha256": "18db89ef565ce5a52c0983aa3f1af1a3e1f23222c6ea68b7f9c5d60de18e6588"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-after",
+      "roots": [
+        "KZG.CommitmentScheme.function_binding"
+      ],
+      "input_sha256": "f172359db0a9522145c1009310c70755461d738b5d2d7313f67f95d7817c007e",
+      "graph_sha256": "cd90795154b801c81f2cf95501043f5d18c3c141040441ecf694f1085e834e15",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--kzg-function-binding-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/kzg-function-binding-after.json",
+      "receipt_sha256": "a7fe4996b1b6191eae96a4031dd204740821a1ab15e9985acc1c4ed1c034947e"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-before",
+      "roots": [
+        "KZG.CommitmentScheme.function_binding"
+      ],
+      "input_sha256": "56feaf3d7d0de61c280d7809a994a32808512242bb517b9559cef10b29d21055",
+      "graph_sha256": "229abbc946be36fa079f41035a6b69c5e90c9a43b009e13e2d3b7d7e54c9e54f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--kzg-function-binding-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/kzg-function-binding-before.json",
+      "receipt_sha256": "2bdd2003290ba2f1a30a5919b42f68d45b1e7df833e3e02cb8ec95a2710e48b8"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-main-withdrawn-before",
+      "roots": [
+        "StirIOP.stir_main"
+      ],
+      "input_sha256": "6e41ab32e09e6464c03c393cc7938796b7852247a1597f5eb9eb02d13d92b6e4",
+      "graph_sha256": "c5efc478c4394dd1a4f0447fe332bc357ac750ef5bc177095f911f240ba5eec0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--stir-main-withdrawn-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/stir-main-withdrawn-before.json",
+      "receipt_sha256": "0aba4487edf5673cb9dd310f0e72d1584fa4d2ae6af390702ba7c090ee79d47c"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-after",
+      "roots": [
+        "STIR.proximity_gap"
+      ],
+      "input_sha256": "ad8665684eb9ceb59855f1036af32517062dde9949e5f855873b354b17096272",
+      "graph_sha256": "6bb1a9dbc3a30a56fd9a605dc062118a4aedb2ce152a65c6681bc48ec665713f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--stir-proximity-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/stir-proximity-after.json",
+      "receipt_sha256": "a1bd815b50f21773ea2a1bfd6a8f6ed3406a59f8604b7bf4542cd64df8deed0f"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-before",
+      "roots": [
+        "STIR.proximity_gap"
+      ],
+      "input_sha256": "eb7768a4cabbe0d1739919335ecb430c6c4ae0ba792007143247036a7dec0a40",
+      "graph_sha256": "5d57d9dd3ec15e4394761c1d5268c71747c6ad5fb159cb17f1995704c084ae16",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--stir-proximity-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/stir-proximity-before.json",
+      "receipt_sha256": "98541c8830eee0f6d4c1aa46eb57f8bb36abefb33c0e7e9eda978e3b418fdb09"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-rbr-withdrawn-before",
+      "roots": [
+        "StirIOP.stir_rbr_soundness"
+      ],
+      "input_sha256": "a306d41db737c2fcced3fcfb6de5eaab40070e3ec2f4252b40b4bfdfbe0add59",
+      "graph_sha256": "c237d2ad1e721c3ad121b13fb6120bb87734a98b6d112b59eb1c9e9ee4f0923f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--stir-rbr-withdrawn-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/stir-rbr-withdrawn-before.json",
+      "receipt_sha256": "1e3ef17b963ff33860243585484408c998aef6864770d0c3c08dd82e1dc5db48"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-after",
+      "roots": [
+        "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+      ],
+      "input_sha256": "41d6a545cd93ee63213b1e9a6d92390cdfb82bd8e5030ad14f3180e1a291a960",
+      "graph_sha256": "00c1e7f44abda3ccf6b8fb07d7ca12f7246845f234e0312b2a44628a60ae505a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--sumcheck-full-rbr-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/sumcheck-full-rbr-after.json",
+      "receipt_sha256": "6d700261b0a67f4eaa1ac0bbcd832c64d82418476fae54d58e7deb22e8f870ce"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-before",
+      "roots": [
+        "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+      ],
+      "input_sha256": "490121ec80a0e9712958fdeb87b2f9e84f5b029949aaa165a79e5f201af88556",
+      "graph_sha256": "4878a2aeff79b447bad89b6b316eab7a63778f26cd79acb7edb599102cebb1f0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/arklib--sumcheck-full-rbr-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/arklib/sumcheck-full-rbr-before.json",
+      "receipt_sha256": "9d9bccf23a299ddecc37c0382c2f1202cb9f0b73ec3ff052c866cb04b0a07e03"
+    },
+    {
+      "dataset": "brownian-motion",
+      "project_id": "finite-set-after",
+      "roots": [
+        "ProbabilityTheory.finite_set_bound_of_edist_le"
+      ],
+      "input_sha256": "1f358f54221932f8c5169bef87e80c20b88eb64989ac5bb46cd7222ae2a894eb",
+      "graph_sha256": "da4772d9a700b7657952737c4c5435c1f6258d17277ec57780e3c022440fd595",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/brownian-motion--finite-set-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/brownian-motion/finite-set-after.json",
+      "receipt_sha256": "0f182ac8d73e10c3427b4d8b440db8eaf088daf6fc296e59ecd9748ffca159c2"
+    },
+    {
+      "dataset": "brownian-motion",
+      "project_id": "finite-set-before",
+      "roots": [
+        "ProbabilityTheory.finite_set_bound_of_edist_le"
+      ],
+      "input_sha256": "00b0e4424626a1fb57a17f4f84edd4d24d89aa0783b4bb0641a33de9a383f33c",
+      "graph_sha256": "7e33e9338133b7e65db2100c1edb5fc58107e96c806b5de6ae1b2362eda6b253",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/brownian-motion--finite-set-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/brownian-motion/finite-set-before.json",
+      "receipt_sha256": "67da0b91535bc316c30777ee3ef7bd05de8957375f49e55cc0f06ae7261695e7"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-01-after",
+      "roots": [
+        "metric_carleson"
+      ],
+      "input_sha256": "16a31295a8904f435e8bf38bdda8ad2dc025a358118efff5c53a773dc52261e8",
+      "graph_sha256": "8d5f87cd00eea456f892008f6bdc2b22be8dcb90bf0e39fdc8089ba2edacd9ef",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-01-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-01-after.json",
+      "receipt_sha256": "cb458b39e61caac5d3aaa7dc3c58efba3bf4066302b4ae23fdee9545c961fd0d"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-01-before",
+      "roots": [
+        "metric_carleson"
+      ],
+      "input_sha256": "2518326efd9c1ff2e06a67d86c63e8b929edf939fc51d91d85d550a93a4204d5",
+      "graph_sha256": "cee8299bccefb1a6a143bc44967514e0481a8b6ded54b7208d26f70cc3a7173f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-01-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-01-before.json",
+      "receipt_sha256": "b83b6fb26a5039e9c949036f45c17465a1730377f35f1b93785b4df33f3c4938"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-02-after",
+      "roots": [
+        "linearized_metric_carleson"
+      ],
+      "input_sha256": "5e43cb5313c9ed65775fa7fbcdedce6bfd8dac55e797372f5d9358fadc34f39e",
+      "graph_sha256": "cc0a04b4fd59c143a1992fab7a1e5c8b5ee29956a1f10559ca19b047a66829c1",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-02-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-02-after.json",
+      "receipt_sha256": "f196557e02da64a67a427540c90cf228bd76e50ea36b55b26263225d7ac106a1"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-02-before",
+      "roots": [
+        "linearized_metric_carleson"
+      ],
+      "input_sha256": "80ebd0b75c59e2b89799163271e4571d33c9d33f103483f8cd28e091a486f4f0",
+      "graph_sha256": "86ead428b0f85f1cff47383257f9cab95e4ffdf901f90952383b1da6d82aef40",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-02-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-02-before.json",
+      "receipt_sha256": "3feaf149825609f372a97bf3dc2cb09a6deb68a401bdf917cade06dc39c45fe8"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-01",
+      "roots": [
+        "ClassicalCarleson"
+      ],
+      "input_sha256": "dfcee02b31b840b0e93e16ef4cf2f94811f20fda770cfe20a74e51a2e3b0c5b5",
+      "graph_sha256": "c1473cd15d5fb22a62875a5640eaa3e0b210c552cb07d7a8a8cc900631b8393d",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-CTRL-01.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-CTRL-01.json",
+      "receipt_sha256": "a1e96eaab970df091758e835308bb20619d5408a3fa41572d3d6234b56878957"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-02",
+      "roots": [
+        "MetricSpaceCarleson"
+      ],
+      "input_sha256": "e932a87cd61cbda63690cac484a981025a0fcade29a34948c3c694cca3edadc5",
+      "graph_sha256": "91cf30e13d2e1bf5bbc92287e41cc8aeb18f7f94acd074443b90d1fbfb2ec9e4",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-CTRL-02.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-CTRL-02.json",
+      "receipt_sha256": "87c54611437628ed4816efd24fce57135f441ce7dea7a694f9bc5d54c4dd630d"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-03",
+      "roots": [
+        "LinearizedMetricCarleson"
+      ],
+      "input_sha256": "10642925a6d9757521e2305aa929d213df9e4b08f7460ba13527e987937ac8ec",
+      "graph_sha256": "3d51cfda82ed25c85999d9fca0e508d23c358b4602d28cc1740a34edff7bb500",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-CTRL-03.json",
+      "receipt_path": "metadata/derived-graphs/receipts/carleson/CAR-CTRL-03.json",
+      "receipt_sha256": "20a6be7dae1f8ae7809d6eda6ded03d498dc9357615e321dd51a80a81ea53e98"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-A",
+      "roots": [
+        "CoarseDeGiorgi.local_boundedness"
+      ],
+      "input_sha256": "f9c4a58080689b21c934f9ea4551c4bb1ba18579e679f20739e44c00ec324043",
+      "graph_sha256": "6e9f81e621e83ff3ab36dd68dbacb5669d7369a76e8ea789438ede774de138bf",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-A.json",
+      "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-A.json",
+      "receipt_sha256": "9cf02e22770e35fdbd0a0c3d6366d21713d29eb35ef1a4408342dbe954741f4f"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-C",
+      "roots": [
+        "CoarseDeGiorgi.harnack"
+      ],
+      "input_sha256": "5688474eabfdf58702517645f4a7c85ccc2f29a6daae10a6ea176775212ab87b",
+      "graph_sha256": "4d5da4cb533340c96165cefe11683931cdcf904dccf3a59fd15f24b2f3b85b14",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-C.json",
+      "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-C.json",
+      "receipt_sha256": "4b609e3ce1aadbc2300b2bbb57942f86858db51aaa73f622294d0b409c2409fe"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D1",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_lebesgue"
+      ],
+      "input_sha256": "f014e4d18afed2bddd96fd1bc2e50775403d47be23114bbebdb31dcc18db5932",
+      "graph_sha256": "6de2d43d05af8b07c6263aaa8c1abe7e3502c80618bb54142ee2f31d64019bd6",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-D1.json",
+      "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-D1.json",
+      "receipt_sha256": "7a168a644d480dd02c3187c8a740cfb7557051f328504f0c348aecfad481d14a"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D2",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_besov"
+      ],
+      "input_sha256": "bedaee2b0aa258aa9fcb21cfed33979e194de055372623b51ec71aad987604b6",
+      "graph_sha256": "5132dc5b93f06fc5b17828a741aa74e4912116fc281267f9840b742cc34edc88",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-D2.json",
+      "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-D2.json",
+      "receipt_sha256": "427c8bf150521d62bd913ccd0b187d9cb946acf5603f5d2f8990e5a770ad0122"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D3",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_sobolev"
+      ],
+      "input_sha256": "243c33cd92380a2b69abb3d6e5742c3da1e1e7cebb6cdd92497f760e5b6f8efd",
+      "graph_sha256": "e7411c0de2c55a5c5e528f2cfde7e2bb5c493874a3fc99644a35af40cd5220f0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-D3.json",
+      "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-D3.json",
+      "receipt_sha256": "a62d0f5969056ca43c6a140c23604b09926972f9d679cebcbfc1ea7bdf96f6dd"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-L41",
+      "roots": [
+        "CoarseDeGiorgi.LowerFractional.lower_auxAverage_norm_local"
+      ],
+      "input_sha256": "56c78ffcb9b1295a17a215bca0d256760eb9d82654e23f127fb14fa9d611df3b",
+      "graph_sha256": "74475a502beb385f90a93d03b8de07328431735ee10dad91648dda3570712280",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-L41.json",
+      "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-L41.json",
+      "receipt_sha256": "79c1b7922c4046b5e30ba8968328160777bae3f72428bcc92a889b3fdacb0c83"
+    },
+    {
       "dataset": "coarse-degiorgi",
       "project_id": "CDG-L94",
+      "roots": [
+        "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
+      ],
+      "input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+      "graph_sha256": "4f08689e60860e07c6a18e0b66db0116389c06e9b59909cc9c8963863006c7e4",
+      "evidence": "compiled_environment",
       "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-L94.json",
       "receipt_path": "metadata/derived-graphs/receipts/coarse-degiorgi/CDG-L94.json",
-      "receipt_sha256": "b55c18cbbf2536e9473cab2004a1da281465191c31adabd2db2c4a7adb97c5dc"
+      "receipt_sha256": "88630a0f73fa5b6c3f85fc24f0180c532bbddcfe9c124b5c3514bcf4bd3a0643"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-endtoend",
+      "roots": [
+        "EndToEnd.end_to_end1"
+      ],
+      "input_sha256": "d3165d3054b5d392777385243006b28b351c93881b8a74072f0bcff16f5a500f",
+      "graph_sha256": "1f237ef2b0f11ce33e34dbc4692db0c6fd219cb496ca3d04121220c1ea632e57",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-endtoend.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-endtoend.json",
+      "receipt_sha256": "3d58196a2e7b45efcefbd3d8bd104b40714eb0056bc94cb75171642114d92b05"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1482",
+      "roots": [
+        "FullSpectrum.full_spectrum_Equation1482"
+      ],
+      "input_sha256": "e745da2362b591371d8160842f168436fc2554f0138491ff078e3c2a520accf5",
+      "graph_sha256": "6f6db77c7f4ae29f09694a4e133505d31489535b903ad2dbd76ae5237ee47c87",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-fullspectrum-1482.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-fullspectrum-1482.json",
+      "receipt_sha256": "3f5eafe387638b41f5dab8b617a7a52159196ec811ab1852e8baaf80ab668ee6"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1682",
+      "roots": [
+        "FullSpectrum.full_spectrum_Equation1682"
+      ],
+      "input_sha256": "a11e9e5f58572620e423ca2b1b51113661deee10fbe798ea4563c6cc5c74bfa5",
+      "graph_sha256": "d4f8a880786ffe2f3003ecf687b4abbb904bac5e76e4ad11f1267139ef4712f4",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-fullspectrum-1682.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-fullspectrum-1682.json",
+      "receipt_sha256": "1ea1d710cc37856cee7cbd85be9a3d5503b5e94987b27ab4fc080a101b8fac6e"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-greedy1729",
+      "roots": [
+        "Eq1729.not_817"
+      ],
+      "input_sha256": "1e99cf462ffc2731c2fb4a1d037b9bb389dccf74ef3d17666ee7669cff224892",
+      "graph_sha256": "1910d9504883fe0491687c8c6e863b15416eb797ccd5057341553af3711115cd",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-greedy1729.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-greedy1729.json",
+      "receipt_sha256": "d46962f9cba67a7a470f1e60aa731a9024986a68c427107144e78f24e64ff213"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-law-coverage",
+      "roots": [
+        "laws_complete'"
+      ],
+      "input_sha256": "64623e388afd80e93904dbe7ec8c4c0490b9cdaa85d7b7efee08459f76695bd4",
+      "graph_sha256": "819e81823aa0d699bef5f76fc78f32c20b3c087ecd1a8e4f7df5e94f1d28c5e0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-law-coverage.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-law-coverage.json",
+      "receipt_sha256": "68c983ad0a228bec7bc0677cf2905c0eabb2c32a013707ef78b9d68ecec7b238"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-obelix",
+      "roots": [
+        "Obelix.PartialSolution.Equation1491_facts"
+      ],
+      "input_sha256": "32c389701623ee6fe628a9214401226be61383e3560ac9eb763f10399b5018f7",
+      "graph_sha256": "b51a4994c56056245eae7991ebe1ecbedf0237618dbcd2a4f05621045e48be54",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-obelix.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-obelix.json",
+      "receipt_sha256": "bcb290704d220e71b99df60a6de24f40e3fd4beada5fb113005e449a7bd366a0"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-sheffer",
+      "roots": [
+        "Sheffer.Equation345169_is_Boolean",
+        "Sheffer.Sheffer_Equation345169"
+      ],
+      "input_sha256": "7cc90a401f97e8a15c487b07d543367f260a499b8a9572b77725c7584a503ece",
+      "graph_sha256": "302cb688dbc0aea7038e557a5ae929d88f926b88c2a12eb9582719166e679138",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-sheffer.json",
+      "receipt_path": "metadata/derived-graphs/receipts/equational-theories/etp-sheffer.json",
+      "receipt_sha256": "0a96f20f56313be7ddf49ab92eb157f9190a7d9c3fad91814c2506adc3bc97e7"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "dudley-covering-number",
+      "roots": [
+        "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber"
+      ],
+      "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
+      "graph_sha256": "61176863b158c1d925afd7b3193c4d1a4bfc8bae3265167bd0b0356b348a5475",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/formalslt--dudley-covering-number.json",
+      "receipt_path": "metadata/derived-graphs/receipts/formalslt/dudley-covering-number.json",
+      "receipt_sha256": "6df79ffc968aec6d8395c3ac2857cb7e753f27c87300f04413acd7ccdfb68776"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-after",
+      "roots": [
+        "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "77a9bbce34c4e476fa2042beae02fdc7caa6acfdfc1cb18be5dc1672b712f1dd",
+      "graph_sha256": "7e45e85e5c09a5d54f2746980a226a54ec3ac4ac82ec69f5d4edc51a717b040b",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/formalslt--eb-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/formalslt/eb-after.json",
+      "receipt_sha256": "bffc03ee6949ba6cd159d7e576175b6eef54855c14070fad850ea38b4a740ede"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-before",
+      "roots": [
+        "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "889ce21db87802909aeea9491e3f7d46f4476d204110ced2dbce2deae52bf3af",
+      "graph_sha256": "181f65a0fe7a49be5b811de2d2d753ac9f586ceaed71435332212d921813817f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/formalslt--eb-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/formalslt/eb-before.json",
+      "receipt_sha256": "408a76b0676f65eae10633490ae0f3903afbc1cab1b25e6f25198e56ab44bfb1"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "flagship-scalar-reflexive",
+      "roots": [
+        "FormalSLT.TestTimeMeta.FlagshipComponentWorkedExample.flagshipComponentWorkedExample_scalarAssembly"
+      ],
+      "input_sha256": "44781cd03dd9c0525b48c45cdb922ee9cc7093205a71b2a2228ef7e386de15fd",
+      "graph_sha256": "467be8755f9d0a498978504f23cce39114336ea32d9e38d745faee2ff9677ae7",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/formalslt--flagship-scalar-reflexive.json",
+      "receipt_path": "metadata/derived-graphs/receipts/formalslt/flagship-scalar-reflexive.json",
+      "receipt_sha256": "7404d5ff8e2329e060df052f21178c06adee546dbf54e4c93097eec408d6ecab"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-after",
+      "roots": [
+        "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "9071b80d760f0521904b7364c8b90f56606203e16783e53e6a7d78a49dc1a48d",
+      "graph_sha256": "39a0993cb85c08f222718e39b155da4525bc83db9d9fbbbbd23b4fd6cda37aed",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/formalslt--mixture-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/formalslt/mixture-after.json",
+      "receipt_sha256": "0389b7d6445e8e883ced504105773e1bf7e5dc8bf409eeaf340b1dae384190d1"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-before",
+      "roots": [
+        "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "55699af3eccb3752878fc95362c3574898796febb9c016fc5b460094d813d0da",
+      "graph_sha256": "b203d0284eb4ccb6fd8ea231a5c8d6d202dba788b81f71e535a4f16c3830329a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/formalslt--mixture-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/formalslt/mixture-before.json",
+      "receipt_sha256": "3ab4bfa1019f77349ab9cf6203c6e47677e7b3381be7d457251dd15bc4ed5d50"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c01",
+      "roots": [
+        "FreyPackage.mazur"
+      ],
+      "input_sha256": "abcb2304f7939c210170e9fe39b136e07c14c30f98c72c235dbdf9838af43a80",
+      "graph_sha256": "97091be3aa4d421a90a8d395efb2c190f06878abe0bd3a2d3fc0863fc2519039",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c01.json",
+      "receipt_path": "metadata/derived-graphs/receipts/imperial-flt/flt-c01.json",
+      "receipt_sha256": "1f15ffa9193acb4a982a7fa85f1717410ba748a677a8b8cc7a4f328ae783de52"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c02",
+      "roots": [
+        "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5"
+      ],
+      "input_sha256": "34d856cef8108022bce4c83f00429841d9d06d33f045a921aa407f145bb1c01c",
+      "graph_sha256": "be1fe855a2df34197e8fb0d33fbb196c5f9e9ab2b03ec64a4fa9ae6f58135a7e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c02.json",
+      "receipt_path": "metadata/derived-graphs/receipts/imperial-flt/flt-c02.json",
+      "receipt_sha256": "58282b058a24352f6008bdaf119702ea65236a0572dc629991cb1b92b3163ff5"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c03",
+      "roots": [
+        "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
+      ],
+      "input_sha256": "117e6ba5f8ccaa5b52362e4fb245dfd0198a83efa5483b8ed69db82e2ef5260d",
+      "graph_sha256": "74c632393a06132b77599439f2deea04d38c24cc01da59b6b622e3ac79d016ec",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c03.json",
+      "receipt_path": "metadata/derived-graphs/receipts/imperial-flt/flt-c03.json",
+      "receipt_sha256": "f864c386d06e70250dffdde62efcfbf9e1f98625febb8705b668ceb05dbb41c0"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c04",
+      "roots": [
+        "NumberField.AdeleRing.DivisionAlgebra.compact_quotient"
+      ],
+      "input_sha256": "611ba15c87d16bd92857c412046e6739535951e0745728bcfa5dd41cb687432f",
+      "graph_sha256": "97dbfcc9965e6b16ef4e937657fde420b46acbd7ab454cd8ce3ab25157f4c4d8",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c04.json",
+      "receipt_path": "metadata/derived-graphs/receipts/imperial-flt/flt-c04.json",
+      "receipt_sha256": "37f5649bcc1175b56ec2cf98593fd26b0b5f9057e29f5d92dcae79866da347ce"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c05",
+      "roots": [
+        "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset"
+      ],
+      "input_sha256": "1f1d9778831c26f6c0413d25960d34ccc222b800f9fd658328b4c775370776ca",
+      "graph_sha256": "29ff745194b5856eecdd92eeffe080ff47e2038a9ee9ddd5d978f3477d06b8ca",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c05.json",
+      "receipt_path": "metadata/derived-graphs/receipts/imperial-flt/flt-c05.json",
+      "receipt_sha256": "b90b3af7b2dc6c7e893fcc4d61b380733ec87de8349ca0b6fda3b98e883501d8"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-cs",
+      "roots": [
+        "Finset.card_sq_le_card_mul_addEnergy'"
+      ],
+      "input_sha256": "43e0bc4e916619f94ac665d7901f151a8fa48d0d804fcf3cf599182400bb562f",
+      "graph_sha256": "9cb243b83be35f9e50ecb4d0992f720fe3bd105b21a94c3fd11d97a9178c6954",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--energy-cs.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/energy-cs.json",
+      "receipt_sha256": "c37bf3d2a505176e229b53d11d7bc9a6863062c2615c2e78508b15c7bd13974b"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-definition",
+      "roots": [
+        "Finset.addEnergy'"
+      ],
+      "input_sha256": "e69330078059dff2e955ad0404b75c340d89cc973da47440338e56b2ccaf20b9",
+      "graph_sha256": "d53ee2dbe403d819c97475a4b6af901f9b17a2e3fbbd9d743fb5723b52bec52b",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--energy-definition.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/energy-definition.json",
+      "receipt_sha256": "c3306309bf29e75ec4b5d59254f096cfa627378396c2487ee4df47b622e9e2d3"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-after",
+      "roots": [
+        "entropic_PFR_conjecture'"
+      ],
+      "input_sha256": "dda4818198a2c3b7c8d28d859a1f8456d206843b2d129dbeedbe560610c8b44a",
+      "graph_sha256": "02e32247a22e6df406ca517d09ef531878e2dd766826a5ea724333a184a7ecdb",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--entropic-output-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/entropic-output-after.json",
+      "receipt_sha256": "498608193b31c9c92040fa71e4af9130a2db3db5334450010ade4948f7dfb2df"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-before",
+      "roots": [
+        "entropic_PFR_conjecture'"
+      ],
+      "input_sha256": "2c18a1b94856428270be697438b9cf7c63bf403cedd239c2c589aa87b9205496",
+      "graph_sha256": "1e1c621fca7d3e94d14fea316cc0970898bb857bbaf3e72e7fd4079367943e9b",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--entropic-output-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/entropic-output-before.json",
+      "receipt_sha256": "5e320819b80f9ce17e50dacd8d73e81c429ed31610ffe3bfc24688e086476e06"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-after",
+      "roots": [
+        "ProbabilityTheory.iIndepFun.finsets"
+      ],
+      "input_sha256": "073f911a919ddfef0914ce9d9dc0ba2111bdc8eeeb0e3ab69bb505db1497fbad",
+      "graph_sha256": "c74a0eca10d804f757a416142543a690c32a125b7c954f082352c15bf7da3c94",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pfr-independent-blocks-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pfr-independent-blocks-after.json",
+      "receipt_sha256": "56879077b04c503fe10af1b181f66b88ae8f7f6a438d087cf056870dc17ac934"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-before",
+      "roots": [
+        "ProbabilityTheory.iIndepFun.finsets"
+      ],
+      "input_sha256": "f346f77ad292632a4b870d18e213104eaff46297d050a692a9173938e499eb60",
+      "graph_sha256": "ce4f89335109597d4d09127dc44ca06dc0fb1fdb1e926abb04acbef76f927ce9",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pfr-independent-blocks-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pfr-independent-blocks-before.json",
+      "receipt_sha256": "2bce87a50679cbcaa09b7c1e31b7a3ff8be2c435b2af5fd2f6762cb630c61e12"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-after",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "6bd07d5350f574e1a7f07be34056338376ce10ee5e4f7c807a209ec9180e9936",
+      "graph_sha256": "074de1820e7f846b12ed4e47fa31087e53970ca43bd08db0dc4d70d0ead99567",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr209-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr209-after.json",
+      "receipt_sha256": "12e62d13bb8d6779beb123d6f159befaa950f8bde5a1888771be61b2086196f4"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-before",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "8ed1e7d727a0c9f0b04a0ec488d5ab6085dcc9080dc1e414c0051006868dacf3",
+      "graph_sha256": "5c4b79350f537a868770241cdcef168249ad4b1d68af26313a498c596a888287",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr209-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr209-before.json",
+      "receipt_sha256": "7c43f685ca32768a3766728c5a3264447256717ab7f2beca38a83f3a9f8a6921"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-nonneg",
+      "roots": [
+        "KL_div_nonneg"
+      ],
+      "input_sha256": "5f3e1759cf752065cf87a4145ae37435527569683050e6afc93739a1962d04ee",
+      "graph_sha256": "cc486ab43357fdc4fd164687e50232135cdef27b3c2853e5e44c59117a54b67e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr227-after-nonneg.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr227-after-nonneg.json",
+      "receipt_sha256": "ba2f23c87a12eb9d1d3c2524f6fdb5b250adfb369688371074331a8393999920"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-zero",
+      "roots": [
+        "KL_div_eq_zero_iff_identDistrib"
+      ],
+      "input_sha256": "0b1407cb12cd373abf011e833619f3dd9cf6e5fa361130a6db6f61c61f65d3c0",
+      "graph_sha256": "84f3d513be8ff543df0ffcd03e6a19143cb771c4b27f70a24767c07d2e8d3583",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr227-after-zero.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr227-after-zero.json",
+      "receipt_sha256": "8e849943c8e901c5a39a0493e2bacfc61ded83270d887220de46ace77283bb9b"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-nonneg",
+      "roots": [
+        "KL_div_nonneg"
+      ],
+      "input_sha256": "04467815f77ba6ed08381cc71a82a47e807640d0dc66aaa72e6ebe699af225b9",
+      "graph_sha256": "bf37bcd0e3b6d7c6916aea8162347191d66f17f8e9c33114499255027ed87475",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr227-before-nonneg.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr227-before-nonneg.json",
+      "receipt_sha256": "24d6ee262522481cea8655a1f5fbdf0e7012801dcc9f409241f0092d0e2c4694"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-zero",
+      "roots": [
+        "KL_div_eq_zero_iff_identDistrib"
+      ],
+      "input_sha256": "fa7ad5f861febfa1d9f1e2d24a14854a44ab48825241b004ef895d1406b8e872",
+      "graph_sha256": "c97fa0ef548eaabf3c37583059acc6c32f22f6831e442862c015220b9b82ba26",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr227-before-zero.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr227-before-zero.json",
+      "receipt_sha256": "111c39a3fe06d8f354580606ed4f53c9d80d6d8c54507482780a7511289bc9df"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-after",
+      "roots": [
+        "rhoMinus"
+      ],
+      "input_sha256": "1843fb0f9319f6ffdc65d8b8763b27d6d09f3dd0cc839e8b3cd8d49a99e47656",
+      "graph_sha256": "c1f0d9dfaa058ac0d6c6fb00c468760e96216fbbec179004c4ef686b73fec56c",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr228-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr228-after.json",
+      "receipt_sha256": "de34cabb68d65d8f3db6b9bd1159b184d91cdc069e1353e2daad50d5663bd534"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-before",
+      "roots": [
+        "rho_minus"
+      ],
+      "input_sha256": "ba4e066413fad52422b5aa234182173d97b4c614df046775817971777a420037",
+      "graph_sha256": "42af550328c474d8c6625073ea5705f768407121199a0fd24ab3bdb3d5fce8c4",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr228-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr228-before.json",
+      "receipt_sha256": "5ee256fa5cf79762b535dcfe615f17e252549ad3e3c989fc813148ca355a5fb7"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-after",
+      "roots": [
+        "approx_hom_pfr'"
+      ],
+      "input_sha256": "803436e2f98baf7932c9aae42f0a840cb0c157038fb68ade67dd1cecb9898092",
+      "graph_sha256": "5d5fa074f9e08fc3137531355408e4ff714ef8634e629e386b241ee65e373df4",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr293-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr293-after.json",
+      "receipt_sha256": "c16d73bff7384bb81baa171897bf15c17de64becf12954e61c0abcf194dd1493"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-before",
+      "roots": [
+        "approx_hom_pfr'"
+      ],
+      "input_sha256": "ca1c5722283a937ca572d96a0a7d9c67b0f7c6f0c4dfcc7597b5ff525fe87b79",
+      "graph_sha256": "c9832f7227c2b84330d4a839c8b41bec35462fc78429ad49a50cc990429fe4fb",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr293-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr293-before.json",
+      "receipt_sha256": "a46c8501c570b95a69bfd3dac3029a03bb5cd173607f300d095525efd78cb1c6"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-after",
+      "roots": [
+        "entropic_PFR_conjecture_improv"
+      ],
+      "input_sha256": "cd4d245ec62a8b6f7378fb83105193e6de92228e3f5ac012a729ec4793eae42d",
+      "graph_sha256": "200daa93e128450bd013c9fdcb411e8078a921af2de8c092b9874d68284be52d",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr304-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr304-after.json",
+      "receipt_sha256": "8c39f87463746caface96ac2508f8ecc852d33693d889d48a2220851403c6b47"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-before",
+      "roots": [
+        "entropic_PFR_conjecture_improv'"
+      ],
+      "input_sha256": "0f10ceb9007879069b7f5e661f1274af7150e26a4c73a6a96d355a89e4d9fc33",
+      "graph_sha256": "1f5e72a3ee646eb77ae51701114dd67a4afcefee033217549dbbf4e5ce7426dc",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr304-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr304-before.json",
+      "receipt_sha256": "bf76fd61f97a3cd4ce55f92ed40e633e5806bcabc90d0a69fc1077f16c2ced2d"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-after",
+      "roots": [
+        "torsion_PFR"
+      ],
+      "input_sha256": "a0151fbf13185354a89f704c891caa98da409b7f6d59428aeea8b5461abcbe0a",
+      "graph_sha256": "6a961b16d5883af3745976c6a196ca691bbc20c33655fbcaf781d6041b977892",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr305-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr305-after.json",
+      "receipt_sha256": "1c2536fdcc4f71c4fcf8f5ce98834ad91dac396d5e0a8795f5bb7601ba00c490"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-before",
+      "roots": [
+        "torsion_PFR"
+      ],
+      "input_sha256": "126dc51af825eeb712aebb4f7cf608927ca9b6044d6fa36f9d58db6c58e1ba36",
+      "graph_sha256": "fb6083055ae094a7308c7058a35c123f2274e0984be0d971f4e884187760d7ca",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr305-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr305-before.json",
+      "receipt_sha256": "2861c6e146ce51767308ea758db5236602548b7604fe26d50982d5170bd7e800"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-after",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "aa6e178d6d2e3c5b75960d897eae853c77a2e6c4998098aad20b70cb942d9e02",
+      "graph_sha256": "435cb743d788f69cdecdbafed114fa387d7d0e42d897fa188a29db52c71a48cd",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr311-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr311-after.json",
+      "receipt_sha256": "38bd748304e45fd40120f1ea44c40f0a687fec5ac0c45b7abc496532b04b1545"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-before",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "63d1ce0b8b34198c96ba81f06ae6b5b24dd2d83610e4c66f58a18cab31345efe",
+      "graph_sha256": "d9cdf6cd4d0ba6d7ef5300f5fb16b7d3be4932304dde2971fee41185f11d2a37",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr311-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr311-before.json",
+      "receipt_sha256": "7bfcd1c7a8932edd310c6484694e56d9f82ca7ba43210c4dd08208e6714b9db4"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-after",
+      "roots": [
+        "ent_of_diff_le"
+      ],
+      "input_sha256": "69c873fd6a10f3271f952d0e570430857063f7181dbdf833007a62ef0dbac943",
+      "graph_sha256": "10c99b6185e3f1cb3376c91462461e6c87b29f1a89c7b91dac68248a8f873e9c",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr48-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr48-after.json",
+      "receipt_sha256": "9e236cb93514351002f9c4462016f852e115b095781b2a56e60bf27661802c4f"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-before",
+      "roots": [
+        "ent_of_diff_le"
+      ],
+      "input_sha256": "30fc8f505cc5d871ea3010ef56c6b51874a10fc22978ed077896551fe767c410",
+      "graph_sha256": "10c99b6185e3f1cb3376c91462461e6c87b29f1a89c7b91dac68248a8f873e9c",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pfr--pr48-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pfr/pr48-before.json",
+      "receipt_sha256": "61e37d81d303bf04e8b411ad984489ce61e943492fbd5c96363aec7f4b05b706"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-after",
+      "roots": [
+        "Dusart.theorem_5_7"
+      ],
+      "input_sha256": "6624122e84b9aaf3efef8fc79571860aa6105d9ce040352ae551a7a30ef3adf5",
+      "graph_sha256": "a6f6bebcb582b8b2e41a4a2cf3cd89d301bbdfe186c295cd62a313d1cfcb81f5",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-mertens-error-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart-mertens-error-text-after.json",
+      "receipt_sha256": "c6296638aa23169e778c66c6df3282f85a6dcf73f1aa99d6fbbcf32b59d4dbd5"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-before",
+      "roots": [
+        "Dusart.theorem_5_7"
+      ],
+      "input_sha256": "57ade113f16cc01c8eb669e91859370f1d34d15860cad22b1fd499e4a0f50740",
+      "graph_sha256": "a6f6bebcb582b8b2e41a4a2cf3cd89d301bbdfe186c295cd62a313d1cfcb81f5",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-mertens-error-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart-mertens-error-text-before.json",
+      "receipt_sha256": "7fff38f686591c64304a4cdb9061c149f67fe62667ef5104cb1fd622aa6c175a"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-prime-interval",
+      "roots": [
+        "Dusart.corollary_5_5"
+      ],
+      "input_sha256": "26da2b622e835275629b7b2108160509f55cc2bfd878c88853416f3ea4da083e",
+      "graph_sha256": "487f26004b841b2e4002901cf1642b335bab451caf190ea13e8b97f8426911ac",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-prime-interval.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart-prime-interval.json",
+      "receipt_sha256": "a14e132b2c990036e47d73c03654adecc950b14fc2da2bb2958967958acb7c46"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-psi-theta",
+      "roots": [
+        "Dusart.proposition_4_3"
+      ],
+      "input_sha256": "e255c3c18011a7f05ca71e4a56a82b8b7375f86fa2102d62243388ab76f2f44e",
+      "graph_sha256": "cf089be0c613c651b0c355fc218cf3a91bd8b38857e2a6f6f96cbec18ddb407b",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-psi-theta.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart-psi-theta.json",
+      "receipt_sha256": "68b8d74f0a5a262843f897454d2701e36002a22c43260194e06693dd0661daff"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-after",
+      "roots": [
+        "Dusart.proposition_3_2"
+      ],
+      "input_sha256": "4d933ed615bbdd809ed935fe9da18310f7163c41aaa54ba67d60b11d58153fd1",
+      "graph_sha256": "9ed52927272b50163ab32cee62e2a381ed11f0a623bb4ac2a99590db39a3eb00",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-table-error-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart-table-error-text-after.json",
+      "receipt_sha256": "d251e9734f267fad73a8a8203a7f5a549092ab81194da3305338f4cb72b57fca"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-before",
+      "roots": [
+        "Dusart.proposition_3_2"
+      ],
+      "input_sha256": "6eab3a6e95cde52f2103bf7cda34ef204f4a530562b8601b5d2dc8d815021050",
+      "graph_sha256": "9ed52927272b50163ab32cee62e2a381ed11f0a623bb4ac2a99590db39a3eb00",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-table-error-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart-table-error-text-before.json",
+      "receipt_sha256": "9ca42be51f5d2cd9dfbdb83aaa4dbd3c9ea1db1fab3cdab317a23a867f0955ba"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-after",
+      "roots": [
+        "Dusart1999.p_n_upper"
+      ],
+      "input_sha256": "8af29a20d01cbb7b7703d85f522ca557eeef7be4578b6ce504781897796ec306",
+      "graph_sha256": "3d5c98aba6bb3ba6616b695b1a318241048fd39894444429e222b4137d2509da",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart1999-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart1999-after.json",
+      "receipt_sha256": "1952af678df1818699ff238d3bec59f21fa662a30dee95023fd7a74be9ebd6ce"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-before",
+      "roots": [
+        "Dusart1999.p_n_upper"
+      ],
+      "input_sha256": "7e03c17c9a7322c9efe2c86caef1462e8e3ae84231584d4193c945c22c4609fa",
+      "graph_sha256": "97b60e562f11ee959c8d88ecdbe793b9312c82ffc2e35ead7f5e7626cae2e338",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart1999-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-dusart1999-before.json",
+      "receipt_sha256": "08fec105d4d7513eb4bf91a6e8d830683ad1b63920c23bb0b4985f452f15e532"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-after",
+      "roots": [
+        "JY.theorem_1_4"
+      ],
+      "input_sha256": "5480389edc82225d6e107214860ddcb134bbd9df64f22267d665dc780faab510",
+      "graph_sha256": "8ade41490734c8a89031bfe5251ad3b2032d4273132545d7cb96e4d128a7a5dc",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-jy-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-jy-after.json",
+      "receipt_sha256": "ad3108b3852e474c70a34dfbac685582726d54061e67fe1ed620ef8648156169"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-before",
+      "roots": [
+        "JY.theorem_1_4"
+      ],
+      "input_sha256": "1760ae0c0e228cba8c10e23c31f61966dac6f870333a12e3813c96d7bf8c5ad4",
+      "graph_sha256": "a8a3be2bb7ca923b1882c130e79464bbd95638d5845b70d3b2890e269030b8ff",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-jy-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-jy-before.json",
+      "receipt_sha256": "97115c30b0fc15ae74e05329359dcd59aef6248fa8a3843e1ca912e9da5e0e79"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-after",
+      "roots": [
+        "MassiasRobin.p_n_lower"
+      ],
+      "input_sha256": "c70621bc33e5a989ff3e8321bdef75418ad8d807742c2362694e6c9223ddc615",
+      "graph_sha256": "3ab86e846b68deb95480ee99dedad2ff8f1db18a92739557b57d9f726fbd19cb",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-massias-robin-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-massias-robin-after.json",
+      "receipt_sha256": "4b706a28c873c620ab4e6dae8cbdac4b22ce6a41175cb351ead6a74439ea10d0"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-before",
+      "roots": [
+        "MassiasRobin.p_n_lower"
+      ],
+      "input_sha256": "aa1549fe067aba1316c3232a4000f07b231ad8da335c4aa5be865ee796aeaf78",
+      "graph_sha256": "526c9a3473a7c478135dc77aa3b56ef56ea48955fd3727d011e13099bec3f0d3",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-massias-robin-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-massias-robin-before.json",
+      "receipt_sha256": "95815d04d2ca5c507583e56cb17d7589de8aed31346cc8219c2ed3a3d0d1bc77"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-after",
+      "roots": [
+        "Robin.p_n_lower_const1"
+      ],
+      "input_sha256": "0187e2bed2547fc398e238c2e314fc888cd01f151c3df4b2c041fa0a49b55ca5",
+      "graph_sha256": "6e072b1b4b6d47122e3c49bb1f6eaa540ca8d810cc61cd7b8bef5c7ae1632ab5",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-robin-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-robin-after.json",
+      "receipt_sha256": "318cd3d968040f182e849075cb0e7ad7dcd946fafb43d0621b16950e5693c94b"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-before",
+      "roots": [
+        "Robin.p_n_lower_const1"
+      ],
+      "input_sha256": "b2f4ebeb7619cd2f0ccf66fc7ac9541cbf500b67a84b579ecd9239ca4761ea47",
+      "graph_sha256": "8b26a1c9a3b772f31aec4dfc3b03c59bee7f84fca251f9547940a2598d17fa30",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-robin-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-robin-before.json",
+      "receipt_sha256": "9faf5ddcd9749c96e000b13f986dccfb9baf55d23d90a8d158af98d7bef8f582"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-after",
+      "roots": [
+        "Trudgian2016.theorem_2"
+      ],
+      "input_sha256": "b5f6f4b35ff98c4e6f739d09284e669e3fa91191e8eed007c6b0f0006fc34370",
+      "graph_sha256": "e84a01b73deb4dad39883f9cd21b07c7939ff68479ad23f02eca2a05f450191d",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-trudgian-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-trudgian-after.json",
+      "receipt_sha256": "b838411a50b09b2cc0264494df2c99eab1ca1a58e5260c353f6e4743df9dfd6f"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-before",
+      "roots": [
+        "Trudgian2016.theorem_2"
+      ],
+      "input_sha256": "f5ae1efa3eebe41984dfc44e542795f94ced74124b7a8f1c7e6b3205027149f7",
+      "graph_sha256": "199bcfc8d6c44873b5a0ff6f5ccac232b26fe86f3495cfde7108bb6418132bc7",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-trudgian-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/bounded-trudgian-before.json",
+      "receipt_sha256": "bfe78b5c6c3a8ff93a82b8cc66030499067307f1c80d664fd023bc95cb56f618"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-after",
+      "roots": [
+        "riemannZeta.classicalZeroFree"
+      ],
+      "input_sha256": "ea41ea98b29e1a326bcacba2bce2997ef2de9a49c14ad2bfdb7d7b38a931af44",
+      "graph_sha256": "c24201577ec1ba1f82fa038c3aee40cf552750ca0f26b7d0c19124e5a2adf432",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--classical-zero-free-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/classical-zero-free-text-after.json",
+      "receipt_sha256": "3711aed80ce603d512cedf437a5fe9e6bcb3876bafee61cdca1ca90302a4e49d"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-before",
+      "roots": [
+        "riemannZeta.classicalZeroFree"
+      ],
+      "input_sha256": "a90f3e5f0b4614bddbbb10f8724851a311cfc6cf367f6ca30975662cbd48e874",
+      "graph_sha256": "c24201577ec1ba1f82fa038c3aee40cf552750ca0f26b7d0c19124e5a2adf432",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--classical-zero-free-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/classical-zero-free-text-before.json",
+      "receipt_sha256": "3a4b9ab35ffef236c59754a4694a7183bc205138af76db3b81b80bfeda145722"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-after",
+      "roots": [
+        "Eπ"
+      ],
+      "input_sha256": "333707c2a20f60b0e7ce3c52b38ab5e865bef05543417037d478fe473368150c",
+      "graph_sha256": "fe91150656427fcb946fcf930232f851facde1f5b5c94ed0a2fbbee6a9ce96cb",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--error-pi-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/error-pi-text-after.json",
+      "receipt_sha256": "d0a6b06cfc68f5fac294ae2c18163b8668dc9e08c61d926e3b2ad9b0c1145f53"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-before",
+      "roots": [
+        "Eπ"
+      ],
+      "input_sha256": "cbd07af46bebb399219a5539efd4ec7e96f3f583fce67b66e1d0e92781269de8",
+      "graph_sha256": "fe91150656427fcb946fcf930232f851facde1f5b5c94ed0a2fbbee6a9ce96cb",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--error-pi-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/error-pi-text-before.json",
+      "receipt_sha256": "5f78750a7dbad2a27de6f2a99818bbcd2f0658ccde51cc4aeefa64f555e146e1"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-after",
+      "roots": [
+        "ArithmeticFunction.LSeries_liouville_eq"
+      ],
+      "input_sha256": "29eba7a95f8f3134299c8c6287b7702610ad4fe30238b070cc6461887081808a",
+      "graph_sha256": "fab99653cc96a44c5efe076b6d827da50a9c51846b44a7649bc2ac272efa0717",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-liouville-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-liouville-after.json",
+      "receipt_sha256": "22fb29336423227468283ffa3e592dca9f631ea0ad4496d4fcfcf18eb8c2cf77"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-before",
+      "roots": [
+        "ArithmeticFunction.LSeries_liouville_eq"
+      ],
+      "input_sha256": "b840e1de72e7e7c1d3ab10abbb452b5143b6dace7133405c71b73a093198970c",
+      "graph_sha256": "ff5e5beadf42268e5a18800bb0765e1ed0f840dd196dc7032008e16ab366dcf2",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-liouville-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-liouville-before.json",
+      "receipt_sha256": "32d2496ad2232f885a443c0ca2226f54405dafc72a67fda014a479a6d5b6403f"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-after",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul"
+      ],
+      "input_sha256": "13e578444fd36104966859694439209f2e80cbd15a39f9d6565dee766a378f01",
+      "graph_sha256": "03fa75df31879007f3ed1fd53ce58296c4bee90f35362963ae29be589c8a3e62",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-pow-divisors-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-pow-divisors-text-after.json",
+      "receipt_sha256": "c23088d9087c2c9d236d0ea9ccb311b0b0cfcfe02df549a2a479574e268775e4"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-before",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul"
+      ],
+      "input_sha256": "cbce0f549152d5bc8bf55943cc72da5a30aae3ee3e7ede88c9299f1838bb6cdc",
+      "graph_sha256": "03fa75df31879007f3ed1fd53ce58296c4bee90f35362963ae29be589c8a3e62",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-pow-divisors-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-pow-divisors-text-before.json",
+      "receipt_sha256": "09f45832de484ebb017ddc03e639422cd53602bb37c83a319bfbae6c730c22bc"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-after",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul_injective"
+      ],
+      "input_sha256": "0249ad3e92a2f69ee00deb35f8a1190d74c14edb6b1007b6944392a7704bb3d9",
+      "graph_sha256": "cca3d743f2c81610e49ecde254abe8d206c156dd664f773e75ca6b3ecdba109a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-pow-injective-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-pow-injective-text-after.json",
+      "receipt_sha256": "a738377348fd7ed44ce58ed49d5094352bee0f2139f8946b1fc3958a10c3c347"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-before",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul_injective"
+      ],
+      "input_sha256": "c5e2f67c469c2d41da2af405543ba21d54c6a2580354c5ff274bf2cbb5452ae7",
+      "graph_sha256": "cca3d743f2c81610e49ecde254abe8d206c156dd664f773e75ca6b3ecdba109a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-pow-injective-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-pow-injective-text-before.json",
+      "receipt_sha256": "676e6de53e2a48b280329ed479aab1f334a81d6c2fe39c869195cf5ef0b4035e"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-after",
+      "roots": [
+        "ArithmeticFunction.LSeries_totient_eq"
+      ],
+      "input_sha256": "1aef1f2092349a7e22fafc502f992db10765a1bb308e07adaed36a93ccbd323d",
+      "graph_sha256": "1fb7408887966e64a52e67ceef4773b42fde9af651b7e433013e82a6588b5c23",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-totient-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-totient-after.json",
+      "receipt_sha256": "988db91f92ec72cdfacb7aa138abbb7a6a15872f9bff98b43ca359715114bb38"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-before",
+      "roots": [
+        "ArithmeticFunction.LSeries_totient_eq"
+      ],
+      "input_sha256": "783da9de469c1c7b1da9fa330690d3a736c58f8c530e6bf9818cb9dbdb042e1d",
+      "graph_sha256": "28da0ac28dce1496d2115514d0402f713926a3e0632b6c6c84acd2613bb43b59",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--ik-totient-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/ik-totient-before.json",
+      "receipt_sha256": "398f124825aeb3758088cfe0426b6598e56e7c78a71a34c559c35f220c60d568"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "kln-j-after",
+      "roots": [
+        "KLN.J"
+      ],
+      "input_sha256": "8565ff7686c96d4513c22fe60b351b7f7da09566c6845dcd2fde38377e23058c",
+      "graph_sha256": "b711315fc459ca1d425919a42e11bf9922d348444fd324f3c8dfe8dcee1e483a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--kln-j-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/kln-j-after.json",
+      "receipt_sha256": "41f73a168cc4c4e89bf6e840608d14c59cd84039e358e27854b8440aa7602e31"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "kln-j-before",
+      "roots": [
+        "KLN.J"
+      ],
+      "input_sha256": "97a7f5f5d401e14fda60e9e14ee7b7d2cd1bb44395d2ef8b7e3a5acba028c692",
+      "graph_sha256": "21af90340eb64f8bcdacb722a1a57484237f23d9cfd7e301c8ce0381fd2f9d38",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--kln-j-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/kln-j-before.json",
+      "receipt_sha256": "bb878800c12abc9642bf3863ffc1998e37b0e4a15f377f58e5f849981395d7fb"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-after",
+      "roots": [
+        "pi_star"
+      ],
+      "input_sha256": "4e1725dfed6c8a6d9422a870fde9f2bd42116fdd97c640ac5952ea63a795131d",
+      "graph_sha256": "6301c1be9db1476b20bb1ec0b578eb01489c66dd2fcae10eea8468dec13e86ba",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--pi-star-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/pi-star-after.json",
+      "receipt_sha256": "2bd6111ff2c203b36f2460c7086901df2693c2473dc875c842240339e9bf2c04"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-before",
+      "roots": [
+        "pi_star"
+      ],
+      "input_sha256": "1bb1dc0f40e000d75a8875554a5d0ed3c8e6d8918a6df186ee6eb9b141ae3777",
+      "graph_sha256": "6029aada3c2fe33b8d2317e869abbd467755b0f91220f20843c35c85a6c06468",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--pi-star-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/pi-star-before.json",
+      "receipt_sha256": "d1b1c7eded0d8ae9723c99147f0c9d3d09b4b0a2c7c8e307330ef6979bf72b9f"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-after",
+      "roots": [
+        "riemannZeta.Riemann_vonMangoldt_bound"
+      ],
+      "input_sha256": "d06e781d2475cc061c203455c82c8d55b4f94af0cd73810cac22ea308c6ceed3",
+      "graph_sha256": "82e053496995738badd515e623c97d677b23e49fb531be91e2e46869a810e82d",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--riemann-von-mangoldt-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/riemann-von-mangoldt-text-after.json",
+      "receipt_sha256": "540ef9a225f12b8516959a7be3d53086d0cfb2345a6676234c8b39f1ce5a876b"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-before",
+      "roots": [
+        "riemannZeta.Riemann_vonMangoldt_bound"
+      ],
+      "input_sha256": "952cf78469814d5a6c20d614bb505f27782f16c8d8a0694bf1b7704760131768",
+      "graph_sha256": "82e053496995738badd515e623c97d677b23e49fb531be91e2e46869a810e82d",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--riemann-von-mangoldt-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/riemann-von-mangoldt-text-before.json",
+      "receipt_sha256": "d2c67db2435bda79884a88e1b4596fdd8e435df077fb9e0afcd87b23188edafe"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-after",
+      "roots": [
+        "Eπ.vinogradovBound"
+      ],
+      "input_sha256": "e2247f7c40f816048c8839dbb97e7b62d67f8a21059c2e07a76ff87391ceecc4",
+      "graph_sha256": "55998bf1170372cecd74b1df133066c197c2af7e5bfc48bdb31f143571bcd02e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--vinogradov-pi-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/vinogradov-pi-after.json",
+      "receipt_sha256": "559514c3268144861975ff771eb5a7e0ec2fadb13bb26bbf28cd6171df5af4dc"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-before",
+      "roots": [
+        "Eπ.vinogradovBound"
+      ],
+      "input_sha256": "718b37f871ae5279cce828ee8d2824461839b64c381a9ac7a3747304f0aca50a",
+      "graph_sha256": "48235a114335b2fec7a95a2bf3791d44241f47b4a7a44e8f6fc9ecb5333f079a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--vinogradov-pi-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/vinogradov-pi-before.json",
+      "receipt_sha256": "c5c010b88b7a940d01183e643e5c7cd24720c76e4a52884ed0034889af96f272"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-after",
+      "roots": [
+        "Eπ_star.vinogradovBound"
+      ],
+      "input_sha256": "e77a0a896a97726011ff9cd03df0d44675cd051ac20e20c6d31eb3ec78b28194",
+      "graph_sha256": "33e3cd851d7ac03d6fe06d40faef99de1855e8dd2629a97fed8ce937db2e2341",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--vinogradov-pi-star-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/vinogradov-pi-star-after.json",
+      "receipt_sha256": "9e53b5121379c8460c760a67793a9ca8d3e9325b26784c027b0e36bb339283bd"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-before",
+      "roots": [
+        "Eπ_star.vinogradovBound"
+      ],
+      "input_sha256": "d213d1f687a3a64474fdf8974113b83d804cd77043832db79cbd282cca7dd4b8",
+      "graph_sha256": "cc2677e9fcf9b64ea0f698bd2467402161859096abc7762e745f90785189d584",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--vinogradov-pi-star-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/vinogradov-pi-star-before.json",
+      "receipt_sha256": "c163f42698f959c4a702b16a41aad88c01873e8f1bb0a8061c4f1fa783556c8c"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-after",
+      "roots": [
+        "zero_density_bound"
+      ],
+      "input_sha256": "554a3ec7ce2623d137634a97764f73f1c15f705a15002a521f4e71534cd457f6",
+      "graph_sha256": "20ce68afa91c5db2cf4b735b51884b23a393de11e22978d6463b075e2228f11e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--zero-density-text-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/zero-density-text-after.json",
+      "receipt_sha256": "0da17c5defa3cd341f14f48dea1ee464ed53df2a49497f0dc811390f139bed28"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-before",
+      "roots": [
+        "zero_density_bound"
+      ],
+      "input_sha256": "9415393142e202b06be56e29c8e52995f81ef1094cda40cb5a20e9f06dfeaa8e",
+      "graph_sha256": "20ce68afa91c5db2cf4b735b51884b23a393de11e22978d6463b075e2228f11e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/pnt--zero-density-text-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/pnt/zero-density-text-before.json",
+      "receipt_sha256": "f6d36ffdd9d5db9c1a0c04a2149996cf1a6fce2535785943dd9a2f1c27f6bb45"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-after",
+      "roots": [
+        "Immersion"
+      ],
+      "input_sha256": "df4beea7189458934f9048ea4fe92d6b0fb5e901ed034de90911f52c87e32ba6",
+      "graph_sha256": "c5d3f5803c3c91ea6318a00e41af1eec0c4c5382cbe63d89abcaf2376e4cd5e9",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--immersion-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-eversion/immersion-after.json",
+      "receipt_sha256": "98fd30f08dc345be4704b1a0574a622322160feabc67bb981e04ea8af4b43d60"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-before",
+      "roots": [
+        "Immersion"
+      ],
+      "input_sha256": "4e72119aff81a0db29352a3b3a94606f738a1951fc06b66eef22ebe415d1052d",
+      "graph_sha256": "addf13e50047ab53d4dc44780babb82c948331b38b5d73140f76a90be2b87d26",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--immersion-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-eversion/immersion-before.json",
+      "receipt_sha256": "e7b293cfd3a640c10f6b14e95fc88f905d102435f62c106ace90cba08e023aac"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-after",
+      "roots": [
+        "loop.support"
+      ],
+      "input_sha256": "f685415273a7d7ccb345615785543d14727ac24ee3f9ac0421208c948031d862",
+      "graph_sha256": "b36016b63e84cfd9b7bd41fdc2f5fa000e0328891e3f7ee275b69e9837a8438e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--loop-support-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-eversion/loop-support-after.json",
+      "receipt_sha256": "cf0c43d4f84a922c7e9f715c5aafbb7d7fa0caf7248874423fe3d408bd2f7949"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-before",
+      "roots": [
+        "loop.support"
+      ],
+      "input_sha256": "f06bdde08413dcee5888f28a501e76d90e3102799758c1e799f0894e94688a1d",
+      "graph_sha256": "b36016b63e84cfd9b7bd41fdc2f5fa000e0328891e3f7ee275b69e9837a8438e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--loop-support-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-eversion/loop-support-before.json",
+      "receipt_sha256": "872a651d5c041a72f0fbc8b65b0ded494dc9656c5d03617fdc36526316debf3d"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-after",
+      "roots": [
+        "smooth_surrounding_family.reparametrize_average"
+      ],
+      "input_sha256": "f49456a3411f317cc860bc9d4952d264e1eb0381e9b5949687529f67430eb847",
+      "graph_sha256": "693799b88de0cfb624c26d5a8683995e69b67e7763fa115b341cd4769125d897",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--reparametrization-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-eversion/reparametrization-after.json",
+      "receipt_sha256": "6d075cbac4fe48b801d1a0de80584a20ae64ae720bd1eb044a3045ace31b3a70"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-before",
+      "roots": [
+        "reparametrization"
+      ],
+      "input_sha256": "03ffa06b0cc2d3a59eb497715bdd14924e09a84feb96201b40758cf8d83b2e04",
+      "graph_sha256": "f7a31bc8d32cdcfbaecdd2eb3bb14c69ced70d0fc62c4c83ed45dff073276949",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--reparametrization-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-eversion/reparametrization-before.json",
+      "receipt_sha256": "386541d45db8ec1c4256710dd89e89b196d5c9b102256236eebc216592019221"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-A-CUTOFF",
+      "roots": [
+        "MagicFunction.a.SpecialValues.a_zero"
+      ],
+      "input_sha256": "f9f2a70e3467e76bec6300654c0584838b43b4502281bd12d15e5bb187da01ae",
+      "graph_sha256": "c1fe1c7f0f19121510df1661b44ef02bbe6aa79205a13b3363e56780d7b94a97",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-A-CUTOFF.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-A-CUTOFF.json",
+      "receipt_sha256": "88b4108a62694502c1b538b675af6d13f2ee32c16c88be1cc75d7d72c5784af5"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-A-CUTOFF-FIXED",
+      "roots": [
+        "MagicFunction.a.SpecialValues.a_zero"
+      ],
+      "input_sha256": "af52284b309c40999f00b58c17fb6fc98b13b68abb1c83bc66e9ed8076040226",
+      "graph_sha256": "0759ec9633fe7cb9f2e0013458305769724ab51a799c9787e062c6816cd998ef",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-A-CUTOFF-FIXED.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-A-CUTOFF-FIXED.json",
+      "receipt_sha256": "392fb55e7a191e80e082bbc763767393759757e6e748a578043e35893d738bf9"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-EIG",
+      "roots": [
+        "MagicFunction.b.Fourier.eig_b"
+      ],
+      "input_sha256": "dd74f947376e023657ab7771ecdc58a759de5af40dc5f914eef22cc741be6070",
+      "graph_sha256": "12ac4e18f0a00904bf2a68c15a8ee7c787b754244332fc9351f2ba0280496651",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-B-EIG.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-B-EIG.json",
+      "receipt_sha256": "3be89fcef1c2c36d9ef239db140ad00f84858b4e999970762e28804ec78a0d16"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-EIG-FIXED",
+      "roots": [
+        "MagicFunction.b.Fourier.eig_b"
+      ],
+      "input_sha256": "bd7b9552a2a7b50c6a6ed9cc7548ab926c35409c1427539d15264391301e0267",
+      "graph_sha256": "4484e68532f3cc49d2af0ff2c80d4e2476122adc72a6933bf689c20b0742a8f4",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-B-EIG-FIXED.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-B-EIG-FIXED.json",
+      "receipt_sha256": "9ca8a511caa35a165429cd4bbce5639bae91733516996af1f6bebecb5844e894"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-ZERO",
+      "roots": [
+        "MagicFunction.b.SpecialValues.b_zero"
+      ],
+      "input_sha256": "4ab327333564fbe3ff19c50f91d6638fa85b707ee3e09b68bb998a371409837f",
+      "graph_sha256": "0aec6a31c43a39c193468ede94f4e5d6759cd87905a64726541599cfddd8006e",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-B-ZERO.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-B-ZERO.json",
+      "receipt_sha256": "ce47289860c20053535d6dc8322f36654957c62b526b9ca05f28f82214967a99"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-ZERO-FIXED",
+      "roots": [
+        "MagicFunction.b.SpecialValues.b_zero"
+      ],
+      "input_sha256": "e717e4af0aa407294a7069adc094b5c2d2b7ce1a99db3192ba524be88172999b",
+      "graph_sha256": "b712bb7e77aca2bafb817a71938b88eac9c6c4e49545d00c6837938793f2dc53",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-B-ZERO-FIXED.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-B-ZERO-FIXED.json",
+      "receipt_sha256": "84b6e7d3f688ccbc1c25e0ab6f62d02665a87dafb3c85082c1155f40a75fb280"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-I6-BOUND",
+      "roots": [
+        "MagicFunction.a.IntegralEstimates.I₆.I₆'_bounding"
+      ],
+      "input_sha256": "316fdabd11e6d677a624dc51c4c4d304ff8e925a61c5d741ab3d7505cfa466df",
+      "graph_sha256": "c24e2ea4a3a0c005875dc6d3765a4b5d2eaff0ce57de8e9ee8bb2b5ce14ea81a",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-I6-BOUND.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-I6-BOUND.json",
+      "receipt_sha256": "a172e702caa917d9c1a5fd2cb8464c8ecdadb10f3ea6b73ae2c6631d359ce82c"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-LP",
+      "roots": [
+        "LinearProgrammingBound"
+      ],
+      "input_sha256": "4fd704a4a06efbc4f6bddad0f8a0c9dd60b5f71f5ba9e49c819f55403fabeeee",
+      "graph_sha256": "838d526a90af5bb70ae45c8c5d2c7858854a3694866488342bad46155a39894f",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-LP.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-LP.json",
+      "receipt_sha256": "6270aacba9f150c0f0ca31643b926cab0e09dbedb2d4e1dad7b523f10663bb8c"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-LP-PERIODIC",
+      "roots": [
+        "LinearProgrammingBound'"
+      ],
+      "input_sha256": "c87d9fc5374467b0515bf64039b252b93fd0b05326e6bda5b2cdccbbcf0ffd89",
+      "graph_sha256": "7f2105b5dbff457be474a460e428b2a214e8ab16c016db5c38186341e8374d3b",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-LP-PERIODIC.json",
+      "receipt_path": "metadata/derived-graphs/receipts/sphere-packing/SP-LP-PERIODIC.json",
+      "receipt_sha256": "fe6c371e8fdb23eba12b5bd6b9197f140bca8eff454a16901be99ce8e54aa0af"
     },
     {
       "dataset": "stacks",
       "project_id": "STK-004Y",
-      "root": "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton",
-      "input_sha256": "143a9abe794373e0de6fd780354f4a4fd8e7b23d53da1ba0c7d35994fdc24257",
+      "roots": [
+        "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton"
+      ],
+      "input_sha256": "70372055ac0f16f5855c2e51073860b982d13d1bd411542c0eda02cf384f102f",
+      "graph_sha256": "3bb55bf040c36fb6099dc3ea7a5c4a38e152bbd3fc51b1c9a60815d5e516d2a8",
       "evidence": "compiled_environment",
-      "graph_path": "metadata/derived-graphs/components/stacks/STK-004Y/default/graph.json",
-      "graph_sha256": "dfab9c6a68c00a58e772c0a23e17bf55f85ce7a9481be6e23c5febb8ad254614",
+      "graph_path": "metadata/derived-graphs/graphs/stacks--STK-004Y.json",
       "receipt_path": "metadata/derived-graphs/receipts/stacks/STK-004Y.json",
-      "receipt_sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
+      "receipt_sha256": "64b2b0faef3cda67d5caa04343d617c1b4f620a6d742492bdbe7b545d5680805"
     },
     {
       "dataset": "stacks",
       "project_id": "STK-08ZR",
-      "root": "locallyCompactSpace_iff_weaklyLocallyCompactSpace",
-      "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+      "roots": [
+        "locallyCompactSpace_iff_weaklyLocallyCompactSpace"
+      ],
+      "input_sha256": "8819970f92ae87fcc7b16e2a7723c20a392cdb1b623a9aab7ac650f4974b6144",
+      "graph_sha256": "7eb07cf7e16056f5921c743f7799e8368bf32c4c28d2fbfe8626290ff5f29920",
       "evidence": "compiled_environment",
-      "graph_path": "metadata/derived-graphs/components/stacks/STK-08ZR/default/graph.json",
-      "graph_sha256": "5e373042e12ecbf9b560766f1f9fab4d4f0e0c42ecd623851655211ed15c1062",
+      "graph_path": "metadata/derived-graphs/graphs/stacks--STK-08ZR.json",
       "receipt_path": "metadata/derived-graphs/receipts/stacks/STK-08ZR.json",
-      "receipt_sha256": "2f35d4c3c1f9d63d396f98d2a866a7d2d40da2b5980f8632eb686da41aae4e39"
+      "receipt_sha256": "c4955c2ce4ed12045158c1c44ca86e48cf9fd94d59594859f03c6229c306c95b"
     },
     {
       "dataset": "stacks",
       "project_id": "STK-09Y5-after",
-      "root": "LocallyClosedPartition.exists_finite_good_refinement",
-      "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
+      "roots": [
+        "LocallyClosedPartition.exists_finite_good_refinement"
+      ],
+      "input_sha256": "0851c64fbddc357753a1397a4f10730c4bec75a16cb51ec6f7528309d1290e86",
+      "graph_sha256": "b497eaa33d61a93e0f16ed8c76273a74c86308b8c8a89aa1cd1c0f6cb085fd99",
       "evidence": "compiled_environment",
-      "graph_path": "metadata/derived-graphs/components/stacks/STK-09Y5-after/default/graph.json",
-      "graph_sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
+      "graph_path": "metadata/derived-graphs/graphs/stacks--STK-09Y5-after.json",
       "receipt_path": "metadata/derived-graphs/receipts/stacks/STK-09Y5-after.json",
-      "receipt_sha256": "08620eca1382bd196a663da2601c1db983b466346c919fcf1c7f1f89c5a6625f"
+      "receipt_sha256": "02205d592f48c338acd1c9c2dc125f116fd6b80ce543a05c3becc23664ce3bb0"
     },
     {
       "dataset": "stacks",
       "project_id": "STK-09Y5-before",
-      "root": "Setoid.Partitions.exists_finite_good_refinement",
-      "input_sha256": "59408da39a01dfcd44cb961fb458bf41c0a18b27fda25d3f682874870fa8d449",
+      "roots": [
+        "Setoid.Partitions.exists_finite_good_refinement"
+      ],
+      "input_sha256": "f1902336cd8109d582c44f08d2600af3df8fc08e9933b0a8ee26701f7f1ec4da",
+      "graph_sha256": "2c91ebe8d94610072adea6b55f39fd75cbff8af31dad1746e7f1b883bb615bb7",
       "evidence": "compiled_environment",
-      "graph_path": "metadata/derived-graphs/components/stacks/STK-09Y5-before/default/graph.json",
-      "graph_sha256": "9079946a52fd94bbcefc52ce27196481f9a7060235688ab0804e2c2a1683ab02",
+      "graph_path": "metadata/derived-graphs/graphs/stacks--STK-09Y5-before.json",
       "receipt_path": "metadata/derived-graphs/receipts/stacks/STK-09Y5-before.json",
-      "receipt_sha256": "255197982f24aa3d719862219672c7a3c098d631f9c6a6296a59095b7179d51a"
+      "receipt_sha256": "8282a61b512760fd46ec769aa1320ea6b67d468b8f078a730c4606d8487364d9"
     },
     {
       "dataset": "stacks",
@@ -130,12 +2155,77 @@
         "Sum.not_t0_of_not_t0_left",
         "Sum.not_quasiSober_of_not_quasiSober_right"
       ],
-      "input_sha256": "1178be3b790897c2ad3c6260ac053bb9a48f661d969d1e0d9ec510b8c90b8ef3",
+      "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
+      "graph_sha256": "92256624b4c04a9faf1edce82f5de9d633b2ecc7c9cd606e9d9289d6fd733dcb",
       "evidence": "compiled_environment",
-      "graph_path": "metadata/derived-graphs/components/stacks/STK-0B34/default/graph.json",
-      "graph_sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
+      "graph_path": "metadata/derived-graphs/graphs/stacks--STK-0B34.json",
       "receipt_path": "metadata/derived-graphs/receipts/stacks/STK-0B34.json",
-      "receipt_sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
+      "receipt_sha256": "c8ea228328ff2b14086c6caa383536307674c117700428e076e1a0bb24f8e315"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-after",
+      "roots": [
+        "uniform_deviation_tail_bound_pointwiseSeparable_of_pos"
+      ],
+      "input_sha256": "31ef9247a31d360510791ec792f90dcebee5a33bb8e8266973b97b4b2dccaef7",
+      "graph_sha256": "2d46c6c2cfeef5cac84b507afc4a703c1820b79f9a6d2989189a43af66c609fa",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/statsmllib--statsml-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/statsmllib/statsml-after.json",
+      "receipt_sha256": "ec2088d274e59d4150b489f0cd6b3ef9305a03a1b6029aa44c945f205196bb05"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-before",
+      "roots": [
+        "uniform_deviation_tail_bound_separable_of_pos"
+      ],
+      "input_sha256": "19934b454cfc24e35e685857757592c2fb7dc826a6e8024386d41a4ca205ca2f",
+      "graph_sha256": "e84fcff88b4c68fde3d504f65a777508200bd48aa55205c0e5dd3892538fb9d0",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/statsmllib--statsml-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/statsmllib/statsml-before.json",
+      "receipt_sha256": "bf246d85d8145dcb8cfa1403b1c9bc0745ce1697cbba9a61412abd503d66019e"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "coupled-after",
+      "roots": [
+        "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions"
+      ],
+      "input_sha256": "41e9617830e9578935aaa325686eab751c546d7a61ca70f9adb74c57d498ffc9",
+      "graph_sha256": "c2c79c696bc5d669ab5f82e29e0c2d1348d83c397d1f6506f406b3105f6c9ff3",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/vaught--coupled-after.json",
+      "receipt_path": "metadata/derived-graphs/receipts/vaught/coupled-after.json",
+      "receipt_sha256": "71491b209c9a2353b65f748d4d5b97ea83c136f27030501d15635b7003634c65"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "gate-before",
+      "roots": [
+        "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasGatedPinnedExtensions"
+      ],
+      "input_sha256": "244db73738a2c4ee7222d7d1d0467a80040a0a64b1be5a17fe94bc3301598c02",
+      "graph_sha256": "b2ef954ee6a44190923565cc00a853c56abb6664e118f2fc7f22809b53727d56",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/vaught--gate-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/vaught/gate-before.json",
+      "receipt_sha256": "cd069c15cba2f8d3644f841950344e0590d953470381f4fe42bb163ac8f83849"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "twoface-before",
+      "roots": [
+        "VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift"
+      ],
+      "input_sha256": "78aa834cc1885b783b3b9e5b47a045696eefa2d6fc2cd38de676350763ea8bad",
+      "graph_sha256": "8414243e1384e712d49f2406f6c9cbc9f50861379e286983e98dd89a54a34f60",
+      "evidence": "compiled_environment",
+      "graph_path": "metadata/derived-graphs/graphs/vaught--twoface-before.json",
+      "receipt_path": "metadata/derived-graphs/receipts/vaught/twoface-before.json",
+      "receipt_sha256": "770609679541ca7077edb93009f8bb42e99edf262d5757c9db3dcccf202b5820"
     }
   ]
 }

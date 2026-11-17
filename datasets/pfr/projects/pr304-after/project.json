@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The formal root returns a probability space, measurable uniform variable, sum bound 10d and individual bounds 11d/2. Nonnegative d implies the old 6d bounds; the newer target uses 11d/2. A subgroup is a ZMod 2 subspace in this scope.",
   "external_imports": [
     "Mathlib.Algebra.Group.Pointwise.Set.Card",
     "Mathlib.Algebra.Module.ZMod",
@@ -77,8 +76,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 45,
-    "sha256": "6d7d962dbcab21aa747a0470582de5ba7a2f57b68dbca4871991cdc7619bb556"
+    "file_count": 21,
+    "sha256": "e633666cb822bb444722d8cec1b6ce79c9c3cff765d3b29bb702ea313f85ca8c",
+    "effective_root_sha256": "ef6a9ee29033524dccdb8c347589376b24ff641a3226942d472617fca752807f",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-candidates/technical/pr304-after/20261104T082258567703Z/receipt.json",
@@ -101,8 +103,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "65285b4b2f9d07f5e6ef75f46c645801638cb12d75bfc3b1c19481f04c9562d8",
+  "input_sha256": "cd4d245ec62a8b6f7378fb83105193e6de92228e3f5ac012a729ec4793eae42d",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

@@ -1,12 +1,75 @@
 module
 
-public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
 public import Mathlib.Analysis.InnerProductSpace.Dual
 public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
 public import Mathlib.Analysis.InnerProductSpace.ProdL2
 public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Normed.Module.Convex
 public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
 public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.Order.Compact
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
@@ -33,27 +96,10 @@ instance : CoeFun (H1WeakTestFunction U) (fun _ => Vec d → ℝ) where
 noncomputable def deriv (φ : H1WeakTestFunction U) (i : Fin d) : Vec d → ℝ :=
   fun x => (fderiv ℝ φ x) (basisVec i)
 
-theorem continuous (φ : H1WeakTestFunction U) : Continuous φ :=
-  (φ.smooth.differentiable (by simp)).continuous
-
-theorem memScalarL2 (φ : H1WeakTestFunction U) : MemScalarL2 U φ := by
-  simpa [MemScalarL2, volumeMeasureOn] using
-    (φ.continuous.memLp_of_hasCompactSupport φ.compactSupport).restrict U
-
-theorem deriv_continuous (φ : H1WeakTestFunction U) (i : Fin d) :
-    Continuous (φ.deriv i) := by
-  simpa [H1WeakTestFunction.deriv] using!
-    (φ.smooth.continuous_fderiv (by simp)).clm_apply continuous_const
-
-theorem deriv_compactSupport (φ : H1WeakTestFunction U) (i : Fin d) :
-    HasCompactSupport (φ.deriv i) := by
-  simpa [H1WeakTestFunction.deriv] using!
-    φ.compactSupport.fderiv_apply (𝕜 := ℝ) (basisVec i)
+theorem memScalarL2 (φ : H1WeakTestFunction U) : MemScalarL2 U φ := sorry
 
 theorem deriv_memScalarL2 (φ : H1WeakTestFunction U) (i : Fin d) :
-    MemScalarL2 U (φ.deriv i) := by
-  simpa [MemScalarL2, volumeMeasureOn] using
-    ((φ.deriv_continuous i).memLp_of_hasCompactSupport (φ.deriv_compactSupport i)).restrict U
+    MemScalarL2 U (φ.deriv i) := sorry
 
 /-- The scalar `L²(U)` class of a test function. -/
 noncomputable def toScalarL2 (φ : H1WeakTestFunction U) : ScalarL2 U :=
@@ -62,14 +108,6 @@ noncomputable def toScalarL2 (φ : H1WeakTestFunction U) : ScalarL2 U :=
 /-- The scalar `L²(U)` class of the `i`th derivative of a test function. -/
 noncomputable def derivToScalarL2 (φ : H1WeakTestFunction U) (i : Fin d) : ScalarL2 U :=
   Homogenization.toScalarL2 (φ.deriv_memScalarL2 i)
-
-@[simp] theorem coeFn_toScalarL2 (φ : H1WeakTestFunction U) :
-    φ.toScalarL2 =ᵐ[volumeMeasureOn U] φ :=
-  Homogenization.coeFn_toScalarL2 φ.memScalarL2
-
-@[simp] theorem coeFn_derivToScalarL2 (φ : H1WeakTestFunction U) (i : Fin d) :
-    φ.derivToScalarL2 i =ᵐ[volumeMeasureOn U] φ.deriv i :=
-  Homogenization.coeFn_toScalarL2 (φ.deriv_memScalarL2 i)
 
 end H1WeakTestFunction
 
@@ -82,38 +120,6 @@ noncomputable def hilbertVectorCoordToScalarL2 (i : Fin d) :
     HilbertVectorL2 U →L[ℝ] ScalarL2 U :=
   let π : Vec d →L[ℝ] ℝ := ContinuousLinearMap.proj i
   (π.compLpL 2 (volumeMeasureOn U)).comp (hilbertVectorL2ToVectorL2 (U := U))
-
-@[simp] theorem coeFn_hilbertVectorCoordToScalarL2 (i : Fin d) (g : HilbertVectorL2 U) :
-    hilbertVectorCoordToScalarL2 (U := U) i g =ᵐ[volumeMeasureOn U] fun x => g x i := by
-  let π : Vec d →L[ℝ] ℝ := ContinuousLinearMap.proj i
-  filter_upwards
-      [ContinuousLinearMap.coeFn_compLpL
-        (p := 2)
-        (μ := volumeMeasureOn U)
-        (L := π)
-        (f := hilbertVectorL2ToVectorL2 (U := U) g),
-       coeFn_hilbertVectorL2ToVectorL2 (U := U) (f := g)]
-    with x hcoord hback
-  rw [show hilbertVectorCoordToScalarL2 (U := U) i g x = π (hilbertVectorL2ToVectorL2 (U := U) g x)
-        by simpa [hilbertVectorCoordToScalarL2, π] using hcoord]
-  rw [hback]
-  rfl
-
-theorem scalarInner_eq_integral (f g : ScalarL2 U) :
-    inner ℝ f g = ∫ x in U, f x * g x ∂MeasureTheory.volume := by
-  rw [MeasureTheory.L2.inner_def]
-  simp [mul_comm]
-
-theorem coordInner_eq_integral
-    (i : Fin d) (g : HilbertVectorL2 U) (φ : H1WeakTestFunction U) :
-    inner ℝ (hilbertVectorCoordToScalarL2 (U := U) i g) φ.toScalarL2 =
-      ∫ x in U, g x i * φ x ∂MeasureTheory.volume := by
-  rw [scalarInner_eq_integral]
-  refine MeasureTheory.integral_congr_ae ?_
-  filter_upwards
-      [coeFn_hilbertVectorCoordToScalarL2 (U := U) i g, φ.coeFn_toScalarL2]
-    with x hg hφ
-  rw [hg, hφ]
 
 end HilbertCoords
 

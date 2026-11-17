@@ -1,0 +1,59 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "carleson",
+  "project_id": "CAR-02-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "linearized_metric_carleson"
+  ],
+  "input_sha256": "80ebd0b75c59e2b89799163271e4571d33c9d33f103483f8cd28e091a486f4f0",
+  "graph_sha256": "86ead428b0f85f1cff47383257f9cab95e4ffdf901f90952383b1da6d82aef40",
+  "graph_path": "metadata/derived-graphs/graphs/carleson--CAR-02-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "718c27bf0def3c606ae009e95e1f468bbe06148cf92aa3df69d2f057ca97411c"
+    ],
+    [
+      "formal/dep/Carleson/Defs.lean",
+      "db2b3555093845ca187cda59a5de2bf3f815c0338791cb81cce7f57de545534d"
+    ],
+    [
+      "formal/dep/Carleson/Legacy297Norm.lean",
+      "fce765db0584af4e1abe042d3140452090a7f18cc443e83a728024ede74e0932"
+    ],
+    [
+      "formal/dep/Carleson/ToMathlib/CoverByBalls.lean",
+      "0f160cb46e8f8b1914d5f9a630505462bee0e085470a85280632274956a8150c"
+    ],
+    [
+      "formal/dep/Carleson/ToMathlib/DoublingMeasure.lean",
+      "a12c5d8073e9e2220e45cfc97cdf4058574dca5ffc7a2b090979ed20d3f2f3c4"
+    ],
+    [
+      "formal/dep/Carleson/ToMathlib/ENorm.lean",
+      "a0b63c5e81c9a9722639ebf36b40d7689e58818e04a8cd8857ffaa0772068496"
+    ],
+    [
+      "formal/dep/Carleson/ToMathlib/WeakType.lean",
+      "bfd549965fd0467a612dc0299ddb4e11e278ad60c9289fd81d9d127b9075a271"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 7,
+  "nodes": 253,
+  "edges": 1050,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

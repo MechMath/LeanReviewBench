@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "ik-totient-before",
   "task_id": "pnt:ik-totient-before",
-  "input_sha256": "3513c9caabc4ff346d9ad0f83f51eaba71a67c51b2620488837dd3c91edec416",
+  "input_sha256": "783da9de469c1c7b1da9fa330690d3a736c58f8c530e6bf9818cb9dbdb042e1d",
   "label": "misaligned",
   "reason": "The root asserts the totient Dirichlet-series identity for every Re(s)>1, including divergent points; the source identity uses its ordinary convergence domain. At s=3/2 the totalized series is zero while the zeta quotient is nonzero.",
   "review_status": "human_reviewed",

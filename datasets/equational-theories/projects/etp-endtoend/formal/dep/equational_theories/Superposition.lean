@@ -1,12 +1,12 @@
-import Lean
 import Batteries.Tactic.Exact
+import Lean
 import Qq
 
 open Lean Elab Command Term Meta Qq
 
-theorem Eq.comm'.{u} {α : Sort u} {a b : α} : (a = b) = (b = a) := propext Eq.comm
+theorem Eq.comm'.{u} {α : Sort u} {a b : α} : (a = b) = (b = a) := sorry
 
-theorem Ne.comm'.{u} {α : Sort u} {a b : α} : (a ≠ b) = (b ≠ a) := propext ne_comm
+theorem Ne.comm'.{u} {α : Sort u} {a b : α} : (a ≠ b) = (b ≠ a) := sorry
 
 partial def Lean.MVarId.congrWith (mvarId_ : MVarId) (eqs : List Expr) : MetaM Unit :=
   go [mvarId_] eqs true
@@ -37,20 +37,6 @@ partial def Lean.MVarId.congrWith (mvarId_ : MVarId) (eqs : List Expr) : MetaM U
             go (nmv.mvarId! :: todo) eqs false
           | _ => throw e
         else throw e
-
-def Lean.Expr.eqswap (e : Expr) : Expr := Id.run do
-  if let some (typ, lhs, rhs) := e.eq? then
-    return mkAppN e.getAppFn #[typ, rhs, lhs]
-  if let some (typ, lhs, rhs) := e.ne? then
-    return mkAppN e.getAppFn #[typ, rhs, lhs]
-  return e
-
-def mkEqNeSymm (h : Expr) : MetaM Expr := do
-  if (← inferType h).isAppOf ``Eq then
-    return ← mkEqSymm h
-  if (← inferType h).isAppOf ``Ne then
-    return ← mkAppM ``Ne.symm #[h]
-  throwError "Nope!"
 
 elab "superpose " eq1:term:arg eq2:term:arg : term <= typ => do
   let eq1 ← elabTerm eq1 none
@@ -167,7 +153,6 @@ partial def doResolution (t1 : Q(Prop)) (t2 : Q(Prop)) (e2 : Q($t2)) (target : Q
     )
   | _ =>
     doResolutionSingle t1 t2 e2 target can_resolution (fun x _ ↦ pure x)
-
 
 elab "resolve " eq1:term:arg eq2:term:arg : term <= typ => do
   let eq1 ← elabTerm eq1 none

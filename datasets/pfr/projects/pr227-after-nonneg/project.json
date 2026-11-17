@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "after 修复了有限域 KL 的支持条件，但根仍只量化有限 G；原文完整范围没有有限值或有限支持约定，包含真实的无限支持概率输入。因输入域缩窄而不满足冻结完整目标。",
   "external_imports": [
     "Mathlib",
     "Mathlib.MeasureTheory.Measure.Real",
@@ -44,8 +43,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 3,
-    "sha256": "7491f5e37daf70f7e649361afcdb0028e286e0e64fd93759881f6eb57c1f7b3e"
+    "file_count": 2,
+    "sha256": "d4dadb55b4ed4aece2fe2a23753afa1060709f1b936e8d7e527ddfd508c219ea",
+    "effective_root_sha256": "023d3439db9b7f198f2dd6d7a3f1249f23675d72eaa9365e630c6cd939fd5649",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-repair/repaired/pr227-after-nonneg/20261104T091656585573Z/receipt.json",
@@ -82,8 +84,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "definition_preserving_slice"
   },
-  "input_sha256": "e1cbe1cf8eb3074517036521fa6b0e9fb0dbea9abfc24b3748e82765e4d780c7",
+  "input_sha256": "5f3e1759cf752065cf87a4145ae37435527569683050e6afc93739a1962d04ee",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

@@ -3,7 +3,7 @@
   "dataset": "sphere-eversion",
   "project_id": "immersion-after",
   "task_id": "sphere-eversion:immersion-after",
-  "input_sha256": "f76a9c59f84de817191d612cbfec3d45a1fb48c65184a8afac41e3aaaaff5d39",
+  "input_sha256": "df4beea7189458934f9048ea4fe92d6b0fb5e901ed034de90911f52c87e32ba6",
   "label": "aligned",
   "reason": "Under the source real finite-dimensional smooth interpretation, the formal predicate requires exactly smoothness and injectivity of the differential.",
   "review_status": "human_reviewed",

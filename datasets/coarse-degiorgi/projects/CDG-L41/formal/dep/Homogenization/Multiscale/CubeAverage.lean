@@ -1,9 +1,18 @@
 module
 
-public import dep.Homogenization.Geometry.TriadicCube
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
 public import Mathlib.MeasureTheory.Constructions.Pi
 public import Mathlib.MeasureTheory.Integral.Bochner.Set
 public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.MetricSpace.Bounded
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
 
 @[expose] public section
 
@@ -13,24 +22,5 @@ open scoped BigOperators
 
 noncomputable def cubeAverage {d : ℕ} (Q : TriadicCube d) (f : Vec d → ℝ) : ℝ :=
   (cubeVolume Q)⁻¹ * ∫ x in cubeSet Q, f x ∂MeasureTheory.volume
-
-noncomputable def cubeAverageVec {d : ℕ} (Q : TriadicCube d) (f : Vec d → Vec d) : Vec d :=
-  fun i => cubeAverage Q (fun x => f x i)
-
-noncomputable def cubeAverageMat {d : ℕ} (Q : TriadicCube d) (f : Vec d → Mat d) : Mat d :=
-  fun i j => cubeAverage Q (fun x => f x i j)
-
-noncomputable def cubeProjection {d : ℕ} (Q : TriadicCube d) (j : ℕ)
-    (f : Vec d → ℝ) : Vec d → ℝ := by
-  classical
-  exact fun x =>
-    Finset.sum (descendantsAtDepth Q j) fun R =>
-      if x ∈ cubeSet R then cubeAverage R f else 0
-
-noncomputable def cubeIncrement {d : ℕ} (Q : TriadicCube d) (j : ℕ)
-    (f : Vec d → ℝ) : Vec d → ℝ :=
-  match j with
-  | 0 => cubeProjection Q 0 f
-  | n + 1 => fun x => cubeProjection Q (n + 1) f x - cubeProjection Q n f x
 
 end Homogenization

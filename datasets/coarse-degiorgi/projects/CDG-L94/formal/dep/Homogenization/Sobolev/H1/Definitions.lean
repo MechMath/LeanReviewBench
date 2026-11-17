@@ -1,11 +1,14 @@
 module
 
-public import dep.Homogenization.Ambient.Basic
-public import dep.Homogenization.Sobolev.WeakDerivatives
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
 public import Mathlib.Analysis.Calculus.ContDiff.Basic
 public import Mathlib.Analysis.Calculus.ContDiff.Operations
 public import Mathlib.Analysis.Calculus.FDeriv.Add
 public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
 public import Mathlib.MeasureTheory.Constructions.Pi
 public import Mathlib.MeasureTheory.Function.LocallyIntegrable
 public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
@@ -13,17 +16,14 @@ public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
 public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
 public import Mathlib.MeasureTheory.Integral.Bochner.Set
 public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
 namespace Homogenization
-
-/-!
-`H¹(U)` is modeled here by explicit witnesses: a function, a candidate weak
-gradient, `L²` control on both, and the integration-by-parts identity against
-smooth compactly supported tests. `H¹₀(U)` adds the usual approximation package
-by smooth compactly supported functions supported in `U`.
--/
 
 abbrev MemL2On {d : ℕ} (U : Set (Vec d)) (u : Vec d → ℝ) : Prop :=
   MeasureTheory.MemLp u 2 (MeasureTheory.volume.restrict U)
@@ -40,9 +40,6 @@ structure H1Function {d : ℕ} (U : Set (Vec d)) where
 
 instance {d : ℕ} {U : Set (Vec d)} : CoeFun (H1Function U) (fun _ => Vec d → ℝ) where
   coe u := u.toFun
-
-def MemH1 {d : ℕ} (U : Set (Vec d)) (u : Vec d → ℝ) : Prop :=
-  ∃ v : H1Function U, v.toFun = u
 
 structure H10Function {d : ℕ} (U : Set (Vec d)) extends H1Function U where
   approx : ℕ → Vec d → ℝ
@@ -64,9 +61,6 @@ structure H10Function {d : ℕ} (U : Set (Vec d)) extends H1Function U where
 
 instance {d : ℕ} {U : Set (Vec d)} : CoeFun (H10Function U) (fun _ => Vec d → ℝ) where
   coe u := u.toH1Function.toFun
-
-def MemH10 {d : ℕ} (U : Set (Vec d)) (u : Vec d → ℝ) : Prop :=
-  ∃ v : H10Function U, v.toH1Function.toFun = u
 
 noncomputable def MeanZeroOn {d : ℕ} (U : Set (Vec d)) (u : Vec d → ℝ) : Prop :=
   ∫ x in U, u x ∂MeasureTheory.volume = 0

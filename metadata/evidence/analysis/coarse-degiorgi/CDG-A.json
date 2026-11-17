@@ -3,7 +3,7 @@
   "dataset": "coarse-degiorgi",
   "project_id": "CDG-A",
   "task_id": "coarse-degiorgi:CDG-A",
-  "input_sha256": "478e3568ffb91e335c26a5721a892aa6c46515eac528ae8e513f97131851f613",
+  "input_sha256": "f9c4a58080689b21c934f9ea4551c4bb1ba18579e679f20739e44c00ec324043",
   "label": "aligned",
   "reason": "The statement structure matches, including the shared gamma and constants quantified before the coefficient and function. Geometry, averaging definitions, and elaborated instances remain technical qualifications.",
   "review_status": "human_reviewed",

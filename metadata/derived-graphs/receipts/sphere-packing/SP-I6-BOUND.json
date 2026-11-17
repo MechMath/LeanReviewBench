@@ -1,0 +1,95 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-I6-BOUND",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "MagicFunction.a.IntegralEstimates.I₆.I₆'_bounding"
+  ],
+  "input_sha256": "316fdabd11e6d677a624dc51c4c4d304ff8e925a61c5d741ab3d7505cfa466df",
+  "graph_sha256": "c24e2ea4a3a0c005875dc6d3765a4b5d2eaff0ce57de8e9ee8bb2b5ce14ea81a",
+  "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-I6-BOUND.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "f0244ad03bf3aa342284e6e3ac1504fab02de404ecd1e08e4d78417c0c25179b"
+    ],
+    [
+      "formal/dep/SpherePacking/MagicFunction/IntegralParametrisations.lean",
+      "ed1ef39c7fbb50b35cb535cf309108158f043ce18021ef4390a53d91c4291156"
+    ],
+    [
+      "formal/dep/SpherePacking/MagicFunction/a/Basic.lean",
+      "f49c5458331219c08868df8cfa0313d4bcaf4332ef3d162f021ddfaa23e64990"
+    ],
+    [
+      "formal/dep/SpherePacking/MagicFunction/a/Phi.lean",
+      "9413327a65a184941c9283cf2076af91ab85df49f3136717b5302bdb399c8d8b"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/Delta.lean",
+      "28842000d3b4c24ea7a0b00260f02b74944fefd10f3ca79363a03ed70d02e744"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/E2.lean",
+      "4001535de41dabb1bc544b7af2f3302a74ea32674fb26ea0282af7ed4da87e11"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/Eisenstein.lean",
+      "2205b85a7bbf3531ca97a7ed663d5eeb26895c1f66902cb9b59694fd6d806e3f"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/FG.lean",
+      "6347edecec079a58ece3c1c85b1db3d8f58000a7eaccd5ea7f8a2daf01f1fbb8"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/IsCuspForm.lean",
+      "0e3b1ee270d55d2ff8ef5af162f69761404e256108e97faf78af3f4551274daa"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/JacobiTheta/Basic.lean",
+      "6ede49849dbb406bc4b657e5692b82a18bd4f63ff66a8d7e1e9b619c27659658"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/JacobiTheta/Defs.lean",
+      "d6c0a36a2d27391adb60cdb69bf136b416e697d02e4a492b8e7d392e6a541a6e"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/JacobiTheta/Derivative.lean",
+      "76109a29cbfa1c1c7fe47f09628b087c3a72f23fb9c673e57363fdb776ebc68f"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/JacobiTheta/JacobiIdentity.lean",
+      "270b10aa4d5a810411e9d0a4884b0a91636d112ee6a740e50a7248e9de293a4b"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/JacobiTheta/MDifferentiable.lean",
+      "7e1a9ce1ce984622751a7029d071fa618a2d8a9e00fa00daab84bb12b4a33528"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/ResToImagAxis.lean",
+      "6ac9256da9b03202ed06afcebe853fa5aaa7fbea2a95ee373bd9b493352df698"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/SlashActionAuxil.lean",
+      "2cc44c40f7185bc9d61c9451f88b6edb294c83d1711d973119736b3a3a47133b"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 16,
+  "nodes": 148,
+  "edges": 404,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

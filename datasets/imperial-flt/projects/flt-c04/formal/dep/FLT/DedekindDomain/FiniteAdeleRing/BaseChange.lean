@@ -1,47 +1,120 @@
-/-
-Copyright (c) 2025 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard, Matthew Jasper
--/
 module
 
-public import dep.FLT.DedekindDomain.Completion.BaseChange
-public import dep.FLT.DedekindDomain.FiniteAdeleRing.TensorRestrictedProduct
-public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module
-public import dep.FLT.Mathlib.Topology.Algebra.Algebra.Hom
-public import dep.FLT.Mathlib.LinearAlgebra.Pi
-public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import Mathlib.Algebra.Algebra.Pi
+public import Mathlib.Algebra.Algebra.Prod
+public import Mathlib.Algebra.Colimit.Module
+public import Mathlib.Algebra.FiveLemma
+public import Mathlib.Algebra.Group.Int.TypeTags
+public import Mathlib.Algebra.Group.Pointwise.Set.Basic
+public import Mathlib.Algebra.Group.Submonoid.Units
+public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.Equiv.Defs
+public import Mathlib.Algebra.Module.FinitePresentation
+public import Mathlib.Algebra.Module.LinearMap.Defs
+public import Mathlib.Algebra.Module.Pi
+public import Mathlib.Algebra.Module.Submodule.Defs
+public import Mathlib.Algebra.Order.AbsoluteValue.Basic
+public import Mathlib.Algebra.Order.Algebra
+public import Mathlib.Algebra.Ring.Subring.Basic
+public import Mathlib.Algebra.Ring.Subring.Defs
+public import Mathlib.Algebra.Ring.Subsemiring.Basic
+public import Mathlib.Analysis.Normed.Ring.Lemmas
+public import Mathlib.CategoryTheory.Category.Init
+public import Mathlib.CategoryTheory.Types.Basic
+public import Mathlib.Data.Nat.Totient
+public import Mathlib.Data.Rat.Cast.Order
+public import Mathlib.Data.Rat.Floor
+public import Mathlib.Data.Sym.Sym2.Init
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.LinearAlgebra.Dimension.Finrank
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.LinearAlgebra.Dimension.StrongRankCondition
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.LinearAlgebra.FreeModule.StrongRankCondition
+public import Mathlib.LinearAlgebra.Matrix.Defs
+public import Mathlib.LinearAlgebra.Quotient.Pi
+public import Mathlib.LinearAlgebra.TensorProduct.Defs
+public import Mathlib.LinearAlgebra.TensorProduct.Pi
+public import Mathlib.Logic.Equiv.PartialEquiv
+public import Mathlib.NumberTheory.RamificationInertia.Basic
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.NumberTheory.RamificationInertia.Ramification
+public import Mathlib.Order.Filter.Cofinite
+public import Mathlib.RingTheory.AlgebraTower
+public import Mathlib.RingTheory.DedekindDomain.AdicValuation
 public import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+public import Mathlib.RingTheory.Flat.Basic
+public import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 public import Mathlib.RingTheory.Flat.TorsionFree
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+public import Mathlib.RingTheory.Localization.BaseChange
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.RingTheory.TensorProduct.Finite
+public import Mathlib.RingTheory.TensorProduct.Free
+public import Mathlib.RingTheory.TensorProduct.Maps
+public import Mathlib.RingTheory.Valuation.Discrete.Basic
+public import Mathlib.RingTheory.Valuation.Discrete.RankOne
+public import Mathlib.Tactic.Basic
+public import Mathlib.Tactic.Bound.Init
+public import Mathlib.Tactic.ContinuousFunctionalCalculus
+public import Mathlib.Tactic.NormNum.Abs
+public import Mathlib.Tactic.NormNum.DivMod
+public import Mathlib.Tactic.NormNum.GCD
+public import Mathlib.Tactic.NormNum.OfScientific
+public import Mathlib.Tactic.Positivity.Finset
+public import Mathlib.Tactic.ToAdditive
+public import Mathlib.Topology.Algebra.Algebra
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Constructions
+public import Mathlib.Topology.Algebra.Group.Units
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+public import Mathlib.Topology.Algebra.Module.Equiv
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import Mathlib.Topology.Algebra.UniformRing
+public import Mathlib.Topology.Algebra.Valued.NormedValued
+public import Mathlib.Topology.Algebra.Valued.ValuationTopology
+public import Mathlib.Topology.Bases
+public import Mathlib.Topology.Constructions.SumProd
+public import Mathlib.Topology.Homeomorph.Lemmas
+public import Mathlib.Topology.Instances.Matrix
+public import Mathlib.Topology.Path
+public import dep.FLT.DedekindDomain.AdicValuation
+public import dep.FLT.DedekindDomain.Completion.BaseChange
+public import dep.FLT.DedekindDomain.FiniteAdeleRing.IsDirectLimitRestricted
+public import dep.FLT.DedekindDomain.FiniteAdeleRing.TensorRestrictedProduct
+public import dep.FLT.DedekindDomain.IntegralClosure
+public import dep.FLT.Deformations.ContinuousRepresentation.IsTopologicalModule
+public import dep.FLT.Hacks.RightActionInstances
+public import dep.FLT.Mathlib.Algebra.Algebra.Bilinear
+public import dep.FLT.Mathlib.Algebra.Algebra.Hom
+public import dep.FLT.Mathlib.Algebra.Algebra.Pi
+public import dep.FLT.Mathlib.Algebra.Algebra.Tower
+public import dep.FLT.Mathlib.Algebra.IsDirectLimit
+public import dep.FLT.Mathlib.Algebra.Module.Submodule.Basic
+public import dep.FLT.Mathlib.LinearAlgebra.Pi
+public import dep.FLT.Mathlib.Order.Filter.Cofinite
+public import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
 public import dep.FLT.Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
-import Mathlib.Algebra.Order.Algebra
-import Mathlib.RingTheory.Flat.TorsionFree
-import Mathlib.RingTheory.SimpleRing.Principal
-
-/-!
-
-# Base change of adele rings.
-
-If `A` is a Dedekind domain with field of fractions `K`, if `L/K` is a finite separable
-extension and if `B` is the integral closure of `A` in `L`, then `B` is also a Dedekind
-domain. Hence the rings of finite adeles `𝔸_K^∞` and `𝔸_L^∞` (defined using `A` and `B`)
-are defined. In this file we define the natural `K`-algebra map `𝔸_K^∞ → 𝔸_L^∞` and
-the natural `L`-algebra map `𝔸_K^∞ ⊗[K] L → 𝔸_L^∞`, and show that the latter map
-is an isomorphism.
-
-## Main definitions
-
-* `FiniteAdeleRing.baseChangeAlgEquiv : L ⊗[K] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃ₐ[L] (IsDedekindDomain.FiniteAdeleRing (B) (L))`
-
-## Main theorems
-
-* `(IsDedekindDomain.FiniteAdeleRing (B) (L))` has the `(IsDedekindDomain.FiniteAdeleRing (A) (K))`-module topology, shown as an instance.
-
--/
+public import dep.FLT.Mathlib.Topology.Algebra.Algebra.Hom
+public import dep.FLT.Mathlib.Topology.Algebra.Module.ModuleTopology
+public import dep.FLT.Mathlib.Topology.Algebra.MulAction
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Equiv
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import dep.FLT.Mathlib.Topology.Algebra.UniformRing
 
 @[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
+
 set_option backward.defeqAttrib.useBackward true
 
 variable (A K L B : Type*) [CommRing A] [CommRing B] [Algebra A B] [Field K] [Field L]
@@ -53,23 +126,15 @@ namespace IsDedekindDomain
 
 open IsDedekindDomain HeightOneSpectrum adicCompletion Extension
 
-open scoped TensorProduct Adele -- ⊗ notation for tensor product
+open scoped TensorProduct Adele
 
 lemma tendsTo_comap_cofinite [FaithfulSMul A B] :
-    Filter.Tendsto (under A (B:=B)) Filter.cofinite Filter.cofinite :=
-  have : FaithfulSMul A (FractionRing B) := FractionRing.instFaithfulSMul A B
-  letI : Algebra (FractionRing A) (FractionRing B) :=
-    FractionRing.liftAlgebra A (FractionRing B)
-  (Filter.Tendsto.cofinite_of_finite_preimage_singleton <|
-    Extension.finite A (FractionRing A) (FractionRing B) B)
+    Filter.Tendsto (under A (B:=B)) Filter.cofinite Filter.cofinite := sorry
 
 lemma cofinite_mapsTo_adicCompletionSemialgHom :
     ∀ᶠ (w : HeightOneSpectrum B) in Filter.cofinite,
     Set.MapsTo (Extension.adicCompletionSemialgHom K L (v := under A w) ⟨w, rfl⟩)
-      (adicCompletionIntegers K (under A w)) (adicCompletionIntegers L w) := by
-  apply Filter.Eventually.of_forall
-  intro w
-  exact Set.image_subset_iff.1 <| adicCompletionSemialgHom_image_adicCompletionIntegers K L ⟨w, rfl⟩
+      (adicCompletionIntegers K (under A w)) (adicCompletionIntegers L w) := sorry
 
 namespace FiniteAdeleRing
 
@@ -85,19 +150,12 @@ as a morphism lying over the canonical map `K → L`. -/
 noncomputable def mapSemialgHom :
     (IsDedekindDomain.FiniteAdeleRing (A) (K)) →SA[algebraMap K L] (IsDedekindDomain.FiniteAdeleRing (B) (L)) where
   __ := FiniteAdeleRing.mapRingHom A K L B
-  map_smul' k a := by
-    ext w : 1
-    simpa only [Algebra.smul_def'] using!
-      (adicCompletionSemialgHom K L (v := w.under A) ⟨w, rfl⟩).map_smul' k (a (under A w))
+  map_smul' k a := sorry
   continuous_toFun :=
     have : FaithfulSMul A B := FaithfulSMul.of_field_isFractionRing A B K L
     RestrictedProduct.mapAlong_continuous _ _ _ (tendsTo_comap_cofinite A B) _
       (cofinite_mapsTo_adicCompletionSemialgHom A K L B)
       fun w ↦ adicCompletionSemialgHom_continuous K L ⟨w, rfl⟩
-
-variable {A K B} in
-lemma mapSemialgHom_apply (x : (IsDedekindDomain.FiniteAdeleRing (A) (K))) (w : HeightOneSpectrum B) :
-    mapSemialgHom A K L B x w = adicCompletionSemialgHom K L ⟨w, rfl⟩ (x (under A w)) := rfl
 
 open scoped TensorProduct.RightActions RestrictedProduct
 
@@ -124,168 +182,17 @@ variable [ComapFiberwiseSMul A K L B]
 
 variable {A K L B} in
 theorem ComapFiberwiseSMul.map_smul' (x : (IsDedekindDomain.FiniteAdeleRing (A) (K))) (y : (IsDedekindDomain.FiniteAdeleRing (B) (L))) (v : HeightOneSpectrum A)
-    (w : v.Extension B) : (x • y) w.1 = x v • y w.1 :=
-  ComapFiberwiseSMul.toFiberwiseSMul.map_smul x y v w
-
-variable {A K B} in
-lemma BaseChange.algebraMap_apply (w : HeightOneSpectrum B) (x : (IsDedekindDomain.FiniteAdeleRing (A) (K))) :
-    algebraMap _ (IsDedekindDomain.FiniteAdeleRing (B) (L)) x w = adicCompletionSemialgHom K L ⟨w, rfl⟩ (x (under A w)) := by
-  simp [Algebra.algebraMap_eq_smul_one, ComapFiberwiseSMul.map_smul' x 1 (w.under A) ⟨w, rfl⟩,
-    RingHom.smul_toAlgebra, SemialgHom.toLinearMap_eq_coe]
+    (w : v.Extension B) : (x • y) w.1 = x v • y w.1 := sorry
 
 noncomputable section bijection
 
-/-- The canonical linear isomorphism `L ⊗[K] 𝔸_K^∞ ≅ B ⊗[A] 𝔸_K^∞`. -/
-def tensorEquivTensor [FiniteDimensional K L] : L ⊗[K] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃ₗ[B] B ⊗[A] (IsDedekindDomain.FiniteAdeleRing (A) (K)) := by
-  exact linearEquivTensorProductModuleLeft A K L B (IsDedekindDomain.FiniteAdeleRing (A) (K))
-
-omit [Algebra (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L))] [ComapFiberwiseSMul A K L B] in
-lemma tensorEquivTensor_tmul [FiniteDimensional K L] (b : B) (x : (IsDedekindDomain.FiniteAdeleRing (A) (K))) :
-    tensorEquivTensor A K L B (algebraMap B L b ⊗ₜ[K] x) = b ⊗ₜ[A] x := by
-  simp [tensorEquivTensor, linearEquivTensorProductModuleLeft_tmul]
-
--- shortcuts: note these help remove heartbeats in the below, but probably not the "right" fix
--- local instance : AddCommMonoid (Πʳ v, [B ⊗[A] (adicCompletion K v),
---       RestrictedProduct.rangeLTensorLeft A B (adicCompletion K) (integerSubmodule K) v]) :=
---     RestrictedProduct.instAddCommMonoidCoeOfAddSubmonoidClass
---       (R := (B ⊗[A] adicCompletion K ·)) (S := fun v ↦ Submodule B (B ⊗[A] adicCompletion K v))
-
--- local instance : Module B (Πʳ v, [B ⊗[A] (adicCompletion K v),
---     RestrictedProduct.rangeLTensorLeft A B (adicCompletion K) (integerSubmodule K) v]) :=
---   RestrictedProduct.instModuleCoeOfSMulMemClass (R := (B ⊗[A] adicCompletion K ·))
---     (S := fun v ↦ Submodule B (B ⊗[A] adicCompletion K v))
-
-set_option synthInstance.maxHeartbeats 40000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 400000 in
-/-- The `B`-linear isomorphism `φ : B ⊗[K] 𝔸_K^∞ ≅ ∏'_v [B ⊗[A] K_v, B ⊗[A] 𝓞_v]`
-given by `φ (b ⊗ x) v = b ⊗ (x v)`. -/
-def tensorEquivRestrictedProduct : B ⊗[A] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃ₗ[B] Πʳ v, [B ⊗[A] (adicCompletion K v),
-    RestrictedProduct.rangeLTensorLeft A B (adicCompletion K) (integerSubmodule K) v] := by
-  have := Module.finitePresentation_of_finite A B
-  have := isTorsionFree A K L B
-  let f := RestrictedProduct.lTensorEquivLeft A B (adicCompletion K) (integerSubmodule K) .cofinite
-  apply LinearEquiv.trans (TensorProduct.AlgebraTensorModule.congr (LinearEquiv.refl B B) ?_) f
-  exact {
-    __ := AddEquiv.refl _
-    map_smul' a x := by
-      ext v : 1
-      exact Algebra.smul_def a (x v) |>.symm
-  }
-
--- shortcut instance to make next lemma work after mathlib#39965
 variable (v : HeightOneSpectrum A) in
 instance : AddCommMonoid (adicCompletion K v) := inferInstance
 
 set_option backward.isDefEq.respectTransparency false in
-omit [IsFractionRing B L] in
-lemma tensorEquivRestrictedProduct_tmul (b : B) (x : (IsDedekindDomain.FiniteAdeleRing (A) (K))) (v : HeightOneSpectrum A) :
-    tensorEquivRestrictedProduct A K L B (b ⊗ₜ[A] x) v = b ⊗ₜ[A] (x v) := by
-  simp [tensorEquivRestrictedProduct]
-
-set_option synthInstance.maxHeartbeats 40000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 400000 in
-/-- The `B`-linear isomorphism `∏'_v [B ⊗[A] K_v, B ⊗[A] 𝓞_v] ≅ ∏'_v [∏_{w|v} L_w, ∏_{w|v} 𝓞_w]`
-given by `adicCompletionComapIntegerLinearEquiv`. -/
-def restrictedProductTensorProductEquivRestrictedProductProd [FiniteDimensional K L] :
-    Πʳ v, [B ⊗[A] (adicCompletion K v),
-      RestrictedProduct.rangeLTensorLeft A B (adicCompletion K) (integerSubmodule K) v] ≃ₗ[B]
-    Πʳ (v : HeightOneSpectrum A), [(w : Extension B v) → adicCompletion L w.val,
-      Submodule.pi Set.univ fun w : Extension B v ↦ (integerSubmodule L w.val)] :=
-  LinearEquiv.restrictedProductCongrRight (R₁ := (B ⊗[A] adicCompletion K ·))
-    (S₁ := fun v ↦ Submodule B (B ⊗[A] adicCompletion K v)) (integerBaseChangeLinearEquiv K L B)
-      (.of_forall <| integerBaseChangeLinearEquiv_bijOn K L)
-
-omit [Algebra (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L))] [ComapFiberwiseSMul A K L B] in
-lemma restrictedProduct_tensorProduct_equiv_restrictedProduct_prod_apply [FiniteDimensional K L]
-    (f) (v : HeightOneSpectrum A) :
-    FiniteAdeleRing.restrictedProductTensorProductEquivRestrictedProductProd A K L B f v =
-    integerBaseChangeLinearEquiv K L B v (f v) := rfl
-
-set_option synthInstance.maxHeartbeats 40000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 400000 in
-/-- The `B`-linear isomorphism `∏'_v [∏_{w|v} L_w, ∏_{w|v} 𝓞_w] → 𝔸_L^∞` given by
-`RestrictedProduct.flattenEquiv'`. -/
-def restrictedProductProdEquiv :
-    Πʳ (v : HeightOneSpectrum A), [(w : Extension B v) → adicCompletion L w.val,
-      Submodule.pi .univ fun w : Extension B v ↦ (integerSubmodule L w.val)] ≃ₗ[B]
-    (IsDedekindDomain.FiniteAdeleRing (B) (L)) :=
-  have : FaithfulSMul A B := FaithfulSMul.of_field_isFractionRing A B K L
-  {
-    __ := RestrictedProduct.flattenEquiv'
-      (fun w : HeightOneSpectrum B ↦ SetLike.coe <| w.adicCompletionIntegers L)
-      (tendsTo_comap_cofinite A B)
-    map_add' x y := rfl
-    map_smul' a x := by
-      ext w : 1
-      change a • (x (under A w) ⟨w, rfl⟩) = _
-      simp [Algebra.smul_def, RingHom.id_apply, Equiv.toFun_as_coe]
-      rfl
-  }
-
-omit [Algebra (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L))] [ComapFiberwiseSMul A K L B] in
-lemma restrictedProduct_prod_equiv_apply (f) (w : HeightOneSpectrum B) :
-    restrictedProductProdEquiv A K L B f w = f (under A w) ⟨w, rfl⟩ := rfl
-
-set_option synthInstance.maxHeartbeats 40000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 400000 in
-/-- The `L`-linear isomorphism `L ⊗ A_K^∞ ≅ A_L^∞` given by composing the previous four maps. -/
-def baseChangeLinearEquiv [FiniteDimensional K L] : L ⊗[K] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃ₗ[L] (IsDedekindDomain.FiniteAdeleRing (B) (L)) :=
-  let f₁ := tensorEquivTensor A K L B
-  let f₂ := tensorEquivRestrictedProduct A K L B
-  let f₃ := restrictedProductTensorProductEquivRestrictedProductProd A K L B
-  let f₄ := restrictedProductProdEquiv A K L B
-  let f := f₁ ≪≫ₗ f₂ ≪≫ₗ f₃ ≪≫ₗ f₄
-  LinearEquiv.extendScalarsOfIsLocalization (nonZeroDivisors B) L f
-
-lemma algebraMap_apply_eq_algebraMap (x : K) (v : HeightOneSpectrum A) :
-    algebraMap K (IsDedekindDomain.FiniteAdeleRing (A) (K)) x v = algebraMap K (v.adicCompletion K) x := rfl
-
-set_option synthInstance.maxHeartbeats 40000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 400000 in
-@[simp]
-lemma baseChangeLinearEquiv_tmul [FiniteDimensional K L] (b : B) (x : (IsDedekindDomain.FiniteAdeleRing (A) (K))) :
-    baseChangeLinearEquiv A K L B (algebraMap B L b ⊗ₜ x) =
-      (algebraMap _ (IsDedekindDomain.FiniteAdeleRing (B) (L)) b) * (algebraMap _ (IsDedekindDomain.FiniteAdeleRing (B) (L)) x) := by
-  ext w : 1
-  simp [baseChangeLinearEquiv, restrictedProduct_prod_equiv_apply, tensorEquivTensor_tmul,
-    restrictedProduct_tensorProduct_equiv_restrictedProduct_prod_apply,
-    tensorEquivRestrictedProduct_tmul, BaseChange.algebraMap_apply,
-    IsScalarTower.algebraMap_apply B L (IsDedekindDomain.FiniteAdeleRing (B) (L)),
-    IsScalarTower.algebraMap_apply B L (w.adicCompletion L), -Submodule.coe_pi]
-  all_goals rfl
-
-set_option backward.isDefEq.respectTransparency false in
 theorem baseChange_bijective [FiniteDimensional K L] :
     Function.Bijective (SemialgHom.baseChangeOfAlgebraMap <|
-      (mapSemialgHom A K L B).toSemialgHom) := by
-  suffices ⇑(SemialgHom.baseChangeOfAlgebraMap <| FiniteAdeleRing.mapSemialgHom A K L B) =
-      ⇑(FiniteAdeleRing.baseChangeLinearEquiv A K L B) by
-    rw [ContinuousSemialgHom.toSemialgHom_eq_coe, this]
-    exact (FiniteAdeleRing.baseChangeLinearEquiv A K L B).bijective
-  rw [← AlgHom.coe_toLinearMap, ← LinearEquiv.coe_toLinearMap]
-  -- TODO
-  -- we used to use `IsLocalization.tensorProduct_ext` when this was K-linear
-  -- not L-linear; maybe write `IsLocalization.tensorProduct_ext'` which allows
-  -- for L-linear maps out of a K-linear tensor product?
-  apply congr_arg _ <| LinearMap.ext fun x ↦ ?_
-  induction x using TensorProduct.induction_on with
-  | zero => simp
-  | tmul l x =>
-    ext w : 1
-    obtain ⟨⟨b, s⟩, hl : (s : B) • l = algebraMap B L b⟩ :=
-      IsLocalizedModule.surj (M := B) (M' := L) (nonZeroDivisors B) (Algebra.linearMap B L) l
-    rw [LinearEquiv.coe_coe, ← IsUnit.smul_left_cancel <| IsLocalization.map_units L s]
-    simp only [Algebra.smul_def, ← algebraMap_apply_eq_algebraMap, ← mul_apply]
-    simp only [← Algebra.smul_def, ← map_smul]
-    simp [hl, baseChangeLinearEquiv_tmul, BaseChange.algebraMap_apply, mapSemialgHom_apply,
-      SemialgHom.baseChange_of_algebraMap_tmul, Algebra.compHom_algebraMap_apply,
-      TensorProduct.smul_tmul']
-  | add => simp_all
+      (mapSemialgHom A K L B).toSemialgHom) := sorry
 
 /-- The `L`-algebra isomorphism `L ⊗_K 𝔸_K^∞ ≅ 𝔸_L^∞`. -/
 def baseChangeAlgEquiv [FiniteDimensional K L] :
@@ -293,19 +200,7 @@ def baseChangeAlgEquiv [FiniteDimensional K L] :
   .ofBijective (SemialgHom.baseChangeOfAlgebraMap <| FiniteAdeleRing.mapSemialgHom A K L B)
     (FiniteAdeleRing.baseChange_bijective A K L B)
 
-/-- The `𝔸_K^∞`-algebra isomorphism `L ⊗_K 𝔸_K^∞ ≅ 𝔸_L^∞`. -/
-def baseChangeAdeleAlgEquiv [FiniteDimensional K L] :
-    L ⊗[K] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃ₐ[(IsDedekindDomain.FiniteAdeleRing (A) (K))] (IsDedekindDomain.FiniteAdeleRing (B) (L)) where
-  __ := SemialgHom.baseChangeRightOfAlgebraMap <|
-    (FiniteAdeleRing.mapSemialgHom A K L B).toSemialgHom
-  __ := FiniteAdeleRing.baseChangeAlgEquiv A K L B
-  commutes' x := by
-    ext
-    simp [BaseChange.algebraMap_apply]
-    rfl
-
-instance [FiniteDimensional K L] : Module.Finite (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L)) :=
-  Module.Finite.equiv (FiniteAdeleRing.baseChangeAdeleAlgEquiv A K L B).toLinearEquiv
+instance [FiniteDimensional K L] : Module.Finite (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L)) := sorry
 
 end bijection
 
@@ -342,12 +237,10 @@ noncomputable def piAdicIntegerSubmodule (v : HeightOneSpectrum A) :
       inferInstanceAs (Algebra (adicCompletionIntegers K v) (adicCompletionIntegers L w.1))
     s.restrictScalars (adicCompletionIntegers K v)
 
--- Help instance synthesis
 private noncomputable local instance (priority := 9999) (v : HeightOneSpectrum A) :
     Module (adicCompletion K v) ((w : Extension B v) → adicCompletion L w.val) :=
   Algebra.toModule
 
--- went up from 40000 when switched to module system
 set_option synthInstance.maxHeartbeats 80000 in
 -- see https://github.com/ImperialCollegeLondon/FLT/issues/889
 set_option maxHeartbeats 400000 in -- caused by bump to v4.29
@@ -359,67 +252,13 @@ noncomputable local instance : Module (IsDedekindDomain.FiniteAdeleRing (A) (K))
     ↑(piAdicIntegerSubmodule A K L B v)] :=
   RestrictedProduct.instModuleCoe_dep
 
-set_option backward.isDefEq.respectTransparency false in
-set_option synthInstance.maxHeartbeats 160000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 400000 in
-/-- The continuous `𝔸 K`-Linear equivalence between `∏'_v ∏_{w∣v} L_w` and `𝔸 L` given by
-reaindexing the elements. -/
-noncomputable def restrictedProductPiEquiv :
-    Πʳ (v : HeightOneSpectrum A), [(w : Extension B v) → adicCompletion L w.val,
-      piAdicIntegerSubmodule A K L B v] ≃L[(IsDedekindDomain.FiniteAdeleRing (A) (K))] (IsDedekindDomain.FiniteAdeleRing (B) (L)) :=
-  have := FaithfulSMul.of_field_isFractionRing A B K L
-  let f : _ ≃ₜ (IsDedekindDomain.FiniteAdeleRing (B) (L)) := RestrictedProduct.flattenHomeomorph'
-    (G := adicCompletion L) (fun w ↦ adicCompletionIntegers L w) (tendsTo_comap_cofinite A B)
-  {
-    __ := f
-    map_add' x y := rfl
-    map_smul' r x := by
-      ext w : 1
-      rw [RingHom.id_apply, Algebra.smul_def, RestrictedProduct.mul_apply,
-        BaseChange.algebraMap_apply]
-      rfl
-  }
-
--- needed for the below lemmas for some reason
 attribute [instance 100] RestrictedProduct.instSMulCoeOfSMulMemClass
-
-set_option backward.isDefEq.respectTransparency false in
-set_option synthInstance.maxHeartbeats 160000 in
--- see https://github.com/ImperialCollegeLondon/FLT/issues/889
-set_option maxHeartbeats 800000 in
-lemma restrictedProduct_pi_isModuleTopology [FiniteDimensional K L] : IsModuleTopology (IsDedekindDomain.FiniteAdeleRing (A) (K))
-    (Πʳ (v : HeightOneSpectrum A), [(w : Extension B v) → adicCompletion L w.val,
-      piAdicIntegerSubmodule A K L B v]) := by
-  have :=
-    Module.Finite.equiv (FiniteAdeleRing.restrictedProductPiEquiv A K L B).symm.toLinearEquiv
-  unfold FiniteAdeleRing at this
-  apply RestrictedProduct.isModuleTopology
-  · exact fun v ↦ Valued.isOpen_integer (adicCompletion K v)
-  · intro v
-    simp only [piAdicIntegerSubmodule, Submodule.coe_pi, Submodule.coe_restrictScalars]
-    apply isOpen_set_pi _ (fun _ _ ↦ Valued.isOpen_integer _)
-    rw [Set.finite_univ_iff]
-    exact Extension.finite A K L B v
 
 set_option synthInstance.maxHeartbeats 40000 in
 -- see https://github.com/ImperialCollegeLondon/FLT/issues/889
 set_option maxHeartbeats 400000 in
-instance [FiniteDimensional K L] : IsModuleTopology (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L)) :=
-  have := restrictedProduct_pi_isModuleTopology A K L B
-  IsModuleTopology.iso (FiniteAdeleRing.restrictedProductPiEquiv A K L B)
+instance [FiniteDimensional K L] : IsModuleTopology (IsDedekindDomain.FiniteAdeleRing (A) (K)) (IsDedekindDomain.FiniteAdeleRing (B) (L)) := sorry
 
 end moduleTopology
-
-/-- The continuous `𝔸_K^∞`-algebra isomorphism `L ⊗_K 𝔸_K^∞ ≅ 𝔸_L^∞` -/
-noncomputable def baseChangeAdeleContinuousAlgEquiv [FiniteDimensional K L] :
-    L ⊗[K] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃A[(IsDedekindDomain.FiniteAdeleRing (A) (K))] (IsDedekindDomain.FiniteAdeleRing (B) (L)) :=
-  IsModuleTopology.continuousAlgEquivOfAlgEquiv <| baseChangeAdeleAlgEquiv A K L B
-
-/-- The continuous `L`-algebra isomorphism `L ⊗_K 𝔸_K^∞ ≅ 𝔸_L^∞` -/
-noncomputable def baseChangeContinuousAlgEquiv [FiniteDimensional K L] :
-    L ⊗[K] (IsDedekindDomain.FiniteAdeleRing (A) (K)) ≃A[L] (IsDedekindDomain.FiniteAdeleRing (B) (L)) where
-  __ := FiniteAdeleRing.baseChangeAlgEquiv A K L B
-  __ := FiniteAdeleRing.baseChangeAdeleContinuousAlgEquiv A K L B
 
 end IsDedekindDomain.FiniteAdeleRing

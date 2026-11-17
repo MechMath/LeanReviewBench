@@ -92,8 +92,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 43,
-    "sha256": "8777b285c65935572fb7c76028d94167374bf923e9e943dc7b61fb5ce3fc8394"
+    "file_count": 11,
+    "sha256": "fac51817bf8abad46e75e8e4c74e6b40467abf20674bbfe8ba5930fdccca073f",
+    "effective_root_sha256": "3ced5a680cafba5522e16974808ec18ad733520bb6d3f7e1c1912077ca8b5d9b",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/formalslt-batch2/flagship/technical/20261103T133423939429Z/receipt.json",
@@ -106,9 +109,8 @@
   },
   "pairing_status": "standalone_no_same_task_historical_repair",
   "mechanism_group": "formalslt:flagship-reflexive-risk",
-  "input_sha256": "86d5472db793e6a1ed1501391c61ae1274b98cff6f84ac54f201c7de90e92af0",
+  "input_sha256": "44781cd03dd9c0525b48c45cdb922ee9cc7093205a71b2a2228ef7e386de15fd",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
-  "alignment_reference": "metadata/labels/formalslt.jsonl",
-  "pending_reason": "The actual frozen informal is a scalar inequality for an arbitrary FlagshipCertificate C, with application-supplied component obligations retained. The selected root has no certificate, user, or derived-contribution parameter: it proves the inequality for one closed worked example whose populationRisk is defined to be the displayed bound side. This is a concrete loss of the frozen universal scope. The judgment does not demand an independently defined statistical risk or a probability theorem absent from the frozen text."
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/formalslt.jsonl"
 }

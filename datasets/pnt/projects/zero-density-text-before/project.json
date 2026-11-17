@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "当前文字将N(σ,T)的密度界与另一条RvM误差式拼接，含未绑定的b1,b2,b3，固定T≥2。formal结构实际量化T≥T0、σ∈σ_range，只有c1(σ)T^p(σ)(logT)^q(σ)+c2(σ)(logT)^2一条界，未表达拼入的约束。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "996829cbfc693435b447e03c56946f5d7c3339c366ad4fff860da14a1c02b5b7"
+    "sha256": "4667ee6499b8515956feef549cc634e958ab64a141d05ff68d5c02483a0c98cf",
+    "effective_root_sha256": "9f7e56a55d82132d58ab29b6e82e2796af06c5db5827ddcc16ca6af6ed95dd76",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "de08bdd08260ab1bed68f7f2da5946700be28d086c62751909b9cb794cd35712",
+  "input_sha256": "9415393142e202b06be56e29c8e52995f81ef1094cda40cb5a20e9f06dfeaa8e",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

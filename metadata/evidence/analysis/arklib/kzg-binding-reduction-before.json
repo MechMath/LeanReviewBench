@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "kzg-binding-reduction-before",
   "task_id": "arklib:kzg-binding-reduction-before",
-  "input_sha256": "7ccd9e57a27f8ad0e9e698f071e3bba4cdd26cb6776f4d7a41a34ec4613faae7",
+  "input_sha256": "f50980429a6fa80863bfbab9b77fe30285c6ba1187c7a1139779920afa8696b6",
   "label": "misaligned",
   "reason": "The reduction promises only a one-sided success-probability inequality instead of the source equality; the retained deterministic witness has probabilities 0 and 1/(p-1). The source running-time overhead and preservation of the admissible efficient-adversary class are not established by the reduction statement.",
   "review_status": "human_reviewed",

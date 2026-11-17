@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "apap",
+  "project_id": "int-sign-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "int"
+  ],
+  "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+  "graph_sha256": "00c24552296469941cc4dba14bcb69561711bc9e865251f0d91d4dcdef936013",
+  "graph_path": "metadata/derived-graphs/graphs/apap--int-sign-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "9ba2eb6c97ca9ff7fe8037a854d1b5fd74e75d20291067fa4fed359a4557b1a8"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 44,
+  "edges": 43,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

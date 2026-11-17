@@ -1,0 +1,39 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "formalslt",
+  "project_id": "mixture-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+  ],
+  "input_sha256": "55699af3eccb3752878fc95362c3574898796febb9c016fc5b460094d813d0da",
+  "graph_sha256": "b203d0284eb4ccb6fd8ea231a5c8d6d202dba788b81f71e535a4f16c3830329a",
+  "graph_path": "metadata/derived-graphs/graphs/formalslt--mixture-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "17a83291ad351e7d378c2c14f02810dd6527c6d6049d9f97067f1e4711e7336a"
+    ],
+    [
+      "formal/dep/AnytimeValid/SubGaussianCS.lean",
+      "b97e8bb3da8296dc54a812598d9a1ac1a1e1c83b7e95d44510a45dd1103e8556"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 2,
+  "nodes": 95,
+  "edges": 157,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

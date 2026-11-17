@@ -1,199 +1,136 @@
 module
 
-public import dep.CoarseDeGiorgi.Foundations.Simplex.Basic
-public import dep.CoarseDeGiorgi.Statements.IsWeightedCoeffOn
-public import dep.CoarseDeGiorgi.Statements.SimplexIndex
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Ring.Parity
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.EReal.Basic
+public import Mathlib.Data.Fin.Tuple.Sort
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Swap
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.LinearAlgebra.QuadraticForm.Basic
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Push
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.PiProd
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Basic
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Topology.Order.Compact
 public import dep.CoarseDeGiorgi.Statements.GridOffset
+public import dep.CoarseDeGiorgi.Statements.IsWeightedCoeffOn
 public import dep.CoarseDeGiorgi.Statements.OriginCube
 public import dep.CoarseDeGiorgi.Statements.Simplex
 public import dep.CoarseDeGiorgi.Statements.SimplexCell
+public import dep.CoarseDeGiorgi.Statements.SimplexIndex
 public import dep.CoarseDeGiorgi.Statements.Triangulation
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
 public import dep.Homogenization.Ambient.CoefficientField
-public import Mathlib.Data.Fintype.Perm
-public import Mathlib.Algebra.Ring.Parity
-public import Mathlib.MeasureTheory.Integral.IntegrableOn
-
-/-! # Audited simplex cells for response moments
-
-The public cell names alias the `Statements/` definitions. The geometric bridge
-identifies the normalized-coordinate simplex `simplexCell` with the Kuhn API.
--/
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.CoarseGraining.Definitions
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.CubeMetric
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.PDE.Harmonic
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.CoerciveHilbert
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Preliminaries
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.Basic
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.RieszPowerMean
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.SegmentChangeOfVariables
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.TimeCollapse
+public import dep.Homogenization.Sobolev.Foundations.PoincareMeanZero
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.PotentialSolenoidal
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
 open Homogenization MeasureTheory
+
 open scoped BigOperators ENNReal Matrix.Norms.L2Operator
 
 namespace CoarseDeGiorgi.Moments
-
-abbrev gridOffset {d : ℕ} (k : ℕ) (j : Fin d → Fin (3 ^ k)) : Fin d → ℤ :=
-  CoarseDeGiorgi.gridOffset k j
-
-noncomputable abbrev triangulation {d : ℕ} (k : ℕ) :
-    Finset ((Fin d → ℤ) × Equiv.Perm (Fin d)) := CoarseDeGiorgi.triangulation k
-
-abbrev originCube {d : ℕ} (ρ : ℝ) : Set (Vec d) := CoarseDeGiorgi.originCube ρ
-
-noncomputable abbrev SimplexIndex (d k : ℕ) := CoarseDeGiorgi.SimplexIndex d k
-
-abbrev simplexCell {d : ℕ} (k : ℕ) (η : SimplexIndex d k) : Set (Vec d) :=
-  CoarseDeGiorgi.simplexCell k η
 
 noncomputable instance {d k : ℕ} : Fintype (CoarseDeGiorgi.SimplexIndex d k) := by
   classical
   unfold CoarseDeGiorgi.SimplexIndex
   infer_instance
 
-noncomputable instance {d k : ℕ} : Countable (CoarseDeGiorgi.SimplexIndex d k) := by
-  classical
-  unfold CoarseDeGiorgi.SimplexIndex
-  infer_instance
-
-/-- Compatibility name for the coefficient hypotheses `IsWeightedCoeffOn` on a cell. -/
-abbrev IsWeightedCoeffOn {d : ℕ} (V : Set (Vec d)) (a : CoeffField d) : Prop :=
-  CoarseDeGiorgi.IsWeightedCoeffOn V a
-
-/-- The normalized-coordinate simplex equals the coordinate-difference Kuhn simplex. -/
-theorem simplex_eq_kuhnSimplex {d : ℕ} (n : ℤ) (π : Equiv.Perm (Fin d))
-    (z : Vec d) : CoarseDeGiorgi.simplex n π z = Foundations.Simplex.kuhnSimplex n π z := by
-  unfold CoarseDeGiorgi.simplex
-  have hs : 0 < (3 : ℝ) ^ n := zpow_pos (by norm_num) n
-  ext x
-  constructor
-  · rintro ⟨y, rfl, hy, hord⟩
-    constructor
-    · intro i
-      change -(3 : ℝ) ^ n / 2 < z i + (3 : ℝ) ^ n * y i - z i ∧
-        z i + (3 : ℝ) ^ n * y i - z i < (3 : ℝ) ^ n / 2
-      have hlo := mul_lt_mul_of_pos_left (hy i).1 hs
-      have hhi := mul_lt_mul_of_pos_left (hy i).2 hs
-      constructor <;> nlinarith only [hlo, hhi]
-    · intro i j hij
-      change z (π i) + (3 : ℝ) ^ n * y (π i) - z (π i) <
-        z (π j) + (3 : ℝ) ^ n * y (π j) - z (π j)
-      simpa only [add_sub_cancel_left] using mul_lt_mul_of_pos_left (hord i j hij) hs
-  · intro hx
-    refine ⟨fun i => (x i - z i) / (3 : ℝ) ^ n, ?_, ?_, ?_⟩
-    · funext i
-      change x i = z i + (3 : ℝ) ^ n * ((x i - z i) / (3 : ℝ) ^ n)
-      rw [mul_div_cancel₀ _ hs.ne']
-      ring
-    · intro i
-      constructor
-      · apply (lt_div_iff₀ hs).2
-        have h := (hx.1 i).1
-        linarith only [h]
-      · apply (div_lt_iff₀ hs).2
-        have h := (hx.1 i).2
-        linarith only [h]
-    · intro i j hij
-      exact (div_lt_div_iff_of_pos_right hs).2 (hx.2 hij)
-
-/-- Centering the finite integer grid does not identify different indices. -/
-theorem gridOffset_injective {d : ℕ} (k : ℕ) :
-    Function.Injective (gridOffset (d := d) k) := by
-  intro j l h
-  funext i
-  apply Fin.ext
-  have hi := congrFun h i
-  dsimp only [gridOffset] at hi
-  have heq : (j i : ℤ) = (l i : ℤ) := sub_left_injective hi
-  exact_mod_cast heq
-
-theorem triangulation_card {d : ℕ} (k : ℕ) :
-    (triangulation (d := d) k).card = Nat.factorial d * 3 ^ (k * d) := by
-  classical
-  change (CoarseDeGiorgi.triangulation (d := d) k).card = _
-  have hinj : Function.Injective
-      (fun jp : (Fin d → Fin (3 ^ k)) × Equiv.Perm (Fin d) =>
-        (gridOffset k jp.1, jp.2)) := by
-    intro jp lp h
-    have hfst : gridOffset k jp.1 = gridOffset k lp.1 := congrArg Prod.fst h
-    have hsnd : jp.2 = lp.2 :=
-      congrArg (fun v : (Fin d → ℤ) × Equiv.Perm (Fin d) => v.2) h
-    exact Prod.ext (gridOffset_injective k hfst) hsnd
-  unfold CoarseDeGiorgi.triangulation
-  rw [Finset.card_image_of_injective _ hinj]
-  simp only [Finset.card_univ, Fintype.card_prod, Fintype.card_fun, Fintype.card_fin,
-    Fintype.card_perm]
-  rw [← pow_mul, Nat.mul_comm]
-
-/-- Every open simplex is an open bounded convex domain. -/
-theorem simplexCell_isOpenBoundedConvexDomain {d : ℕ} (k : ℕ)
-    (η : SimplexIndex d k) : IsOpenBoundedConvexDomain (simplexCell k η) := by
-  change {v : (Fin d → ℤ) × Equiv.Perm (Fin d) //
-    v ∈ CoarseDeGiorgi.triangulation k} at η
-  unfold simplexCell CoarseDeGiorgi.simplexCell
-  rw [simplex_eq_kuhnSimplex]
-  exact Foundations.Simplex.isOpenBoundedConvexDomain_kuhnSimplex _ _ _
-
-/-- Every open simplex is nonempty, including in dimension zero. -/
-theorem simplexCell_nonempty {d : ℕ} (k : ℕ) (η : SimplexIndex d k) :
-    (simplexCell k η).Nonempty := by
-  change {v : (Fin d → ℤ) × Equiv.Perm (Fin d) //
-    v ∈ CoarseDeGiorgi.triangulation k} at η
-  unfold simplexCell CoarseDeGiorgi.simplexCell
-  rw [simplex_eq_kuhnSimplex]
-  exact Foundations.Simplex.nonempty_kuhnSimplex _ _ _
-
-/-- The centered odd grid has exactly symmetric integer endpoints. -/
-private theorem grid_half_width (k : ℕ) :
-    3 ^ k = 2 * ((3 ^ k - 1) / 2) + 1 := by
-  have hodd : Odd (3 ^ k : ℕ) := (show Odd (3 : ℕ) from ⟨1, rfl⟩).pow
-  obtain ⟨t, ht⟩ := hodd
-  omega
-
-private theorem mem_triangulation_iff {d k : ℕ}
-    (η : (Fin d → ℤ) × Equiv.Perm (Fin d)) :
-    η ∈ CoarseDeGiorgi.triangulation k ↔
-      ∃ jp : (Fin d → Fin (3 ^ k)) × Equiv.Perm (Fin d),
-        (gridOffset k jp.1, jp.2) = η := by
-  simp only [CoarseDeGiorgi.triangulation, Finset.mem_image, Finset.mem_univ, true_and]
-
-/-- Each indexed simplex in the level-k triangulation lies in the unit cube. -/
-theorem simplexCell_subset_originCube {d : ℕ} (k : ℕ) (η : SimplexIndex d k) :
-    simplexCell k η ⊆ originCube 1 := by
-  classical
-  unfold simplexCell CoarseDeGiorgi.simplexCell
-  have hη := η.property
-  obtain ⟨⟨j, π⟩, heq⟩ := (mem_triangulation_iff (d := d) (k := k) η.1).1 hη
-  have hs : 0 < (3 : ℝ) ^ (-(k : ℤ)) := zpow_pos (by norm_num) _
-  have hscale : (3 : ℝ) ^ (-(k : ℤ)) * (3 ^ k : ℕ) = 1 := by
-    simp only [zpow_neg, zpow_natCast, Nat.cast_pow, Nat.cast_ofNat]
-    exact inv_mul_cancel₀ (by positivity)
-  have hhalf := grid_half_width k
-  have hhalfR : ((3 ^ k : ℕ) : ℝ) = 2 * (((3 ^ k - 1) / 2 : ℕ) : ℝ) + 1 := by
-    exact_mod_cast hhalf
-  intro x hx i
-  rw [← heq] at hx
-  obtain ⟨y, rfl, hy, _⟩ := hx
-  have hj0 : (0 : ℝ) ≤ (j i).val := Nat.cast_nonneg _
-  have hjhi : ((j i).val : ℝ) ≤ (3 ^ k : ℕ) - 1 := by
-    have h : (j i).val + 1 ≤ 3 ^ k := Nat.succ_le_of_lt (j i).isLt
-    have hR : ((j i).val : ℝ) + 1 ≤ (3 ^ k : ℕ) := by exact_mod_cast h
-    linarith only [hR]
-  have hshift0 := mul_nonneg hs.le hj0
-  have hshifthi := mul_le_mul_of_nonneg_left hjhi hs.le
-  have hylo := mul_lt_mul_of_pos_left (hy i).1 hs
-  have hyhi := mul_lt_mul_of_pos_left (hy i).2 hs
-  have hmid : (3 : ℝ) ^ (-(k : ℤ)) *
-      (((3 ^ k - 1) / 2 : ℕ) : ℝ) = (1 - (3 : ℝ) ^ (-(k : ℤ))) / 2 := by
-    nlinarith only [hhalfR, hscale]
-  change -(1 / 2 : ℝ) <
-      (3 : ℝ) ^ (-(k : ℤ)) * (gridOffset k j i : ℝ) +
-        (3 : ℝ) ^ (-(k : ℤ)) * y i ∧
-    (3 : ℝ) ^ (-(k : ℤ)) * (gridOffset k j i : ℝ) +
-        (3 : ℝ) ^ (-(k : ℤ)) * y i < 1 / 2
-  simp only [gridOffset, CoarseDeGiorgi.gridOffset, Int.cast_sub, Int.cast_natCast]
-  constructor <;> nlinarith only [hshift0, hshifthi, hylo, hyhi, hmid, hscale]
-
-/-- Coefficient hypotheses restrict from the unit cube to each indexed simplex. -/
-theorem weightedCoeffOn_simplexCell {d : ℕ} (k : ℕ)
-    (a : CoeffField d) (ha : IsWeightedCoeffOn (originCube 1) a)
-    (η : SimplexIndex d k) : IsWeightedCoeffOn (simplexCell k η) a := by
-  have hsub := simplexCell_subset_originCube k η
-  exact ⟨AEStronglyMeasurable.mono_set hsub ha.1,
-    ae_restrict_of_ae_restrict_of_subset hsub ha.2.1,
-    ha.2.2.1.mono_set hsub, ha.2.2.2.mono_set hsub⟩
+noncomputable instance {d k : ℕ} : Countable (CoarseDeGiorgi.SimplexIndex d k) := sorry
 
 end CoarseDeGiorgi.Moments

@@ -3,7 +3,7 @@
   "dataset": "sphere-eversion",
   "project_id": "reparametrization-after",
   "task_id": "sphere-eversion:reparametrization-after",
-  "input_sha256": "0f1a59da5ea09772acd6db2f477cc668b120e325950de93078f8e62bcc17b111",
+  "input_sha256": "f49456a3411f317cc860bc9d4952d264e1eb0381e9b5949687529f67430eb847",
   "label": "aligned",
   "reason": "The root gives the required average g(x). Its equivariant real-equivalence witness descends to a circle equivalence, with separate supporting lemmas for the remaining properties.",
   "review_status": "human_reviewed",

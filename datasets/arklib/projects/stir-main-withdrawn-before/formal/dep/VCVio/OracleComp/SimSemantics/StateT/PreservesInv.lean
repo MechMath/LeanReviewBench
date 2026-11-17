@@ -1,48 +1,113 @@
-/-
-Copyright (c) 2026 VCVio Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
-
 module
+
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.UniformOn
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.Defs.Support.Failure
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
 public import dep.VCVio.OracleComp.ProbComp.Basic
-public import dep.VCVio.OracleComp.SimSemantics.StateT.Basic
-public import dep.VCVio.OracleComp.SimSemantics.StateT.StateProjection
-public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
 public import dep.VCVio.OracleComp.SimSemantics.Append.Core
-public import dep.VCVio.OracleComp.EvalDist.Measure
-
-/-!
-# `StateT σ ProbComp` Invariant Theory
-
-Support-based invariant reasoning for shared, stateful oracle simulations
-(ROM/AGM/hybrids) whose handlers live in `StateT σ ProbComp`. A user-supplied
-predicate `Inv : σ → Prop` is preserved by an implementation when every reachable
-post-state satisfies it.
-
-Reachability controls pathwise invariants. Output independence uses the successful-output
-measure directly; uniform oracle computations are lossless.
-
-The `WriterT` analogue of this theory lives in
-`SimSemantics/WriterT/PreservesInv.lean`.
-
-## Main definitions
-
-- `QueryImpl.PreservesInv` — every oracle query implementation step preserves `Inv`;
-  `QueryImpl.PreservesInv.add` / `preservesInv_add_iff` split it over a sum of implementations,
-  and `QueryImpl.PreservesInv.extendState` carries it through a passive state extension
-- `OracleComp.simulateQ_run_preservesInv` — simulating any oracle computation
-  with a preserving implementation preserves `Inv` on the final state
-- `InitSatisfiesInv` — every sampled initial state satisfies the invariant
-- `StateT.StatePreserving` — computation never changes the state
-- `StateT.PreservesInv` — computation preserves an invariant on the state; the structural
-  rules `preservesInv_pure`/`_monadLift`/`_map`/`_bind`/`_get_bind`/`_set_of`/`_mapM` check a
-  handler written in `do` notation clause by clause
-- `StateT.OutputIndependent` — output distribution is independent of the initial state
-  under an invariant
-- `StateT.outputIndependent_after_preservesInv` — non-interference: output-independent
-  computation remains so after sequencing with an invariant-preserving computation
--/
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -70,54 +135,16 @@ def PreservesInv {ι : Type} {spec : OracleSpec ι} {σ : Type}
     (impl : QueryImpl spec (StateT σ ProbComp)) (Inv : σ → Prop) : Prop :=
   ∀ t, StateT.PreservesInv (impl t) Inv
 
-lemma preservesInv_iff {ι : Type} {spec : OracleSpec ι} {σ : Type}
-    (impl : QueryImpl spec (StateT σ ProbComp)) (Inv : σ → Prop) :
-    PreservesInv impl Inv ↔ ∀ t, StateT.PreservesInv (impl t) Inv :=
-  Iff.rfl
-
 lemma PreservesInv.trivial {ι : Type} {spec : OracleSpec ι} {σ : Type}
     (impl : QueryImpl spec (StateT σ ProbComp)) :
-    PreservesInv impl (fun _ => True) :=
-  fun _ _ _ _ _ => True.intro
-
-lemma PreservesInv.and {ι : Type} {spec : OracleSpec ι} {σ : Type}
-    {impl : QueryImpl spec (StateT σ ProbComp)} {P Q : σ → Prop}
-    (hP : PreservesInv impl P) (hQ : PreservesInv impl Q) :
-    PreservesInv impl (fun s => P s ∧ Q s) :=
-  fun t σ0 ⟨hp, hq⟩ z hz => ⟨hP t σ0 hp z hz, hQ t σ0 hq z hz⟩
-
-lemma PreservesInv.of_forall {ι : Type} {spec : OracleSpec ι} {σ : Type}
-    {impl : QueryImpl spec (StateT σ ProbComp)} {Inv : σ → Prop}
-    (h : ∀ t σ0 z, z ∈ support ((impl t).run σ0) → Inv z.2) :
-    PreservesInv impl Inv :=
-  fun t σ0 _ z hz => h t σ0 z hz
+    PreservesInv impl (fun _ => True) := sorry
 
 /-- A sum of implementations preserves `Inv` when both summands do. -/
 lemma PreservesInv.add {ι₁ ι₂ : Type} {spec₁ : OracleSpec ι₁} {spec₂ : OracleSpec ι₂} {σ : Type}
     {impl₁ : QueryImpl spec₁ (StateT σ ProbComp)} {impl₂ : QueryImpl spec₂ (StateT σ ProbComp)}
     {Inv : σ → Prop} (h₁ : PreservesInv impl₁ Inv) (h₂ : PreservesInv impl₂ Inv) :
     PreservesInv (impl₁ + impl₂) Inv
-  | .inl t => by rw [add_apply_inl]; exact h₁ t
-  | .inr t => by rw [add_apply_inr]; exact h₂ t
-
-lemma preservesInv_add_iff {ι₁ ι₂ : Type} {spec₁ : OracleSpec ι₁} {spec₂ : OracleSpec ι₂}
-    {σ : Type} (impl₁ : QueryImpl spec₁ (StateT σ ProbComp))
-    (impl₂ : QueryImpl spec₂ (StateT σ ProbComp)) (Inv : σ → Prop) :
-    PreservesInv (impl₁ + impl₂) Inv ↔ PreservesInv impl₁ Inv ∧ PreservesInv impl₂ Inv :=
-  ⟨fun h => ⟨fun t => by simpa only [add_apply_inl] using h (.inl t),
-    fun t => by simpa only [add_apply_inr] using h (.inr t)⟩, fun h => h.1.add h.2⟩
-
-/-- A handler preserving an invariant still preserves it, read on the base state, after being
-extended by a passive auxiliary state. -/
-theorem PreservesInv.extendState {ι : Type} {spec : OracleSpec ι} {σ Q : Type}
-    {impl : QueryImpl spec (StateT σ ProbComp)} {Inv : σ → Prop} (h : PreservesInv impl Inv)
-    (aux : (t : spec.Domain) → σ → spec.Range t → σ → Q → Q) :
-    PreservesInv (impl.extendState aux) fun st ↦ Inv st.1 := by
-  intro t st hst z hz
-  rw [extendState_apply, mem_support_bind_iff] at hz
-  obtain ⟨w, hw, hz⟩ := hz
-  rw [support_pure, Set.mem_singleton_iff] at hz
-  exact hz ▸ h t st.1 hst w hw
+  := sorry
 
 end QueryImpl
 
@@ -125,169 +152,12 @@ namespace OracleComp
 
 open QueryImpl
 
-/-- If `impl` preserves `Inv`, then simulating *any* oracle computation with `simulateQ impl`
-preserves `Inv` on the final state (support-wise). -/
-theorem simulateQ_run_preservesInv
-    {ι : Type} {spec : OracleSpec ι} {σ α : Type}
-    (impl : QueryImpl spec (StateT σ ProbComp)) (Inv : σ → Prop)
-    (himpl : QueryImpl.PreservesInv impl Inv) :
-    ∀ oa : OracleComp spec α,
-    ∀ σ0, Inv σ0 →
-      ∀ z ∈ support ((simulateQ impl oa).run σ0), Inv z.2 := by
-  intro oa
-  induction oa using OracleComp.inductionOn with
-  | pure a =>
-      intro σ0 hσ0 z hz
-      simp_all
-  | query_bind t oa ih =>
-      intro σ0 hσ0 z hz
-      have hz' :
-          z ∈ support
-            (((simulateQ impl
-                  (OracleSpec.query t : OracleComp spec (spec.Range t))).run σ0) >>=
-              fun us => (simulateQ impl (oa us.1)).run us.2) := by
-        simpa [simulateQ_bind, OracleComp.liftM_def] using hz
-      rcases (mem_support_bind_iff _ _ _).1 hz' with ⟨us, hus, hzcont⟩
-      have hus' : us ∈ support ((impl t).run σ0) := by
-        simpa [simulateQ_spec_query] using hus
-      exact ih us.1 us.2 (himpl t σ0 hσ0 us hus') z hzcont
-
 end OracleComp
 
 namespace QueryImpl
 
-/-- If `so'` preserves `Inv`, then `so' ∘ₛ so` also preserves `Inv` for any `so`. -/
-lemma PreservesInv.compose {ι ι' : Type} {spec : OracleSpec ι} {spec' : OracleSpec ι'}
-    {σ : Type} {so' : QueryImpl spec' (StateT σ ProbComp)}
-    {so : QueryImpl spec (OracleComp spec')} {Inv : σ → Prop}
-    (h : PreservesInv so' Inv) :
-    PreservesInv (so' ∘ₛ so) Inv :=
-  fun t σ0 hσ0 z hz =>
-    OracleComp.simulateQ_run_preservesInv so' Inv h (so t) σ0 hσ0 z
-      (by simpa [apply_compose] using hz)
-
 end QueryImpl
 
-/-- `InitSatisfiesInv init Inv` means every possible initial state sampled by `init`
-satisfies `Inv` (support-based). -/
-def InitSatisfiesInv {σ : Type} (init : ProbComp σ) (Inv : σ → Prop) : Prop :=
-  ∀ σ0 ∈ support init, Inv σ0
-
-/-! ## StateT invariant properties
-
-These properties are useful for **non-interference** arguments in sequential composition proofs.
-They are stated for general `StateT σ ProbComp` computations. -/
-
 namespace StateT
-
-/-- `StatePreserving mx` means `mx` never changes the state: for every starting state `σ0`,
-every outcome in the support of `mx.run σ0` has final state equal to `σ0`. -/
-def StatePreserving {σ α : Type} (mx : StateT σ ProbComp α) : Prop :=
-  ∀ σ0, ∀ z ∈ support (mx.run σ0), z.2 = σ0
-
-/-- `OutputIndependent mx Inv` means the output distribution of `mx` does not depend on the
-initial state, as long as the initial state satisfies `Inv`.
-
-This is distributional equality of `run'` (which discards the final state). -/
-def OutputIndependent {σ α : Type} [MeasurableSpace α]
-    (mx : StateT σ ProbComp α) (Inv : σ → Prop) : Prop :=
-  ∀ σ0 σ1, Inv σ0 → Inv σ1 →
-    𝒟[mx.run' σ0] = 𝒟[mx.run' σ1]
-
-@[simp] lemma statePreserving_pure {σ α : Type} (a : α) :
-    StatePreserving (pure a : StateT σ ProbComp α) := by
-  intro σ0 z hz
-  simp_all
-
-@[simp] lemma outputIndependent_pure {σ α : Type} [MeasurableSpace α] (Inv : σ → Prop) (a : α) :
-    OutputIndependent (pure a : StateT σ ProbComp α) Inv := by
-  intro σ0 σ1 _ _
-  simp
-
-lemma statePreserving_bind {σ α β : Type}
-    (mx : StateT σ ProbComp α) (my : α → StateT σ ProbComp β)
-    (h₁ : StatePreserving mx) (h₂ : ∀ a, StatePreserving (my a)) :
-    StatePreserving (mx >>= my) := by
-  intro σ0 z hz
-  rw [StateT.run_bind, mem_support_bind_iff] at hz
-  obtain ⟨us, hus, hcont⟩ := hz
-  rw [h₂ us.1 us.2 z (by simpa using hcont), h₁ σ0 us hus]
-
-lemma preservesInv_of_statePreserving {σ α : Type}
-    (mx : StateT σ ProbComp α) (Inv : σ → Prop) (h : StatePreserving mx) :
-    PreservesInv mx Inv := by
-  intro σ0 hσ0 z hz
-  simp [h σ0 z hz, hσ0]
-
-lemma preservesInv_bind {σ α β : Type}
-    (mx : StateT σ ProbComp α) (my : α → StateT σ ProbComp β)
-    (Inv : σ → Prop) (h₁ : PreservesInv mx Inv) (h₂ : ∀ a, PreservesInv (my a) Inv) :
-    PreservesInv (mx >>= my) Inv := by
-  intro σ0 hσ0 z hz
-  rw [StateT.run_bind, mem_support_bind_iff] at hz
-  obtain ⟨us, hus, hcont⟩ := hz
-  exact h₂ us.1 us.2 (h₁ σ0 hσ0 us hus) z hcont
-
-lemma preservesInv_pure {σ α : Type} (a : α) (Inv : σ → Prop) :
-    PreservesInv (pure a : StateT σ ProbComp α) Inv :=
-  preservesInv_of_statePreserving _ _ (statePreserving_pure a)
-
-lemma statePreserving_monadLift {σ α : Type} (mx : ProbComp α) :
-    StatePreserving (monadLift mx : StateT σ ProbComp α) := by
-  intro σ0 z hz
-  simp only [StateT.run_monadLift, monadLift_eq_self, support_bind, support_pure,
-    Set.mem_iUnion, Set.mem_singleton_iff] at hz
-  obtain ⟨_, -, rfl⟩ := hz
-  rfl
-
-lemma preservesInv_monadLift {σ α : Type} (mx : ProbComp α) (Inv : σ → Prop) :
-    PreservesInv (monadLift mx : StateT σ ProbComp α) Inv :=
-  preservesInv_of_statePreserving _ _ (statePreserving_monadLift mx)
-
-lemma preservesInv_map {σ α β : Type} (f : α → β) {mx : StateT σ ProbComp α} {Inv : σ → Prop}
-    (h : PreservesInv mx Inv) : PreservesInv (f <$> mx) Inv := by
-  intro σ0 hσ0 z hz
-  rw [StateT.run_map, support_map] at hz
-  obtain ⟨y, hy, rfl⟩ := hz
-  exact h σ0 hσ0 y hy
-
-/-- Reading the state first: the continuation only has to preserve `Inv` from states that
-satisfy it, so a `get`-then-`match` handler is checked branch by branch. -/
-lemma preservesInv_get_bind {σ α : Type} {my : σ → StateT σ ProbComp α} (Inv : σ → Prop)
-    (h : ∀ s, Inv s → PreservesInv (my s) Inv) : PreservesInv (get >>= my) Inv := by
-  intro σ0 hσ0 z hz
-  rw [StateT.run_bind, StateT.run_get, pure_bind] at hz
-  exact h σ0 hσ0 σ0 hσ0 z hz
-
-lemma preservesInv_set_of {σ : Type} {s' : σ} (Inv : σ → Prop) (h : Inv s') :
-    PreservesInv (set s' : StateT σ ProbComp PUnit) Inv := by
-  intro σ0 _ z hz
-  rw [StateT.run_set, support_pure, Set.mem_singleton_iff] at hz
-  rcases hz with rfl
-  exact h
-
-lemma preservesInv_mapM {σ α β : Type} {f : α → StateT σ ProbComp β} (Inv : σ → Prop)
-    (hf : ∀ a, PreservesInv (f a) Inv) (l : List α) : PreservesInv (l.mapM f) Inv := by
-  induction l with
-  | nil => simpa only [List.mapM_nil] using preservesInv_pure _ Inv
-  | cons a l ih =>
-    rw [List.mapM_cons]
-    exact preservesInv_bind _ _ _ (hf a) fun _ =>
-      preservesInv_bind _ _ _ ih fun _ => preservesInv_pure _ Inv
-
-/-- An invariant-preserving prefix leaves the measure of a subsequent output-independent
-computation unchanged. Uniform oracle computations are lossless. -/
-lemma outputIndependent_after_preservesInv {σ α β : Type}
-    [MeasurableSpace α]
-    (mx : StateT σ ProbComp α) (my : StateT σ ProbComp β) (Inv : σ → Prop)
-    (hmx : OutputIndependent mx Inv)
-    (hmyInv : PreservesInv my Inv) :
-    ∀ σ0, Inv σ0 →
-      𝒟[(my.run σ0) >>= fun us => mx.run' us.2] = 𝒟[mx.run' σ0] := by
-  intro σ0 hσ0
-  rw [OracleComp.evalDist_bind_congr_of_support (my.run σ0)
-    (fun us => mx.run' us.2) (fun _ => mx.run' σ0)
-    (fun us hus => hmx us.2 σ0 (hmyInv σ0 hσ0 us hus) hσ0)]
-  exact OracleComp.evalDist_bind_const (my.run σ0) (mx.run' σ0)
 
 end StateT

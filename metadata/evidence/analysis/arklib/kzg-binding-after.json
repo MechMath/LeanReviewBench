@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "kzg-binding-after",
   "task_id": "arklib:kzg-binding-after",
-  "input_sha256": "6a2ef493106f36c966998348a6522678edb31f73126af9d553291ebf617f67e2",
+  "input_sha256": "2e115ec742a1c59bafee5003498a7333fe5a0bf3b71f3a8d7d50d37f1b31e26d",
   "label": "aligned",
   "reason": "The evaluation-binding success event and algebraic reduction correspond to the source. The retained analysis leaves the randomized-experiment interpretation, efficient-adversary class, and reduction preservation unresolved.",
   "review_status": "human_reviewed",

@@ -11,3 +11,9 @@ Relocate project modules and adapt the recorded Lean/Mathlib API interfaces. Ret
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
 The historical migration recorded compatibility edits in 5 source modules.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.
+- Materialize required generated equation/law declarations as ordinary Lean declarations; omit the upstream search-result registration attribute.

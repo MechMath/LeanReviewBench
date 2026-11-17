@@ -3,7 +3,7 @@
   "dataset": "sphere-packing",
   "project_id": "SP-A-CUTOFF-FIXED",
   "task_id": "sphere-packing:SP-A-CUTOFF-FIXED",
-  "input_sha256": "8c5c9d899eb29037c15206ddaed4eb9c4f28601dc1a469c194c5af3af3a87a0e",
+  "input_sha256": "af52284b309c40999f00b58c17fb6fc98b13b68abb1c83bc66e9ed8076040226",
   "label": "aligned",
   "reason": "",
   "review_status": "human_reviewed",

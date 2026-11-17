@@ -1,37 +1,204 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Logic.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.OneMessage
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.StateFunction
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.Basic
 public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.Composition
-public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.NoChallenge
-
-/-!
-  # Simple (Oracle) Reduction: Locally / non-interactively reduce a claim
-
-  This is a zero-round (oracle) reduction.
-
-  1. Reduction version: there are mappings between `StmtIn → StmtOut` and `StmtIn → WitIn → WitOut`.
-     Note the second mapping between witnesses may depend on the input statement as well. The prover
-     and verifier applies these mappings to the input statement and witness, and returns the output
-     statement and witness.
-
-  This reduction is secure via pull-backs on relations. What this means is as follows:
-  - Completeness holds if for the outputs of the reduction satisfies some relation `relOut` whenever
-    the inputs satisfy the relation `relIn := relOut (mapStmt ·) (mapWit ·)`
-  - (Round-by-round) knowledge soundness holds if there exists an inverse mapping
-    `StmtIn → WitOut → WitIn` on witnesses (for extraction) such that
-    `(mapStmt stmtIn, witOut) ∈ relOut → (stmtIn, mapWitInv stmtIn witOut) ∈ relIn`.
-
-  2. Oracle reduction version: same as above, but with the extra mapping `OStmtIn → OStmtOut`,
-     defined as an oracle simulation / embedding.
-
-  This oracle reduction is secure via pull-backs on relations, similar to the reduction version,
-  except that `mapStmt` is replaced by `mapStmt ⊗ mapOStmt`.
--/
+public import dep.ArkLib.OracleReduction.Security.Guarded
+public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import dep.ArkLib.OracleReduction.Security.TranscriptTree.Basic
+public import dep.ArkLib.OracleReduction.Security.TranscriptTree.Composition
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -56,7 +223,7 @@ def prover : Prover oSpec StmtIn WitIn StmtOut WitOut !p[] where
 
 /-- The `ReduceClaim` prover has pure output: it applies the two plain maps `mapStmt` /
 `mapWit`, with no oracle query. -/
-instance instOutputIsPure : (prover oSpec mapStmt mapWit).OutputIsPure := ⟨_, fun _ => rfl⟩
+instance instOutputIsPure : (prover oSpec mapStmt mapWit).OutputIsPure := sorry
 
 /-- The verifier for the `ReduceClaim` reduction. -/
 def verifier : Verifier oSpec StmtIn StmtOut !p[] where
@@ -71,62 +238,6 @@ variable {oSpec} {mapStmt} {mapWit}
   {σ : Type} {init : ProbComp σ} {impl : QueryImpl oSpec (StateT σ ProbComp)}
   (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
 
-/-- **Perfect completeness of `ReduceClaim` from the forward relation implication alone.**
-
-Only the `→` direction of the relation correspondence is completeness-relevant: the honest prover
-maps `(stmtIn, witIn)` to `(mapStmt stmtIn, mapWit stmtIn witIn)`, so all that is needed is that
-this lands in `relOut`. The `↔` form (`reduction_completeness`, now a corollary) is convenient when
-the two relations are equivalent, but it excludes perfectly good honest seams — e.g. an *image*
-relation `{p | ∃ x, x ∈ relIn ∧ p = (mapStmt x.1, mapWit x.1 x.2)}`, whose reverse direction would
-need `mapStmt` to be injective. -/
-theorem reduction_completeness_of_imp
-    (hRel : ∀ stmtIn witIn, (stmtIn, witIn) ∈ relIn →
-      (mapStmt stmtIn, mapWit stmtIn witIn) ∈ relOut) :
-    (reduction oSpec mapStmt mapWit).perfectCompleteness init impl relIn relOut := by
-  apply Reduction.perfectCompleteness_of_run_support
-  intro stmtIn witIn hIn x hx
-  have hrun : ((reduction oSpec mapStmt mapWit).run stmtIn witIn).run =
-      (pure (some ((default, (mapStmt stmtIn, mapWit stmtIn witIn)), mapStmt stmtIn)) :
-        OracleComp _ _) := by
-    simp [reduction, Reduction.run, prover, verifier, Prover.run, Verifier.run,
-      Prover.runToRound]
-    rfl
-  rw [hrun, support_pure, Set.mem_singleton_iff] at hx
-  subst x
-  exact ⟨_, rfl, hRel stmtIn witIn hIn, rfl⟩
-
-/-- **The `ReduceClaim` reduction's honest run, in closed form.** A zero-round reduction draws
-nothing and can only succeed: the run's support is the single success carrying the empty
-transcript, the mapped statement on both sides, and the mapped witness.
-
-Stated separately from `reduction_completeness_of_imp` because it is *instance-free* — it says
-nothing about challenge sampling — which is what lets it be used at a protocol spec that is only
-*definitionally* `!p[]` (e.g. the zero-round base case of a composed loop, where the ambient
-`SampleableType` instance is the loop's rather than the empty spec's, and so cannot be unified
-with `reduction_completeness_of_imp`'s). Combine with
-`Reduction.perfectCompleteness_of_run_support` in that situation. -/
-theorem reduction_run_support (stmt : StmtIn) (wit : WitIn) :
-    ∀ x ∈ support ((reduction oSpec mapStmt mapWit).run stmt wit).run,
-      x = some ((default, (mapStmt stmt, mapWit stmt wit)), mapStmt stmt) := by
-  intro x hx
-  have hrun : ((reduction oSpec mapStmt mapWit).run stmt wit).run
-      = (pure (some ((default, (mapStmt stmt, mapWit stmt wit)), mapStmt stmt)) :
-          OracleComp _ _) := by
-    simp [reduction, Reduction.run, prover, verifier, Prover.run, Verifier.run,
-      Prover.runToRound]
-    rfl
-  rw [hrun, support_pure, Set.mem_singleton_iff] at hx
-  exact hx
-
-/-- The `ReduceClaim` reduction satisfies perfect completeness for any relation. The `↔` form of
-`reduction_completeness_of_imp`; only the forward direction is used. -/
-@[simp]
-theorem reduction_completeness --(h : init.neverFails)
-    (hRel : ∀ stmtIn witIn, (stmtIn, witIn) ∈ relIn ↔
-      (mapStmt stmtIn, mapWit stmtIn witIn) ∈ relOut) :
-    (reduction oSpec mapStmt mapWit).perfectCompleteness init impl relIn relOut :=
-  reduction_completeness_of_imp relIn relOut (fun s w => (hRel s w).mp)
-
 /-- The round-by-round extractor for the `ReduceClaim` (oracle) reduction. Requires a mapping
   `mapWitInv` from the output witness to the input witness. -/
 def extractor (mapWitInv : StmtIn → WitOut → WitIn) :
@@ -137,90 +248,9 @@ def extractor (mapWitInv : StmtIn → WitOut → WitIn) :
 
 variable {mapWitInv : StmtIn → WitOut → WitIn}
 
-/-- The knowledge state function for the `ReduceClaim` reduction. -/
-def knowledgeStateFunction (hRel : ∀ stmtIn witOut,
-    (mapStmt stmtIn, witOut) ∈ relOut → (stmtIn, mapWitInv stmtIn witOut) ∈ relIn) :
-    (verifier oSpec mapStmt).KnowledgeStateFunction
-      init impl relIn relOut (extractor mapWitInv) where
-  toFun | ⟨0, _⟩ => fun stmtIn _ witIn => ⟨stmtIn, witIn⟩ ∈ relIn
-  toFun_empty := fun stmtIn witIn => by simp
-  toFun_next := fun m => Fin.elim0 m
-  toFun_full := fun stmtIn _ witOut h => by
-    -- Verifier deterministically returns `mapStmt stmtIn`; from positive probability we extract
-    -- `(mapStmt stmtIn, witOut) ∈ relOut`, then invoke `hRel` to land in `relIn`.
-    simp only [Verifier.run, verifier] at h
-    rw [gt_iff_lt, OracleComp.OptionT.prEvent_mk_pos_iff] at h
-    obtain ⟨x, hx, hrel⟩ := h
-    simp only [support_bind, Set.mem_iUnion] at hx
-    obtain ⟨s, _, hx⟩ := hx
-    have key : (simulateQ impl
-        (pure (mapStmt stmtIn) : OptionT (OracleComp oSpec) StmtOut)).run' s =
-        pure (some (mapStmt stmtIn)) := by
-      change (simulateQ impl
-        (pure (some (mapStmt stmtIn)) : OracleComp oSpec (Option StmtOut))).run' s = _
-      rw [simulateQ_pure]
-      change Prod.fst <$> (pure (some (mapStmt stmtIn)) : StateT σ ProbComp _).run s = _
-      rw [StateT.run_pure]; simp [map_pure]
-    rw [key] at hx
-    simp only [support_pure, Set.mem_singleton_iff] at hx
-    cases (Option.some.inj hx)
-    exact hRel stmtIn witOut hrel
-
-/-- The `ReduceClaim` oracle reduction satisfies perfect round-by-round knowledge soundness.
-
-Note that since there is no challenge round, all the work is done in the definition of the
-knowledge state function. -/
-@[simp]
-theorem verifier_rbrKnowledgeSoundness (hRel : ∀ stmtIn witOut,
-    (mapStmt stmtIn, witOut) ∈ relOut → (stmtIn, mapWitInv stmtIn witOut) ∈ relIn) :
-    (verifier oSpec mapStmt).rbrKnowledgeSoundness init impl relIn relOut 0 := by
-  refine ⟨_, _, knowledgeStateFunction relIn relOut hRel, ?_⟩
-  simp only [ProtocolSpec.ChallengeIdx]
-  exact fun _ _ _ i => Fin.elim0 i.1
-
 /-- The `ReduceClaim` verifier is pure: it deterministically returns `mapStmt stmt`. This discharges
 the deterministic-left hypothesis of the CWSS binary append. -/
-instance instIsPure : (verifier oSpec mapStmt).IsPure :=
-  ⟨fun stmt _ => mapStmt stmt, fun _ _ => rfl⟩
-
-/-- **The `ReduceClaim` tree extractor**, witness-only: the zero-round tree has a single
-root-to-leaf path (`onlyPath`) and carries no information of its own, so extraction is exactly the
-pull-back of that leaf's output witness along `mapWitInv`.
-
-Computable and `Classical.choice`-free: the output witness arrives as data, on the leaf witnessing
-the downstream reduction supplies, rather than being *invented* by inverting `relOut` at the mapped
-statement. `ReduceClaim` is therefore an **open** link: it
-declines (`none`) exactly when its witnessing declines, rather than fabricating junk. -/
-def treeExtractor (mapWitInv : StmtIn → WitOut → WitIn)
-    (D : CWSSStructure (!p[] : ProtocolSpec 0)) :
-    Extractor.TreeBased StmtIn WitIn WitOut !p[] (CWSSStructure.toShape D).arity :=
-  fun stmtIn tree o => (o tree.onlyPath).map (mapWitInv stmtIn)
-
-/-- **Coordinate-wise special soundness of `ReduceClaim`, named form.** The verifier is pure with
-no challenge rounds, so its verdict pins the statement at which the leaf witness must certify:
-the notion's validity premise collapses through `LeafWitnesses.isValid_iff_pure` at `mapStmt` to
-"the single leaf's witness lies in `relOut` over `mapStmt stmtIn`". Given the witness pull-back
-`mapWitInv` and the compatibility `hRel` (the same hypothesis as for RBR knowledge soundness), the
-named `treeExtractor` returns that witness pulled back, in `relIn`. Holds for any `D`.
-
-This is **real** extraction: the returned witness is `mapWitInv stmtIn` of the witness supplied at
-the leaf, not a choice-selected stand-in. -/
-theorem verifier_coordinateWiseSpecialSoundWith
-    (D : CWSSStructure (!p[] : ProtocolSpec 0))
-    (hRel : ∀ stmtIn witOut,
-      (mapStmt stmtIn, witOut) ∈ relOut → (stmtIn, mapWitInv stmtIn witOut) ∈ relIn) :
-    Verifier.coordinateWiseSpecialSoundWith init impl D relIn relOut
-      (verifier oSpec mapStmt) (treeExtractor mapWitInv D) := by
-  intro stmtIn tree _ hAcc o hvalid
-  have hne : (support init).Nonempty :=
-    Verifier.support_init_nonempty_of_accepting hAcc tree.onlyPath
-  have hvalid' := (ProtocolSpec.ChallengeTree.LeafWitnesses.isValid_iff_pure init impl
-    (fun s _ => mapStmt s) (fun _ _ => rfl) hne relOut stmtIn o).mp hvalid
-  obtain ⟨w, hw, hrel⟩ := hvalid' tree.onlyPath
-  have hrel' : (mapStmt stmtIn, w) ∈ relOut := hrel
-  refine ⟨mapWitInv stmtIn w, ?_, hRel stmtIn w hrel'⟩
-  change (o tree.onlyPath).map (mapWitInv stmtIn) = some (mapWitInv stmtIn w)
-  rw [hw]; rfl
+instance instIsPure : (verifier oSpec mapStmt).IsPure := sorry
 
 end Reduction
 
@@ -249,17 +279,17 @@ def oracleProver : OracleProver oSpec
 /-- The `ReduceClaim` oracle prover has pure output: it applies the plain maps `mapStmt`,
 `mapOStmt`, and `mapWit`, with no oracle query. -/
 instance instOutputIsPureOracle :
-    (oracleProver oSpec mapStmt mapWit embedIdx hEq).OutputIsPure := ⟨_, fun _ => rfl⟩
+    (oracleProver oSpec mapStmt mapWit embedIdx hEq).OutputIsPure := sorry
 
 /-- The oracle verifier for the `ReduceClaim` oracle reduction. -/
-def oracleVerifier : OracleVerifier oSpec StmtIn OStmtIn StmtOut OStmtOut !p[] where
+def oracleVerifier (hEq : ∀ i, OStmtIn (embedIdx i) = OStmtOut i) (hInterface : ∀ i, HEq
+    (inferInstance : OracleInterface (OStmtOut i))
+    (inferInstance : OracleInterface (OStmtIn (embedIdx i)))) : OracleVerifier oSpec StmtIn OStmtIn StmtOut OStmtOut !p[] where
   verify := fun stmt _ => pure (mapStmt stmt)
   outputOracle := .inl {
     embed := .trans embedIdx .inl
-    hEq := by intro i; simp [hEq]
-    outputInterface_heq := by
-      intro i
-      simpa using hInterface i }
+    hEq := sorry
+    outputInterface_heq := sorry }
 
 /-- The oracle reduction for the `ReduceClaim` oracle reduction. -/
 def oracleReduction : OracleReduction oSpec
@@ -272,147 +302,12 @@ variable {oSpec} {mapStmt} {mapWit} {embedIdx} {hEq} {hInterface}
   (relIn : Set ((StmtIn × (∀ i, OStmtIn i)) × WitIn))
   (relOut : Set ((StmtOut × (∀ i, OStmtOut i)) × WitOut))
 
-/-- The `ReduceClaim` oracle reduction satisfies perfect completeness for any relation.
-
-  Proof strategy mirrors the non-oracle `reduction_completeness`: the prover deterministically
-  returns the mapped output, the verifier deterministically computes `mapStmt`, and the
-  positive-probability output is exactly the mapped element which lies in `relOut` by `hRel`. -/
-@[simp]
-theorem oracleReduction_completeness --(h : init.neverFails)
-    (hRel : ∀ stmtIn oStmtIn witIn,
-      ((stmtIn, oStmtIn), witIn) ∈ relIn →
-      ((mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn), mapWit stmtIn witIn) ∈ relOut) :
-    (oracleReduction oSpec mapStmt mapWit embedIdx hEq hInterface).perfectCompleteness init impl
-      relIn relOut := by
-  apply Reduction.perfectCompleteness_of_run_support
-  intro ⟨stmtIn, oStmtIn⟩ witIn hIn x hx
-  have hrun : ((oracleReduction oSpec mapStmt mapWit embedIdx hEq hInterface).toReduction.run
-      ⟨stmtIn, oStmtIn⟩ witIn).run =
-      (pure (some ((default,
-          ((mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn), mapWit stmtIn witIn)),
-          (mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn))) : OracleComp _ _) := by
-    simp only [oracleReduction, OracleReduction.toReduction, Reduction.run, oracleProver,
-      oracleVerifier, OracleVerifier.toVerifier, Prover.run, Verifier.run, Prover.runToRound]
-    rfl
-  rw [hrun, support_pure, Set.mem_singleton_iff] at hx
-  subst x
-  exact ⟨_, rfl, hRel stmtIn oStmtIn witIn hIn, rfl⟩
-  -- -- TODO: clean up this proof
-  -- simp only [OracleReduction.perfectCompleteness, oracleReduction, OracleReduction.toReduction,
-  --   OracleVerifier.toVerifier,
-  --   Reduction.perfectCompleteness_eq_prob_one, ProtocolSpec.ChallengeIdx, StateT.run'_eq,
-  --   OracleComp.probEvent_eq_one_iff, OracleComp.probFailure_eq_zero_iff,
-  --   OracleComp.neverFails_bind_iff, h, OracleComp.neverFails_map_iff, true_and,
-  --   OracleComp.support_bind, OracleComp.support_map, Set.mem_iUnion, Set.mem_image, Prod.exists,
-  --   exists_and_right, exists_eq_right, exists_prop, forall_exists_index, and_imp, Prod.forall,
-  --   Fin.forall_fin_zero_pi, Prod.mk.injEq]
-  -- simp only [Reduction.run, Prover.run, Verifier.run, oracleProver, oracleVerifier]
-  -- simp only [ProtocolSpec.ChallengeIdx, Fin.reduceLast, Nat.reduceAdd, ProtocolSpec.MessageIdx,
-  --   ProtocolSpec.Message, ProtocolSpec.Challenge, Prover.runToRound_zero_of_prover_first,
-  --   Fin.isValue, id_eq, bind_pure_comp, map_pure, OracleComp.simulateQ_pure,
-  --   Function.Embedding.trans_apply, Function.Embedding.inl_apply, eq_mpr_eq_cast,
-  --   OracleComp.liftM_eq_liftComp, OracleComp.liftComp_pure, StateT.run_pure,
-  --   OracleComp.neverFails_pure, implies_true, OracleComp.support_pure, Set.mem_singleton_iff,
-  --   Prod.mk.injEq, and_imp, true_and]
-  -- aesop
-
 variable {mapWitInv : (StmtIn × (∀ i, OStmtIn i)) → WitOut → WitIn}
-
-/-- The knowledge state function for the `ReduceClaim` oracle reduction. -/
-def oracleKnowledgeStateFunction (hRel : ∀ stmtIn oStmtIn witOut,
-    ((mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn), witOut) ∈ relOut →
-    ((stmtIn, oStmtIn), mapWitInv (stmtIn, oStmtIn) witOut) ∈ relIn) :
-    (oracleVerifier oSpec mapStmt embedIdx hEq hInterface).KnowledgeStateFunction
-      init impl relIn relOut (extractor mapWitInv) where
-  toFun | ⟨0, _⟩ => fun ⟨stmtIn, oStmtIn⟩ _ witIn => ⟨⟨stmtIn, oStmtIn⟩, witIn⟩ ∈ relIn
-  toFun_empty := fun stmtIn witIn => by simp
-  toFun_next := fun m => Fin.elim0 m
-  toFun_full := fun ⟨stmtIn, oStmtIn⟩ _ witOut => by
-    intro h
-    simp only [Verifier.run, oracleVerifier, OracleVerifier.toVerifier] at h
-    change ((stmtIn, oStmtIn), mapWitInv (stmtIn, oStmtIn) witOut) ∈ relIn
-    rw [gt_iff_lt, OracleComp.OptionT.prEvent_mk_pos_iff] at h
-    obtain ⟨x, hx, hrel⟩ := h
-    simp only [support_bind, Set.mem_iUnion] at hx
-    obtain ⟨s, _, hx⟩ := hx
-    -- The oracle verifier deterministically returns the pair
-    -- `(mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn)`, so the simulated run is definitionally
-    -- `pure (some ...)` and positive probability forces `x` to equal that pair.
-    have hxc : some x ∈ support ((simulateQ impl
-        (pure (some (mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn)) :
-          OracleComp oSpec (Option (StmtOut × (∀ i, OStmtOut i))))).run' s) := hx
-    rw [simulateQ_pure] at hxc
-    change some x ∈ support (Prod.fst <$> (pure
-      (some (mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn)) : StateT σ ProbComp _).run s) at hxc
-    rw [StateT.run_pure] at hxc
-    simp only [map_pure, support_pure, Set.mem_singleton_iff] at hxc
-    cases (Option.some.inj hxc)
-    exact hRel stmtIn oStmtIn witOut hrel
-
-/-- The `ReduceClaim` oracle reduction satisfies perfect round-by-round knowledge soundness.
-
-Note that since there is no challenge round, all the work is done in the definition of the
-knowledge state function. -/
-@[simp]
-theorem oracleVerifier_rbrKnowledgeSoundness (hRel : ∀ stmtIn oStmtIn witOut,
-    ((mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn), witOut) ∈ relOut →
-    ((stmtIn, oStmtIn), mapWitInv (stmtIn, oStmtIn) witOut) ∈ relIn) :
-    (oracleVerifier oSpec mapStmt embedIdx hEq hInterface).rbrKnowledgeSoundness
-      init impl relIn relOut 0 := by
-  refine ⟨_, _, oracleKnowledgeStateFunction relIn relOut hRel, ?_⟩
-  intro stmtIn witIn prover i
-  exact Fin.elim0 i.1
-
-/-- The `ReduceClaim` oracle verifier's underlying non-oracle verifier deterministically returns the
-mapped statement together with the reshaped oracle statements (`mapOStmt`). -/
-theorem oracleVerifier_toVerifier_run {stmt : StmtIn} {oStmt : ∀ i, OStmtIn i}
-    {tr : (!p[] : ProtocolSpec 0).FullTranscript} :
-    (oracleVerifier oSpec mapStmt embedIdx hEq hInterface).toVerifier.run ⟨stmt, oStmt⟩ tr =
-      pure ⟨mapStmt stmt, mapOStmt embedIdx hEq oStmt⟩ := by
-  simp only [Verifier.run, OracleVerifier.toVerifier, oracleVerifier]
-  rfl
 
 /-- The `ReduceClaim` oracle verifier is pure, discharging the deterministic-left hypothesis of the
 CWSS binary append. -/
 instance instIsPureOracle :
-    (oracleVerifier oSpec mapStmt embedIdx hEq hInterface).toVerifier.IsPure :=
-  ⟨fun p _ => ⟨mapStmt p.1, mapOStmt embedIdx hEq p.2⟩,
-   fun ⟨_, _⟩ _ => oracleVerifier_toVerifier_run (oSpec := oSpec)⟩
-
-/-- **The `ReduceClaim` oracle tree extractor**, witness-only: as in the non-oracle case, pull the
-single leaf's output witness back along `mapWitInv`. Computable and `Classical.choice`-free.
-
-As for the non-oracle engine, the tree carries no information of its own, so the output witness
-arrives on the leaf witnessing rather than being invented by inverting `relOut`. -/
-def oracleTreeExtractor (mapWitInv : StmtIn × (∀ i, OStmtIn i) → WitOut → WitIn)
-    (D : CWSSStructure (!p[] : ProtocolSpec 0)) :
-    Extractor.TreeBased (StmtIn × (∀ i, OStmtIn i)) WitIn WitOut !p[]
-      (CWSSStructure.toShape D).arity :=
-  fun s tree o => (o tree.onlyPath).map (mapWitInv s)
-
-/-- **Coordinate-wise special soundness of the `ReduceClaim` oracle reduction, named form.** As
-in the non-oracle case, the oracle verifier is pure with no challenge rounds, so validity collapses
-through `LeafWitnesses.isValid_iff_pure` at its verdict `mapStmt ⊗ mapOStmt`, and the single leaf's
-witness — pulled back by `mapWitInv` — lands in `relIn` by the compatibility `hRel` (identical to
-the RBR knowledge soundness hypothesis). At the named `oracleTreeExtractor`. -/
-theorem oracleVerifier_coordinateWiseSpecialSoundWith
-    (D : CWSSStructure (!p[] : ProtocolSpec 0))
-    (hRel : ∀ stmtIn oStmtIn witOut,
-      ((mapStmt stmtIn, mapOStmt embedIdx hEq oStmtIn), witOut) ∈ relOut →
-      ((stmtIn, oStmtIn), mapWitInv (stmtIn, oStmtIn) witOut) ∈ relIn) :
-    (oracleVerifier oSpec mapStmt embedIdx hEq hInterface).coordinateWiseSpecialSoundWith
-      init impl D relIn relOut (oracleTreeExtractor mapWitInv D) := by
-  intro s tree _ hAcc o hvalid
-  have hne : (support init).Nonempty :=
-    Verifier.support_init_nonempty_of_accepting hAcc tree.onlyPath
-  have hvalid' := (ProtocolSpec.ChallengeTree.LeafWitnesses.isValid_iff_pure init impl
-    (fun p _ => (mapStmt p.1, mapOStmt embedIdx hEq p.2))
-    (fun ⟨_, _⟩ _ => oracleVerifier_toVerifier_run (oSpec := oSpec)) hne relOut s o).mp hvalid
-  obtain ⟨w, hw, hrel⟩ := hvalid' tree.onlyPath
-  have hrel' : ((mapStmt s.1, mapOStmt embedIdx hEq s.2), w) ∈ relOut := hrel
-  refine ⟨mapWitInv s w, ?_, hRel s.1 s.2 w hrel'⟩
-  change (o tree.onlyPath).map (mapWitInv s) = some (mapWitInv s w)
-  rw [hw]; rfl
+    (oracleVerifier oSpec mapStmt embedIdx hEq hInterface).toVerifier.IsPure := sorry
 
 end OracleReduction
 

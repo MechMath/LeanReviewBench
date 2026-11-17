@@ -43,10 +43,13 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "0729062f82968d6a53c6f3b036b154e1584a33e1b9d95925c05acfb4162dfc50"
+    "sha256": "0729062f82968d6a53c6f3b036b154e1584a33e1b9d95925c05acfb4162dfc50",
+    "effective_root_sha256": "7b65f1a88b14a933add72da781e0eb9b9b6717b41c7a77a322e325703998324d",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/apap.jsonl",
   "evaluation_eligible": false,
   "preparation": {

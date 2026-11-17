@@ -3,7 +3,7 @@
   "dataset": "stacks",
   "project_id": "STK-0B34",
   "task_id": "stacks:STK-0B34",
-  "input_sha256": "1178be3b790897c2ad3c6260ac053bb9a48f661d969d1e0d9ec510b8c90b8ef3",
+  "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
   "label": "misaligned",
   "reason": "The two roots jointly use only non-T0 of X and non-quasi-sobriety of Y, weakening the source requirements that X be indiscrete with at least two points and Y be infinite with the cofinite topology.",
   "review_status": "human_reviewed",

@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The revised own-version numerator-absolute-value formula matches the retained Formal definition exactly for every real x, checked by definitional equality. This label assesses that explicit source definition, not global agreement with the paper quotient-absolute-value formula. The separately checked x>1 bridge records the paper-domain scope.",
   "external_imports": [
     "Mathlib.NumberTheory.Chebyshev"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "f642e94978d14862e77d11e99c3c4ff70ddcf0daafb67c70e276d1096ae15049"
+    "sha256": "6a76c7d30afcc863227804cb8d0b7e499c4bbe1ac9211958b7118ae4f58e447d",
+    "effective_root_sha256": "08492829fd1e5985fee4d0dfdd71792021de651504c741dd516b7804f63b0552",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "e42226a9137de3d93e105462ea8c80993fdda6e520c0cd232733f9fb97b3b692",
+  "input_sha256": "333707c2a20f60b0e7ce3c52b38ab5e865bef05543417037d478fe473368150c",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

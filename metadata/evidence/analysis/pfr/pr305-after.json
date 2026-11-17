@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr305-after",
   "task_id": "pfr:pr305-after",
-  "input_sha256": "9a589f1ad45de05960d4ffcdddaf669842d7ee82f52c7f0c279fbed297f212fd",
+  "input_sha256": "a0151fbf13185354a89f704c891caa98da409b7f6d59428aeea8b5461abcbe0a",
   "label": "aligned",
   "reason": "The torsion assumptions and module/subgroup interpretation match. The formal covering-number bound is stronger than the source non-strict bound.",
   "review_status": "human_reviewed",

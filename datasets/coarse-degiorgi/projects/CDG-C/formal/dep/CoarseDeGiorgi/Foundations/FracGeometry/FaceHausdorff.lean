@@ -1,75 +1,81 @@
 module
 
-public import dep.CoarseDeGiorgi.Foundations.FracGeometry.ChartLipschitz
-public import Mathlib.MeasureTheory.Measure.Hausdorff
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
 public import Mathlib.MeasureTheory.Constructions.Polish.Basic
-public import dep.CoarseDeGiorgi.Foundations.FracGeometry.SurfaceBasics
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.LIntegral
+public import Mathlib.MeasureTheory.Group.Prod
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.MetricSpace.Bounded
+public import dep.CoarseDeGiorgi.Foundations.FracGeometry.Defs
+public import dep.CoarseDeGiorgi.Statements.CubeFaceMeasure
+public import dep.CoarseDeGiorgi.Statements.FaceCoordinateMeasures
+public import dep.CoarseDeGiorgi.Statements.SurfaceMeasure
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.Sobolev.Fractional.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
 namespace CoarseDeGiorgi.Foundations.FracGeometry
 
 open Homogenization MeasureTheory Set
+
 open scoped ENNReal NNReal BigOperators
 
 noncomputable section
 
 variable {n : ℕ}
 
-theorem isometry_insertNth (i : Fin (n + 1)) (c : ℝ) :
-    Isometry (fun u : Vec n => (i.insertNth (α := fun _ => ℝ) c) u) := by
-  apply Isometry.of_dist_eq
-  intro u v
-  simp only [dist_eq_norm]
-  apply le_antisymm
-  · apply (pi_norm_le_iff_of_nonneg (norm_nonneg _)).mpr
-    refine (Fin.forall_iff_succAbove (P := fun j =>
-      ‖((i.insertNth (α := fun _ => ℝ) c) u - (i.insertNth (α := fun _ => ℝ) c) v) j‖ ≤ ‖u - v‖) i).mpr ?_
-    constructor
-    · simp
-    · intro j
-      simpa only [Pi.sub_apply, Fin.insertNth_apply_succAbove] using norm_le_pi_norm (u - v) j
-  · apply (pi_norm_le_iff_of_nonneg (norm_nonneg _)).mpr
-    intro j
-    simpa only [Pi.sub_apply, Fin.insertNth_apply_succAbove] using
-      norm_le_pi_norm ((i.insertNth (α := fun _ => ℝ) c) u - (i.insertNth (α := fun _ => ℝ) c) v) (i.succAbove j)
-
 def fullFaceCoordinates (i : Fin (n + 1)) (c : ℝ) (j : Fin (n + 1)) : Measure ℝ :=
   if j = i then Measure.dirac c else volume
 
 instance fullFaceCoordinates_sigmaFinite (i : Fin (n + 1)) (c : ℝ) (j : Fin (n + 1)) :
-    SigmaFinite (fullFaceCoordinates i c j) := by
-  unfold fullFaceCoordinates
-  split_ifs <;> infer_instance
-
-theorem pi_fullFaceCoordinates (i : Fin (n + 1)) (c : ℝ) :
-    Measure.pi (fullFaceCoordinates i c) = Measure.map (fun u : Vec n => (i.insertNth (α := fun _ => ℝ) c) u) volume := by
-  have hp := (measurePreserving_piFinSuccAbove (fullFaceCoordinates i c) i).symm.map_eq
-  have hcoords : (fun j : Fin n => fullFaceCoordinates i c (i.succAbove j)) = fun _ => volume := by
-    funext j
-    simp [fullFaceCoordinates]
-  rw [hcoords] at hp
-  simp only [fullFaceCoordinates, ite_true, Measure.dirac_prod] at hp
-  rw [Measure.map_map] at hp
-  · convert hp.symm using 1
-    rfl
-  · exact (MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n + 1) => ℝ) i).symm.measurable
-  · exact measurable_prodMk_left
-
-theorem faceMeasure_le_map_insertNth (τ : ℝ) (i : Fin (n + 1)) (positive : Bool) :
-    faceMeasure τ i positive ≤ Measure.map
-      (fun u : Vec n => (i.insertNth (α := fun _ => ℝ) (if positive then τ/2 else -τ/2)) u) volume := by
-  classical
-  let c : ℝ := if positive then τ/2 else -τ/2
-  let S : Fin (n + 1) → Set ℝ := fun j => if j = i then univ else Ioo (-τ/2) (τ/2)
-  have he : faceMeasure τ i positive =
-      (Measure.pi (fullFaceCoordinates i c)).restrict (Set.pi univ S) := by
-    rw [faceMeasure_eq_pi, Measure.restrict_pi_pi]
-    congr 1
-    funext j
-    by_cases hji : j = i <;> simp [fullFaceCoordinates, c, hji]
-  rw [he, ← pi_fullFaceCoordinates]
-  exact Measure.restrict_le_self
+    SigmaFinite (fullFaceCoordinates i c j) := sorry
 
 end
 

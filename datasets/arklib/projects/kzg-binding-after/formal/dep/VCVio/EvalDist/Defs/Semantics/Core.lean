@@ -1,26 +1,50 @@
-/-
-Copyright (c) 2026 Quang Dao. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
-
 module
+
+public import Batteries.Tactic.Lint.Basic
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
 public import dep.PolyFun.Control.Monad.Hom
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
 public import dep.VCVio.EvalDist.Defs.Measure.Core
-public import dep.VCVio.EvalDist.Defs.Measure.OptionT
 public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
-
-/-!
-# Bundled measure observations
-
-`SemanticsVia` factors a computation through an internal monad and an external
-measure-valued observer, with the observer's measurable-space choice explicit and its
-subprobability mass certified. Observation need not preserve bind: a fixed environment, initial
-state, or output projection may hide internal effects at the observation boundary.
-
-The bundles select interpretations as data, without choosing a global semantics instance.
-Optional and exceptional observations retain unsuccessful runs as missing successful-output mass.
--/
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
 
 public section
 
@@ -60,26 +84,9 @@ noncomputable def evalDist (sem : SemanticsVia m) [MeasurableSpace α]
     (mx : m α) : Measure α :=
   sem.observe (sem.interpret mx)
 
-@[simp]
-theorem evalDist_apply_univ_le_one (sem : SemanticsVia m) [MeasurableSpace α]
-    (mx : m α) : sem.evalDist mx Set.univ ≤ 1 :=
-  sem.observe_apply_univ_le_one (sem.interpret mx)
-
 /-- Every bundled observation is a subprobability measure. -/
 instance evalDist.instIsSubprobabilityMeasure (sem : SemanticsVia m)
-    [MeasurableSpace α] (mx : m α) : IsSubprobabilityMeasure (sem.evalDist mx) :=
-  ⟨sem.evalDist_apply_univ_le_one mx⟩
-
-/-- Failure probability is the mass missing from the successful-output measure. -/
-@[expose]
-noncomputable def prFail (sem : SemanticsVia m) [MeasurableSpace α]
-    (mx : m α) : ENNReal :=
-  1 - sem.evalDist mx Set.univ
-
-@[simp]
-theorem prFail_le_one (sem : SemanticsVia m) [MeasurableSpace α]
-    (mx : m α) : sem.prFail mx ≤ 1 :=
-  tsub_le_self
+    [MeasurableSpace α] (mx : m α) : IsSubprobabilityMeasure (sem.evalDist mx) := sorry
 
 /-- Package a global `EvalDistSemantics` instance as a local bundled semantics. -/
 @[expose]
@@ -91,17 +98,10 @@ protected noncomputable def ofEvalDistSemantics (m : Type u → Type v) [Monad m
   observe := fun mx ↦ EvalDistSemantics.denote mx
   observe_apply_univ_le_one := fun mx ↦ EvalDistSemantics.apply_univ_le_one mx
 
-@[simp]
-theorem ofEvalDistSemantics_evalDist (mx : m α) [EvalDistSemantics m]
-    [MeasurableSpace α] :
-    (SemanticsVia.ofEvalDistSemantics m).evalDist mx = 𝒟[mx] := by
-  rfl
-
 /-- Bundling a lossless denotation preserves its probability-measure certificate. -/
 instance ofEvalDistSemantics.instIsProbabilityMeasure [EvalDistSemantics m]
     [MeasurableSpace α] (mx : m α) [IsProbabilityMeasure 𝒟[mx]] :
-    IsProbabilityMeasure ((SemanticsVia.ofEvalDistSemantics m).evalDist mx) :=
-  inferInstanceAs (IsProbabilityMeasure 𝒟[mx])
+    IsProbabilityMeasure ((SemanticsVia.ofEvalDistSemantics m).evalDist mx) := sorry
 
 /-- Bundle the successful-output semantics of an optional computation. Its observation
 measures present outputs and retains any underlying failure as missing mass. -/
@@ -113,21 +113,12 @@ protected noncomputable def optionT (m : Type u → Type v) [Monad m]
   interpret := MonadHom.id (OptionT m)
   observe := fun mx ↦ (𝒟[mx.run]).comap some
   observe_apply_univ_le_one := fun mx ↦
-    by simpa only [OptionT.evalDist_eq_comap_some] using
-      _root_.evalDist_apply_univ_le_one mx
-
-@[simp]
-theorem optionT_evalDist (mx : OptionT m α) [EvalDistSemantics m]
-    [MeasurableSpace α] :
-    (SemanticsVia.optionT m).evalDist mx = (𝒟[mx.run]).dropNone := by
-  exact (Measure.dropNone_eq_comap_some _).symm
+    sorry
 
 /-- Optional bundling preserves a known successful-output probability certificate. -/
 instance optionT.instIsProbabilityMeasure [EvalDistSemantics m]
     [MeasurableSpace α] (mx : OptionT m α) [IsProbabilityMeasure 𝒟[mx]] :
-    IsProbabilityMeasure ((SemanticsVia.optionT m).evalDist mx) := by
-  rw [optionT_evalDist, Measure.dropNone_eq_comap_some, ← OptionT.evalDist_eq_comap_some]
-  infer_instance
+    IsProbabilityMeasure ((SemanticsVia.optionT m).evalDist mx) := sorry
 
 /-- Bundle the successful-output semantics of `ExceptT`. Errors remain observable
 in the run measure and are discarded only by the `Except.ok` observation at this boundary. -/
@@ -140,21 +131,12 @@ protected noncomputable def exceptT (ε : Type u) [MeasurableSpace ε]
   interpret := MonadHom.id (ExceptT ε m)
   observe := fun mx ↦ (𝒟[mx.run]).comap Except.ok
   observe_apply_univ_le_one := fun mx ↦
-    by simpa only [ExceptT.evalDist_eq_comap_ok] using
-      _root_.evalDist_apply_univ_le_one mx
-
-@[simp]
-theorem exceptT_evalDist (ε : Type u) [MeasurableSpace ε]
-    (mx : ExceptT ε m α) [EvalDistSemantics m] [MeasurableSpace α] :
-    (SemanticsVia.exceptT ε m).evalDist mx = (𝒟[mx.run]).comap Except.ok := by
-  rfl
+    sorry
 
 /-- Exceptional bundling preserves a known successful-output probability certificate. -/
 instance exceptT.instIsProbabilityMeasure {ε : Type u} [MeasurableSpace ε]
     [EvalDistSemantics m] [MeasurableSpace α] (mx : ExceptT ε m α)
     [IsProbabilityMeasure 𝒟[mx]] :
-    IsProbabilityMeasure ((SemanticsVia.exceptT ε m).evalDist mx) := by
-  rw [exceptT_evalDist, ← ExceptT.evalDist_eq_comap_ok]
-  infer_instance
+    IsProbabilityMeasure ((SemanticsVia.exceptT ε m).evalDist mx) := sorry
 
 end SemanticsVia

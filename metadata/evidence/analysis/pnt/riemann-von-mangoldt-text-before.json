@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "riemann-von-mangoldt-text-before",
   "task_id": "pnt:riemann-von-mangoldt-text-before",
-  "input_sha256": "dab5eecee3e9e3b3893c95a2c0c12ca486b8e6f46dc17978fca4aefd673b8877",
+  "input_sha256": "952cf78469814d5a6c20d614bb505f27782f16c8d8a0694bf1b7704760131768",
   "label": "misaligned",
   "reason": "The expanded constant term has the opposite sign, differing by 7/4 even after repairing the evident missing absolute-value bar.",
   "review_status": "human_reviewed",

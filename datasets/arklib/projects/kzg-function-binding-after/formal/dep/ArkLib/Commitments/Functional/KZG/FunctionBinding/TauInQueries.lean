@@ -1,29 +1,219 @@
-/-
-Copyright (c) 2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Tobias Rothmann
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.Field.ZMod
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.GroupWithZero.Nat
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Div
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.FieldDivision
+public import Mathlib.Algebra.Polynomial.Inductions
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.TransferInstance
+public import Mathlib.Algebra.Tropical.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.GetD
+public import Mathlib.Data.List.Nodup
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Nat.Log
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.GroupTheory.SpecificGroups.Cyclic
+public import Mathlib.Init
+public import Mathlib.LinearAlgebra.Lagrange
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Lattice.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Cases
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Commitments.Functional.Basic
+public import dep.ArkLib.Commitments.Functional.KZG.Algebra
+public import dep.ArkLib.Commitments.Functional.KZG.Basic
+public import dep.ArkLib.Commitments.Functional.KZG.Correctness
 public import dep.ArkLib.Commitments.Functional.KZG.FunctionBinding.Support
-
-/-!
-# Tau-in-Queries Branch for KZG Function Binding
-
-Branch-specific search and ARSDH extraction for the case where a query reveals the trapdoor,
-following the ARSDH reduction in [CGKY25].
-
-## Notation
-
-* `chooseSMiddle` chooses a support set avoiding the discovered trapdoor query.
-* `queryEqTauArsdhOutput` builds the ARSDH output for this branch.
-* `function_binding_query_eq_tau_branch_maps_to_arsdh` is the branch proof.
-
-## References
-
-* [Chiesa, A., Guan, Z., Knabenhans, C., and Yu, Z.,
-  *On the Fiat-Shamir Security of Succinct Arguments from Functional Commitments*][CGKY25]
--/
+public import dep.ArkLib.Commitments.Functional.KZG.HardnessAssumptions
+public import dep.ArkLib.Commitments.Functional.KZG.Sampling
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.Data.GroupTheory.PrimeOrder
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.CompPoly.Data.Array.Lemmas
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.CompPoly.Univariate.Basic
+public import dep.CompPoly.Univariate.Lagrange
+public import dep.CompPoly.Univariate.Linear
+public import dep.CompPoly.Univariate.Raw.Core
+public import dep.CompPoly.Univariate.Raw.Division
+public import dep.CompPoly.Univariate.Raw.Ops
+public import dep.CompPoly.Univariate.Raw.Proofs
+public import dep.CompPoly.Univariate.ToPoly.Core
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Semantics.Core
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.ProbCompLift
+public import dep.VCVio.OracleComp.QueryTracking.CachingOracle
+public import dep.VCVio.OracleComp.QueryTracking.RandomOracle.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.SimSemantics.StateT.PreservesInv
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -41,7 +231,7 @@ variable {G₁ : Type} [Group G₁] [PrimeOrderWith G₁ p] [DecidableEq G₁] {
   [Module (ZMod p) (Additive Gₜ)]
   (pairing : (Additive G₁) →ₗ[ZMod p] (Additive G₂) →ₗ[ZMod p] (Additive Gₜ))
 
-variable {n : ℕ} -- the maximal degree of polynomials that can be committed to/opened.
+variable {n : ℕ}
 
 open Commitment
 
@@ -60,57 +250,6 @@ open OracleSpec _root_.OracleComp SubSpec ProtocolSpec
 
 section FunctionBinding
 
-omit hp [PrimeOrderWith G₁ p] [Group G₂] [PrimeOrderWith G₂ p]
-  [Module (ZMod p) (Additive G₁)] [Module (ZMod p) (Additive G₂)] in
-/-- If the SRS-power search returns `α`, then `α` satisfies the searched equation. -/
-lemma find_query_with_srs_power_success {L : ℕ} (hn : 1 ≤ n)
-    (srs : Vector G₁ (n + 1) × Vector G₂ 2) (queryOf : Fin L → ZMod p) {α : ZMod p}
-    (hfs : List.findSome?
-        (fun i ↦ if srs.1[0] ^ (queryOf i).val
-                      = srs.1[1]'(Nat.lt_add_of_pos_left hn)
-                  then some (queryOf i) else none)
-        (List.finRange L) = some α) :
-    srs.1[0] ^ α.val = srs.1[1]'(Nat.lt_add_of_pos_left hn) := by
-  obtain ⟨_, i, _, _, hbody, _⟩ := List.findSome?_eq_some_iff.mp hfs
-  by_cases hif : srs.1[0] ^ (queryOf i).val = srs.1[1]'(Nat.lt_add_of_pos_left hn)
-  · rw [ite_eq_left hif] at hbody
-    simp only [Option.some.injEq] at hbody
-    rw [← hbody]
-    exact hif
-  · rw [ite_eq_right hif] at hbody
-    exact absurd hbody (by simp)
-
-omit [DecidableEq G₁] [PrimeOrderWith G₂ p]
-  [Module (ZMod p) (Additive G₁)] [Module (ZMod p) (Additive G₂)] in
-/-- Equality with the second SRS power identifies a field element as the trapdoor. -/
-lemma zmod_eq_of_srs_power_eq {α τ : ZMod p}
-    (hn : 1 ≤ n) (srs : Vector G₁ (n + 1) × Vector G₂ 2)
-    (hsrs : srs = Groups.PowerSrs.generate (g₁ := g₁) (g₂ := g₂) n τ)
-    (hord : orderOf g₁ = p)
-    (hpow : srs.1[0] ^ α.val = srs.1[1]'(Nat.lt_add_of_pos_left hn)) :
-    α = τ := by
-  have h_srs0 : srs.1[0] = g₁ := by
-    rw [hsrs]
-    simp [Groups.PowerSrs.generate, Groups.PowerSrs.tower]
-  have h_srs1 : srs.1[1]'(Nat.lt_add_of_pos_left hn) = g₁ ^ τ.val := by
-    rw [hsrs]
-    simp [Groups.PowerSrs.generate, Groups.PowerSrs.tower]
-  have hpow' : g₁ ^ α.val = g₁ ^ τ.val := by
-    rw [h_srs0, h_srs1] at hpow
-    exact hpow
-  have hmod : α.val ≡ τ.val [MOD orderOf g₁] := pow_eq_pow_iff_modEq.mp hpow'
-  rw [hord] at hmod
-  have h_eq : α.val = τ.val := by
-    have hm : α.val % p = τ.val % p := hmod
-    rwa [Nat.mod_eq_of_lt (ZMod.val_lt α), Nat.mod_eq_of_lt (ZMod.val_lt τ)] at hm
-  exact ZMod.val_injective p h_eq
-
-/-! ### Query Equal to Trapdoor Branch -/
-
-/- We introduce one middle case to handle the case where the discovered value `τ` is part of the
-queries. This explicit step converts the probabilistic step 4 from the paper into a deterministic
-step. -/
-
 /-- choose a size-`n + 1` set that avoids the discovered value `α`(= `τ`).
 
 If `α` lies among the first `n + 2` representatives, remove it from that set. Otherwise the
@@ -119,57 +258,6 @@ def chooseSMiddle (n : ℕ) (α : ZMod p) : Finset (ZMod p) :=
   let base : Finset (ZMod p) := (Finset.range (n + 2)).image ((↑) : ℕ → ZMod p)
   if α ∈ base then base.erase α else (Finset.range (n + 1)).image ((↑) : ℕ → ZMod p)
 
-/-- Casting the first `k ≤ p` natural numbers into `ZMod p` is injective. -/
-lemma nat_cast_range_card_zmod_of_le {k : ℕ} (hk : k ≤ p) :
-    ((Finset.range k).image ((↑) : ℕ → ZMod p)).card = k := by
-  have h_inj : Set.InjOn ((↑) : ℕ → ZMod p) ↑(Finset.range k) := by
-    intro a ha b hb hab
-    simp only [Finset.coe_range, Set.mem_Iio] at ha hb
-    have hap : a < p := lt_of_lt_of_le ha hk
-    have hbp : b < p := lt_of_lt_of_le hb hk
-    have hv := congrArg ZMod.val hab
-    rwa [ZMod.val_natCast_of_lt hap, ZMod.val_natCast_of_lt hbp] at hv
-  rw [Finset.card_image_of_injOn h_inj, Finset.card_range]
-
-/-- The first `n + 1` natural representatives have cardinality `n + 1` in `ZMod p`. -/
-lemma nat_cast_range_card_zmod (hp : p ≥ n + 2) :
-    ((Finset.range (n + 1)).image ((↑) : ℕ → ZMod p)).card = n + 1 := by
-  exact nat_cast_range_card_zmod_of_le (k := n + 1) (by omega)
-
-/-- `chooseSMiddle` returns a support set of size `n + 1`. -/
-lemma choose_s_middle_card (hp : p ≥ n + 2) (α : ZMod p) :
-    (chooseSMiddle n α).card = n + 1 := by
-  unfold chooseSMiddle
-  set base : Finset (ZMod p) := (Finset.range (n + 2)).image ((↑) : ℕ → ZMod p)
-    with hbase_def
-  by_cases hα : α ∈ base
-  · rw [ite_eq_left hα, Finset.card_erase_of_mem hα]
-    have hbase : base.card = n + 2 := by
-      rw [hbase_def]
-      exact nat_cast_range_card_zmod_of_le (k := n + 2) hp
-    omega
-  · rw [ite_eq_right hα]
-    exact nat_cast_range_card_zmod hp
-
-/-- The avoided point is not in the set returned by `chooseSMiddle`. -/
-lemma choose_s_middle_not_mem (α : ZMod p) :
-    α ∉ chooseSMiddle n α := by
-  unfold chooseSMiddle
-  set base : Finset (ZMod p) := (Finset.range (n + 2)).image ((↑) : ℕ → ZMod p)
-  by_cases hα : α ∈ base
-  · simp [hα]
-  · rw [ite_eq_right hα]
-    intro hmem
-    apply hα
-    simp only [base, Finset.mem_image, Finset.mem_range] at hmem ⊢
-    obtain ⟨i, hi, rfl⟩ := hmem
-    exact ⟨i, by omega, rfl⟩
-
-/-- The middle-branch vanishing product does not vanish at the avoided point. -/
-lemma choose_s_middle_eval_ne_zero (α : ZMod p) :
-    (∏ s ∈ chooseSMiddle n α, (X - C s : CPolynomial (ZMod p))).eval α ≠ 0 := by
-  exact prod_x_sub_c_eval_ne_zero (choose_s_middle_not_mem α)
-
 /-- ARSDH output for the branch that discovers a query equal to `τ`. -/
 def queryEqTauArsdhOutput (n : ℕ) (α : ZMod p)
     (srs : Vector G₁ (n + 1) × Vector G₂ 2) :
@@ -177,28 +265,6 @@ def queryEqTauArsdhOutput (n : ℕ) (α : ZMod p)
   let S : Finset (ZMod p) := chooseSMiddle n α
   let Zₛ := ∏ s ∈ S, (X - C s)
   { support := S, base := srs.1[0], solution := srs.1[0] ^ (1 / Zₛ.eval α).val }
-
-omit [DecidableEq G₁] [PrimeOrderWith G₂ p]
-  [Module (ZMod p) (Additive G₁)] [Module (ZMod p) (Additive G₂)] in
-/-- The branch that finds a query equal to `τ` maps to ARSDH. -/
-lemma function_binding_query_eq_tau_branch_maps_to_arsdh {n : ℕ}
-    (hn : 1 ≤ n) (hp : p ≥ n + 2) (hg₁ : g₁ ≠ 1)
-    {τ α : ZMod p} {srs : Vector G₁ (n + 1) × Vector G₂ 2}
-    (hsrs : srs = Groups.PowerSrs.generate (g₁ := g₁) (g₂ := g₂) n τ)
-    (hgen : srs.1[0] ≠ 1)
-    (hpow : srs.1[0] ^ α.val = srs.1[1]'(Nat.lt_add_of_pos_left hn)) :
-    Groups.arsdhCondition n (τ, (queryEqTauArsdhOutput (p := p) n α srs).toTuple) := by
-  simp only [queryEqTauArsdhOutput, FunctionBindingArsdhOutput.toTuple,
-    Groups.arsdhCondition, ne_eq, one_div]
-  have hord : orderOf g₁ = p := Groups.orderOf_eq_prime_of_ne_one g₁ hg₁
-  have hα_τ : α = τ :=
-    zmod_eq_of_srs_power_eq (g₁ := g₁) hn srs hsrs hord hpow
-  refine ⟨?_, ?_, ?_, ?_⟩
-  · exact choose_s_middle_card hp α
-  · rw [← hα_τ]
-    exact choose_s_middle_eval_ne_zero α
-  · exact hgen
-  · rw [hα_τ]
 
 end FunctionBinding
 

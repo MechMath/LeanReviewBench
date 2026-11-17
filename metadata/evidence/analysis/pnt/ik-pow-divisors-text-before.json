@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "ik-pow-divisors-text-before",
   "task_id": "pnt:ik-pow-divisors-text-before",
-  "input_sha256": "ce5ef86d9c515bd16850ca3425da226e2b651921ec20ea8b7c6ff4a2fd03f404",
+  "input_sha256": "cbce0f549152d5bc8bf55943cc72da5a30aae3ee3e7ede88c9299f1838bb6cdc",
   "label": "aligned",
   "reason": "For positive inputs and k>=1, the bijection x->x^k converts root-divisors into perfect-kth-power divisors and preserves multiplication. The k=0 source case follows directly.",
   "review_status": "human_reviewed",

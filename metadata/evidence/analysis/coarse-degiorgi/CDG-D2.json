@@ -3,7 +3,7 @@
   "dataset": "coarse-degiorgi",
   "project_id": "CDG-D2",
   "task_id": "coarse-degiorgi:CDG-D2",
-  "input_sha256": "3122d7a414935fdd21953b28895687d7a3b82f25cd54cd72657b41b89cd502d6",
+  "input_sha256": "bedaee2b0aa258aa9fcb21cfed33979e194de055372623b51ec71aad987604b6",
   "label": "misaligned",
   "reason": "Finite real exponents omit the infinity endpoint allowed by the full bound target.",
   "review_status": "human_reviewed",

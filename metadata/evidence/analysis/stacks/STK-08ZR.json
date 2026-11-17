@@ -3,7 +3,7 @@
   "dataset": "stacks",
   "project_id": "STK-08ZR",
   "task_id": "stacks:STK-08ZR",
-  "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
+  "input_sha256": "8819970f92ae87fcc7b16e2a7723c20a392cdb1b623a9aab7ac650f4974b6144",
   "label": "misaligned",
   "reason": "The source assumes Hausdorff spaces, but the root requires only R1Space, admitting non-Hausdorff spaces. Local compactness agrees; the mismatch is the broader applicability domain, not falsity of the generalized theorem.",
   "review_status": "human_reviewed",

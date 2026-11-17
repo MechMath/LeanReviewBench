@@ -44,8 +44,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 2,
-    "sha256": "1c26773131ce5ea7fa0c7de6175c9e674a361e9f5cd75ec798e40baec6ad2e88"
+    "file_count": 1,
+    "sha256": "14e0b1ccaffbccfa76b336c9eec109663ad756b53dfbae9b3e9bc85660b6c151",
+    "effective_root_sha256": "e35d05c333f91ebe92469ee95a45f25e557373f9591ca127a4df371ac3569303",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-admission/../real-project-expansion-01/technical/pfr-independent-blocks-before/20261104T055031937084Z/receipt.json",
@@ -60,9 +63,9 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "89ab45325397c40b96513987b16f2adc36b2eac9bc8353b602738b514f238906",
+  "input_sha256": "f346f77ad292632a4b870d18e213104eaff46297d050a692a9173938e499eb60",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl",
   "informal_binding_review": "reports/undetermined-review-2026-11-09/review.json"
 }

@@ -1,0 +1,43 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-SMALL-interval_final_sign",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_interval_final_sign"
+  ],
+  "input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+  "graph_sha256": "80d4e9b40ba64a093be9e268a7f18f39b911b20bb5b4e8d4dfe8e023ebc65f51",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-SMALL-interval_final_sign.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "1b4d045fd2724309b31a1e7cf6c98464efd46e73ddda80ef03e24610d549937a"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Probability/CTMC.lean",
+      "94410f33727c3ca7e754d863c16e51042354d0fba8551291af249adade28dc64"
+    ],
+    [
+      "formal/dep/GN21DriverSurgePricing/MainTheorems.lean",
+      "d1e52ff29085cbf5a944a05604a10a0b56611a1d55076ec188042ef860f8b8e5"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 3,
+  "nodes": 127,
+  "edges": 841,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

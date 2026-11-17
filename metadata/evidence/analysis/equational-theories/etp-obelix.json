@@ -3,7 +3,7 @@
   "dataset": "equational-theories",
   "project_id": "etp-obelix",
   "task_id": "equational-theories:etp-obelix",
-  "input_sha256": "705f126485e3cfdd29cf0b1fe27bbe574295f85d12849b7f406a49326ad1cb10",
+  "input_sha256": "32c389701623ee6fe628a9214401226be61383e3560ac9eb763f10399b5018f7",
   "label": "aligned",
   "reason": "The root supplies one magma satisfying law 1491 and violating law 65, matching the source Obelix-not-Asterix assertion.",
   "review_status": "human_reviewed",

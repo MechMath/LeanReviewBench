@@ -1,30 +1,46 @@
-import dep.PFR.ForMathlib.ConditionalIndependence
+import Mathlib.Data.Finset.Pairwise
+import Mathlib.MeasureTheory.Constructions.Pi
+import Mathlib.MeasureTheory.Measure.Map
+import Mathlib.MeasureTheory.Measure.Real
+import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+import Mathlib.Probability.ConditionalProbability
+import Mathlib.Probability.IdentDistrib
+import Mathlib.Probability.Independence.Basic
+import Mathlib.Probability.Independence.Kernel.IndepFun
+import Mathlib.Tactic
+import Mathlib.Tactic.Basic
+import Mathlib.Tactic.Finiteness
+import Mathlib.Util.Notation3
 import dep.LegacyMap
+import dep.PFR.ForMathlib.FiniteRange.Defs
+import dep.PFR.Mathlib.MeasureTheory.Constructions.Pi
+import dep.PFR.Mathlib.Probability.Independence.Basic
+
 open MeasureTheory ProbabilityTheory
+
 namespace PFRHistorical
+
 noncomputable def CondIndepFun {Ω α β γ : Type*} [MeasurableSpace Ω]
     [MeasurableSpace α] [MeasurableSpace β] [MeasurableSpace γ]
     (f : Ω → α) (g : Ω → β) (h : Ω → γ) (μ : Measure Ω) : Prop :=
   ∀ᵐ z ∂ (PFRHistorical.map h μ), IndepFun f g (μ[|h ← z])
-theorem condIndep_eq_modern {Ω α β γ : Type*} [MeasurableSpace Ω]
-    [MeasurableSpace α] [MeasurableSpace β] [MeasurableSpace γ]
-    (f : Ω → α) (g : Ω → β) (h : Ω → γ) (μ : Measure Ω) (hh : Measurable h) :
-    CondIndepFun f g h μ ↔ ProbabilityTheory.CondIndepFun f g h μ := by
-  simp [CondIndepFun, ProbabilityTheory.CondIndepFun, PFRHistorical.map_eq_modern hh.aemeasurable]
+
 end PFRHistorical
+
 namespace ProbabilityTheory
+
 universe u
+
 variable {Ω : Type*} {α β : Type u} [MeasurableSpace Ω] [MeasurableSpace α]
   [MeasurableSpace β] [MeasurableSingletonClass β]
+
 variable [Fintype β]
+
 lemma condIndep_copies (X : Ω → α) (Y : Ω → β) (hX : Measurable X) (hY : Measurable Y)
     (μ : Measure Ω) [IsProbabilityMeasure μ] :
     ∃ (Ω' : Type u) (mΩ' : MeasurableSpace Ω') (X₁ X₂ : Ω' → α) (Y' : Ω' → β) (ν : Measure Ω'),
       IsProbabilityMeasure ν ∧ Measurable X₁ ∧ Measurable X₂ ∧ Measurable Y' ∧
       PFRHistorical.CondIndepFun X₁ X₂ Y' ν ∧ IdentDistrib ((fun ω => (X₁ ω, Y' ω))) ((fun ω => (X ω, Y ω))) ν μ ∧
-      IdentDistrib ((fun ω => (X₂ ω, Y' ω))) ((fun ω => (X ω, Y ω))) ν μ := by
-  obtain ⟨Ω', mΩ', X₁, X₂, Y', ν, hν, hX₁, hX₂, hY', hind, hid₁, hid₂⟩ :=
-    condIndep_copies_modern X Y hX hY μ
-  exact ⟨Ω', mΩ', X₁, X₂, Y', ν, hν, hX₁, hX₂, hY',
-    (PFRHistorical.condIndep_eq_modern X₁ X₂ Y' ν hY').mpr hind, hid₁, hid₂⟩
+      IdentDistrib ((fun ω => (X₂ ω, Y' ω))) ((fun ω => (X ω, Y ω))) ν μ := sorry
+
 end ProbabilityTheory

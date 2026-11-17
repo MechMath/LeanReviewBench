@@ -1,22 +1,12 @@
-/-
-Copyright (c) 2026 PolyFun Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma
--/
 module
 
+public import Cslib.Init
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Util.Notation3
 public import dep.PolyFun.PFunctor.Basic
-
-/-!
-# Monadic Handlers for Polynomial Functors
-
-A `PFunctor.Handler m q` chooses a direction of `q` at each position, with the
-choice interpreted in the type constructor `m`. This is the generic interface
-consumed by `FreeM.liftM`; it does not depend on machines or dynamical systems.
-In particular, taking `m := StateT σ n` threads one shared runtime state through
-every handled position. That ambient state is distinct from a dynamical
-system's private operational state.
--/
+public import dep.PolyFun.PFunctor.Obj
+public import dep.dep.CslibCompat.Basic
 
 @[expose] public section
 
@@ -41,49 +31,15 @@ def mapTarget {m : Type u → Type v} {n : Type u → Type w}
     (handler : PFunctor.Handler m q) : PFunctor.Handler n q :=
   fun position => transform (handler position)
 
-@[simp, grind =] theorem mapTarget_apply {m : Type u → Type v} {n : Type u → Type w}
-    {q : PFunctor.{uA, u}} (transform : ∀ {α : Type u}, m α → n α)
-    (handler : PFunctor.Handler m q) (position : q.A) :
-    mapTarget transform handler position = transform (handler position) :=
-  rfl
-
-@[simp, grind =] theorem mapTarget_id {m : Type u → Type v}
-    {q : PFunctor.{uA, u}} (handler : PFunctor.Handler m q) :
-    mapTarget (fun computation => computation) handler = handler :=
-  rfl
-
 theorem mapTarget_mapTarget {m : Type u → Type v} {n : Type u → Type w}
     {o : Type u → Type uI} {q : PFunctor.{uA, u}}
     (second : ∀ {α : Type u}, n α → o α)
     (first : ∀ {α : Type u}, m α → n α)
     (handler : PFunctor.Handler m q) :
     mapTarget second (mapTarget first handler) =
-      mapTarget (fun computation => second (first computation)) handler :=
-  rfl
+      mapTarget (fun computation => second (first computation)) handler := sorry
 
 @[deprecated (since := "2026-10-19")] alias mapTarget_comp := mapTarget_mapTarget
-
-/-- An effectful stateful handler for `q`: on each position it reads a state,
-performs effects in `m`, and returns a direction together with the next state.
-
-This is a transparent name for `Handler (StateT S m) q`, so it introduces no
-new data or laws. At `m := Id` it is the pure Kleisli--Mealy presentation used
-by `Responder.equivStateful`. -/
-abbrev Stateful (m : Type u → Type v) (S : Type u)
-    (q : PFunctor.{uA, u}) :=
-  Handler (StateT S m) q
-
-/-- Combine monadic handlers for an indexed family into a handler for its
-indexed coproduct. -/
-def sigma {I : Type uI} {P : I → PFunctor.{uA, u}} {m : Type u → Type v}
-    (f : (i : I) → PFunctor.Handler m (P i)) : PFunctor.Handler m (PFunctor.sigma P) :=
-  fun a => f (PFunctor.sigma.fst a) (PFunctor.sigma.snd a)
-
-@[simp]
-theorem sigma_apply {I : Type uI} {P : I → PFunctor.{uA, u}} {m : Type u → Type v}
-    (f : (i : I) → PFunctor.Handler m (P i)) (i : I) (a : (P i).A) :
-    sigma f (PFunctor.sigma.mk i a) = f i a :=
-  rfl
 
 end Handler
 

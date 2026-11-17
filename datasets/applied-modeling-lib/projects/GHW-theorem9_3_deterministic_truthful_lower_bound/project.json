@@ -29,9 +29,8 @@
   "status": "ready",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Cslib.Foundations.Data.RelatesInSteps",
     "Mathlib.Algebra.BigOperators.Field",
@@ -138,7 +137,7 @@
       "sha256": "ad159a2b5842df9895a0bae159503cf125ff0e8de1d9e10feb0fc16d6c3e07c8"
     }
   },
-  "input_sha256": "77784b836363410511239ee5a0d78f5a52be578e6fec682c46382ad047742a98",
+  "input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
   "external_boundaries": [
     "Mathlib",
     "Cslib",
@@ -148,11 +147,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 32,
-    "sha256": "ae54f3842c50153bd0a26ae845ec7047670814799cc1af357ac9f3054b379c39",
-    "effective_root_sha256": "0f11680fc2fef299cd9efbe9ebb64f8efe4860013aef53bdc2ac709ce2b430f6"
+    "file_count": 13,
+    "sha256": "8234ac632e4e7081b6b4482f4d0b9d5dee5e728ffb1705768e4bf0721c47cb00",
+    "effective_root_sha256": "dcc894e1ee8e32144c19989c5684cadbf67861387ac759cc524f49ab81d2bf67",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

@@ -10,4 +10,9 @@ Relocate imports and adapt the historical probability/Gaussian interfaces and pr
 
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
-Recorded compatibility edits affect `EconCSLib/Foundations/Probability/Admissions.lean`, `EconCSLib/Foundations/Probability/Gaussian.lean`, `LG21TestOptionalPolicies/MainTheorems.lean`.
+Before context pruning, compatibility edits affected `EconCSLib/Foundations/Probability/Admissions.lean`, `EconCSLib/Foundations/Probability/Gaussian.lean`, `LG21TestOptionalPolicies/MainTheorems.lean`.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

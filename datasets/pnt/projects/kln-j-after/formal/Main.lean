@@ -1,5 +1,7 @@
 import Mathlib
+
 open Real
+
 namespace KLN
 
 def a₁ : ℝ := 0.63
@@ -33,4 +35,5 @@ noncomputable def J (H₀ α β k T : ℝ) : ℝ :=
       (I α β (β - 5 / 6) 1)) / (a₁ * T ^ ((1 : ℝ) / 6) * (log T) ^ 2) +
     a₂ ^ 2 * ((I α β (β) 0) + (C₂ H₀ k) * k / (C₁ H₀ k) *
       (I α β (β - 1) 0)) / (a₁ ^ 2 * T ^ ((1 : ℝ) / 3) * (log T) ^ 2)
+
 end KLN

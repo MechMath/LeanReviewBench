@@ -3,7 +3,7 @@
   "dataset": "coarse-degiorgi",
   "project_id": "CDG-C",
   "task_id": "coarse-degiorgi:CDG-C",
-  "input_sha256": "c9e9004a2c2887a3daded5a21b022f0c86ba922a3f443bccc26f6a1f428ede1e",
+  "input_sha256": "5688474eabfdf58702517645f4a7c85ccc2f29a6daae10a6ea176775212ab87b",
   "label": "aligned",
   "reason": "The weighted-solution assumptions and constant ranges match. Almost-everywhere nonnegativity identifies the formal essential supremum of |u| with the source supremum of u.",
   "review_status": "human_reviewed",

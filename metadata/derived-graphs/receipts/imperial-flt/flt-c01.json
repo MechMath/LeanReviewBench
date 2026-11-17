@@ -1,0 +1,99 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c01",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "FreyPackage.mazur"
+  ],
+  "input_sha256": "abcb2304f7939c210170e9fe39b136e07c14c30f98c72c235dbdf9838af43a80",
+  "graph_sha256": "97091be3aa4d421a90a8d395efb2c190f06878abe0bd3a2d3fc0863fc2519039",
+  "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c01.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "230d5b1cc0a2915d5375bea95e13349660b831bc2f343fcbd3fec958276b4d3b"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/AdicValuation.lean",
+      "538f87b01dcde7e0dea9211ae24f8722b2bf2fc963d36e085b93874bcffd4177"
+    ],
+    [
+      "formal/dep/FLT/Deformations/Lemmas.lean",
+      "614c5ae46626bb26d1ba3608f1e1dd348c6823ba997158cd2aed72dcfb92de4b"
+    ],
+    [
+      "formal/dep/FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean",
+      "5079ee0b685727070e93d9cbc2860a7d0d2a8143a3b4e9d28a381a7fa004450e"
+    ],
+    [
+      "formal/dep/FLT/Deformations/RepresentationTheory/ContinuousSMulDiscrete.lean",
+      "ccab153d19889517f8f89b10c741785f3621d0ebb9cfc41221feecdd0096de07"
+    ],
+    [
+      "formal/dep/FLT/Deformations/RepresentationTheory/Etale.lean",
+      "1e074e5c599ea3ca8eb70cdb792ea3b687db4fb7c22c1d5cb74a1082b2578f19"
+    ],
+    [
+      "formal/dep/FLT/Deformations/RepresentationTheory/Frobenius.lean",
+      "0d2848f52a28b28b9446930d706962d7ae3a0fbded13149d4d630433e92ecca6"
+    ],
+    [
+      "formal/dep/FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+      "f4138b13422797782cad5713f127adca56bc255b16af24f92dbff0b9079bff49"
+    ],
+    [
+      "formal/dep/FLT/Deformations/RepresentationTheory/IntegralClosure.lean",
+      "25eebb1285b8365c2118e2e9ccf588e0279e145b92a5e278c274fe06bdbc6741"
+    ],
+    [
+      "formal/dep/FLT/EllipticCurve/Torsion.lean",
+      "2e4dc7aec4c92029d365efb69d348a4280bc6e22bed959cadea8fe003e3da8bd"
+    ],
+    [
+      "formal/dep/FLT/FreyCurve/Basic.lean",
+      "dbdfa248aca9bbb00e73a7d1e2d8102875826f47c2466604699eec05370c1824"
+    ],
+    [
+      "formal/dep/FLT/FreyCurve/FreyPackage.lean",
+      "3c806cc3d9f0724e6c91ec7d86828beb781014cae0737afdf19257356ce9cc29"
+    ],
+    [
+      "formal/dep/FLT/FreyCurve/Mazur.lean",
+      "6af9d5e27aba3e253246ed23c104ae3c9b92066a482b326214849641d4b1e012"
+    ],
+    [
+      "formal/dep/FLT/GaloisRepresentation/HardlyRamified/Defs.lean",
+      "d7f82362770a2d6e3be6fa44bd6a038f7348d634447eb2a9781d7894376225e8"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/LinearAlgebra/Countable.lean",
+      "a8cd82e6d9f1832991f56c21720b65e0901c16611cd3c9c19e066b6e1cf67b72"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+      "b5394fc8629a345dd7570de85b348635bb42124c2d6a7c394360446058356b38"
+    ],
+    [
+      "formal/dep/FLT/NumberField/Completion/Finite.lean",
+      "51b349e081dfbc40b32b25c7e26d433d8a56191d95259b5cdba41b3b80ea7306"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 17,
+  "nodes": 165,
+  "edges": 470,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

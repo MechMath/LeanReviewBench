@@ -1,0 +1,75 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-A-CUTOFF-FIXED",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "MagicFunction.a.SpecialValues.a_zero"
+  ],
+  "input_sha256": "af52284b309c40999f00b58c17fb6fc98b13b68abb1c83bc66e9ed8076040226",
+  "graph_sha256": "0759ec9633fe7cb9f2e0013458305769724ab51a799c9787e062c6816cd998ef",
+  "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-A-CUTOFF-FIXED.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "4f407ad0b3d41f52038656aa2a94216508989d56b5f38f19d1b6f7c69208175d"
+    ],
+    [
+      "formal/dep/SpherePacking/ForMathlib/RadialSchwartz/Basic.lean",
+      "46c26f1bb9d215aab2171b8ecff1accfd5eee15bb3afe17efc1dd63b0a8d3cf3"
+    ],
+    [
+      "formal/dep/SpherePacking/ForMathlib/RadialSchwartz/Multidimensional.lean",
+      "28832c362adc9ce2cf4bd563a7ec4e969f52bc087ade442d99622c4788c445f0"
+    ],
+    [
+      "formal/dep/SpherePacking/ForMathlib/RadialSchwartz/SchwartzMap.lean",
+      "cdb42aa61226193dae6a91de2a8a749558451070e5bb61a047baac0ee5ad3273"
+    ],
+    [
+      "formal/dep/SpherePacking/MagicFunction/IntegralParametrisations.lean",
+      "8f73fde145f60c80e7982a6f7040a6414988096ea087fc7070bdc442c5e02325"
+    ],
+    [
+      "formal/dep/SpherePacking/MagicFunction/a/Basic.lean",
+      "6d5971c4013219c4ac824014d9ba57002e804c0ccd9a76090b7e2a71aecdeda5"
+    ],
+    [
+      "formal/dep/SpherePacking/MagicFunction/a/Schwartz.lean",
+      "1d4072d715484253c662e6c0f94793499d948fee5cfde80ab70fd671b6883b40"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/Delta.lean",
+      "3e97bad30ab255c022b2e32c3e19f2ba4ede69baa8562be096d10d59c1f78e25"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/E2.lean",
+      "77a7106c27710504dcdca0c66c8d2a666f8843473f8b938428539d95025e9f39"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/Eisenstein.lean",
+      "93a51253b7caa0a69b65e544f4766790f06dcd388a4ff2b8ed0b2812f877929c"
+    ],
+    [
+      "formal/dep/SpherePacking/ModularForms/ResToImagAxis.lean",
+      "f6d182a30e0a03a45ac703417a7d3623fef0845fef90aa6ff1ad019bb10b6913"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 11,
+  "nodes": 332,
+  "edges": 2398,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

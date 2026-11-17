@@ -1,20 +1,16 @@
-/-
-Copyright (c) 2025 Bryan Wang Peng Jun. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Bryan Wang Peng Jun
--/
 module
 
-public import dep.FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.InfinitePlace
-public import dep.FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.FiniteAdeleRing
+public import Mathlib.Analysis.CStarAlgebra.Classes
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
 public import Mathlib.NumberTheory.NumberField.AdeleRing
-import dep.FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
-
-/-!
-# Adele Ring
-
-Material destined for Mathlib.
--/
+public import Mathlib.NumberTheory.NumberField.Completion.InfinitePlace
+public import Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
+public import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+public import dep.FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.FiniteAdeleRing
+public import dep.FLT.Mathlib.MeasureTheory.Constructions.BorelSpace.InfinitePlace
+public import dep.FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
+public import dep.FLT.Mathlib.NumberTheory.NumberField.InfinitePlace.Completion
+public import dep.FLT.Mathlib.Topology.MetricSpace.ProperSpace.InfinitePlace
 
 @[expose] public section
 
@@ -24,4 +20,4 @@ open NumberField
 
 instance : MeasurableSpace (AdeleRing (𝓞 K) K) := inferInstanceAs (MeasurableSpace (_ × _))
 
-instance : BorelSpace (AdeleRing (𝓞 K) K) := inferInstanceAs (BorelSpace (_ × _))
+instance : BorelSpace (AdeleRing (𝓞 K) K) := sorry

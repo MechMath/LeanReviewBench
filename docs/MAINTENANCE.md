@@ -31,11 +31,4 @@ Changes to model-visible content require explicit task and reference bindings un
 
 The active source and documentation revisions are recorded in `metadata/release.json`. Historical `reports/...` provenance can be resolved with `scripts/data/provenance.py --path <original-path>`. Current embedded technical path aliases are handled by `metadata/layout.json`.
 
-The optional archive reconstruction helper requires a clean pinned research checkout and its local archive Git objects:
-
-```sh
-python3 scripts/maintenance/migrate.py --source /path/to/clean/research-checkout \
-  --output /path/to/fresh-publication-directory
-```
-
-It reconstructs source packages and carries the curated current release metadata and support files, including deliberate exclusions. It is separate from a fresh Lean build or source-to-model task export. Ordinary data use and validation do not require this reconstruction.
+The maintained artifacts are the released statement-only Lean contexts and each input's `CHANGES.md`. Full original projects can be located by repository/commit/root pins. Executable migration histories and complete upstream source archives are not required for benchmark use. Historical archive-restoration tooling is separate from current context compilation or model-input export.

@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "即使善意补齐文字缺失的左绝对值符号，文字误差内为N(T)−T/(2π)log(T/(2πe))+7/8；formal展开后末项是−7/8，相差7/4。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "3793dd9ffca246cb387ff9be01090a2042e345dc9fbb10251840253ff53c377c"
+    "sha256": "2f3a2f206498240dcc05f33c3ac7742d154ef0b0882268fee36a9baed22840d9",
+    "effective_root_sha256": "63b844a2c84f06b600877e3e8c62f544359173648b6e3740ff268b46a400f853",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "dab5eecee3e9e3b3893c95a2c0c12ca486b8e6f46dc17978fca4aefd673b8877",
+  "input_sha256": "952cf78469814d5a6c20d614bb505f27782f16c8d8a0694bf1b7704760131768",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

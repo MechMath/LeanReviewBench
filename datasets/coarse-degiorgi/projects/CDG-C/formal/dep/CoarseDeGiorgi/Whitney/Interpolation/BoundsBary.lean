@@ -1,10 +1,109 @@
 module
 
-public import dep.CoarseDeGiorgi.Whitney.Interpolation.BoundsBasic
-
-/-!
-# Barycentric coordinates on a closed Kuhn simplex
--/
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.EReal.Basic
+public import Mathlib.Data.Fin.Tuple.Sort
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Swap
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.LinearAlgebra.QuadraticForm.Basic
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.PiProd
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Basic
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Topology.Order.Compact
+public import dep.CoarseDeGiorgi.Statements.Simplex
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.CoarseGraining.Definitions
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.CubeMetric
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.PDE.Harmonic
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.CoerciveHilbert
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Preliminaries
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.Basic
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.RieszPowerMean
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.SegmentChangeOfVariables
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.TimeCollapse
+public import dep.Homogenization.Sobolev.Foundations.PoincareMeanZero
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.PotentialSolenoidal
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
@@ -23,170 +122,9 @@ section bs
 
 variable {t : ℝ} {π : Equiv.Perm (Fin d)} {z x : Vec d}
 
-theorem bs_zero : bs t π z x 0 = 0 := by simp [bs]
-
-theorem bs_top : bs t π z x (d + 1) = 1 := by simp [bs]
-
-theorem bs_idx (i : Fin d) :
-    bs t π z x ((π.symm i).val + 1) = (x i - z i) / t + 1 / 2 := by
-  simp [bs]
-
-theorem frac_nonneg (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (i : Fin d) :
-    0 ≤ (x i - z i) / t + 1 / 2 := by
-  have h := (hx.1 i).1
-  have : -(1 / 2 : ℝ) ≤ (x i - z i) / t := by
-    rw [le_div_iff₀ ht]; linarith
-  linarith
-
-theorem frac_le_one (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (i : Fin d) :
-    (x i - z i) / t + 1 / 2 ≤ 1 := by
-  have h := (hx.1 i).2
-  have : (x i - z i) / t ≤ 1 / 2 := by
-    rw [div_le_iff₀ ht]; linarith
-  linarith
-
-theorem bs_nonneg (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (k : ℕ) : 0 ≤ bs t π z x k := by
-  unfold bs
-  split_ifs
-  · exact le_refl _
-  · exact frac_nonneg ht hx _
-  · exact zero_le_one
-
-theorem bs_le_one (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (k : ℕ) : bs t π z x k ≤ 1 := by
-  unfold bs
-  split_ifs
-  · exact zero_le_one
-  · exact frac_le_one ht hx _
-  · exact le_refl _
-
-theorem bs_succ_le (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (k : ℕ) (hk : k ≤ d) :
-    bs t π z x k ≤ bs t π z x (k + 1) := by
-  rcases Nat.eq_zero_or_pos k with rfl | hk0
-  · rw [bs_zero]; exact bs_nonneg ht hx _
-  · have hk1 : k - 1 < d := by omega
-    have e1 : bs t π z x k = (x (π ⟨k - 1, hk1⟩) - z (π ⟨k - 1, hk1⟩)) / t + 1 / 2 := by
-      unfold bs
-      rw [ite_eq_right (by omega), dite_eq_left hk1]
-    rw [e1]
-    by_cases hkd : k < d
-    · have e2 : bs t π z x (k + 1) = (x (π ⟨k, hkd⟩) - z (π ⟨k, hkd⟩)) / t + 1 / 2 := by
-        unfold bs
-        rw [ite_eq_right (by omega)]
-        simp only [Nat.add_sub_cancel]
-        rw [dite_eq_left hkd]
-      rw [e2]
-      have := hx.2 ⟨k - 1, hk1⟩ ⟨k, hkd⟩ (by
-        show k - 1 < k
-        omega)
-      have := div_le_div_of_nonneg_right this ht.le
-      linarith
-    · have e2 : bs t π z x (k + 1) = 1 := by
-        unfold bs
-        rw [ite_eq_right (by omega)]
-        simp only [Nat.add_sub_cancel]
-        rw [dite_eq_right hkd]
-      rw [e2]
-      exact frac_le_one ht hx _
-
-theorem bs_mono (ht : 0 < t) (hx : x ∈ closedKuhn t π z) {j k : ℕ} (hjk : j ≤ k)
-    (hk : k ≤ d + 1) : bs t π z x j ≤ bs t π z x k := by
-  induction k, hjk using Nat.le_induction with
-  | base => exact le_refl _
-  | succ k hjk ih =>
-    exact (ih (by omega)).trans (bs_succ_le ht hx k (by omega))
-
 /-- The barycentric weight of vertex `j`. -/
 noncomputable def lam (t : ℝ) (π : Equiv.Perm (Fin d)) (z x : Vec d) (j : Fin (d + 1)) : ℝ :=
   bs t π z x (j.val + 1) - bs t π z x j.val
-
-theorem lam_nonneg (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (j : Fin (d + 1)) :
-    0 ≤ lam t π z x j := by
-  have := bs_succ_le ht hx j.val (by omega)
-  unfold lam; linarith
-
-theorem sum_lam : ∑ j, lam t π z x j = 1 := by
-  unfold lam
-  rw [Fin.sum_univ_eq_sum_range (fun j => bs t π z x (j + 1) - bs t π z x j) (d + 1),
-    Finset.sum_range_sub (fun j => bs t π z x j) (d + 1), bs_top, bs_zero]
-  norm_num
-
-theorem sum_lam_tail (i : Fin d) :
-    ∑ j : Fin (d + 1), (if (π.symm i).val < j.val then lam t π z x j else 0) =
-      1 - bs t π z x ((π.symm i).val + 1) := by
-  have hi : (π.symm i).val < d := (π.symm i).isLt
-  unfold lam
-  rw [Fin.sum_univ_eq_sum_range (fun j => if (π.symm i).val < j then
-    bs t π z x (j + 1) - bs t π z x j else 0) (d + 1)]
-  rw [← Finset.sum_filter]
-  have hfil : (Finset.range (d + 1)).filter (fun j => (π.symm i).val < j) =
-      Finset.Ico ((π.symm i).val + 1) (d + 1) := by
-    ext j; simp only [Finset.mem_filter, Finset.mem_range, Finset.mem_Ico]; omega
-  rw [hfil, Finset.sum_Ico_eq_sub _ (by omega : (π.symm i).val + 1 ≤ d + 1),
-    Finset.sum_range_sub (fun j => bs t π z x j), Finset.sum_range_sub (fun j => bs t π z x j),
-    bs_top, bs_zero]
-  ring
-
-theorem eq_sum_lam_kv (ht : 0 < t) (i : Fin d) :
-    x i = ∑ j, lam t π z x j * kv t π z j i := by
-  have hc : ∀ j : Fin (d + 1), lam t π z x j * kv t π z j i =
-      lam t π z x j * z i + t * (1 / 2 * lam t π z x j) -
-        t * (if (π.symm i).val < j.val then lam t π z x j else 0) := by
-    intro j
-    simp only [kv]
-    split_ifs <;> ring
-  rw [Finset.sum_congr rfl (fun j _ => hc j), Finset.sum_sub_distrib, Finset.sum_add_distrib,
-    ← Finset.sum_mul, ← Finset.mul_sum, ← Finset.mul_sum, sum_lam]
-  simp only [← Finset.mul_sum]
-  rw [sum_lam_tail, bs_idx]
-  field_simp
-  ring
-
-theorem lam_support_lt (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (j : Fin (d + 1)) (i : Fin d)
-    (hj : lam t π z x j ≠ 0) (hij : (π.symm i).val < j.val) : x i < z i + t / 2 := by
-  by_contra hcon
-  push Not at hcon
-  have hf1 : bs t π z x ((π.symm i).val + 1) = 1 := by
-    rw [bs_idx]
-    have h1 := frac_le_one ht hx i
-    have h2 : 1 ≤ (x i - z i) / t + 1 / 2 := by
-      have : 1 / 2 ≤ (x i - z i) / t := by
-        rw [le_div_iff₀ ht]; linarith
-      linarith
-    linarith
-  have h1 : bs t π z x ((π.symm i).val + 1) ≤ bs t π z x j.val :=
-    bs_mono ht hx (by omega) (by omega)
-  have h2 := bs_le_one ht hx (j.val + 1)
-  have h3 := lam_nonneg ht hx j
-  unfold lam at h3 hj
-  apply hj
-  linarith
-
-theorem lam_support_gt (ht : 0 < t) (hx : x ∈ closedKuhn t π z) (j : Fin (d + 1)) (i : Fin d)
-    (hj : lam t π z x j ≠ 0) (hij : ¬ (π.symm i).val < j.val) : z i - t / 2 < x i := by
-  by_contra hcon
-  push Not at hcon
-  have hf0 : bs t π z x ((π.symm i).val + 1) ≤ 0 := by
-    rw [bs_idx]
-    have : (x i - z i) / t ≤ -(1 / 2) := by
-      rw [div_le_iff₀ ht]; linarith
-    linarith
-  have h1 : bs t π z x (j.val + 1) ≤ bs t π z x ((π.symm i).val + 1) :=
-    bs_mono ht hx (by omega) (by omega)
-  have h2 := bs_nonneg ht hx j.val
-  have h3 := lam_nonneg ht hx j
-  unfold lam at h3 hj
-  apply hj
-  linarith
-
-/-- Barycentric representation of the points of a closed Kuhn simplex. -/
-theorem bary (ht : 0 < t) (hx : x ∈ closedKuhn t π z) :
-    ∃ l : Fin (d + 1) → ℝ, (∀ j, 0 ≤ l j) ∧ ∑ j, l j = 1 ∧
-      (∀ i, x i = ∑ j, l j * kv t π z j i) ∧
-      ∀ j i, l j ≠ 0 →
-        ((π.symm i).val < j.val → x i < z i + t / 2) ∧
-          (¬ (π.symm i).val < j.val → z i - t / 2 < x i) :=
-  ⟨lam t π z x, lam_nonneg ht hx, sum_lam, fun i => eq_sum_lam_kv ht i, fun j i hj =>
-    ⟨lam_support_lt ht hx j i hj, lam_support_gt ht hx j i hj⟩⟩
 
 end bs
 

@@ -1,0 +1,47 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LOS02CombinatorialAuctions-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+  ],
+  "input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+  "graph_sha256": "5a293a608b365fc95eb6cb14d831e1b9758e6c4fe604df1082c86787c42bf7b5",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LOS02CombinatorialAuctions-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "024d3ab552a0924632b5a22904e76a2634d7c84ae5e9fa4d3e9389f24139d528"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/Combinatorial.lean",
+      "682246b4a27f93bb793bdd5496d4bdd3ca6bbc18641320b6de756cbc41f15057"
+    ],
+    [
+      "formal/dep/EconCSLib/SocialChoice/FairDivision/IndivisibleGoods.lean",
+      "070d4490957594f0045235daa9c97ced451130aeaec7806a3777dadbe00a1b73"
+    ],
+    [
+      "formal/dep/LOS02CombinatorialAuctions/MainTheorems.lean",
+      "b8e42191e211a4da56693201fe84b3425050125d5331e356831c41f78bac9858"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 4,
+  "nodes": 149,
+  "edges": 509,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

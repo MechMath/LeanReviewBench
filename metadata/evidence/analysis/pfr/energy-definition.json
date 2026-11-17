@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "energy-definition",
   "task_id": "pfr:energy-definition",
-  "input_sha256": "372e5370723959676b5f83cc7418fa49a261ab57e8fd76bbc34284e6325ab3b9",
+  "input_sha256": "e69330078059dff2e955ad0404b75c340d89cc973da47440338e56b2ccaf20b9",
   "label": "misaligned",
   "reason": "The formal energy is normalized while the bound definition requests the raw quadruple count.",
   "review_status": "human_reviewed",

@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "允许显式的k次根参数化时对应：对m,n>0及k≥1，x↦x^k是{x|m:x^k|m}到m的完全k次幂除数的双射，并保持乘积。因此formal根除数的分解/乘法单射，经该双射就是文字的幂除数命题。k=0时文字的完全0次幂只有1，分解与单射直接成立；formal覆盖更强的普通互素除数结论。",
   "external_imports": [
     "Mathlib.NumberTheory.LSeries.Dirichlet",
     "Mathlib.NumberTheory.LSeries.Nonvanishing"
@@ -42,7 +41,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "07238a011df726036b523fb4641e7658c9fbba8c1ccad86c36bf2b3c61320422"
+    "sha256": "9c9bb863dcd4743d56dc13bc162c92e60cf1a8c42fb8a88cf15338a13193ed13",
+    "effective_root_sha256": "c7d2e9cd95f8c72ba1c4d1261c397fb14289d03adf216f5c7a8b71da89201e09",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-ik-extraction/repaired/ik-pow-divisors/20261105T052917502913Z/receipt.json",
@@ -65,8 +67,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "ce5ef86d9c515bd16850ca3425da226e2b651921ec20ea8b7c6ff4a2fd03f404",
+  "input_sha256": "cbce0f549152d5bc8bf55943cc72da5a30aae3ee3e7ede88c9299f1838bb6cdc",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

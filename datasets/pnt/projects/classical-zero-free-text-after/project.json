@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "文字与formal都在t≥3上要求σ≥1−1/(R log|t|)时ζ(σ+it)≠0；由于t≥3，|t|=t，公式和含端点条件一致。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "42e5249d3e9c5e3b6391d1f1311a00c60d17f0b383f267d034f71b0dcb978809"
+    "sha256": "bda4b2fdba488396324ada6ecf5aa34a1a2741a06c0f146d7c52f7c01fe83389",
+    "effective_root_sha256": "77396e421d5ef4b7186578215964c026272d1fd18b570adcf0c1833eeda86cc4",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "4137382a35c4f4d0cbeff3d04984d4015d5edbb8be87a154d1a764d16dbff8b3",
+  "input_sha256": "ea41ea98b29e1a326bcacba2bce2997ef2de9a49c14ad2bfdb7d7b38a931af44",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

@@ -1,22 +1,18 @@
-/-
-Copyright (c) 2025 Andrew Yang. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Andrew Yang, Kevin Buzzard
--/
 module
 
+public import Mathlib.Algebra.GCDMonoid.IntegrallyClosed
+public import Mathlib.NumberTheory.NumberField.Basic
+public import Mathlib.RingTheory.Invariant.Defs
+public import Mathlib.RingTheory.Valuation.ValuationSubring
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Group.Basic
+public import Mathlib.Topology.Algebra.Group.Neighborhood
+public import Mathlib.Topology.Algebra.LinearTopology
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import Mathlib.Topology.Instances.Matrix
 public import dep.FLT.Deformations.Lemmas
 public import dep.FLT.Deformations.RepresentationTheory.ContinuousSMulDiscrete
-public import Mathlib.RingTheory.Invariant.Defs
-import Mathlib.Algebra.GCDMonoid.IntegrallyClosed
-
-/-!
-# The integral closure as a type
-
-We define `IntegralClosure R A` as a type synonym for the integral closure
-of `R` in `A`, equipped with the obvious commutative-ring and
-algebra structures.
--/
 
 @[expose] public section
 
@@ -34,17 +30,13 @@ instance : Algebra R (IntegralClosure R A) := (integralClosure R A).algebra
 
 instance : Algebra (IntegralClosure R A) A := (integralClosure R A).toAlgebra
 
-instance [IsDomain A] : IsDomain (IntegralClosure R A) := by
-  delta IntegralClosure; infer_instance
+instance [IsDomain A] : IsDomain (IntegralClosure R A) := sorry
 
-instance : Algebra.IsIntegral R (IntegralClosure R A) := by
-  delta IntegralClosure; infer_instance
+instance : Algebra.IsIntegral R (IntegralClosure R A) := sorry
 
-instance : IsScalarTower R (IntegralClosure R A) A := (integralClosure R A).isScalarTower_mid
+instance : IsScalarTower R (IntegralClosure R A) A := sorry
 
-instance [FaithfulSMul R A] : FaithfulSMul R (IntegralClosure R A) := by
-  refine (faithfulSMul_iff_algebraMap_injective _ _).mpr (.of_comp (f := algebraMap _ A) ?_)
-  exact (FaithfulSMul.algebraMap_injective R A)
+instance [FaithfulSMul R A] : FaithfulSMul R (IntegralClosure R A) := sorry
 
 instance mulSemiringActionIntegralClosure
     {G R K : Type*} [CommRing R] [Field K] [Algebra R K] [Monoid G] [MulSemiringAction G K]
@@ -61,46 +53,19 @@ instance mulSemiringActionIntegralClosure
 instance smulCommClass_integralClosure
     {G R K : Type*} [CommRing R] [Field K] [Algebra R K] [Monoid G] [MulSemiringAction G K]
     [SMulCommClass G R K] :
-    SMulCommClass G R (IntegralClosure R K) where
-  smul_comm _ _ _ := Subtype.ext (smul_comm _ _ _)
-
-lemma not_isField_integralClosure
-    {K L : Type*} [Field K] [Field L] [Algebra K L] (R : ValuationSubring K) (hR : R ≠ ⊤) :
-    ¬ IsField (IntegralClosure R L) := by
-  have : FaithfulSMul K L := inferInstance
-  contrapose! hR
-  letI := hR.toField
-  let F := IsFractionRing.liftAlgHom (K := K) (g := Algebra.ofId R (IntegralClosure R L))
-    (FaithfulSMul.algebraMap_injective _ _)
-  refine top_le_iff.mp fun x _ ↦ ?_
-  have : IsIntegrallyClosed R := GCDMonoid.toIsIntegrallyClosed
-  have := (isIntegral_algHom_iff F F.injective).mp (Algebra.IsIntegral.isIntegral (R := R) (F x))
-  obtain ⟨x, rfl⟩ := (IsIntegralClosure.isIntegral_iff (A := R)).mp this
-  exact x.2
+    SMulCommClass G R (IntegralClosure R K) := sorry
 
 instance isInvariant_integralClosure
     {G K L : Type*} [Field K] [Field L] [Algebra K L] [Group G] [MulSemiringAction G L]
     [SMulCommClass G K L] [Algebra.IsInvariant K L G] (R : ValuationSubring K) :
-    Algebra.IsInvariant R (IntegralClosure R L) G where
-  isInvariant := by
-    rintro ⟨x, hx : IsIntegral _ _⟩ hx'
-    obtain ⟨x, rfl⟩ := Algebra.IsInvariant.isInvariant (A := K) x fun g ↦ congr($(hx' g).1)
-    rw [isIntegral_algebraMap_iff (A := K) (B := L)] at hx
-    have : IsIntegrallyClosed R := GCDMonoid.toIsIntegrallyClosed
-    obtain ⟨x, rfl⟩ := (IsIntegralClosure.isIntegral_iff (A := R)).mp hx
-    exact ⟨x, rfl⟩
+    Algebra.IsInvariant R (IntegralClosure R L) G := sorry
 
 instance continuousSMulDiscrete_integralClosure
     {G R L : Type*} [CommRing R] [Field L] [Algebra R L] [Group G] [MulSemiringAction G L]
     [SMulCommClass G R L] [TopologicalSpace G] [ContinuousSMulDiscrete G L] :
-    ContinuousSMulDiscrete G (IntegralClosure R L) where
-  isOpen_smul_eq x y := by
-    convert ContinuousSMulDiscrete.isOpen_smul_eq (G := G) x.1 y.1 using 1
-    ext g
-    exact Subtype.ext_iff
+    ContinuousSMulDiscrete G (IntegralClosure R L) := sorry
 
 instance {R S : Type*} [CommRing R] [CommRing S] {I : Ideal S} [Algebra R S]
-    [Nontrivial R] [IsDomain S] [Algebra.IsIntegral R S] [NeZero I] : NeZero (I.under R) :=
-  ⟨fun H ↦ NeZero.ne I (Ideal.eq_bot_of_comap_eq_bot H)⟩
+    [Nontrivial R] [IsDomain S] [Algebra.IsIntegral R S] [NeZero I] : NeZero (I.under R) := sorry
 
 end

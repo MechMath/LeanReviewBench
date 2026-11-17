@@ -1,45 +1,49 @@
-import dep.equational_theories.ManuallyProved.Equation1729.ExtensionTheorem
-import dep.equational_theories.ManuallyProved.Equation1729.SmallMagma
-import dep.equational_theories.ManuallyProved.Equation1729.MagmaConstruction
+import Init.Classical
+import Init.Prelude
+import Lean
+import Lean.Elab.Declaration
+import Lean.Elab.Exception
+import Lean.Environment
+import Lean.Meta.Basic
+import Lean.Util
+import Lean.Util.CollectAxioms
 import Mathlib.Algebra.DirectSum.Basic
-import Mathlib.GroupTheory.FreeGroup.Basic
-import Mathlib.Data.ZMod.Defs
+import Mathlib.Algebra.Module.LinearMap.Defs
+import Mathlib.Algebra.Ring.NonZeroDivisors
 import Mathlib.Data.Countable.Defs
-
-import dep.equational_theories.Equations.All
-
+import Mathlib.Data.DFinsupp.Encodable
+import Mathlib.Data.Finset.Union
+import Mathlib.Data.Fintype.Basic
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Set.Countable
+import Mathlib.Data.Set.Defs
+import Mathlib.Data.ZMod.Defs
+import Mathlib.GroupTheory.FreeGroup.Basic
+import Mathlib.GroupTheory.FreeGroup.CyclicallyReduced
+import Mathlib.Logic.Embedding.Basic
+import Mathlib.Logic.Equiv.Basic
+import Mathlib.Logic.Equiv.Defs
+import Mathlib.Order.Preorder.Chain
+import Mathlib.Order.WithBot
+import Mathlib.RepresentationTheory.Basic
+import Mathlib.Tactic
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.Equations.Basic
+import dep.equational_theories.Equations.Command
+import dep.equational_theories.Equations.Eqns1000_1999
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.FreshGenerator
+import dep.equational_theories.Homomorphisms
+import dep.equational_theories.Magma
+import dep.equational_theories.MagmaLaw
+import dep.equational_theories.ManuallyProved.Equation1729.MagmaConstruction
+import dep.equational_theories.ManuallyProved.Equation1729.SmallMagma
+import dep.equational_theories.ParseImplications
+import dep.equational_theories.Preorder
 
 namespace Eq1729
 
-@[equational_result]
-theorem not_817 : ∃ (G: Type) (_: Magma G), Equation1729 G ∧ ¬ Equation817 G := by
-  let β := N ⊕ N ⊕ (N × N)
-  let task : β → Set PartialSolution := fun s => match s with
-    | Sum.inl x => { sol | x ∈ fill sol.Predom_L₀' }
-    | Sum.inr (Sum.inl x) => { sol | x ∈ sol.Dom_S' }
-    | Sum.inr (Sum.inr (x,y)) => { sol | (x,y) ∈ sol.Dom_op }
-  have := exists_greedy_chain task ?_ TrivialPartialSolution
-  . obtain ⟨ sols, hchain, hnon, _, h ⟩ := this
-    apply use_chain hchain
-    . rw [nonempty_subtype]
-      use TrivialPartialSolution
-    . intro x
-      exact h (Sum.inl x)
-    . intro x
-      exact h (Sum.inr (Sum.inl x))
-    intro x y
-    exact h (Sum.inr (Sum.inr (x,y)))
-  intro sol b
-  match b with
-  | Sum.inl x =>
-      simp only [Set.mem_setOf_eq, task]
-      obtain ⟨sol', hsol', hx_sol', _⟩ := enlarge_L₀' sol x
-      exact ⟨sol', hsol', hx_sol'⟩
-  | Sum.inr (Sum.inl x) =>
-      simp only [Set.mem_setOf_eq, task]
-      exact enlarge_S' sol x
-  | Sum.inr (Sum.inr (x,y)) =>
-      simp only [Set.mem_setOf_eq, task]
-      exact enlarge_op sol x y
+theorem not_817 : ∃ (G: Type) (_: Magma G), Equation1729 G ∧ ¬ Equation817 G := sorry
 
 end Eq1729

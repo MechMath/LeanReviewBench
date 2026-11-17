@@ -11,7 +11,7 @@ python3 -m unittest discover -s tests -v
 
 The support check uses `metadata/support-inventory.json` and verifies the required docs/configuration/tool inventory, local documentation links and declared Python imports. The native checker verifies the 16 registered batches, source/resource digests, target/index bindings, human-reviewed labels, graph receipts, provenance, upstream evidence, licensing and the data manifest. The annotation audit checks label coverage and indexed analysis hashes; human review is separate from export readiness.
 
-The migrated upstream regression tests exercise formal-context filtering, model output validation, batch identity/resume, abstention/scoring, provider settings with mocked network responses, Lean dependency parsing and environment resolution. Additional release tests cover native input hashes and exact local graph access. These tests use temporary fixtures and do not contact a model provider or run Lean compilation.
+The migrated upstream regression tests exercise formal-context filtering, model output validation, batch identity/resume, abstention/scoring, provider settings with mocked network responses, Lean dependency parsing and environment resolution. Additional release tests cover native input hashes, exact local graph access and explicit proof-erasure receipts that cannot claim certification of original theorem proofs. These tests use temporary fixtures and do not contact a model provider or run Lean compilation.
 
 Optional compilation requires the dependencies in [ENVIRONMENT.md](ENVIRONMENT.md):
 

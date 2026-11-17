@@ -34,7 +34,7 @@
   "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "inherited_from_identical_sources",
+  "packaged_compilation": "passed",
   "missing_modules": [],
   "external_imports": [
     "Mathlib.Tactic.CrossRefAttribute",
@@ -49,10 +49,13 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "8200c013d5956069dad6fb2dcbc8c702bf97d4313328c2add730c379ef12d7ba"
+    "sha256": "b6bed63ec33cc9c6b0ba823d8e06caaec5eb8beffd5b877d5a3add247ff9d4c3",
+    "effective_root_sha256": "a75557327cd2302ee2750bb73d9ace68dac711089643a7dbe1f4b76cbfde0823",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/stacks.jsonl",
   "evaluation_eligible": false,
   "preparation": {
@@ -68,7 +71,7 @@
   },
   "author_disclosure": "no_explicit_root_error_admission",
   "upstream_proof_holes_preserved": true,
-  "input_sha256": "1178be3b790897c2ad3c6260ac053bb9a48f661d969d1e0d9ec510b8c90b8ef3",
+  "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
   "target_mode": "joint",
   "merged_from": [
     "STK-0B34-left",

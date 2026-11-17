@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "原文的 torsion 约定给 m≥2 及 mx=0；自然 Z/mZ 模的子模与加法子群等价。根的有限性、覆盖及大小条件对应自身版本，严格覆盖数界比原文的至多界更强。",
   "external_imports": [
     "Mathlib.Algebra.BigOperators.Fin",
     "Mathlib.Algebra.BigOperators.Group.Multiset.Defs",
@@ -85,8 +84,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 53,
-    "sha256": "9d74b23a7941c69962d19dae9b85edaaa594cefb9f1f931e9ce15b44a5e89740"
+    "file_count": 24,
+    "sha256": "b295d21ea487690a5d63f761d57b5922ad8e3977961495a016600a9d219da4dd",
+    "effective_root_sha256": "cac6d3ae4774bc9d421788b7dbfc2b513f98eb7a6f2f203a5bb20693f02a1436",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-candidates/technical/pr305-before/20261104T082346114958Z/receipt.json",
@@ -109,8 +111,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "edf32335da64bfc74612086d1411aec186270e02ca2e97829304d867dbf9ac17",
+  "input_sha256": "126dc51af825eeb712aebb4f7cf608927ca9b6044d6fa36f9d58db6c58e1ba36",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

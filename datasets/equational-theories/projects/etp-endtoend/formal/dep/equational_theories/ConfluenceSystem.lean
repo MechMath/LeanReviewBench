@@ -1,19 +1,48 @@
+import Lean
+import Lean.Elab.Declaration
+import Lean.Elab.Exception
+import Lean.Environment
+import Lean.Meta.Basic
+import Lean.Util
+import Lean.Util.CollectAxioms
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Set.Defs
+import Mathlib.Logic.Equiv.Basic
+import Mathlib.Tactic.CasesM
+import Mathlib.Tactic.NthRewrite
 import dep.equational_theories.Confluence
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.Equations.Basic
+import dep.equational_theories.Equations.Command
+import dep.equational_theories.Equations.Eqns1000_1999
+import dep.equational_theories.Equations.Eqns1_999
+import dep.equational_theories.Equations.Eqns2000_2999
+import dep.equational_theories.Equations.Eqns3000_3999
+import dep.equational_theories.Equations.Eqns4000_4694
+import dep.equational_theories.FactsSyntax
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.Homomorphisms
+import dep.equational_theories.Magma
+import dep.equational_theories.MagmaLaw
+import dep.equational_theories.ParseImplications
+import dep.equational_theories.Preorder
 
 namespace Confluence
 
 open Lean.Parser.Tactic
 
 attribute [confluence_simps] not_true_eq_false not_false_eq_true false_implies implies_true imp_false false_and and_true and_self not_and and_imp
+
 attribute [confluence_simps] ite_eq_right_iff
+
 attribute [confluence_simps] Option.ite_none_right_eq_some Option.some.injEq
+
 attribute [confluence_simps] forall_apply_eq_imp_iff₂
+
 attribute [confluence_simps] FreeMagma.Fork.injEq
 
 simproc [confluence_simps] confluenceReduceCtorEq (_) := reduceCtorEq
-
--- for some reason if I try to use Not.eq_def directly from a tactic it can't find it!
-private def not_eq_def := Not.eq_def
 
 scoped macro "separate" : tactic => `(tactic| (
   try simp only [Not.eq_def]
@@ -56,7 +85,9 @@ scoped macro "prove_elim_not" : tactic => `(tactic| (
 ))
 
 open Lean
+
 open Lean.Meta Lean.Elab Command Term Parser Lean.Syntax
+
 open Std HashMap
 
 scoped syntax (name := ruleSystem) "rule_system " ident " {" ident* " : " term "}" ("-" ident)* (ppLine "|" term "=>" term)+ : command

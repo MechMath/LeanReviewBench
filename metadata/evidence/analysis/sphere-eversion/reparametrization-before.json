@@ -3,7 +3,7 @@
   "dataset": "sphere-eversion",
   "project_id": "reparametrization-before",
   "task_id": "sphere-eversion:reparametrization-before",
-  "input_sha256": "a5b0c5d1d4d3911b54891fb6cb5b1702027beb9870cd4e9aa1df79e85260cd73",
+  "input_sha256": "03ffa06b0cc2d3a59eb497715bdd14924e09a84feb96201b40758cf8d83b2e04",
   "label": "misaligned",
   "reason": "The formal output family must be jointly smooth, whereas the bound old target requires only pointwise circle diffeomorphisms.",
   "review_status": "human_reviewed",

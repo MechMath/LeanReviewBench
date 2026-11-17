@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "MBJG-VARIANCE-INTERIOR",
   "task_id": "aml:MBJG-VARIANCE-INTERIOR",
-  "input_sha256": "a1eef88c96a3896fc1e882fff3d61b340f97d9bb58fe086d2e18fb9f3d2da4e5",
+  "input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
   "label": "aligned",
   "reason": "The posterior-mean variance formula and strict decrease in eta match under the specified positivity and interior-parameter conditions.",
   "review_status": "human_reviewed",

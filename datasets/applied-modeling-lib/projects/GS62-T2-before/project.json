@@ -28,9 +28,8 @@
   "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Mathlib.Algebra.BigOperators.Ring.Finset",
     "Mathlib.Algebra.Order.BigOperators.Group.Finset",
@@ -59,7 +58,7 @@
       "sha256": "c7a5dfacce8ae086283947d8f0598b328fd9584644711365a529fb617518b768"
     }
   },
-  "input_sha256": "25cf090557ad123b49bd2b51aa85ced298c6ca85f57bfc4c595acc527c009cd1",
+  "input_sha256": "a0514f5af13db2729f7ea8574f9438904166877e4d8d6dc3cb19e16a5131c92f",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -68,11 +67,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 5,
-    "sha256": "0a48f2913a7a9348c034eeedd39e539bedd55206e85ae7d32bd126e32d952dd5",
-    "effective_root_sha256": "0cfae333648e29944e1c96f3547454c5a296f52e78304ad58f086de88b14cc94"
+    "file_count": 4,
+    "sha256": "6cd42ff3c0ac56513d58d0d91e295e83720ac5506c5042d6c0f696d3f3d6c4d1",
+    "effective_root_sha256": "7c07b068d272c692b8fc1f74cd70fc1cbcd013a1ac8a45ecc1466fe4cfe056a1",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

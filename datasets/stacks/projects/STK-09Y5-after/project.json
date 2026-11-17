@@ -48,11 +48,14 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 5,
-    "sha256": "7d0f1648adf0a8af5189e0bcd2304a926fc130c51453e5c4613a25ac7fe27ed3"
+    "file_count": 4,
+    "sha256": "ba09c82e6d7a1753de9e3c8d921cda3a27a7d72f82de1724946f87f7b86be87e",
+    "effective_root_sha256": "fa53f9cfadf25350b3ed8585f3cede44f55b201c775ce579017e51b92e898cef",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/stacks.jsonl",
   "evaluation_eligible": false,
   "preparation": {
@@ -67,5 +70,5 @@
   },
   "author_disclosure": "no_explicit_root_error_admission",
   "upstream_proof_holes_preserved": true,
-  "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f"
+  "input_sha256": "0851c64fbddc357753a1397a4f10730c4bec75a16cb51ec6f7528309d1290e86"
 }

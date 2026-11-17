@@ -1,59 +1,36 @@
 {
-  "schema_version": "paperlean-composed-graph-receipt-1",
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "stacks",
+  "project_id": "STK-0B34",
   "status": "passed",
-  "input_sha256": "1178be3b790897c2ad3c6260ac053bb9a48f661d969d1e0d9ec510b8c90b8ef3",
+  "evidence": "compiled_environment",
   "roots": [
     "Sum.not_t0_of_not_t0_left",
     "Sum.not_quasiSober_of_not_quasiSober_right"
   ],
-  "source_revision": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
-  "lean_version": "4.34.1",
-  "method": "Exact union of retained compiled statement graphs for byte-identical formal sources.",
-  "fresh_compilation": false,
-  "new_sorry_or_axioms": false,
+  "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
+  "graph_sha256": "92256624b4c04a9faf1edce82f5de9d633b2ecc7c9cd606e9d9289d6fd733dcb",
+  "graph_path": "metadata/derived-graphs/graphs/stacks--STK-0B34.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
   "original_theorem_proof_certified": false,
-  "original_holes_preserved": true,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
   "formal_sources": [
     [
       "formal/Main.lean",
-      "70e3c7a457f687884b515f0044fcc9e89c5dc4aef159ed222124fd5fa740186d"
+      "a75557327cd2302ee2750bb73d9ace68dac711089643a7dbe1f4b76cbfde0823"
     ]
   ],
-  "graph_sha256": "508a9329a10c3fd3b28d2981ece43b6f08dd114472274cdee25b692c990a5c1d",
-  "explicit_graph_path": "reports/stacks-admission/technical/STK-0B34/explicit/graph.json",
-  "explicit_graph_sha256": "3a12ddbb169fc544100a45bfa6687954d25280bf27f53ed45259857b3c91b082",
-  "components": [
-    {
-      "root": "Sum.not_t0_of_not_t0_left",
-      "input_sha256": "5c4da837e4012297772a04bfa4713462a477abc4b50f17c180faa9354a6a5ef2",
-      "receipt_path": "reports/stacks-admission/technical/STK-0B34-left/receipt.json",
-      "receipt_sha256": "52dacab8ff87d4d8197f65efce972883aa5a1320a81ae6384c281cc39f69b32a",
-      "project_path": "reports/stacks-admission/superseded/STK-0B34-left/project.json",
-      "project_sha256": "f0082da49ac1c56350f577e2f9aa102778b5880ae09285e5a1e34913a7b5a02b",
-      "default": {
-        "path": "reports/stacks-admission/technical/STK-0B34-left/default/graph.json",
-        "sha256": "80293caf6e7599fb4409fbf1aeb54ae5ae09a8a53d669d0d52da593b10c64032"
-      },
-      "explicit": {
-        "path": "reports/stacks-admission/technical/STK-0B34-left/explicit/graph.json",
-        "sha256": "e226076f58e39a0ce9db75e0c3a822e598601fc6ffa57b61bbbe2f93fa9676c5"
-      }
-    },
-    {
-      "root": "Sum.not_quasiSober_of_not_quasiSober_right",
-      "input_sha256": "53e37b0be0d5e884f0569922c78bfe78b6f6e1d1de5e30d67e0deb4cedb44346",
-      "receipt_path": "reports/stacks-admission/technical/STK-0B34-right/receipt.json",
-      "receipt_sha256": "4c4133cca1783eb006c8e53c5a7a128c91400d994bf1d58bfb5de46e2d0c6f87",
-      "project_path": "reports/stacks-admission/superseded/STK-0B34-right/project.json",
-      "project_sha256": "6bf0d8f8500c2a1d7d404ba699fdceacbbc22d18b9876aaf132f3ac9132d598d",
-      "default": {
-        "path": "reports/stacks-admission/technical/STK-0B34-right/default/graph.json",
-        "sha256": "93dbc9c7390aa775fac69c0534c7604a21c439f56c989a8969de80bda3badbfd"
-      },
-      "explicit": {
-        "path": "reports/stacks-admission/technical/STK-0B34-right/explicit/graph.json",
-        "sha256": "4d7040f81f15558c4a5ac585d8069786ca77ae3b518fb626c5109a4b9e3c8650"
-      }
-    }
-  ]
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 8,
+  "edges": 10,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
 }

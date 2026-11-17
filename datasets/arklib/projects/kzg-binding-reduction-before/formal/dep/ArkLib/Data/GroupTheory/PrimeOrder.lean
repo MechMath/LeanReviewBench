@@ -1,18 +1,6 @@
-/-
-Copyright (c) 2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-
-/-! # Prime Order Groups
-
-This file defines the `PrimeOrder` type class, which asserts that a group has some prime order `p`.
-
-We also define the unbundled version, `PrimeOrderWith`, which has the prime order `p` as an explicit
-output parameter. -/
 
 @[expose] public section
 
@@ -26,11 +14,9 @@ namespace PrimeOrder
 
 variable {G : Type*} [Group G] [PrimeOrder G]
 
-instance : Fact (Nat.Prime (PrimeOrder.p G)) :=
-  PrimeOrder.hPrime
+instance : Fact (Nat.Prime (PrimeOrder.p G)) := sorry
 
-instance : IsCyclic G :=
-  isCyclic_of_prime_card PrimeOrder.hCard
+instance [PrimeOrder G] : IsCyclic G := sorry
 
 instance : CommGroup G := IsCyclic.commGroup
 

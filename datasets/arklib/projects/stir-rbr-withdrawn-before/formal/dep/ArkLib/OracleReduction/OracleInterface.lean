@@ -1,35 +1,139 @@
-/-
-Copyright (c) 2024 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import dep.VCVio.OracleComp.OracleContext
-public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
-public import dep.CompPoly.Data.MvPolynomial.Notation
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Polynomial.Eval.Defs
 public import Mathlib.Algebra.Polynomial.Roots
-public import dep.ArkLib.Data.MvPolynomial.Degrees
-public import dep.ArkLib.Data.MvPolynomial.SchwartzZippelCounting
--- import ArkLib.Data.MlPoly.Basic
-
-/-!
-  # Definitions and Instances for `OracleInterface`
-
-  We define `OracleInterface`, which is a type class that augments a type with an oracle interface
-  for that type. The interface specifies the type of queries, the type of responses, and the
-  oracle's behavior for a given underlying element of the type.
-
-  `OracleInterface` is used to restrict the verifier's access to the input oracle statements and the
-  prover's messages in an interactive oracle reduction (see `Basic.lean`).
-
-  We define `OracleInterface` instances for common types:
-
-  - Univariate and multivariate polynomials. These instances turn polynomials into oracles for which
-    one can query at a point, and the response is the evaluation of the polynomial on that point.
-
-  - Vectors. This instance turns vectors into oracles for which one can query specific positions.
--/
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.DiscreteInstances
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.Defs.Support.Failure
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Monad.Seq.Measure
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -55,7 +159,6 @@ dtumad: Eventually I think we should directly use `OracleContext` instead? -/
 class OracleInterface (Message : Type u) where
   Query : Type v
   toOC : OracleContext Query (ReaderM Message)
-
 
 def OracleContext.ofFunction (α β : Type _) :
     OracleContext α (ReaderM (α → β)) where
@@ -106,13 +209,8 @@ def toOracleSpec {ι : Type u} (v : ι → Type v) [O : ∀ i, OracleInterface (
     OracleSpec ((i : ι) × (O i).Query) := fun q => (O q.1).Response q.2
 
 @[inherit_doc] notation "[" v "]ₒ" => toOracleSpec v
-@[inherit_doc] notation "[" v "]ₒ'" oI:max => toOracleSpec v (O := oI)
 
-/-- Given an underlying data for an indexed type family of oracle interfaces `v`,
-    we can give an implementation of all queries to the interface defined by `v` -/
-def toOracleImpl {ι : Type u} (v : ι → Type v) [O : ∀ i, OracleInterface (v i)]
-    (data : ∀ i, v i) : QueryImpl [v]ₒ Id :=
-  fun | ⟨i, t⟩ => (O i).answer (data i) t
+@[inherit_doc] notation "[" v "]ₒ'" oI:max => toOracleSpec v (O := oI)
 
 /-- Any function type has a canonical `OracleInterface` instance, whose `answer` is the function
   itself. -/
@@ -203,18 +301,6 @@ def simOracle0 {ι : Type _} (T : ι → Type _)
 /-- Combines multiple oracle specifications into a single oracle by routing queries to the
       appropriate underlying oracle. Takes:
     - A base oracle specification `oSpec`
-    - An indexed type family `T` with `OracleInterface` instances
-    - Values of that type family
-  Returns a stateless oracle that routes queries to the appropriate underlying oracle. -/
-def simOracle {ι : Type u} (oSpec : OracleSpec ι)
-    {ι' : Type v} {T : ι' → Type w}
-    [∀ i, OracleInterface (T i)] (t : (i : ι') → T i) :
-    QueryImpl (oSpec + [T]ₒ) (OracleComp oSpec) :=
-  QueryImpl.addLift (QueryImpl.id oSpec) (simOracle0 T t)
-
-/-- Combines multiple oracle specifications into a single oracle by routing queries to the
-      appropriate underlying oracle. Takes:
-    - A base oracle specification `oSpec`
     - Two indexed type families `T₁` and `T₂` with `OracleInterface` instances
     - Values of those type families
   Returns a stateless oracle that routes queries to the appropriate underlying oracle. -/
@@ -227,45 +313,6 @@ def simOracle2 {ι : Type u} (oSpec : OracleSpec ι)
     QueryImpl (oSpec + ([T₁]ₒ + [T₂]ₒ)) (OracleComp oSpec) :=
   QueryImpl.addLift (QueryImpl.id oSpec)
     (QueryImpl.add (simOracle0 T₁ t₁) (simOracle0 T₂ t₂))
-
-/-- Simulating a query to the second oracle family through `simOracle2` answers it from that
-family's values. For an oracle verifier this family is the prover's messages.
-
-The query is stated at its single-step lift into the combined specification. A verifier's
-`query` elaborates through a longer `MonadLiftT` chain, so this rewrites it only up to instance
-unfolding (`OracleVerifier.toVerifier_verify_of_query_guard` uses it with `erw`). -/
-theorem simulateQ_simOracle2_liftM_query_snd {ι : Type} {oSpec : OracleSpec ι}
-    {ι₁ : Type} {T₁ : ι₁ → Type} [∀ i, OracleInterface (T₁ i)]
-    {ι₂ : Type} {T₂ : ι₂ → Type} [∀ i, OracleInterface (T₂ i)]
-    (t₁ : ∀ i, T₁ i) (t₂ : ∀ i, T₂ i) (j : ι₂) (q : Query (T₂ j)) :
-    simulateQ (simOracle2 oSpec t₁ t₂)
-      (liftM (OracleSpec.query (spec := [T₂]ₒ) ⟨j, q⟩) :
-        OracleComp (oSpec + ([T₁]ₒ + [T₂]ₒ)) _) = pure (answer (t₂ j) q) :=
-  rfl
-
-/-- The queries on which two messages give the same oracle answer. -/
-def agreementQueries {Message : Type*} (O : OracleInterface Message)
-    [Fintype O.Query] [∀ q, DecidableEq (O.toOC.spec q)] (a b : Message) : Finset O.Query :=
-  Finset.univ.filter fun q => answer a q = answer b q
-
-@[simp]
-lemma mem_agreementQueries {Message : Type*} {O : OracleInterface Message}
-    [Fintype O.Query] [∀ q, DecidableEq (O.toOC.spec q)] {a b : Message} {q : O.Query} :
-    q ∈ O.agreementQueries a b ↔ answer a q = answer b q := by
-  simp [agreementQueries]
-
-/-- A message type together with a `OracleInterface` instance is said to have **oracle distance**
-  (at most) `d` if for any two distinct messages, there is at most `d` queries that distinguish
-  them, i.e.
-
-  `#{q | OracleInterface.answer a q = OracleInterface.answer b q} ≤ d`.
-
-  This property corresponds to the distance of a code, when the oracle instance is to encode the
-  message and the query is a position of the codeword. In particular, it applies to
-  `(Mv)Polynomial`. -/
-def distanceLE {Message : Type*} (O : OracleInterface Message)
-    [Fintype O.Query] [∀ q, DecidableEq (O.toOC.spec q)] (d : ℕ) : Prop :=
-  ∀ a b : Message, a ≠ b → (O.agreementQueries a b).card ≤ d
 
 section Polynomial
 
@@ -317,11 +364,6 @@ section Vector
 
 variable {n : ℕ} {α : Type*}
 
-/- Vectors of the form `Fin n → α` can be accessed via queries on their indices. We no longer have
-   this instance separately since it can be inferred from the instance for `Function`. -/
--- instance instOracleInterfaceForallFin :
---     OracleInterface (Fin n → α) := OracleInterface.instFunction
-
 /-- Vectors of the form `List.Vector α n` can be accessed via queries on their indices. -/
 instance instListVector : OracleInterface (List.Vector α n) where
   Query := (Fin n)
@@ -340,68 +382,8 @@ end OracleInterface
 
 section PolynomialDistance
 
--- TODO: refactor these theorems and move them into the appropriate `(Mv)Polynomial` files
-
 open Polynomial MvPolynomial OracleInterface
 
 variable {R : Type*} [CommRing R] {d : ℕ} [Fintype R] [DecidableEq R] [IsDomain R]
-
--- TODO: golf this theorem
-@[simp]
-theorem distanceLE_polynomial_degreeLT :
-    distanceLE (instPolynomialDegreeLT R d) (d - 1) := by
-  simp only [distanceLE, ne_eq, instPolynomialDegreeLT, Subtype.forall,
-    mem_degreeLT, Subtype.mk.injEq]
-  intro p hp p' hp' hNe
-  have hEvalRoot : ∀ q ∈ Finset.univ, p.eval q = p'.eval q ↔ q ∈ (p - p').roots := by
-    intro q _
-    simp only [mem_roots', ne_eq, IsRoot.def, Polynomial.eval_sub]
-    constructor <;> intro h
-    · constructor
-      · intro h'; contrapose! hNe; exact sub_eq_zero.mp h'
-      · simp [h]
-    · exact sub_eq_zero.mp h.2
-  conv =>
-    enter [1, 1]
-    apply Finset.filter_congr hEvalRoot
-  simp only [mem_roots', ne_eq, IsRoot.def, Polynomial.eval_sub]
-  have : (p - p').roots.card < d := by
-    have hSubNe : p - p' ≠ 0 := sub_ne_zero_of_ne hNe
-    have hSubDegLt : (p - p').degree < d := lt_of_le_of_lt (degree_sub_le p p') (by simp [hp, hp'])
-    have := Polynomial.card_roots hSubNe
-    have : (p - p').roots.card < (d : WithBot ℕ) := lt_of_le_of_lt this hSubDegLt
-    simp only [Nat.cast_lt] at this
-    exact this
-  refine Nat.le_sub_one_of_lt (lt_of_le_of_lt ?_ this)
-  apply Multiset.card_le_card
-  rw [Multiset.le_iff_subset]
-  · intro x hx
-    rw [mem_roots']
-    simpa only [IsRoot.def, Polynomial.eval_sub] using (Multiset.mem_filter.mp hx).2
-  · exact Finset.univ.nodup.filter _
-
-theorem distanceLE_polynomial_degreeLE :
-    distanceLE (instPolynomialDegreeLT R d) d := by
-  intro a b hab
-  exact le_trans (distanceLE_polynomial_degreeLT a b hab) (Nat.sub_le d 1)
-
-/-- Schwartz-Zippel-type distance bound for multivariable polynomials of degree ≤ d.
-    The bound is `Fintype.card σ * d * Fintype.card R ^ (Fintype.card σ - 1)` (the earlier
-    bound `Fintype.card σ * d` was false; see counterexample in comment history). -/
-theorem distanceLE_mvPolynomial_degreeLE {σ : Type} [Fintype σ] [DecidableEq σ] :
-    distanceLE (instMvPolynomialDegreeLE R d σ)
-      (Fintype.card σ * d * Fintype.card R ^ (Fintype.card σ - 1)) := by
-  let : Field R := Fintype.fieldOfDomain R
-  intro a b hab
-  have hne : (a : MvPolynomial σ R) - (b : MvPolynomial σ R) ≠ 0 := by
-    rw [sub_ne_zero]
-    exact fun h => hab (Subtype.ext h)
-  have hdeg : ((a : MvPolynomial σ R) - (b : MvPolynomial σ R)).totalDegree
-      ≤ Fintype.card σ * d :=
-    MvPolynomial.totalDegree_le_card_mul_of_mem_restrictDegree _ d (sub_mem a.2 b.2)
-  have hcount := MvPolynomial.card_zeros_le_of_totalDegree_le _ hne hdeg
-  refine le_trans (le_of_eq ?_) hcount
-  simp only [instMvPolynomialDegreeLE, map_sub, sub_eq_zero]
-  rfl
 
 end PolynomialDistance

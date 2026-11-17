@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "bounded-jy-after",
   "task_id": "pnt:bounded-jy-after",
-  "input_sha256": "3cb65b1719ef11092365a9a7693fe740b800fb9a4e45349b8c890afecfe8dc18",
+  "input_sha256": "5480389edc82225d6e107214860ddcb134bbd9df64f22267d665dc780faab510",
   "label": "aligned",
   "reason": "Multiplying by x/log(x) changes the formal logarithmic power 1.801 to the source power 0.801; the threshold 23 and remaining constants match.",
   "review_status": "human_reviewed",

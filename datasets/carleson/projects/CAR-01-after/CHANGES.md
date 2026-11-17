@@ -10,4 +10,9 @@ Retain historical ENorm classes under `Legacy212_` names, including their origin
 
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
-Recorded compatibility edits affect `Carleson/CoverByBalls.lean`, `Carleson/Defs.lean`, `Carleson/DoublingMeasure.lean`, `Carleson/Legacy212Norm.lean`, `Carleson/ToMathlib/ENorm.lean`, `Carleson/ToMathlib/MeasureReal.lean`, `Carleson/ToMathlib/Misc.lean`, `Carleson/WeakType.lean`.
+Before context pruning, compatibility edits affected `Carleson/CoverByBalls.lean`, `Carleson/Defs.lean`, `Carleson/DoublingMeasure.lean`, `Carleson/Legacy212Norm.lean`, `Carleson/ToMathlib/ENorm.lean`, `Carleson/ToMathlib/MeasureReal.lean`, `Carleson/ToMathlib/Misc.lean`, `Carleson/WeakType.lean`.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

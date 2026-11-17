@@ -11,3 +11,8 @@ Adapt imports, tensor-induction APIs, typeclass elaboration and completion-wrapp
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
 Completion-wrapper adaptations follow upstream #1100 and #1121; tensor-induction adaptations follow #1192. Completion maps use the corresponding wrapper equivalences/maps; adele notation collisions are expanded to the existing definitions.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

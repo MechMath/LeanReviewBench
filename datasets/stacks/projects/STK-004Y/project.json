@@ -43,10 +43,13 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "bf50952ccfcadfaee3e11041c47fd39e2ce3e2c17f94673e008b47dde8694e64"
+    "sha256": "dad09d8caef808889d855c39ed5cf962f749143e0ba4223dcc01a1e782cfcb13",
+    "effective_root_sha256": "25d8823e08c2b290c58621bf58b1b1855c1e1752d1ed7a95e316c90717d3e625",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/stacks.jsonl",
   "evaluation_eligible": false,
   "preparation": {
@@ -61,5 +64,5 @@
   },
   "author_disclosure": "no_explicit_root_error_admission",
   "upstream_proof_holes_preserved": true,
-  "input_sha256": "143a9abe794373e0de6fd780354f4a4fd8e7b23d53da1ba0c7d35994fdc24257"
+  "input_sha256": "70372055ac0f16f5855c2e51073860b982d13d1bd411542c0eda02cf384f102f"
 }

@@ -1,0 +1,43 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "brownian-motion",
+  "project_id": "finite-set-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "ProbabilityTheory.finite_set_bound_of_edist_le"
+  ],
+  "input_sha256": "00b0e4424626a1fb57a17f4f84edd4d24d89aa0783b4bb0641a33de9a383f33c",
+  "graph_sha256": "7e33e9338133b7e65db2100c1edb5fc58107e96c806b5de6ae1b2362eda6b253",
+  "graph_path": "metadata/derived-graphs/graphs/brownian-motion--finite-set-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "a72999c65cd4a55a45cc8bf231b78533cd224dc8fef69f0f508d9440d3130b2a"
+    ],
+    [
+      "formal/dep/Continuity/CoveringNumber.lean",
+      "a20ca1d8a8002df9cec429fb12ce592af388580603003a8d68e91227187b953c"
+    ],
+    [
+      "formal/dep/Continuity/HasBoundedInternalCoveringNumber.lean",
+      "ca7e19355dbc39eaa6fbcfc89f84afc153d5a1d19d4e99c3b4fae9452ef24db9"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 3,
+  "nodes": 117,
+  "edges": 210,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

@@ -56,8 +56,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 28,
-    "sha256": "69ce1164c0153b71b7852e1ffcb8950481ff4459b8bfdb09970f5aede9f3a741"
+    "file_count": 25,
+    "sha256": "c4d407a934571ce96a66215d08ece033ca59cdcc438f704caffc0138e2da26fe",
+    "effective_root_sha256": "12fe78e75587b98a9261578c93979fe363d2a98454a0464ae4c3b5a4b5cfa323",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/vaught-build/technical/gate-before/20261103T141555727456Z/receipt.json",
@@ -72,8 +75,8 @@
   "author_disclosure": "explicit_refutation_and_retirement",
   "mechanism_group": "vaught:universal-extension-premise",
   "target_selection": "roadmap_completion_criterion_not_conditional_root_docstring",
-  "input_sha256": "67f479b72414f3df259b16ae7814b96113703590370402fe3e6491546921871a",
+  "input_sha256": "244db73738a2c4ee7222d7d1d0467a80040a0a64b1be5a17fe94bc3301598c02",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/vaught.jsonl"
 }

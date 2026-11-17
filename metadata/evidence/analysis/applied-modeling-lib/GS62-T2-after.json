@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GS62-T2-after",
   "task_id": "aml:GS62-T2-after",
-  "input_sha256": "225be72dd9bc57d272adb380c86744f76cd4ca9e6bf87b2eb36a44bb90aea41b",
+  "input_sha256": "b8fe5e99a1a274c95b3442e699a253e012f4d37582b11e2793ebdd272de31c2d",
   "label": "aligned",
   "reason": "The root attributes stability and applicant optimality to the actual deferred-acceptance output. The proposal, retention, and rejection steps match the source algorithm.",
   "review_status": "human_reviewed",

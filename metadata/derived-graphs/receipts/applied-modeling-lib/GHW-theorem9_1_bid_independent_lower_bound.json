@@ -1,0 +1,83 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GHW-theorem9_1_bid_independent_lower_bound",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "GHW01DigitalGoods.PaperInterface.theorem9_1_bid_independent_lower_bound"
+  ],
+  "input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+  "graph_sha256": "8c7bf7adc271fbc988d0fad353f12dd342202055dc16e3f036d158013b823d29",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GHW-theorem9_1_bid_independent_lower_bound.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "085702a76353cb74829cabf4e9632d9a297881b1d11a009fdaa63836f80418d8"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Probability/FairCoin.lean",
+      "3fb818035275d104232b41df1824071b4a7ac6851ec92c87d1cb80dc895fb956"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Probability/FiniteExpectation.lean",
+      "0722f550b6b3b4226399e3587bc0f7869f011950e70085095292381d6d59d21c"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/Combinatorial.lean",
+      "98ce62a640cd2e2ada1114334713552d8222f1f9859ccdab6702e416eb25240a"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/DigitalGoods.lean",
+      "8e9c6035c0e44a4c1508b850b8fcd3b302d128d243e2567b22d2b9d7f0512287"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/Position.lean",
+      "1639914bb61a8b79af84131f9fdfbe65bb79edd0af807c942257246385ca8cc5"
+    ],
+    [
+      "formal/dep/EconCSLib/SocialChoice/FairDivision/IndivisibleGoods.lean",
+      "070d4490957594f0045235daa9c97ced451130aeaec7806a3777dadbe00a1b73"
+    ],
+    [
+      "formal/dep/GHW01DigitalGoods/AuctionMainTheorems.lean",
+      "d25da435cc33ce1babd3cdff6f1b42f726dc54c6d09991f71352e8c150b9170c"
+    ],
+    [
+      "formal/dep/GHW01DigitalGoods/BidIndependentBoundary.lean",
+      "3c933fb20fb701f3b9efba50a4d5636e846f1157fe701c662a51e134fd7bcf39"
+    ],
+    [
+      "formal/dep/GHW01DigitalGoods/BoundedSourceDefinitions.lean",
+      "33ab63efcf504b462c90d77a26be258c59ec5d08b75639bc04e554a30da5dc6e"
+    ],
+    [
+      "formal/dep/GHW01DigitalGoods/BoundedSupply.lean",
+      "ae093234a331aa9dc6183d187e25a752a6aa9b244f261ed2956d701f06f8eac7"
+    ],
+    [
+      "formal/dep/GHW01DigitalGoods/MainTheorems.lean",
+      "9db71775c350492f1786969ac24ae2c0234af787f585f85d8f2644745df78e51"
+    ],
+    [
+      "formal/dep/GHW01DigitalGoods/SourceDefinitions.lean",
+      "f50525e15af1c1908d8f095ed61fca066e52ab55390a1748ddbd4d8094c8b8b4"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 13,
+  "nodes": 92,
+  "edges": 227,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

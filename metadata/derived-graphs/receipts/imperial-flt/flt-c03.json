@@ -1,0 +1,235 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c03",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
+  ],
+  "input_sha256": "117e6ba5f8ccaa5b52362e4fb245dfd0198a83efa5483b8ed69db82e2ef5260d",
+  "graph_sha256": "74c632393a06132b77599439f2deea04d38c24cc01da59b6b622e3ac79d016ec",
+  "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c03.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "38ae03fa1abe7aa1923a37d4503f69c0d17af1203695dd0f17500edb166db8a8"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/AdicValuation.lean",
+      "fe836ae93063f622385199b11e833be2c80796867c3c2b571ff50ccad75c7c90"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/Completion/BaseChange.lean",
+      "84aaa7dd7874434ee0c2822870df94223aa128bd20b982c63076f1e228534fc4"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/FiniteAdeleRing/BaseChange.lean",
+      "18bf6c644241facf7e1e94e00707113d6ec0636d4721faf4c50dcc99e8b4652b"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/FiniteAdeleRing/IsDirectLimitRestricted.lean",
+      "0e1581d7913cd12b4330d7408ec6153c06030614ece57cde5c66a16b5f2e6874"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/FiniteAdeleRing/TensorRestrictedProduct.lean",
+      "43966797b7c2c7af69a2ce2f948d6e7021ed0e47c3884d010a584987fb2c8a22"
+    ],
+    [
+      "formal/dep/FLT/DedekindDomain/IntegralClosure.lean",
+      "6e3d4c061f796e498eb37a83d5dcb37b0c77c47d81d503c47e632bf5bc8a94e2"
+    ],
+    [
+      "formal/dep/FLT/Deformations/ContinuousRepresentation/IsTopologicalModule.lean",
+      "77c72eae0745f67acca234f59a41e7d944be6341f373f23fbf9636d8f630ffb2"
+    ],
+    [
+      "formal/dep/FLT/HaarMeasure/HaarChar/AddEquiv.lean",
+      "456edc14b58c3cccf3835e69af9428dc69a80755d4d8844f491cccdcb50b1f21"
+    ],
+    [
+      "formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+      "80648cda6a8f23c1e342678e664dfd4f6dee32dda7aef0c2f4c85e27d162b1e3"
+    ],
+    [
+      "formal/dep/FLT/Hacks/RightActionInstances.lean",
+      "b83674d7655249fce94114fd8eb1d08a50fcf6cfd99f96ab7559a338db76c06b"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Algebra/Algebra/Bilinear.lean",
+      "cce26f0b7f0b85cccda2c2c13b0f3543e9fedd21d5eca8776351329181f2284c"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Algebra/Algebra/Hom.lean",
+      "8e9d079684494b7ce8274e69b83f660f47a8eea7cab0a21fccbbd6697f364cd0"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Algebra/Algebra/Pi.lean",
+      "db0050ee71fce2e9b5bc34eb3478f24c1d29127e28720c3d7d7e96e380067925"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Algebra/Algebra/Tower.lean",
+      "097d9414b452494cc6296a37a255afc66c1ea8bc303999960a5b5b1580666e6d"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Algebra/IsDirectLimit.lean",
+      "b048c68d73c756e3cff34fc994fefa1213b695d246d5e1c6e922d6e4c437c086"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Algebra/Module/Submodule/Basic.lean",
+      "214dd796ccb84e12d3dbebd2125755ba9558777d19669e3e963fd6eda3ae025e"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/LinearAlgebra/Countable.lean",
+      "a8cd82e6d9f1832991f56c21720b65e0901c16611cd3c9c19e066b6e1cf67b72"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+      "3de7f8e49b3577b616016de4f2194247bdc75181eba3b0400d98d7440a1a014e"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/LinearAlgebra/Pi.lean",
+      "844147a8c28b7227188525ac51b670339e91823a437ff6c38171aa32c9659a7f"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdeleRing.lean",
+      "5ba94d3d35ff50196c196832bfcb7caa76470dd35f4b1bb143c73a765844787b"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/AdicCompletion.lean",
+      "ca9b29ab0fe8befe18f647a6a855e3950ed0e551888e6b3814839b82b016028c"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/FiniteAdeleRing.lean",
+      "82723a3a7b73ca33c34c6adcef8754deb206ee4969152322d0f79c8fc12d34f8"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/InfinitePlace.lean",
+      "2559920930a54d8dc7c16b68a796e9c66fec42e8b4b113dc74283bcd7b084e43"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/MeasureTheory/Constructions/BorelSpace/RestrictedProduct.lean",
+      "433f0ab5668202a0d08385d3a408e5f9c569e279a4396fc742e995a7401ec88b"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+      "cf10958f46124363b300be9136bdfa6bf94fa4a96646bba4ab8212e62b50146b"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/NumberTheory/NumberField/FiniteAdeleRing.lean",
+      "002a4b38dc70fa7cf419f01411b25d193aef1fac11504f2e240c04c8f846f38d"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+      "b9f288ef675f81f9ceca867601de69aa0ff52436c4909605c2a78c7c47fbb7bb"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/NumberTheory/NumberField/InfinitePlace/Completion.lean",
+      "af6a2c7389fffd2f8e66f8e9a606d0b54dc3e59d4b8a9a00b72edf19e9133c6d"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/NumberTheory/Padics/HeightOneSpectrum.lean",
+      "dd241734b25903987eaf5dd5b282294653294ef5fc48e1b50f98c29be8fdf630"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "d192b2e31377fad040a7db525625c952bc50851275d8bca30c412fd903f26aa7"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Order/Filter/Cofinite.lean",
+      "38665c2554bf7db9985f9bf18719bf9bbe548bcf6f8386e51be5b7bf0d90ffe9"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+      "5d42f0962fbc2e6ad1f91ecde6279923a6f67dc28cac836f9c40ff6833daa1c4"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+      "9f0c65dc4c4a99b24cab375633ed2ca04284135e76bd3416a3c85ed6d09e35f0"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/Algebra/Hom.lean",
+      "3ae9bd5533c0fb762e73794b61882825355a00ba1c47987ca5be0b0632bdb551"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/ContinuousAlgEquiv.lean",
+      "82910f23165ac9abb40586d8e6b688ac1fe5251e1a47eb398aab3664f5782ff2"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
+      "2bf3b76560bc57b47a1b3082d8fa64539cac0609cadfb69fe9eb123216a3fe79"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/MulAction.lean",
+      "11ca1b0f5bd77485810e2837877965e2f9173e9b6717f22dcacb43009d3ee4fa"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+      "f4243e659ab2181176fe8a91f437a36fb6f321c0eb705dd0512c31f3f1ede508"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/RestrictedProduct/Equiv.lean",
+      "b8d6c02b11729560f02adb56c32a88532bf323d27aee83793a605946b849f823"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/RestrictedProduct/Module.lean",
+      "46d742631b70bc3edd49cbee772f417d791724a568d19e1980078584524421eb"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+      "5865f8c84b9ee6c8a463acb00a04b050dad7fac96ea45988da44ae7e916afd82"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Algebra/UniformRing.lean",
+      "d7b72bdab3087ca7b40d34266d4b2a6259829fed7875b2e709a973c097046693"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/Constructions.lean",
+      "2c85be8ac2253003ede0983aaffd2b8385d7491f32bb1b3cff3345ed0fbbb0f2"
+    ],
+    [
+      "formal/dep/FLT/Mathlib/Topology/MetricSpace/ProperSpace/InfinitePlace.lean",
+      "2dbb9668ff57b80deba6baa41515a2eac28ce883a5bbeac3018d525bdaec7156"
+    ],
+    [
+      "formal/dep/FLT/NumberField/AdeleRing.lean",
+      "a7d37617c61361772fa170ed10a64d1e5dc90ce51a0ff6bb30509c0f5dde5304"
+    ],
+    [
+      "formal/dep/FLT/NumberField/Completion/Finite.lean",
+      "bf4002a4f4b233e773f01270b8cc031b71572ea15745d43d3610e6b382ba3c84"
+    ],
+    [
+      "formal/dep/FLT/NumberField/Completion/Infinite.lean",
+      "bc514dd291f54a97f69abf1ae63f3aa75dfa33a569de57d7b2c01eca3d7d986b"
+    ],
+    [
+      "formal/dep/FLT/NumberField/HeightOneSpectrum.lean",
+      "7cd27a95ed7c47382e7987fb34ac2d39b42e2549d317836a5771ffa45887f43a"
+    ],
+    [
+      "formal/dep/FLT/NumberField/InfiniteAdeleRing.lean",
+      "4c42cfdd46870f6d837466d43b5e4ce344aa712f5872fed6002b90771fc5a9a1"
+    ],
+    [
+      "formal/dep/FLT/NumberField/InfinitePlace/Extension.lean",
+      "d6ea94c80e801cd3b8f73fddfde17e39052ac73651c69f4016ec5fd8107b5b27"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 51,
+  "nodes": 162,
+  "edges": 580,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

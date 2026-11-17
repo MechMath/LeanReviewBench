@@ -3,7 +3,7 @@
   "dataset": "imperial-flt",
   "project_id": "flt-c04",
   "task_id": "imperial-flt:flt-c04",
-  "input_sha256": "075f7c59547dfcf9caa4e6aabea1c2b072440826a49b956fe792c894e821f009",
+  "input_sha256": "611ba15c87d16bd92857c412046e6739535951e0745728bcfa5dd41cb687432f",
   "label": "aligned",
   "reason": "The full adelic tensor product, Haar-character kernel, diagonal subgroup, right cosets, and quotient topology express the source compactness statement.",
   "review_status": "human_reviewed",

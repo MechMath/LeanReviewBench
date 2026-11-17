@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "sumcheck-full-rbr-after",
   "task_id": "arklib:sumcheck-full-rbr-after",
-  "input_sha256": "f5e862f878a1c74fa96b3a458ac9134a0aa3858fc71ef16b92adf6f161d150b1",
+  "input_sha256": "41d6a545cd93ee63213b1e9a6d92390cdfb82bd8e5030ad14f3180e1a291a960",
   "label": "misaligned",
   "reason": "The formal finite CommSemiring plus IsDomain assumptions admit structures without additive inverses, whereas the source requires a finite integral domain.",
   "review_status": "human_reviewed",

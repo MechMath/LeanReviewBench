@@ -35,7 +35,7 @@
   "historical_status": "undetermined",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -70,10 +70,11 @@
   "packaged_compilation": "passed",
   "missing_modules": [],
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 21,
-    "resource_count": 0,
-    "sha256": "ce2a97fb3484f63dc254c56525f9b2e22fc47d4fcd88c371c8149f1007e05e26"
+    "file_count": 12,
+    "sha256": "f987d85f2add63ab97ced9e6bc9fab0de4adda7069a1c065553979c402a34186",
+    "effective_root_sha256": "c6e5286fdc2fcd40f4c8f9902bb317b7bec4af9a921e09f37b8aa2c3140b1c2f",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "resources": {},
   "compatibility": {
@@ -116,8 +117,7 @@
     "original_archive_sha256": "4d7f82a0b56f9cf191165b34c4090fba9c816dd347598ac901e00ad4dde23b3d",
     "source_packet_sha256": "5640bfa4d1474b9d7db1f0daebdf9f8f84e39b0e6d01020948298a4f87f3feea"
   },
-  "pending_reason": null,
-  "input_sha256": "5ca02153328f26b7c71939c62eb66de531b4a1b9f313a61ea1aab4451adbbb96",
+  "input_sha256": "7cc90a401f97e8a15c487b07d543367f260a499b8a9572b77725c7584a503ece",
   "original_external_imports": [
     "Batteries.Tactic.Exact",
     "Lean",

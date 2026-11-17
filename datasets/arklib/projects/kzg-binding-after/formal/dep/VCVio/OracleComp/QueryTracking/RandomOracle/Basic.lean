@@ -1,29 +1,135 @@
-/-
-Copyright (c) 2024 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma, Quang Dao
--/
-
 module
-public import dep.VCVio.OracleComp.QueryTracking.CachingOracle
+
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.UniformOn
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
 public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
-
-/-!
-# Lazy Random Oracle
-
-The (lazy) random oracle samples a fresh uniform value on first query and caches the result
-for future consistency. Same input always yields same output. State: `QueryCache`.
-This is `uniformSampleImpl.withCaching`.
-
-Two lazy random oracles run side by side on a product cache take the same steps as one lazy
-random oracle on the sum signature, with the two caches paired by `OracleSpec.QueryCache.addEquiv`
-(`QueryImpl.run_parallelStateT_randomOracle_map_eq`).  Folding that step identity over a
-simulation identifies whole runs: a computation run against the two oracles on a product cache
-is, up to the same pairing, the computation run against the one oracle on the joint cache
-(`OracleComp.map_run_simulateQ_parallelStateT_randomOracle`), also with a stateless
-private-sampling summand in front of the pair
-(`OracleComp.map_run_simulateQ_add_parallelStateT_randomOracle`).
--/
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.CachingOracle
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.SimSemantics.StateT.PreservesInv
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -40,27 +146,6 @@ namespace randomOracle
 variable {ι₀ : Type} [DecidableEq ι₀] {spec₀ : OracleSpec.{0, 0} ι₀}
   [∀ t : spec₀.Domain, SampleableType (spec₀.Range t)]
 
-lemma apply_eq (t : spec₀.Domain) :
-    spec₀.randomOracle t = (do match (← get) t with
-    | Option.some u => return u
-    | Option.none =>
-        let u ← $ᵗ spec₀.Range t
-        modifyGet fun cache => (u, cache.cacheQuery t u)) := rfl
-
-/-- Running one random-oracle query returns a cached answer when present, or samples and caches a
-fresh answer otherwise. This is the proof-facing cache-step law for `randomOracle`. -/
-lemma run_eq (t : spec₀.Domain) (cache : spec₀.QueryCache) :
-    (spec₀.randomOracle t).run cache =
-      match cache t with
-      | some u => pure (u, cache)
-      | none => ($ᵗ spec₀.Range t) >>= fun u => pure (u, cache.cacheQuery t u) := by
-  cases h : cache t with
-  | none =>
-    rw [QueryImpl.withCaching_run_none uniformSampleImpl h, map_eq_bind_pure_comp]
-    rw [uniformSampleImpl_apply]
-    exact bind_congr fun _ => Eq.refl _
-  | some u => rw [QueryImpl.withCaching_run_some uniformSampleImpl h]
-
 end randomOracle
 
 namespace QueryImpl
@@ -69,22 +154,6 @@ variable {ι₁ ι₂ : Type} {spec₁ : OracleSpec.{0, 0} ι₁} {spec₂ : Ora
   [DecidableEq ι₁] [DecidableEq ι₂]
   [∀ t : spec₁.Domain, SampleableType (spec₁.Range t)]
   [∀ t : spec₂.Domain, SampleableType (spec₂.Range t)]
-
-/-- One step of the two independent lazy random oracles on a product cache is one step of the
-lazy random oracle on the sum signature, transported along `OracleSpec.QueryCache.addEquiv`. -/
-lemma run_parallelStateT_randomOracle_map_eq (t : (spec₁ + spec₂).Domain)
-    (p : spec₁.QueryCache × spec₂.QueryCache) :
-    Prod.map id (QueryCache.addEquiv spec₁ spec₂) <$>
-        ((QueryImpl.parallelStateT spec₁.randomOracle spec₂.randomOracle) t).run p =
-      ((spec₁ + spec₂).randomOracle t).run (QueryCache.addEquiv spec₁ spec₂ p) := by
-  obtain ⟨c₁, c₂⟩ := p
-  cases t with
-  | inl t =>
-      rcases h : c₁ t with _ | u <;>
-        simp [QueryImpl.parallelStateT, h, QueryCache.addEquiv_cacheQuery_inl, Prod.map]
-  | inr t =>
-      rcases h : c₂ t with _ | u <;>
-        simp [QueryImpl.parallelStateT, h, QueryCache.addEquiv_cacheQuery_inr, Prod.map]
 
 end QueryImpl
 
@@ -95,37 +164,5 @@ variable {ι₀ ι₁ ι₂ : Type} {spec₀ : OracleSpec.{0, 0} ι₀}
   [DecidableEq ι₁] [DecidableEq ι₂]
   [∀ t : spec₁.Domain, SampleableType (spec₁.Range t)]
   [∀ t : spec₂.Domain, SampleableType (spec₂.Range t)]
-
-/-- **Two independently cached lazy random oracles are one lazy random oracle on the sum
-signature.**  The product-cache run is the joint-cache run up to the pairing
-`OracleSpec.QueryCache.addEquiv`. -/
-theorem map_run_simulateQ_parallelStateT_randomOracle {α : Type}
-    (oa : OracleComp (spec₁ + spec₂) α) (p : spec₁.QueryCache × spec₂.QueryCache) :
-    Prod.map id (QueryCache.addEquiv spec₁ spec₂) <$>
-        (simulateQ (QueryImpl.parallelStateT spec₁.randomOracle spec₂.randomOracle) oa).run p =
-      (simulateQ (spec₁ + spec₂).randomOracle oa).run (QueryCache.addEquiv spec₁ spec₂ p) :=
-  map_run_simulateQ_eq_of_query_map_eq _ _ _
-    QueryImpl.run_parallelStateT_randomOracle_map_eq oa p
-
-/-- Two independently cached lazy random oracles behind a stateless private-sampling handler
-`implBase` are one lazy random oracle on the sum signature behind the same handler, up to the
-pairing `OracleSpec.QueryCache.addEquiv`. -/
-theorem map_run_simulateQ_add_parallelStateT_randomOracle
-    (implBase : QueryImpl spec₀ ProbComp) {α : Type}
-    (oa : OracleComp (spec₀ + (spec₁ + spec₂)) α)
-    (p : spec₁.QueryCache × spec₂.QueryCache) :
-    Prod.map id (QueryCache.addEquiv spec₁ spec₂) <$>
-        (simulateQ (implBase.liftTarget
-              (StateT (spec₁.QueryCache × spec₂.QueryCache) ProbComp) +
-            QueryImpl.parallelStateT spec₁.randomOracle spec₂.randomOracle) oa).run p =
-      (simulateQ (implBase.liftTarget
-            (StateT (spec₁ + spec₂).QueryCache ProbComp) +
-          (spec₁ + spec₂).randomOracle) oa).run (QueryCache.addEquiv spec₁ spec₂ p) := by
-  refine map_run_simulateQ_eq_of_query_map_eq _ _ _ ?_ oa p
-  rintro (i | t) s
-  · rw [QueryImpl.add_apply_inl, QueryImpl.add_apply_inl]
-    exact QueryImpl.run_liftTarget_map_eq implBase _ i s
-  · rw [QueryImpl.add_apply_inr, QueryImpl.add_apply_inr]
-    exact QueryImpl.run_parallelStateT_randomOracle_map_eq t s
 
 end OracleComp

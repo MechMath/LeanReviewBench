@@ -10,4 +10,9 @@ Preserve the historical unguarded `eLpNorm` formula as `MeasureTheory.legacy297N
 
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
-Recorded compatibility edits affect `Carleson/Defs.lean`, `Carleson/Legacy297Norm.lean`, `Carleson/ToMathlib/CoverByBalls.lean`, `Carleson/ToMathlib/Data/ENNReal.lean`, `Carleson/ToMathlib/DoublingMeasure.lean`, `Carleson/ToMathlib/ENorm.lean`, `Carleson/ToMathlib/Misc.lean`, `Carleson/ToMathlib/WeakType.lean`.
+Before context pruning, compatibility edits affected `Carleson/Defs.lean`, `Carleson/Legacy297Norm.lean`, `Carleson/ToMathlib/CoverByBalls.lean`, `Carleson/ToMathlib/Data/ENNReal.lean`, `Carleson/ToMathlib/DoublingMeasure.lean`, `Carleson/ToMathlib/ENorm.lean`, `Carleson/ToMathlib/Misc.lean`, `Carleson/ToMathlib/WeakType.lean`.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

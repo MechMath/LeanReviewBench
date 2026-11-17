@@ -32,7 +32,6 @@
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
-  "pending_reason": null,
   "external_imports": [
     "Batteries.Control.AlternativeMonad",
     "Batteries.Control.Lemmas",
@@ -161,10 +160,11 @@
     "Cslib"
   ],
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 198,
-    "resource_count": 0,
-    "sha256": "7c7a9aa2147d2bb206e233e3418d35bf2e3cf04d148bbbc98b96749db03fa1a4"
+    "file_count": 102,
+    "sha256": "dcdb994cb98b416f99f46f4ded76f957db04004336a1694e8dc8a949632c3e17",
+    "effective_root_sha256": "881cbf074639b39b6e3e6068b3a95450ba5133ad0611c2b9a96432fce732d4e1",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "changes": "CHANGES.md",
   "preparation": {
@@ -263,10 +263,10 @@
   "source_role": "after",
   "source_family": "KZG",
   "material_complete": false,
-  "input_sha256": "be87550de5f51bc92e311462ecdeff82ba3f4bec38519b244c4839425389baed",
+  "input_sha256": "f172359db0a9522145c1009310c70755461d738b5d2d7313f67f95d7817c007e",
   "missing_modules": [],
   "historical_technical_receipt": "technical/receipt.json",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "technical_receipt": "technical/relocated-receipt.json",
   "relocation_patch": "relocation.patch",
   "target_status": "cached_independent_target_acquired_scope_correspondence_pending",

@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "bounded-dusart-mertens-error-text-after",
   "task_id": "pnt:bounded-dusart-mertens-error-text-after",
-  "input_sha256": "f5f1709066cc2312e9b456fc706063ce1ed92e4f2aa0ba468691ffa70c4776c8",
+  "input_sha256": "6624122e84b9aaf3efef8fc79571860aa6105d9ce040352ae551a7a30ef3adf5",
   "label": "aligned",
   "reason": "The source constant B3 equals the negative of mertensConstant, so log(x)-B3 matches log(x)+mertensConstant; the threshold and remainder agree.",
   "review_status": "human_reviewed",

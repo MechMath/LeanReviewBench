@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "kzg-function-binding-after",
   "task_id": "arklib:kzg-function-binding-after",
-  "input_sha256": "be87550de5f51bc92e311462ecdeff82ba3f4bec38519b244c4839425389baed",
+  "input_sha256": "f172359db0a9522145c1009310c70755461d738b5d2d7313f67f95d7817c007e",
   "label": "misaligned",
   "reason": "The abstract probability bound leaves reduction membership in Adv as a caller-supplied hypothesis and does not establish the concrete circuit-size overhead or its bridge from the source adversary budget.",
   "review_status": "human_reviewed",

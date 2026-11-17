@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Frozen prose states the normalized error bound |ψ(x)−x|/x≤ε for x≥exp(b). Formal unfolds to exactly this statement, and every retained Table1 row matches the cited published table.",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "084babc4ea86445f95334df554fcc0c4603591d30e40b6fa9201ff561859c145"
+    "sha256": "49c1a0eecce584b3f12360f6b9a52a4d3bfae9f305bcc0b5c22dd423a4c63494",
+    "effective_root_sha256": "31d1cc04b4ce7e9c6e1425c94f55ec17db902c0f77e2e60d75d9ca3b841a1c46",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-table-error/20261105T053628500676Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "183d7a73767d204609e63a6b9e1bc63f46eae92793278c281cef2a31fe6a5321",
+  "input_sha256": "4d933ed615bbdd809ed935fe9da18310f7163c41aaa54ba67d60b11d58153fd1",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

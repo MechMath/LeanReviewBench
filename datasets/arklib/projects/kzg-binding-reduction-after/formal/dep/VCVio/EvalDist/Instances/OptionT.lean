@@ -1,22 +1,67 @@
-/-
-Copyright (c) 2025 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma, Quang Dao
--/
-
 module
+
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint.Basic
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
 public import dep.ToMathlib.Control.OptionT
-public import dep.VCVio.EvalDist.Defs.Support.Failure
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
 public import dep.VCVio.EvalDist.ProbabilityNotation
-public import dep.VCVio.EvalDist.Monad.Map
-
-/-!
-# Support of potentially failing computations
-
-This file gives the support and finite support of `OptionT` computations in terms of the
-underlying `m (Option α)`. Their support comes from PolyFun's `MonadAttach` instance; their output
-measures are in `VCVio.EvalDist.Defs.Measure.OptionT`.
--/
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
 
 @[expose] public section
 
@@ -30,35 +75,7 @@ section EvalSet
 
 variable [MonadAttach m]
 
-@[aesop unsafe norm, grind =]
-lemma support_def (mx : OptionT m α) : support mx = some ⁻¹' (support mx.run) := by
-  ext x
-  exact MonadAttach.OptionT.canReturn_iff
-
-lemma mem_support_iff (mx : OptionT m α) (x : α) :
-    x ∈ support mx ↔ some x ∈ support mx.run := by grind
-
 variable [LawfulMonad m] [ExactMonadAttach m]
-
-@[simp]
-lemma support_liftM (mx : m α) :
-    support (liftM mx : OptionT m α) = support mx := by grind
-
-@[simp]
-lemma support_lift (mx : m α) :
-    support (OptionT.lift mx) = support mx := by grind
-
-/-- Peel the leading sample off the support of an `OptionT.mk`'d bind: any element of the
-support of `OptionT.mk (sample >>= body)` factors through a sample `a` in the support of
-`sample`, with the element in the support of `OptionT.mk (body a)`. -/
-lemma mem_support_bind_mk (sample : m α) (body : α → m (Option β)) {x : β}
-    (hx : x ∈ support (OptionT.mk (sample >>= body))) :
-    ∃ a, a ∈ support sample ∧ x ∈ support (OptionT.mk (body a)) := by
-  rw [OptionT.mem_support_iff] at hx
-  simp only [OptionT.run_mk] at hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨a, ha, hx⟩ := hx
-  exact ⟨a, ha, by simpa [OptionT.mem_support_iff] using hx⟩
 
 end EvalSet
 
@@ -67,29 +84,10 @@ section HasEvalFinset
 /-- Lift a `HasEvalFinset` instance to `OptionT`. by just taking preimage under `some`. -/
 noncomputable instance (m : Type u → Type v) [Monad m] [MonadAttach m] [HasEvalFinset m] :
     HasEvalFinset (OptionT m) where
-  finSupport mx := (finSupport mx.run).preimage some (by simp)
-  coe_finSupport := by aesop
+  finSupport mx := (finSupport mx.run).preimage some (sorry)
+  coe_finSupport := sorry
 
 variable [MonadAttach m] [HasEvalFinset m]
-
-@[aesop unsafe norm, grind =]
-lemma finSupport_def [DecidableEq α] (mx : OptionT m α) :
-    finSupport mx = (finSupport mx.run).preimage some (by simp) := rfl
-
-@[simp low]
-lemma mem_finSupport_iff [DecidableEq α] (mx : OptionT m α) (x : α) :
-    x ∈ finSupport mx ↔ some x ∈ finSupport mx.run := by
-  simp [finSupport_def, Finset.mem_preimage]
-
-@[simp]
-lemma finSupport_liftM [ExactMonadAttach m] [LawfulMonad m] [DecidableEq α] (mx : m α) :
-    finSupport (liftM mx : OptionT m α) = finSupport mx := by
-  ext x; simp [mem_finSupport_iff, mem_finSupport_iff_mem_support]
-
-@[simp]
-lemma finSupport_lift [ExactMonadAttach m] [LawfulMonad m] [DecidableEq α] (mx : m α) :
-    finSupport (OptionT.lift mx) = finSupport mx := by
-  ext x; simp [mem_finSupport_iff, mem_finSupport_iff_mem_support]
 
 end HasEvalFinset
 

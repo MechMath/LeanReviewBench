@@ -1,52 +1,6 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
 public import Mathlib.Data.Fin.Tuple.Take
-
-/-!
-# Custom Fin tuple operations with better definitional equality
-
-This file provides custom tuple operations that use pattern matching for better definitional
-equality, replacing standard library functions that rely on complex constructions like `cases`,
-`addCases`, and conditional statements with casts.
-
-## Utility operations:
-
-- `Fin.rtake`: Taking from the right (i.e. the end) of a tuple
-- `Fin.drop`: Dropping from the left (i.e. the beginning) of a tuple
-- `Fin.rdrop`: Dropping from the right (i.e. the end) of a tuple
-- `Fin.extract`: Extract a sub-tuple from a given range
-- `Fin.rightpad`: Padding (or truncation) on the right of a tuple
-- `Fin.leftpad`: Padding (or truncation) on the left of a tuple
-
-## Three-Tier Construction System:
-
-**Dependent operations (`d*`)**: Work with a unified motive `Fin n → Sort*` that determines the type
-at each position. These are the foundational operations.
-- `Fin.dcons`, `Fin.dconcat`, `Fin.dappend`
-
-**Homogeneous operations (`v*`)**: Specialize the dependent operations to constant-type motives `fun
-_ => α`, creating vectors where all elements have the same type.
-- `Fin.vcons`, `Fin.vconcat`, `Fin.vappend`
-
-**Functorial operations (`f*`)**: Apply a type constructor `F` uniformly across all positions of a
-heterogeneous tuple, with the return type constructed using `v*` operations at the type level. We
-define versions for both the unary and binary versions of `F` (arbitrary arity version?)
-- `Fin.fcons`, `Fin.fconcat`, `Fin.fappend`
-- `Fin.fcons₂`, `Fin.fconcat₂`, `Fin.fappend₂`
-
-**Heterogeneous operations (`h*`)**: Specialize the unary functorial operations to the identity
-functor, allowing different types at each position without requiring an explicit motive.
-- `Fin.hcons`, `Fin.hconcat`, `Fin.happend`
-
-## Empty tuples:
-
-- `Fin.dempty`/`Fin.vempty`: Empty tuples for dependent and homogeneous cases
--/
 
 @[expose] public section
 
@@ -54,50 +8,21 @@ universe u v w
 
 namespace Fin
 
-/-- Take the last `m` elements of a finite vector -/
-def rtake {n : ℕ} {α : Fin n → Sort*} (m : ℕ) (h : m ≤ n) (v : (i : Fin n) → α i) :
-    (i : Fin m) → α (Fin.cast (Nat.sub_add_cancel h) (natAdd (n - m) i)) :=
-  fun i => v (Fin.cast (Nat.sub_add_cancel h) (natAdd (n - m) i))
-
 /-- Drop the first `m` elements of an `n`-tuple where `m ≤ n`, returning an `(n - m)`-tuple. -/
 def drop {n : ℕ} {α : Fin n → Sort*} (m : ℕ) (h : m ≤ n) (v : (i : Fin n) → α i) :
     (i : Fin (n - m)) → α (Fin.cast (Nat.sub_add_cancel h) (addNat i m)) :=
   fun i ↦ v (Fin.cast (Nat.sub_add_cancel h) (addNat i m))
 
-/-- Drop the last `m` elements of an `n`-tuple where `m ≤ n`, returning an `(n - m)`-tuple.
-
-This is defined to be taking the first `n - m` elements of the tuple. Thus, one should not use this
-and use `Fin.take` instead. -/
-abbrev rdrop {n : ℕ} {α : Fin n → Sort*} (m : ℕ) (h : m ≤ n) (v : (i : Fin n) → α i) :
-    (i : Fin (n - m)) → α (Fin.cast (Nat.sub_add_cancel h) (i.castAdd m)) :=
-  take (n - m) (by omega) v
-
 /-- Extract a sub-tuple from a `Fin`-tuple, from index `start` to `stop - 1`. -/
 def extract {n : ℕ} {α : Fin n → Sort*} (start stop : ℕ) (h1 : start ≤ stop) (h2 : stop ≤ n)
-    (v : (i : Fin n) → α i) : (i : Fin (stop - start)) → α ⟨i + start, by omega⟩ :=
-  fun i ↦ v ⟨i + start, by omega⟩
-
-/-- Extracting with `start = 0` is the same as taking the first `stop` elements. -/
-lemma extract_start_zero_eq_take {n : ℕ} {α : Fin n → Sort*} (stop : ℕ) (h : stop ≤ n)
-    (v : (i : Fin n) → α i) : extract 0 stop (Nat.zero_le _) h v = take stop h v :=
-  rfl
-
-/-- Extracting with `stop = n` is the same as dropping the first `start` elements. -/
-lemma extract_stop_last_eq_drop {n : ℕ} {α : Fin n → Sort*} (start : ℕ) (h : start ≤ n)
-    (v : (i : Fin n) → α i) : extract start n h (Nat.le_refl _) v = drop start h v :=
-  rfl
+    (v : (i : Fin n) → α i) : (i : Fin (stop - start)) → α ⟨i + start, sorry⟩ :=
+  fun i ↦ v ⟨i + start, sorry⟩
 
 /-- Pad a `Fin`-indexed vector on the right with an element `a`.
 
 This becomes truncation if `n < m`. -/
 def rightpad {m : ℕ} {α : Sort*} (n : ℕ) (a : α) (v : Fin m → α) : Fin n → α :=
   fun i => if h : i < m then v ⟨i, h⟩ else a
-
-/-- Pad a `Fin`-indexed vector on the left with an element `a`.
-
-This becomes truncation if `n < m`. -/
-def leftpad {m : ℕ} {α : Sort*} (n : ℕ) (a : α) (v : Fin m → α) : Fin n → α :=
-  fun i => if h : n - m ≤ i then v ⟨i - (n - m), by omega⟩ else a
 
 section Vec
 
@@ -159,11 +84,6 @@ Notation: `a ::ᵛ v` (using standard `::` for vectors). -/
 @[implicit_reducible]
 def vcons {n : ℕ} (a : α) (v : Fin n → α) : Fin (n + 1) → α :=
   dcons a v
-  -- match n with
-  -- | 0 => match i with | 0 => a
-  -- | _ + 1 => match i with
-  --   | 0 => a
-  --   | ⟨k + 1, hk⟩ => v ⟨k, Nat.lt_of_succ_lt_succ hk⟩
 
 /-- Homogeneous snoc: appends `a : α` to the end of a vector by specializing `dconcat` to the
 constant-type motive `fun _ => α`.
@@ -172,9 +92,6 @@ Notation: `v :+ᵛ a`. -/
 @[implicit_reducible]
 def vconcat {n : ℕ} (v : Fin n → α) (a : α) : Fin (n + 1) → α :=
   dconcat v a
-  -- match n with
-  -- | 0 => fun i => match i with | 0 => a
-  -- | _ + 1 => vcons (v 0) (vconcat (v ∘ Fin.succ) a)
 
 /-- Homogeneous append: concatenates two vectors by specializing `dappend` to the
 constant-type motive `fun _ => α`.
@@ -183,9 +100,6 @@ Notation: `u ++ᵛ v` or standard `u ++ v`. -/
 @[implicit_reducible]
 def vappend {m n : ℕ} {α : Sort*} (u : Fin m → α) (v : Fin n → α) : Fin (m + n) → α :=
   dappend u v
-  -- match n with
-  -- | 0 => u
-  -- | _ + 1 => vconcat (vappend u (v ∘ Fin.castSucc)) (v (Fin.last _))
 
 end Vec
 

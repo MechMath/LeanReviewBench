@@ -1,22 +1,38 @@
+import Batteries.Data.Array.Lemmas
+import Lean
+import Lean.Elab.Declaration
+import Lean.Elab.Exception
+import Lean.Environment
+import Lean.Meta.Basic
+import Lean.ToExpr
+import Lean.Util
+import Lean.Util.CollectAxioms
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Set.Defs
+import Mathlib.Data.Set.Function
+import Mathlib.Logic.Equiv.Basic
+import Mathlib.Tactic.Cases
+import dep.equational_theories.EndToEnd.Basic
 import dep.equational_theories.EndToEnd.Certificate
 import dep.equational_theories.EndToEnd.Dual
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.Equations.Basic
+import dep.equational_theories.Equations.Command
+import dep.equational_theories.Equations.Eqns1000_1999
+import dep.equational_theories.Equations.Eqns1_999
+import dep.equational_theories.Equations.Eqns2000_2999
+import dep.equational_theories.Equations.Eqns3000_3999
+import dep.equational_theories.Equations.Eqns4000_4694
+import dep.equational_theories.Equations.LawsComplete
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.Homomorphisms
+import dep.equational_theories.Magma
+import dep.equational_theories.MagmaLaw
+import dep.equational_theories.MagmaOp
 import dep.equational_theories.ParseImplications
-
-/-!
-# Loading the certificate tables at elaboration time
-
-The tables are JSON in `Generated/EndToEndCertificate/json/`; these elaborators read a file and
-assemble the `RArray` `Expr` directly, leaving only the kernel's check of the finished term.
-
-The JSON is untrusted: `checkCert` validates the numeric tables and the fact tables are
-proof-carrying, so a wrong entry can only cause a build failure. Lake cannot see that an
-`.olean` depends on a file read during elaboration, so each module records the FNV-1a hash of
-the file it expects and `readTable` checks it.
-
-`RArray.ofFn` must never appear in a term the kernel reduces -- it is well-founded recursion
-and will not unfold -- but here it runs in the elaborator and produces a `.leaf`/`.branch`
-literal.
--/
+import dep.equational_theories.Preorder
+import dep.equational_theories.RArray
 
 namespace EndToEnd
 
@@ -274,12 +290,6 @@ elab "loadUnionTable% " path:str hash:num src:str srcHash:num : term => do
       acc := acc ||| base[i]!
     return mkRawNatLit acc
   rarrayExpr path (.const ``Nat []) rows
-
-/-! ## The proof-carrying tables
-
-These cite theorems by name. A name that does not resolve is an error; one that resolves to the
-wrong theorem fails to typecheck, since the indices stored beside it appear in the type the
-kernel checks the proof against. -/
 
 /-- Resolve a cited theorem, with an error that says where the citation came from. -/
 private def factConst (path : StrLit) (n : Name) : TermElabM Expr := do

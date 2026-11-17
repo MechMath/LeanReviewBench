@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Formal constants 144/122 imply the older weaker 172/146 bound since density<=1 and the assumptions force K>=1. The newer target matches the constants; use the own-version finite elementary-2-group scope.",
   "external_imports": [
     "Mathlib.Algebra.BigOperators.Field",
     "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
@@ -116,8 +115,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 61,
-    "sha256": "2e36ffa128c750e25b3e8b4dcabc58fd71853670da1716191423161d83cd8b98"
+    "file_count": 23,
+    "sha256": "1c2c75cb1b165c103cc2dcb5554ebfdeb2e05f675db93e4d2b84f9aba503a833",
+    "effective_root_sha256": "304fe2f8ad8849407a64909d34fede0a173742989cfc5dff2bd82e9f817556c9",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-candidates/technical/pr293-before/20261104T082038190106Z/receipt.json",
@@ -140,8 +142,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "b6007219cf3c6367cddd1b2628e05b897526d11ec3f72eb1d746828d27e60c7a",
+  "input_sha256": "ca1c5722283a937ca572d96a0a7d9c67b0f7c6f0c4dfcc7597b5ff525fe87b79",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

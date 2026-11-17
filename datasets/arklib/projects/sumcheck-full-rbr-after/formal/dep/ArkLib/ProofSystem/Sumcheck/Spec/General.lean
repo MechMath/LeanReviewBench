@@ -1,108 +1,216 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.FinRange
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Logic.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.OneMessage
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.StateFunction
+public import dep.ArkLib.OracleReduction.Composition.Sequential.General
+public import dep.ArkLib.OracleReduction.Composition.Sequential.IsPure
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.LiftContext.Lens
+public import dep.ArkLib.OracleReduction.LiftContext.OracleReduction
+public import dep.ArkLib.OracleReduction.LiftContext.Purity
+public import dep.ArkLib.OracleReduction.LiftContext.Reduction
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.Basic
+public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.Composition
+public import dep.ArkLib.OracleReduction.Security.Guarded
+public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import dep.ArkLib.OracleReduction.Security.TranscriptTree.Basic
+public import dep.ArkLib.OracleReduction.Security.TranscriptTree.Composition
+public import dep.ArkLib.ProofSystem.Component.CheckClaim
+public import dep.ArkLib.ProofSystem.Component.RandomQuery
+public import dep.ArkLib.ProofSystem.Component.ReduceClaim
+public import dep.ArkLib.ProofSystem.Component.SendClaim
 public import dep.ArkLib.ProofSystem.Sumcheck.Spec.SingleRound
-public import dep.ArkLib.OracleReduction.Composition.Sequential.GuardedNary
-
-/-!
-# The Sum-check Protocol
-
-We define the sum-check protocol as a series of Interactive Oracle Reductions (IORs), where the
-underlying polynomials are represented using Mathlib's noncomputable types `Polynomial` and
-`MvPolynomial`. See `SingleRound.lean` for a single round of the protocol, and the definition of the
-sum-check relations.
-
-In the future, we will have files that deal with implementations of the protocol, and we will prove
-that those implementations derive security from that of the abstract protocol.
-
-## Protocol Specification
-
-The sum-check protocol is parameterized by the following:
-- `R`: the underlying commutative semiring (for soundness, finite with `IsDomain R`)
-- `n : ℕ+`: the number of variables (also number of rounds)
-- `deg : ℕ`: the individual degree bound for the polynomial
-- `D : Fin m ↪ R`: the set of `m` evaluation points for each variable (for some `m`), represented as
-  an injection `Fin m ↪ R`. The image of `D` as a finite subset of `R` is written as
-  `Finset.univ.map D`.
-- `oSpec : OracleSpec ι`: the set of underlying oracles (e.g. random oracles) that may be needed for
-  other reductions. However, the sum-check protocol does _not_ use any oracles.
-
-The sum-check relation has no witness. The statement for the `i`-th round, where `i : Fin (n + 1)`,
- contains:
-- `target : R`, which is the target value for sum-check
-- `challenges : Fin i → R`, which is the list of challenges sent from the verifier to the prover in
-  previous rounds
-
-There is a single oracle statement, which is:
-- `poly : MvPolynomial (Fin n) R`, the multivariate polynomial that is summed over
-
-The sum-check relation for the `i`-th round, where `i = 0, ..., n`, checks that:
-
-  `∑ x ∈ (univ.map D) ^ᶠ (n - i), poly ⸨challenges, x⸩ = target`.
-
-Note that the last statement (when `i = n`) is the output statement of the sum-check protocol.
-
-For `i = 0, ..., n - 1`, the `i`-th round of the sum-check protocol consists of the following:
-
-1. The prover sends a univariate polynomial `pᵢ ∈ R⦃≤ deg⦄[X]` of degree at most `deg`. If the
-   prover is honest, then we have:
-
-    `pᵢ(X) = ∑ x ∈ (univ.map D) ^ᶠ (n - i - 1), poly ⸨X ⦃i⦄, challenges, x⸩`.
-
-  Here, `poly ⸨X ⦃i⦄, challenges, x⸩` is the polynomial `poly` evaluated at the concatenation of the
-  prior challenges `challenges`, the `i`-th variable as the new indeterminate `X`, and the rest of
-  the values `x ∈ (univ.map D) ^ᶠ (n - i - 1)`.
-
-  In the oracle protocol, this polynomial `pᵢ` is turned into an oracle for which the verifier can
-  query for evaluations at arbitrary points.
-
-2. The verifier then sends the `i`-th challenge `rᵢ` sampled uniformly at random from `R`.
-
-3. The (oracle) verifier then performs queries for the evaluations of `pᵢ` at all points in
-   `(univ.map D)`, and checks that: `∑ x in (univ.map D), pᵢ.eval x = target`.
-
-   If the check fails, then the verifier outputs `failure`.
-
-   Otherwise, it outputs a statement for the next round as follows:
-   - `target` is updated to `pᵢ.eval rᵢ`
-   - `challenges` is updated to the concatenation of the previous challenges and `rᵢ`
-
-## Notes & TODOs
-
-Note that to represent sum-check as a series of IORs, we will need to implicitly constrain the
-degree of the polynomials via using subtypes, such as `Polynomial.degreeLE` and
-`MvPolynomial.degreeOf`. This is because the oracle verifier only gets oracle access to evaluating
-the polynomials, but does not see the polynomials in the clear.
-
-When this is compiled to an interactive proof, the corresponding polynomial commitment schemes will
-enforce that the declared degree bound holds, via letting the (non-oracle) verifier perform explicit
-degree checks.
-
-There are some generalizations that we could consider later:
-
-- Generalize to `degs : Fin n → ℕ` and `domain : Fin n → (Fin m ↪ R)`, e.g. can vary the
-  degree bound and the summation domain for each variable. Note: this requires generalizing
-  `MvPolynomial.restrictDegree` to have different degree bounds for each variable.
-
-- Generalize the challenges to come from a suitable subset of `R` (e.g. subtractive sets), and not
-  necessarily the whole domain. This is used in lattice-based protocols.
-
-- Sumcheck over modules instead of just rings. This will require extending `MvPolynomial` to have
-  such a notion of evaluation, something like `evalModule (x : σ → M) (p : MvPolynomial σ R) : M`,
-  where we have `[Module R M]`.
-
-## References
-
-* [Lund, C., Fortnow, L., Karloff, H., and Nisan, N., *Algebraic methods for interactive
-    proof systems*][LFKN92]
-* [Bosshard, A.G., Bootle, J., and Sprenger, C., *Formal Verification of the Sumcheck Protocol*]
-    [BBS24]
-
--/
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -118,33 +226,16 @@ variable (R : Type) [CommSemiring R] (deg : ℕ) {m : ℕ} (D : Fin m ↪ R) (n 
 
 variable {ι : Type} (oSpec : OracleSpec ι)
 
-/-
-  Recall that the types for the statements, oracle statements, witnesses, and the relations, have
-  all been defined in `SingleRound.lean`.
--/
-
 /-- The protocol specification for the general sum-check protocol, which is the composition of the
   single-round protocol specifications -/
 @[reducible]
 def pSpec : ProtocolSpec (Fin.vsum (fun _ : Fin n => 2)) :=
   ProtocolSpec.seqCompose (fun _ => SingleRound.pSpec R deg)
-  -- n * 2
-  -- fun i => if i % 2 = 0 then (.P_to_V, R⦃≤ d⦄[X]) else (.V_to_P, R)
-
--- TODO: the input statement should not mention sum-check challenges at all (currently it does,
--- initial challenge vector is empty). We can compose with a `ReduceClaim` (oracle) reduction to get
--- the correct input statement type
 
 /-- The input statement for the (full) sum-check protocol, which contains only the target sum value
 -/
 @[reducible, simp]
 def StmtIn := R
-
--- def relIn : (StmtIn R) × (∀ i, OStmtIn R d n i) → WitIn → Prop :=
---   fun ⟨target, polyOracle⟩ _ => ∑ x ∈ (univ.map D) ^ᶠ (n + 1), (polyOracle ()).val ⸨x⸩ = target
-
--- def relOut : (StmtOut R n) × (∀ i, OStmtOut R d n i) → WitOut → Prop :=
---   fun ⟨⟨target, challenges⟩, polyOracle⟩ _ => (polyOracle ()).1 ⸨challenges⸩ = target
 
 variable [DecidableEq R] [SampleableType R]
 
@@ -192,46 +283,19 @@ def oracleReduction : OracleReduction oSpec
     (pSpec := fun _ => SingleRound.pSpec R deg)
     (SingleRound.oracleReduction R n deg D oSpec)
 
-omit [SampleableType R] in
-@[simp]
-lemma reduction_verifier_eq_verifier :
-    (reduction R deg D n oSpec).verifier = verifier R deg D n oSpec := by
-  rfl
-
-@[simp]
-lemma oracleReduction_verifier_eq_oracleVerifier :
-    (oracleReduction R deg D n oSpec).verifier = oracleVerifier R deg D n oSpec := by
-  rfl
-
 variable {σ : Type} {init : ProbComp σ} {impl : QueryImpl oSpec (StateT σ ProbComp)}
 
 open NNReal
-
-/-- Perfect completeness for the (full) sum-check protocol -/
-theorem reduction_perfectCompleteness :
-    (reduction R deg D n oSpec).perfectCompleteness init impl
-      (relationRound R n deg D 0) (relationRound R n deg D (.last n)) :=
-  Reduction.seqCompose_perfectCompleteness_of_guarded_verifiers
-    (fun i => StatementRound R n i × ∀ j, OracleStatement R n deg j)
-    (fun _ => Unit) init impl (relationRound R n deg D)
-    (SingleRound.reduction R n deg D oSpec)
-    (fun _ => inferInstance) (SingleRound.verifierGuardedForm R n deg D oSpec)
-    (fun i s => SingleRound.reduction_perfectCompleteness (init := pure s) i)
 
 /-- Round-by-round knowledge soundness with error `deg / |R|` per challenge for the (full)
   sum-check protocol -/
 theorem oracleVerifier_rbrKnowledgeSoundness [Fintype R] [IsDomain R] :
     (oracleVerifier R deg D n oSpec).rbrKnowledgeSoundness init impl
       (relationRound R n deg D 0) (relationRound R n deg D (.last n))
-      (fun _ => (deg : ℝ≥0) / (Fintype.card R)) :=
-  OracleVerifier.seqCompose_rbrKnowledgeSoundness
-    (rel := relationRound R n deg D)
-    (V := SingleRound.oracleVerifier R n deg D oSpec)
-    (h := fun i => SingleRound.oracleVerifier_rbrKnowledgeSoundness i)
+      (fun _ => (deg : ℝ≥0) / (Fintype.card R)) := sorry
 
 end Spec
 
--- end for noncomputable section
 end
 
 end Sumcheck

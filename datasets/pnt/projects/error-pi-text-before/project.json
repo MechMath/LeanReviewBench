@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Own-version definition uses Li(x) as denominator; unchanged Formal uses x/log(x). At x=2 the old text evaluates to zero under Lean real-division totalization, whereas Formal is strictly positive. The hole-free kernel witness establishes separation. FKS2 equation (1) independently confirms the intended x/log(x) normalization on the positive domain.",
   "external_imports": [
     "Mathlib.NumberTheory.Chebyshev"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "f642e94978d14862e77d11e99c3c4ff70ddcf0daafb67c70e276d1096ae15049"
+    "sha256": "6a76c7d30afcc863227804cb8d0b7e499c4bbe1ac9211958b7118ae4f58e447d",
+    "effective_root_sha256": "08492829fd1e5985fee4d0dfdd71792021de651504c741dd516b7804f63b0552",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "d99c940e7cdfeebdc3ecc9dbe8e8917e09c3335a2951128d8cee5873eac594ef",
+  "input_sha256": "cbd07af46bebb399219a5539efd4ec7e96f3f583fce67b66e1d0e92781269de8",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

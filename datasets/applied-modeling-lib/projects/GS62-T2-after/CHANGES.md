@@ -10,4 +10,9 @@ Relocate imports and adapt the historical many-to-one matching interfaces and pr
 
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
-Recorded compatibility edits affect `EconCSLib/Markets/Matching/ManyToOne.lean`.
+Before context pruning, compatibility edits affected `EconCSLib/Markets/Matching/ManyToOne.lean`.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

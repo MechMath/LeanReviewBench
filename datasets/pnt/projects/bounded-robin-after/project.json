@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "与自己的冻结版本逐项一致：nth_prime′ n=Nat.nth Prime(n−1)对应从1开始的p_n；n和p_n上的阈值、严格/非严格不等号、自然对数项及常数均按当前文字保留。不同版本之间的阈值变化不构成各自配对的不一致。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "7105755b67f01e511c1207fc7b844b526338f998c5e5e2766ea7e8f3f0a293b6"
+    "sha256": "5b89ed3072aff02629d5526da9f523cb42e37a7a2262af6e207df43d6018d93f",
+    "effective_root_sha256": "e09d159430452650043b0088eee498029191a68d5f465fbbe13dd9dc49d4bd17",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-robin-after/20261105T053606612097Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "70f05adfacc0da5d111b9b78f3169beae68a20199d16118f9898961de913a8dd",
+  "input_sha256": "0187e2bed2547fc398e238c2e314fc888cd01f151c3df4b2c041fa0a49b55ca5",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

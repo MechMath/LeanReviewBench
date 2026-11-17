@@ -1,94 +1,559 @@
 {
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-L94",
   "status": "passed",
-  "root": "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli",
-  "exit_code": 0,
-  "command": [
-    "/home/shenhao/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
-    "-j",
-    "1",
-    "-o",
-    "/home/shenhao/PaperLeanBench/build/bench-export-repair-20261109/cdg/ExportRoot.olean",
-    "ExportRoot.lean"
+  "evidence": "compiled_environment",
+  "roots": [
+    "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
   ],
-  "source_edits": [],
-  "raw_input_unchanged": true,
-  "new_sorry_or_axioms": false,
-  "original_theorem_proof_certified": true,
-  "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
-  "driver_sha256": "41fd5dffba8f5db83ecd62f9b69a2259a46d30ab4d8a8120f3ef3adf310f3919",
-  "closure_audit_sha256": "63b28b5d8a05ac01508c0ac7c81fb50f661d8d935e7809c5c7f5c294676d6930",
-  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
-  "graph_processor_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
-  "compile_status_sha256": "2031f8bd9c50c297cd77b6d21bffdddffc210b076c8e57846663eaf15c9e31d9",
+  "input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+  "graph_sha256": "4f08689e60860e07c6a18e0b66db0116389c06e9b59909cc9c8963863006c7e4",
+  "graph_path": "metadata/derived-graphs/graphs/coarse-degiorgi--CDG-L94.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "a7064e4a79781f07a3f78dfd6d8cc3641c3f435b9dc63b9b43b3861d3ac35e47"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Assembly/ParameterDefs.lean",
+      "6a3a7439d3445aaa378f6ccf736976a705b8e441994bfdb07ef7b58f33720c54"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Foundations/FracGeometry/Defs.lean",
+      "a6e3a73b534ff381fcbef5058f6a264ac47ff3722667f5408859a0ecc55b1bd6"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Foundations/FracGeometry/FaceHausdorff.lean",
+      "cbc59884b50228378ab2fb337d44b80954c8750f61cb6315872db968ce78e730"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Foundations/FractionalSobolev/SurfaceEmbeddingNorms.lean",
+      "62d339016709b41fede0ecb29cb79d3113554579111479dc7d4b8110b76b4108"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Harnack/Iterations/SignedEndpointIterations.lean",
+      "dd5be1d99bb6edb98858bdb95e581cd48ea8a7eb9235454186e26f45cffcb00b"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Harnack/ReverseMoments/NormalizedReverse.lean",
+      "8990d40339f03fdbd265f76c60e90a0fdf930bfd07eeb285e1128fd99e7cfea2"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Moments/Cells.lean",
+      "f3bfb59fea683cd34bd6b5d039d23ff426691c6bc4130cbc6d3e2634d4924137"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/AlphaParam.lean",
+      "5afe3e9b3ecdb3921a0ab4e861b7c4290763eea99bfd661c7802c1dad4fe8c47"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/ChiParam.lean",
+      "5abc26c564a76d6cd13a48c08c9257bbd5dd11711f4b2531988309d86611f2d4"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/Contrast.lean",
+      "a22a23765f9f46a7bad760a3136177c836f0b05aa388205de94a18beed946742"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/CrossoverExponent.lean",
+      "dcb53893be9d331028cf1456cc2addccdac5d4ed6f08c53aa9afb1b222a19a03"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/CubeFaceMeasure.lean",
+      "4c01c8115859616bb9cf34593839318fbe9afd4f7141184949f39efb0c85a214"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/FaceCoordinateMeasures.lean",
+      "051fd19d3e90a7e5af4bc69fb21e766b956470d4ff84e96f8729b5a8641ceb5c"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/GridOffset.lean",
+      "3f56f1989b4a6ed3748f20c16225d695a0d71d24474079ffdb92138fc7b3b8a1"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/IsSmoothCore.lean",
+      "d2de9504810fe63fcc809f6b0649e5114dc61345357e4f10cf8756303902abc0"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/IsWeightedCoeffOn.lean",
+      "10ca0b809d2f5954e4d3ccbae03cdfc1dcb5a9a9e1964d3838a33d6167c11c17"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/IsWeightedSolution.lean",
+      "c9d7bce79fe6acbe5524b0fdc909a55ab5dba06f3e69c1b0056dd740c2bab10b"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/IsWeightedSubsolution.lean",
+      "2054ae558c6340a2349b0cc4b8b404b9fd7a3f24fe21d3fb4f93536028adadd7"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/IsWeightedSupersolution.lean",
+      "a7f0de7dbe775cb04398b16804fb589375157582c0586616a8d963993ad8131f"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/LowerCellAverage.lean",
+      "9858337af32e69ad2103df5c1a14ecaa7deb5e892a0fc6b698258ab36c282065"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/LowerDirectionalResponse.lean",
+      "74f592a233d68fea7141985f9356ace8072b2a42ade3e82123fae3a230e0a124"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/LowerMoment.lean",
+      "9ad1bf7990335c97b68e01974e58cd769069dd79d34d1638229c9455a33616bc"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/LowerResponseExistsUnique.lean",
+      "8721933cde1fcb5f114fe58582ff43f3c9e0f3ed72305538233793d71eae70bf"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/LowerResponseInv.lean",
+      "ab18a757efe3d23cde64ed4477d5efd0259fa89cb24647a3b238d2bc58d502fd"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/LowerResponseInvOnCell.lean",
+      "7c997136e8ca7db866085e0ddf214d4142d6589ee16c5dd0913cdb86a5f39867"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/MemH1a.lean",
+      "b89e1f12a674b86f3938509ea5d0ff61532ab8b3ac9c276e2da7cfde2fc84ff5"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/MemH1a0.lean",
+      "1a53dbf266db983d95393b27b9cce4218e43e5e0efe7193d9f9dfc7e4383472c"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/NonnegativeEssInf.lean",
+      "18e48d0b0b242c2be9f718560f7a6d2b1c3164b03c9bc31f75249086e046b0be"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/NormalizedLpMoment.lean",
+      "1017c892ab456f74c8f034568646281d968627c3100bb6daf2b8ebe92ae6da19"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/OriginCube.lean",
+      "98647104abd1a2c675e8366f2d54cc85670a7f50af1830ab665dd4340f917e1c"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/ParamR.lean",
+      "b6cfe0c7b77ddf596e2db455c15a03f41e857a4c5c424fa0717b520e883858b9"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/ParamTheta.lean",
+      "04f9e37d91a3e63afd38ff445ea4831cf687964e5c87da0c8eed4e3fd362f734"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/PowerFactor.lean",
+      "ed438cd51dee2c4007b242bb2503d742ad54dc690092b7628723bc64d8117551"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/RStarParam.lean",
+      "15c280bfa0bcb861497689eb817d3e76b69d59740b19b55232b35a3ff547d3a0"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/Simplex.lean",
+      "5a8673457402b2c643b789546cc19f9c5e6091dc3c6d8dd7fbcff150b2e2e47a"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SimplexCell.lean",
+      "b59a32ac2c236518c7157f7600d32baa78148b09a4ad5233be79a776d62638dc"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SimplexCellIsOpenBoundedConvexDomain.lean",
+      "bde1c16917cfa8cad359971e2c55eed64028d4a59b9c13ff259f4e1e3eca0ff7"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SimplexCellNonempty.lean",
+      "4252005919ea8cf4e2478a38304f114f4191a95263ad46c50fe85949873b1d00"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SimplexIndex.lean",
+      "f271c2097b0e061ce63e282ab8ab4ec80ce807cce85fa52b7dc8f9b008b8c91c"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SmoothGrad.lean",
+      "dbcbf75d8b72cc4e7262f5b1d6accee594891da7d2c4bcbd46c7da0004209fe4"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SpatialMomentRange.lean",
+      "4afff0642309617c35b843931a063279f27c857281fd81e6deb6ef837188853c"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/SurfaceMeasure.lean",
+      "96811593eabd3452c96db3288a26970fa8fb7ab9266804eb0bf6aeeaee75b361"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/Triangulation.lean",
+      "aad3165d48a3585f9a66250b5a6053ea908fd76cdedd162e795768a747514d93"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/UpperCellAverage.lean",
+      "0bb1125d0114bbab01f726d1372bc62f865d43eb05de091092e9cb0461128adf"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/UpperDirectionalResponseSol.lean",
+      "93985173a35026f245af87feeed650654a67e4073ccbbaad6fc122fa2b3fd470"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/UpperMoment.lean",
+      "8bba2e4c056c1cb8a1cee3a75802ea1829e2f2b384a25e8c7fd33e0e9bcd9608"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/UpperResponse.lean",
+      "5863148d0b5136d8e2f855de1c6fdfba4640a15d52e5388726bf3e2922d56c0f"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/UpperResponseExistsUnique.lean",
+      "5facf895886d30787a5f63c0bbcd9e8c1000d35488133a8ed46d410eb3b79f15"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/UpperResponseOnCell.lean",
+      "b7f76399a1a3f05b265da243a55d6e1cec90e9350aa5df438a211e02becd99c5"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/WeightedCoeffOnSimplexCell.lean",
+      "f6c8d7e9e4534f0e33ed19181859e216dea316dbc9dd81b19249f3a41b8ee3dc"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Statements/WeightedEnergy.lean",
+      "a7bc07a85e80420bd225a86af4053a4263f978bdf3fcc17f56e31e688fd67304"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/Defs.lean",
+      "1577e32825e9d831b14d0e4448fe3fc7a9721e0d28b65ed186e7d2d028229187"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/Energy.lean",
+      "4dbc9f9276aca0185c1c0636c1146fb4b8ec23d052c93c1d734abb957cc5f85b"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/GradientHilbert.lean",
+      "06e78f2087dde8dcb269ef142466ee012018da1322254f71af3bb15e695bbad5"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/PairOperations.lean",
+      "8331235600cf37499ee70e2938030645f499704b0d012dbd507718f46e4975fb"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/SmoothCore.lean",
+      "355fdf751b12fd5edebe5145fc2a556ab2c68e12767a13ac7e80f9ac9639ff37"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/SmoothSpace.lean",
+      "b8ea00d860f3a9b4bf897db9f6ec56f664c5669898f57bc91fa1c50b0ceb938c"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/Truncation/Chain.lean",
+      "df98a2bd7d8fdfcd6bca728ef81aa22daf3b106f16d00e5110297d4e8cb9300f"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/ZeroCore.lean",
+      "c2eebdfb6f729542684f613c25c74a54178520bb119e7b14482b8053c033a48d"
+    ],
+    [
+      "formal/dep/CoarseDeGiorgi/Weighted/ZeroSpace.lean",
+      "b77c663a05fdda0077ab65b7f069735ad39761e6ded7090ba2534983996deb08"
+    ],
+    [
+      "formal/dep/Homogenization/Ambient/Basic.lean",
+      "a5637c68b8d3c85e733aeaa39567e0f14ebea9a4b4fc60517b8f6ceb94e84208"
+    ],
+    [
+      "formal/dep/Homogenization/Ambient/BlockMatrix.lean",
+      "df30d5528a56cdb879f194ce4cf339f5cf37a04d43d3c05756807ab50889d39d"
+    ],
+    [
+      "formal/dep/Homogenization/Ambient/CoefficientField.lean",
+      "0d8ce9186984778f9d8fec66a9a1ad6b33f21adb98bb54f0930bb98626a8359b"
+    ],
+    [
+      "formal/dep/Homogenization/Ambient/Euclidean.lean",
+      "602ece70b91e6a7297d34f0d7e4ebdfff0a412800d1c37974365748922929fca"
+    ],
+    [
+      "formal/dep/Homogenization/Ambient/HilbertFinite.lean",
+      "fb4e71b6b09e464054b5123a0e01b3ecf506c4244aba05741dab19a427edc56a"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Basic.lean",
+      "c02c641e304157ffb66371fc4c890433c623e7305cee48a669be62b003d6d7d5"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Duality/Definitions.lean",
+      "73e3bc4aaf8244fef409070f109a4cba022939173d43e29b72111c04488a5c2b"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Duality/Full.lean",
+      "144b71c343e8000bca305d95777ab44d39f0414677f7bb14f4bbd2f1c6fc63e8"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Duality/GlobalComparison.lean",
+      "c155311d5c6b4e4ae234c1ee3ebe6f7dad3d758d0251c6e94bc4e07684dc468c"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Negative.lean",
+      "cbb2f886256142d34a2982d254114ff4863176d60a530d8d28b9bef818d38389"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Poincare/Structures.lean",
+      "d1785f50741742503bce7ae95b5e9e719a626749b4038477f075c148b7b2abca"
+    ],
+    [
+      "formal/dep/Homogenization/Besov/Positive.lean",
+      "c6b4115c70cae081beddeaa3f23d12f7ae2030ae75b327a45bfcb4ba7e89a28d"
+    ],
+    [
+      "formal/dep/Homogenization/Book/Ch02/Dilation.lean",
+      "f11497ce5c66c4ad01f05980371f778619cb35987f1ebc037892745ae4bf1eff"
+    ],
+    [
+      "formal/dep/Homogenization/Book/Ch02/Matrices.lean",
+      "6c31a0a3a8825f983dc843fca339cc44c7aeb41c250ac8475c500d2d035d7645"
+    ],
+    [
+      "formal/dep/Homogenization/Book/Ch02/MultiscaleEllipticity.lean",
+      "9e9c00082452bb0d8c8d55d39d970cf03c8c5ff695ae75b9c37989a6c465f88c"
+    ],
+    [
+      "formal/dep/Homogenization/Book/Ch02/Response.lean",
+      "9f0dad20b7b8c541082fb93ddd3c9748ebc786591bf67d80fe5de91f08907fce"
+    ],
+    [
+      "formal/dep/Homogenization/Book/Ch02/Setup.lean",
+      "6adc112b8e91a0980f82ccefdfc1b0c6f397ce2dc019f11822e4daf78fef5e1b"
+    ],
+    [
+      "formal/dep/Homogenization/CoarseGraining/Definitions.lean",
+      "9c1912718ea107aed862f9588c1e7daca256b606107444ae084f231f3230b4d9"
+    ],
+    [
+      "formal/dep/Homogenization/CoarseGraining/ResponseIdentities/Foundations/Algebra.lean",
+      "1101b8fc12c2b494c05d7df14d0876f3660a086ea7acb28fdbf12109e79ece10"
+    ],
+    [
+      "formal/dep/Homogenization/CoarseGraining/SharpBlockBounds/DiagonalSandwich.lean",
+      "ffcdd393816b1aeb2177d7902fa58fdc7898fdb59c75e89edd856c7e1e376bb3"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/BoundedMeasurableDomain.lean",
+      "65a0a4d1d20109c3b096d5f34dd6a678a34080f987161a09d927717277d9e941"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/ConvexDomain.lean",
+      "639e637f6b7e3009659c76a28ba50dbb9d85718879960f820e08de0460ca8464"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/CubeMeasure.lean",
+      "037713d33e1392da3350f9149d40a12f71c4b47edd26064b40cd476d56375515"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/CubeMetric.lean",
+      "4627d4c7a8c3a9bbb157af793eadc9e24955666fb18559b41d046aad323b6120"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/Domain.lean",
+      "74ea70eeaf3933b6bb85cf69fd785d1232cc24b529471f1dd75f07f53131f3b0"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/SignedPermutation.lean",
+      "7aaa8a90385ce678bb9761a59ff50944b657599b5946b6b0b965c8476ad2fd56"
+    ],
+    [
+      "formal/dep/Homogenization/Geometry/TriadicCube.lean",
+      "13dfa461a7a13d95ef49f57f4f86849d37cdf826ade163d7c3b88991cfe3675b"
+    ],
+    [
+      "formal/dep/Homogenization/Multiscale/CubeAverage.lean",
+      "20e06d06fbc51f47795e3f906e76833ff73a3b9aaea4f83a2ee7cde44dbbc9e7"
+    ],
+    [
+      "formal/dep/Homogenization/Multiscale/NormalizedDomainCube.lean",
+      "b917e4c610062caae073f5f73162d58c446503fb60ce87a644af694a2a611e01"
+    ],
+    [
+      "formal/dep/Homogenization/Multiscale/NormalizedNorms.lean",
+      "d6fe62b8ab1d7f73c8b8f730ab72d05d907e3657d731f3ece9282ae178a50a4c"
+    ],
+    [
+      "formal/dep/Homogenization/PDE/Harmonic.lean",
+      "5dea8e08ff7b336d8bb6bd30dff0713c9f7ec34622de12b6cc266738790a3e7f"
+    ],
+    [
+      "formal/dep/Homogenization/Probability/LocalEllipticitySlices.lean",
+      "a40d02226930144081b1a47a0a4db0a7f75e4cae03214a40973ab34f1ad97243"
+    ],
+    [
+      "formal/dep/Homogenization/Probability/RandomField.lean",
+      "b6cca3a1d5c7db8e86493f0bed826de822229eb4db2e8a31dadd77b140c46c13"
+    ],
+    [
+      "formal/dep/Homogenization/Probability/RegCoeffField/EllipticSet.lean",
+      "0cf3edc2c4c7b63057c09e8a0b2a7daa424f1920f3b6f1517c2e0e4877808863"
+    ],
+    [
+      "formal/dep/Homogenization/Probability/RegCoeffField/Sigma.lean",
+      "e8191a29006bde4395f95caf69d3f446979845bdbee30215fa140fa640dcbfc6"
+    ],
+    [
+      "formal/dep/Homogenization/Probability/RegCoeffField.lean",
+      "6a7552d6bdb65653067ea53cd0b37d37406f702aff980046974b009733fde1c4"
+    ],
+    [
+      "formal/dep/Homogenization/Probability/Source/Coarse.lean",
+      "f9b78cf5c2d9eb000ab0448d9ddaf64dec560611a9ae79e9943183da78eeb474"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/FiniteLpExponent.lean",
+      "124f70909476566a6e96567e75989b432d069de6fff876375a76933c4ebf66a5"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/CoerciveH1.lean",
+      "ac4255c3ab9850964cdc9e752cdc93ee095da654e7493dce5d55b33669762f54"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/CubeNeumannW22CZ/WeakInterior.lean",
+      "5017fb3cd580cd058ccb2d8ab815d1061feddfb3aa39da4cd86ed4111e731f9f"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/CubeNeumannW22CZ/WeakInteriorDQ/TestSubmodule.lean",
+      "bff7653580d19e9b120c3d55cb33ee7f78cc0f856e55abce5bd0f1be46e636eb"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/CubePoisson/Solver.lean",
+      "063ed3f7d046249cc4da69d8323c3968c6e263b774ecf3040b6bfa911d3bb4f2"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/Cutoff/Cube.lean",
+      "33f5b3d01eb3ed798fdc8ff34fba99ec728d847c5ee7b4c1953c07ea133bc7b3"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/Cutoff/Euclidean.lean",
+      "b58de723f4aa76fda73e8ec122d7bd1bb51d3335e21a518130d0051d89598d51"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/Cutoff/Profile.lean",
+      "7084c8528deb95c555a5bc4894027dc0c4ed3309f831133a1b9359681a8e6f16"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/EuclideanL2CZ.lean",
+      "1dc4cfda7d826b8f60ba2b2cc95723ab79b384990196b50c30fe2b6c21eca9a9"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/H10Graph.lean",
+      "766c37bc94eac5fe4dd3d447446da477ca0aeeb5dc23102c271201f35587d669"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/H1Graph/CoerciveHilbert.lean",
+      "6e7c1536bd8ad5829c3819a66111702be28c13ca638e49f73288bb07ce48b216"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/H1Graph/Graph.lean",
+      "14a224ce974f89df979ab4f860e640295c5be96f6d4aebd471e86d3d9e3c0562"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/H1Graph/Preliminaries.lean",
+      "56d32956335d34866d7bd26a4f7fd85d613adc2ef8d8443afe2d2a388a6962a8"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareLpKernel/Basic.lean",
+      "21bc899e737b1d947153438c54defe8eec8e2da7694cb47f4238508a8faf80c2"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareLpKernel/RieszPowerMean.lean",
+      "183972dead62166cbea0d47e901e0c8ae4a53497c324c67396547690da238bb0"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareLpKernel/SegmentChangeOfVariables.lean",
+      "bda14bfad44cce28233eaed445d9e938cad96430b42692adb3528831bf3706be"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareLpKernel/TimeCollapse.lean",
+      "e3633be03212caa6227cc3999666a417dd0dade4a3d96a774d9fe080183e5f43"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareMeanZero.lean",
+      "27c38e4da3a0d4cf91af64e3e9a2793575bdfef4bc66b36eda4f0afa19c41afc"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareW1p/Core.lean",
+      "1664588d95dea68a40853bd974ffd1b4e208014dd48552af12ec3c0999e71192"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareW1p/Seminorms.lean",
+      "3ea63e502d0828f4e3172cfabc5adad21127109a8826d1b02bb548e009f0d1b9"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/PoincareZeroTrace.lean",
+      "661bbcfb1f6d2c57fbf6ea79506394d33f6843d3704fce65fa15cda54a68d0ce"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Foundations/QuantitativeCutoff.lean",
+      "47e31d500a10c64b43150e4eac68da8f17dfae6de7e57548ac709b2ede0453f0"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Fractional/Definitions.lean",
+      "945dd0b6613cdf4944d55e80e893d115fec802b21a82e3aef84cb929195e2ebe"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/Fractional/UnitCubeEuclideanL2.lean",
+      "1b9ea5ef0f6362f602709804f36d0fc427158aa4507deca161c85e7ad7a852f1"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/H1/Algebra/H10Function.lean",
+      "65e924a6aff7f0788f15c20acdcb4dbf0f3469e4be96bcdd52046538a3b26264"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/H1/Algebra/H1Function.lean",
+      "3e2d740ac92add29090e3b869ce4bb0c6d80f316236822cf60877b06f122fcf8"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/H1/BasicLemmas.lean",
+      "4d1f23825cf3d001fbe05f7305a7aadcd2b1dc03b4e08c640db994f496f728fb"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/H1/Definitions.lean",
+      "be01bc3f0f0b46fadfd5dcab3d0820be779edef33bd030f480070a302e0c684e"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/L2Ambient.lean",
+      "ad0b5e987376bde8cc1273623a784b23607cc253324574f30c9cdd69dbb85882"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/PotentialSolenoidal.lean",
+      "7066af3f131d6bda0ddc098f1c013e80c3ea1ee6c70630d34c4371d7ccab31d7"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/W1p/BasicLemmas.lean",
+      "cf2cbf69f4918e8b36f7764b2fb76e962bcd405acab2672ac1b0f5060b219d83"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/W1p/ConvexApproxSmoothing/Kernel.lean",
+      "830412170a7f45ef5818a8995fcd0916d60e82666c6606b4fd78e7b3390f6d10"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/W1p/Definitions.lean",
+      "6a610da41855890ed8ecb29e49e3c08eab4168a4439d21bd0e4d4bd9a095a232"
+    ],
+    [
+      "formal/dep/Homogenization/Sobolev/WeakDerivatives.lean",
+      "a4193ce2f336c7ea4480051dce8c0bd60801bf23a464eea3ac64989693a026fb"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 132,
   "nodes": 306,
   "edges": 1764,
-  "source_extraction_status": "passed",
-  "raw_sha256": "0c1d83c342b92d7d1a0a8843e0273e10d702babc3c5ed8f312b34817b0218ce4",
-  "graph_sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10",
-  "archive_evidence": {
-    "ExportRoot.lean": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/ExportRoot.lean",
-      "sha256": "41fd5dffba8f5db83ecd62f9b69a2259a46d30ab4d8a8120f3ef3adf310f3919"
-    },
-    "closure-audit.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/closure-audit.json",
-      "sha256": "63b28b5d8a05ac01508c0ac7c81fb50f661d8d935e7809c5c7f5c294676d6930"
-    },
-    "compact.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compact.json",
-      "sha256": "64afe37f540cfdf22293319bd7e8fdfe00bcfd15d828432f0c95759cb82695b8"
-    },
-    "compile-closure.py": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compile-closure.py",
-      "sha256": "fa348b2ccbf471be70d28d0a0887552db5266d7a86ed3e52e3bc0dab08cd3eff"
-    },
-    "compile-status.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compile-status.json",
-      "sha256": "2031f8bd9c50c297cd77b6d21bffdddffc210b076c8e57846663eaf15c9e31d9"
-    },
-    "compile.log": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/compile.log",
-      "sha256": "2876f4411dc1c6d7e38b35aad068db70e3e9d2525d10a5e5baab589a02fb847b"
-    },
-    "export-root.py": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/export-root.py",
-      "sha256": "237a4b9ee95a186d3b024ed49ad09f29668e901ef9aad27a81948f0951b7cd08"
-    },
-    "extraction.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/extraction.json",
-      "sha256": "7bb1691ec33895b98d4ee090471504e7a5d0c352cbf02e9f17443f474352838e"
-    },
-    "graph.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/graph.json",
-      "sha256": "acfe838d5012e5b7f4df86ed8af64e7c98d912643e33d460162ff6305aea4b10"
-    },
-    "historical-source-comparison.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/historical-source-comparison.json",
-      "sha256": "000b5cf4ea804bd6b4544edb7e0f51008e8c9de6ad65be2d2727da6a9304b2f3"
-    },
-    "module-build-evidence.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/module-build-evidence.json",
-      "sha256": "0c4a198523a2634db2daf989871613e7942ad2d1d250191179c21bf91d6e871e"
-    },
-    "raw.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/raw.json",
-      "sha256": "0c1d83c342b92d7d1a0a8843e0273e10d702babc3c5ed8f312b34817b0218ce4"
-    },
-    "receipt-original.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/receipt-original.json",
-      "sha256": "f3de53c83cc2eb516545bc9c2935f3aca05ec82851a5a6b2aa27345c4403a8fc"
-    },
-    "source-bindings.json": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/source-bindings.json",
-      "sha256": "abf36af242593b24e5b50a28a3399e58df9a2c623a2f25ab747ac38b2826c3c6"
-    },
-    "graph-processor.py": {
-      "path": "reports/bench-export-repair-2026-11-09/cdg-graph/graph-processor.py",
-      "sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
-    }
-  },
-  "archive_policy": "Graph and original build/export evidence are retained under reports. Source text is not duplicated; source-bindings.json verifies the unchanged canonical files and extracted declaration ranges. Absolute build paths in historical commands and logs identify the executed workspace.",
-  "evidence": "compiled_environment",
-  "source_file_count": 564,
-  "verified_source_declaration_count": 48
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
 }

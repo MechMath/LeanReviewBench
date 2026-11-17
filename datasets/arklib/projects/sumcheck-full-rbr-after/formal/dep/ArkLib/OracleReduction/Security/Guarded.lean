@@ -1,41 +1,197 @@
-/-
-Copyright (c) 2024-2026 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Tobias Rothmann, Pablo Martín Vinuelas, Alexander Hicks
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Logic.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
 public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.Basic
-
-/-!
-# Guarded verifiers
-
-A **guarded** verifier either returns a deterministic verdict or aborts:
-`if check stmt tr then pure (out stmt tr) else failure`, where `failure` is native to the
-verifier monad `OptionT (OracleComp _)`. It is the faithful model of a verifier that rejects at
-runtime, and purity is its special case with the trivially-true check.
-
-This file holds the notion itself, independent of any particular security definition, so that
-completeness, round-by-round and coordinate-wise special soundness arguments can all share it.
-
-## Contents
-
-* `Verifier.IsGuardedWith` / `Verifier.IsGuarded`: the guard predicate, with a `Bool`-valued
-  check; `IsGuarded.of_isPure` is the pure case.
-* `Verifier.GuardedForm`: guardedness with its check and verdict map as **data**, the guarded
-  mirror of `Verifier.PureForm`. `GuardedForm.isGuarded` forgets back to the class, and
-  `PureForm.toGuardedForm` is the data form of `IsGuarded.of_isPure`, and `GuardedForm.ofEq`
-  transports guardedness data along an equality of verifiers.
-* `Verifier.GuardedForm.append`: closure of guardedness data under `Verifier.append`, with
-  composite check `check₁ s tr.fst && check₂ (out₁ s tr.fst) tr.snd`; `Verifier.IsGuarded.append`
-  is the forgetful corollary.
-* `Verifier.append_run_guardedLeft`: running an appended verifier whose left factor is guarded.
-* `Verifier.GuardedForm.prEvent_pos_of_check`: a guarded verifier whose guard passes outputs its
-  verdict with positive probability.
-* `Verifier.GuardedForm.ofQueryGuard`: the guarded form of an oracle verifier that makes one
-  query to the prover's messages, guards on the answer and the challenges, and returns a
-  statement built from them.
--/
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -60,15 +216,8 @@ special case `check := fun _ _ => true` (`IsGuarded.of_isPure`). -/
 class IsGuarded (V : Verifier oSpec StmtIn StmtOut pSpec) : Prop where
   is_guarded : ∃ check out, V.IsGuardedWith check out
 
-/-- Every pure verifier is guarded, with the trivially-true check. -/
-theorem IsGuarded.of_isPure (V : Verifier oSpec StmtIn StmtOut pSpec) (h : V.IsPure) :
-    V.IsGuarded := by
-  obtain ⟨f, hf⟩ := h.is_pure
-  exact ⟨fun _ _ => true, f, fun stmt tr => by simp [hf stmt tr]⟩
-
 /-- Every pure verifier is guarded automatically: the instance form of `IsGuarded.of_isPure`. -/
-instance (V : Verifier oSpec StmtIn StmtOut pSpec) [h : V.IsPure] : V.IsGuarded :=
-  IsGuarded.of_isPure V h
+instance (V : Verifier oSpec StmtIn StmtOut pSpec) [h : V.IsPure] : V.IsGuarded := sorry
 
 /-- A **guardedness witness carrying check and output map as data**: the bundled form of
 `Verifier.IsGuardedWith`, and the guarded mirror of `Verifier.PureForm`.
@@ -83,29 +232,6 @@ structure GuardedForm (V : Verifier oSpec StmtIn StmtOut pSpec) where
   out : StmtIn → FullTranscript pSpec → StmtOut
   /-- The verifier is guarded with exactly these. -/
   verify_eq : V.IsGuardedWith check out
-
-/-- Forget the data: a `Verifier.GuardedForm` yields the `Verifier.IsGuarded` class. -/
-theorem GuardedForm.isGuarded {V : Verifier oSpec StmtIn StmtOut pSpec} (G : V.GuardedForm) :
-    V.IsGuarded :=
-  ⟨G.check, G.out, G.verify_eq⟩
-
-/-- Every pure form is a guarded form, at the trivially-true check: the data form of
-`Verifier.IsGuarded.of_isPure`. Lossless, and computable — the verdict function carries over. -/
-def PureForm.toGuardedForm {V : Verifier oSpec StmtIn StmtOut pSpec} (P : V.PureForm) :
-    V.GuardedForm where
-  check := fun _ _ => true
-  out := P.verify
-  verify_eq := fun stmt tr => by rw [P.verify_eq stmt tr]; simp
-
-/-- Transport a guarded form along an equality of verifiers. The check and verdict map are kept
-as they are; only the run equation is rewritten. This is how a guarded form built for one
-presentation of a verifier serves another, such as the `Verifier.append` of two converted oracle
-verifiers serving the converted `OracleVerifier.append` (`OracleVerifier.append_toVerifier`). -/
-def GuardedForm.ofEq {V V' : Verifier oSpec StmtIn StmtOut pSpec} (h : V = V')
-    (G : V.GuardedForm) : V'.GuardedForm where
-  check := G.check
-  out := G.out
-  verify_eq := h ▸ G.verify_eq
 
 section GuardedFormAppend
 
@@ -126,58 +252,14 @@ def GuardedForm.append {V₁ : Verifier oSpec Stmt₁ Stmt₂ pSpec₁}
     (V₁.append V₂).GuardedForm where
   check := fun stmt tr => G₁.check stmt tr.fst && G₂.check (G₁.out stmt tr.fst) tr.snd
   out := fun stmt tr => G₂.out (G₁.out stmt tr.fst) tr.snd
-  verify_eq := fun stmt tr => by
-    simp only [Verifier.append]
-    rw [G₁.verify_eq stmt tr.fst]
-    by_cases hc₁ : G₁.check stmt tr.fst = true
-    · rw [ite_eq_left hc₁, pure_bind, G₂.verify_eq (G₁.out stmt tr.fst) tr.snd]
-      by_cases hc₂ : G₂.check (G₁.out stmt tr.fst) tr.snd = true <;> simp [hc₁, hc₂]
-    · rw [ite_eq_right hc₁]
-      simp [hc₁]
+  verify_eq := fun stmt tr => sorry
 
 /-- Guardedness is closed under `Verifier.append`: forget the data of `GuardedForm.append`. -/
 theorem IsGuarded.append (V₁ : Verifier oSpec Stmt₁ Stmt₂ pSpec₁)
     (V₂ : Verifier oSpec Stmt₂ Stmt₃ pSpec₂) (h₁ : V₁.IsGuarded) (h₂ : V₂.IsGuarded) :
-    (V₁.append V₂).IsGuarded :=
-  (GuardedForm.append ⟨_, _, h₁.is_guarded.choose_spec.choose_spec⟩
-    ⟨_, _, h₂.is_guarded.choose_spec.choose_spec⟩).isGuarded
-
-/-- Running an appended verifier whose left factor is **guarded**: the composed run is the right
-verifier's at the left verdict where the left check passes, and `failure` where it does not. -/
-theorem append_run_guardedLeft
-    (V₁ : Verifier oSpec Stmt₁ Stmt₂ pSpec₁) (V₂ : Verifier oSpec Stmt₂ Stmt₃ pSpec₂)
-    (check₁ : Stmt₁ → pSpec₁.FullTranscript → Bool)
-    (out₁ : Stmt₁ → pSpec₁.FullTranscript → Stmt₂)
-    (hV₁ : V₁.IsGuardedWith check₁ out₁)
-    (stmt : Stmt₁) (tr₁ : pSpec₁.FullTranscript) (tr₂ : pSpec₂.FullTranscript) :
-      (V₁.append V₂).run stmt (tr₁ ++ₜ tr₂) =
-        if check₁ stmt tr₁ then V₂.run (out₁ stmt tr₁) tr₂ else failure := by
-  simp only [Verifier.run, Verifier.append, FullTranscript.append_fst,
-    FullTranscript.append_snd, hV₁ stmt tr₁]
-  by_cases hc : check₁ stmt tr₁ <;> simp [hc]
+    (V₁.append V₂).IsGuarded := sorry
 
 end GuardedFormAppend
-
-/-- A guarded verifier whose guard passes outputs its verdict with positive probability, because
-`init` has a possible outcome. The converse direction is
-`Verifier.GuardedForm.check_and_of_prEvent_pos`. -/
-theorem GuardedForm.prEvent_pos_of_check {σ : Type} {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    (G : V.GuardedForm)
-    {stmt : StmtIn} {tr : FullTranscript pSpec} {p : StmtOut → Prop}
-    (hc : G.check stmt tr = true) (hp : p (G.out stmt tr)) :
-    Pr{let s ← OptionT.mk do
-      (simulateQ impl (V.run stmt tr)).run' (← init)}[p s] > 0 := by
-  have hrun : (V.run stmt tr : OracleComp oSpec (Option StmtOut)) =
-      pure (some (G.out stmt tr)) := by
-    simp only [Verifier.run, G.verify_eq stmt tr, hc, ite_true]
-    rfl
-  rw [gt_iff_lt, OptionT.prEvent_mk_pos_iff]
-  obtain ⟨s, hs⟩ := OracleComp.support_nonempty init
-  refine ⟨G.out stmt tr, ?_, hp⟩
-  rw [hrun]
-  simp only [simulateQ_pure, support_bind, Set.mem_iUnion, exists_prop]
-  exact ⟨s, hs, by simp [StateT.run'_eq, StateT.run_pure]⟩
 
 end Verifier
 
@@ -190,31 +272,5 @@ variable {ι : Type} {oSpec : OracleSpec ι}
     [Oₛᵢ : ∀ i, OracleInterface (OStmtIn i)]
     [Oₘ : ∀ i, OracleInterface (pSpec.Message i)]
     [Oₛₒ : ∀ i, OracleInterface (OStmtOut i)]
-
-/-- The guard and verdict of a **query-guard-return** oracle verifier as data. If the verifier
-makes one query `q` to the prover's messages, guards on the answer and the challenges, and returns
-a statement built from them, then its induced verifier is guarded: the guard is `check` at the
-transcript's answer and challenges, and the verdict is `accept` there, with the materialized output
-oracles. The run equation is `OracleVerifier.toVerifier_verify_of_query_guard`. -/
-def ofQueryGuard
-    (verifier : OracleVerifier oSpec StmtIn OStmtIn StmtOut OStmtOut pSpec)
-    (q : [pSpec.Message]ₒ.Domain)
-    (check : StmtIn → [pSpec.Message]ₒ.Range q → pSpec.Challenges → Prop)
-    [hcheck : ∀ s a c, Decidable (check s a c)]
-    (accept : StmtIn → [pSpec.Message]ₒ.Range q → pSpec.Challenges → StmtOut)
-    (hV : ∀ stmt chals, verifier.verify stmt chals = do
-      let a ← query (spec := [pSpec.Message]ₒ) q
-      guard (check stmt a chals)
-      return accept stmt a chals) :
-    verifier.toVerifier.GuardedForm where
-  check s tr := @decide _
-    (hcheck s.1 (OracleInterface.answer (tr.messages q.1) q.2) tr.challenges)
-  out s tr := (accept s.1 (OracleInterface.answer (tr.messages q.1) q.2) tr.challenges,
-    verifier.materializeOutput tr.challenges s.2 tr.messages)
-  verify_eq s tr := by
-    rw [OracleVerifier.toVerifier_verify_of_query_guard verifier q check accept hV s.1 s.2 tr]
-    by_cases hc : check s.1 (OracleInterface.answer (tr.messages q.1) q.2) tr.challenges
-    · rw [ite_eq_left hc, ite_eq_left (@decide_eq_true _ (hcheck _ _ _) hc)]
-    · rw [ite_eq_right hc, ite_eq_right fun h => hc (@of_decide_eq_true _ (hcheck _ _ _) h)]
 
 end Verifier.GuardedForm

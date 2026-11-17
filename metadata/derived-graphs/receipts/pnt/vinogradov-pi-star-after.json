@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-star-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "Eπ_star.vinogradovBound"
+  ],
+  "input_sha256": "e77a0a896a97726011ff9cd03df0d44675cd051ac20e20c6d31eb3ec78b28194",
+  "graph_sha256": "33e3cd851d7ac03d6fe06d40faef99de1855e8dd2629a97fed8ce937db2e2341",
+  "graph_path": "metadata/derived-graphs/graphs/pnt--vinogradov-pi-star-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "39053d63a8b281097be5e226b7bccddb055ef78cec5a37bac38dd8a070dfa9bd"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 66,
+  "edges": 118,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

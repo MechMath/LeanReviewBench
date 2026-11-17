@@ -1,0 +1,43 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-AFFINE-P31",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
+  ],
+  "input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+  "graph_sha256": "73c9885267da3fc530fa2c1036de56fd5ab7ed5cc622852c106131921e424581",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GN21-AFFINE-P31.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "1417acd54f975cfece25b7c8b35bad8bedcbd2f3abd11f614c571d8bf8db8ff7"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Probability/CTMC.lean",
+      "94410f33727c3ca7e754d863c16e51042354d0fba8551291af249adade28dc64"
+    ],
+    [
+      "formal/dep/GN21DriverSurgePricing/MainTheorems.lean",
+      "443960f718f53e613b2032ed5ef8a7d6b7693ea5c88334257ae865b4da24d23c"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 3,
+  "nodes": 66,
+  "edges": 143,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

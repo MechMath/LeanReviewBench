@@ -1,6 +1,36 @@
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
+import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Data.Fin.Basic
+import Mathlib.Data.Finset.Lattice.Basic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.List.GetD
+import Mathlib.Data.List.Sort
+import Mathlib.Data.Real.Basic
+import Mathlib.Probability.Kernel.Composition.MeasureComp
+import Mathlib.Probability.ProbabilityMassFunction.Constructions
+import Mathlib.Probability.ProbabilityMassFunction.Integrals
+import Mathlib.Probability.ProbabilityMassFunction.Monad
+import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Topology.Algebra.Module.Basic
+import Mathlib.Topology.Order.Compact
 import dep.AppliedModelingLib.Applications.RecommenderSystems.Allocation
+import dep.AppliedModelingLib.Foundations.Probability.PMFKernel
 
 open scoped BigOperators
+
 open AppliedModelingLib
 
 namespace PRPKG24AccuracyDiversity
@@ -44,35 +74,6 @@ def IsOptimalAtTotal {T : ℕ}
 noncomputable def marginalValue {T : ℕ}
     (M : ConsumptionModel T) (t : ItemType T) (q : ℕ) : ℝ := AppliedModelingLib.Allocation.marginal M.valueOfCount t q
 
-/-- The model has nonnegative marginal values in every type. -/
-def HasNonnegativeMarginals {T : ℕ} (M : ConsumptionModel T) : Prop := AppliedModelingLib.Allocation.HasNonnegativeMarginals M.valueOfCount
-
-/-- The model has diminishing returns in every type. -/
-def HasDiminishingReturns {T : ℕ} (M : ConsumptionModel T) : Prop := AppliedModelingLib.Allocation.HasDiminishingReturns M.valueOfCount
-
-/-- Linear, no-consumption-constraint value: each additional item has the same value. -/
-def linearValueOfCount {T : ℕ}
-    (perItemValue : ItemType T → ℝ) : ItemType T → ℕ → ℝ :=
-  fun t q => (q : ℝ) * perItemValue t
-
-/-- The linearized objective used as the baseline that ignores consumption constraints. -/
-def linearized {T : ℕ}
-    (likelihood : ItemType T → ℝ) (perItemValue : ItemType T → ℝ) : ConsumptionModel T where
-  likelihood := likelihood
-  valueOfCount := linearValueOfCount perItemValue
-
-@[simp] theorem objective_eq_allocation_objective {T : ℕ}
-    (M : ConsumptionModel T) (a : CountAllocation T) :
-    M.objective a = AppliedModelingLib.Allocation.objective a M.likelihood M.valueOfCount := rfl
-
-@[simp] theorem marginalValue_apply {T : ℕ}
-    (M : ConsumptionModel T) (t : ItemType T) (q : ℕ) :
-    M.marginalValue t q = M.valueOfCount t (q + 1) - M.valueOfCount t q := rfl
-
-@[simp] theorem linearValueOfCount_zero {T : ℕ}
-    (perItemValue : ItemType T → ℝ) (t : ItemType T) :
-    linearValueOfCount perItemValue t 0 = 0 := by
-  simp [linearValueOfCount]
-
 end ConsumptionModel
+
 end PRPKG24AccuracyDiversity

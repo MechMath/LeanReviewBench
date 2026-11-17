@@ -40,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "74e40e41871f42d52c1926fb6ac69686cf486a3f09379bd749aa52ba85387ce3"
+    "sha256": "e5bc11d277c2fe4a5c1d908b7bb041d5d926e609a37dc81256ca6281d8f2503f",
+    "effective_root_sha256": "39053d63a8b281097be5e226b7bccddb055ef78cec5a37bac38dd8a070dfa9bd",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-star-after/20261105T052132586968Z/receipt.json",
@@ -65,9 +68,9 @@
   },
   "informal_status": "source_backed_later_upstream_target",
   "evaluation_eligible": true,
-  "input_sha256": "f76fa8a562349919f7d19c45e4a35abb4a9d3bd0d54183e75a743a02e850ce25",
+  "input_sha256": "e77a0a896a97726011ff9cd03df0d44675cd051ac20e20c6d31eb3ec78b28194",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl",
   "pair_validity": "valid_source_backed_new_binding",
   "informal_binding_review": "reports/vinogradov-target-search-2026-11-09/review.json"

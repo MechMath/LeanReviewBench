@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "sphere-eversion",
+  "project_id": "immersion-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "Immersion"
+  ],
+  "input_sha256": "4e72119aff81a0db29352a3b3a94606f738a1951fc06b66eef22ebe415d1052d",
+  "graph_sha256": "addf13e50047ab53d4dc44780babb82c948331b38b5d73140f76a90be2b87d26",
+  "graph_path": "metadata/derived-graphs/graphs/sphere-eversion--immersion-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "61bae11414c008b71f0fbc598ec8fd51c079ea8809f38ba0f4629065c797a82a"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 28,
+  "edges": 37,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

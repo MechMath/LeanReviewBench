@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "vinogradov-pi-before",
   "task_id": "pnt:vinogradov-pi-before",
-  "input_sha256": "bf7cee854c5f0c1e5958f3266f11be0c411f778a6b23c17743e7c46bba54872d",
+  "input_sha256": "718b37f871ae5279cce828ee8d2824461839b64c381a9ac7a3747304f0aca50a",
   "label": "misaligned",
   "reason": "Natural-number division makes fractional exponents 3/5 and 1/5 zero, changing the decay factor.",
   "review_status": "human_reviewed",

@@ -3,7 +3,7 @@
   "dataset": "formalslt",
   "project_id": "mixture-after",
   "task_id": "formalslt:mixture-after",
-  "input_sha256": "9067f5e19eddd50865d57acc87644a1299d772b7be021003462e45c6a1131c27",
+  "input_sha256": "9071b80d760f0521904b7364c8b90f56606203e16783e53e6a7d78a49dc1a48d",
   "label": "aligned",
   "reason": "The probability model, increment assumptions, predictable variance proxy, uniform-prior Bernstein mixture, and crossing-probability bound match.",
   "review_status": "human_reviewed",

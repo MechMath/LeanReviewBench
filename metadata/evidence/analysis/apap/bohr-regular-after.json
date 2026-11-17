@@ -3,7 +3,7 @@
   "dataset": "apap",
   "project_id": "bohr-regular-after",
   "task_id": "apap:bohr-regular-after",
-  "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
+  "input_sha256": "39665cf983a484eeff9fe4d48dda52ad67fedee2ba7c7d62a4c7a966adcad689",
   "label": "misaligned",
   "reason": "The rank counts characters of finite width instead of characters whose width is strictly below 2, changing the numerical regularity range and bounds.",
   "review_status": "human_reviewed",

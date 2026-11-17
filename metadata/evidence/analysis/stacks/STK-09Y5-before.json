@@ -3,7 +3,7 @@
   "dataset": "stacks",
   "project_id": "STK-09Y5-before",
   "task_id": "stacks:STK-09Y5-before",
-  "input_sha256": "59408da39a01dfcd44cb961fb458bf41c0a18b27fda25d3f682874870fa8d449",
+  "input_sha256": "f1902336cd8109d582c44f08d2600af3df8fc08e9933b0a8ee26701f7f1ec4da",
   "label": "misaligned",
   "reason": "The input partition omits the local-closedness condition required by the source partition definition.",
   "review_status": "human_reviewed",

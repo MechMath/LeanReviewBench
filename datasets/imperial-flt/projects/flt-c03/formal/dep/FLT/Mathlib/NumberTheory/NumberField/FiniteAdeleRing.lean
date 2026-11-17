@@ -1,32 +1,92 @@
-/-
-Copyright (c) 2025 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard
--/
-
--- if I can get all imports as FLT.Mathlib then I can upstream
 module
 
+public import Mathlib.Algebra.Group.Int.TypeTags
+public import Mathlib.Algebra.Group.Pointwise.Set.Basic
+public import Mathlib.Algebra.Group.Submonoid.Units
+public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.LinearMap.Defs
+public import Mathlib.Algebra.Module.Pi
+public import Mathlib.Algebra.Module.Submodule.Defs
+public import Mathlib.Algebra.Ring.Subring.Basic
+public import Mathlib.Algebra.Ring.Subring.Defs
+public import Mathlib.Algebra.Ring.Subsemiring.Basic
+public import Mathlib.Analysis.Normed.Ring.Lemmas
+public import Mathlib.CategoryTheory.Category.Init
+public import Mathlib.CategoryTheory.Types.Basic
+public import Mathlib.Data.Nat.Totient
+public import Mathlib.Data.Rat.Encodable
+public import Mathlib.Data.Sym.Sym2.Init
+public import Mathlib.LinearAlgebra.Countable
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.LinearAlgebra.FreeModule.IdealQuotient
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.LinearAlgebra.Matrix.Defs
+public import Mathlib.LinearAlgebra.Quotient.Pi
+public import Mathlib.Logic.Equiv.PartialEquiv
+public import Mathlib.NumberTheory.NumberField.Basic
+public import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
+public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
+public import Mathlib.NumberTheory.Padics.ProperSpace
+public import Mathlib.NumberTheory.RamificationInertia.Basic
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.NumberTheory.RamificationInertia.Ramification
+public import Mathlib.Order.Filter.Cofinite
+public import Mathlib.RingTheory.AlgebraTower
+public import Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+public import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient
+public import Mathlib.RingTheory.Ideal.Quotient.Defs
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+public import Mathlib.RingTheory.Localization.BaseChange
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.RingTheory.Valuation.Discrete.Basic
+public import Mathlib.RingTheory.Valuation.Discrete.RankOne
+public import Mathlib.Tactic.Bound.Init
+public import Mathlib.Tactic.ContinuousFunctionalCalculus
+public import Mathlib.Tactic.NormNum.GCD
+public import Mathlib.Tactic.Positivity.Finset
+public import Mathlib.Topology.Algebra.Algebra
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Constructions
+public import Mathlib.Topology.Algebra.Group.Units
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+public import Mathlib.Topology.Algebra.Module.Equiv
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import Mathlib.Topology.Algebra.Valued.ValuationTopology
+public import Mathlib.Topology.Algebra.Valued.ValuedField
+public import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
+public import Mathlib.Topology.Bases
+public import Mathlib.Topology.Homeomorph.Lemmas
+public import Mathlib.Topology.Instances.Matrix
+public import Mathlib.Topology.Path
+public import dep.FLT.DedekindDomain.AdicValuation
+public import dep.FLT.DedekindDomain.IntegralClosure
+public import dep.FLT.Deformations.ContinuousRepresentation.IsTopologicalModule
+public import dep.FLT.Mathlib.Algebra.Algebra.Tower
+public import dep.FLT.Mathlib.Algebra.Module.Submodule.Basic
+public import dep.FLT.Mathlib.LinearAlgebra.Countable
+public import dep.FLT.Mathlib.Order.Filter.Cofinite
+public import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
 public import dep.FLT.Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
-import dep.FLT.Mathlib.LinearAlgebra.Countable
-import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
-import dep.FLT.NumberField.Completion.Finite
-import dep.FLT.NumberField.HeightOneSpectrum
-import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
-
-/-!
-# Finite Adele Ring
-
-Material destined for Mathlib.
--/
+public import dep.FLT.Mathlib.Topology.Algebra.Module.ModuleTopology
+public import dep.FLT.Mathlib.Topology.Algebra.MulAction
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Equiv
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import dep.FLT.NumberField.Completion.Finite
+public import dep.FLT.NumberField.HeightOneSpectrum
 
 @[expose] public section
 
-/-
-
-# The finite adele ring of a number field is locally compact.
-
--/
 open scoped TensorProduct
 
 universe u
@@ -41,43 +101,22 @@ open HeightOneSpectrum
 
 /-- `𝔸ᶠ[K]` is notation for `FiniteAdeleRing (𝓞 K) K`. -/
 scoped[Adele] notation:max "𝔸ᶠ[" K "]" => 𝔸ᶠ[𝓞 K, K]
+
 namespace IsDedekindDomain.FiniteAdeleRing
 
 open IsDedekindDomain HeightOneSpectrum RestrictedProduct in
-instance : LocallyCompactSpace 𝔸ᶠ[K] :=
-  haveI : Fact (∀ (i : HeightOneSpectrum (𝓞 K)),
-      IsOpen (adicCompletionIntegers K i : Set (adicCompletion K i))) :=
-    ⟨isOpenAdicCompletionIntegers K⟩
-  inferInstanceAs <| LocallyCompactSpace (Πʳ _, [_, _])
+instance : LocallyCompactSpace 𝔸ᶠ[K] := sorry
 
-instance : CompactSpace (integralAdeles (𝓞 K) K) :=
-  isCompact_iff_compactSpace.1 <|
-  isCompact_range RestrictedProduct.isEmbedding_structureMap.continuous
+instance : CompactSpace (integralAdeles (𝓞 K) K) := sorry
 
-lemma isCompact_integralAdeles : IsCompact (X := 𝔸ᶠ[K]) (integralAdeles (𝓞 K) K) :=
-  isCompact_iff_compactSpace.mpr (inferInstanceAs (CompactSpace (integralAdeles (𝓞 K) K)))
+instance : T2Space (FiniteAdeleRing (𝓞 K) K) := sorry
 
-instance : T2Space (FiniteAdeleRing (𝓞 K) K) :=
-  inferInstanceAs <| T2Space (Πʳ _, [_, _])
-
-instance : SecondCountableTopology (FiniteAdeleRing (𝓞 K) K) :=
-  RestrictedProduct.secondCountableTopology (isOpenAdicCompletionIntegers K)
-
-lemma HeightOneSpectrum.nonempty {R : Type*} [CommRing R] (hR : ¬ IsField R) [Nontrivial R] :
-    Nonempty (HeightOneSpectrum R) := by
-  obtain ⟨I, hI⟩ := Ideal.exists_maximal R
-  exact ⟨⟨I, inferInstance, by rintro rfl; exact hR (Ring.isField_iff_maximal_bot.mpr hI)⟩⟩
+instance : SecondCountableTopology (FiniteAdeleRing (𝓞 K) K) := sorry
 
 instance {R : Type*} [CommRing R] [Algebra.IsIntegral ℤ R] [FaithfulSMul ℤ R] :
-    Nonempty (HeightOneSpectrum R) :=
-  have := (FaithfulSMul.algebraMap_injective ℤ R).nontrivial
-  HeightOneSpectrum.nonempty fun h ↦
-    Int.not_isField
-      (isField_of_isIntegral_of_isField (FaithfulSMul.algebraMap_injective ℤ R) h)
+    Nonempty (HeightOneSpectrum R) := sorry
 
-instance : Nontrivial (FiniteAdeleRing (𝓞 K) K) :=
-  RingHom.domain_nontrivial (FiniteAdeleRing.evalAlgebraMap _ _
-    (Nonempty.some inferInstance)).toRingHom
+instance : Nontrivial (FiniteAdeleRing (𝓞 K) K) := sorry
 
 end IsDedekindDomain.FiniteAdeleRing
 

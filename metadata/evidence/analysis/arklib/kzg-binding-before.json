@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "kzg-binding-before",
   "task_id": "arklib:kzg-binding-before",
-  "input_sha256": "66e220c62b628b2d22836be33f160662204c7d4cffbc9d4a93bff627a61668ab",
+  "input_sha256": "b3df2ad1857a26ef2757d381041b7863be464ba585f19dfc94b9308311230825",
   "label": "misaligned",
   "reason": "The computational hardness assumption ranges over all Lean functions of the adversary type rather than the source class of probabilistic polynomial-time adversaries.",
   "review_status": "human_reviewed",

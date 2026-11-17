@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "pnt",
+  "project_id": "error-pi-text-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "Eπ"
+  ],
+  "input_sha256": "333707c2a20f60b0e7ce3c52b38ab5e865bef05543417037d478fe473368150c",
+  "graph_sha256": "fe91150656427fcb946fcf930232f851facde1f5b5c94ed0a2fbbee6a9ce96cb",
+  "graph_path": "metadata/derived-graphs/graphs/pnt--error-pi-text-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "08492829fd1e5985fee4d0dfdd71792021de651504c741dd516b7804f63b0552"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 44,
+  "edges": 55,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

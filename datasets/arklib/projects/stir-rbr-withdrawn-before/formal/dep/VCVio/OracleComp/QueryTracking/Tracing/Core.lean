@@ -1,23 +1,84 @@
-/-
-Copyright (c) 2026 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma
--/
-
 module
-public import dep.VCVio.OracleComp.QueryTracking.Structures
-public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
-public import dep.VCVio.OracleComp.SimSemantics.WriterT.Core
+
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.Order.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
 public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
 public import dep.ToMathlib.Control.WriterT
-
-/-!
-# Trace instrumentation
-
-Writer-valued instrumentation records query-dependent observations before a handler runs,
-or response-dependent observations after a response returns. Projection recovers the original
-computation for any lawful base monad.
--/
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 public section
 
@@ -31,8 +92,6 @@ namespace QueryImpl
 
 variable {m : Type u → Type v} [Monad m]
 
-/-! ### `withTraceBefore`: response-independent trace, recorded before handler -/
-
 section withTraceBefore
 
 variable {ω : Type u} [Monoid ω]
@@ -44,41 +103,7 @@ abbrev withTraceBefore (so : QueryImpl spec m) (traceFn : spec.Domain → ω) :
     QueryImpl spec (WriterT ω m) :=
   PFunctor.Handler.withTraceBefore (P := spec.toPFunctor) so traceFn
 
-@[grind =]
-lemma withTraceBefore_apply (so : QueryImpl spec m) (traceFn : spec.Domain → ω) (t : spec.Domain) :
-    so.withTraceBefore traceFn t = (do tell (traceFn t); so t) := by
-  exact PFunctor.Handler.withTraceBefore_apply (P := spec.toPFunctor) so traceFn t
-
-lemma fst_map_run_withTraceBefore [LawfulMonad m]
-    (so : QueryImpl spec m) (traceFn : spec.Domain → ω) (mx : OracleComp spec α) :
-    Prod.fst <$> (simulateQ (so.withTraceBefore traceFn) mx).run = simulateQ so mx := by
-  have h : so.withTraceBefore traceFn =
-      so.preInsert (fun t => tell (traceFn t)) :=
-    PFunctor.Handler.withTraceBefore_eq_preInsert (P := spec.toPFunctor) so traceFn
-  rw [h]
-  exact proj_simulateQ_preInsert so (fun t => tell (traceFn t))
-    (proj := fun {γ} (x : WriterT ω m γ) => Prod.fst <$> x.run)
-    WriterT.fst_map_run_pure WriterT.fst_map_run_bind
-    (fun t => by simp) mx
-
-/-- When every query traces to the monoid identity `1`, `withTraceBefore` is a
-no-op up to pairing with `1`. -/
-@[simp]
-lemma run_simulateQ_withTraceBefore_const_one [LawfulMonad m]
-    (so : QueryImpl spec m) (mx : OracleComp spec α) :
-    (simulateQ (so.withTraceBefore (fun _ => (1 : ω))) mx).run =
-      (·, 1) <$> simulateQ so mx := by
-  induction mx using OracleComp.inductionOn <;> simp [*]
-
-lemma support_fst_run_withTraceBefore [LawfulMonad m] [MonadAttach m]
-    (so : QueryImpl spec m) (traceFn : spec.Domain → ω) (mx : OracleComp spec α) :
-    support (Prod.fst <$> (simulateQ (so.withTraceBefore traceFn) mx).run) =
-      support (simulateQ so mx) := by
-  rw [fst_map_run_withTraceBefore]
-
 end withTraceBefore
-
-/-! ### `withTrace`: response-dependent trace, recorded after handler -/
 
 section withTrace
 
@@ -92,45 +117,7 @@ abbrev withTrace (so : QueryImpl spec m)
     QueryImpl spec (WriterT ω m) :=
   PFunctor.Handler.withTrace (P := spec.toPFunctor) so traceFn
 
-@[grind =]
-lemma withTrace_apply (so : QueryImpl spec m) (traceFn : (t : spec.Domain) → spec.Range t → ω)
-    (t : spec.Domain) :
-    so.withTrace traceFn t = (do let u ← so t; tell (traceFn t u); return u) := by
-  exact PFunctor.Handler.withTrace_apply (P := spec.toPFunctor) so traceFn t
-
-lemma fst_map_run_withTrace [LawfulMonad m]
-    (so : QueryImpl spec m) (traceFn : (t : spec.Domain) → spec.Range t → ω)
-    (mx : OracleComp spec α) :
-    Prod.fst <$> (simulateQ (so.withTrace traceFn) mx).run = simulateQ so mx := by
-  have h : so.withTrace traceFn =
-      so.postInsert (fun t u => tell (traceFn t u)) :=
-    PFunctor.Handler.withTrace_eq_postInsert (P := spec.toPFunctor) so traceFn
-  rw [h]
-  exact proj_simulateQ_postInsert so (fun t u => tell (traceFn t u))
-    (proj := fun {γ} (x : WriterT ω m γ) => Prod.fst <$> x.run)
-    WriterT.fst_map_run_pure WriterT.fst_map_run_bind
-    (fun t => by simp) mx
-
-/-- When every query/response pair traces to the monoid identity `1`,
-`withTrace` is a no-op up to pairing with `1`. -/
-@[simp]
-lemma run_simulateQ_withTrace_const_one [LawfulMonad m]
-    (so : QueryImpl spec m) (mx : OracleComp spec α) :
-    (simulateQ (so.withTrace (fun _ _ => (1 : ω))) mx).run =
-      (·, 1) <$> simulateQ so mx := by
-  induction mx using OracleComp.inductionOn <;> simp [*]
-
-lemma support_fst_run_withTrace [LawfulMonad m] [MonadAttach m]
-    (so : QueryImpl spec m) (traceFn : (t : spec.Domain) → spec.Range t → ω)
-    (mx : OracleComp spec α) :
-    support (Prod.fst <$> (simulateQ (so.withTrace traceFn) mx).run) =
-      support (simulateQ so mx) := by
-  rw [fst_map_run_withTrace]
-
 end withTrace
-
-/-! ### `withTraceAppendBefore`: response-independent trace, recorded before
-handler, accumulating via `∅` / `++` -/
 
 section withTraceAppendBefore
 
@@ -145,33 +132,7 @@ abbrev withTraceAppendBefore (so : QueryImpl spec m) (traceFn : spec.Domain → 
     QueryImpl spec (WriterT ω m) :=
   PFunctor.Handler.withTraceAppendBefore (P := spec.toPFunctor) so traceFn
 
-@[grind =]
-lemma withTraceAppendBefore_apply (so : QueryImpl spec m) (traceFn : spec.Domain → ω)
-    (t : spec.Domain) :
-    so.withTraceAppendBefore traceFn t = (do tell (traceFn t); so t) := by
-  exact PFunctor.Handler.withTraceAppendBefore_apply (P := spec.toPFunctor) so traceFn t
-
-lemma fst_map_run_withTraceAppendBefore [LawfulMonad m] [LawfulAppend ω]
-    (so : QueryImpl spec m) (traceFn : spec.Domain → ω) (mx : OracleComp spec α) :
-    Prod.fst <$> (simulateQ (so.withTraceAppendBefore traceFn) mx).run = simulateQ so mx := by
-  have h : so.withTraceAppendBefore traceFn =
-      so.preInsert (fun t => tell (traceFn t)) :=
-    PFunctor.Handler.withTraceAppendBefore_eq_preInsert (P := spec.toPFunctor) so traceFn
-  rw [h]
-  exact proj_simulateQ_preInsert so (fun t => tell (traceFn t))
-    (proj := fun {γ} (x : WriterT ω m γ) => Prod.fst <$> x.run)
-    WriterT.fst_map_run_pure' WriterT.fst_map_run_bind'
-    (fun t => by simp [seqRight_eq_bind]) mx
-lemma support_fst_run_withTraceAppendBefore [LawfulMonad m] [LawfulAppend ω] [MonadAttach m]
-    (so : QueryImpl spec m) (traceFn : spec.Domain → ω) (mx : OracleComp spec α) :
-    support (Prod.fst <$> (simulateQ (so.withTraceAppendBefore traceFn) mx).run) =
-      support (simulateQ so mx) := by
-  rw [fst_map_run_withTraceAppendBefore]
-
 end withTraceAppendBefore
-
-/-! ### `withTraceAppend`: response-dependent trace, recorded after handler,
-accumulating via `∅` / `++` -/
 
 section withTraceAppend
 
@@ -185,31 +146,6 @@ abbrev withTraceAppend (so : QueryImpl spec m)
     (traceFn : (t : spec.Domain) → spec.Range t → ω) :
     QueryImpl spec (WriterT ω m) :=
   PFunctor.Handler.withTraceAppend (P := spec.toPFunctor) so traceFn
-
-@[grind =]
-lemma withTraceAppend_apply (so : QueryImpl spec m) (traceFn : (t : spec.Domain) → spec.Range t → ω)
-    (t : spec.Domain) :
-    so.withTraceAppend traceFn t = (do let u ← so t; tell (traceFn t u); return u) := by
-  exact PFunctor.Handler.withTraceAppend_apply (P := spec.toPFunctor) so traceFn t
-
-lemma fst_map_run_withTraceAppend [LawfulMonad m] [LawfulAppend ω]
-    (so : QueryImpl spec m) (traceFn : (t : spec.Domain) → spec.Range t → ω)
-    (mx : OracleComp spec α) :
-    Prod.fst <$> (simulateQ (so.withTraceAppend traceFn) mx).run = simulateQ so mx := by
-  have h : so.withTraceAppend traceFn =
-      so.postInsert (fun t u => tell (traceFn t u)) :=
-    PFunctor.Handler.withTraceAppend_eq_postInsert (P := spec.toPFunctor) so traceFn
-  rw [h]
-  exact proj_simulateQ_postInsert so (fun t u => tell (traceFn t u))
-    (proj := fun {γ} (x : WriterT ω m γ) => Prod.fst <$> x.run)
-    WriterT.fst_map_run_pure' WriterT.fst_map_run_bind'
-    (fun t => by simp) mx
-lemma support_fst_run_withTraceAppend [LawfulMonad m] [LawfulAppend ω] [MonadAttach m]
-    (so : QueryImpl spec m) (traceFn : (t : spec.Domain) → spec.Range t → ω)
-    (mx : OracleComp spec α) :
-    support (Prod.fst <$> (simulateQ (so.withTraceAppend traceFn) mx).run) =
-      support (simulateQ so mx) := by
-  rw [fst_map_run_withTraceAppend]
 
 end withTraceAppend
 

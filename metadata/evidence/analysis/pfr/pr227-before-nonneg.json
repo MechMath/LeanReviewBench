@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr227-before-nonneg",
   "task_id": "pfr:pr227-before-nonneg",
-  "input_sha256": "49e105b354d98fcab015a1c7b6f1b88cb6011b0a2264293547e949838db6c9d6",
+  "input_sha256": "04467815f77ba6ed08381cc71a82a47e807640d0dc66aaa72e6ebe699af225b9",
   "label": "misaligned",
   "reason": "Real log/division totalization at zero denominators replaces the intended infinite KL value.",
   "review_status": "human_reviewed",

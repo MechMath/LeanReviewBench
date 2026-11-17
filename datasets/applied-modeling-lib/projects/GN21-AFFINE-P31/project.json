@@ -28,9 +28,8 @@
   "status": "ready",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Mathlib.Algebra.BigOperators.Ring.Finset",
     "Mathlib.Analysis.Calculus.Deriv.Inv",
@@ -76,7 +75,7 @@
       "sha256": "d8d40973d913167fc9be6d85a55b8d4f3dcd069509ff8e4abe05a82522d1f73f"
     }
   },
-  "input_sha256": "5eb01243a9aa023992ea812e142925a3ab24bdf0989f8224fef0c741a904b32d",
+  "input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -85,11 +84,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 9,
-    "sha256": "3e09baf77608fb914ffeb62668a78defe13289d3c494ddc9e6a638c9513df312",
-    "effective_root_sha256": "5ab56e057421108628c36e7c0ce47ed1d6bc151525b498b048892bbf5e8c7bf3"
+    "file_count": 3,
+    "sha256": "c0bf5b01fa7cfe7d12ba02e7e2b387fcad42fd2fd758b8f59fe6cfcd7d9a3a69",
+    "effective_root_sha256": "1417acd54f975cfece25b7c8b35bad8bedcbd2f3abd11f614c571d8bf8db8ff7",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

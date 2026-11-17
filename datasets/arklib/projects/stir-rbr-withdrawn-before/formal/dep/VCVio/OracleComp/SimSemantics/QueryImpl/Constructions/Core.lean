@@ -1,42 +1,70 @@
-/-
-Copyright (c) 2024 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma, Quang Dao
--/
-
 module
+
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
 public import dep.VCVio.OracleComp.Support
-public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Compose
-
-/-!
-# Composition and instrumentation of oracle handlers
-
-`preInsert` and `postInsert` are the building blocks for instrumented `QueryImpl` values. Both
-take a base `QueryImpl spec m` and a per-query side effect, and produce a `QueryImpl spec n` that
-wraps the base with that side effect:
-
-* `preInsert so nx` runs `nx t` *before* the handler `so t`. The side effect happens
-  unconditionally, including when the handler later fails.
-* `postInsert so nx` runs `nx t u` *after* the handler returns response `u`, so the side
-  effect can depend on the response and is skipped when the handler fails.
-
-Their theory is parametric in a projection `proj : ∀ {γ}, n γ → m γ` that strips the
-instrumentation and preserves monadic composition. `proj_simulateQ_preInsert` identifies the
-projected instrumented execution with the base execution, so every observation of the base
-(output measures, events, supports) transfers by rewriting with it.
-`support_proj_simulateQ_preInsert` and `finSupport_proj_simulateQ_preInsert` record the support
-forms, and `simulateQ_preInsert.induct` is the underlying induction principle; the `postInsert`
-analogues are parallel. Query-bound transfer through these wrappers lives in
-`QueryTracking/QueryBound.lean`.
-
-Most of the wrappers in `QueryTracking/` (`withTraceBefore`, `withTrace`,
-`withTraceAppendBefore`, `withTraceAppend`, `withCost`, `withCounting`, `withAddCost`,
-`withUnitCost`, `withLogging`, `appendInputLog`) bottom out at these combinators. New
-instrumentation should follow the same pattern when its shape is "for each query, run a
-side effect and delegate". Wrappers whose control flow is conditional on external state
-or the would-be response (cache-on-hit, seed fallback, budget gating) need a custom
-`QueryImpl` and stay outside this hierarchy.
--/
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 public section
 
@@ -45,7 +73,6 @@ open OracleSpec OracleComp Prod Sum
 universe u v w
 
 namespace QueryImpl
-
 
 section insertPre
 
@@ -57,105 +84,6 @@ variable {m : Type u → Type v}
 abbrev preInsert (so : QueryImpl spec m) (nx : spec.Domain → n α) :
     QueryImpl spec n :=
   PFunctor.Handler.preInsert (P := spec.toPFunctor) so nx
-
-@[grind =]
-lemma preInsert_apply [LawfulMonad n] (so : QueryImpl spec m) (nx : spec.Domain → n α)
-    (t : spec.Domain) :
-    so.preInsert nx t = (do let _ ← nx t; liftM (so t)) := by
-  simp [preInsert, seqRight_eq, monad_norm]
-
-/-- One-step characterisation of `simulateQ (preInsert so nx)` on a single query. -/
-lemma simulateQ_preInsert_query [LawfulMonad n]
-    (so : QueryImpl spec m) (nx : spec.Domain → n α)
-    (t : spec.Domain) :
-    simulateQ (so.preInsert nx) (query t) = (do let _ ← nx t; liftM (so t)) := by
-  have h : simulateQ (so.preInsert nx) (query t) = so.preInsert nx t := by
-    simp
-  exact h.trans (preInsert_apply so nx t)
-
-/-- Induction principle for `proj (simulateQ (so.preInsert nx) oa)` parametric in a
-motive `OracleComp spec β → m β → Prop`. The recursion structure of
-`proj_simulateQ_preInsert` is exposed as two cases mirroring `OracleComp.inductionOn`:
-in `pure x` the projected term reduces to `pure x`, and in `query t >>= k` it reduces
-to `so t >>= k'` for some continuation `k' u = proj (simulateQ (so.preInsert nx) (k u))`.
-Tagged `@[elab_as_elim]` so it is usable as `induction oa using simulateQ_preInsert.induct`. -/
-@[elab_as_elim]
-lemma simulateQ_preInsert.induct [Monad m] [LawfulMonad m] [LawfulMonad n]
-    (so : QueryImpl spec m) (nx : spec.Domain → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.preInsert nx) t) = so t)
-    {motive : OracleComp spec β → m β → Prop}
-    (h_pure : ∀ (x : β), motive (pure x : OracleComp spec β) (pure x))
-    (h_query_bind : ∀ (t : spec.Domain) (k : spec.Range t → OracleComp spec β)
-        (k' : spec.Range t → m β),
-        (∀ u, motive (k u) (k' u)) → motive (query t >>= k) (so t >>= k'))
-    (oa : OracleComp spec β) :
-    motive oa (proj (simulateQ (so.preInsert nx) oa)) := by
-  induction oa using OracleComp.inductionOn with
-  | pure x =>
-      rw [simulateQ_pure, hproj_pure]
-      exact h_pure x
-  | query_bind t k ih =>
-      rw [simulateQ_bind, simulateQ_spec_query, hproj_bind, hproj_apply]
-      exact h_query_bind t k _ ih
-
-/-- Generic strip lemma: given a monad-morphism-style projection `proj : ∀ {γ}, n γ → m γ`
-that preserves `pure` and `bind` and discards the inserted side effect on each query,
-simulating with `preInsert so nx` and projecting back recovers `simulateQ so`. The proof
-is the canonical use of `simulateQ_preInsert.induct`: the parametric motive is instantiated
-to the equality with `simulateQ so oa`, leaving trivial cases. -/
-lemma proj_simulateQ_preInsert [Monad m] [LawfulMonad m] [LawfulMonad n]
-    (so : QueryImpl spec m) (nx : spec.Domain → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.preInsert nx) t) = so t)
-    (oa : OracleComp spec β) :
-    proj (simulateQ (so.preInsert nx) oa) = simulateQ so oa := by
-  induction oa using simulateQ_preInsert.induct so nx proj hproj_pure hproj_bind hproj_apply with
-  | h_pure x => rfl
-  | h_query_bind t k k' ih =>
-      simp only [simulateQ_bind, HasQuery.instOfMonadLift_query, simulateQ_spec_query]
-      exact bind_congr ih
-
-/-- When `nx` is constantly `pure x`, `preInsert so nx` is the lift of `so` and the
-resulting simulation equals the lifted underlying simulation. Generic analogue of the
-`run_simulateQ_withTraceBefore_const_one` no-op identity. -/
-lemma simulateQ_preInsert_const_pure [Monad m]
-    [LawfulMonad m] [LawfulMonad n] [LawfulMonadLiftT m n]
-    (so : QueryImpl spec m) (x : α) (oa : OracleComp spec β) :
-    simulateQ (so.preInsert (fun _ => (pure x : n α))) oa = liftM (simulateQ so oa) := by
-  have h : so.preInsert (fun _ => (pure x : n α)) = so.liftTarget n := by
-    funext t; simp
-  rw [h, simulateQ_liftTarget]
-
-lemma support_proj_simulateQ_preInsert [Monad m]
-    [LawfulMonad m] [LawfulMonad n] [MonadAttach m]
-    (so : QueryImpl spec m) (nx : spec.Domain → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.preInsert nx) t) = so t)
-    (oa : OracleComp spec β) :
-    support (proj (simulateQ (so.preInsert nx) oa)) = support (simulateQ so oa) := by
-  rw [proj_simulateQ_preInsert so nx proj hproj_pure hproj_bind hproj_apply]
-
-lemma finSupport_proj_simulateQ_preInsert [Monad m]
-    [LawfulMonad m] [LawfulMonad n] [MonadAttach m] [HasEvalFinset m] [DecidableEq β]
-    (so : QueryImpl spec m) (nx : spec.Domain → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.preInsert nx) t) = so t)
-    (oa : OracleComp spec β) :
-    finSupport (proj (simulateQ (so.preInsert nx) oa)) = finSupport (simulateQ so oa) := by
-  rw [proj_simulateQ_preInsert so nx proj hproj_pure hproj_bind hproj_apply]
 
 end insertPre
 
@@ -172,104 +100,7 @@ abbrev postInsert (so : QueryImpl spec m) {α}
 
 variable {α β : Type u}
 
-@[grind =]
-lemma postInsert_apply (so : QueryImpl spec m)
-    (nx : (t : spec.Domain) → spec.Range t → n α) (t : spec.Domain) :
-    so.postInsert nx t = (do let u ← liftM (so t); let _ ← nx t u; return u) := by
-  exact PFunctor.Handler.postInsert_apply (P := spec.toPFunctor) so nx t
-
-/-- One-step characterisation of `simulateQ (postInsert so nx)` on a single query. -/
-lemma simulateQ_postInsert_query [LawfulMonad n]
-    (so : QueryImpl spec m)
-    (nx : (t : spec.Domain) → spec.Range t → n α) (t : spec.Domain) :
-    simulateQ (so.postInsert nx) (query t) =
-      (do let u ← liftM (so t); let _ ← nx t u; return u) := by
-  simp
-
 variable [Monad m]
-
-/-- Induction principle for `proj (simulateQ (so.postInsert nx) oa)` parametric in a
-motive `OracleComp spec β → m β → Prop`. The recursion structure of
-`proj_simulateQ_postInsert` is exposed as two cases mirroring `OracleComp.inductionOn`:
-in `pure x` the projected term reduces to `pure x`, and in `query t >>= k` it reduces
-to `so t >>= k'` for some continuation `k' u = proj (simulateQ (so.postInsert nx) (k u))`.
-Tagged `@[elab_as_elim]` so it is usable as `induction oa using simulateQ_postInsert.induct`. -/
-@[elab_as_elim]
-lemma simulateQ_postInsert.induct [LawfulMonad m] [LawfulMonad n]
-    (so : QueryImpl spec m) (nx : (t : spec.Domain) → spec.Range t → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.postInsert nx) t) = so t)
-    {motive : OracleComp spec β → m β → Prop}
-    (h_pure : ∀ (x : β), motive (pure x : OracleComp spec β) (pure x))
-    (h_query_bind : ∀ (t : spec.Domain) (k : spec.Range t → OracleComp spec β)
-        (k' : spec.Range t → m β),
-        (∀ u, motive (k u) (k' u)) → motive (query t >>= k) (so t >>= k'))
-    (oa : OracleComp spec β) :
-    motive oa (proj (simulateQ (so.postInsert nx) oa)) := by
-  induction oa using OracleComp.inductionOn with
-  | pure x =>
-      rw [simulateQ_pure, hproj_pure]
-      exact h_pure x
-  | query_bind t k ih =>
-      rw [simulateQ_bind, simulateQ_spec_query, hproj_bind, hproj_apply]
-      exact h_query_bind t k _ ih
-
-/-- Generic strip lemma: given a monad-morphism-style projection `proj : ∀ {γ}, n γ → m γ`
-that preserves `pure` and `bind` and discards the inserted side effect on each query,
-simulating with `postInsert so nx` and projecting back recovers `simulateQ so`. The proof
-is the canonical use of `simulateQ_postInsert.induct`: the parametric motive is instantiated
-to the equality with `simulateQ so oa`, leaving trivial cases. -/
-lemma proj_simulateQ_postInsert [LawfulMonad m] [LawfulMonad n]
-    (so : QueryImpl spec m) (nx : (t : spec.Domain) → spec.Range t → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.postInsert nx) t) = so t)
-    (oa : OracleComp spec β) :
-    proj (simulateQ (so.postInsert nx) oa) = simulateQ so oa := by
-  induction oa using simulateQ_postInsert.induct so nx proj hproj_pure hproj_bind hproj_apply with
-  | h_pure x => rfl
-  | h_query_bind t k k' ih =>
-      simp only [simulateQ_bind, HasQuery.instOfMonadLift_query, simulateQ_spec_query]
-      exact bind_congr ih
-
-/-- When `nx` is constantly `pure x`, `postInsert so nx` is the lift of `so` and the
-resulting simulation equals the lifted underlying simulation. Generic analogue of the
-`run_simulateQ_withTrace_const_one` no-op identity. -/
-lemma simulateQ_postInsert_const_pure
-    [LawfulMonad m] [LawfulMonad n] [LawfulMonadLiftT m n]
-    (so : QueryImpl spec m) (x : α) (oa : OracleComp spec β) :
-    simulateQ (so.postInsert (fun _ _ => (pure x : n α))) oa = liftM (simulateQ so oa) := by
-  have h : so.postInsert (fun _ _ => (pure x : n α)) = so.liftTarget n := by funext t; simp
-  rw [h, simulateQ_liftTarget]
-
-lemma support_proj_simulateQ_postInsert
-    [LawfulMonad m] [LawfulMonad n] [MonadAttach m]
-    (so : QueryImpl spec m) (nx : (t : spec.Domain) → spec.Range t → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.postInsert nx) t) = so t)
-    (oa : OracleComp spec β) :
-    support (proj (simulateQ (so.postInsert nx) oa)) = support (simulateQ so oa) := by
-  rw [proj_simulateQ_postInsert so nx proj hproj_pure hproj_bind hproj_apply]
-
-lemma finSupport_proj_simulateQ_postInsert
-    [LawfulMonad m] [LawfulMonad n] [MonadAttach m] [HasEvalFinset m] [DecidableEq β]
-    (so : QueryImpl spec m) (nx : (t : spec.Domain) → spec.Range t → n α)
-    (proj : ∀ {γ : Type u}, n γ → m γ)
-    (hproj_pure : ∀ {γ : Type u} (x : γ), proj (pure x : n γ) = pure x)
-    (hproj_bind : ∀ {γ δ : Type u} (b : n γ) (f : γ → n δ),
-        proj (b >>= f) = proj b >>= fun x => proj (f x))
-    (hproj_apply : ∀ t, proj ((so.postInsert nx) t) = so t)
-    (oa : OracleComp spec β) :
-    finSupport (proj (simulateQ (so.postInsert nx) oa)) = finSupport (simulateQ so oa) := by
-  rw [proj_simulateQ_postInsert so nx proj hproj_pure hproj_bind hproj_apply]
 
 end insertPost
 

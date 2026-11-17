@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr304-after",
   "task_id": "pfr:pr304-after",
-  "input_sha256": "65285b4b2f9d07f5e6ef75f46c645801638cb12d75bfc3b1c19481f04c9562d8",
+  "input_sha256": "cd4d245ec62a8b6f7378fb83105193e6de92228e3f5ac012a729ec4793eae42d",
   "label": "aligned",
   "reason": "The probability-space output, measurable uniform variables, sum bound 10d, and individual bounds 11d/2 match.",
   "review_status": "human_reviewed",

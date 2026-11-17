@@ -1,0 +1,47 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-LP-PERIODIC",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "LinearProgrammingBound'"
+  ],
+  "input_sha256": "c87d9fc5374467b0515bf64039b252b93fd0b05326e6bda5b2cdccbbcf0ffd89",
+  "graph_sha256": "7f2105b5dbff457be474a460e428b2a214e8ab16c016db5c38186341e8374d3b",
+  "graph_path": "metadata/derived-graphs/graphs/sphere-packing--SP-LP-PERIODIC.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "15a8684a18b0e8842715e609e4c14cf6128222abcea83b6270222593f83cac68"
+    ],
+    [
+      "formal/dep/SpherePacking/Basic/PeriodicPacking.lean",
+      "85f6780b9b16271a3b150f2a7b943d86e099d3098d54b0b9f4599a71f8cc7f98"
+    ],
+    [
+      "formal/dep/SpherePacking/Basic/SpherePacking.lean",
+      "46dba12ddb0be454a4b835100ed618dc7b4d1a68ff6bf83ff591cb6bb8ac7161"
+    ],
+    [
+      "formal/dep/SpherePacking/CohnElkies/Prereqs.lean",
+      "3e28c751170d656198f0fdc5ae2f48857aab858039edb6c871d82593072325de"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 4,
+  "nodes": 205,
+  "edges": 483,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

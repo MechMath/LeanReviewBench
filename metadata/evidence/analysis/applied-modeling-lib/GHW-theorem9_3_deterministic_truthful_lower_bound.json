@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GHW-theorem9_3_deterministic_truthful_lower_bound",
   "task_id": "aml:GHW-theorem9_3_deterministic_truthful_lower_bound",
-  "input_sha256": "77784b836363410511239ee5a0d78f5a52be578e6fec682c46382ad047742a98",
+  "input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
   "label": "aligned",
   "reason": "The anonymous bid-set model matches the source interpretation. A fixed-bid reduction supplies the required normalization and an unbounded family attaining the stated lower bound.",
   "review_status": "human_reviewed",

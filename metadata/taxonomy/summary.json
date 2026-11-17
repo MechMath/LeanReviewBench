@@ -3,7 +3,7 @@
   "date": "2026-11-17",
   "taxonomy": "metadata/taxonomy/standard.md",
   "taxonomy_sha256": "beb7d62b6c0fc123f29cab4456a33e0e776f5e619a8dda5fa4808b362bc3dac8",
-  "cases_sha256": "d2ba25e65cd0100fa7d983a911e1f541e66887f69f1881118593ce1a543c9385",
+  "cases_sha256": "fd0a694ae0589f18b37445697edb5ea9c9809caca1c64b4c2f94d17c8102ea34",
   "case_count": 90,
   "current_misaligned_inputs": 90,
   "unclassified": 0,
@@ -30,5 +30,5 @@
   "human_adjudicated": false,
   "reference_ready": false,
   "counting_unit": "Versioned misaligned inputs; categories overlap and linked versions are not independent mathematical errors.",
-  "migration": "70 existing classifications plus 20 new classifications. Closed-certificate specialization (formalslt:flagship-scalar-reflexive) updated from Q to A under current boundary rule 2. Binary labels and inputs unchanged."
+  "migration": "All 90 diagnostic classifications are retained; input bindings follow the statement-only Lean contexts. Binary labels and classifications are unchanged."
 }

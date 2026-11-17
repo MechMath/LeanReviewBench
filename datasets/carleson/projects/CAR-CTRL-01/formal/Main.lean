@@ -2,40 +2,10 @@ module
 
 public import Mathlib.Analysis.Fourier.AddCircle
 
-/-! # Key definitions and setup for the Carleson project
-
-This file contains the statements of the main theorems from the Carleson formalization project:
-Theorem 1.0.1 (classical Carleson), Theorem 1.1.1 (metric space Carleson) and Theorem 1.1.2
-(linearised metric Carleson), as well as the definitions required to state these results.
-
-These are intentionally put in a very low-level file to enable running the comparator tool.
-
-## Main definitions and results
-
-- `MeasureTheory.DoublingMeasure`: A metric space with a measure with some nice propreties,
-including a doubling condition. This is called a "doubling metric measure space" in the blueprint.
-- `FunctionDistances`: class stating that continuous functions have distances associated to
-every ball.
-- `IsOneSidedKernel K` states that `K` is a one-sided Calderon-Zygmund kernel.
-- `KernelProofData`: Data common through most of chapters 2-7. These contain the minimal axioms
-for `kernel-summand`'s proof.
-- `MeasureTheory.DoublingMeasure`: A metric space with a measure with some nice propreties,
-including a doubling condition. This is called a "doubling metric measure space" in the blueprint.
-- `FunctionDistances`: class stating that continuous functions have distances associated to
-every ball.
-- `IsOneSidedKernel K` states that `K` is a one-sided Calderon-Zygmund kernel.
-- `KernelProofData`: Data common through most of chapters 2-7. These contain the minimal axioms
-for `kernel-summand`'s proof.
-- `ClassicalCarleson`: statement of Carleson's theorem asserting a.e. convergence of the partial
-Fourier sums for continous functions (Theorem 1.0.1 in the blueprint).
-- `MetricSpaceCarleson`: statement of Theorem 1.1.1 from the blueprint.
-- `LinearizedMetricCarleson`: statement of Theorem 1.1.2 from the blueprint.
-
--/
-
 @[expose] public noncomputable section
 
 open MeasureTheory Measure Metric Complex Set ENNReal
+
 open scoped NNReal
 
 open Real in
@@ -43,7 +13,6 @@ open Real in
 def partialFourierSum (N : ℕ) (f : ℝ → ℂ) (x : ℝ) : ℂ := ∑ n ∈ Finset.Icc (-(N : ℤ)) N,
     fourierCoeffOn Real.two_pi_pos f n * fourier n (x : AddCircle (2 * π))
 
-/- Basic definitions not specific to this project: they will be added to Mathlib soon -/
 section BasicDefinitions
 
 variable {X E : Type*}
@@ -52,44 +21,17 @@ variable {X E : Type*}
 protected def Real.vol [PseudoMetricSpace X] [MeasureSpace X] (x y : X) : ℝ :=
   volume.real (ball x (dist x y))
 
-def Set.Annulus.oo [PseudoMetricSpace X] (x : X) (r R : ℝ) := {y | dist x y ∈ Ioo r R}
-
-def Set.EAnnulus.oo [PseudoMetricSpace X] (x : X) (r R : ℝ≥0∞) := {y | edist x y ∈ Ioo r R}
-
-/-- The inhomogeneous Lipschitz norm on a ball. -/
-def iLipENorm {𝕜 X : Type*} [NormedField 𝕜] [PseudoMetricSpace X]
-  (φ : X → 𝕜) (x₀ : X) (R : ℝ) : ℝ≥0∞ :=
-  (⨆ x ∈ ball x₀ R, ‖φ x‖ₑ) +
-  ENNReal.ofReal R * ⨆ (x ∈ ball x₀ R) (y ∈ ball x₀ R) (_ : x ≠ y), ‖φ x - φ y‖ₑ / edist x y
-
 variable {𝕜 X : Type*} {A : ℕ} [_root_.RCLike 𝕜] [PseudoMetricSpace X] in
 /-- The local oscillation of two functions w.r.t. a set `E`. This is `d_E` in the blueprint. -/
 def localOscillation (E : Set X) (f g : C(X, 𝕜)) : ℝ≥0∞ :=
   ⨆ z ∈ E ×ˢ E, ENNReal.ofReal ‖f z.1 - g z.1 - f z.2 + g z.2‖
-
-variable {X E : Type*} [MeasurableSpace X] {f g : X → E}
-  {μ : Measure X} [TopologicalSpace E] [ENorm E] [Zero E] in
-/-- Bounded measurable function $g$ on $X$ supported on a set of finite measure -/
-@[fun_prop]
-structure BoundedFiniteSupport (f : X → E) (μ : Measure X := by volume_tac) : Prop where
-  memLp_top : MemLp f ∞ μ
-  measure_support_lt : μ (Function.support f) < ∞
-
-/-- A weaker version of `HasStrongType`. This is the same as `HasStrongType` if `T` is continuous
-w.r.t. the L^2 norm, but weaker in general. -/
-def MeasureTheory.HasBoundedStrongType
-    {ε₁ ε₂ : Type*} [ENorm ε₁] [ENorm ε₂] [TopologicalSpace ε₁] [TopologicalSpace ε₂] [Zero ε₁]
-    {α α' : Type*} {_x : MeasurableSpace α} {_x' : MeasurableSpace α'}
-    (T : (α → ε₁) → (α' → ε₂))
-    (p p' : ℝ≥0∞) (μ : Measure α) (ν : Measure α') (c : ℝ≥0∞) : Prop :=
-  ∀ f : α → ε₁, BoundedFiniteSupport f μ →
-    AEStronglyMeasurable (T f) ν ∧ eLpNorm (T f) p' ν ≤ c * eLpNorm f p μ
 
 /-- A doubling measure is a measure on a metric space with the condition that doubling
 the radius of a ball only increases the volume by a constant factor, independent of the ball. -/
 class MeasureTheory.Measure.IsDoubling {X : Type*} [MeasurableSpace X] [PseudoMetricSpace X]
     (μ : Measure X) (A : outParam ℝ≥0) : Prop where
   measure_ball_two_le_same : ∀ (x : X) r, μ (ball x (2 * r)) ≤ A * μ (ball x r)
+
 export IsDoubling (measure_ball_two_le_same)
 
 /-- A metric space with a measure with some nice properties, including a doubling condition.
@@ -103,7 +45,6 @@ class MeasureTheory.DoublingMeasure (X : Type*) (A : outParam ℝ≥0) [PseudoMe
 
 end BasicDefinitions
 
--- Definitions and set-up specific to Carleson's theorem
 section setup
 
 universe u
@@ -127,6 +68,7 @@ section FunctionDistances
 variable {𝕜 X : Type*} {A : ℕ} [_root_.RCLike 𝕜] [PseudoMetricSpace X] [d : FunctionDistances 𝕜 X]
 
 instance : Coe (Θ X) C(X, 𝕜) := ⟨FunctionDistances.coeΘ⟩
+
 instance : FunLike (Θ X) X 𝕜 where
   coe := fun f ↦ (f : C(X, 𝕜))
   coe_injective _ _ hfg := FunctionDistances.coeΘ_injective fun x ↦ congrFun hfg x
@@ -142,6 +84,7 @@ end FunctionDistances
 
 /-- The real-valued distance function on `WithFunctionDistance x r`. -/
 notation3 "dist_{" x ", " r "}" => @dist (WithFunctionDistance x r) _
+
 /-- The `ℝ≥0∞`-valued distance function on `WithFunctionDistance x r`. Preferred over `nndist`. -/
 notation3 "edist_{" x ", " r "}" => @edist (WithFunctionDistance x r) _
 
@@ -186,59 +129,16 @@ class CompatibleFunctions (𝕜 : outParam Type*) (X : Type u) (A : outParam ℕ
 
 variable [DoublingMeasure X A]
 
-variable (X) in
-/-- Θ is τ-cancellative. `τ` will usually be `1 / a` -/
-class IsCancellative (τ : ℝ) [CompatibleFunctions ℝ X A] : Prop where
-  /- We register a definition with strong assumptions, which makes them easier to prove.
-  However, `enorm_integral_exp_le` removes them for easier application. -/
-  enorm_integral_exp_le' {x : X} {r : ℝ} {φ : X → ℂ} (hr : 0 < r) (h1 : iLipENorm φ x r ≠ ∞)
-    (h2 : Function.support φ ⊆ ball x r) {f g : Θ X} :
-    ‖∫ x, exp (I * (f x - g x)) * φ x‖ₑ ≤
-    (A : ℝ≥0∞) * volume (ball x r) * iLipENorm φ x r * (1 + edist_{x, r} f g) ^ (- τ)
-
-/-- `R_Q(θ, x)` defined in (1.1.17). -/
-def upperRadius [FunctionDistances ℝ X] (Q : X → Θ X) (θ : Θ X) (x : X) : ℝ≥0∞ :=
-  ⨆ (r : ℝ) (_ : dist_{x, r} θ (Q x) < 1), ENNReal.ofReal r
-
-/-- The linearized maximally truncated nontangential Calderon–Zygmund operator `T_Q^θ`. -/
-def linearizedNontangentialOperator [FunctionDistances ℝ X] (Q : X → Θ X) (θ : Θ X)
-    (K : X → X → ℂ) (f : X → ℂ) (x : X) : ℝ≥0∞ :=
-  ⨆ (R₂ : ℝ) (R₁ ∈ Ioo 0 R₂) (x' ∈ ball x R₁),
-  ‖∫ y in EAnnulus.oo x' (ENNReal.ofReal R₁) (min (ENNReal.ofReal R₂) (upperRadius Q θ x')),
-    K x' y * f y‖ₑ
-
-/-- The maximally truncated nontangential Calderon–Zygmund operator `T_*`. -/
-def nontangentialOperator (K : X → X → ℂ) (f : X → ℂ) (x : X) : ℝ≥0∞ :=
-  ⨆ (R₂ : ℝ) (R₁ ∈ Ioo 0 R₂) (x' ∈ ball x R₁), ‖∫ y in Annulus.oo x' R₁ R₂, K x' y * f y‖ₑ
-
-/-- The integrand in the (linearized) Carleson operator.
-This is `G` in Lemma 3.0.1. -/
-def carlesonOperatorIntegrand [FunctionDistances ℝ X] (K : X → X → ℂ)
-    (θ : Θ X) (R₁ R₂ : ℝ) (f : X → ℂ) (x : X) : ℂ :=
-  ∫ y in Annulus.oo x R₁ R₂, K x y * f y * exp (I * θ y)
-
-/-- The linearized generalized Carleson operator `T_Q`, taking values in `ℝ≥0∞`.
-Use `ENNReal.toReal` to get the corresponding real number. -/
-def linearizedCarlesonOperator [FunctionDistances ℝ X] (Q : X → Θ X) (K : X → X → ℂ)
-    (f : X → ℂ) (x : X) : ℝ≥0∞ :=
-  ⨆ (R₁ : ℝ) (R₂ : ℝ) (_ : 0 < R₁) (_ : R₁ < R₂), ‖carlesonOperatorIntegrand K (Q x) R₁ R₂ f x‖ₑ
-
-/-- The generalized Carleson operator `T`, taking values in `ℝ≥0∞`.
-Use `ENNReal.toReal` to get the corresponding real number. -/
-def carlesonOperator [FunctionDistances ℝ X] (K : X → X → ℂ) (f : X → ℂ) (x : X) : ℝ≥0∞ :=
-  ⨆ (θ : Θ X), linearizedCarlesonOperator (fun _ ↦ θ) K f x
-
 end setup
 
 /-- This is usually the value of the argument `A` in `DoublingMeasure`
 and `CompatibleFunctions` -/
 @[simp] abbrev defaultA (a : ℕ) : ℕ := 2 ^ a
-/-- `defaultτ` is the inverse of `a`. -/
-@[simp] def defaultτ (a : ℕ) : ℝ := a⁻¹
 
 section Kernel
 
 variable {X : Type*} {a : ℕ} {K : X → X → ℂ} [PseudoMetricSpace X] [MeasureSpace X]
+
 open Function
 
 /-- The constant used twice in the definition of the Calderon-Zygmund kernel. -/
@@ -273,23 +173,7 @@ attribute [instance] KernelProofData.hcz
 
 section Statements
 
-/-- The main constant in the blueprint, driving all the construction, is `D = 2 ^ (100 * a ^ 2)`.
-It turns out that the proof is robust, and works for other values of `100`, giving better constants
-in the end. We will formalize it using a parameter `𝕔` (that we fix equal to `100` to follow
-the blueprint) and having `D = 2 ^ (𝕔 * a ^ 2)`. We register two lemmas `seven_le_c` and
-`c_le_100` and will never unfold `𝕔` from this point on. -/
-irreducible_def 𝕔 : ℕ := 100
-
-/-- The constant used in `MetricSpaceCarleson` and `LinearizedMetricCarleson`.
-Has value `2 ^ (443 * a ^ 3) / (q - 1) ^ 6` in the blueprint. -/
-def C1_0_2 (a : ℕ) (q : ℝ≥0) : ℝ≥0 := 2 ^ ((3 * 𝕔 + 18 + 5 * (𝕔 / 4)) * a ^ 3) / (q - 1) ^ 6
-
 set_option linter.unusedVariables false
-
-/-- A constant used on the boundedness of `T_Q^θ` and `T_*`. We generally assume
-`HasBoundedStrongType (linearizedNontangentialOperator Q θ K · ·) 2 2 volume volume (C_Ts a)`
-throughout this formalization. -/
-def C_Ts (a : ℕ) : ℝ≥0 := 2 ^ a ^ 3
 
 open Real in
 /-- Theorem 1.0.1: Carleson's theorem asserting a.e. convergence of the partial Fourier sums for
@@ -298,27 +182,5 @@ For the proof, see `classical_carleson` in the file `Carleson.Classical.Classica
 def ClassicalCarleson : Prop :=
   ∀ {f : ℝ → ℂ} (cont_f : Continuous f) (periodic_f : f.Periodic (2 * π)),
     ∀ᵐ x, Filter.Tendsto (partialFourierSum · f x) Filter.atTop (nhds (f x))
-
-/-- Theorem 1.1.1.
-For the proof, see `metric_carleson` in the file `Carleson.MetricCarleson.Main`. -/
-def MetricSpaceCarleson : Prop :=
-  ∀ {X : Type*} {a : ℕ} [MetricSpace X] {q q' : ℝ≥0} {F G : Set X} {K : X → X → ℂ}
-    [KernelProofData a K] {f : X → ℂ} [IsCancellative X (defaultτ a)] (hq : q ∈ Ioc 1 2)
-    (hqq' : q.HolderConjugate q') (mF : MeasurableSet F) (mG : MeasurableSet G)
-    (mf : Measurable f) (nf : (‖f ·‖) ≤ F.indicator 1)
-    (hT : HasBoundedStrongType (nontangentialOperator K · ·) 2 2 volume volume (C_Ts a)),
-    ∫⁻ x in G, carlesonOperator K f x ≤ C1_0_2 a q * volume G ^ (q' : ℝ)⁻¹ * volume F ^ (q : ℝ)⁻¹
-
-/-- Theorem 1.1.2.
-For the proof, see `linearized_metric_carleson` in the file `Carleson.MetricCarleson.Linearized`. -/
-def LinearizedMetricCarleson : Prop :=
-  ∀ {X : Type*} {a : ℕ} [MetricSpace X] {q q' : ℝ≥0} {F G : Set X} {K : X → X → ℂ}
-    [KernelProofData a K] {Q : SimpleFunc X (Θ X)} {f : X → ℂ} [IsCancellative X (defaultτ a)]
-    (hq : q ∈ Ioc 1 2) (hqq' : q.HolderConjugate q') (mF : MeasurableSet F) (mG : MeasurableSet G)
-    (mf : Measurable f) (nf : (‖f ·‖) ≤ F.indicator 1)
-    (hT : ∀ θ : Θ X, HasBoundedStrongType (linearizedNontangentialOperator Q θ K · ·)
-      2 2 volume volume (C_Ts a)),
-    ∫⁻ x in G, linearizedCarlesonOperator Q K f x ≤
-      C1_0_2 a q * volume G ^ (q' : ℝ)⁻¹ * volume F ^ (q : ℝ)⁻¹
 
 end Statements

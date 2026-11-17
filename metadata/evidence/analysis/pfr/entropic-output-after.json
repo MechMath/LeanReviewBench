@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "entropic-output-after",
   "task_id": "pfr:entropic-output-after",
-  "input_sha256": "028f52b0515a4207c5977f85fdaded3aab74b8f64755ad0d0165e09a56e50717",
+  "input_sha256": "dda4818198a2c3b7c8d28d859a1f8456d206843b2d129dbeedbe560610c8b44a",
   "label": "aligned",
   "reason": "The output includes a probability measure, measurable uniform variables, and the two required 6d bounds; the uniformity predicate has its intended probabilistic meaning.",
   "review_status": "human_reviewed",

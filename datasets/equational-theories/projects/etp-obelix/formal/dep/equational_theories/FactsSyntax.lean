@@ -1,11 +1,6 @@
 import Lean
 import dep.equational_theories.Magma
 
-/-!
-This defines a compact way of saying “Magma G satisfies this list of equations, but refutes these
-others”.
--/
-
 /--
 Concise syntax for stating that a given magma satisfies resp. refutes multiple of the equations:
 
@@ -14,10 +9,6 @@ Facts G [1, 2] [4, 5] ↔ Equation1 G ∧ Equation2 G ∧ ¬ Equation4 G ∧ ¬ 
 ```
 -/
 syntax "Facts " term:max " [" num,* "] " " [" num,* "]" : term
-
--- Many ways to skin the cat here.
--- Using a macro that iterative expands the list was too slow,
--- so here we elaborate to a `Expr` directly.
 
 open Lean Meta Elab Term Tactic Parser.Term in
 elab_rules : term | `(Facts $G [ $sats,* ] [ $refs,*]) => do
@@ -32,7 +23,6 @@ elab_rules : term | `(Facts $G [ $sats,* ] [ $refs,*]) => do
     mkApp (mkConst ``Not) (mkApp2 (mkConst n [u]) G inst)
   let e := mkAndN (s ++ r).toList
   return e
-
 
 open Lean Meta Elab Term Tactic Parser.Term in
 /--

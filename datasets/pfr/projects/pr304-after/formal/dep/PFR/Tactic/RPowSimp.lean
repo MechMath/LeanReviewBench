@@ -5,11 +5,12 @@ public import Mathlib.Analysis.SpecialFunctions.Pow.Real
 public meta section
 
 namespace Mathlib.Tactic
+
 open Lean
+
 open Qq Meta Real
 
 namespace RPowRing
--- open Ring
 
 /-- The read-only state of the `RPowRing` monad. -/
 structure Context where
@@ -66,6 +67,7 @@ inductive ExProd : (e : Q(ℝ)) → Type
   | mul {x b : Q(ℝ)} : ExBase x → ExProd b → ExProd q($x * $b)
 
 instance : Inhabited (Σ e, ExBase e) := ⟨_, .atom 0 default⟩
+
 instance : Inhabited (Σ e, ExProd e) := ⟨_, .one⟩
 
 /-- Embed an exponent (an `ExBase, ExProd` pair) as an `ExProd` by multiplying by 1. -/
@@ -76,10 +78,13 @@ nonrec abbrev Result := Ring.Common.Result (u := .zero) (α := q(ℝ))
 instance (e : Q(ℝ)) : Inhabited (Result ExProd e) :=
   inferInstanceAs (Inhabited (Ring.Common.Result ExProd e))
 
-theorem atom_pf (a : ℝ) : a = a * 1 := by simp
-theorem atom_pf' {a a' : ℝ} (p : a = a') : a = a * 1 := by simp [*]
-theorem atom_pow_pf (a : ℝ) : a = a ^ (1 : ℝ) * 1 := by simp
-theorem atom_pow_pf' {a a' : ℝ} (p : (a : ℝ) = a') : a = a ^ 1 * 1 := by simp [*]
+theorem atom_pf (a : ℝ) : a = a * 1 := sorry
+
+theorem atom_pf' {a a' : ℝ} (p : a = a') : a = a * 1 := sorry
+
+theorem atom_pow_pf (a : ℝ) : a = a ^ (1 : ℝ) * 1 := sorry
+
+theorem atom_pow_pf' {a a' : ℝ} (p : (a : ℝ) = a') : a = a ^ 1 * 1 := sorry
 
 /--
 Evaluates an atom, an expression where `ring` can find no additional structure.
@@ -99,15 +104,12 @@ def evalAtom (e : Q(ℝ)) : AtomM (Result ExProd e) := do
   | _, none => pure ⟨_, (ExBase.atom i a).toProd, (q(atom_pf $e) : Expr)⟩
   | _, some (p : Q($e = $a)) => pure ⟨_, (ExBase.atom i a).toProd, (q(atom_pf' $p) : Expr)⟩
 
-theorem mul_pf_left {a₂ b c : ℝ} (a₁ : ℝ) (_ : a₂ * b = c) : (a₁ * a₂ : ℝ) * b = a₁ * c := by
-  subst_vars; rw [mul_assoc]
+theorem mul_pf_left {a₂ b c : ℝ} (a₁ : ℝ) (_ : a₂ * b = c) : (a₁ * a₂ : ℝ) * b = a₁ * c := sorry
 
-theorem mul_pf_right {a b₂ c : ℝ} (b₁ : ℝ) (_ : a * b₂ = c) : a * (b₁ * b₂) = b₁ * c := by
-  subst_vars; rw [mul_left_comm]
+theorem mul_pf_right {a b₂ c : ℝ} (b₁ : ℝ) (_ : a * b₂ = c) : a * (b₁ * b₂) = b₁ * c := sorry
 
 theorem mul_pp_pf_overlap {a₂ b₂ c x : ℝ} (ea eb : ℝ) (h : 0 < x) (_ : a₂ * b₂ = c) :
-    (x ^ ea * a₂ : ℝ) * (x ^ eb * b₂) = x ^ (ea + eb) * c := by
-  subst_vars; rw [rpow_add h, mul_mul_mul_comm]
+    (x ^ ea * a₂ : ℝ) * (x ^ eb * b₂) = x ^ (ea + eb) * c := sorry
 
 /-- Multiplies two monomials `va, vb` together to get a normalized result monomial.
 
@@ -143,12 +145,10 @@ partial def evalMul {a b : Q(ℝ)} (va : ExProd a) (vb : ExProd b) : Result ExPr
         let ⟨_, vc, pc⟩ := evalMul va vbb
         ⟨_, .mul vbx vc, (q(mul_pf_right $bx $pc) : Expr)⟩
 
-theorem pow_pos {a b e : ℝ} (ha : 0 < a) (hb : 0 < b) : 0 < a ^ e * b :=
-  mul_pos (rpow_pos_of_pos ha e) hb
+theorem pow_pos {a b e : ℝ} (ha : 0 < a) (hb : 0 < b) : 0 < a ^ e * b := sorry
 
 theorem pow_pf {a b b' e₁ e₂ : ℝ} (ha : 0 < a) (hb : 0 < b) (_ : b ^ e₂ = b') :
-    (a ^ e₁ * b) ^ e₂ = a ^ (e₁ * e₂) * b' := by
-  subst_vars; rw [mul_rpow (rpow_pos_of_pos ha e₁).le hb.le, rpow_mul ha.le]
+    (a ^ e₁ * b) ^ e₂ = a ^ (e₁ * e₂) * b' := sorry
 
 def evalPow {a : Q(ℝ)} (va : ExProd a) (e : Q(ℝ)) : Option (Q(0 < $a) × Result ExProd q($a ^ $e)) :=
   match va with
@@ -160,13 +160,12 @@ def evalPow {a : Q(ℝ)} (va : ExProd a) (e : Q(ℝ)) : Option (Q(0 < $a) × Res
       let ⟨hb, _, vc, pc⟩ ← evalPow vb e
       some ⟨q(pow_pos $hx $hb), _, .mul (.pow i x hx q($e₁ * $e)) vc, q(pow_pf $hx $hb $pc)⟩
 
-theorem pow_congr {a a' b c : ℝ} (_ : a = a') (_ : a' ^ b = c) : a ^ b = c := by subst_vars; rfl
+theorem pow_congr {a a' b c : ℝ} (_ : a = a') (_ : a' ^ b = c) : a ^ b = c := sorry
 
-theorem inv_congr {a a' b : ℝ} (_ : a = a') (_ : a' ^ (-1 : ℝ) = b) : (a⁻¹ : ℝ) = b := by
-  subst_vars; simp [rpow_neg_one]
+theorem inv_congr {a a' b : ℝ} (_ : a = a') (_ : a' ^ (-1 : ℝ) = b) : (a⁻¹ : ℝ) = b := sorry
 
 theorem npow_congr {a a' c : ℝ} {b : ℕ} (_ : a = a') (_ : a' ^ (b : ℝ) = c) :
-    NPow.npow b a = c := by subst_vars; simp [rpow_natCast]
+    NPow.npow b a = c := sorry
 
 partial def eval (e : Q(ℝ)) : AtomM (Result ExProd e) := Lean.withIncRecDepth do
   let els := evalAtom e
@@ -237,6 +236,7 @@ def M.run {α : Type} (s : IO.Ref AtomM.State) (cfg : RPowRing.Config) (x : M α
     { red := cfg.red } s
 
 open Elab.Tactic Parser.Tactic
+
 /-- Use `rpow_ring` to rewrite the main goal. -/
 def rpowRingTarget (s : IO.Ref AtomM.State) (cfg : Config) : TacticM Unit := withMainContext do
   let goal ← getMainGoal
@@ -281,35 +281,18 @@ elab (name := rpowRing) "rpow_ring" tk:"!"? cfg:(config ?) loc:(location)? : tac
 
 @[inherit_doc rpowRing] syntax (name := rpowRingConv) "rpow_ring" "!"? (config)? : conv
 
-/-- Elaborator for the `rpow_ring` tactic. -/
-@[tactic rpowRingConv] def elabRPowRingConv : Tactic := fun stx ↦ match stx with
-  | `(conv| rpow_ring $[!%$tk]? $(_cfg)?) => withMainContext do
-    let mut cfg ← elabConfig stx[2]
-    if tk.isSome then cfg := { cfg with red := .default }
-    let s ← IO.mkRef {}
-    Conv.applySimpResult (← M.run s cfg <| rewrite (← instantiateMVars (← Conv.getLhs)))
-  | _ => Elab.throwUnsupportedSyntax
+theorem _root_.Real.inv_rpow' {x : ℝ} (hx : 0 ≤ x) (y : ℝ) : x⁻¹ ^ y = x ^ (-y) := sorry
 
-theorem _root_.Real.pow_neg (a b : ℝ) (h : 0 ≤ a) : a ^ (-b) = a⁻¹ ^ b := by
-  simp [← rpow_neg_one, ← rpow_mul h]
+theorem _root_.Real.rpow_inv {x : ℝ} (hx : 0 ≤ x) (y : ℝ) : (x ^ y)⁻¹ = x ^ (-y) := sorry
 
-theorem _root_.Real.inv_rpow' {x : ℝ} (hx : 0 ≤ x) (y : ℝ) : x⁻¹ ^ y = x ^ (-y) := by
-  simp only [← rpow_neg_one, ← rpow_mul hx, neg_mul, one_mul]
+lemma fix_cast₁ : (Int.cast (Int.ofNat 1) : ℝ) = 1 := sorry
 
-theorem _root_.Real.rpow_inv {x : ℝ} (hx : 0 ≤ x) (y : ℝ) : (x ^ y)⁻¹ = x ^ (-y) := by
-  simp [← inv_rpow' hx, inv_rpow hx]
+lemma fix_cast₂ {n : ℕ} : (Int.cast (Int.ofNat n) : ℝ) = n := sorry
 
-lemma fix_cast₁ : (Int.cast (Int.ofNat 1) : ℝ) = 1 := Int.cast_eq_one.mpr rfl
-
-lemma fix_cast₂ {n : ℕ} : (Int.cast (Int.ofNat n) : ℝ) = n := rfl
-
-lemma fix_cast₃ {n : ℕ} [n.AtLeastTwo] : (Nat.cast n : ℝ) = OfNat.ofNat n := by rfl
-
-open Lean Lean.PrettyPrinter.Delaborator in
-@[delab app.OfNat.ofNat] def delab_ofNat := whenPPOption Lean.getPPNotation do
-  SubExpr.withNaryArg 1 delab
+lemma fix_cast₃ {n : ℕ} [n.AtLeastTwo] : (Nat.cast n : ℝ) = OfNat.ofNat n := sorry
 
 open Lean Parser Tactic
+
 macro "rpow_simp" loc:(location)? : tactic => `(tactic|
   ((((simp (config := {failIfUnchanged := false}) (discharger := positivity) only
       [abs_one, abs_mul, abs_inv, abs_div, abs_abs, abs_zero, mul_rpow, ← rpow_mul, div_rpow,
@@ -319,9 +302,5 @@ macro "rpow_simp" loc:(location)? : tactic => `(tactic|
    try simp (discharger := positivity) only [abs_one, abs_zero, one_rpow, rpow_one, rpow_zero,
      mul_zero, zero_mul, mul_one, one_mul, fix_cast₁, fix_cast₂, fix_cast₃, Nat.cast_one, inv_rpow',
      rpow_inv, rpow_neg_one] $(loc)?)
-
-example (a e b : ℝ) (_ : 0 < a) :
-    ((a ^ (e / b)) ^ b) * b ^ e * a ^ (-b) = a ^ (e / b * b - b) * b ^ e := by
-  rpow_simp
 
 end Mathlib.Tactic.RPowRing

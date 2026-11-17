@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "文字明确给T0、σ给定范围以及依σ变化的四个系数/指数函数；formal结构字段和bound量词逐一对应。N(σ,T)按当前保留N′定义解释，其开端点不是此次文字修改的额外要求。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "996829cbfc693435b447e03c56946f5d7c3339c366ad4fff860da14a1c02b5b7"
+    "sha256": "4667ee6499b8515956feef549cc634e958ab64a141d05ff68d5c02483a0c98cf",
+    "effective_root_sha256": "9f7e56a55d82132d58ab29b6e82e2796af06c5db5827ddcc16ca6af6ed95dd76",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/zero-density/20261105T052212649620Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "781a5cda388b6f871e21275a920003f5e8a0805f4aab83a3e961472310be5e2a",
+  "input_sha256": "554a3ec7ce2623d137634a97764f73f1c15f705a15002a521f4e71534cd457f6",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

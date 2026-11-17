@@ -118,7 +118,17 @@ def load_for(base, project_directory):
         raise ValueError('Derived graph evidence/root differs')
     if receipt.get('input_sha256') != record['input_sha256'] or receipt.get('graph_sha256') != record['graph_sha256']:
         raise ValueError('Derived graph receipt binding differs')
-    if receipt.get('status') != 'passed' or receipt.get('new_sorry_or_axioms') is not False:
+    if receipt.get('status') != 'passed':
+        raise ValueError('Derived graph lacks a successful extraction receipt')
+    if receipt.get('schema_version') == 'paperlean-statement-only-receipt-1':
+        if (receipt.get('proof_erasure') is not True or
+                receipt.get('fresh_compilation') is not True or
+                receipt.get('original_theorem_proof_certified') is not False or
+                receipt.get('statement_preservation') != 'passed' or
+                receipt.get('nonproof_definition_preservation') != 'passed' or
+                receipt.get('formal_sources') != [list(item) for item in formal_files(project_directory)]):
+            raise ValueError('Invalid statement-only extraction receipt')
+    elif receipt.get('new_sorry_or_axioms') is not False:
         raise ValueError('Derived graph lacks a successful hole-free extraction receipt')
     if receipt.get('schema_version') == 'paperlean-composed-graph-receipt-1':
         if receipt.get('roots') != roots or graph['roots'] != roots:

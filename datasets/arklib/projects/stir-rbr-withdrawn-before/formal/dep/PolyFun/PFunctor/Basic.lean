@@ -1,31 +1,11 @@
-/-
-Copyright (c) 2026 PolyFun Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import dep.dep.CslibCompat.Basic
+public import Cslib.Init
 public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
 public import Mathlib.Util.Notation3
 public import dep.PolyFun.PFunctor.Obj
-
-/-!
-# Polynomial operations, lenses, and charts
-
-This module extends Mathlib's `PFunctor` and cslib's polynomial constructions with the universe
-polynomial, indexed sums and products, tensor, composition powers, lifts and exponentials,
-together with lenses and charts. A lens maps positions forward and directions
-backward; a chart maps both forward. The `Lens`, `Chart`, and `Equiv` subtrees supply their laws,
-and `Category` packages the corresponding categories.
-
-cslib's `Cslib.Foundations.Data.PFunctor.Basic` supplies the monomial `A y^ B` and its special
-cases `C`, `linear`, `selfMonomial`, `purePower` (`y^ B`) and `y` as reducible abbreviations, the
-constants `0` and `1`, the sum `P + Q` through `PFunctor.add`, the product `P * Q` through
-`PFunctor.prod`, and the extensionality lemma `PFunctor.ext`. This module adds the head and child
-equations of the abbreviations, the direction equations `add_B_inl` and `add_B_inr` of `P + Q`,
-and the position instances `IsEmpty (A 0)` and `Unique (A 1)` at every child universe.
--/
+public import dep.dep.CslibCompat.Basic
 
 @[expose] public section
 
@@ -35,7 +15,8 @@ namespace PFunctor
 
 section Basic
 
-instance : IsEmpty (A 0) := inferInstanceAs (IsEmpty PEmpty)
+instance : IsEmpty (A 0) := sorry
+
 instance instUniqueAOfNatOne : Unique (A 1) := inferInstanceAs (Unique PUnit)
 
 /-- Parse-only compatibility spelling of the monomial `A y^ B`.
@@ -62,33 +43,7 @@ def univ : PFunctor.{u + 1, u} :=
 
 section Coprod
 
-/- The head and child equations of cslib's abbreviations are not simp lemmas: simp's projection
-step already reduces these projections of a structure literal. They remain available to `rw` and
-`simp only`. -/
-
-lemma C_A (A : Type u) : (C A).A = A := rfl
-lemma C_B (A : Type u) (a : (C A).A) : (C A).B a = PEmpty := rfl
-
-lemma y_A : y.A = PUnit := rfl
-lemma y_B (a : y.A) : y.B a = PUnit := rfl
-
-lemma linear_A (A : Type u) : (linear A).A = A := rfl
-lemma linear_B (A : Type u) (a : (linear A).A) : (linear A).B a = PUnit := rfl
-
-lemma selfMonomial_A (S : Type u) : (selfMonomial S).A = S := rfl
-lemma selfMonomial_B (S : Type u) (a : (selfMonomial S).A) : (selfMonomial S).B a = S := rfl
-
-lemma purePower_A (B : Type u) : (purePower B).A = PUnit := rfl
-lemma purePower_B (B : Type u) (a : (purePower B).A) : (purePower B).B a = B := rfl
-
-@[simp] lemma univ_A : univ.{u}.A = Type u := rfl
-lemma univ_B (T : Type u) : univ.{u}.B T = T := rfl
-
 section Sum
-
-/- The sum of two polynomial functors is cslib's `P + Q` (`PFunctor.add`, with simp lemmas
-`hAdd_A` and `hAdd_B`); both summands share the direction universe. The equations `add_B_inl`
-and `add_B_inr` are not simp lemmas, since `hAdd_B` and iota reduction already compute them. -/
 
 /-- The deprecated spelling of `P + Q`. It keeps the body and the `abbrev` transparency it had
 before it was deprecated, so instance search and reducible `simp` still compute
@@ -97,37 +52,6 @@ not. -/
 @[deprecated add (since := "2026-10-19")]
 abbrev sum (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) : PFunctor.{max uA₁ uA₂, uB} :=
   ⟨P.A ⊕ Q.A, @Sum.rec P.A Q.A (fun _ => Type uB) P.B Q.B⟩
-
-/-- The coproduct of two polynomial functors, with reducible direction projections. -/
-@[deprecated add (since := "2026-10-19")]
-def coprod (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) : PFunctor.{max uA₁ uA₂, uB} :=
-  ⟨P.A ⊕ Q.A, @Sum.rec P.A Q.A (fun _ => Type uB) P.B Q.B⟩
-
-/-- The positions of the sum are the sum of its position types. -/
-@[simp, deprecated hAdd_A +typeChanged (since := "2026-10-19")]
-lemma sum_A (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) :
-    (sum P Q).A = (P.A ⊕ Q.A) := rfl
-
-/-- The directions of `P + Q` at a left position are those of `P`. -/
-lemma add_B_inl (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) (a : P.A) :
-    (P + Q).B (.inl a) = P.B a := rfl
-
-/-- The directions of the sum at a left position are those of `P`. -/
-@[simp, deprecated add_B_inl +typeChanged (since := "2026-10-19")]
-lemma sum_B_inl (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) (a : P.A) :
-    (sum P Q).B (.inl a) = P.B a := rfl
-
-/-- The directions of `P + Q` at a right position are those of `Q`. -/
-lemma add_B_inr (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) (a : Q.A) :
-    (P + Q).B (.inr a) = Q.B a := rfl
-
-/-- The directions of the sum at a right position are those of `Q`. -/
-@[simp, deprecated add_B_inr +typeChanged (since := "2026-10-19")]
-lemma sum_B_inr (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) (a : Q.A) :
-    (sum P Q).B (.inr a) = Q.B a := rfl
-
-lemma add_def (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) :
-    P + Q = ⟨P.A ⊕ Q.A, @Sum.rec P.A Q.A (fun _ => Type uB) P.B Q.B⟩ := rfl
 
 /-- The generalized sum (sigma type) of an indexed family of polynomial functors. -/
 def sigma {I : Type v} (F : I → PFunctor.{uA, uB}) : PFunctor.{max uA v, uB} :=
@@ -159,32 +83,13 @@ def mk (i : I) (a : (F i).A) : (sigma F).A := ⟨i, a⟩
 def rec {motive : (sigma F).A → Sort*} (mk : ∀ i a, motive (sigma.mk i a)) : ∀ x, motive x :=
   fun x => mk x.1 x.2
 
-@[simp] theorem rec_mk {motive : (sigma F).A → Sort*} {mk : ∀ i a, motive (sigma.mk i a)}
-    (i : I) (a : (F i).A) : sigma.rec mk (sigma.mk i a) = mk i a := rfl
-
-@[simp] theorem fst_mk (i : I) (a : (F i).A) : fst (mk (F := F) i a) = i := rfl
-
-@[simp] theorem snd_mk (i : I) (a : (F i).A) : snd (mk (F := F) i a) = a := rfl
-
-@[simp] theorem eta (x : (sigma F).A) : mk (fst x) (snd x) = x := rfl
-
-/-- The directions at `sigma.mk i a` are the directions of the member `F i` at `a`. -/
-@[simp] theorem B_mk (i : I) (a : (F i).A) : (sigma F).B (mk i a) = (F i).B a := rfl
-
-/-- The directions at a position are the member's directions at its component. -/
-theorem B_eq (x : (sigma F).A) : (sigma F).B x = (F (fst x)).B (snd x) := rfl
+@[simp] theorem eta (x : (sigma F).A) : mk (fst x) (snd x) = x := sorry
 
 @[ext] theorem ext {x y : (sigma F).A} (h₁ : fst x = fst y) (h₂ : HEq (snd x) (snd y)) :
-    x = y :=
-  Sigma.ext h₁ h₂
-
-theorem mk.inj_iff {i j : I} {a : (F i).A} {b : (F j).A} :
-    mk (F := F) i a = mk j b ↔ i = j ∧ HEq a b :=
-  Sigma.mk.inj_iff
+    x = y := sorry
 
 theorem mk.inj {i j : I} {a : (F i).A} {b : (F j).A} (h : mk (F := F) i a = mk j b) :
-    i = j ∧ HEq a b :=
-  mk.inj_iff.mp h
+    i = j ∧ HEq a b := sorry
 
 end sigma
 
@@ -216,18 +121,12 @@ def tensor (P : PFunctor.{uA₁, uB₁}) (Q : PFunctor.{uA₂, uB₂}) :
 /-- Infix notation for tensor product `P ⊗ Q` -/
 scoped[PFunctor] infixl:70 " ⊗ " => tensor
 
-/-- The unit for the tensor product, the variable `y` -/
-alias tensorUnit := y
-
 end Tensor
 
 section Comp
 
 /-- Infix notation for `PFunctor.comp P Q` -/
 scoped[PFunctor] infixl:80 " ◃ " => PFunctor.comp
-
-/-- The unit for composition, the variable `y` -/
-alias compUnit := y
 
 /-- The composition power `P ◃^ n`, the `n`-fold composite `P ◃ P ◃ ... ◃ P`. -/
 @[simp]
@@ -357,10 +256,6 @@ instance [Inhabited B] : (monomial A B).Inhabited where
 
 end monomial
 
-/-- A polynomial with constant direction type `B` over the position type `A`. -/
-@[deprecated monomial (since := "2026-10-19")]
-abbrev ofConst (A : Type uA) (B : Type uB) : PFunctor.{uA, uB} := monomial A B
-
 /-- An equivalence between two polynomial functors `P` and `Q`, written `P ≃ₚ Q`, is given by an
 equivalence of the `A` types and an equivalence between the `B` types for each `a : A`. -/
 @[ext]
@@ -399,9 +294,6 @@ def trans {P : PFunctor.{uA₁, uB₁}} {Q : PFunctor.{uA₂, uB₂}} {R : PFunc
   equivA := E.equivA.trans F.equivA
   equivB := fun a => (E.equivB a).trans (F.equivB (E.equivA a))
 
-@[simp] theorem symm_equivA {P : PFunctor.{uA₁, uB₁}} {Q : PFunctor.{uA₂, uB₂}} (E : P ≃ₚ Q) :
-    E.symm.equivA = E.equivA.symm := rfl
-
 /-- Polynomial equivalences compose in `calc` chains, across independent universes. -/
 instance instTrans :
     @Trans PFunctor.{uA₁, uB₁} PFunctor.{uA₂, uB₂} PFunctor.{uA₃, uB₃}
@@ -415,66 +307,14 @@ def cast {P Q : PFunctor.{uA, uB}} (hA : P.A = Q.A) (hB : ∀ a, P.B a = Q.B (ca
   equivB := fun a => _root_.Equiv.cast (hB a)
 
 theorem symm_equivA_comp_equivA {P : PFunctor.{uA₁, uB₁}} {Q : PFunctor.{uA₂, uB₂}}
-    (e : P ≃ₚ Q) : e.symm.equivA ∘ e.equivA = id := by
-  simp [Equiv.symm]
+    (e : P ≃ₚ Q) : e.symm.equivA ∘ e.equivA = id := sorry
 
 @[deprecated (since := "2026-10-19")] alias symm_comp_self := symm_equivA_comp_equivA
-
-/-- Rewrite a dependent `Eq.rec` with identity to a cast on the argument. -/
-lemma eqRec_id_apply {α : Sort u} {β : α → Sort v}
-    {a1 a0 : α} (h : a1 = a0) (x : β a0) :
-    Eq.rec (motive := fun y _ => β y → β a1) id h x = _root_.cast (congrArg β h).symm x := by
-  cases h
-  rfl
-
-/-- Cast-normalization helper for `equivB` under equal `equivA` images. -/
-lemma equivB_symm_apply_of_eq (e : P ≃ₚ Q) {a a' : P.A} (ha : e.equivA a = e.equivA a')
-    (b : P.B a') :
-    (e.equivB a).symm ((_root_.Equiv.cast (congrArg Q.B ha)).symm ((e.equivB a') b)) =
-      _root_.cast (congrArg P.B (e.equivA.injective ha).symm) b := by
-  have ha' : a = a' := e.equivA.injective ha
-  cases ha'
-  simp
-
-/-- Cast-normalization helper for `symm.equivB` under equal `symm.equivA` images. -/
-lemma symm_equivB_symm_apply_of_eq (e : P ≃ₚ Q) {a a' : Q.A}
-    (ha : e.symm.equivA a = e.symm.equivA a') (b : Q.B a') :
-    (e.symm.equivB a).symm ((_root_.Equiv.cast (congrArg P.B ha)).symm ((e.symm.equivB a') b)) =
-      _root_.cast (congrArg Q.B (e.symm.equivA.injective ha).symm) b := by
-  simpa using equivB_symm_apply_of_eq (e := e.symm) (a := a) (a' := a') (ha := ha) (b := b)
-
-/-- Specialized cast-normalization for `e` followed by `e.symm`. -/
-lemma equivB_symm_apply (e : P ≃ₚ Q) (a : P.A) (b : P.B (e.equivA.symm (e.equivA a))) :
-    (e.equivB a).symm ((e.symm.equivB (e.equivA a)).symm b) =
-      _root_.cast (congrArg P.B (e.equivA.symm_apply_apply a)) b := by
-  have hEqA : e.equivA a = e.equivA (e.equivA.symm (e.equivA a)) := by
-    simp
-  simp only [PFunctor.Equiv.symm]
-  exact equivB_symm_apply_of_eq (e := e)
-    (a := a) (a' := e.equivA.symm (e.equivA a))
-    (ha := hEqA) (b := b)
-
-/-- Specialized cast-normalization for `e.symm` followed by `e`. -/
-lemma symm_equivB_symm_apply (e : P ≃ₚ Q) (a : Q.A) (b : Q.B (e.equivA (e.equivA.symm a))) :
-    (e.symm.equivB a).symm ((e.equivB (e.equivA.symm a)).symm b) =
-      _root_.cast (congrArg Q.B (e.equivA.apply_symm_apply a)) b := by
-  change ((_root_.Equiv.cast (congrArg Q.B ((_root_.Equiv.symm_apply_eq e.equivA).mp rfl))).symm
-      ((e.equivB (e.equivA.symm a)) ((e.equivB (e.equivA.symm a)).symm b))) = _
-  rw [_root_.Equiv.apply_symm_apply (e.equivB (e.equivA.symm a)) b]
-  change _root_.cast (congrArg Q.B ((_root_.Equiv.symm_apply_eq e.equivA).mp rfl)).symm b =
-    _root_.cast (congrArg Q.B (e.equivA.apply_symm_apply a)) b
-  simp
 
 /-- Applying `equivB` and then `symm.equivB` gives a cast. -/
 lemma symm_equivB_equivB (e : P ≃ₚ Q) (a : P.A) (b : P.B a) :
     e.symm.equivB (e.equivA a) (e.equivB a b) =
-      _root_.cast (congrArg P.B (e.equivA.symm_apply_apply a).symm) b := by
-  change (((_root_.Equiv.cast _).trans
-    (e.equivB (e.equivA.symm (e.equivA a))).symm) (e.equivB a b)) = _
-  simp only [_root_.Equiv.trans_apply]
-  exact equivB_symm_apply_of_eq e
-    (a := e.equivA.symm (e.equivA a)) (a' := a)
-    (ha := e.equivA.apply_symm_apply _) (b := b)
+      _root_.cast (congrArg P.B (e.equivA.symm_apply_apply a).symm) b := sorry
 
 @[deprecated (since := "2026-10-19")] alias forward_equivB_roundtrip := symm_equivB_equivB
 
@@ -483,11 +323,7 @@ lemma equivB_symm_equivB (e : P ≃ₚ Q) (a : Q.A)
     (b : Q.B a) :
     e.equivB (e.equivA.symm a) (e.symm.equivB a b) =
       _root_.cast
-        (congrArg Q.B (e.equivA.apply_symm_apply a).symm) b := by
-  change ((e.equivB (e.equivA.symm a)))
-    (((_root_.Equiv.cast _).trans
-      (e.equivB (e.equivA.symm a)).symm) b) = _
-  simp [_root_.Equiv.trans_apply]
+        (congrArg Q.B (e.equivA.apply_symm_apply a).symm) b := sorry
 
 @[deprecated (since := "2026-10-19")] alias reverse_equivB_roundtrip := equivB_symm_equivB
 
@@ -523,23 +359,16 @@ scoped infixr:25 " ⇉ " => Chart.mk
 
 section Lemmas
 
-lemma y_eq_linear_pUnit : y = linear PUnit := rfl
-lemma y_eq_purePower_pUnit : y = purePower PUnit := rfl
-
 section ULift
 
 variable {P : PFunctor.{uA, uB}}
-
-@[simp]
-theorem ulift_A : (P.ulift).A = ULift P.A := rfl
-
-@[simp]
-theorem ulift_B {a : P.A} : (P.ulift).B (ULift.up a) = ULift (P.B a) := rfl
 
 end ULift
 
 end Lemmas
 
 end Coprod
+
 end Basic
+
 end PFunctor

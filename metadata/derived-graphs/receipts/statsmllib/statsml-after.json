@@ -1,0 +1,67 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "statsmllib",
+  "project_id": "statsml-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "uniform_deviation_tail_bound_pointwiseSeparable_of_pos"
+  ],
+  "input_sha256": "31ef9247a31d360510791ec792f90dcebee5a33bb8e8266973b97b4b2dccaef7",
+  "graph_sha256": "2d46c6c2cfeef5cac84b507afc4a703c1820b79f9a6d2989189a43af66c609fa",
+  "graph_path": "metadata/derived-graphs/graphs/statsmllib--statsml-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "41d28440f84c91048ffacceb4da202f2ba59822fb4b7fe45bf71bb7155e13796"
+    ],
+    [
+      "formal/dep/LearningTheory/Rademacher/Complexity.lean",
+      "7377981a05f33b4a08228c3d4c3e15ddadbfa8ffd3077f399f1074e0f736ff0a"
+    ],
+    [
+      "formal/dep/LearningTheory/Rademacher/Defs.lean",
+      "e18f3fcef1688ea1a0301f55323c961681154f26502ecf4bc38353b4d52021f1"
+    ],
+    [
+      "formal/dep/LearningTheory/Rademacher/PointwiseSeparable.lean",
+      "4021d2955a5e05f8bd05b7ba98776c2a90f153f48b9fbec710d9fd32e484c0c4"
+    ],
+    [
+      "formal/dep/LearningTheory/Rademacher/Signs.lean",
+      "9b9008b274dd611d32fc5bfbb32c744dd7826dee452bb42c6a00dccdfcca0685"
+    ],
+    [
+      "formal/dep/LearningTheory/Rademacher/Symmetrization.lean",
+      "2ab0918fa2ff2c539e1ae049a669795746538b685b208b5ca3f63406d2ff0c5f"
+    ],
+    [
+      "formal/dep/LearningTheory/UniformDeviation/BoundedDifference.lean",
+      "5ea49aa78fbef427f7868f65331d16e3d988c428316ce16e93263df76cebb9fe"
+    ],
+    [
+      "formal/dep/LearningTheory/UniformDeviation/Defs.lean",
+      "fabac498ac899076a15a487a1ccfab75f54b10381f46ba5e2bfc9c5b7fa7db03"
+    ],
+    [
+      "formal/dep/Probability/Concentration/McDiarmid.lean",
+      "4133ccced12fddb386420e3e7bf3166e555b37b42d2b8bbb9498619a669f5fa6"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 9,
+  "nodes": 106,
+  "edges": 231,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

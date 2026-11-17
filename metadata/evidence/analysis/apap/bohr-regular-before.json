@@ -3,7 +3,7 @@
   "dataset": "apap",
   "project_id": "bohr-regular-before",
   "task_id": "apap:bohr-regular-before",
-  "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
+  "input_sha256": "ab02d0b07cd21d13c8d0acad23e9a4083bc93f42bce63cf9f0a8fd0c4b52814f",
   "label": "misaligned",
   "reason": "The rank counts finite-width characters instead of those with width below 2. The kappa bound is d/100 instead of the intended 1/(100*d).",
   "review_status": "human_reviewed",

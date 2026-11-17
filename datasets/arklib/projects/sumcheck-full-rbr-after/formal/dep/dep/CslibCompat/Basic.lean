@@ -1,28 +1,7 @@
-/-
-Copyright (c) 2026 Fabrizio Montesi, PolyFun Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Fabrizio Montesi, Devon Tuma, Quang Dao
--/
-
 module
 
 public import Cslib.Init
 public import Mathlib.Data.PFunctor.Univariate.Basic
-
-/-!
-# Polynomial Functors
-
-Definitions of common `PFunctor` constructions:
-- `monomial A B`: constant direction `B` for any shape `a : A`
-- `P + Q`: shapes are a disjoint sum, directions are defined by sum elimination on `a : P.A ⊕ Q.A`
-- `P * Q`: shapes are pairs of underlying shapes, directions are a disjoint sum over both shapes.
-
-Special cases `C`, `linear`, `selfMonomial`, `purePower`, the indeterminate `y`,
-and canonical choices of `0` and `1` are defined as abbreviations or instances over `monomial`.
-The scoped notations `A y^ B` and `y^ B` denote `monomial A B` and `purePower B`, respectively.
-
-The child-map API includes `const`, `Unary`, and `DecidableEqChildren`.
--/
 
 @[expose] public section
 
@@ -34,15 +13,7 @@ namespace PFunctor
 agree over that equality. -/
 @[ext (iff := false)]
 theorem ext {P Q : PFunctor.{uA, uB}} (h : P.A = Q.A) (h' : ∀ a, P.B a = Q.B (h ▸ a)) :
-    P = Q := by
-  cases P; cases Q; simp only [mk.injEq] at h h' ⊢; subst h
-  simp_all only [heq_eq_eq, true_and]; funext; exact h' _
-
-/-- The constant child map for `a`. -/
-def const {P : PFunctor} (a : P.A) (x : α) : P.B a → α := fun _ => x
-
-@[simp, scoped grind =]
-theorem const_apply {P : PFunctor} (a : P.A) (x : α) (i : P.B a) : PFunctor.const a x i = x := rfl
+    P = Q := sorry
 
 section monomial
 
@@ -50,11 +21,6 @@ section monomial
 abbrev monomial (A : Type uA) (B : Type uB) : PFunctor := ⟨A, fun _ => B⟩
 
 @[inherit_doc] scoped[PFunctor] infixr:82 " y^ " => monomial
-
-lemma monomial_A (A : Type uA) (B : Type uB) : (monomial A B).A = A := rfl
-
-lemma monomial_B (A : Type uA) (B : Type uB) (a : (monomial A B).A) :
-    (monomial A B).B a = B := rfl
 
 end monomial
 
@@ -64,10 +30,7 @@ section zero
 respect to sum (up to equivalence). -/
 @[simps] instance instZeroPFunctor : Zero PFunctor where zero := monomial PEmpty PEmpty
 
--- The head type is independent of the child universe. Fixing it to `0` avoids an
--- unconstrained universe metavariable when these head instances are synthesized.
-instance instIsEmptyZeroPFunctor : IsEmpty (0 : PFunctor.{uA, 0}).A :=
-  inferInstanceAs (IsEmpty PEmpty)
+instance instIsEmptyZeroPFunctor : IsEmpty (0 : PFunctor.{uA, 0}).A := sorry
 
 end zero
 
@@ -79,8 +42,7 @@ respect to product (up to equivalence). -/
 
 instance instUniqueOneA : Unique (1 : PFunctor.{uA, 0}).A := inferInstanceAs (Unique PUnit)
 
-instance instIsEmptyOneB (a : (1 : PFunctor.{uA, uB}).A) : IsEmpty ((1 : PFunctor.{uA, uB}).B a) :=
-  inferInstanceAs (IsEmpty PEmpty)
+instance instIsEmptyOneB (a : (1 : PFunctor.{uA, uB}).A) : IsEmpty ((1 : PFunctor.{uA, uB}).B a) := sorry
 
 end one
 
@@ -90,9 +52,6 @@ abbrev C (A : Type uA) : PFunctor := monomial A PEmpty
 /-- The linear polynomial functor `P(y) = A y`. -/
 abbrev linear (A : Type uA) : PFunctor := monomial A PUnit
 
-/-- The self-monomial polynomial functor `P(y) = S y^ S`. -/
-abbrev selfMonomial (S : Type uA) : PFunctor.{uA, uA} := monomial S S
-
 /-- The pure-power polynomial functor `y^ B`, representable on `B`. -/
 abbrev purePower (B : Type uB) : PFunctor := monomial PUnit B
 
@@ -101,21 +60,6 @@ abbrev purePower (B : Type uB) : PFunctor := monomial PUnit B
 /-- The indeterminate polynomial functor `P(y) = y`, the identity with respect to
 composition and tensor product (up to equivalence). -/
 abbrev y : PFunctor := monomial PUnit PUnit
-
-/- Note: no explicit `IsEmpty`/`Unique` instances are needed for the positions and directions
-of the abbreviations above: being reducible, they unfold to `PEmpty`/`PUnit` during instance
-search. Only `0` and `1` need the explicit instances above, since the `Zero`/`One` instance
-projections are not reducible. -/
-
-@[simp] lemma C_pempty : C PEmpty = 0 := rfl
-
-@[simp] lemma C_punit : C PUnit = 1 := rfl
-
-@[simp] lemma linear_punit : linear PUnit = y := rfl
-
-@[simp] lemma selfMonomial_punit : selfMonomial PUnit = y := rfl
-
-@[simp] lemma purePower_punit : purePower PUnit = y := rfl
 
 section add
 
@@ -132,11 +76,6 @@ The child universes must agree. The named spelling `P.add Q` can elaborate in co
     HAdd PFunctor.{uA₁, uB} PFunctor.{uA₂, uB} PFunctor.{max uA₁ uA₂, uB} where
   hAdd := add
 
-/- Both named operations and arithmetic notation are available; `simp` normalizes to the
-notation, for both addition and multiplication. -/
-@[simp] lemma add_eq_add (P : PFunctor.{uA₁, uB}) (Q : PFunctor.{uA₂, uB}) :
-    P.add Q = P + Q := rfl
-
 end add
 
 section prod
@@ -150,9 +89,6 @@ defined as the product of the head types and the sum of the child types. -/
     HMul PFunctor.{uA₁, uB₁} PFunctor.{uA₂, uB₂} PFunctor.{max uA₁ uA₂, max uB₁ uB₂} where
   hMul := prod
 
-@[simp] lemma prod_eq_mul (P : PFunctor.{uA₁, uB₁}) (Q : PFunctor.{uA₂, uB₂}) :
-    P.prod Q = P * Q := rfl
-
 end prod
 
 section Unary
@@ -163,11 +99,6 @@ class Unary (P : PFunctor) where
 
 attribute [instance_reducible, instance] PFunctor.Unary.unary
 
-theorem Unary.fun_eq_const [Unary P]
-    (a : P.A) (f : P.B a → α) : f = fun _ => f default := by
-  funext i
-  exact congrArg f (Subsingleton.elim i default)
-
 /-- A polynomial functor has children with decidable equality. -/
 class DecidableEqChildren (P : PFunctor) where
   decidableEq (a : P.A) : DecidableEq (P.B a)
@@ -177,11 +108,6 @@ attribute [instance_reducible, instance] DecidableEqChildren.decidableEq
 /-- A unary polynomial functor has decidable child equality. -/
 instance (P : PFunctor) [P.Unary] : P.DecidableEqChildren where
   decidableEq _ _ _ := isTrue (Subsingleton.elim _ _)
-
-/-- Constructs a unary polynomial functor. -/
-abbrev mkUnary (A : Type*) : PFunctor where
-  A := A
-  B := fun _ => Unit
 
 instance (A : Type uA) : (linear.{uA, uB} A).Unary where
   unary _ := inferInstanceAs (Unique PUnit)

@@ -76,7 +76,7 @@
     "graph": null,
     "review": null
   },
-  "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
+  "input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -85,11 +85,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 15,
-    "sha256": "a63fdbb05ebbf08b7d6184e687e19d85f0ea92070877837adce369e088666c89",
-    "effective_root_sha256": "c9f458751858f79d5109dba09e62c5855f5d5959a1133e444a489f233e074d7d"
+    "file_count": 10,
+    "sha256": "410d7a608c5416e9c2b5f40b03ac0fc34c82ff7cbc3cc7615178f3ca77d628b3",
+    "effective_root_sha256": "53448cf7b297d883a96d2c0d1b3a5d12dbd679636ae682a3fd578d886034a9e6",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "blocked",
-  "technical_status": "compiled-and-extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

@@ -1,24 +1,201 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
 public import dep.ArkLib.OracleReduction.Security.Basic
-public import dep.ArkLib.OracleReduction.Security.RbrGame
-
-/-!
-  # Round-by-Round Security Definitions
-
-  This file defines round-by-round security notions for (oracle) reductions.
--/
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
 noncomputable section
 
 open OracleComp OracleSpec ProtocolSpec
+
 open scoped NNReal ProbabilityTheory
 
 variable {ι : Type} {oSpec : OracleSpec ι}
@@ -42,21 +219,6 @@ definition where the input witness is derived via intermediate witnesses). -/
 def RoundByRoundOneShot
     (oSpec : OracleSpec ι) (StmtIn WitIn : Type) {n : ℕ} (pSpec : ProtocolSpec n) :=
   (m : Fin (n + 1)) → StmtIn → Transcript m pSpec → QueryLog oSpec → WitIn
-
-/-- A one-shot round-by-round extractor is **monotone** if its success probability on a given query
-  log is the same as the success probability on any extension of that query log.
-
-  TODO: refine this -/
-class RoundByRoundOneShot.IsMonotone (E : RoundByRoundOneShot oSpec StmtIn WitIn pSpec)
-    (relIn : Set (StmtIn × WitIn)) where
-  is_monotone : ∀ roundIdx stmtIn transcript,
-    ∀ proveQueryLog₁ proveQueryLog₂ : oSpec.QueryLog,
-    -- ∀ verifyQueryLog₁ verifyQueryLog₂ : oSpec.QueryLog,
-    proveQueryLog₁.Sublist proveQueryLog₂ →
-    -- verifyQueryLog₁.Sublist verifyQueryLog₂ →
-    -- Placeholder condition for now, will need to consider the whole game w/ probabilities
-    (stmtIn, E roundIdx stmtIn transcript proveQueryLog₁) ∈ relIn →
-      (stmtIn, E roundIdx stmtIn transcript proveQueryLog₂) ∈ relIn
 
 /-- A **round-by-round extractor** is a tuple of algorithms that iteratively extracts the input
   witness from the output witness, through a series of intermediate witnesses
@@ -87,60 +249,9 @@ structure RoundByRound
 
 namespace RoundByRoundOneShot
 
-/-- A one-shot round-by-round extractor can be converted to the general round-by-round extractor
-  format, where all intermediate witness types are equal to the input witness type.
-
-  Note that the converse is _not_ true: it's not possible in general to convert a general
-  round-by-round extractor to a one-shot one. -/
-def toRoundByRound (E : RoundByRoundOneShot oSpec StmtIn WitIn pSpec) :
-    RoundByRound oSpec StmtIn WitIn WitOut pSpec (fun _ => WitIn) where
-  eqIn := rfl
-  extractMid := fun m stmtIn tr witIn =>
-    if m.castSucc = 0 then witIn else E m.castSucc stmtIn (Fin.init tr) default
-  extractOut := fun stmtIn tr _ => E (.last n) stmtIn tr default
-
-open Classical in
-/-- The relation-aware conversion of a one-shot extractor into a general round-by-round one.
-
-This differs from `toRoundByRound` in the intermediate step: it returns a witness that is *valid for
-the input relation* whenever one exists at all, rather than the extractor's output or the witness it
-was handed. The choice is classical. Within ArkLib's current extensional security interface,
-`extractMid` is a mathematical function rather than an algorithm with a tracked running time, so
-selecting a valid witness non-constructively preserves the property formalized here. It does not
-establish the extraction-time bounds present in algorithmic formulations of round-by-round
-knowledge soundness.
-
-The distinction is not cosmetic. The round-0 obligation of a `KnowledgeStateFunction` is
-`(stmtIn, extracted) ∈ relIn` (forced by `toFun_empty`), and `toRoundByRound`'s intermediate step
-hands back its `witIn` argument, which is universally quantified and so may be an arbitrary invalid
-witness. That obligation is therefore unprovable for `toRoundByRound`, which is why
-`toKnowledgeStateFunction` is stated against this variant. -/
-noncomputable def toRoundByRoundOfRel (E : RoundByRoundOneShot oSpec StmtIn WitIn pSpec)
-    (relIn : Set (StmtIn × WitIn)) :
-    RoundByRound oSpec StmtIn WitIn WitOut pSpec (fun _ => WitIn) where
-  eqIn := rfl
-  extractMid := fun _ stmtIn _ witIn => if h : ∃ v, (stmtIn, v) ∈ relIn then h.choose else witIn
-  extractOut := fun stmtIn tr _ => E (.last n) stmtIn tr default
-
 end RoundByRoundOneShot
 
 end Extractor
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- The round-by-round extraction-failure event at challenge `i`: some intermediate witness
-satisfies the knowledge state after the challenge, while its extraction fails it before. This is
-the event `Verifier.rbrKnowledgeSoundnessWorstCase` bounds, named so that per-protocol bounds can
-state it. -/
-@[reducible]
-def rbrExtractionFailureEvent {WitMid : Fin (n + 1) → Type}
-    (kSF : (m : Fin (n + 1)) → StmtIn → Transcript m pSpec → WitMid m → Prop)
-    (extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid)
-    (i : pSpec.ChallengeIdx) (stmtIn : StmtIn)
-    (transcript : Transcript i.1.castSucc pSpec) (challenge : pSpec.Challenge i) : Prop :=
-  ∃ witMid : WitMid i.1.succ,
-    ¬ kSF i.1.castSucc stmtIn transcript
-      (extractor.extractMid i.1 stmtIn (transcript.concat challenge) witMid) ∧
-    kSF i.1.succ stmtIn (transcript.concat challenge) witMid
 
 namespace Verifier
 
@@ -206,59 +317,6 @@ structure KnowledgeStateFunction
         (stmtOut, witOut) ∈ relOut] > 0 →
     toFun (.last n) stmtIn tr (extractor.extractOut stmtIn tr witOut)
 
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-variable {init impl} in
-/-- A knowledge state function's value depends on its round, transcript and witness only up to
-(heterogeneous) equality. -/
-theorem KnowledgeStateFunction.toFun_congr {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {WitMid : Fin (n + 1) → Type}
-    {E : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid}
-    (K : V.KnowledgeStateFunction init impl relIn relOut E) {k k' : Fin (n + 1)} (hk : k = k')
-    (stmt : StmtIn) {T : pSpec.Transcript k} {T' : pSpec.Transcript k'} (hT : HEq T T')
-    {w : WitMid k} {w' : WitMid k'} (hw : HEq w w') :
-    K.toFun k stmt T w ↔ K.toFun k' stmt T' w' := by
-  subst hk
-  cases hT
-  cases hw
-  rfl
-
-/-- A knowledge state function gives rise to a state function via quantifying over the witness -/
-def KnowledgeStateFunction.toStateFunction
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec} {WitMid : Fin (n + 1) → Type}
-    {extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid}
-    (kSF : KnowledgeStateFunction init impl relIn relOut verifier extractor) :
-      verifier.StateFunction init impl relIn.language relOut.language where
-  toFun := fun m stmtIn tr => ∃ witMid, kSF.toFun m stmtIn tr witMid
-  toFun_empty := by
-    intro stmtIn
-    simp only [Set.mem_image, Prod.exists, exists_and_right, exists_eq_right]
-    constructor
-    · intro ⟨witIn, h⟩
-      have := kSF.toFun_empty stmtIn (cast extractor.eqIn.symm witIn)
-      simp at this
-      refine ⟨_, this.mp h⟩
-    · intro ⟨witMid, h⟩
-      exact ⟨_, (kSF.toFun_empty stmtIn witMid).mpr h⟩
-  toFun_next := fun m hDir stmtIn tr hToFunNext msg => by
-    simp only [not_exists]
-    intro witMid hToFunNext
-    have := kSF.toFun_next m hDir stmtIn tr msg witMid hToFunNext
-    simp_all
-  toFun_full := fun stmtIn tr hToFunFull => by
-    simp only [Fin.val_last, Set.mem_image, Prod.exists, exists_and_right, exists_eq_right,
-      OptionT.prEvent_mk_eq_zero_iff, not_exists]
-    intro stmtOut hStmtOut witOut hRelOut
-    have hProb :
-        Pr{let stmtOut ← (OptionT.mk do
-          (simulateQ impl (verifier.run stmtIn tr)).run' (← init))}[
-            (stmtOut, witOut) ∈ relOut] > 0 := by
-      simp only [Fin.val_last, gt_iff_lt, OptionT.prEvent_mk_pos_iff]
-      exact ⟨stmtOut, hStmtOut, hRelOut⟩
-    have := kSF.toFun_full stmtIn tr witOut hProb
-    simp_all
-
 /-- A (deterministic) knowledge state function for a verifier, with respect to input language
   `langIn` and output language `langOut`. This is used to define one-shot round-by-round knowledge
   soundness. Note the different condition for the empty transcript: `toFun 0` is supposed to be
@@ -282,76 +340,6 @@ structure KnowledgeStateFunctionOneShot
     Pr{let stmtOut ← (OptionT.mk do
       (simulateQ impl (verifier.run stmt tr)).run' (← init))}[stmtOut ∈ langOut] = 0
 
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- The one-shot state function is false at any round index that is `0`, for any transcript.
-
-`toFun_empty` states this for the literal index `0` and the canonical empty transcript; this is the
-transported form, which is what round-by-round arguments actually need (the index at hand is
-typically `m.castSucc` together with a proof that it equals `0`). -/
-theorem KnowledgeStateFunctionOneShot.toFun_empty_of_eq_zero
-    {langIn : Set StmtIn} {langOut : Set StmtOut}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    (stF : KnowledgeStateFunctionOneShot init impl langIn langOut verifier)
-    (stmtIn : StmtIn) (m : Fin (n + 1)) (hm : m = 0) (tr : Transcript m pSpec) :
-    ¬ stF.toFun m stmtIn tr := by
-  subst hm
-  have : tr = default := by ext i; exact Fin.elim0 i
-  subst this
-  exact stF.toFun_empty stmtIn
-
-/-- A state function & a one-shot round-by-round extractor gives rise to a knowledge state function
-  where the intermediate witness types are all equal to the input witness type -/
-noncomputable def KnowledgeStateFunctionOneShot.toKnowledgeStateFunction
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    (stF : KnowledgeStateFunctionOneShot init impl relIn.language relOut.language verifier)
-    (oneShotE : Extractor.RoundByRoundOneShot oSpec StmtIn WitIn pSpec) :
-    verifier.KnowledgeStateFunction init impl relIn relOut
-      (oneShotE.toRoundByRoundOfRel (WitOut := WitOut) relIn) where
-  toFun := fun m stmtIn tr witIn => if m = 0 then (stmtIn, witIn) ∈ relIn else
-    stF.toFun m stmtIn tr ∨ ∃ v, (stmtIn, v) ∈ relIn
-  toFun_empty := fun stmtIn witIn => by
-    have := stF.toFun_empty stmtIn
-    simp_all
-  toFun_next := fun m hDir stmtIn tr msg witIn h => by
-    -- `m.succ ≠ 0`, so the hypothesis is the `else` branch.
-    rw [ite_eq_right (Fin.succ_ne_zero m)] at h
-    by_cases hm : m.castSucc = 0
-    · -- Round-0 obligation: produce a witness *valid for `relIn`*.
-      rw [ite_eq_left hm]
-      -- The left disjunct of `h` is impossible: the state function is false on the empty
-      -- transcript, and `toFun_next` propagates that falsity across a `P_to_V` round.
-      have hstF : ¬ stF.toFun m.succ stmtIn (tr.concat msg) := by
-        refine stF.toFun_next m hDir stmtIn tr msg ?_
-        exact stF.toFun_empty_of_eq_zero (stmtIn := stmtIn) (m := m.castSucc) (hm := hm) (tr := tr)
-      have hex : ∃ v, (stmtIn, v) ∈ relIn := h.resolve_left hstF
-      -- `extractMid` selects such a valid witness.
-      simpa [Extractor.RoundByRoundOneShot.toRoundByRoundOfRel, hex] using hex.choose_spec
-    · rw [ite_eq_right hm]
-      refine h.imp_left ?_
-      -- Contrapositive of the one-shot `toFun_next`.
-      exact fun hsucc => not_not.mp fun hcast => stF.toFun_next m hDir stmtIn tr msg hcast hsucc
-  toFun_full := fun stmtIn tr witOut h => by
-    have hLang :
-        0 < Pr{let stmtOut ← (OptionT.mk do
-          (simulateQ impl (verifier.run stmtIn tr)).run' (← init))}[
-            stmtOut ∈ relOut.language] :=
-      h.trans_le (prEvent_mono _ _ _ fun stmtOut hrel ↦
-        (Set.mem_language_iff relOut stmtOut).2 ⟨witOut, hrel⟩)
-    have hstF : stF.toFun (.last n) stmtIn tr := by
-      by_contra hfalse
-      rw [stF.toFun_full stmtIn tr hfalse] at hLang
-      exact (lt_irrefl 0 hLang).elim
-    by_cases hn : n = 0
-    · exact (stF.toFun_empty_of_eq_zero (init := init) (impl := impl)
-        (stmtIn := stmtIn) (m := .last n)
-        (hm := by apply Fin.ext; simpa using hn) (tr := tr) hstF).elim
-    · rw [ite_eq_right (show (Fin.last n : Fin (n + 1)) ≠ 0 by
-          intro hzero
-          apply hn
-          simpa [Fin.ext_iff] using congrArg Fin.val hzero)]
-      exact Or.inl hstF
-
 /-- Coercion to the underlying function of a state function -/
 instance {langIn : Set StmtIn} {langOut : Set StmtOut}
     {verifier : Verifier oSpec StmtIn StmtOut pSpec} :
@@ -370,90 +358,6 @@ instance {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
     (fun _ => (m : Fin (n + 1)) → StmtIn → Transcript m pSpec → WitMid m → Prop) :=
       ⟨fun f => f.toFun⟩
 
-/-- A protocol with `verifier` satisfies round-by-round soundness with respect to input language
-  `langIn`, output language `langOut`, and error `rbrSoundnessError` if:
-
-  - there exists a state function `stateFunction` for the verifier and the input/output languages,
-    such that
-  - for all initial statement `stmtIn` not in `langIn`,
-  - for all initial witness `witIn`,
-  - for all provers `prover`,
-  - for all `i : Fin n` that is a round corresponding to a challenge,
-
-  the probability that:
-  - the state function is false for the partial transcript output by the prover
-  - the state function is true for the partial transcript appended by next challenge (chosen
-    randomly)
-
-  is at most `rbrSoundnessError i`.
--/
-def rbrSoundness (langIn : Set StmtIn) (langOut : Set StmtOut)
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  ∃ stateFunction : verifier.StateFunction init impl langIn langOut,
-  ∀ stmtIn ∉ langIn,
-  ∀ WitIn WitOut : Type,
-  ∀ witIn : WitIn,
-  ∀ prover : Prover oSpec StmtIn WitIn StmtOut WitOut pSpec,
-  ∀ i : pSpec.ChallengeIdx,
-    Pr{let ⟨transcript, challenge⟩ ← do
-      (simulateQ (impl.addLift challengeQueryImpl : QueryImpl _ (StateT σ ProbComp))
-        (do
-          let ⟨transcript, _⟩ ← prover.runToRound i.1.castSucc stmtIn witIn
-          let challenge ← liftComp (pSpec.getChallenge i) _
-          return (transcript, challenge))).run' (← init)}[
-      ¬ stateFunction i.1.castSucc stmtIn transcript ∧
-        stateFunction i.1.succ stmtIn (transcript.concat challenge)] ≤
-      rbrSoundnessError i
-
-/-- Type class for round-by-round soundness for a verifier
-
-Note that we put the error as a field in the type class to make it easier for synthesization
-(often the rbr error will need additional simplification / proof) -/
-class IsRBRSound (langIn : Set StmtIn) (langOut : Set StmtOut)
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec) where
-  rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0
-  is_rbr_sound : rbrSoundness init impl langIn langOut verifier rbrSoundnessError
-
-/-- A protocol with `verifier` satisfies round-by-round knowledge soundness with respect to input
-  relation `relIn`, output relation `relOut`, and error `rbrKnowledgeError` if:
-
-  - there exists a state function `stateFunction` for the verifier and the languages of the
-    input/output relations, such that
-  - for all initial statement `stmtIn` not in the language of `relIn`,
-  - for all initial witness `witIn`,
-  - for all provers `prover`,
-  - for all `i : Fin n` that is a round corresponding to a challenge,
-
-  the probability that:
-  - the state function is false for the partial transcript output by the prover
-  - the state function is true for the partial transcript appended by next challenge (chosen
-    randomly)
-
-  is at most `rbrKnowledgeError i`.
--/
-def rbrKnowledgeSoundnessOneShot (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  ∃ stateFunction : verifier.KnowledgeStateFunctionOneShot init impl relIn.language relOut.language,
-  ∃ extractor : Extractor.RoundByRoundOneShot oSpec StmtIn WitIn pSpec,
-  ∀ stmtIn : StmtIn,
-  ∀ witIn : WitIn,
-  ∀ prover : Prover oSpec StmtIn WitIn StmtOut WitOut pSpec,
-  ∀ i : pSpec.ChallengeIdx,
-    Pr{let ⟨transcript, challenge, proveQueryLog⟩ ← do
-      (simulateQ (impl.addLift challengeQueryImpl : QueryImpl _ (StateT σ ProbComp))
-        (do
-          let ⟨⟨transcript, _⟩, proveQueryLog⟩ ← prover.runWithLogToRound i.1.castSucc stmtIn witIn
-          let challenge ← liftComp (pSpec.getChallenge i) _
-          return (transcript, challenge, proveQueryLog))).run' (← init)}[
-      letI extractedWitIn := extractor i.1.castSucc stmtIn transcript proveQueryLog.fst
-      (stmtIn, extractedWitIn) ∉ relIn ∧
-        ¬ stateFunction i.1.castSucc stmtIn transcript ∧
-          stateFunction i.1.succ stmtIn (transcript.concat challenge)] ≤
-      rbrKnowledgeError i
-
--- New definition of rbr knowledge soundness, using the knowledge state function
 def rbrKnowledgeSoundness (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
     (verifier : Verifier oSpec StmtIn StmtOut pSpec)
     (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
@@ -475,256 +379,6 @@ def rbrKnowledgeSoundness (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut
           (extractor.extractMid i.1 stmtIn (transcript.concat challenge) witMid) ∧
           kSF i.1.succ stmtIn (transcript.concat challenge) witMid] ≤
       rbrKnowledgeError i
-
-/-- Round-by-round knowledge soundness for one exact intermediate-witness
-family, extractor, and knowledge-state function.  Unlike
-`rbrKnowledgeSoundness`, these proof objects remain visible in the proposition
-type and can therefore be inspected by downstream clients. -/
-def rbrKnowledgeSoundnessWith
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (WitMid : Fin (n + 1) → Type)
-    (extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid)
-    (kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  ∀ stmtIn : StmtIn,
-  ∀ witIn : WitIn,
-  ∀ prover : Prover oSpec StmtIn WitIn StmtOut WitOut pSpec,
-  ∀ i : pSpec.ChallengeIdx,
-    Pr{let ⟨transcript, challenge, _proveQueryLog⟩ ← do
-      (simulateQ (impl.addLift challengeQueryImpl : QueryImpl _ (StateT σ ProbComp))
-        (do
-          let ⟨⟨transcript, _⟩, proveQueryLog⟩ ←
-            prover.runWithLogToRound i.1.castSucc stmtIn witIn
-          let challenge ← liftComp (pSpec.getChallenge i) _
-          return (transcript, challenge, proveQueryLog))).run' (← init)}[
-      ∃ witMid,
-        ¬ kSF i.1.castSucc stmtIn transcript
-          (extractor.extractMid i.1 stmtIn (transcript.concat challenge) witMid) ∧
-          kSF i.1.succ stmtIn (transcript.concat challenge) witMid] ≤
-      rbrKnowledgeError i
-
-/-- The existential RBR contract is exactly existence of the corresponding
-extractor-specific contract. -/
-theorem rbrKnowledgeSoundness_iff_exists_with
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) :
-    rbrKnowledgeSoundness init impl relIn relOut verifier rbrKnowledgeError ↔
-      ∃ WitMid : Fin (n + 1) → Type,
-      ∃ extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid,
-      ∃ kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor,
-        rbrKnowledgeSoundnessWith init impl relIn relOut verifier
-          WitMid extractor kSF rbrKnowledgeError := by
-  rfl
-
-/-- Type class for round-by-round knowledge soundness for a verifier
-
-Note that we put the error as a field in the type class to make it easier for synthesization
-(often the rbr error will need additional simplification / proof)
--/
-class IsRBRKnowledgeSound (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec) where
-  rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0
-  is_rbr_knowledge_sound : rbrKnowledgeSoundness init impl relIn relOut verifier rbrKnowledgeError
-
-/-! ### Worst-case-per-prefix variants
-
-The standard literature definition of round-by-round (knowledge) soundness bounds the bad
-transition probability for **every fixed transcript prefix**, quantified *before* the
-challenge draw. ArkLib's `rbrSoundness` / `rbrKnowledgeSoundness` above instead sample the
-prefix inside the game (via the prover run under the simulated oracles) and bound the
-resulting **mixture** over prefixes — a formally weaker property with the same error
-constants (safe direction: averaged ≤ worst-case). The definitions below are the faithful
-worst-case forms, and the two implication theorems discharge the averaged forms from them
-via the master mixture bound
-`ProtocolSpec.prEvent_simulateQ_addLift_getChallenge_bind_le`
-(`ArkLib/OracleReduction/Security/RbrGame.lean`).
-
-Practical consequence: a protocol proven in the worst-case form gets the averaged form for
-free, so prefer proving the worst-case variant. It is also the easier obligation to discharge
-— it carries no prover quantifier at all, so one reasons about a fixed prefix and the fresh
-challenge only. Conversely, a result established solely in the averaged form does **not**
-yield the worst-case one; the implication runs in one direction. -/
-
-/-- **Worst-case-per-prefix round-by-round soundness**, the standard literature shape: for
-*every fixed* transcript prefix — not a prover-sampled one — the probability over only the
-fresh challenge of a bad transition (state function false at the prefix, true after appending
-the challenge) is at most the round error.
-Implies `rbrSoundness` with the same error
-(`rbrSoundnessWorstCase_implies_rbrSoundness`). -/
-def rbrSoundnessWorstCase (langIn : Set StmtIn) (langOut : Set StmtOut)
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  ∃ stateFunction : verifier.StateFunction init impl langIn langOut,
-  ∀ stmtIn ∉ langIn,
-  ∀ i : pSpec.ChallengeIdx,
-  ∀ transcript : Transcript i.1.castSucc pSpec,
-    Pr{let challenge ← $ᵗ (pSpec.Challenge i)}[
-      ¬ stateFunction i.1.castSucc stmtIn transcript ∧
-        stateFunction i.1.succ stmtIn (transcript.concat challenge)] ≤ rbrSoundnessError i
-
-/-- **Worst-case-per-prefix round-by-round knowledge soundness**, the standard literature shape:
-the knowledge analogue of `rbrSoundnessWorstCase`, with the bad-transition event of
-`rbrKnowledgeSoundness` evaluated at every fixed transcript prefix over only the fresh
-challenge. Implies `rbrKnowledgeSoundness` with the same error
-(`rbrKnowledgeSoundnessWorstCase_implies_rbrKnowledgeSoundness`). -/
-def rbrKnowledgeSoundnessWorstCase (relIn : Set (StmtIn × WitIn))
-    (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  ∃ WitMid : Fin (n + 1) → Type,
-  ∃ extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid,
-  ∃ kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor,
-  ∀ stmtIn : StmtIn,
-  ∀ i : pSpec.ChallengeIdx,
-  ∀ transcript : Transcript i.1.castSucc pSpec,
-    Pr{let challenge ← $ᵗ (pSpec.Challenge i)}[
-      ∃ witMid,
-        ¬ kSF i.1.castSucc stmtIn transcript
-          (extractor.extractMid i.1 stmtIn (transcript.concat challenge) witMid) ∧
-          kSF i.1.succ stmtIn (transcript.concat challenge) witMid] ≤ rbrKnowledgeError i
-
-/-- Worst-case-per-prefix RBR knowledge soundness for one exact
-intermediate-witness family, extractor, and knowledge-state function. -/
-def rbrKnowledgeSoundnessWorstCaseWith
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (WitMid : Fin (n + 1) → Type)
-    (extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid)
-    (kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  ∀ stmtIn : StmtIn,
-  ∀ i : pSpec.ChallengeIdx,
-  ∀ transcript : Transcript i.1.castSucc pSpec,
-    Pr{let challenge ← $ᵗ (pSpec.Challenge i)}[
-      ∃ witMid,
-        ¬ kSF i.1.castSucc stmtIn transcript
-          (extractor.extractMid i.1 stmtIn (transcript.concat challenge) witMid) ∧
-          kSF i.1.succ stmtIn (transcript.concat challenge) witMid] ≤ rbrKnowledgeError i
-
-/-- The existential worst-case RBR contract is exactly existence of the
-corresponding extractor-specific contract. -/
-theorem rbrKnowledgeSoundnessWorstCase_iff_exists_with
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) :
-    rbrKnowledgeSoundnessWorstCase init impl relIn relOut verifier rbrKnowledgeError ↔
-      ∃ WitMid : Fin (n + 1) → Type,
-      ∃ extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid,
-      ∃ kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor,
-        rbrKnowledgeSoundnessWorstCaseWith init impl relIn relOut verifier
-          WitMid extractor kSF rbrKnowledgeError := by
-  rfl
-
-/-- Worst-case-per-prefix rbr soundness implies the (averaged) `rbrSoundness`, with the
-same error: the averaged game's prefix distribution is a mixture, and the challenge is
-drawn independently of the prefix, so the mixture probability is dominated by the
-per-prefix supremum (master bound
-`ProtocolSpec.prEvent_simulateQ_addLift_getChallenge_bind_le`). -/
-theorem rbrSoundnessWorstCase_implies_rbrSoundness
-    {langIn : Set StmtIn} {langOut : Set StmtOut}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0}
-    (h : rbrSoundnessWorstCase init impl langIn langOut verifier rbrSoundnessError) :
-    rbrSoundness init impl langIn langOut verifier rbrSoundnessError := by
-  obtain ⟨sF, hsF⟩ := h
-  refine ⟨sF, fun stmtIn hstmt WitIn WitOut witIn prover i => ?_⟩
-  exact ProtocolSpec.prEvent_simulateQ_addLift_getChallenge_bind_le
-    init impl (prover.runToRound i.1.castSucc stmtIn witIn) i
-    (fun tr c => (tr.1, c))
-    (fun x => ¬ sF i.1.castSucc stmtIn x.1 ∧ sF i.1.succ stmtIn (x.1.concat x.2))
-    (fun tr => hsF stmtIn hstmt i tr.1)
-
-/-- Worst-case-per-prefix rbr knowledge soundness implies the (averaged)
-`rbrKnowledgeSoundness`, with the same error (same mixture argument as
-`rbrSoundnessWorstCase_implies_rbrSoundness`). -/
-theorem rbrKnowledgeSoundnessWorstCase_implies_rbrKnowledgeSoundness
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0}
-    (h : rbrKnowledgeSoundnessWorstCase init impl relIn relOut verifier rbrKnowledgeError) :
-    rbrKnowledgeSoundness init impl relIn relOut verifier rbrKnowledgeError := by
-  obtain ⟨WitMid, extractor, kSF, hkSF⟩ := h
-  refine ⟨WitMid, extractor, kSF, fun stmtIn witIn prover i => ?_⟩
-  exact ProtocolSpec.prEvent_simulateQ_addLift_getChallenge_bind_le
-    init impl (prover.runWithLogToRound i.1.castSucc stmtIn witIn) i
-    (fun tr c => (tr.1.1, c, tr.2))
-    (fun x => ∃ witMid,
-      ¬ kSF i.1.castSucc stmtIn x.1
-        (extractor.extractMid i.1 stmtIn (x.1.concat x.2.1) witMid) ∧
-        kSF i.1.succ stmtIn (x.1.concat x.2.1) witMid)
-    (fun tr => hkSF stmtIn i tr.1.1)
-
-/-- The exact-object worst-case RBR contract implies the exact-object averaged
-contract without hiding the extractor or knowledge-state function. -/
-theorem rbrKnowledgeSoundnessWorstCaseWith_implies_rbrKnowledgeSoundnessWith
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {WitMid : Fin (n + 1) → Type}
-    {extractor : Extractor.RoundByRound oSpec StmtIn WitIn WitOut pSpec WitMid}
-    {kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor}
-    {rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0}
-    (h : rbrKnowledgeSoundnessWorstCaseWith init impl relIn relOut verifier
-      WitMid extractor kSF rbrKnowledgeError) :
-    rbrKnowledgeSoundnessWith init impl relIn relOut verifier
-      WitMid extractor kSF rbrKnowledgeError := by
-  intro stmtIn witIn prover i
-  exact ProtocolSpec.prEvent_simulateQ_addLift_getChallenge_bind_le
-    init impl (prover.runWithLogToRound i.1.castSucc stmtIn witIn) i
-    (fun tr c => (tr.1.1, c, tr.2))
-    (fun x => ∃ witMid,
-      ¬ kSF i.1.castSucc stmtIn x.1
-        (extractor.extractMid i.1 stmtIn (x.1.concat x.2.1) witMid) ∧
-        kSF i.1.succ stmtIn (x.1.concat x.2.1) witMid)
-    (fun tr => h stmtIn i tr.1.1)
-
-/-- Implication: one-shot rbr knowledge soundness implies general rbr knowledge soundness (with the
-  same error).
-
-  The two notions score the *same* game, so the proof is a pointwise comparison of their bad
-  events. The one-shot event carries an extra conjunct — that the extractor *fails* on the prover's
-  query log — which the general event cannot mention, because `Extractor.RoundByRound.extractMid`
-  never sees a query log. The bridge is that the general event forces `relIn` to contain **no**
-  witness at all for `stmtIn`: at round `0` because
-  `Extractor.RoundByRoundOneShot.toRoundByRoundOfRel` would otherwise have selected a valid witness,
-  and at later rounds because the induced state function carries `∃ v, (stmtIn, v) ∈ relIn` as a
-  disjunct. With no witness in existence the extra conjunct holds for free, whatever the log. -/
-theorem rbrKnowledgeSoundnessOneShot_implies_rbrKnowledgeSoundness
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0}
-    (h : verifier.rbrKnowledgeSoundnessOneShot init impl relIn relOut rbrKnowledgeError) :
-    verifier.rbrKnowledgeSoundness init impl relIn relOut rbrKnowledgeError := by
-  unfold rbrKnowledgeSoundness
-  obtain ⟨stF, oneShotE, h⟩ := h
-  refine ⟨_, oneShotE.toRoundByRoundOfRel relIn,
-    stF.toKnowledgeStateFunction init impl oneShotE, ?_⟩
-  -- Both notions score the *same* game, so it suffices to compare the two bad events pointwise.
-  refine fun stmtIn witIn prover i ↦ le_trans ?_ (h stmtIn witIn prover i)
-  refine prEvent_mono _ _ _ ?_
-  rintro ⟨transcript, challenge, proveQueryLog⟩ ⟨witMid, hcast, hsucc⟩
-  simp only [Extractor.RoundByRoundOneShot.toRoundByRoundOfRel, ite_eq_right (Fin.succ_ne_zero _),
-    KnowledgeStateFunctionOneShot.toKnowledgeStateFunction] at hcast hsucc
-  -- The crux: the general bad event forces `relIn` to have *no* witness for `stmtIn` at all.
-  -- That is what bridges the gap to the one-shot event, whose extractor sees the prover's query
-  -- log while `extractMid` cannot.
-  have hnex : ¬ ∃ v, (stmtIn, v) ∈ relIn := by
-    intro hex
-    by_cases hz : i.1.castSucc = 0
-    · -- Round-0 branch: `extractMid` would have selected a valid witness.
-      rw [ite_eq_left hz] at hcast
-      exact hcast (by simpa [hex] using hex.choose_spec)
-    · rw [ite_eq_right hz] at hcast
-      exact hcast (Or.inr hex)
-  refine ⟨fun hmem => hnex ⟨_, hmem⟩, ?_, hsucc.resolve_right hnex⟩
-  -- `¬ stF.toFun i.castSucc`: at a nonzero index it is the left half of `hcast`; at index `0`
-  -- it is the one-shot state function's empty-transcript axiom, transported along `hz`.
-  by_cases hz : i.1.castSucc = 0
-  · exact stF.toFun_empty_of_eq_zero (stmtIn := stmtIn) (m := i.1.castSucc)
-      (hm := hz) (tr := transcript)
-  · rw [ite_eq_right hz] at hcast
-    exact fun hstF => hcast (Or.inl hstF)
 
 end RoundByRound
 
@@ -760,14 +414,6 @@ def KnowledgeStateFunction
       (StmtIn × (∀ i, OStmtIn i)) WitIn WitOut pSpec WitMid) :=
   verifier.toVerifier.KnowledgeStateFunction init impl relIn relOut extractor
 
-/-- Round-by-round soundness of an oracle reduction is the same as for non-oracle reductions. -/
-def rbrSoundness
-    (langIn : Set (StmtIn × ∀ i, OStmtIn i))
-    (langOut : Set (StmtOut × ∀ i, OStmtOut i))
-    (verifier : OracleVerifier oSpec StmtIn OStmtIn StmtOut OStmtOut pSpec)
-    (rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  verifier.toVerifier.rbrSoundness init impl langIn langOut rbrSoundnessError
-
 /-- Round-by-round knowledge soundness of an oracle reduction is the same as for non-oracle
 reductions. -/
 def rbrKnowledgeSoundness
@@ -776,21 +422,6 @@ def rbrKnowledgeSoundness
     (verifier : OracleVerifier oSpec StmtIn OStmtIn StmtOut OStmtOut pSpec)
     (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
   verifier.toVerifier.rbrKnowledgeSoundness init impl relIn relOut rbrKnowledgeError
-
-/-- Extractor-specific round-by-round knowledge soundness of an oracle
-reduction, retaining the exact intermediate-witness family, extractor, and
-knowledge-state function in the proposition type. -/
-def rbrKnowledgeSoundnessWith
-    (relIn : Set ((StmtIn × ∀ i, OStmtIn i) × WitIn))
-    (relOut : Set ((StmtOut × ∀ i, OStmtOut i) × WitOut))
-    (verifier : OracleVerifier oSpec StmtIn OStmtIn StmtOut OStmtOut pSpec)
-    (WitMid : Fin (n + 1) → Type)
-    (extractor : Extractor.RoundByRound oSpec
-      (StmtIn × (∀ i, OStmtIn i)) WitIn WitOut pSpec WitMid)
-    (kSF : verifier.KnowledgeStateFunction init impl relIn relOut extractor)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  verifier.toVerifier.rbrKnowledgeSoundnessWith init impl relIn relOut
-    WitMid extractor kSF rbrKnowledgeError
 
 end OracleVerifier
 
@@ -801,12 +432,6 @@ variable {Statement : Type} {ιₛ : Type} {OStatement : ιₛ → Type} {Witnes
   [∀ i, OracleInterface (pSpec.Message i)]
 
 namespace Proof
-
-@[reducible, simp]
-def rbrSoundness (langIn : Set Statement)
-    (verifier : Verifier oSpec Statement Bool pSpec)
-    (rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  verifier.rbrSoundness init impl langIn acceptRejectRel.language rbrSoundnessError
 
 @[reducible, simp]
 def rbrKnowledgeSoundness (relation : Set (Statement × Bool))
@@ -830,15 +455,6 @@ def KnowledgeStateFunction
   OracleVerifier.KnowledgeStateFunction (Oₛₒ := fun i => nomatch i)
     init impl relIn acceptRejectOracleRel verifier extractor
 
-/-- Round-by-round soundness of an oracle reduction is the same as for non-oracle reductions. -/
-@[reducible, simp]
-def rbrSoundness
-    (langIn : Set (Statement × ∀ i, OStatement i))
-    (verifier : OracleProofVerifier oSpec Statement OStatement pSpec)
-    (rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0) : Prop := by
-  exact OracleVerifier.rbrSoundness (Oₛₒ := fun i => nomatch i) init impl
-    langIn acceptRejectOracleRel.language verifier rbrSoundnessError
-
 /-- Round-by-round knowledge soundness of an oracle reduction is the same as for non-oracle
 reductions. -/
 def rbrKnowledgeSoundness
@@ -848,63 +464,18 @@ def rbrKnowledgeSoundness
   exact OracleVerifier.rbrKnowledgeSoundness (Oₛₒ := fun i => nomatch i) init impl
     relIn acceptRejectOracleRel verifier rbrKnowledgeError
 
-/-- Worst-case-per-prefix round-by-round knowledge soundness of an oracle proof: that of its
-verifier (`Verifier.rbrKnowledgeSoundnessWorstCase`), with the empty output-oracle family
-discharged explicitly. It implies `OracleProof.rbrKnowledgeSoundness` with the same error
-(`OracleProof.rbrKnowledgeSoundnessWorstCase_implies_rbrKnowledgeSoundness`). The implication runs
-in one direction only; see the note on the worst-case-per-prefix variants above. -/
-def rbrKnowledgeSoundnessWorstCase
-    (relIn : Set ((Statement × ∀ i, OStatement i) × Witness))
-    (verifier : OracleProofVerifier oSpec Statement OStatement pSpec)
-    (rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0) : Prop :=
-  (OracleVerifier.toVerifier (Oₛₒ := fun i => nomatch i) verifier).rbrKnowledgeSoundnessWorstCase
-    init impl relIn acceptRejectOracleRel rbrKnowledgeError
-
-variable {init impl} in
-/-- Worst-case-per-prefix round-by-round knowledge soundness of an oracle proof implies the
-prover-averaged `OracleProof.rbrKnowledgeSoundness`, with the same error. -/
-theorem rbrKnowledgeSoundnessWorstCase_implies_rbrKnowledgeSoundness
-    {relIn : Set ((Statement × ∀ i, OStatement i) × Witness)}
-    {verifier : OracleProofVerifier oSpec Statement OStatement pSpec}
-    {rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0}
-    (h : rbrKnowledgeSoundnessWorstCase init impl relIn verifier rbrKnowledgeError) :
-    rbrKnowledgeSoundness init impl relIn verifier rbrKnowledgeError :=
-  Verifier.rbrKnowledgeSoundnessWorstCase_implies_rbrKnowledgeSoundness init impl h
-
 end OracleProof
 
 section Trivial
 
 /-- The state function for the identity / trivial verifier, which just returns whether the
   statement is in the language. -/
-def Verifier.StateFunction.id {lang : Set Statement} :
+def Verifier.StateFunction.id {σ : Type} {lang : Set Statement} :
     (Verifier.id : Verifier oSpec Statement _ _).StateFunction init impl lang lang where
   toFun | ⟨0, _⟩ => fun stmtIn _ => stmtIn ∈ lang
-  toFun_empty := fun _ => by simp
+  toFun_empty := fun _ => sorry
   toFun_next := fun i => Fin.elim0 i
-  toFun_full := fun stmt tr h => by
-    simp only [Verifier.id, Verifier.run]
-    rw [OptionT.prEvent_mk_eq_zero_iff]
-    intro x hx
-    simp only [support_bind, Set.mem_iUnion] at hx
-    obtain ⟨s, _, hx⟩ := hx
-    have key : (simulateQ impl (pure stmt : OptionT (OracleComp oSpec) Statement)).run' s =
-        pure (some stmt) := by
-      change (simulateQ impl (pure (some stmt) : OracleComp oSpec (Option Statement))).run' s = _
-      rw [simulateQ_pure]
-      change Prod.fst <$> (pure (some stmt) : StateT σ ProbComp _).run s = _
-      rw [StateT.run_pure]; simp [map_pure]
-    rw [key] at hx
-    simp only [support_pure, Set.mem_singleton_iff] at hx
-    cases hx; exact h
-
-/-- The identity / trivial verifier is perfectly round-by-round sound. -/
-@[simp]
-lemma Verifier.id_rbrSoundness {lang : Set Statement} :
-    (Verifier.id : Verifier oSpec Statement _ _).rbrSoundness init impl lang lang 0 := by
-  refine ⟨Verifier.StateFunction.id init impl, ?_⟩
-  intro _ _ _ _ _ _ i
-  exact Fin.elim0 i.1
+  toFun_full := fun stmt tr h => sorry
 
 /-- The round-by-round extractor for the identity / trivial verifier, which just returns the
   input witness. -/
@@ -916,44 +487,12 @@ def Extractor.RoundByRound.id :
 
 /-- The knowledge state function for the identity / trivial verifier, which just returns whether
   the statement is in the relation. -/
-def Verifier.KnowledgeStateFunction.id {rel : Set (Statement × Witness)} :
+def Verifier.KnowledgeStateFunction.id {σ : Type} {rel : Set (Statement × Witness)} :
     (Verifier.id : Verifier oSpec Statement _ _).KnowledgeStateFunction init impl rel rel
       (Extractor.RoundByRound.id) where
   toFun | ⟨0, _⟩ => fun stmtIn _ witIn => (stmtIn, witIn) ∈ rel
-  toFun_empty := fun _ => by simp
+  toFun_empty := fun _ => sorry
   toFun_next := fun i => Fin.elim0 i
-  toFun_full := fun stmtIn tr witOut h => by
-    simp only [Verifier.id, Verifier.run] at h
-    rw [gt_iff_lt, OptionT.prEvent_mk_pos_iff] at h
-    obtain ⟨x, hx, hrel⟩ := h
-    simp only [support_bind, Set.mem_iUnion] at hx
-    obtain ⟨s, _, hx⟩ := hx
-    have key : (simulateQ impl (pure stmtIn : OptionT (OracleComp oSpec) Statement)).run' s =
-        pure (some stmtIn) := by
-      change (simulateQ impl (pure (some stmtIn) : OracleComp oSpec (Option Statement))).run' s = _
-      rw [simulateQ_pure]
-      change Prod.fst <$> (pure (some stmtIn) : StateT σ ProbComp _).run s = _
-      rw [StateT.run_pure]; simp [map_pure]
-    rw [key] at hx
-    simp only [support_pure, Set.mem_singleton_iff] at hx
-    cases (Option.some.inj hx)
-    exact hrel
-
-/-- The identity / trivial verifier is perfectly round-by-round knowledge sound. -/
-@[simp]
-lemma Verifier.id_rbrKnowledgeSoundness {rel : Set (Statement × Witness)} :
-    (Verifier.id : Verifier oSpec Statement _ _).rbrKnowledgeSoundness
-      init impl rel rel 0 := by
-  refine ⟨_, _, Verifier.KnowledgeStateFunction.id init impl, ?_⟩
-  intro stmtIn witIn prover i
-  exact Fin.elim0 i.1
-
-/-- The identity / trivial oracle verifier is perfectly round-by-round knowledge sound. -/
-@[simp]
-lemma OracleVerifier.id_rbrKnowledgeSoundness
-    {rel : Set ((Statement × ∀ i, OStatement i) × Witness)} :
-    (OracleVerifier.id : OracleVerifier oSpec Statement OStatement _ _ _).rbrKnowledgeSoundness
-      init impl rel rel 0 := by
-  exact Verifier.id_rbrKnowledgeSoundness init impl (rel := rel)
+  toFun_full := fun stmtIn tr witOut h => sorry
 
 end Trivial

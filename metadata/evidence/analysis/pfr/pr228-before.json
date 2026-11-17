@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr228-before",
   "task_id": "pfr:pr228-before",
-  "input_sha256": "48e96fc0a7daff061584e48d64cfad01664fa9264e8fbf54f8cf99afeecfddad",
+  "input_sha256": "ba4e066413fad52422b5aa234182173d97b4c614df046775817971777a420037",
   "label": "misaligned",
   "reason": "The infimum admits nonprobability candidates. The KL expression retains zero-denominator totalization instead of the intended infinite value.",
   "review_status": "human_reviewed",

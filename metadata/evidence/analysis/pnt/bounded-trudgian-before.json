@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "bounded-trudgian-before",
   "task_id": "pnt:bounded-trudgian-before",
-  "input_sha256": "99e9e98b477e74a547b08216cc8e65e1ebc7c68aeb364edf05d267d916680ab2",
+  "input_sha256": "f5ae1efa3eebe41984dfc44e542795f94ced74124b7a8f1c7e6b3205027149f7",
   "label": "misaligned",
   "reason": "The center is the integral from 2, Li, instead of the target principal-value li. Natural-number division removes a fractional logarithmic exponent needed for the quantitative bound.",
   "review_status": "human_reviewed",

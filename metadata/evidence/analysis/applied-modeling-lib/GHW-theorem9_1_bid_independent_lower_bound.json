@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GHW-theorem9_1_bid_independent_lower_bound",
   "task_id": "aml:GHW-theorem9_1_bid_independent_lower_bound",
-  "input_sha256": "20dc5274f3f9dfd7dc49c66597b34edce10d90e35cab61352b7b8fe83c527114",
+  "input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
   "label": "aligned",
   "reason": "Adding a fixed bid of 1 and applying the quantified bid-independent rule yields the required family with minimum 1, maximum H, benchmark at least alpha*H, and revenue ratio at most 2/H.",
   "review_status": "human_reviewed",

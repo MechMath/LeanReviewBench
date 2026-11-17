@@ -1,19 +1,30 @@
-/-
-Copyright (c) 2025 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma
--/
-
 module
+
+public import Batteries.Tactic.Lint
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Util.Notation3
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
 public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
-
-/-!
-# Query Implementations with Reader Monads
-
-This file gives lemmas about `QueryImpl spec m` when `m` is something like `ReaderT ρ n`.
-
-TODO: should generalize things to `MonadReader` once laws for it exist.
--/
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -34,24 +45,5 @@ def addReaderT {ι₁ : Type u} {ι₂ : Type v}
     QueryImpl (spec₁ + spec₂) (ReaderT (ρ₁ × ρ₂) m)
   | .inl t => ReaderT.mk fun s => (impl₁ t).run s.1
   | .inr t => ReaderT.mk fun s => (impl₂ t).run s.2
-
-/-- Indexed version of `QueryImpl.addReaderT`. Each query for index `t` reads from the
-`t`-th component of the pi-product `(t : τ) → ρ t`. Note that `m` cannot vary with `t`. -/
-def sigmaReaderT {τ : Type} {ι : τ → Type _}
-    {spec : (t : τ) → OracleSpec (ι t)}
-    {m : Type _ → Type _} {ρ : τ → Type _}
-    (impl : (t : τ) → QueryImpl (spec t) (ReaderT (ρ t) m)) :
-    QueryImpl (OracleSpec.sigma spec) (ReaderT ((t : τ) → ρ t) m)
-  | ⟨t, q⟩ => ReaderT.mk fun s => (impl t q).run (s t)
-
-/-- Reassociate a nested reader transformer into one product context.
-
-The outer context is the first component of the product; the inner/base context is the
-second. This is the reader-transformer analogue of `flattenStateT` and `flattenWriterT`. -/
-def flattenReaderT {ι : Type u} {spec : OracleSpec.{u, v} ι}
-    {m : Type v → Type w} {ρ₁ ρ₂ : Type v}
-    (impl : QueryImpl spec (ReaderT ρ₁ (ReaderT ρ₂ m))) :
-    QueryImpl spec (ReaderT (ρ₁ × ρ₂) m) := fun t =>
-  ReaderT.mk fun (r₁, r₂) => ((impl t).run r₁).run r₂
 
 end QueryImpl

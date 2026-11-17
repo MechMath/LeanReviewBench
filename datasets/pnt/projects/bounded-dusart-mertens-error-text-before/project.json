@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The old E is explicitly defined in the retained historical dependency as lim_{x→∞}(Σ_{p≤x}log(p)/p−log x), the same mertensConstant used in Formal. It is not an undeclared error term. The threshold, summation and O* remainder match.",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "7ee3443a40678d22feb9be7461fac7a86b386047d8054b522073ddc8e84027fb"
+    "sha256": "1394fc3b48451bdeed83657f9dcaa68a465265826f9fa1bb6b5623339c501dfc",
+    "effective_root_sha256": "d5581d5c09cfc22f78729170da9cca630e3943a1ea03f7d073724eeef09814f1",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-mertens-error/20261105T053701812583Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "2acbffac6e3c88a2a5a60ae3177206b298fd4497be999d65708f3ca8300546e0",
+  "input_sha256": "57ade113f16cc01c8eb669e91859370f1d34d15860cad22b1fd499e4a0f50740",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

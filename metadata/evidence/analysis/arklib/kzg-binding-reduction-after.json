@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "kzg-binding-reduction-after",
   "task_id": "arklib:kzg-binding-reduction-after",
-  "input_sha256": "10ff9590459bcf10751a25a3bb573442f079448c48ddfae3fe29059092727a61",
+  "input_sha256": "48b54101e47ef47d0d80addd124d7e285949c9bfb995e02bd08788c7fd334125",
   "label": "misaligned",
   "reason": "The source equality of binding and reduction success probabilities is replaced by a one-sided inequality; the retained deterministic example makes the inequality strict. The reduction statement and its dependent definitions omit the source efficiency and PPT-preservation guarantee.",
   "review_status": "human_reviewed",

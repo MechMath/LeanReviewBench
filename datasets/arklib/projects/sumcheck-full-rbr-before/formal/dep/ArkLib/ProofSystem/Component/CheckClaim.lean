@@ -1,46 +1,204 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Logic.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.Basic
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.OneMessage
+public import dep.ArkLib.OracleReduction.Composition.Sequential.Append.StateFunction
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.Basic
 public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.Composition
-public import dep.ArkLib.OracleReduction.Security.CoordinateWiseSpecialSoundness.NoChallenge
-
-/-!
-  # Simple (Oracle) Reduction: Check if a predicate / claim on a statement is satisfied
-
-  This is a zero-round (oracle) reduction. There is no witness.
-
-  1. Reduction version: the input relation becomes a predicate `pred` on the statement. The verifier
-     `guard`s on `pred` (failing the `OptionT` computation when it does not hold) and returns the
-     same statement if successful. The output relation is trivial (`Set.univ`), since the predicate
-     has been checked by the verifier at runtime.
-
-  2. Oracle reduction version: **the verifier is a pure pass-through**. It returns the input
-     statement and oracle statements unchanged and does *not* run any check at runtime; the checked
-     predicate `P : Statement → (∀ i, OStatement i) → Prop` is instead carried by the output
-     relation `oracleRelOut P relIn := relIn ∩ {x | P x.1.1 x.1.2}`. Acceptance is exactly
-     membership in `oracleRelOut.language`, i.e. `P` holding.
-
-  ## Why the oracle verifier is pure
-
-  The oracle verifier takes no predicate argument, never fails, and is
-  `OracleVerifier.toVerifier.IsPure` — which is what lets it be a left factor in a
-  coordinate-wise-special-soundness / tree-soundness `append`. The predicate lives in
-  `oracleRelOut` rather than in a runtime `guard`. The `guard`-based *plain* reduction above keeps
-  its runtime check, since it can only ever be a rightmost factor.
-
-  As a result, the oracle output relation is no longer trivial: it is `oracleRelOut P relIn`, which
-  refines `relIn` by `P`. Completeness therefore holds under the explicit hypothesis that every
-  `relIn` input already satisfies `P` (`oracleReduction_completeness`), and soundness is captured by
-  `oracleVerifier_coordinateWiseSpecialSoundWith`.
-
-  Note: with the pure pass-through oracle verifier (and the refactor to disallow failure in
-  `OracleComp`), this oracle reduction is a special case of `ReduceClaim` (identity maps).
--/
+public import dep.ArkLib.OracleReduction.Security.Guarded
+public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import dep.ArkLib.OracleReduction.Security.TranscriptTree.Basic
+public import dep.ArkLib.OracleReduction.Security.TranscriptTree.Composition
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -63,7 +221,7 @@ def prover : Prover oSpec Statement Unit Statement Unit !p[] where
 
 /-- The `CheckClaim` prover has pure output: it reads its statement off the state, with no
 oracle query. -/
-instance instOutputIsPure : (prover oSpec Statement).OutputIsPure := ⟨_, fun _ => rfl⟩
+instance instOutputIsPure : (prover oSpec Statement).OutputIsPure := sorry
 
 variable (pred : Statement → Prop) [DecidablePred pred]
 
@@ -86,71 +244,6 @@ def relOut : Set (Statement × Unit) := Set.univ
 
 variable {σ : Type} {init : ProbComp σ} {impl : QueryImpl oSpec (StateT σ ProbComp)}
 
-/-- The `CheckClaim` reduction satisfies perfect completeness with respect to the predicate as the
-  input relation, and the output relation being always true. -/
-@[simp]
-theorem reduction_completeness [Nonempty σ] :
-    (reduction oSpec Statement pred).perfectCompleteness init impl
-    (relIn Statement pred) (relOut Statement) := by
-  classical
-  apply Reduction.perfectCompleteness_of_run_support
-  intro stmt _ valid x hx
-  simp only [relIn, Set.mem_ofPred_eq] at valid
-  have hrun : ((reduction oSpec Statement pred).run stmt ()).run =
-      (pure (some ((default, stmt, ()), stmt)) : OracleComp _ _) := by
-    simp [reduction, Reduction.run, prover, verifier, Prover.run, Verifier.run,
-      Prover.runToRound, guard, ite_eq_left valid]
-    rfl
-  rw [hrun, support_pure, Set.mem_singleton_iff] at hx
-  subst x
-  exact ⟨_, rfl, by simp [relOut], rfl⟩
-
-/-- The knowledge state function for the `CheckClaim` reduction, mirroring the trivial-verifier
-  template `Verifier.KnowledgeStateFunction.id`: at round `0` the state simply records that the
-  input is in `relIn`. -/
-def knowledgeStateFunction :
-    (verifier oSpec Statement pred).KnowledgeStateFunction
-      init impl (relIn Statement pred) (relOut Statement)
-      (Extractor.RoundByRound.id (Witness := Unit)) where
-  toFun | ⟨0, _⟩ => fun stmtIn _ witIn => (stmtIn, witIn) ∈ relIn Statement pred
-  toFun_empty := fun _ _ => by simp
-  toFun_next := fun i => Fin.elim0 i
-  toFun_full := fun stmtIn tr _ h => by
-    -- Reduce the dependent-pattern goal to `pred stmtIn`.
-    change pred stmtIn
-    by_contra hpred
-    -- If `pred stmtIn` is false then `guard` fails and the OptionT computation always returns
-    -- `none`, so no probability event can be positive.
-    rw [gt_iff_lt, OracleComp.OptionT.prEvent_mk_pos_iff] at h
-    obtain ⟨x, hx, _⟩ := h
-    -- Reduce the failing verifier by unfolding the `guard` branch.
-    have hverify : (verifier oSpec Statement pred).run stmtIn tr =
-        (OptionT.mk (pure none) : OptionT (OracleComp oSpec) Statement) := by
-      simp only [Verifier.run, verifier]
-      change (do guard (pred stmtIn); return stmtIn :
-        OptionT (OracleComp oSpec) Statement) = _
-      simp [guard, hpred]
-      rfl
-    rw [hverify] at hx
-    -- Now `simulateQ impl (OptionT.mk (pure none))` has empty support.
-    simp only [support_bind, Set.mem_iUnion] at hx
-    obtain ⟨s, _, hx⟩ := hx
-    rw [show ((OptionT.mk (pure none) : OptionT (OracleComp oSpec) Statement)) =
-        ((pure none : OracleComp oSpec (Option Statement)) : _) from rfl] at hx
-    rw [simulateQ_pure] at hx
-    change some x ∈ MonadAttach.support
-      (Prod.fst <$> (pure none : StateT σ ProbComp _).run s) at hx
-    rw [StateT.run_pure] at hx
-    simp [map_pure] at hx
-
-/-- The `CheckClaim` reduction satisfies perfect round-by-round knowledge soundness. -/
-theorem verifier_rbr_knowledge_soundness :
-    (verifier oSpec Statement pred).rbrKnowledgeSoundness init impl
-      (relIn Statement pred) (relOut Statement) 0 := by
-  refine ⟨_, _, knowledgeStateFunction oSpec Statement pred (init := init) (impl := impl), ?_⟩
-  intro stmtIn witIn prover i
-  exact Fin.elim0 i.1
-
 end Reduction
 
 section OracleReduction
@@ -170,8 +263,7 @@ def oracleProver : OracleProver oSpec
 
 /-- The `CheckClaim` oracle prover has pure output: it forwards the statement and oracle
 statements with no oracle query. -/
-instance instOutputIsPureOracle : (oracleProver oSpec Statement OStatement).OutputIsPure :=
-  ⟨_, fun _ => rfl⟩
+instance instOutputIsPureOracle : (oracleProver oSpec Statement OStatement).OutputIsPure := sorry
 
 /-- The oracle verifier for the `CheckClaim` oracle reduction is a **pure pass-through**: it
 returns the statement and all oracle statements unchanged. The predicate
@@ -182,31 +274,14 @@ plain-reduction variant above is retained as a rightmost-only factor.) -/
 def outputEmbedding : OracleOutputEmbedding OStatement (!p[] : ProtocolSpec 0).Message
     OStatement where
   embed := Function.Embedding.inl
-  hEq := by
-    intro i
-    rw [show Function.Embedding.inl i = Sum.inl i from rfl]
-  outputInterface_heq := by
-    intro i
-    rw [show Function.Embedding.inl i = Sum.inl i from rfl]
+  hEq := sorry
+  outputInterface_heq := sorry
 
 @[inline, specialize]
 def oracleVerifier : OracleVerifier oSpec
     Statement OStatement Statement OStatement !p[] where
   verify := fun stmt _ => pure stmt
   outputOracle := .inl (outputEmbedding OStatement)
-
-@[simp]
-theorem oracleVerifier_materializeOutput (challenges : (!p[] : ProtocolSpec 0).Challenges)
-    (oStmt : ∀ i, OStatement i) (messages : (!p[] : ProtocolSpec 0).Messages) :
-    (oracleVerifier oSpec Statement OStatement).materializeOutput challenges oStmt messages =
-      oStmt := by
-  unfold OracleVerifier.materializeOutput oracleVerifier
-  change OracleVerifier.materializeOutputOracle (Sum.inl (outputEmbedding OStatement))
-      challenges oStmt messages = oStmt
-  simp only [OracleVerifier.materializeOutputOracle]
-  funext i
-  simp only [outputEmbedding]
-  rfl
 
 /-- The oracle reduction for the `CheckClaim` oracle reduction. -/
 @[inline, specialize]
@@ -217,86 +292,13 @@ def oracleReduction : OracleReduction oSpec
 
 variable {Statement} {OStatement}
 
-/-- The pure pass-through oracle verifier's underlying non-oracle verifier returns the combined
-input statement unchanged. -/
-theorem oracleVerifier_toVerifier_run {stmt : Statement} {oStmt : ∀ i, OStatement i}
-    {tr : (!p[] : ProtocolSpec 0).FullTranscript} :
-    (oracleVerifier oSpec Statement OStatement).toVerifier.run ⟨stmt, oStmt⟩ tr =
-      pure ⟨stmt, oStmt⟩ := by
-  simp only [Verifier.run, OracleVerifier.toVerifier]
-  rw [oracleVerifier_materializeOutput]
-  simp only [oracleVerifier]
-  simp only [MessageIdx, Message, OptionT.run_pure, simulateQ_pure, map_pure,
-    Option.map_some]
-  apply OptionT.ext
-  rfl
-
 /-- The `CheckClaim` oracle verifier is pure: its underlying verifier deterministically returns the
 combined statement, which discharges the deterministic-left hypothesis of the CWSS binary append. -/
-instance instIsPure : (oracleVerifier oSpec Statement OStatement).toVerifier.IsPure :=
-  ⟨fun p _ => p, fun ⟨_, _⟩ _ => oracleVerifier_toVerifier_run (oSpec := oSpec)⟩
+instance instIsPure : (oracleVerifier oSpec Statement OStatement).toVerifier.IsPure := sorry
 
 variable {σ : Type} (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
   (P : Statement → (∀ i, OStatement i) → Prop)
   (relIn : Set ((Statement × ∀ i, OStatement i) × Unit))
-
-/-- The output relation of the pure-pass-through `CheckClaim`: the input relation intersected with
-the checked predicate `P` on the combined statement. Because the verifier is a pure pass-through,
-"acceptance" is exactly membership in `oracleRelOut.language`, i.e. `P` holding — so the check is
-enforced by the relation rather than by a runtime `guard`. -/
-@[reducible, simp]
-def oracleRelOut : Set ((Statement × ∀ i, OStatement i) × Unit) :=
-  relIn ∩ {x | P x.1.1 x.1.2}
-
-/-- **Perfect completeness of the pure pass-through `CheckClaim` oracle reduction.** Because the
-verifier does not check `P` at runtime (it is a pure pass-through, with `P` living in
-`oracleRelOut`), completeness needs the explicit hypothesis `hP` that every `relIn` input already
-satisfies `P`. Under `hP`, the prover forwards `⟨stmt, oStmt⟩` unchanged and the verifier returns it
-deterministically, so the output `⟨⟨stmt, oStmt⟩, ()⟩` lies in `oracleRelOut P relIn = relIn ∩ {x |
-P x.1.1 x.1.2}`. -/
-@[simp]
-theorem oracleReduction_completeness
-    (hP : ∀ stmt oStmt, (⟨⟨stmt, oStmt⟩, ()⟩ : (Statement × ∀ i, OStatement i) × Unit) ∈ relIn →
-      P stmt oStmt) :
-    (oracleReduction oSpec Statement OStatement).perfectCompleteness init impl
-      relIn (oracleRelOut P relIn) := by
-  apply Reduction.perfectCompleteness_of_run_support
-  intro ⟨stmt, oStmt⟩ witIn hIn x hx
-  have hrun : ((oracleReduction oSpec Statement OStatement).toReduction.run
-      ⟨stmt, oStmt⟩ witIn).run =
-      (pure (some ((default, ((stmt, oStmt), ())), (stmt, oStmt))) : OracleComp _ _) := by
-    simp only [oracleReduction, OracleReduction.toReduction, Reduction.run, oracleProver,
-      oracleVerifier, OracleVerifier.toVerifier, Prover.run, Verifier.run, Prover.runToRound]
-    rfl
-  rw [hrun, support_pure, Set.mem_singleton_iff] at hx
-  subst x
-  exact ⟨_, rfl, ⟨hIn, hP stmt oStmt hIn⟩, rfl⟩
-
-/-- **Coordinate-wise special soundness of `CheckClaim`, named form.** The verifier is a pure
-pass-through with no challenge rounds, so CWSS collapses (via the oracle no-challenge bridge
-`coordinateWiseSpecialSoundWith_of_isEmpty_challengeIdx`) to a transcript-level obligation. The
-named extractor is trivial (`fun _ _ _ => some ()`, there is no witness); since the pass-through
-output equals the input and `oracleRelOut P relIn ⊆ relIn`, accepting into `oracleRelOut.language`
-forces the input into `relIn`. Holds for any coordinate-wise structure `D`.
-
-The extractor is **witnessing-agnostic** — it never consults its leaf witnessing — which is the
-shape of a *closing* factor of a chain. -/
-theorem oracleVerifier_coordinateWiseSpecialSoundWith
-    (D : CWSSStructure (!p[] : ProtocolSpec 0)) :
-    (oracleVerifier oSpec Statement OStatement).coordinateWiseSpecialSoundWith init impl D
-      relIn
-      (oracleRelOut P relIn)
-      (fun _ _ _ => some ()) := by
-  have h := OracleVerifier.coordinateWiseSpecialSoundWith_of_isEmpty_challengeIdx init impl
-    D
-    (oracleVerifier oSpec Statement OStatement) relIn (oracleRelOut P relIn) (fun _ _ => ())
-    (fun s tr hAcc => by
-      have hmem := Verifier.mem_of_pure_accepting init impl
-        (oracleVerifier oSpec Statement OStatement).toVerifier s tr
-        (oracleRelOut P relIn).language _ (oracleVerifier_toVerifier_run (oSpec := oSpec)) hAcc
-      obtain ⟨_, hu⟩ := (Set.mem_language_iff _ _).1 hmem
-      exact hu.1)
-  exact h
 
 end OracleReduction
 

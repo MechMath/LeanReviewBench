@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "根结论把概率空间及可测性要求丢掉，所用历史 IsUniform 在零测度上对任意子群都成立；结合距离定义，整个见证条件退化。不是仅凭少写两个类型类判负，而是输出见证规格没有表达原文的概率均匀变量。",
   "external_imports": [
     "Mathlib.Algebra.Module.ZMod",
     "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
@@ -72,8 +71,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 41,
-    "sha256": "2e243c6c2c1787f0a5767199e6f0f7d408ac797663f970051c0dd52872a81a46"
+    "file_count": 20,
+    "sha256": "c73492744534638baf2c98908a9ce54db49046fbd487c99545f27ec8a38040f7",
+    "effective_root_sha256": "5ac21d1cde4e9d160548f9bf8166e60137bb8eec29b3bc1387af0fb16df9d3c0",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-extraction/technical/entropic-output-before/20261104T080007545143Z/receipt.json",
@@ -96,8 +98,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "ece21f2153a80707d604becad5ecc5599fd4bbd85afa2ec5ce2499ac5113f5d0",
+  "input_sha256": "2c18a1b94856428270be697438b9cf7c63bf403cedd239c2c589aa87b9205496",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

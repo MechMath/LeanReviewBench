@@ -9,7 +9,7 @@
    "type":
    "∀ {Feature : Type u_1} {Base : Type u_2} {Equilibrium : Type u_3} [inst : Fintype Feature]\n  [inst_1 : DecidableEq Feature] [Nonempty Base] (skillGivenBase : Equilibrium → Base → PMF ℝ)\n  (baseProfile : Equilibrium → PMF Base) (M : Base → EconCSLib.Probability.GaussianOffsetSignalFamily Feature)\n  (theta : Base → Feature → ℝ) (k : Feature) (accessFraction baseOnlyEstimate : Equilibrium → Base → ℝ)\n  (scoreLaw : Equilibrium → Base → EconCSLib.Probability.GaussianScaleLaw),\n  (∀ (e : Equilibrium) (base : Base), 0 ≤ accessFraction e base) →\n    (∀ (e : Equilibrium) (base : Base), accessFraction e base < 1) →\n      (∀ (base : Base) (test : ℝ) (action : LG21TestOptionalPolicies.LG21AccessAction),\n          (LG21TestOptionalPolicies.paperSchoolInformationSetFromAccessAction false base test action).accessStatus =\n            none) ∧\n        ∀ (e : Equilibrium),\n          ∃ W,\n            (∀ (base : Base) (skill : ℝ), W.takes base skill) ∧\n              (∃ base score, ¬W.reports base score) ∧\n                (∀ (base : Base), ∃ cutoff, ∀ (score : ℝ), W.reports base score ↔ cutoff ≤ score) ∧\n                  ¬LG21TestOptionalPolicies.lg21SourceLawLatentSkillFair\n                        (LG21TestOptionalPolicies.paperBaseMixedGaussianPosteriorLawSurface (skillGivenBase e)\n                          (baseProfile e) M theta k (scoreLaw e) (baseOnlyEstimate e)) ∧\n                    ¬LG21TestOptionalPolicies.lg21SourceLawObservablyFair\n                          (LG21TestOptionalPolicies.paperBaseMixedGaussianPosteriorLawSurface (skillGivenBase e)\n                            (baseProfile e) M theta k (scoreLaw e) (baseOnlyEstimate e)) ∧\n                      ¬LG21TestOptionalPolicies.lg21SourceLawDemographicallyFair\n                          (LG21TestOptionalPolicies.paperBaseMixedGaussianPosteriorLawSurface (skillGivenBase e)\n                            (baseProfile e) M theta k (scoreLaw e) (baseOnlyEstimate e))",
    "source_range":
-   {"start_line": 25, "start_column": 0, "end_line": 26, "end_column": 62},
+   {"start_line": 11, "start_column": 0, "end_line": 70, "end_column": 61},
    "proof_valued": true,
    "projection": false,
    "private": false,
@@ -99,7 +99,7 @@
   {"value": null,
    "type": "(ι : Type u_1) → [Fintype ι] → Type u_1",
    "source_range":
-   {"start_line": 389, "start_column": 0, "end_line": 395, "end_column": 36},
+   {"start_line": 139, "start_column": 0, "end_line": 145, "end_column": 36},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -113,7 +113,7 @@
   {"value": null,
    "type": "Type",
    "source_range":
-   {"start_line": 44, "start_column": 0, "end_line": 47, "end_column": 23},
+   {"start_line": 16, "start_column": 0, "end_line": 19, "end_column": 23},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -271,7 +271,7 @@
   {"value": null,
    "type": "Type",
    "source_range":
-   {"start_line": 600, "start_column": 0, "end_line": 603, "end_column": 26},
+   {"start_line": 63, "start_column": 0, "end_line": 66, "end_column": 26},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -315,7 +315,7 @@
   {"value": null,
    "type": "Type",
    "source_range":
-   {"start_line": 52, "start_column": 0, "end_line": 55, "end_column": 20},
+   {"start_line": 15, "start_column": 0, "end_line": 18, "end_column": 20},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -330,7 +330,7 @@
    "type":
    "{Base : Type u_1} →\n  {Test : Type u_2} →\n    LG21TestOptionalPolicies.LG21SchoolInformationSet Base Test → Option LG21TestOptionalPolicies.LG21AccessStatus",
    "source_range":
-   {"start_line": 69, "start_column": 2, "end_line": 69, "end_column": 14},
+   {"start_line": 25, "start_column": 2, "end_line": 25, "end_column": 14},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -346,7 +346,7 @@
    "type":
    "{Base : Type u_1} →\n  {Test : Type u_2} →\n    Bool →\n      Base →\n        Test → LG21TestOptionalPolicies.LG21AccessAction → LG21TestOptionalPolicies.paperSchoolInformationSet Base Test",
    "source_range":
-   {"start_line": 16, "start_column": 0, "end_line": 21, "end_column": 75},
+   {"start_line": 17, "start_column": 0, "end_line": 22, "end_column": 75},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -404,7 +404,7 @@
   {"value": null,
    "type": "Type u_1 → Type u_1",
    "source_range":
-   {"start_line": 722, "start_column": 0, "end_line": 729, "end_column": 74},
+   {"start_line": 123, "start_column": 0, "end_line": 130, "end_column": 74},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -420,7 +420,7 @@
    "type":
    "{Base : Type u_1} →\n  LG21TestOptionalPolicies.LG21OptionalReportingStrategicWithholdingSourceWitness Base → Base → ℝ → Prop",
    "source_range":
-   {"start_line": 725, "start_column": 2, "end_line": 725, "end_column": 7},
+   {"start_line": 126, "start_column": 2, "end_line": 126, "end_column": 7},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -451,7 +451,7 @@
    "type":
    "{Base : Type u_1} →\n  LG21TestOptionalPolicies.LG21OptionalReportingStrategicWithholdingSourceWitness Base → Base → ℝ → Prop",
    "source_range":
-   {"start_line": 724, "start_column": 2, "end_line": 724, "end_column": 9},
+   {"start_line": 125, "start_column": 2, "end_line": 125, "end_column": 9},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -483,7 +483,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} → LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law → Prop",
    "source_range":
-   {"start_line": 670, "start_column": 0, "end_line": 674, "end_column": 32},
+   {"start_line": 106, "start_column": 0, "end_line": 110, "end_column": 32},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -497,7 +497,7 @@
   {"value": null,
    "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 540, "start_column": 0, "end_line": 550, "end_column": 72},
+   {"start_line": 43, "start_column": 0, "end_line": 53, "end_column": 72},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -529,7 +529,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} → LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law → Prop",
    "source_range":
-   {"start_line": 677, "start_column": 0, "end_line": 681, "end_column": 34},
+   {"start_line": 112, "start_column": 0, "end_line": 116, "end_column": 34},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -545,7 +545,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} → LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law → Prop",
    "source_range":
-   {"start_line": 684, "start_column": 0, "end_line": 687, "end_column": 60},
+   {"start_line": 118, "start_column": 0, "end_line": 121, "end_column": 60},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -560,7 +560,7 @@
    "type":
    "{ι : Type u_1} →\n  [inst : Fintype ι] →\n    ℝ →\n      (priorVar : ℝ) →\n        (ι → ℝ) →\n          (noiseVar : ι → ℝ) →\n            0 < priorVar → (∀ (i : ι), 0 < noiseVar i) → EconCSLib.Probability.GaussianOffsetSignalFamily ι",
    "source_range":
-   {"start_line": 389, "start_column": 10, "end_line": 389, "end_column": 36},
+   {"start_line": 139, "start_column": 10, "end_line": 139, "end_column": 36},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -575,7 +575,7 @@
    "type":
    "ℝ → (scale : ℝ) → 0 < scale → EconCSLib.Probability.GaussianScaleLaw",
    "source_range":
-   {"start_line": 44, "start_column": 10, "end_line": 44, "end_column": 26},
+   {"start_line": 16, "start_column": 10, "end_line": 16, "end_column": 26},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -589,7 +589,7 @@
   {"value": null,
    "type": "Bool → Bool → LG21TestOptionalPolicies.LG21AccessAction",
    "source_range":
-   {"start_line": 600, "start_column": 10, "end_line": 600, "end_column": 26},
+   {"start_line": 63, "start_column": 10, "end_line": 63, "end_column": 26},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -603,7 +603,7 @@
   {"value": null,
    "type": "LG21TestOptionalPolicies.LG21AccessStatus",
    "source_range":
-   {"start_line": 53, "start_column": 2, "end_line": 53, "end_column": 12},
+   {"start_line": 16, "start_column": 2, "end_line": 16, "end_column": 12},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -617,7 +617,7 @@
   {"value": null,
    "type": "LG21TestOptionalPolicies.LG21AccessStatus",
    "source_range":
-   {"start_line": 54, "start_column": 2, "end_line": 54, "end_column": 10},
+   {"start_line": 17, "start_column": 2, "end_line": 17, "end_column": 10},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -631,7 +631,7 @@
   {"value": null,
    "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 68, "start_column": 0, "end_line": 72, "end_column": 33},
+   {"start_line": 24, "start_column": 0, "end_line": 28, "end_column": 33},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -661,7 +661,7 @@
    "fun Base Test => LG21TestOptionalPolicies.LG21SchoolInformationSet Base Test",
    "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 12, "start_column": 0, "end_line": 13, "end_column": 36},
+   {"start_line": 14, "start_column": 0, "end_line": 15, "end_column": 36},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -677,7 +677,7 @@
    "type":
    "{Base : Type u_1} →\n  {Test : Type u_2} →\n    Bool →\n      Base →\n        Test → LG21TestOptionalPolicies.LG21AccessAction → LG21TestOptionalPolicies.LG21SchoolInformationSet Base Test",
    "source_range":
-   {"start_line": 617, "start_column": 0, "end_line": 625, "end_column": 70},
+   {"start_line": 74, "start_column": 0, "end_line": 82, "end_column": 70},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -692,7 +692,7 @@
    "type":
    "{Base : Type u_1} →\n  (reports takes : Base → ℝ → Prop) →\n    (∀ (base : Base) (skill : ℝ), takes base skill) →\n      (∃ base score, ¬reports base score) →\n        (∀ (base : Base), ∃ cutoff, ∀ (score : ℝ), reports base score ↔ cutoff ≤ score) →\n          LG21TestOptionalPolicies.LG21OptionalReportingStrategicWithholdingSourceWitness Base",
    "source_range":
-   {"start_line": 722, "start_column": 10, "end_line": 722, "end_column": 64},
+   {"start_line": 123, "start_column": 10, "end_line": 123, "end_column": 64},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -708,7 +708,7 @@
    "type":
    "Type u_1 → Type u_2 → Type u_3 → Type u_4 → Type (max (max (max (max u_1 u_2) u_3) u_4) (u_5 + 1))",
    "source_range":
-   {"start_line": 657, "start_column": 0, "end_line": 667, "end_column": 50},
+   {"start_line": 94, "start_column": 0, "end_line": 104, "end_column": 50},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -723,7 +723,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} → LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law → Type u_5",
    "source_range":
-   {"start_line": 659, "start_column": 2, "end_line": 659, "end_column": 13},
+   {"start_line": 96, "start_column": 2, "end_line": 96, "end_column": 13},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -738,7 +738,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (self : LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law) →\n          self.Equilibrium → Skill → Base → Law",
    "source_range":
-   {"start_line": 660, "start_column": 2, "end_line": 660, "end_column": 17},
+   {"start_line": 97, "start_column": 2, "end_line": 97, "end_column": 17},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -753,7 +753,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (self : LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law) →\n          self.Equilibrium → Skill → Base → Law",
    "source_range":
-   {"start_line": 661, "start_column": 2, "end_line": 661, "end_column": 19},
+   {"start_line": 98, "start_column": 2, "end_line": 98, "end_column": 19},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -769,7 +769,7 @@
    "type":
    "{Skill : Type u_1} → {Base : Type u_2} → ℝ → LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw Skill Base",
    "source_range":
-   {"start_line": 541, "start_column": 2, "end_line": 541, "end_column": 58},
+   {"start_line": 44, "start_column": 2, "end_line": 44, "end_column": 58},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -784,7 +784,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    EconCSLib.Probability.GaussianScaleLaw → LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw Skill Base",
    "source_range":
-   {"start_line": 542, "start_column": 2, "end_line": 542, "end_column": 76},
+   {"start_line": 45, "start_column": 2, "end_line": 45, "end_column": 76},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -799,7 +799,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    PMF Skill →\n      (Skill → EconCSLib.Probability.GaussianScaleLaw) →\n        LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw Skill Base",
    "source_range":
-   {"start_line": 543, "start_column": 2, "end_line": 545, "end_column": 50},
+   {"start_line": 46, "start_column": 2, "end_line": 48, "end_column": 50},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -815,7 +815,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    PMF Base →\n      (Base → PMF Skill) →\n        (Base → Skill → EconCSLib.Probability.GaussianScaleLaw) →\n          LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw Skill Base",
    "source_range":
-   {"start_line": 546, "start_column": 2, "end_line": 548, "end_column": 50},
+   {"start_line": 49, "start_column": 2, "end_line": 51, "end_column": 50},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -831,7 +831,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} → PMF Base → (Base → ℝ) → LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw Skill Base",
    "source_range":
-   {"start_line": 549, "start_column": 2, "end_line": 550, "end_column": 72},
+   {"start_line": 52, "start_column": 2, "end_line": 53, "end_column": 72},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -848,7 +848,7 @@
    "type":
    "{Feature : Type u_1} →\n  {Base : Type u_2} →\n    [inst : Fintype Feature] →\n      [DecidableEq Feature] →\n        (Base → PMF ℝ) →\n          PMF Base →\n            (Base → EconCSLib.Probability.GaussianOffsetSignalFamily Feature) →\n              (Base → Feature → ℝ) →\n                Feature →\n                  (Base → EconCSLib.Probability.GaussianScaleLaw) →\n                    (Base → ℝ) →\n                      LG21TestOptionalPolicies.LG21SourceLawPolicySurface ℝ Base ℝ\n                        (LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw ℝ Base)",
    "source_range":
-   {"start_line": 1176, "start_column": 0, "end_line": 1192, "end_column": 43},
+   {"start_line": 175, "start_column": 0, "end_line": 191, "end_column": 43},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -863,7 +863,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (self : LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law) → self.Equilibrium → Base → Law",
    "source_range":
-   {"start_line": 662, "start_column": 2, "end_line": 662, "end_column": 21},
+   {"start_line": 99, "start_column": 2, "end_line": 99, "end_column": 21},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -879,7 +879,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (self : LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law) → self.Equilibrium → Base → Law",
    "source_range":
-   {"start_line": 663, "start_column": 2, "end_line": 663, "end_column": 23},
+   {"start_line": 100, "start_column": 2, "end_line": 100, "end_column": 23},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -895,7 +895,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (self : LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law) → self.Equilibrium → Law",
    "source_range":
-   {"start_line": 664, "start_column": 2, "end_line": 664, "end_column": 22},
+   {"start_line": 101, "start_column": 2, "end_line": 101, "end_column": 22},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -911,7 +911,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (self : LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law) → self.Equilibrium → Law",
    "source_range":
-   {"start_line": 665, "start_column": 2, "end_line": 665, "end_column": 24},
+   {"start_line": 102, "start_column": 2, "end_line": 102, "end_column": 24},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -927,7 +927,7 @@
    "type":
    "{Base : Type u_1} →\n  {Test : Type u_2} →\n    Option LG21TestOptionalPolicies.LG21AccessStatus →\n      Base → Bool → Option Test → LG21TestOptionalPolicies.LG21SchoolInformationSet Base Test",
    "source_range":
-   {"start_line": 68, "start_column": 10, "end_line": 68, "end_column": 34},
+   {"start_line": 24, "start_column": 10, "end_line": 24, "end_column": 34},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -999,7 +999,7 @@
   {"value": "fun self => self.2",
    "type": "LG21TestOptionalPolicies.LG21AccessAction → Bool",
    "source_range":
-   {"start_line": 602, "start_column": 2, "end_line": 602, "end_column": 14},
+   {"start_line": 65, "start_column": 2, "end_line": 65, "end_column": 14},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1014,7 +1014,7 @@
    "type":
    "{Skill : Type u_1} →\n  {Base : Type u_2} →\n    {Test : Type u_3} →\n      {Law : Type u_4} →\n        (Equilibrium : Type u_5) →\n          (Equilibrium → Skill → Base → Law) →\n            (Equilibrium → Skill → Base → Law) →\n              (Equilibrium → Base → Law) →\n                (Equilibrium → Base → Law) →\n                  (Equilibrium → Law) →\n                    (Equilibrium → Law) →\n                      (Equilibrium → Base → Law) →\n                        (Equilibrium → Base → Test → Law) →\n                          LG21TestOptionalPolicies.LG21SourceLawPolicySurface Skill Base Test Law",
    "source_range":
-   {"start_line": 657, "start_column": 10, "end_line": 657, "end_column": 36},
+   {"start_line": 94, "start_column": 10, "end_line": 94, "end_column": 36},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1030,7 +1030,7 @@
    "type":
    "{Base : Type u_1} →\n  (Base → PMF ℝ) →\n    PMF Base →\n      (Base → ℝ) →\n        (slope testScale : Base → ℝ) →\n          (Base → ℝ) →\n            (∀ (base : Base), 0 < slope base) →\n              (∀ (base : Base), 0 < testScale base) →\n                LG21TestOptionalPolicies.LG21SourceLawPolicySurface ℝ Base ℝ\n                  (LG21TestOptionalPolicies.LG21SkillBaseMixtureEstimateLaw ℝ Base)",
    "source_range":
-   {"start_line": 1127, "start_column": 0, "end_line": 1168, "end_column": 48},
+   {"start_line": 132, "start_column": 0, "end_line": 173, "end_column": 48},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1046,7 +1046,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → (ι → ℝ) → ℝ",
    "source_range":
-   {"start_line": 413, "start_column": 0, "end_line": 415, "end_column": 53},
+   {"start_line": 163, "start_column": 0, "end_line": 165, "end_column": 53},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1078,7 +1078,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ι → ℝ",
    "source_range":
-   {"start_line": 245, "start_column": 0, "end_line": 246, "end_column": 43},
+   {"start_line": 126, "start_column": 0, "end_line": 127, "end_column": 43},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1094,7 +1094,7 @@
    "type":
    "{ι : Type u_1} →\n  [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → EconCSLib.Probability.GaussianSignalFamily ι",
    "source_range":
-   {"start_line": 401, "start_column": 0, "end_line": 407, "end_column": 32},
+   {"start_line": 151, "start_column": 0, "end_line": 157, "end_column": 32},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1108,7 +1108,7 @@
   {"value": "fun self => self.2",
    "type": "EconCSLib.Probability.GaussianScaleLaw → ℝ",
    "source_range":
-   {"start_line": 46, "start_column": 2, "end_line": 46, "end_column": 7},
+   {"start_line": 18, "start_column": 2, "end_line": 18, "end_column": 7},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1169,7 +1169,7 @@
    "type":
    "ℝ → (slope : ℝ) → 0 < slope → ℝ → (testScale : ℝ) → 0 < testScale → EconCSLib.Probability.GaussianScaleLaw",
    "source_range":
-   {"start_line": 525, "start_column": 0, "end_line": 530, "end_column": 26},
+   {"start_line": 36, "start_column": 0, "end_line": 41, "end_column": 26},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1185,7 +1185,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → (ι → ℝ) → ℝ",
    "source_range":
-   {"start_line": 249, "start_column": 0, "end_line": 252, "end_column": 41},
+   {"start_line": 129, "start_column": 0, "end_line": 132, "end_column": 41},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1200,7 +1200,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → (ι → ℝ) → ι → ℝ",
    "source_range":
-   {"start_line": 409, "start_column": 0, "end_line": 411, "end_column": 21},
+   {"start_line": 159, "start_column": 0, "end_line": 161, "end_column": 21},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1214,7 +1214,7 @@
   {"value": null,
    "type": "(ι : Type u_1) → [Fintype ι] → Type u_1",
    "source_range":
-   {"start_line": 216, "start_column": 0, "end_line": 221, "end_column": 36},
+   {"start_line": 103, "start_column": 0, "end_line": 108, "end_column": 36},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1273,7 +1273,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 239, "start_column": 0, "end_line": 240, "end_column": 24},
+   {"start_line": 123, "start_column": 0, "end_line": 124, "end_column": 24},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1288,7 +1288,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ι → ℝ",
    "source_range":
-   {"start_line": 230, "start_column": 0, "end_line": 231, "end_column": 18},
+   {"start_line": 117, "start_column": 0, "end_line": 118, "end_column": 18},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1303,7 +1303,7 @@
    "type":
    "{ι : Type u_1} →\n  [inst : Fintype ι] →\n    ℝ →\n      (priorVar : ℝ) →\n        (noiseVar : ι → ℝ) → 0 < priorVar → (∀ (i : ι), 0 < noiseVar i) → EconCSLib.Probability.GaussianSignalFamily ι",
    "source_range":
-   {"start_line": 216, "start_column": 10, "end_line": 216, "end_column": 30},
+   {"start_line": 103, "start_column": 10, "end_line": 103, "end_column": 30},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1318,7 +1318,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 390, "start_column": 2, "end_line": 390, "end_column": 11},
+   {"start_line": 140, "start_column": 2, "end_line": 140, "end_column": 11},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1333,7 +1333,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 391, "start_column": 2, "end_line": 391, "end_column": 10},
+   {"start_line": 141, "start_column": 2, "end_line": 141, "end_column": 10},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1348,7 +1348,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → ι → ℝ",
    "source_range":
-   {"start_line": 393, "start_column": 2, "end_line": 393, "end_column": 10},
+   {"start_line": 143, "start_column": 2, "end_line": 143, "end_column": 10},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1363,7 +1363,7 @@
    "type":
    "∀ {ι : Type u_1} [inst : Fintype ι] (self : EconCSLib.Probability.GaussianOffsetSignalFamily ι), 0 < self.priorVar",
    "source_range":
-   {"start_line": 394, "start_column": 2, "end_line": 394, "end_column": 14},
+   {"start_line": 144, "start_column": 2, "end_line": 144, "end_column": 14},
    "proof_valued": true,
    "projection": true,
    "private": false,
@@ -1378,7 +1378,7 @@
    "type":
    "∀ {ι : Type u_1} [inst : Fintype ι] (self : EconCSLib.Probability.GaussianOffsetSignalFamily ι) (i : ι),\n  0 < self.noiseVar i",
    "source_range":
-   {"start_line": 395, "start_column": 2, "end_line": 395, "end_column": 14},
+   {"start_line": 145, "start_column": 2, "end_line": 145, "end_column": 14},
    "proof_valued": true,
    "projection": true,
    "private": false,
@@ -1394,7 +1394,7 @@
    "type":
    "EconCSLib.Probability.GaussianScaleLaw → ℝ → (b : ℝ) → 0 < b → EconCSLib.Probability.GaussianScaleLaw",
    "source_range":
-   {"start_line": 69, "start_column": 0, "end_line": 73, "end_column": 37},
+   {"start_line": 23, "start_column": 0, "end_line": 27, "end_column": 37},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1410,7 +1410,7 @@
    "type":
    "ℝ → (scale : ℝ) → 0 < scale → EconCSLib.Probability.GaussianScaleLaw",
    "source_range":
-   {"start_line": 514, "start_column": 0, "end_line": 518, "end_column": 21},
+   {"start_line": 30, "start_column": 0, "end_line": 34, "end_column": 21},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1469,7 +1469,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 227, "start_column": 0, "end_line": 228, "end_column": 14},
+   {"start_line": 114, "start_column": 0, "end_line": 115, "end_column": 14},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1484,7 +1484,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 217, "start_column": 2, "end_line": 217, "end_column": 11},
+   {"start_line": 104, "start_column": 2, "end_line": 104, "end_column": 11},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1588,7 +1588,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianOffsetSignalFamily ι → ι → ℝ",
    "source_range":
-   {"start_line": 392, "start_column": 2, "end_line": 392, "end_column": 11},
+   {"start_line": 142, "start_column": 2, "end_line": 142, "end_column": 11},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1633,7 +1633,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 236, "start_column": 0, "end_line": 237, "end_column": 49},
+   {"start_line": 120, "start_column": 0, "end_line": 121, "end_column": 49},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1648,7 +1648,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ι → ℝ",
    "source_range":
-   {"start_line": 219, "start_column": 2, "end_line": 219, "end_column": 10},
+   {"start_line": 106, "start_column": 2, "end_line": 106, "end_column": 10},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1662,7 +1662,7 @@
   {"value": "fun self => self.1",
    "type": "EconCSLib.Probability.GaussianScaleLaw → ℝ",
    "source_range":
-   {"start_line": 45, "start_column": 2, "end_line": 45, "end_column": 6},
+   {"start_line": 17, "start_column": 2, "end_line": 17, "end_column": 6},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -1691,7 +1691,7 @@
    "type":
    "{ι : Type u_1} → [inst : Fintype ι] → EconCSLib.Probability.GaussianSignalFamily ι → ℝ",
    "source_range":
-   {"start_line": 218, "start_column": 2, "end_line": 218, "end_column": 10},
+   {"start_line": 105, "start_column": 2, "end_line": 105, "end_column": 10},
    "proof_valued": false,
    "projection": true,
    "private": false,

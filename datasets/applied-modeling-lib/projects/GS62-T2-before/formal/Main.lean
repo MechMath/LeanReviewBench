@@ -1,20 +1,23 @@
-import dep.GS62CollegeAdmissions.MainTheorems
-
-/-!
-# Paper Interface: Gale-Shapley 1962
-
-This is the compact human-facing Lean surface for Gale and Shapley's
-*College Admissions and the Stability of Marriage*.  It lists the paper
-definitions and direct source theorem statements; implementation details live
-in `MainTheorems.lean`.
--/
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Data.Finset.Basic
+import Mathlib.Data.Finset.Card
+import Mathlib.Data.Finset.Max
+import Mathlib.Data.Fintype.Basic
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.Perm
+import Mathlib.Data.Fintype.Sigma
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.Linarith
+import dep.EconCSLib.Markets.Matching.Basic
+import dep.EconCSLib.Markets.Matching.DeferredAcceptance
+import dep.EconCSLib.Markets.Matching.ManyToOne
 
 namespace GS62CollegeAdmissions
+
 namespace PaperInterface
 
 open EconCSLib.Matching
-
-/-! ## Paper Definitions -/
 
 /--
 Strict marriage domain: both sides have strict preferences and every possible
@@ -48,41 +51,6 @@ def applicantOptimalStableMarriage {M W : Type*}
     ∀ mu', stableMarriage val_m val_w mu' →
       ∀ m, valM val_m m (mu'.m_match m) ≤ valM val_m m (mu.m_match m)
 
-/-! ## Source Theorems -/
-
-/--
-Theorem 1: on the strict equal-cardinality marriage domain, a stable complete
-marriage exists.
--/
-theorem theorem1_stable_marriage_exists
-    {M W : Type*} [Fintype M] [Fintype W] [DecidableEq M] [DecidableEq W]
-    (val_m : M → W → ℝ) (val_w : W → M → ℝ)
-    (hcard : Fintype.card M = Fintype.card W)
-    (hdomain : strictMarriageDomain val_m val_w) :
-    ∃ mu : Assignment M W,
-      stableMarriage val_m val_w mu ∧ completeMarriage mu := by
-  simpa [strictMarriageDomain, stableMarriage, completeMarriage,
-    gs_strict_marriage_domain, gs_stable_marriage, gs_complete_marriage] using
-    paper_gs62_theorem1_stable_marriage_exists
-      val_m val_w hcard hdomain
-
-/--
-College-admissions theorem: for finite colleges with arbitrary quotas, a stable
-assignment exists.  Lean uses the standard cloned-seat representation of
-responsive college preferences.
--/
-theorem college_admissions_stable_assignment_exists
-    {Applicants Colleges : Type*}
-    [Fintype Applicants] [Fintype Colleges]
-    [DecidableEq Applicants] [DecidableEq Colleges]
-    (quota : Colleges → ℕ)
-    (val_applicant : Applicants → Colleges → ℝ)
-    (val_college : Colleges → Applicants → ℝ) :
-    ∃ mu : ManyToOneAssignment Applicants Colleges,
-      ManyToOne.IsStable val_applicant val_college quota mu := by
-  exact paper_gs62_college_admissions_stable_assignment_exists
-    quota val_applicant val_college
-
 /--
 Theorem 2: the applicant-proposing deferred-acceptance assignment is complete
 and applicant-optimal among stable assignments.
@@ -97,13 +65,8 @@ theorem theorem2_applicant_optimality
     (hdomain : strictMarriageDomain val_applicant val_college) :
     ∃ mu : Assignment Applicants Colleges,
       completeMarriage mu ∧
-        applicantOptimalStableMarriage val_applicant val_college mu := by
-  simpa [strictMarriageDomain, stableMarriage, completeMarriage,
-    applicantOptimalStableMarriage, gs_strict_marriage_domain,
-    gs_stable_marriage, gs_complete_marriage,
-    gs_applicant_optimal_stable_marriage] using
-    paper_gs62_theorem2_deferred_acceptance_applicant_optimal
-      val_applicant val_college hcard hdomain
+        applicantOptimalStableMarriage val_applicant val_college mu := sorry
 
 end PaperInterface
+
 end GS62CollegeAdmissions

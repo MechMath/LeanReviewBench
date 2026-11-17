@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "entropic-output-before",
   "task_id": "pfr:entropic-output-before",
-  "input_sha256": "ece21f2153a80707d604becad5ecc5599fd4bbd85afa2ec5ce2499ac5113f5d0",
+  "input_sha256": "2c18a1b94856428270be697438b9cf7c63bf403cedd239c2c589aa87b9205496",
   "label": "misaligned",
   "reason": "The output witness lacks probability-space and measurability requirements, allowing the uniformity specification to degenerate on zero measure.",
   "review_status": "human_reviewed",

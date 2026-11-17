@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Relative to the finite-group chapter scope, finite conditioning codomains satisfy every version's finite/countable/finite-range requirements. The conclusion supplies measurable variables, a probability measure, both joint laws and conditional independence. Wider generic-codomain readings are not the selected target.",
   "external_imports": [
     "Mathlib.Data.Finset.Pairwise",
     "Mathlib.MeasureTheory.Constructions.Pi",
@@ -51,8 +50,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 8,
-    "sha256": "19fe7e559c456ae35e81ee95013226a2feda932e3cfdcbe988ecec2c8956dd28"
+    "file_count": 5,
+    "sha256": "8caac6805ae3c23f429b5c34879b7fed7f592565bde32bf72b1a24e1a8f60e12",
+    "effective_root_sha256": "dba60518d982942d79bddd481f2952a071774149afb5fc70646ee68361323cd7",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-candidates/technical/pr311-after/20261104T082333433951Z/receipt.json",
@@ -96,8 +98,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "0b5de00ddcc3b443aa831af184be3ddcecabb34f196e72d5cb3f2a12a4f314cc",
+  "input_sha256": "aa6e178d6d2e3c5b75960d897eae853c77a2e6c4998098aad20b70cb942d9e02",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

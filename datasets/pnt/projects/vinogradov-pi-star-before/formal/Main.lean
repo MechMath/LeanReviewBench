@@ -1,10 +1,17 @@
 import Mathlib
+
 open ArithmeticFunction hiding log
+
 open Nat hiding log
+
 open Finset Topology
+
 open BigOperators Filter Real Classical Asymptotics
+
 open MeasureTheory intervalIntegral
+
 open scoped ArithmeticFunction.Moebius
+
 open scoped ArithmeticFunction.Omega Chebyshev
 
 noncomputable def pi_star (x : ℝ) : ℝ :=

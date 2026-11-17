@@ -1,19 +1,17 @@
-/-
-Copyright (c) 2025 CompPoly. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao, Gregor Mitscha-Baude, Derek Sorensen, Desmond Coles,
-  Natalie Klaus, Dimitris Mitsios
--/
 module
 
-import all dep.CompPoly.Univariate.Raw.Core
+public import Mathlib.Algebra.GroupWithZero.Nat
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Tropical.Basic
+public import Mathlib.Data.List.GetD
+public import Mathlib.Data.List.Nodup
+public import Mathlib.Data.Nat.Log
+public import Mathlib.Order.Lattice.Nat
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.Tactic.Cases
+public import dep.CompPoly.Data.Array.Lemmas
 public import dep.CompPoly.Univariate.Raw.Core
-
-/-!
-# Raw Univariate Polynomial Operations
-
-Operations and evaluation lemmas for raw computable univariate polynomials.
--/
 
 public section
 
@@ -22,6 +20,7 @@ namespace CompPoly
 namespace CPolynomial.Raw
 
 variable {R : Type*}
+
 variable {Q : Type*}
 
 section Operations
@@ -73,14 +72,6 @@ section SMulDefs
 def smul [Mul R] (r : R) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
   .mk (Array.map (fun a => r * a) p)
 
-/-- Right scalar multiplication: multiplies each coefficient by `r` on the right.
-
-  Corresponds to `p.toPoly * Polynomial.C r`, in contrast to `smul` which corresponds
-  to `Polynomial.C r * p.toPoly`. The distinction matters in non-commutative semirings. -/
-@[inline, specialize]
-def smulRight [Mul R] (r : R) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
-  .mk (Array.map (fun a => a * r) p)
-
 /-- Raw scalar multiplication by a natural number (may have trailing zeros). -/
 @[inline, specialize]
 def nsmulRaw [Semiring R] (n : ℕ) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
@@ -99,10 +90,6 @@ section MulPowXDefs
 @[inline, specialize]
 def mulPowX [Zero R] (i : Nat) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
   .mk (Array.replicate i 0 ++ p)
-
-/-- Multiplication of a `CPolynomial.Raw` by `X`, reduces to `mulPowX 1`. -/
-@[inline, specialize]
-def mulX [Zero R] (p : CPolynomial.Raw R) : CPolynomial.Raw R := p.mulPowX 1
 
 end MulPowXDefs
 
@@ -155,34 +142,20 @@ def powBySq [Semiring R] [BEq R] (p : CPolynomial.Raw R) (n : Nat) : CPolynomial
   (powBySqUntrimmed p n).trim
 
 instance : Zero (CPolynomial.Raw R) := ⟨#[]⟩
+
 instance [One R] : One (CPolynomial.Raw R) := ⟨C 1⟩
+
 instance [Zero R] [Add R] [BEq R] : Add (CPolynomial.Raw R) := ⟨add⟩
+
 instance [Mul R] : SMul R (CPolynomial.Raw R) := ⟨smul⟩
+
 instance [Semiring R] [BEq R] : SMul ℕ (CPolynomial.Raw R) := ⟨nsmul⟩
+
 instance [Semiring R] [BEq R] : Mul (CPolynomial.Raw R) := ⟨mul⟩
+
 instance [Semiring R] [BEq R] : Pow (CPolynomial.Raw R) Nat := ⟨pow⟩
+
 instance [NatCast R] : NatCast (CPolynomial.Raw R) := ⟨fun n => C (n : R)⟩
-
-/-- Keep only the stored coefficients with index `< k`. -/
-@[inline, specialize]
-def truncate [Zero R] (k : Nat) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
-  p.extract 0 k
-
-/-- Return exactly the first `k` coefficients, padding missing coefficients with zero. -/
-@[inline, specialize]
-def takeLow [Zero R] (k : Nat) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
-  Array.ofFn fun i : Fin k ↦ p.coeff i
-
-/-- Reverse the first `n` coefficients, padding missing coefficients with zero. -/
-@[inline, specialize]
-def reverse [Zero R] (n : Nat) (p : CPolynomial.Raw R) : CPolynomial.Raw R :=
-  Array.ofFn fun i : Fin n ↦ p.coeff (n - 1 - i.val)
-
-/-- Low product computed by the coefficient convolution formula. -/
-@[inline, specialize]
-def mulLowConvolution [Semiring R] (k : Nat) (p q : CPolynomial.Raw R) : CPolynomial.Raw R :=
-  Array.ofFn fun i : Fin k ↦
-    (Finset.range (i.val + 1)).sum fun j ↦ p.coeff j * q.coeff (i.val - j)
 
 /-- Backend for computing the low `k` coefficients of a raw product. -/
 structure MulLowContext (R : Type*) [Semiring R] [BEq R] [LawfulBEq R] where
@@ -199,16 +172,6 @@ def degreeBound (p : CPolynomial.Raw R) : WithBot Nat :=
   | 0 => ⊥
   | .succ n => n
 
-/-- Convert `degreeBound` to a natural number by sending `⊥` to `0`. -/
-def natDegreeBound (p : CPolynomial.Raw R) : Nat :=
-  (degreeBound p).getD 0
-
-/-- Check if a `CPolynomial.Raw` is monic, i.e. its leading coefficient is 1. -/
-def monic [Zero R] [One R] [BEq R] (p : CPolynomial.Raw R) : Bool := p.leadingCoeff == 1
-
-/-- Pseudo-division by `X`: removes the constant term and shifts remaining coefficients left. -/
-def divX (p : CPolynomial.Raw R) : CPolynomial.Raw R := p.extract 1 p.size
-
 end Semiring
 
 section Ring
@@ -224,7 +187,9 @@ def sub [Zero R] [Add R] [Neg R] [BEq R]
   p.add q.neg
 
 instance [Neg R] : Neg (CPolynomial.Raw R) := ⟨neg⟩
+
 instance [Zero R] [Add R] [Neg R] [BEq R] : Sub (CPolynomial.Raw R) := ⟨sub⟩
+
 instance [IntCast R] : IntCast (CPolynomial.Raw R) := ⟨fun n => C (n : R)⟩
 
 end Ring

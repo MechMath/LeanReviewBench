@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Old Formal is a universally quantified normalized tail bound with Li and natural 1/4 exponent; the paper states a pointwise pi-li estimate. The after statement matches the paper formula on x>=229.",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "3e2db054e619a9f034ea263f66ae5e6b0a3cc20081069dfc189e225f87e59d22"
+    "sha256": "10a2f41219d0f53b76426448388e91a3bafccab10c06cb34d8fdc82b47100ef0",
+    "effective_root_sha256": "41f818990e2d64027cbc9e97e1d157370b197e0c027047b1a9a157fed8ac0d11",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-trudgian-after/20261105T053500755240Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "1dfde42d3f4ac981363cf8ff8e4cd0d16daa6c8b35508b4d3519f52313803fd5",
+  "input_sha256": "b5f6f4b35ff98c4e6f739d09284e669e3fa91191e8eed007c6b0f0006fc34370",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

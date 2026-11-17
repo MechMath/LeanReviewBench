@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "riemann-von-mangoldt-text-after",
   "task_id": "pnt:riemann-von-mangoldt-text-after",
-  "input_sha256": "cd7383940e6ee321108205881dbdee3d645fa941420f5e7972a77ac031e8786e",
+  "input_sha256": "d06e781d2475cc061c203455c82c8d55b4f94af0cd73810cac22ea308c6ceed3",
   "label": "aligned",
   "reason": "Expanding the logarithmic main term gives the same -7/8 constant, error coefficients, and range T>=2.",
   "review_status": "human_reviewed",

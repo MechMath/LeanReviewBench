@@ -29,9 +29,8 @@
   "status": "ready",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The full frozen Theorem 9.1 is recovered by an explicit fixed-dummy reduction within the root's universally quantified bid-independent rules. The old lowCount=0 concern does not lose attained min=1: apply the root to the rule that first adds a fixed bid 1, then restore that bidder. This gives actual min=1, max=H, F≥αH and R/F≤2/H. Natural H≥2 supplies an unbounded bad-input family, as required by the source's asymptotic existence claim.",
   "external_imports": [
     "Cslib.Foundations.Data.RelatesInSteps",
     "Mathlib.Algebra.BigOperators.Field",
@@ -138,7 +137,7 @@
       "sha256": "ad159a2b5842df9895a0bae159503cf125ff0e8de1d9e10feb0fc16d6c3e07c8"
     }
   },
-  "input_sha256": "20dc5274f3f9dfd7dc49c66597b34edce10d90e35cab61352b7b8fe83c527114",
+  "input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
   "external_boundaries": [
     "Mathlib",
     "Cslib",
@@ -148,11 +147,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 32,
-    "sha256": "ae54f3842c50153bd0a26ae845ec7047670814799cc1af357ac9f3054b379c39",
-    "effective_root_sha256": "0f11680fc2fef299cd9efbe9ebb64f8efe4860013aef53bdc2ac709ce2b430f6"
+    "file_count": 13,
+    "sha256": "af50e386c903536f56ae86f64f6f753a70dbadb3703181171570e80a7da07041",
+    "effective_root_sha256": "085702a76353cb74829cabf4e9632d9a297881b1d11a009fdaa63836f80418d8",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
 }

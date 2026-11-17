@@ -1,94 +1,192 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Tobias Rothmann
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
 public import dep.ArkLib.OracleReduction.Security.Basic
-public import dep.VCVio.OracleComp.EvalDist.Measure
-
-/-!
-  # Trees of transcripts — core definitions
-
-  This file defines `ChallengeTree`, the *tree of transcripts* of a public-coin protocol, together
-  with the generic structural data attached to it. The tree branches only at challenge rounds: a
-  message round has a single child (the prover's message), a challenge round has one child per
-  branch (each labelled by the verifier's challenge), and every root-to-leaf path reads off a full
-  transcript. Two paths that share their challenges up to a round share the same prefix, so the tree
-  is exactly the family of transcripts a forking extractor produces and that special-soundness
-  notions extract a witness from.
-
-  Composing trees along sequential protocol composition is handled in `TranscriptTree.Composition`.
-
-  ## Representation
-
-  `ChallengeTree pSpec arity m` is the tree over the remaining rounds `m, …, n-1`, indexed by the
-  current round `m : Fin (n + 1)`; a full tree is the `m = 0` case. Its three constructors are
-  `leaf` (all rounds processed), `msgNode` (a message round, one child), and `chalNode` (a challenge
-  round, `arity i` children). A challenge node stores the sibling labels and the child subtrees as
-  two separate functions rather than one into a product, since a product would nest the recursive
-  occurrence under `Prod`, which the kernel rejects. `LeafPath.transcript` reads a `FullTranscript`
-  off a path, `transcripts` lists all leaf transcripts, and the membership lemmas identify
-  "transcript on some path" with "transcript in the list".
-
-  ## Decoupling structure from the soundness relation
-
-  `ChallengeTree` does not fix what the sibling challenges at a node must satisfy. That condition is
-  supplied as a `ChallengeTreeShape` — a branching `arity` and a `nodeOk` predicate on each round's
-  siblings — and `ChallengeTree.IsStructured S` asserts every challenge node satisfies `S.nodeOk`. A
-  concrete notion is then a choice of shape: pairwise-distinct siblings for plain special soundness,
-  a coordinate-structured condition for CWSS (`CWSSStructure.toShape`). This keeps the composition
-  results in `TranscriptTree.Composition` shape-generic, hence proved once for all notions.
-
-  ## Main definitions
-
-  - `ChallengeTree` — the inductive tree, branching only at challenge rounds.
-  - `ChallengeTreeShape` / `ChallengeTree.IsStructured` — the shape (arity + `nodeOk`) and the
-    predicate that every challenge node satisfies it.
-  - `LeafPath`, `LeafPath.transcript` / `fullTranscript`, `transcripts` / `fullTranscripts` — the
-    root-to-leaf paths, the transcript each selects, the list of all leaf transcripts, and their
-    membership correspondence (`mem_fullTranscripts`, `exists_of_mem_fullTranscripts`).
-  - `ChallengeTree.onlyPath` — the unique root-to-leaf path of a challenge-free tree, read off the
-    tree by structural recursion — and `ChallengeTree.somePath`, its positive-arity analogue: *some*
-    leaf path of any tree that branches at all.
-  - `ChallengeTree.IsAccepting` — the verifier accepts every root-to-leaf transcript into the output
-    language with probability one.
-  - `Verifier.Outputs` — the statements the verifier *can* output on a transcript under the fixed
-    sampling, with the acceptance bridges (`mem_language_of_mem_outputs`,
-    `outputs_nonempty_of_isAccepting`) and the pure-verifier pin-down (`outputs_pure_subsingleton`,
-    `pure_verdict_mem_outputs`). `support_init_nonempty_of_prob_one` and
-    `not_accepting_of_failure` read the same acceptance fact off a single transcript.
-  - `ChallengeTree.LeafWitnesses` / `LeafWitnesses.IsValid` — one candidate *output* witness per
-    leaf, and what makes such a witnessing honest: every answer certifies, in `relOut`, some
-    statement the verifier can output at that leaf. At a pure verifier this collapses to per-verdict
-    witnessing (`LeafWitnesses.isValid_iff_pure`).
-  - `Extractor.TreeBased` — the tree-consuming extractor shared by all tree-based notions: it
-    consumes the tree *and* a leaf witnessing, and returns `Option WitIn`.
-  - `Verifier.treeSpecialSoundWith` / `Verifier.treeSpecialSound` — the shape-generic
-    tree-soundness predicate (named and existential): on every `S`-structured accepting tree, the
-    extractor succeeds on every valid witnessing. Plain special soundness
-    (`Security.SpecialSoundness`) and coordinate-wise special soundness
-    (`Security.CoordinateWiseSpecialSoundness`) are both instances, for different shapes.
-  - `ChallengeTree.EscapeEvent` / `Verifier.treeSpecialSoundWithEscape` — the escape-threaded
-    variant, for reductions whose extraction may instead break a cryptographic assumption: the
-    conclusion is `esc stmtIn tree ∨ extraction succeeds`. The plain notion is the never-firing
-    event (`treeSpecialSoundWithEscape_false_iff`), and every plain certificate lifts losslessly
-    (`Verifier.treeSpecialSoundWith.withEscape`).
-  - `ChallengeTree.canonWitnesses` / `canonWitnesses_isValid` and
-    `Verifier.treeSpecialSoundWith.mem_relIn_of_isAccepting` — the closer: acceptance alone supplies
-    a valid witnessing, so the validity premise is never an obstruction and a certificate can still
-    be read unconditionally.
-
-  ## Caveat
-
-  The branching arity is fixed by the round index, not the path, so path-dependent branching is not
-  supported. This matches the source notions and could be relaxed later.
--/
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
 open OracleComp OracleSpec ProtocolSpec
+
 open scoped NNReal
 
 namespace ProtocolSpec
@@ -148,15 +246,6 @@ section Shape
 
 variable (S : ChallengeTreeShape pSpec)
 
-/-- A tree is structured by a `ChallengeTreeShape` if every challenge node satisfies the shape's
-node predicate and all subtrees are recursively structured. -/
-def IsStructured :
-    {m : Fin (n + 1)} → ChallengeTree pSpec S.arity m → Prop
-  | _, .leaf => True
-  | _, .msgNode _ _ _ child => child.IsStructured
-  | _, .chalNode _ h challenges children =>
-      S.nodeOk ⟨_, h⟩ challenges ∧ ∀ j, (children j).IsStructured
-
 end Shape
 
 section LeafPath
@@ -209,35 +298,6 @@ end LeafPath
 
 end LeafPath
 
-/-- The **unique root-to-leaf path** of a challenge-free tree (`IsEmpty pSpec.ChallengeIdx`).
-
-With no challenge rounds a tree cannot contain a `chalNode`, so it is a single chain of message
-nodes ending in a leaf: there is no branch to choose, and the path is read off the tree by plain
-structural recursion. In particular it is **computable**, which is what the zero-challenge
-special-soundness bridges in `Security.CoordinateWiseSpecialSoundness.NoChallenge` build their
-extractors on. The transcript it selects, `tree.onlyPath.fullTranscript`, is the tree's unique full
-transcript and lies in `tree.fullTranscripts` by `LeafPath.mem_fullTranscripts`. -/
-def onlyPath [IsEmpty pSpec.ChallengeIdx] :
-    {m : Fin (n + 1)} → (tree : ChallengeTree pSpec arity m) → LeafPath tree
-  | _, .leaf => .leaf
-  | _, .msgNode _ _ _ child => .msg (onlyPath child)
-  | _, .chalNode m h _ _ => isEmptyElim (⟨m, h⟩ : pSpec.ChallengeIdx)
-
-/-- **Some** root-to-leaf path of a tree whose branching is everywhere positive: take the first
-branch at each challenge node.
-
-Where `onlyPath` needs the tree to be challenge-free, this needs only `0 < arity i` — enough to
-know a challenge node *has* a child. It is the probe of the guarded composition theorems: a guarded
-left factor learns that its check passes on a prefix transcript only by exhibiting *some* suffix
-leaf beneath it, and a witness of "the suffix tree is inhabited" is exactly this path. Like
-`onlyPath` it is plain structural recursion, hence computable. -/
-def somePath (harity : ∀ i, 0 < arity i) :
-    {m : Fin (n + 1)} → (tree : ChallengeTree pSpec arity m) → LeafPath tree
-  | _, .leaf => .leaf
-  | _, .msgNode _ _ _ child => .msg (somePath harity child)
-  | _, .chalNode k h _ children =>
-      .chal ⟨0, harity ⟨k, h⟩⟩ (somePath harity (children ⟨0, harity ⟨k, h⟩⟩))
-
 /-- Collect all root-to-leaf transcripts of a tree, given the partial transcript `pre` accumulated
   on the path from the root to the current node.
 
@@ -257,51 +317,6 @@ def fullTranscripts (tree : ChallengeTree pSpec arity 0) : List (FullTranscript 
   tree.transcripts default
 
 namespace LeafPath
-
-/-- The transcript selected by a path appears in the list of transcripts collected from the tree. -/
-theorem mem_transcripts :
-    {m : Fin (n + 1)} → {T : ChallengeTree pSpec arity m} →
-      (path : LeafPath T) → (pre : Transcript m pSpec) →
-        path.transcript pre ∈ T.transcripts pre
-  | _, _, .leaf, pre => by
-      change pre ∈ [pre]
-      exact List.mem_cons_self
-  | _, _, @LeafPath.msg _ _ _ _ _ message _ path, pre => by
-      simp only [transcript, transcripts]
-      exact mem_transcripts path (pre.concat message)
-  | _, _, @LeafPath.chal _ _ _ _ _ chals _ j path, pre => by
-      simp only [transcript, transcripts, List.mem_flatMap, List.mem_finRange]
-      exact ⟨j, trivial, mem_transcripts path (pre.concat (chals j))⟩
-
-/-- The transcript selected by a full-tree path appears in `fullTranscripts`. -/
-theorem mem_fullTranscripts {T : ChallengeTree pSpec arity 0} (path : LeafPath T) :
-    path.fullTranscript ∈ T.fullTranscripts := by
-  simpa [fullTranscript, ChallengeTree.fullTranscripts] using mem_transcripts path default
-
-/-- Every transcript listed by a tree is selected by some leaf path. -/
-theorem exists_of_mem_transcripts :
-    {m : Fin (n + 1)} → {T : ChallengeTree pSpec arity m} →
-      {pre : Transcript m pSpec} → {tr : FullTranscript pSpec} →
-        tr ∈ T.transcripts pre → ∃ path : LeafPath T, path.transcript pre = tr
-  | _, .leaf, pre, tr, h => by
-      have htr : tr = pre := List.eq_of_mem_singleton h
-      exact ⟨.leaf, htr.symm⟩
-  | _, .msgNode _ _ _ child, pre, tr, h => by
-      simp only [transcripts] at h
-      obtain ⟨path, hpath⟩ := exists_of_mem_transcripts h
-      exact ⟨.msg path, hpath⟩
-  | _, .chalNode _ _ chals children, pre, tr, h => by
-      simp only [transcripts, List.mem_flatMap, List.mem_finRange] at h
-      obtain ⟨j, _, hj⟩ := h
-      obtain ⟨path, hpath⟩ := exists_of_mem_transcripts hj
-      exact ⟨.chal j path, hpath⟩
-
-/-- Every transcript listed by a full tree is selected by some leaf path. -/
-theorem exists_of_mem_fullTranscripts {T : ChallengeTree pSpec arity 0}
-    {tr : FullTranscript pSpec} (hmem : tr ∈ T.fullTranscripts) :
-      ∃ path : LeafPath T, path.fullTranscript = tr := by
-  simpa [fullTranscript, ChallengeTree.fullTranscripts] using
-    (exists_of_mem_transcripts (T := T) (pre := default) (tr := tr) hmem)
 
 end LeafPath
 
@@ -368,14 +383,6 @@ end ChallengeTree
 
 end ProtocolSpec
 
-/-! ## The verifier's reachable output statements
-
-A leaf witnessing (below) certifies its witnesses *at statements the verifier can actually output*
-on that leaf's transcript. `Verifier.Outputs` is that set, read off the fixed sampling
-`(init, impl)`; the lemmas here relate it to `IsAccepting` (on an accepting tree the set is nonempty
-and contained in the output language) and pin it down at a pure verifier (there it is the singleton
-of the verdict, as soon as the sampling can produce a seed). -/
-
 namespace Verifier
 
 open ProtocolSpec ProtocolSpec.ChallengeTree
@@ -384,157 +391,7 @@ variable {ι : Type} {oSpec : OracleSpec ι}
   {StmtIn WitIn StmtOut WitOut : Type} {n : ℕ} {pSpec : ProtocolSpec n}
   {σ : Type} {arity : pSpec.ChallengeIdx → ℕ}
 
-/-- The set of statements the verifier **can output** on `(stmtIn, tr)` under the fixed sampling
-  `(init, impl)`: the `some`-values in the support of its run.
-
-  This is the reachability condition of `ChallengeTree.LeafWitnesses.IsValid`: a witnessing may only
-  certify witnesses at statements in this set, which is what makes it a witnessing *of this tree
-  under this verifier* rather than an arbitrary function into `Option WitOut`. -/
-def Outputs (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
-    (V : Verifier oSpec StmtIn StmtOut pSpec) (stmtIn : StmtIn)
-    (tr : pSpec.FullTranscript) : Set StmtOut :=
-  {out | some out ∈ support (do (simulateQ impl (V.run stmtIn tr)).run' (← init))}
-
-/-- `Outputs` membership, spelled through the `OptionT` the acceptance condition uses. -/
-theorem mem_outputs_iff (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
-    (V : Verifier oSpec StmtIn StmtOut pSpec) (stmtIn : StmtIn)
-    (tr : pSpec.FullTranscript) (out : StmtOut) :
-    out ∈ Outputs init impl V stmtIn tr ↔
-      out ∈ support (OptionT.mk do (simulateQ impl (V.run stmtIn tr)).run' (← init)) := by
-  rw [OptionT.mem_support_iff, OptionT.run_mk]; rfl
-
-/-- On an accepting tree, every statement the verifier can output at a leaf lies in the output
-  language. -/
-theorem mem_language_of_mem_outputs {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {relOut : Set (StmtOut × WitOut)} {stmtIn : StmtIn} {tree : ChallengeTree pSpec arity 0}
-    (hacc : tree.IsAccepting init impl V stmtIn relOut.language)
-    (p : ChallengeTree.LeafPath tree) {out : StmtOut}
-    (hout : out ∈ Outputs init impl V stmtIn p.fullTranscript) :
-    out ∈ relOut.language := by
-  have h := hacc p.fullTranscript p.mem_fullTranscripts
-  rw [OracleComp.OptionT.prEvent_mk_eq_one_iff] at h
-  simpa using h (some out) hout
-
-/-- A leaf at which the verifier can output *nothing* refutes acceptance: acceptance with
-  probability one rules out certain failure. -/
-theorem not_isAccepting_of_no_outputs (init : ProbComp σ)
-    (impl : QueryImpl oSpec (StateT σ ProbComp)) (V : Verifier oSpec StmtIn StmtOut pSpec)
-    (stmtIn : StmtIn)
-    {tree : ChallengeTree pSpec arity 0} (p : ChallengeTree.LeafPath tree) (lang : Set StmtOut)
-    (hrej : Outputs init impl V stmtIn p.fullTranscript = ∅) :
-    ¬ tree.IsAccepting init impl V stmtIn lang := by
-  intro hacc
-  have h := hacc p.fullTranscript p.mem_fullTranscripts
-  rw [OracleComp.OptionT.prEvent_mk_eq_one_iff] at h
-  obtain ⟨o, ho⟩ := OracleComp.support_nonempty (spec := unifSpec)
-    (do (simulateQ impl (V.run stmtIn p.fullTranscript)).run' (← init))
-  obtain ⟨out, rfl, _⟩ := h o ho
-  have hout : out ∈ Outputs init impl V stmtIn p.fullTranscript := ho
-  rw [hrej] at hout
-  exact hout
-
-/-- On an accepting tree the reachable-output set at every leaf is **nonempty**. -/
-theorem outputs_nonempty_of_isAccepting {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {stmtIn : StmtIn} {tree : ChallengeTree pSpec arity 0} {lang : Set StmtOut}
-    (hacc : tree.IsAccepting init impl V stmtIn lang) (p : ChallengeTree.LeafPath tree) :
-    (Outputs init impl V stmtIn p.fullTranscript).Nonempty := by
-  by_contra hempty
-  rw [Set.not_nonempty_iff_eq_empty] at hempty
-  exact not_isAccepting_of_no_outputs init impl V stmtIn p lang hempty hacc
-
-/-- An accepting tree with a leaf forces the sampling's support to be nonempty — the entry ticket to
-  `pure_verdict_mem_outputs`, hence to `LeafWitnesses.isValid_iff_pure`, in every certificate. -/
-theorem support_init_nonempty_of_accepting {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {stmtIn : StmtIn} {tree : ChallengeTree pSpec arity 0} {lang : Set StmtOut}
-    (hacc : tree.IsAccepting init impl V stmtIn lang) (p : ChallengeTree.LeafPath tree) :
-    (support init).Nonempty := by
-  by_contra hempty
-  rw [Set.not_nonempty_iff_eq_empty] at hempty
-  refine not_isAccepting_of_no_outputs init impl V stmtIn p lang ?_ hacc
-  ext out
-  simp only [Outputs, Set.mem_ofPred_eq, Set.mem_empty_iff_false, iff_false]
-  intro hmem
-  rw [mem_support_bind_iff] at hmem
-  obtain ⟨s, hs, -⟩ := hmem
-  rw [hempty] at hs
-  simp at hs
-
-/-- A pure verifier can only output its verdict: `Outputs` is a subset of that singleton. -/
-theorem outputs_pure_subsingleton {Stmt₁ Stmt₂ : Type} {m : ℕ} {pSpec₁ : ProtocolSpec m}
-    (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
-    (V₁ : Verifier oSpec Stmt₁ Stmt₂ pSpec₁)
-    (verify₁ : Stmt₁ → pSpec₁.FullTranscript → Stmt₂)
-    (hV₁ : ∀ stmt tr, V₁.verify stmt tr = pure (verify₁ stmt tr))
-    (stmt : Stmt₁) (tr : pSpec₁.FullTranscript) {out : Stmt₂}
-    (hout : out ∈ Outputs init impl V₁ stmt tr) : out = verify₁ stmt tr := by
-  simp only [Outputs, Set.mem_ofPred_eq, Verifier.run, hV₁] at hout
-  have : (do (simulateQ impl
-      (pure (verify₁ stmt tr) : OptionT (OracleComp oSpec) Stmt₂)).run' (← init) :
-      ProbComp (Option Stmt₂)) = (init >>= fun _ => pure (some (verify₁ stmt tr))) := by
-    congr 1
-  rw [this] at hout
-  simp only [support_bind_const, support_pure, Set.mem_ofPred_eq] at hout
-  exact Option.some.inj hout.1
-
-/-- A pure verifier's verdict **is** reachable, as soon as the sampling can produce a seed. -/
-theorem pure_verdict_mem_outputs (init : ProbComp σ)
-    (impl : QueryImpl oSpec (StateT σ ProbComp)) {V : Verifier oSpec StmtIn StmtOut pSpec}
-    (verify : StmtIn → pSpec.FullTranscript → StmtOut)
-    (hV : ∀ stmt tr, V.verify stmt tr = pure (verify stmt tr))
-    (hinit : (support init).Nonempty) (stmtIn : StmtIn) (tr : pSpec.FullTranscript) :
-    verify stmtIn tr ∈ Outputs init impl V stmtIn tr := by
-  obtain ⟨s, hs⟩ := hinit
-  simp only [Outputs, Set.mem_ofPred_eq, Verifier.run, hV]
-  have heq : (do (simulateQ impl
-      (pure (verify stmtIn tr) : OptionT (OracleComp oSpec) StmtOut)).run' (← init) :
-      ProbComp (Option StmtOut)) = (init >>= fun _ => pure (some (verify stmtIn tr))) := by
-    congr 1
-  rw [heq]
-  exact (mem_support_bind_iff init _ _).2 ⟨s, hs, (mem_support_pure_iff _ _).2 rfl⟩
-
-/-- The initial finite-sampling computation has a reachable seed. This transcript-level
-interface accepts the probability-one premise used by its callers; nonemptiness also holds
-independently of the verifier's acceptance. -/
-theorem support_init_nonempty_of_prob_one {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {stmt : StmtIn} {tr : pSpec.FullTranscript} {lang : Set StmtOut}
-    (_h : Pr{let out ← (OptionT.mk do
-      (simulateQ impl (V.run stmt tr)).run' (← init))}[out ∈ lang] = 1) :
-    (support init).Nonempty := by
-  exact OracleComp.support_nonempty (spec := unifSpec) init
-
-/-- A verifier that **rejects outright** on a transcript cannot accept it with probability one: on
-  the `failure` branch the run fails certainly.
-
-  This is what makes a guarded verifier's check *learnable* from acceptance — see
-  `Verifier.append_run_guardedLeft`, whose rejecting branch this lemma refutes. -/
-theorem not_accepting_of_failure {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {stmt : StmtIn} {tr : pSpec.FullTranscript} (hV : V.verify stmt tr = failure)
-    {lang : Set StmtOut}
-    (h : Pr{let out ← (OptionT.mk do
-      (simulateQ impl (V.run stmt tr)).run' (← init))}[out ∈ lang] = 1) : False := by
-  rw [OracleComp.OptionT.prEvent_mk_eq_one_iff] at h
-  simp only [Verifier.run, hV] at h
-  have hc : (do (simulateQ impl (failure : OptionT (OracleComp oSpec) StmtOut)).run' (← init) :
-      ProbComp (Option StmtOut)) = (init >>= fun _ => pure none) := by congr 1
-  rw [hc] at h
-  obtain ⟨s, hs⟩ := OracleComp.support_nonempty (spec := unifSpec) init
-  obtain ⟨out, hout, _⟩ := h none ((mem_support_bind_iff init _ _).2
-    ⟨s, hs, (mem_support_pure_iff _ _).2 rfl⟩)
-  cases hout
-
 end Verifier
-
-/-! ## Leaf witnessings
-
-The second input of a reduction-of-knowledge extractor: one candidate *output* witness per
-root-to-leaf transcript. In a chain these are produced by the downstream reduction's extractor; at
-the top of a security statement they come classically from acceptance
-(`ChallengeTree.canonWitnesses`). -/
 
 namespace ProtocolSpec.ChallengeTree
 
@@ -555,85 +412,9 @@ def LeafWitnesses (tree : ChallengeTree pSpec arity 0) (WitOut : Type) : Type :=
 
 namespace LeafWitnesses
 
-/-- A leaf witnessing is **valid** when it answers at every leaf and each answer certifies, in
-  `relOut`, *some* statement the verifier can actually output on that leaf's transcript
-  (`Verifier.Outputs`).
-
-  The reachability condition is the notion's honesty discipline, carried in the premise: trusting a
-  witness at a statement the verifier cannot output is unrepresentable, so a witnessing citing only
-  unreachable statements is not a witnessing of the tree at all. The quantifier over reachable
-  outputs is `∃`, not `∀`: demanding one witness serve *every* reachable statement is unsatisfiable
-  at a randomized verifier with two separated outputs, which would make the notion vacuous.
-
-  At a pure verifier validity collapses to per-verdict witnessing (`isValid_iff_pure`), which is why
-  engine certificates need no hypothesis beyond the purity they already carry. -/
-def IsValid (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
-    (V : Verifier oSpec StmtIn StmtOut pSpec) (relOut : Set (StmtOut × WitOut))
-    (stmtIn : StmtIn) {tree : ChallengeTree pSpec arity 0}
-    (o : LeafWitnesses tree WitOut) : Prop :=
-  ∀ p, ∃ w, o p = some w ∧
-    ∃ out ∈ Verifier.Outputs init impl V stmtIn p.fullTranscript, (out, w) ∈ relOut
-
-/-- **The pure-case collapse.** At a pure verifier with a productive sampling, validity is *exactly*
-  per-verdict witnessing: the statements are pinned by the verdict function rather than carried by
-  the witnessing.
-
-  Engine certificates consume the forward direction (their purity hypothesis pins the statements);
-  composition proofs produce validity with the backward one. -/
-theorem isValid_iff_pure (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
-    {V : Verifier oSpec StmtIn StmtOut pSpec}
-    (verify : StmtIn → pSpec.FullTranscript → StmtOut)
-    (hV : ∀ stmt tr, V.verify stmt tr = pure (verify stmt tr))
-    (hinit : (support init).Nonempty) (relOut : Set (StmtOut × WitOut)) (stmtIn : StmtIn)
-    {tree : ChallengeTree pSpec arity 0} (o : LeafWitnesses tree WitOut) :
-    o.IsValid init impl V relOut stmtIn ↔
-      ∀ p, ∃ w, o p = some w ∧ (verify stmtIn p.fullTranscript, w) ∈ relOut := by
-  constructor
-  · intro h p
-    obtain ⟨w, hw, out, hout, hrel⟩ := h p
-    exact ⟨w, hw,
-      Verifier.outputs_pure_subsingleton init impl V verify hV stmtIn p.fullTranscript hout ▸ hrel⟩
-  · intro h p
-    obtain ⟨w, hw, hrel⟩ := h p
-    exact ⟨w, hw, verify stmtIn p.fullTranscript,
-      Verifier.pure_verdict_mem_outputs init impl verify hV hinit stmtIn p.fullTranscript, hrel⟩
-
 end LeafWitnesses
 
 section CanonWitnesses
-
-open scoped Classical in
-/-- The **canonical witnessing**, i.e. exactly what acceptance already guarantees: at each leaf, a
-  chosen `relOut`-witness at a chosen reachable statement where one exists, and `none` elsewhere.
-
-  Classical by construction, and that is its whole point: it lives in proofs and in the top-level
-  closer that reads a certificate unconditionally
-  (`Verifier.treeSpecialSoundWith.mem_relIn_of_isAccepting`), and is erased at codegen. Extraction
-  *algorithms* never call it — they consume the witnessing their caller supplies. -/
-noncomputable def canonWitnesses (init : ProbComp σ)
-    (impl : QueryImpl oSpec (StateT σ ProbComp)) (V : Verifier oSpec StmtIn StmtOut pSpec)
-    (relOut : Set (StmtOut × WitOut)) (stmtIn : StmtIn)
-    {tree : ChallengeTree pSpec arity 0} : LeafWitnesses tree WitOut :=
-  fun p =>
-    if h : ∃ w, ∃ out ∈ Verifier.Outputs init impl V stmtIn p.fullTranscript, (out, w) ∈ relOut
-    then some h.choose else none
-
-/-- The canonical witnessing is **valid on every accepting tree**: the validity premise of the
-  soundness notion is never an obstruction, which is what lets a certificate be read
-  unconditionally (`Verifier.treeSpecialSoundWith.mem_relIn_of_isAccepting`). -/
-theorem canonWitnesses_isValid {init : ProbComp σ}
-    {impl : QueryImpl oSpec (StateT σ ProbComp)} {V : Verifier oSpec StmtIn StmtOut pSpec}
-    {relOut : Set (StmtOut × WitOut)} {stmtIn : StmtIn} {tree : ChallengeTree pSpec arity 0}
-    (hacc : tree.IsAccepting init impl V stmtIn relOut.language) :
-    (canonWitnesses init impl V relOut stmtIn (tree := tree)).IsValid
-      init impl V relOut stmtIn := by
-  intro p
-  obtain ⟨out, hout⟩ := Verifier.outputs_nonempty_of_isAccepting hacc p
-  obtain ⟨w, hw⟩ := (Set.mem_language_iff relOut _).1
-    (Verifier.mem_language_of_mem_outputs hacc p hout)
-  have hex : ∃ w, ∃ out ∈ Verifier.Outputs init impl V stmtIn p.fullTranscript, (out, w) ∈ relOut :=
-    ⟨w, out, hout, hw⟩
-  exact ⟨hex.choose, by simp [canonWitnesses, dite_eq_left hex], hex.choose_spec⟩
 
 end CanonWitnesses
 
@@ -673,264 +454,5 @@ variable {ι : Type} {oSpec : OracleSpec ι}
   {StmtIn WitIn StmtOut WitOut : Type} {n : ℕ} {pSpec : ProtocolSpec n}
   [∀ i, SampleableType (pSpec.Challenge i)]
   {σ : Type} (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
-
-/-! ## Tree special soundness at the witness-only extractor
-
-The notion the library states, at `Extractor.TreeBased`: on every structured accepting tree,
-extraction succeeds *on every valid leaf witnessing*. One clause — the honesty discipline is the
-validity premise's reachability condition (`ChallengeTree.LeafWitnesses.IsValid`), not a separate
-conjunct, and there is no claim map for a certificate to be honest about, because the extractor
-attributes no statements.
-
-The premise is never an obstruction: the canonical witnessing is valid on every accepting tree
-(`ChallengeTree.canonWitnesses_isValid`), so a certificate can still be read unconditionally
-(`treeSpecialSoundWith.mem_relIn_of_isAccepting`). -/
-
-/-- A named tree-based extractor `Ext` **witnesses tree special soundness** of a verifier with
-  respect to a generic challenge-tree shape `S`, an input relation `relIn` and an output relation
-  `relOut`: for every input statement `stmtIn` and every tree of transcripts that is
-
-  - `S`-structured (its sibling challenges satisfy the shape's `nodeOk` predicate), and
-  - accepting (the verifier accepts every root-to-leaf transcript, landing in `relOut.language`),
-
-  and for every **valid** leaf witnessing `o` of that tree
-  (`ChallengeTree.LeafWitnesses.IsValid` — each of its witnesses certifies, in `relOut`, some
-  statement the verifier can output at that leaf), the extractor succeeds: `Ext stmtIn tree o` is
-  `some w` with `(stmtIn, w) ∈ relIn`.
-
-  This named form is the **content-bearing** statement of special soundness: it pins the extraction
-  *algorithm*, so it asserts something about the actual output of `Ext`. Its existential closure is
-  `Verifier.treeSpecialSound` — prefer the named form in advertised protocol statements, since a
-  chain of named certificates exposes a runnable end-to-end extractor (`chain.extractor`), which is
-  what a later knowledge-error accounting has to run. Reductions whose extraction may instead break
-  a cryptographic assumption use `Verifier.treeSpecialSoundWithEscape` below. -/
-def treeSpecialSoundWith (S : ChallengeTreeShape pSpec)
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity) : Prop :=
-  ∀ stmtIn : StmtIn,
-  ∀ tree : ChallengeTree pSpec S.arity 0,
-    tree.IsStructured S →
-    tree.IsAccepting init impl verifier stmtIn relOut.language →
-      ∀ o : tree.LeafWitnesses WitOut, o.IsValid init impl verifier relOut stmtIn →
-        ∃ w, Ext stmtIn tree o = some w ∧ (stmtIn, w) ∈ relIn
-
-/-- **Escape-threaded tree special soundness, named form.** `Verifier.treeSpecialSoundWith` with an
-  escape-event disjunct: on every structured accepting tree, either the tree exhibits the escape
-  event `esc` (a trusted spec — see `ChallengeTree.EscapeEvent`) or extraction succeeds on every
-  valid leaf witnessing. An escaping factor owes no witness, and the disjunction is decided before
-  any witnessing is seen.
-
-  **The quantifier order is deliberate: do not commute it.** The disjunction sits *outside* the
-  witnessing quantifier — `esc ∨ ∀ o valid, …`, not `∀ o valid, esc ∨ …`. The two are not
-  interchangeable: this form is strictly stronger, and it is what makes the escape decision
-  independent of the supplied witnessing, so an escape cannot be conjured by feeding the reduction
-  an awkward set of output witnesses. The composition proofs depend on it —
-  `append_treeSpecialSoundWithEscape_guardedLeft` resolves both factors' escape disjuncts *before*
-  it introduces a witnessing (`refine Or.inr fun o hvalid => ?_`), which is only possible at this
-  order — and so does the unconditioned closer
-  `treeSpecialSoundWithEscape.escape_or_mem_relIn_of_isAccepting`, which passes the escape disjunct
-  through untouched. A later "simplification" pushing the `∨` inside the `∀` would silently weaken
-  every certificate in the chain. -/
-def treeSpecialSoundWithEscape (S : ChallengeTreeShape pSpec)
-    (esc : ChallengeTree.EscapeEvent StmtIn pSpec S.arity)
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity) : Prop :=
-  ∀ stmtIn : StmtIn,
-  ∀ tree : ChallengeTree pSpec S.arity 0,
-    tree.IsStructured S →
-    tree.IsAccepting init impl verifier stmtIn relOut.language →
-      esc stmtIn tree ∨
-      ∀ o : tree.LeafWitnesses WitOut, o.IsValid init impl verifier relOut stmtIn →
-        ∃ w, Ext stmtIn tree o = some w ∧ (stmtIn, w) ∈ relIn
-
-/-- A verifier is **tree special sound** with respect to a shape `S`, an input relation `relIn` and
-  an output relation `relOut` if *some* tree-based extractor witnesses it
-  (`Verifier.treeSpecialSoundWith`).
-
-  This is the shape-generic core of tree-based knowledge extraction: every concrete
-  special-soundness-style notion is an instance obtained by supplying a shape — plain `k`-special
-  soundness (`Verifier.specialSound`) the pairwise-distinct shape, coordinate-wise special soundness
-  (`Verifier.coordinateWiseSpecialSound`) the CWSS shape `D.toShape`.
-
-  The extractor is existential here, which loses the *algorithm*: advertised protocol statements
-  should use the named form at an explicit extractor and keep this form for plumbing. -/
-def treeSpecialSound (S : ChallengeTreeShape pSpec)
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec) : Prop :=
-  ∃ E : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity,
-    treeSpecialSoundWith init impl S relIn relOut verifier E
-
-/-- Existential closure of `Verifier.treeSpecialSoundWithEscape`.
-
-  **No consumer, by design.** Before the named escape appends, this form was the right-factor
-  hypothesis of every escape composition theorem; now each of those takes a named `E₂`, so nothing
-  in the library consumes it — that is the point of the redesign, not an oversight. It is kept only
-  as the notion "*some* extractor works up to the escape event", for stating a lower bound on what a
-  reduction achieves when the algorithm is genuinely not the subject. Do not reintroduce it as a
-  composition hypothesis: forgetting the extractor there is exactly what hid every downstream link's
-  extraction inside an `Exists.choose` and made the composed chain unrunnable. -/
-def treeSpecialSoundEscape (S : ChallengeTreeShape pSpec)
-    (esc : ChallengeTree.EscapeEvent StmtIn pSpec S.arity)
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec) : Prop :=
-  ∃ Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity,
-    treeSpecialSoundWithEscape init impl S esc relIn relOut verifier Ext
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- The existential notion is definitionally the existential closure of the named one. -/
-theorem treeSpecialSound_iff_exists (S : ChallengeTreeShape pSpec)
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec) :
-    verifier.treeSpecialSound (WitOut := WitOut) init impl S relIn relOut ↔
-      ∃ Ext, treeSpecialSoundWith init impl S relIn relOut verifier Ext := Iff.rfl
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- Forget the name of the extractor. -/
-theorem treeSpecialSoundWith.toTreeSpecialSound {S : ChallengeTreeShape pSpec}
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    (h : treeSpecialSoundWith init impl S relIn relOut verifier Ext) :
-    verifier.treeSpecialSound init impl S relIn relOut := ⟨Ext, h⟩
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- Forget the name of the extractor (escape-threaded). -/
-theorem treeSpecialSoundWithEscape.toEscape {S : ChallengeTreeShape pSpec}
-    {esc : ChallengeTree.EscapeEvent StmtIn pSpec S.arity}
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    (h : treeSpecialSoundWithEscape init impl S esc relIn relOut verifier Ext) :
-    treeSpecialSoundEscape init impl S esc relIn relOut verifier := ⟨Ext, h⟩
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- At the never-firing event the escape notion is the plain notion: the escape layer is a
-  conservative extension. -/
-theorem treeSpecialSoundWithEscape_false_iff (S : ChallengeTreeShape pSpec)
-    (relIn : Set (StmtIn × WitIn)) (relOut : Set (StmtOut × WitOut))
-    (verifier : Verifier oSpec StmtIn StmtOut pSpec)
-    (Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity) :
-    treeSpecialSoundWithEscape init impl S (fun _ _ => False) relIn relOut verifier Ext ↔
-      treeSpecialSoundWith init impl S relIn relOut verifier Ext := by
-  constructor <;> intro h stmtIn tree hstr hacc
-  · exact (h stmtIn tree hstr hacc).resolve_left id
-  · exact Or.inr (h stmtIn tree hstr hacc)
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- **Lossless escape lift**: a plain certificate holds at *any* escape event, via the right
-  disjunct — so an escape-free protocol enters an escape-threaded chain for free. -/
-theorem treeSpecialSoundWith.withEscape {S : ChallengeTreeShape pSpec}
-    (esc : ChallengeTree.EscapeEvent StmtIn pSpec S.arity)
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    (h : treeSpecialSoundWith init impl S relIn relOut verifier Ext) :
-    treeSpecialSoundWithEscape init impl S esc relIn relOut verifier Ext :=
-  fun stmtIn tree hstr hacc => Or.inr (h stmtIn tree hstr hacc)
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- Escape events are monotone: a certificate at `esc` holds at any weaker (larger) event. The
-  extractor is never inspected. -/
-theorem treeSpecialSoundWithEscape.mono {S : ChallengeTreeShape pSpec}
-    {esc esc' : ChallengeTree.EscapeEvent StmtIn pSpec S.arity}
-    (hmono : ∀ s t, esc s t → esc' s t)
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    (h : treeSpecialSoundWithEscape init impl S esc relIn relOut verifier Ext) :
-    treeSpecialSoundWithEscape init impl S esc' relIn relOut verifier Ext :=
-  fun stmtIn tree hstr hacc => (h stmtIn tree hstr hacc).imp (hmono _ _) id
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- **Shape-congruence transport for named tree special soundness.** The named notion transports
-  along an equality of shapes, with the extractor carried across heterogeneously. The extractor's
-  type mentions `S.arity`, so a plain `rw` at the shape is motive-incorrect; `subst` at the shape
-  equality homogenizes the extractor types before the single `HEq` is consumed (in practice
-  `hExt := HEq.rfl`, since the relevant shape equalities — e.g. `CWSSStructure.toShape_append` —
-  have definitionally equal arities). -/
-theorem treeSpecialSoundWith_congr {S S' : ChallengeTreeShape pSpec} (hS : S = S')
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    {Ext' : Extractor.TreeBased StmtIn WitIn WitOut pSpec S'.arity} (hExt : HEq Ext Ext')
-    (h : treeSpecialSoundWith init impl S relIn relOut verifier Ext) :
-    treeSpecialSoundWith init impl S' relIn relOut verifier Ext' := by
-  subst hS
-  obtain rfl := eq_of_heq hExt
-  exact h
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- **Shape-congruence transport, escape-threaded.** Both the extractor and the escape event have
-  types mentioning `S.arity`; this lemma carries them across heterogeneously (in practice both
-  `HEq`s are `HEq.rfl`). -/
-theorem treeSpecialSoundWithEscape_congr {S S' : ChallengeTreeShape pSpec} (hS : S = S')
-    {esc : ChallengeTree.EscapeEvent StmtIn pSpec S.arity}
-    {esc' : ChallengeTree.EscapeEvent StmtIn pSpec S'.arity} (hEsc : HEq esc esc')
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    {Ext' : Extractor.TreeBased StmtIn WitIn WitOut pSpec S'.arity} (hExt : HEq Ext Ext')
-    (h : treeSpecialSoundWithEscape init impl S esc relIn relOut verifier Ext) :
-    treeSpecialSoundWithEscape init impl S' esc' relIn relOut verifier Ext' := by
-  subst hS
-  obtain rfl := eq_of_heq hEsc
-  obtain rfl := eq_of_heq hExt
-  exact h
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- **The unconditioned reading of a certificate.** Closing a named certificate's extractor with the
-  canonical witnessing (`ChallengeTree.canonWitnesses`) drops the validity premise entirely: on
-  every structured accepting tree the recovered witness is in `relIn`.
-
-  Needs `[Inhabited WitIn]` (to read the `Option` off) and *nothing else* — no purity hypothesis:
-  validity of the canonical witnessing follows from acceptance alone. -/
-theorem treeSpecialSoundWith.mem_relIn_of_isAccepting [Inhabited WitIn]
-    {S : ChallengeTreeShape pSpec}
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    (h : treeSpecialSoundWith init impl S relIn relOut verifier Ext) (stmtIn : StmtIn)
-    (tree : ChallengeTree pSpec S.arity 0) (hstr : tree.IsStructured S)
-    (hacc : tree.IsAccepting init impl verifier stmtIn relOut.language) :
-    (stmtIn, (Ext stmtIn tree
-      (ChallengeTree.canonWitnesses init impl verifier relOut stmtIn)).getD default) ∈ relIn := by
-  obtain ⟨w, hw, hrel⟩ :=
-    h stmtIn tree hstr hacc _ (ChallengeTree.canonWitnesses_isValid hacc)
-  simpa [hw] using hrel
-
-omit [∀ i, SampleableType (pSpec.Challenge i)] in
-/-- **The unconditioned reading of an escape-threaded certificate**, i.e.
-  `treeSpecialSoundWith.mem_relIn_of_isAccepting` for the notion the Hachi chain actually uses:
-  every certificate in that chain is escape-threaded, so this — not the plain closer — is the
-  statement that says nothing was lost in moving to the `∀ o valid` form.
-
-  The escape disjunct passes through untouched, which is the point of the quantifier order (see
-  `Verifier.treeSpecialSoundWithEscape`): the escape decision does not depend on the witnessing, so
-  it survives closing with the canonical one.
-
-  Note what closing does: `ChallengeTree.canonWitnesses` is
-  `if h : ∃ w, … then some h.choose else none`, so this theorem plugs the choice function back in
-  and recovers the *non-algorithmic* reading a pre-witnessing statement had. That is precisely why
-  it is the right migration receipt — it is the old statement, derived — and not a reason to prefer
-  it: for a reduction the `∀ o valid` form is the stronger and more useful statement, since it is
-  what composes into a runnable end-to-end extractor. -/
-theorem treeSpecialSoundWithEscape.escape_or_mem_relIn_of_isAccepting [Inhabited WitIn]
-    {S : ChallengeTreeShape pSpec}
-    {esc : ChallengeTree.EscapeEvent StmtIn pSpec S.arity}
-    {relIn : Set (StmtIn × WitIn)} {relOut : Set (StmtOut × WitOut)}
-    {verifier : Verifier oSpec StmtIn StmtOut pSpec}
-    {Ext : Extractor.TreeBased StmtIn WitIn WitOut pSpec S.arity}
-    (h : treeSpecialSoundWithEscape init impl S esc relIn relOut verifier Ext) (stmtIn : StmtIn)
-    (tree : ChallengeTree pSpec S.arity 0) (hstr : tree.IsStructured S)
-    (hacc : tree.IsAccepting init impl verifier stmtIn relOut.language) :
-    esc stmtIn tree ∨
-      (stmtIn, (Ext stmtIn tree
-        (ChallengeTree.canonWitnesses init impl verifier relOut stmtIn)).getD default) ∈ relIn := by
-  rcases h stmtIn tree hstr hacc with hesc | hgood
-  · exact Or.inl hesc
-  · obtain ⟨w, hw, hrel⟩ := hgood _ (ChallengeTree.canonWitnesses_isValid hacc)
-    exact Or.inr (by simpa [hw] using hrel)
 
 end Verifier

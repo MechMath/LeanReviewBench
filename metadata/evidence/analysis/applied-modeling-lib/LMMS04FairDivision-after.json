@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "LMMS04FairDivision-after",
   "task_id": "aml:LMMS04FairDivision-after",
-  "input_sha256": "40a3c2dec06f1d02dc67a8cd438131def5d439f15891f2769d907bb55a976d48",
+  "input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
   "label": "aligned",
   "reason": "The allocation covers each input item exactly once and bounds every pairwise positive envy by the marginal-value bound alpha, matching the source correctness guarantee.",
   "review_status": "human_reviewed",

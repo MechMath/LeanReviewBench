@@ -1,24 +1,17 @@
 import Lean
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Set.Defs
+import Mathlib.Logic.Equiv.Basic
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.Homomorphisms
 import dep.equational_theories.Magma
 import dep.equational_theories.MagmaLaw
-import dep.equational_theories.EquationLawConversion
 
 open Lean Elab Command Law Qq
 
 initialize magmaLawExt : TagDeclarationExtension ← mkTagDeclarationExtension
-
-def getMagmaLaws : CoreM (Array (Name × NatMagmaLaw)) := do
-  let mut out := #[]
-  for ns in (magmaLawExt.toEnvExtension.getState (← getEnv)).importedEntries do
-    for n in ns do
-      out := out.push (n, ← unsafe evalConstCheck NatMagmaLaw ``NatMagmaLaw n)
-  return out
-
-def magmaLawNameToEquationName (magmaLawName : String) : String :=
-  "Equation" ++ (magmaLawName.drop "Law".length)
-
-def equationNameToMagmaLawName (equationName : String) : String :=
-  "Law" ++ (equationName.drop "Equation".length)
 
 namespace EquationsCommand
 
@@ -49,7 +42,8 @@ def lawToExpr {u : Level} {G : Q(Type u)} (inst : Q(Magma $G)) (xs : Array Q($G)
     MagmaLaw Nat → Q(Prop)
   | ⟨a, b⟩ => q($(magmaToExpr inst xs a) = $(magmaToExpr inst xs b))
 
-section -- FIXME: "deriving instance ToExpr for FreeMagma" fails, this is the edited result
+section
+
 universe u
 
 private def toExprFreeMagma {α} [Lean.ToExpr α] [ToLevel.{u}] : FreeMagma.{u} α → Expr

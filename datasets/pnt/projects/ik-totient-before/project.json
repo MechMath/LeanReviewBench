@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The frozen infinite-series equation is interpreted on its ordinary domain of convergence. Formal instead asserts equality for every Re(s)>1, including divergent points, so the extra strip is a real strengthening rather than an omitted harmless condition. At s=3/2 the totalized LSeries is zero while ζ(1/2)/ζ(3/2) is nonzero.",
   "external_imports": [
     "Mathlib.NumberTheory.LSeries.Dirichlet",
     "Mathlib.NumberTheory.LSeries.Nonvanishing"
@@ -42,7 +41,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "5f1a1ef29534efec9e526c89935c4e7a0b640d55a9b3b2c145e0e8e385c254bc"
+    "sha256": "813730e883aea79eb1e502c1efe66d901653783b2ab50ff05cd9bcdcd8d1a8cc",
+    "effective_root_sha256": "c850647322426f8b82ec4d09e566dc1261acab077a04593e4527678105e6e2aa",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-ik-extraction/repaired/ik-totient-before/20261105T052940588148Z/receipt.json",
@@ -65,8 +67,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "3513c9caabc4ff346d9ad0f83f51eaba71a67c51b2620488837dd3c91edec416",
+  "input_sha256": "783da9de469c1c7b1da9fa330690d3a736c58f8c530e6bf9818cb9dbdb042e1d",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

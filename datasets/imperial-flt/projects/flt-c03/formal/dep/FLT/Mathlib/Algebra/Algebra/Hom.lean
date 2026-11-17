@@ -1,17 +1,6 @@
-/-
-Copyright (c) 2025 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard, Salvatore Mercuri
--/
 module
 
 public import Mathlib.Algebra.Algebra.Prod
-
-/-!
-# Hom
-
-Material destined for Mathlib.
--/
 
 @[expose] public section
 
@@ -39,19 +28,10 @@ variable {R S : Type*} [CommSemiring R] [CommSemiring S] (φ : R →+* S)
 
 instance instFunLike : FunLike (A →ₛₐ[φ] B) A B where
   coe f := f.toFun
-  coe_injective f g h := by
-    cases f
-    cases g
-    congr
-    exact DFunLike.coe_injective h
+  coe_injective f g h := sorry
 
 variable {φ} {A} {B} in
-lemma SemialgHom.map_smul (ψ : A →ₛₐ[φ] B) (m : R) (x : A) : ψ (m • x) = φ m • ψ x :=
-  LinearMap.map_smul' ψ.toLinearMap m x
-
-@[simp]
-theorem coe_mk (f : A →ₛₗ[φ] B) (h₁ h₂ h₃) : ((⟨f, h₁, h₂, h₃⟩ : A →ₛₐ[φ] B) : A → B) = f :=
-  rfl
+lemma SemialgHom.map_smul (ψ : A →ₛₐ[φ] B) (m : R) (x : A) : ψ (m • x) = φ m • ψ x := sorry
 
 end semialghom
 
@@ -69,12 +49,7 @@ variable (F : Type*) {R S : Type*}
   [Semiring A] [Semiring B] [Algebra R A] [Algebra S B]
   [FunLike F A B] [SemialgHomClass F φ A B]
 
-instance SemialgHomClass.instSemialgHom : SemialgHomClass (A →ₛₐ[φ] B) φ A B where
-  map_add ψ := ψ.map_add
-  map_smulₛₗ ψ := ψ.map_smulₛₗ
-  map_mul ψ := ψ.map_mul
-  map_one ψ := ψ.map_one
-  map_zero ψ := ψ.map_zero
+instance SemialgHomClass.instSemialgHom : SemialgHomClass (A →ₛₐ[φ] B) φ A B := sorry
 
 variable {F} {φ} {A} {B} in
 /-- Turn an element of `F` which satisfies `SemialgHomClass F φ A B` to a `SemialgHom`. -/
@@ -84,10 +59,6 @@ def SemialgHomClass.toSemialgHom (f : F) : A →ₛₐ[φ] B :=
 instance : CoeTC F (A →ₛₐ[φ] B) :=
   ⟨SemialgHomClass.toSemialgHom⟩
 
-@[simp]
-theorem SemialgHom.coe_coe (f : F) : ⇑(f : A →ₛₐ[φ] B) = f :=
-  rfl
-
 end semialghomclass
 
 section semialghom
@@ -96,21 +67,9 @@ variable {R S : Type*} [CommSemiring R] [CommSemiring S] {φ : R →+* S}
     {A B : Type*} [Semiring A] [Semiring B] [Algebra R A] [Algebra S B]
 
 lemma SemialgHom.commutes (ψ : A →ₛₐ[φ] B) (r : R) :
-    ψ (algebraMap R A r) = algebraMap S B (φ r) := by
-  have := ψ.map_smul r 1
-  rw [Algebra.smul_def, mul_one, map_one] at this
-  rw [this, Algebra.smul_def, mul_one]
+    ψ (algebraMap R A r) = algebraMap S B (φ r) := sorry
 
-theorem SemialgHom.toLinearMap_eq_coe (f : A →ₛₐ[φ] B) : f.toLinearMap = f :=
-  rfl
-
-theorem SemialgHom.toRingHom_eq_coe (f : A →ₛₐ[φ] B) : f.toRingHom = f :=
-  rfl
-
-theorem SemialgHom.algebraMap_apply {A B : Type*} [CommSemiring A] [CommSemiring B]
-    [Algebra R A] [Algebra S B] (f : A →ₛₐ[φ] B) (a : A) :
-    letI := f.toAlgebra
-    algebraMap A B a = f a := rfl
+theorem SemialgHom.toLinearMap_eq_coe (f : A →ₛₐ[φ] B) : f.toLinearMap = f := sorry
 
 /-- The composition of two semi-algebra maps. -/
 def SemialgHom.comp {T : Type*} [CommSemiring T] {C : Type*} [Semiring C]
@@ -136,11 +95,6 @@ def RingHom.toSemialgHom (f : A →+* B) (h : ∀ (r : R) (a : A), f (r • a) =
     A →ₛₐ[φ] B where
   __ := f
   map_smul' := h
-
-@[simp]
-theorem RingHom.coe_toSemialgHom (f : A →+* B) (h : ∀ (r : R) (a : A), f (r • a) = φ r • f a) :
-    ⇑(RingHom.toSemialgHom f h) = ⇑f :=
-  rfl
 
 /-- The composition `(B →ₛₐ[ψ] C) ∘ (A →ₐ[S] B) → `A →ₛₐ[ψ] C` of a semi-algebra map with an
 algebra map to give a semi-algebra map. -/

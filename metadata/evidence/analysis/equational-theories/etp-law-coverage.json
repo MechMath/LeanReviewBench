@@ -3,7 +3,7 @@
   "dataset": "equational-theories",
   "project_id": "etp-law-coverage",
   "task_id": "equational-theories:etp-law-coverage",
-  "input_sha256": "c085f0df5c319dc029da2ac1c5da3e79ae4bf2aa728fb302b1d213d0103c4a65",
+  "input_sha256": "64623e388afd80e93904dbe7ec8c4c0490b9cdaa85d7b7efee08459f76695bd4",
   "label": "aligned",
   "reason": "Every law with at most four binary-operation occurrences has a table entry equivalent over all magmas; the syntax encoding and semantic quantifiers match.",
   "review_status": "human_reviewed",

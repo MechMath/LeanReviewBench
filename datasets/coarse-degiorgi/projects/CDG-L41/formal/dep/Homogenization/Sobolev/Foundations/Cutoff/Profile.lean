@@ -1,24 +1,17 @@
 module
 
-public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
 public import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
+public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
 
 @[expose] public section
 
 noncomputable section
 
 open Filter Set
+
 open scoped Topology
 
 namespace Homogenization
-
-/-!
-# One-dimensional smooth cutoff profiles
-
-This file isolates the one-dimensional analytic input for quantitative cutoff
-constructions.  The geometric ball and cube cutoffs should depend only on a
-profile carrying explicit first- and second-derivative bounds.
--/
 
 /-- A smooth transition profile with certified quantitative first and second
 derivative bounds.
@@ -66,143 +59,24 @@ def smoothTransitionProfile (t : ℝ) : ℝ :=
 
 namespace smoothTransitionProfile
 
-theorem smooth : ContDiff ℝ (⊤ : ℕ∞) smoothTransitionProfile :=
-  Real.smoothTransition.contDiff
+theorem smooth : ContDiff ℝ (⊤ : ℕ∞) smoothTransitionProfile := sorry
 
 theorem zero_of_nonpos {t : ℝ} (ht : t ≤ 0) :
-    smoothTransitionProfile t = 0 :=
-  Real.smoothTransition.zero_of_nonpos ht
+    smoothTransitionProfile t = 0 := sorry
 
 theorem one_of_one_le {t : ℝ} (ht : 1 ≤ t) :
-    smoothTransitionProfile t = 1 :=
-  Real.smoothTransition.one_of_one_le ht
+    smoothTransitionProfile t = 1 := sorry
 
-theorem nonneg (t : ℝ) : 0 ≤ smoothTransitionProfile t :=
-  Real.smoothTransition.nonneg t
+theorem nonneg (t : ℝ) : 0 ≤ smoothTransitionProfile t := sorry
 
-theorem le_one (t : ℝ) : smoothTransitionProfile t ≤ 1 :=
-  Real.smoothTransition.le_one t
-
-theorem pos_of_pos {t : ℝ} (ht : 0 < t) :
-    0 < smoothTransitionProfile t :=
-  Real.smoothTransition.pos_of_pos ht
-
-theorem differentiable : Differentiable ℝ smoothTransitionProfile :=
-  smooth.differentiable (by simp)
-
-/-- The derivative of the smooth transition vanishes on the open zero side. -/
-theorem deriv_zero_of_neg {t : ℝ} (ht : t < 0) :
-    deriv smoothTransitionProfile t = 0 := by
-  have h : smoothTransitionProfile =ᶠ[𝓝 t] fun _ => (0 : ℝ) := by
-    filter_upwards [Iio_mem_nhds ht] with y hy
-    exact zero_of_nonpos hy.le
-  exact h.deriv_eq.trans (deriv_const t (0 : ℝ))
-
-/-- The derivative of the smooth transition vanishes on the open one side. -/
-theorem deriv_zero_of_one_lt {t : ℝ} (ht : 1 < t) :
-    deriv smoothTransitionProfile t = 0 := by
-  have h : smoothTransitionProfile =ᶠ[𝓝 t] fun _ => (1 : ℝ) := by
-    filter_upwards [Ioi_mem_nhds ht] with y hy
-    exact one_of_one_le hy.le
-  exact h.deriv_eq.trans (deriv_const t (1 : ℝ))
-
-private theorem secondDeriv_zero_of_neg {t : ℝ} (ht : t < 0) :
-    deriv (deriv smoothTransitionProfile) t = 0 := by
-  have h : deriv smoothTransitionProfile =ᶠ[𝓝 t] fun _ => (0 : ℝ) := by
-    filter_upwards [Iio_mem_nhds ht] with y hy
-    exact deriv_zero_of_neg hy
-  exact h.deriv_eq.trans (deriv_const t (0 : ℝ))
-
-private theorem secondDeriv_zero_of_one_lt {t : ℝ} (ht : 1 < t) :
-    deriv (deriv smoothTransitionProfile) t = 0 := by
-  have h : deriv smoothTransitionProfile =ᶠ[𝓝 t] fun _ => (0 : ℝ) := by
-    filter_upwards [Ioi_mem_nhds ht] with y hy
-    exact deriv_zero_of_one_lt hy
-  exact h.deriv_eq.trans (deriv_const t (0 : ℝ))
-
-theorem continuous_deriv : Continuous (deriv smoothTransitionProfile) :=
-  (smooth.of_le (by simp)).continuous_deriv_one
-
-/-- The derivative of the smooth transition vanishes on the closed zero side.
-
-The endpoint follows from continuity of the derivative and the open-side
-identity. -/
-theorem deriv_zero_of_nonpos {t : ℝ} (ht : t ≤ 0) :
-    deriv smoothTransitionProfile t = 0 := by
-  rcases lt_or_eq_of_le ht with ht | rfl
-  · exact deriv_zero_of_neg ht
-  have hleft_eq :
-      deriv smoothTransitionProfile =ᶠ[𝓝[<] (0 : ℝ)] fun _ => (0 : ℝ) := by
-    filter_upwards [self_mem_nhdsWithin] with y hy
-    exact deriv_zero_of_neg hy
-  have hleft_tendsto :
-      Tendsto (deriv smoothTransitionProfile) (𝓝[<] (0 : ℝ)) (𝓝 (0 : ℝ)) :=
-    hleft_eq.tendsto
-  have hcont_tendsto :
-      Tendsto (deriv smoothTransitionProfile) (𝓝[<] (0 : ℝ))
-        (𝓝 (deriv smoothTransitionProfile (0 : ℝ))) :=
-    continuous_deriv.continuousAt.tendsto.mono_left nhdsWithin_le_nhds
-  exact (tendsto_nhds_unique hleft_tendsto hcont_tendsto).symm
-
-/-- The derivative of the smooth transition vanishes on the closed one side.
-
-The endpoint follows from continuity of the derivative and the open-side
-identity. -/
-theorem deriv_zero_of_one_le {t : ℝ} (ht : 1 ≤ t) :
-    deriv smoothTransitionProfile t = 0 := by
-  rcases lt_or_eq_of_le ht with ht | rfl
-  · exact deriv_zero_of_one_lt ht
-  have hright_eq :
-      deriv smoothTransitionProfile =ᶠ[𝓝[>] (1 : ℝ)] fun _ => (0 : ℝ) := by
-    filter_upwards [self_mem_nhdsWithin] with y hy
-    exact deriv_zero_of_one_lt hy
-  have hright_tendsto :
-      Tendsto (deriv smoothTransitionProfile) (𝓝[>] (1 : ℝ)) (𝓝 (0 : ℝ)) :=
-    hright_eq.tendsto
-  have hcont_tendsto :
-      Tendsto (deriv smoothTransitionProfile) (𝓝[>] (1 : ℝ))
-        (𝓝 (deriv smoothTransitionProfile (1 : ℝ))) :=
-    continuous_deriv.continuousAt.tendsto.mono_left nhdsWithin_le_nhds
-  exact (tendsto_nhds_unique hright_tendsto hcont_tendsto).symm
-
-theorem contDiff_deriv : ContDiff ℝ (⊤ : ℕ∞) (deriv smoothTransitionProfile) := by
-  simpa using
-    (ContDiff.iterate_deriv (𝕜 := ℝ) (F := ℝ) 1
-      (f := smoothTransitionProfile) smooth)
-
-theorem continuous_secondDeriv : Continuous (deriv (deriv smoothTransitionProfile)) := by
-  have h : ContDiff ℝ (1 : ℕ∞) (deriv smoothTransitionProfile) :=
-    contDiff_deriv.of_le (by simp)
-  exact h.continuous_deriv_one
+theorem le_one (t : ℝ) : smoothTransitionProfile t ≤ 1 := sorry
 
 theorem exists_deriv_bound :
-    ∃ C : ℝ, 0 ≤ C ∧ ∀ t : ℝ, ‖deriv smoothTransitionProfile t‖ ≤ C := by
-  obtain ⟨M, -, hM_max⟩ := (isCompact_Icc (a := (0 : ℝ)) (b := 1)).exists_isMaxOn
-    (nonempty_Icc.2 zero_le_one) continuous_deriv.norm.continuousOn
-  refine ⟨‖deriv smoothTransitionProfile M‖, norm_nonneg _, fun t => ?_⟩
-  by_cases ht0 : t < 0
-  · rw [deriv_zero_of_neg ht0, norm_zero]
-    exact norm_nonneg _
-  · by_cases ht1 : 1 < t
-    · rw [deriv_zero_of_one_lt ht1, norm_zero]
-      exact norm_nonneg _
-    · push Not at ht0 ht1
-      exact Filter.eventually_principal.mp hM_max t (Set.mem_Icc.2 ⟨ht0, ht1⟩)
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ t : ℝ, ‖deriv smoothTransitionProfile t‖ ≤ C := sorry
 
 theorem exists_secondDeriv_bound :
     ∃ C : ℝ, 0 ≤ C ∧
-      ∀ t : ℝ, ‖deriv (deriv smoothTransitionProfile) t‖ ≤ C := by
-  obtain ⟨M, -, hM_max⟩ := (isCompact_Icc (a := (0 : ℝ)) (b := 1)).exists_isMaxOn
-    (nonempty_Icc.2 zero_le_one) continuous_secondDeriv.norm.continuousOn
-  refine ⟨‖deriv (deriv smoothTransitionProfile) M‖, norm_nonneg _, fun t => ?_⟩
-  by_cases ht0 : t < 0
-  · rw [secondDeriv_zero_of_neg ht0, norm_zero]
-    exact norm_nonneg _
-  · by_cases ht1 : 1 < t
-    · rw [secondDeriv_zero_of_one_lt ht1, norm_zero]
-      exact norm_nonneg _
-    · push Not at ht0 ht1
-      exact Filter.eventually_principal.mp hM_max t (Set.mem_Icc.2 ⟨ht0, ht1⟩)
+      ∀ t : ℝ, ‖deriv (deriv smoothTransitionProfile) t‖ ≤ C := sorry
 
 /-- Noncomputable global first-derivative bound for `smoothTransitionProfile`.
 
@@ -211,39 +85,19 @@ project of proving a small explicit numerical bound. -/
 noncomputable def derivBound : ℝ :=
   exists_deriv_bound.choose
 
-theorem derivBound_nonneg : 0 ≤ derivBound :=
-  exists_deriv_bound.choose_spec.1
+theorem derivBound_nonneg : 0 ≤ derivBound := sorry
 
 theorem norm_deriv_le (t : ℝ) :
-    ‖deriv smoothTransitionProfile t‖ ≤ derivBound :=
-  exists_deriv_bound.choose_spec.2 t
+    ‖deriv smoothTransitionProfile t‖ ≤ derivBound := sorry
 
 /-- Noncomputable global second-derivative bound for `smoothTransitionProfile`. -/
 noncomputable def secondDerivBound : ℝ :=
   exists_secondDeriv_bound.choose
 
-theorem secondDerivBound_nonneg : 0 ≤ secondDerivBound :=
-  exists_secondDeriv_bound.choose_spec.1
+theorem secondDerivBound_nonneg : 0 ≤ secondDerivBound := sorry
 
 theorem norm_secondDeriv_le (t : ℝ) :
-    ‖deriv (deriv smoothTransitionProfile) t‖ ≤ secondDerivBound :=
-  exists_secondDeriv_bound.choose_spec.2 t
-
-/-- `Real.smoothTransition` packaged as a quantitative transition profile, with
-noncomputable compactness bounds for the first and second derivatives. -/
-def quantitativeProfile : QuantitativeTransitionProfile where
-  toFun := smoothTransitionProfile
-  smooth := smooth
-  zero_of_nonpos := zero_of_nonpos
-  one_of_one_le := one_of_one_le
-  nonneg := nonneg
-  le_one := le_one
-  derivBound := derivBound
-  derivBound_nonneg := derivBound_nonneg
-  norm_deriv_le := norm_deriv_le
-  secondDerivBound := secondDerivBound
-  secondDerivBound_nonneg := secondDerivBound_nonneg
-  norm_secondDeriv_le := norm_secondDeriv_le
+    ‖deriv (deriv smoothTransitionProfile) t‖ ≤ secondDerivBound := sorry
 
 end smoothTransitionProfile
 

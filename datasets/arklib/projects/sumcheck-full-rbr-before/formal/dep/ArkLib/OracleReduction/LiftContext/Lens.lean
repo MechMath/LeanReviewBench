@@ -1,25 +1,187 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
 public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
 public import dep.PolyFun.PFunctor.Lens.Basic
-
-/-!
-  ## Lens between Input and Output Contexts of (Oracle) Reductions
-
-  This file defines the different lenses required for the transformation / lifting of context for an
-  (oracle) reduction, and the properties required for the transformation / lift to be complete /
-  sound / knowledge sound (including an extra lens for the transformation / lifting of the
-  extractor).
-
-  We also define simpler examples of lenses, when we don't need the full generality. For instance,
-  lenses where we have (only) an equivalence between the statements / witnesses, or lenses where the
-  witnesses are trivial.
--/
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -72,28 +234,6 @@ def OracleStatement.Lens (OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut : Ty
     [∀ i, OracleInterface (InnerOStmtOut i)] :=
     Statement.Lens (OuterStmtIn × ∀ i, OuterOStmtIn i) (OuterStmtOut × ∀ i, OuterOStmtOut i)
                   (InnerStmtIn × ∀ i, InnerOStmtIn i) (InnerStmtOut × ∀ i, InnerOStmtOut i)
-  -- TODO: fill in the extra conditions
-  /- For a legacy embedded output, the lens must preserve the embedding into the input oracle
-  statements and prover messages. Derived virtual outputs instead use `ExecutableLens`, which
-  transports their query implementation and materialization-agreement proof.
-
-  We also need to provide a `QueryImpl` instance for simulating the outer oracle verifier using
-  the inner oracle verifier.
-  -/
-
-  -- simulateOutputQuery : QueryImpl [InnerOStmtIn]ₒ
-  --   (ReaderT OuterStmtIn (OracleComp [OuterOStmtIn]ₒ))
-
-  -- simOStmt_neverFails : ∀ i, ∀ t, ∀ outerStmtIn,
-  --   ((simulateOutputQuery.impl (query i t)).run outerStmtIn).neverFails
-  -- To get back an output oracle statement in the outer context, we may simulate it using the input
-  -- (non-oracle) statement of the outer context, the output (non-oracle) statement of the inner
-  -- context, along with oracle access to the inner output oracle statements
-
-  -- liftOStmt : QueryImpl [OuterOStmtOut]ₒ
-  --   (ReaderT (OuterStmtIn × InnerStmtOut) (OracleComp ([OuterOStmtIn]ₒ + [InnerOStmtOut]ₒ)))
-  -- liftOStmt_neverFails : ∀ i, ∀ t, ∀ outerStmtIn, ∀ innerStmtOut,
-  --   ((liftOStmt.impl (query i t)).run (outerStmtIn, innerStmtOut)).neverFails
 
 namespace OracleStatement.Lens
 
@@ -104,6 +244,7 @@ variable {OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut : Type}
     {Inner_ιₛₒ : Type} {InnerOStmtOut : Inner_ιₛₒ → Type} [∀ i, OracleInterface (InnerOStmtOut i)]
     (lens : OracleStatement.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
                 OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut)
+
 /-- Transport input statements from the outer context to the inner context
 
 TODO: refactor etc. -/
@@ -120,20 +261,7 @@ def lift : OuterStmtIn × (∀ i, OuterOStmtIn i) → InnerStmtOut × (∀ i, In
     OuterStmtOut × (∀ i, OuterOStmtOut i) :=
   lens.toFunB
 
--- def toVerifierLens : Statement.Lens
---     (OuterStmtIn × ∀ i, OuterOStmtIn i) (OuterStmtOut × ∀ i, OuterOStmtOut i)
---     (InnerStmtIn × ∀ i, InnerOStmtIn i) (InnerStmtOut × ∀ i, InnerOStmtOut i)
---   := oStmtLens
-
 end OracleStatement.Lens
-
-/-! ### Executable oracle-statement lenses
-
-The extensional `OracleStatement.Lens` above is sufficient for relation-level
-reasoning, but it cannot by itself implement an oracle verifier: an arbitrary
-function on whole oracle values need not be realizable by queries.  The
-following structure records the query implementations and their pointwise
-agreement with materialized oracle values. -/
 
 /-- A query-realizable lens between oracle statements.
 
@@ -229,6 +357,7 @@ namespace Witness.Lens
 variable {OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
           OuterWitIn OuterWitOut InnerWitIn InnerWitOut : Type}
     (lens : Witness.Lens OuterStmtIn InnerStmtOut OuterWitIn OuterWitOut InnerWitIn InnerWitOut)
+
 /-- Transport input witness from the outer context to the inner context -/
 @[inline, reducible]
 def proj : OuterStmtIn × OuterWitIn → InnerWitIn :=
@@ -293,6 +422,7 @@ variable {OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut : Type}
     (lens : OracleContext.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
                                     OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut
                                     OuterWitIn OuterWitOut InnerWitIn InnerWitOut)
+
 /-- Projection of the context. -/
 @[inline, reducible]
 def proj : (OuterStmtIn × (∀ i, OuterOStmtIn i)) × OuterWitIn →
@@ -418,15 +548,6 @@ def proj (lens : Extractor.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOu
     OuterWitIn OuterWitOut InnerWitIn InnerWitOut) :
     OuterStmtIn × OuterWitOut → InnerStmtIn × InnerWitOut :=
   fun ⟨stmtIn, witOut⟩ => ⟨lens.stmt.proj stmtIn, lens.wit.proj (stmtIn, witOut)⟩
-
--- /-- Transport the inner input witness to the outer input witness, also relying on the tuple
--- (outer--   input statement, outer output witness) -/
--- @[inline, reducible]
--- def lift (lens : Extractor.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
---               OuterWitIn OuterWitOut InnerWitIn InnerWitOut) :
---     OuterStmtIn × OuterWitOut → InnerWitIn → OuterWitIn :=
---   fun ⟨stmtIn, witOut⟩ innerWitIn =>
---     lens.wit.lift (stmtIn, witOut) innerWitIn
 
 end Extractor.Lens
 
@@ -555,48 +676,11 @@ instance [Inhabited OuterWitOut]
     lens.stmt.IsSound
       outerRelIn.language outerRelOut.language
       innerRelIn.language innerRelOut.language
-      compatStmt where
-  proj_sound := fun outerStmtIn hCompat => by
-    simp only [Set.mem_image, Prod.exists, exists_and_right, exists_eq_right,
-      not_exists] at hCompat ⊢
-    intro innerWitIn hRelIn
-    contrapose! hCompat
-    let outerWitIn := lens.wit.lift (outerStmtIn, default) innerWitIn
-    have hOuterWitIn := instKS.lift_knowledgeSound outerStmtIn default innerWitIn (by simp) hRelIn
-    exact ⟨outerWitIn, hOuterWitIn⟩
-  lift_sound := fun outerStmtIn innerStmtOut hCompat hInnerRelOut => by
-    simp only [Set.mem_image, Prod.exists, exists_and_right, exists_eq_right,
-      not_exists] at hCompat hInnerRelOut ⊢
-    intro outerWitOut hOuterRelOut
-    contrapose! hInnerRelOut
-    let innerWitOut := lens.wit.proj (outerStmtIn, outerWitOut)
-    have hInnerWitOut :=
-      instKS.proj_knowledgeSound outerStmtIn innerStmtOut outerWitOut hCompat hOuterRelOut
-    exact ⟨innerWitOut, hInnerWitOut⟩
+      compatStmt := sorry
 
 end Extractor.Lens.IsKnowledgeSound
 
 section SpecialCases
-
--- Plan (do not delete)
-
--- 1. When the lens is over the input context only (keeping the output the same)
--- 1.1. Over the input statement only
--- 1.1.1. When the map is an equivalence
--- 1.2. Over the input witness only
--- 1.2.1. When the map is an equivalence
-
--- TODO for oracle statements as we haven't figured it out
-
--- 2. When the lens is over the output context only (keeping the input the same)
--- 2.1. Over the output statement only
--- 2.1.1. When the map is an equivalence
--- 2.2. Over the output witness only
--- 2.2.1. When the map is an equivalence
-
--- When does this lead to secure protocols? Since one of input / output is trivial, this essentially
--- reduces to the security of the zero-round reduction (that is either the on the input or the
--- output context)
 
 variable {OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut : Type}
   {Outer_ιₛᵢ : Type} {OuterOStmtIn : Outer_ιₛᵢ → Type} [∀ i, OracleInterface (OuterOStmtIn i)]
@@ -615,26 +699,9 @@ protected def id :
 
 alias trivial := Statement.Lens.id
 
-/-- Lens for the statement which keeps the output the same, and hence only requires a
-  projection on the input. -/
-@[inline]
-def ofInputOnly (projStmt : OuterStmtIn → InnerStmtIn) :
-    Statement.Lens OuterStmtIn OuterStmtOut InnerStmtIn OuterStmtOut :=
-  ⟨projStmt, fun _ => id⟩
-
-/-- Lens for the statement which keeps the input the same, and hence only requires a
-  lift on the output. -/
-@[inline]
-def ofOutputOnly (liftStmt : OuterStmtIn → InnerStmtOut → OuterStmtOut) :
-    Statement.Lens OuterStmtIn OuterStmtOut OuterStmtIn InnerStmtOut :=
-  ⟨id, liftStmt⟩
-
 end Statement.Lens
 
 namespace OracleStatement.Lens
-
--- TODO: replace with new definitions when we figure out the right definition for oracle statements
--- lens
 
 /-- The identity lens for the statement, which acts as identity on the input and output. -/
 @[inline, reducible]
@@ -644,25 +711,6 @@ protected def id :
   PFunctor.Lens.id _
 
 alias trivial := OracleStatement.Lens.id
-
-/-- Lens for the statement which keeps the output the same, and hence only requires a
-  projection on the input. -/
-@[inline]
-def ofInputOnly
-    (projStmt : OuterStmtIn × (∀ i, OuterOStmtIn i) → InnerStmtIn × (∀ i, InnerOStmtIn i)) :
-    OracleStatement.Lens OuterStmtIn OuterStmtOut InnerStmtIn OuterStmtOut
-                        OuterOStmtIn OuterOStmtOut InnerOStmtIn OuterOStmtOut :=
-  ⟨projStmt, fun _ => id⟩
-
-/-- Lens for the statement which keeps the input the same, and hence only requires a
-  lift on the output. -/
-@[inline]
-def ofOutputOnly
-    (liftStmt : OuterStmtIn × (∀ i, OuterOStmtIn i) → InnerStmtOut × (∀ i, InnerOStmtOut i) →
-                OuterStmtOut × (∀ i, OuterOStmtOut i)) :
-    OracleStatement.Lens OuterStmtIn OuterStmtOut OuterStmtIn InnerStmtOut
-                        OuterOStmtIn OuterOStmtOut OuterOStmtIn InnerOStmtOut :=
-  ⟨id, liftStmt⟩
 
 end OracleStatement.Lens
 
@@ -677,21 +725,6 @@ protected def id :
 
 alias trivial := Witness.Lens.id
 
-/-- Lens for the witness which keeps the output context (statement + witness) the same, and hence
-  only requires a projection for the input witness. -/
-@[inline]
-def ofInputOnly (projWit : OuterStmtIn × OuterWitIn → InnerWitIn) :
-    Witness.Lens OuterStmtIn OuterStmtOut OuterWitIn OuterWitOut InnerWitIn OuterWitOut :=
-  ⟨projWit, fun _ => Prod.snd⟩
-
-/-- Lens for the witness which keeps the input context (statement + witness) the same, and hence
-  only requires a lift for the output witness. -/
-@[inline]
-def ofOutputOnly
-    (liftWit : OuterStmtIn × OuterWitIn → InnerStmtOut × InnerWitOut → OuterWitOut) :
-    Witness.Lens OuterStmtIn InnerStmtOut OuterWitIn OuterWitOut OuterWitIn InnerWitOut :=
-  ⟨Prod.snd, liftWit⟩
-
 end Witness.Lens
 
 namespace Witness.InvLens
@@ -704,21 +737,6 @@ protected def id :
   ⟨Prod.snd, fun _ => id⟩
 
 alias trivial := Witness.InvLens.id
-
-/-- Inverse lens for the witness which is the identity on the input witness (inner to outer), and
-  only requires a projection for the output witness (outer to inner). -/
-@[inline]
-def ofOutputOnly (projWit : OuterStmtIn × OuterWitOut → InnerWitOut) :
-    Witness.InvLens OuterStmtIn OuterWitIn OuterWitOut OuterWitIn InnerWitOut :=
-  ⟨projWit, fun _ => id⟩
-
-/-- Inverse lens for the witness which is the second projection on the output witness (outer to
-  inner), and only requires a lift for the input witness (inner to outer). -/
-@[inline]
-def ofInputOnly
-    (liftWit : OuterStmtIn × OuterWitOut → InnerWitIn → OuterWitIn) :
-    Witness.InvLens OuterStmtIn OuterWitIn OuterWitOut InnerWitIn OuterWitOut :=
-  ⟨Prod.snd, liftWit⟩
 
 end Witness.InvLens
 
@@ -733,29 +751,6 @@ protected def id :
   wit := Witness.Lens.id
 
 alias trivial := Context.Lens.id
-
-/-- Lens for the context which keeps the output contexts the same, and only requires projections on
-  the statement & witness for the input. -/
-@[inline]
-def ofInputOnly
-    (stmtProj : OuterStmtIn → InnerStmtIn)
-    (witProj : OuterStmtIn × OuterWitIn → InnerWitIn) :
-    Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn OuterStmtOut
-                OuterWitIn OuterWitOut InnerWitIn OuterWitOut where
-  stmt := Statement.Lens.ofInputOnly stmtProj
-  wit := Witness.Lens.ofInputOnly witProj
-
-/-- Lens for the context which keeps the input contexts the same, and only requires lifts on the
-  statement & witness for the output. -/
-@[inline]
-def ofOutputOnly
-    (witLift :
-      OuterStmtIn × OuterWitIn → InnerStmtOut × InnerWitOut → OuterWitOut)
-    (stmtLift : OuterStmtIn → InnerStmtOut → OuterStmtOut) :
-    Context.Lens OuterStmtIn OuterStmtOut OuterStmtIn InnerStmtOut
-                OuterWitIn OuterWitOut OuterWitIn InnerWitOut where
-  wit := Witness.Lens.ofOutputOnly witLift
-  stmt := Statement.Lens.ofOutputOnly stmtLift
 
 end Context.Lens
 
@@ -772,45 +767,9 @@ protected def id :
 
 alias trivial := OracleContext.Lens.id
 
-/-- Lens for the oracle context which keeps the output contexts the same, and only requires
-  projections on the statement & witness for the input. -/
-@[inline]
-def ofInputOnly
-    (stmtProj : OuterStmtIn × (∀ i, OuterOStmtIn i) → InnerStmtIn × (∀ i, InnerOStmtIn i))
-    (witProj : (OuterStmtIn × (∀ i, OuterOStmtIn i)) × OuterWitIn → InnerWitIn) :
-    OracleContext.Lens OuterStmtIn OuterStmtOut InnerStmtIn OuterStmtOut
-                OuterOStmtIn OuterOStmtOut InnerOStmtIn OuterOStmtOut
-                OuterWitIn OuterWitOut InnerWitIn OuterWitOut where
-  stmt := OracleStatement.Lens.ofInputOnly stmtProj
-  wit := Witness.Lens.ofInputOnly witProj
-
-/-- Lens for the oracle context which keeps the input contexts the same, and only requires lifts on
-  the statement & witness for the output. -/
-@[inline]
-def ofOutputOnly
-    (stmtLift : OuterStmtIn × (∀ i, OuterOStmtIn i) → InnerStmtOut × (∀ i, InnerOStmtOut i) →
-                OuterStmtOut × (∀ i, OuterOStmtOut i))
-    (witLift : (OuterStmtIn × (∀ i, OuterOStmtIn i)) × OuterWitIn →
-               (InnerStmtOut × (∀ i, InnerOStmtOut i)) × InnerWitOut → OuterWitOut) :
-    OracleContext.Lens OuterStmtIn OuterStmtOut OuterStmtIn InnerStmtOut
-                OuterOStmtIn OuterOStmtOut OuterOStmtIn InnerOStmtOut
-                OuterWitIn OuterWitOut OuterWitIn InnerWitOut where
-  stmt := OracleStatement.Lens.ofOutputOnly stmtLift
-  wit := Witness.Lens.ofOutputOnly witLift
-
 end OracleContext.Lens
 
 namespace Extractor.Lens
-
-/-- The identity lens for the extractor on the witness, given a statement lens. -/
-@[inline, reducible]
-def idWit {stmtLens : Statement.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut} :
-    Extractor.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                OuterWitIn OuterWitOut OuterWitIn OuterWitOut where
-  stmt := stmtLens
-  wit := Witness.InvLens.id
-
-alias trivialWit := Extractor.Lens.idWit
 
 end Extractor.Lens
 

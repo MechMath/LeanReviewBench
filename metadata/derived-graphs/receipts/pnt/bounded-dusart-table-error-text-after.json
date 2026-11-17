@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "pnt",
+  "project_id": "bounded-dusart-table-error-text-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "Dusart.proposition_3_2"
+  ],
+  "input_sha256": "4d933ed615bbdd809ed935fe9da18310f7163c41aaa54ba67d60b11d58153fd1",
+  "graph_sha256": "9ed52927272b50163ab32cee62e2a381ed11f0a623bb4ac2a99590db39a3eb00",
+  "graph_path": "metadata/derived-graphs/graphs/pnt--bounded-dusart-table-error-text-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "31d1cc04b4ce7e9c6e1425c94f55ec17db902c0f77e2e60d75d9ca3b841a1c46"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 109,
+  "edges": 605,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

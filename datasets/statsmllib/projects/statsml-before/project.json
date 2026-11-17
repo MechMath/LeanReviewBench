@@ -74,8 +74,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 16,
-    "sha256": "5e723f9b694969c4fd8dae69f9f4d9652479340bfddbdc24e764e855af1e27b4"
+    "file_count": 8,
+    "sha256": "dbacd76f6e90155f8438af994422789d42e2a6f0b1c05a8dbdeebac3cfa9fdb5",
+    "effective_root_sha256": "c4df4a772cc9d8a808494d2e555b06a30d1ac64fe05a17eddbefaed00d00caca",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/stat-learning-extraction/technical/statsml-before/receipt.json",
@@ -101,9 +104,9 @@
     "packaged_receipt": "reports/stat-learning-extraction/technical/statsml-before/packaged/receipt.json",
     "packaged_receipt_sha256": "057631c06a1a7f7d47d6f42c8a2631431f48e89cd6fd8507e6f59c92c425dd8b"
   },
-  "input_sha256": "4790b7a06521ca2baa50c37939b9dfff11e11c5cf627e907c36a08dec7ebf50b",
+  "input_sha256": "19934b454cfc24e35e685857757592c2fb7dc826a6e8024386d41a4ca205ca2f",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/statsmllib.jsonl",
   "informal_binding_review": "reports/undetermined-review-2026-11-09/review.json"
 }

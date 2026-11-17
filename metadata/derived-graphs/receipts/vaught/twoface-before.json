@@ -1,0 +1,155 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "vaught",
+  "project_id": "twoface-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift"
+  ],
+  "input_sha256": "78aa834cc1885b783b3b9e5b47a045696eefa2d6fc2cd38de676350763ea8bad",
+  "graph_sha256": "8414243e1384e712d49f2406f6c9cbc9f50861379e286983e98dd89a54a34f60",
+  "graph_path": "metadata/derived-graphs/graphs/vaught--twoface-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "24c18467942d20b12371fb80a49c2b5d3d9e0caf8103f7512280f07fb9fe5300"
+    ],
+    [
+      "formal/dep/Extension/Apex.lean",
+      "aace4b29d6d1d6cd0d24c4179a546aa7fc54dc85d83875b0972072309a684f54"
+    ],
+    [
+      "formal/dep/Extension/Basic.lean",
+      "c5ceb12c3bf36bff8ae37b82dc2bff922302c8e41e0789e76196cd334668d0a4"
+    ],
+    [
+      "formal/dep/Extension/CanonicalCode.lean",
+      "c490df8da9442fb9d56fb66c7764fa5e081512b22ffb960c6f922f15071c9d62"
+    ],
+    [
+      "formal/dep/Extension/CoatomAmalgam.lean",
+      "8228328bd5eeb239b9ad0f014824e86d83456b1a4e0f1718c9af0d1d2182539c"
+    ],
+    [
+      "formal/dep/Extension/CoatomScheme.lean",
+      "3081b6209e87e5356b9ef65799b75dbee6bdfee7670a06c92e0ae9365399a680"
+    ],
+    [
+      "formal/dep/Extension/Coding.lean",
+      "dd34a9543b4c06ae26454da7a0ab5831e7991ee5ea4f296702772549c2a69412"
+    ],
+    [
+      "formal/dep/Extension/CompletionBelowFullGrade.lean",
+      "d9449ef72a3ecd7fa8a4df36879d0a746628010925f7f48a77353eeb57465080"
+    ],
+    [
+      "formal/dep/Extension/FieldLayer.lean",
+      "170b0211f031579619764ea9591b0991a3af74856036b7d94f38cfe2d292c0c5"
+    ],
+    [
+      "formal/dep/Extension/Merge.lean",
+      "429befebde74f9bfd3696fb2a79e1f14a53ea269de47cf02427ec9eb3cda7e56"
+    ],
+    [
+      "formal/dep/Extension/OrbitCode.lean",
+      "44a264ea2e24fbce01515b605f1438fef96bc9206bc2a97c737314d6d2570557"
+    ],
+    [
+      "formal/dep/Extension/PinnedExtension.lean",
+      "563e41f54cf9f0362d56ca624dbeb6dc1a794d2a6aae594c02ef0128c89fe9d8"
+    ],
+    [
+      "formal/dep/Extension/Seed.lean",
+      "70e145e26836e66441f15c059914b6e9de0cccde9336ea898c183799f38a045a"
+    ],
+    [
+      "formal/dep/Extension/SourcePrefix.lean",
+      "b605fa77270891e6e5c4fe10ff4658478509f1108fbb6f8c96b7461002dc9ec2"
+    ],
+    [
+      "formal/dep/Extension/Tower.lean",
+      "c8afed982a8dfbce9662b0c8dbb6f0e6203a5b2d31a9066f19852a8e6705322a"
+    ],
+    [
+      "formal/dep/Extension/WitnessAlgebra.lean",
+      "e52e0fbe44888a7006834a53e0e12e7c2a7142da60b093dd690152052a7b65e3"
+    ],
+    [
+      "formal/dep/Geometry/ConvexGeometry.lean",
+      "8570f1bba97fe6abccf94e99e89a26c307cac6f56b7859f4eef49516b461a439"
+    ],
+    [
+      "formal/dep/Geometry/Plan.lean",
+      "52ef05531e3aef555b065b734987a036a5260ecca8295d8f72828d159b7ea482"
+    ],
+    [
+      "formal/dep/Label/Basic.lean",
+      "5993ed6c7cc415f41513436673936bae7a535655849085d95e73d2ef82227740"
+    ],
+    [
+      "formal/dep/Label/Cap.lean",
+      "ce23df87b8953c0ec72c980be0b06a08895b8f3b215ca9722f1f31d8f555e675"
+    ],
+    [
+      "formal/dep/Label/OrdinalVisibility.lean",
+      "f1953bb0a655269cfd369f9932f69b93009245565db27c9673812407ac286b61"
+    ],
+    [
+      "formal/dep/Label/Transform.lean",
+      "dc57b5eab7bd59f2d7586e864cc246cdbeaa80538128c87d1654d6e0d612b782"
+    ],
+    [
+      "formal/dep/Label/Visibility.lean",
+      "44d4d9d791c32dde6de042f1ca6e35311006438756704cdb91a5b4747e0a0cf9"
+    ],
+    [
+      "formal/dep/Scheme/Bountiful.lean",
+      "3e8e988bc340b86f43741a99bd26a9362be300352212381420a48dee37faaa55"
+    ],
+    [
+      "formal/dep/Scheme/Cell.lean",
+      "8d14c3e2862d08b2abb8e0f8d2fe8ced741347e5d4e66bc3dcd0d96f18dfeadf"
+    ],
+    [
+      "formal/dep/Scheme/Row.lean",
+      "fd4c9741d015ae62e4dbd52c693c9ffa7cca64becb03217c1c60845f09afc13d"
+    ],
+    [
+      "formal/dep/Scheme/Transport.lean",
+      "b0f24c519e1b47602970c1066934a02cf550c79d4d55b69189f50b2a261d78a8"
+    ],
+    [
+      "formal/dep/Stage/Basic.lean",
+      "64ae5e9801944128ae9a3d51990558f11fd1ba9b053d890c0c86f570e9843d9a"
+    ],
+    [
+      "formal/dep/Stage/Countable.lean",
+      "5f78802dff2f923f516fbfe1afd4c16215c8e59f1b535cc1964ca803fce064d0"
+    ],
+    [
+      "formal/dep/Stage/Legal.lean",
+      "106e2bd83ccc120da9a63329b8a16fc7b2049c7bdd808d22fa403a4db61c2ca2"
+    ],
+    [
+      "formal/dep/Stage/Scheme.lean",
+      "45d68c0846a6452a2ee22583b573eccee08f3bf9b3432ae30f7ce8dcdff94fdc"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 31,
+  "nodes": 337,
+  "edges": 2287,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

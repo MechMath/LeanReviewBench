@@ -47,11 +47,14 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 4,
-    "sha256": "0d2fd03c1f3680c5af6a9f67b6f0086700cca9691177d541fbe86e2b6547c7f4"
+    "file_count": 3,
+    "sha256": "2b4ae55eb686c4c372e99930dd83aa3269f86a50c2721a837fc13537485df22c",
+    "effective_root_sha256": "494466f3992662dad2de8d1501fc2fe7656371feb931de44974a0e8202e0b270",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/apap.jsonl",
   "evaluation_eligible": false,
   "preparation": {
@@ -63,5 +66,5 @@
     "packaged_receipt_sha256": "15220d0a35a006152bed26330c0428e86924697deb380a0f84813e61c70e2b84"
   },
   "upstream_proof_holes_preserved": true,
-  "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6"
+  "input_sha256": "ab02d0b07cd21d13c8d0acad23e9a4083bc93f42bce63cf9f0a8fd0c4b52814f"
 }

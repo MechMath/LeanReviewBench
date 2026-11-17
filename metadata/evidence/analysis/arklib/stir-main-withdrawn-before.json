@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "stir-main-withdrawn-before",
   "task_id": "arklib:stir-main-withdrawn-before",
-  "input_sha256": "624cddb03bf99d6bc4a2aa781987751b5cf6baf9c5a89b49c7340dc88f95e4da",
+  "input_sha256": "6e41ab32e09e6464c03c393cc7938796b7852247a1597f5eb9eb02d13d92b6e4",
   "label": "misaligned",
   "reason": "The field-size condition is an upper bound where the source requires an asymptotic lower bound. The external round, proof-length, and query-count parameters are not bound to the actual resource measures of the existentially supplied protocol. The existential complexity constants are chosen after the instance parameters, losing the corresponding uniform asymptotic bounds.",
   "review_status": "human_reviewed",

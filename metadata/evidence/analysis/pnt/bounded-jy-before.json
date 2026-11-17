@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "bounded-jy-before",
   "task_id": "pnt:bounded-jy-before",
-  "input_sha256": "d0a9b408179eca581794137bbc0c65e499dfb8a5eb217afa347a0455fb4be4cc",
+  "input_sha256": "1760ae0c0e228cba8c10e23c31f61966dac6f870333a12e3813c96d7bf8c5ad4",
   "label": "misaligned",
   "reason": "Expanding the normalized error yields log exponent -0.199 instead of +0.801. The formal threshold is x>=23 rather than x>=2.",
   "review_status": "human_reviewed",

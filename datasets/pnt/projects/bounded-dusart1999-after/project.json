@@ -40,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "6e688c83c82027857e6ea65311bf50876470a05fa9a66c48e7b8295b41548fc9"
+    "sha256": "abffea2d4763f8d7f6b95bed0977f3e982fe1a428ed8be708177847da50dbe85",
+    "effective_root_sha256": "9db7f2050ff67039fdb58a485c8d4219c789017f1216897a44d074049486b49b",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-after/20261105T053617547086Z/receipt.json",
@@ -63,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "6fdcc2fec23479f6d9dbfd2787edd4342077bd75bf2efb139e1f19038172d16c",
+  "input_sha256": "8af29a20d01cbb7b7703d85f522ca557eeef7be4578b6ce504781897796ec306",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

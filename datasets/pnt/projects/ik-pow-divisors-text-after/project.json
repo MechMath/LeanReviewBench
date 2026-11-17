@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "文字明确使用a|m且a^k|m、b|n且b^k|n的筛选域；formal的divisors.filter/product及乘法image或InjOn逐项对应，coprime前提和自然数参数一致。",
   "external_imports": [
     "Mathlib.NumberTheory.LSeries.Dirichlet",
     "Mathlib.NumberTheory.LSeries.Nonvanishing"
@@ -42,7 +41,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "07238a011df726036b523fb4641e7658c9fbba8c1ccad86c36bf2b3c61320422"
+    "sha256": "9c9bb863dcd4743d56dc13bc162c92e60cf1a8c42fb8a88cf15338a13193ed13",
+    "effective_root_sha256": "c7d2e9cd95f8c72ba1c4d1261c397fb14289d03adf216f5c7a8b71da89201e09",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-ik-extraction/repaired/ik-pow-divisors/20261105T052917502913Z/receipt.json",
@@ -65,8 +67,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "85076c2db681671ff32efc332543423af599799aa3a7b4760870aea1c3b99aaf",
+  "input_sha256": "13e578444fd36104966859694439209f2e80cbd15a39f9d6565dee766a378f01",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

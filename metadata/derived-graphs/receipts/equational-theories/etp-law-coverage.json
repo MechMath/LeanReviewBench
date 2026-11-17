@@ -1,0 +1,99 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-law-coverage",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "laws_complete'"
+  ],
+  "input_sha256": "64623e388afd80e93904dbe7ec8c4c0490b9cdaa85d7b7efee08459f76695bd4",
+  "graph_sha256": "819e81823aa0d699bef5f76fc78f32c20b3c087ecd1a8e4f7df5e94f1d28c5e0",
+  "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-law-coverage.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "18e9436f5f80c9921a91d344e16d14c8029f4015d5d10342dab2a7336d71ca49"
+    ],
+    [
+      "formal/dep/equational_theories/EquationLawConversion.lean",
+      "694edf36539d0dd39ad0ab9b4d69a1411d40c653b8c925f9702ee9e1255a145b"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Basic.lean",
+      "ffc14c6049011a8d12f59f4639aadfe766047d771bcfd66a8d93611da573e3fa"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Command.lean",
+      "bf6f204ae154dae3a7040374a2b9519d28d8d5c86b2d08464f58df64f8bafe0c"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Eqns1000_1999.lean",
+      "7ba14c0db88f37fe4769e69a9f1811c7f10bcbcf9622a4a39637cf2a83863024"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Eqns1_999.lean",
+      "fb53a77b49f5093a594e4f2f412388c1a1e0348e167845c247391be753e1d4e2"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Eqns2000_2999.lean",
+      "334f939cf69c801458e580947dece5a8fb8ed7b4dccaf715f7d3fd590e60ab93"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Eqns3000_3999.lean",
+      "e652b35b03f55f5ec2d703bd8be708cb298f88326aa176d02a2ba85785010a30"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Eqns4000_4694.lean",
+      "c643f5a7b789bc236c4b94b3594698f42ff3b5a552fd3cd6376d1ddddf27ed43"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/LawsComplete.lean",
+      "0131f5b9163e8f0567f38b3fb0b04f258ce9b73bc5b387fb74d024d073dace29"
+    ],
+    [
+      "formal/dep/equational_theories/FreeMagma.lean",
+      "af6714e8d0d2fde238f1d3ecba67aa4c10e9e8abe9b535aefbd04a7f3f0d9939"
+    ],
+    [
+      "formal/dep/equational_theories/Homomorphisms.lean",
+      "23a0afa710adf8ed49cc8ee881d20fdfb66f36ac00c9c0c6d1446ab936e6241b"
+    ],
+    [
+      "formal/dep/equational_theories/Magma.lean",
+      "e8cfaef1209b500fa8f3d096c7c252657610793cbee16b91affcae20d3593ea1"
+    ],
+    [
+      "formal/dep/equational_theories/MagmaLaw.lean",
+      "33513a388df8ca89de92c126b18bee36376365075bdb322bcc90e5c7acc6cfcc"
+    ],
+    [
+      "formal/dep/equational_theories/ParseImplications.lean",
+      "90374715600da5bd217d0a60d370e45a775009d9e643def7af0fa4234e0a3646"
+    ],
+    [
+      "formal/dep/equational_theories/Preorder.lean",
+      "865a16fdbb8406c57d893021c21e807afee34a346c369773650ac566c97e9ab9"
+    ],
+    [
+      "formal/dep/equational_theories/RArray.lean",
+      "61dba5df9fbfad095267829810adac3024f04ed7714947d2b9fe7d77c08079c2"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 17,
+  "nodes": 4752,
+  "edges": 37724,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

@@ -3,7 +3,7 @@
   "dataset": "formalslt",
   "project_id": "eb-before",
   "task_id": "formalslt:eb-before",
-  "input_sha256": "84fccd39b0b4043a9149592aa38cd7898fb7ba2e5ee36385e46f6fc09388b40b",
+  "input_sha256": "889ce21db87802909aeea9491e3f7d46f4476d204110ced2dbce2deae52bf3af",
   "label": "misaligned",
   "reason": "Adaptedness uses filtration index k instead of k+1; with conditional centering this forces zero increments.",
   "review_status": "human_reviewed",

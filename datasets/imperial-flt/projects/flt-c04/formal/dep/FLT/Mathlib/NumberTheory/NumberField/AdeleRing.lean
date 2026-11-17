@@ -1,24 +1,98 @@
-/-
-Copyright (c) 2025 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard
--/
 module
 
--- can't upstream until we've imported the below!
+public import Mathlib.Algebra.Group.Int.TypeTags
+public import Mathlib.Algebra.Group.Pointwise.Set.Basic
+public import Mathlib.Algebra.Group.Submonoid.Units
+public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.LinearMap.Defs
+public import Mathlib.Algebra.Module.Pi
+public import Mathlib.Algebra.Module.Submodule.Defs
+public import Mathlib.Algebra.Ring.Subring.Basic
+public import Mathlib.Algebra.Ring.Subring.Defs
+public import Mathlib.Algebra.Ring.Subsemiring.Basic
+public import Mathlib.Analysis.Normed.Ring.Lemmas
+public import Mathlib.CategoryTheory.Category.Init
+public import Mathlib.CategoryTheory.Types.Basic
+public import Mathlib.Data.Nat.Totient
+public import Mathlib.Data.Rat.Encodable
+public import Mathlib.Data.Sym.Sym2.Init
+public import Mathlib.LinearAlgebra.Countable
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.LinearAlgebra.FreeModule.IdealQuotient
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.LinearAlgebra.Matrix.Defs
+public import Mathlib.LinearAlgebra.Quotient.Pi
+public import Mathlib.Logic.Equiv.PartialEquiv
 public import Mathlib.NumberTheory.NumberField.AdeleRing
-import dep.FLT.Mathlib.NumberTheory.NumberField.FiniteAdeleRing
-import dep.FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
-
-/-!
-
-# Topological facts about adele rings
-
-This should be enough to deduce that they're Polish.
-
--/
+public import Mathlib.NumberTheory.NumberField.Basic
+public import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
+public import Mathlib.NumberTheory.NumberField.Completion.InfinitePlace
+public import Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
+public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
+public import Mathlib.NumberTheory.Padics.ProperSpace
+public import Mathlib.NumberTheory.RamificationInertia.Basic
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.NumberTheory.RamificationInertia.Ramification
+public import Mathlib.Order.Filter.Cofinite
+public import Mathlib.RingTheory.AlgebraTower
+public import Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+public import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient
+public import Mathlib.RingTheory.Ideal.Quotient.Defs
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+public import Mathlib.RingTheory.Localization.BaseChange
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.RingTheory.Valuation.Discrete.Basic
+public import Mathlib.RingTheory.Valuation.Discrete.RankOne
+public import Mathlib.Tactic.Bound.Init
+public import Mathlib.Tactic.ContinuousFunctionalCalculus
+public import Mathlib.Tactic.NormNum.GCD
+public import Mathlib.Tactic.Positivity.Finset
+public import Mathlib.Topology.Algebra.Algebra
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Constructions
+public import Mathlib.Topology.Algebra.Group.Units
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+public import Mathlib.Topology.Algebra.Module.Equiv
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import Mathlib.Topology.Algebra.Valued.ValuationTopology
+public import Mathlib.Topology.Algebra.Valued.ValuedField
+public import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
+public import Mathlib.Topology.Bases
+public import Mathlib.Topology.Homeomorph.Lemmas
+public import Mathlib.Topology.Instances.Matrix
+public import Mathlib.Topology.Path
+public import dep.FLT.DedekindDomain.AdicValuation
+public import dep.FLT.DedekindDomain.IntegralClosure
+public import dep.FLT.Deformations.ContinuousRepresentation.IsTopologicalModule
+public import dep.FLT.Mathlib.Algebra.Algebra.Tower
+public import dep.FLT.Mathlib.Algebra.Module.Submodule.Basic
+public import dep.FLT.Mathlib.LinearAlgebra.Countable
+public import dep.FLT.Mathlib.NumberTheory.NumberField.FiniteAdeleRing
+public import dep.FLT.Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
+public import dep.FLT.Mathlib.NumberTheory.NumberField.InfinitePlace.Completion
+public import dep.FLT.Mathlib.Order.Filter.Cofinite
+public import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import dep.FLT.Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+public import dep.FLT.Mathlib.Topology.Algebra.Module.ModuleTopology
+public import dep.FLT.Mathlib.Topology.Algebra.MulAction
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Equiv
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import dep.FLT.NumberField.Completion.Finite
+public import dep.FLT.NumberField.HeightOneSpectrum
 
 @[expose] public section
+
 variable {K : Type*} [Field K]
 
 namespace NumberField.AdeleRing
@@ -26,31 +100,16 @@ namespace NumberField.AdeleRing
 variable {R : Type*} [CommRing R] [IsDedekindDomain R] [Algebra R K] [IsFractionRing R K]
   (x y : AdeleRing R K)
 
-@[simp] lemma add_fst (x y : AdeleRing R K) : (x + y).1 = x.1 + y.1 := rfl
-@[simp] lemma add_snd (x y : AdeleRing R K) : (x + y).2 = x.2 + y.2 := rfl
-
-@[simp] lemma mul_fst (x y : AdeleRing R K) : (x * y).1 = x.1 * y.1 := rfl
-@[simp] lemma mul_snd (x y : AdeleRing R K) : (x * y).2 = x.2 * y.2 := rfl
-
-@[simp] lemma zero_fst : (0 : AdeleRing R K).1 = 0 := rfl
-@[simp] lemma zero_snd : (0 : AdeleRing R K).2 = 0 := rfl
-
-@[simp] lemma one_fst : (1 : AdeleRing R K).1 = 1 := rfl
-@[simp] lemma one_snd : (1 : AdeleRing R K).2 = 1 := rfl
-
 variable [NumberField K]
 
 section topology_stuff
 
 open IsDedekindDomain.HeightOneSpectrum in
-instance locallyCompactSpace : LocallyCompactSpace (AdeleRing (𝓞 K) K) :=
-  inferInstanceAs <| LocallyCompactSpace (_ × _)
+instance locallyCompactSpace : LocallyCompactSpace (AdeleRing (𝓞 K) K) := sorry
 
-instance : T2Space (AdeleRing (𝓞 K) K) :=
-  inferInstanceAs <| T2Space (_ × _)
+instance : T2Space (AdeleRing (𝓞 K) K) := sorry
 
-instance : SecondCountableTopology (AdeleRing (𝓞 K) K) :=
-  inferInstanceAs <| SecondCountableTopology (_ × _)
+instance : SecondCountableTopology (AdeleRing (𝓞 K) K) := sorry
 
 end topology_stuff
 

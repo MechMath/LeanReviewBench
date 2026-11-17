@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
   "external_imports": [
     "Mathlib.NumberTheory.LSeries.Dirichlet",
     "Mathlib.NumberTheory.LSeries.Nonvanishing"
@@ -42,7 +41,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "001f6db23f8d1a131cfc60829968a2ac0df16230ab7bdc81b82d78944d2b9a4b"
+    "sha256": "81df8132f6c9a9e1aeacf1436c15693c3649bde523c085f076bce4d8d558d337",
+    "effective_root_sha256": "e726b30e4834f643256037982b031fa6a63f9e6bd26db291f0f1f6dd05d7723b",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-ik-extraction/repaired/ik-liouville-before/20261105T052926749391Z/receipt.json",
@@ -65,8 +67,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "3af95d1d845257125a7a62ee71b796ab61dc8d885bd35bd31ef8faa5a6200c5d",
+  "input_sha256": "b840e1de72e7e7c1d3ab10abbb452b5143b6dace7133405c71b73a093198970c",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

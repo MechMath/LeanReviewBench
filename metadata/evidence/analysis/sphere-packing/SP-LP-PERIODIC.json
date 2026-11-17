@@ -3,7 +3,7 @@
   "dataset": "sphere-packing",
   "project_id": "SP-LP-PERIODIC",
   "task_id": "sphere-packing:SP-LP-PERIODIC",
-  "input_sha256": "ad315154091f2c808aa9f8af30bf50acb1e92d144341a1afd46448c7d93ab7ed",
+  "input_sha256": "c87d9fc5374467b0515bf64039b252b93fd0b05326e6bda5b2cdccbbcf0ffd89",
   "label": "misaligned",
   "reason": "Summability over the entire Euclidean index space is an additional premise absent from the Schwartz-function target.",
   "review_status": "human_reviewed",

@@ -26,7 +26,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "当前文字恰好是x≥121下两个严格下界的合取；formal的ψ、θ、sqrt以及0.9999和4/(log x)^3项逐项对应。",
   "external_imports": [
     "Mathlib"
   ],
@@ -39,7 +38,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "30179f640f88732e779bc387aa010921befe80218783c3b70adaaee9d0647792"
+    "sha256": "94dc3b3f570af67a8ac8ff25761e1cc1867add9f1e9bf7f28c515edd3fa9189b",
+    "effective_root_sha256": "5e3f62298fbbd102647ed99ef2b6d1cd8f3e14776f1da850ada78fbbcc155ec0",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-psi-theta/20261105T053639938480Z/receipt.json",
@@ -62,8 +64,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "71e7696a702b6be070310064c96471a728a490df3857c156019a35f3d96c331f",
+  "input_sha256": "e255c3c18011a7f05ca71e4a56a82b8b7375f86fa2102d62243388ab76f2f44e",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

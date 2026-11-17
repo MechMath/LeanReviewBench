@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "当前文字阈值23，formal B=1.801；乘回正因子x/log x后log指数1.801−1=0.801，其余常数、实数3/5及1/5指数、Li定义一致。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "0ed8da56997286db55ba71781894a74df0588aa8d928796e799b68104d8115ca"
+    "sha256": "65d768b14874cf0a0bdb8425fe7dff4a7661be1af270a315ea618bc2e151b756",
+    "effective_root_sha256": "d39b6c0836c688047133f1d7853dafa818cd109d3c22127b984d778a8f8f2546",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-after/20261105T053511871694Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "3cb65b1719ef11092365a9a7693fe740b800fb9a4e45349b8c890afecfe8dc18",
+  "input_sha256": "5480389edc82225d6e107214860ddcb134bbd9df64f22267d665dc780faab510",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

@@ -4,7 +4,7 @@ The release contains 171 inputs across 16 batches, with 81 aligned and 90 misali
 
 - [Data format](DATA-FORMAT.md): layout, input/root identities, labels, evidence and technical states.
 - [Statistics](STATISTICS.md): generated counts and counting conventions.
-- [Construction](CONSTRUCTION.md): source selection and formal/informal reconstruction methods.
+- [Construction](CONSTRUCTION.md): source selection, Lean migration notes and statement-context extraction.
 - [Environment](ENVIRONMENT.md): compiler, library pins and optional tool configuration.
 - [Validation](VALIDATION.md): integrity checks, tests and their limits.
 - [Maintenance](MAINTENANCE.md): updating inputs, metadata and inventories.

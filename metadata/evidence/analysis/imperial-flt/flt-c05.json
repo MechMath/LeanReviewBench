@@ -3,7 +3,7 @@
   "dataset": "imperial-flt",
   "project_id": "flt-c05",
   "task_id": "imperial-flt:flt-c05",
-  "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
+  "input_sha256": "1f1d9778831c26f6c0413d25960d34ccc222b800f9fd658328b4c775370776ca",
   "label": "aligned",
   "reason": "The finite-adelic unit group, diagonal embedding, left and right subgroup actions, and openness hypothesis match the finite double-coset statement.",
   "review_status": "human_reviewed",

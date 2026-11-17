@@ -11,4 +11,9 @@ Relocate project-local imports and adapt the historical finite-sum/probability i
 
 Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
-Recorded compatibility edits affect `EconCSLib/Foundations/Probability/RealDistribution.lean`, `LMMS04FairDivision/MainTheorems.lean`, `LMMS04FairDivision/Theorem31QueryLowerBound.lean`, `LMMS04FairDivision/Theorem34BoundedOptimal.lean`.
+Before context pruning, compatibility edits affected `EconCSLib/Foundations/Probability/RealDistribution.lean`, `LMMS04FairDivision/MainTheorems.lean`, `LMMS04FairDivision/Theorem31QueryLowerBound.lean`, `LMMS04FairDivision/Theorem34BoundedOptimal.lean`.
+
+## Released statement context
+
+- Retain the target declaration closure and source support needed to elaborate it; remove other declarations and modules.
+- Replace theorem and lemma bodies, proof-valued declaration bodies, and proof-valued tactic blocks with `sorry`. Preserve declaration types, section parameters, and computational definitions.

@@ -1,24 +1,62 @@
-/-
-Copyright (c) 2025 Salvatore Mercuri. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Salvatore Mercuri, Kevin Buzzard
--/
 module
 
-public import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
-public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
-public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Algebra
+public import Mathlib.Algebra.Group.Pointwise.Set.Basic
+public import Mathlib.Algebra.Group.Submonoid.Units
 public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.LinearMap.Defs
+public import Mathlib.Algebra.Module.Pi
+public import Mathlib.Algebra.Module.Submodule.Defs
+public import Mathlib.Algebra.Ring.Subring.Basic
+public import Mathlib.Algebra.Ring.Subring.Defs
+public import Mathlib.Algebra.Ring.Subsemiring.Basic
+public import Mathlib.CategoryTheory.Category.Init
+public import Mathlib.CategoryTheory.Types.Basic
+public import Mathlib.Data.Nat.Totient
+public import Mathlib.Data.Sym.Sym2.Init
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.LinearAlgebra.Matrix.Defs
+public import Mathlib.LinearAlgebra.Quotient.Pi
+public import Mathlib.Logic.Equiv.PartialEquiv
+public import Mathlib.Order.Filter.Cofinite
+public import Mathlib.RingTheory.AlgebraTower
+public import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Bound.Init
+public import Mathlib.Tactic.ContinuousFunctionalCalculus
+public import Mathlib.Tactic.NormNum.GCD
+public import Mathlib.Tactic.Positivity.Finset
 public import Mathlib.Topology.Algebra.Algebra
-
-/-!
-# Finite Adele Ring
-
-Material destined for Mathlib.
--/
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Constructions
+public import Mathlib.Topology.Algebra.Group.Units
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+public import Mathlib.Topology.Algebra.Module.Equiv
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
+public import Mathlib.Topology.Bases
+public import Mathlib.Topology.Homeomorph.Lemmas
+public import Mathlib.Topology.Instances.Matrix
+public import dep.FLT.Deformations.ContinuousRepresentation.IsTopologicalModule
+public import dep.FLT.Mathlib.Algebra.Algebra.Tower
+public import dep.FLT.Mathlib.Algebra.Module.Submodule.Basic
+public import dep.FLT.Mathlib.Order.Filter.Cofinite
+public import dep.FLT.Mathlib.Topology.Algebra.Module.ModuleTopology
+public import dep.FLT.Mathlib.Topology.Algebra.MulAction
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Basic
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Equiv
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.Module
+public import dep.FLT.Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
 
 @[expose] public section
+
 set_option backward.isDefEq.respectTransparency false
+
 set_option backward.defeqAttrib.useBackward true
 
 namespace IsDedekindDomain.FiniteAdeleRing
@@ -31,16 +69,10 @@ open scoped Adele
 variable (R K : Type*) [CommRing R] [Field K] [IsDedekindDomain R] [Algebra R K]
   [IsFractionRing R K]
 
-lemma prop (x : (FiniteAdeleRing R K)) :
-    ∀ᶠ v in .cofinite, x v ∈ v.adicCompletionIntegers K := x.2
-
 /-- The structure map `Π 𝒪ᵥ → 𝔸ᶠ` as a ring hom. -/
 noncomputable abbrev structureMap :
     (Π v : HeightOneSpectrum R, v.adicCompletionIntegers K) →+* (FiniteAdeleRing R K) :=
   RestrictedProduct.structureMapRingHom _ _ _
-
-variable {R K} in
-@[simp] lemma structureMap_apply_apply (x i) : structureMap R K x i = x i := rfl
 
 /-- The integral adele subring inside the finite adele ring. -/
 noncomputable abbrev integralAdeles : Subring ((FiniteAdeleRing R K)) :=
@@ -48,186 +80,12 @@ noncomputable abbrev integralAdeles : Subring ((FiniteAdeleRing R K)) :=
 
 variable {R K}
 
-@[simp] lemma one_apply (v : HeightOneSpectrum R) : (1 : (FiniteAdeleRing R K)) v = 1 := rfl
-
-@[simp] lemma mul_apply (a b : (FiniteAdeleRing R K)) (v : HeightOneSpectrum R) :
-    (a * b) v = a v * b v := rfl
-
-@[simp] lemma add_apply (a b : (FiniteAdeleRing R K)) (v : HeightOneSpectrum R) :
-    (a + b) v = a v + b v := rfl
-
-@[simp] lemma sub_apply (a b : (FiniteAdeleRing R K)) (v : HeightOneSpectrum R) :
-    (a - b) v = a v - b v := rfl
-
-@[simp] lemma neg_apply (a : (FiniteAdeleRing R K)) (v : HeightOneSpectrum R) :
-    (-a) v = - a v := rfl
-
 /-- Constructor for `(FiniteAdeleRing R K)`. An `abbrev`. -/
 abbrev mk (f : ∀ v, HeightOneSpectrum.adicCompletion K v)
     (h : ∀ᶠ (i : HeightOneSpectrum R) in Filter.cofinite,
     f i ∈ (fun v ↦ ↑(HeightOneSpectrum.adicCompletionIntegers K v)) i) : (FiniteAdeleRing R K) :=
   ⟨f, h⟩
 
-@[simp]
-lemma mk_apply (f : ∀ v, HeightOneSpectrum.adicCompletion K v)
-    (h : ∀ᶠ (i : HeightOneSpectrum R) in Filter.cofinite,
-    f i ∈ (fun v ↦ ↑(HeightOneSpectrum.adicCompletionIntegers K v)) i) (v : HeightOneSpectrum R) :
-    mk f h v = f v := rfl
-
 variable (R K)
-/--
-The K-algebra map `𝔸_K^f → Kᵥ` from the finite adele ring of K to a completion.
--/
-noncomputable def evalAlgebraMap (j : HeightOneSpectrum R) :
-    (FiniteAdeleRing R K) →ₐ[K] j.adicCompletion K := {
-  __ := RestrictedProduct.evalContinuousAddMonoidHom _ j
-  map_one' := rfl
-  map_mul' _ _ := rfl
-  commutes' _ := rfl
-    }
-
-/--
-The continuous K-algebra map `𝔸_K^f → Kᵥ` from the finite adele ring of K to a completion.
--/
-noncomputable def evalContinuousAlgebraMap (j : HeightOneSpectrum R) :
-    (FiniteAdeleRing R K) →A[K] j.adicCompletion K := {
-  __ := RestrictedProduct.evalContinuousAddMonoidHom _ j
-  __ := IsDedekindDomain.FiniteAdeleRing.evalAlgebraMap R K j
-  cont := RestrictedProduct.continuous_eval j -- this should be automatic -- why is this
-                                              -- field not called continuous_toFun??
-    }
-
-set_option backward.isDefEq.respectTransparency false in
-variable [DecidableEq (HeightOneSpectrum R)] in
-/--
-The continuous K-linear inclusion Kᵥ → 𝔸_K^f from a completion to the finite K-adeles.
--/
-noncomputable def singleLinearMap (j : HeightOneSpectrum R) :
-    j.adicCompletion K →ₗ[K] (FiniteAdeleRing R K) := {
-  __ := RestrictedProduct.singleContinuousAddMonoidHom _ j
-  map_smul' k x := by
-    open RestrictedProduct in
-    apply RestrictedProduct.ext
-    intro i
-    change Pi.single j (k • x) i = _
-    obtain rfl | h := eq_or_ne i j
-    · simp [Pi.single_eq_same, -mul_eq_mul_right_iff, FiniteAdeleRing, Algebra.smul_def,
-        singleContinuousAddMonoidHom_apply_same]
-      rfl -- (annoying)
-    · simp [Pi.single_eq_of_ne h, FiniteAdeleRing, Algebra.smul_def,
-        singleContinuousAddMonoidHom_apply_of_ne _ h _]
-    }
-
-variable [DecidableEq (HeightOneSpectrum R)] in
-/--
-The continuous K-linear inclusion Kᵥ → 𝔸_K^f from a completion to the finite K-adeles.
--/
-noncomputable def singleMulHom (j : HeightOneSpectrum R) :
-    j.adicCompletion K →ₙ* (FiniteAdeleRing R K) := {
-  __ := RestrictedProduct.singleContinuousAddMonoidHom _ j
-  map_mul' a b := by
-    apply RestrictedProduct.ext
-    intro v
-    change Pi.single j (a * b) v = Pi.single j a v * Pi.single j b v
-    obtain rfl | h := eq_or_ne j v
-    · simp
-    · simp [Pi.single_eq_of_ne' h]
-    }
-
-set_option backward.isDefEq.respectTransparency false in
-variable [DecidableEq (HeightOneSpectrum R)] in
-/--
-The continuous K-linear inclusion Kᵥ → 𝔸_K^f from a completion to the finite K-adeles.
--/
-noncomputable def singleContinuousLinearMap (j : HeightOneSpectrum R) :
-    j.adicCompletion K →L[K] (FiniteAdeleRing R K) := {
-  __ := RestrictedProduct.singleContinuousAddMonoidHom _ j
-  map_smul' k x := by
-    open RestrictedProduct in
-    apply RestrictedProduct.ext
-    intro i
-    change Pi.single j (k • x) i = _
-    obtain rfl | h := eq_or_ne i j
-    · simp [Pi.single_eq_same, -mul_eq_mul_right_iff, FiniteAdeleRing, Algebra.smul_def,
-        singleContinuousAddMonoidHom_apply_same]
-      rfl -- (annoying)
-    · simp [Pi.single_eq_of_ne h, FiniteAdeleRing, Algebra.smul_def,
-        singleContinuousAddMonoidHom_apply_of_ne _ h _]
-  -- this would not be necessary if this field were called `continuous_toFun` as it should be
-  cont := (RestrictedProduct.singleContinuousAddMonoidHom _ j).continuous_toFun
-  }
-
-variable [DecidableEq (HeightOneSpectrum R)] in
-lemma evalContinuousAlgebraMap_singleContinuousLinearMap (j : HeightOneSpectrum R)
-    (xj : j.adicCompletion K) :
-    (evalContinuousAlgebraMap R K j) (singleContinuousLinearMap R K j xj) = xj :=
-  Pi.single_eq_same j xj
-
-variable [DecidableEq (HeightOneSpectrum R)] in
-lemma evalAlgebraMap_singleLinearMap (j : HeightOneSpectrum R)
-    (xj : j.adicCompletion K) :
-    (evalAlgebraMap R K j) (singleLinearMap R K j xj) = xj :=
-  Pi.single_eq_same j xj
-
-variable [DecidableEq (HeightOneSpectrum R)] in
-/--
-`localIdempotent R K p` is the finite adele which is 1 at p and 0 elsewhere.
--/
-noncomputable def localIdempotent (p : HeightOneSpectrum R) : (FiniteAdeleRing R K) :=
-  ⟨Pi.single p 1, by
-    apply Set.Finite.subset (Set.finite_singleton p)
-    rw [Set.compl_subset_comm]
-    intro q hq
-    simp [Pi.single_eq_of_ne hq]⟩
-
-variable [DecidableEq (HeightOneSpectrum R)] in
-lemma eval_localIdempotent (p : HeightOneSpectrum R) :
-    (evalContinuousAlgebraMap R K p) (localIdempotent R K p) = 1 :=
-  Pi.single_eq_same _ _
-
-set_option backward.isDefEq.respectTransparency false in
-variable [DecidableEq (HeightOneSpectrum R)] in
-/--
-The composite `𝔸_K^f --(eval)--> Kᵥ --(single)--> 𝔸_K^f` is multiplication by
-the local idempotent at v.
--/
-lemma singleContinuousAlgebraMap_comp_evalContinuousLinearMap (j : HeightOneSpectrum R) :
-    ((singleContinuousLinearMap R K j).comp
-    (evalContinuousAlgebraMap R K j).toContinuousLinearMap).toLinearMap =
-    LinearMap.lsmul ((FiniteAdeleRing R K)) ((FiniteAdeleRing R K)) (localIdempotent R K j) := by
-  apply LinearMap.ext
-  intro x
-  apply RestrictedProduct.ext
-  intro q
-  change Pi.single _ (x j) _ = Pi.single j _ q * _
-  obtain rfl | h := eq_or_ne j q
-  · simp [Pi.single_eq_same]
-  · simp [Pi.single_eq_of_ne' h]
-
-variable {R K} in
-set_option backward.isDefEq.respectTransparency false in
-lemma exists_mul_mem_integralAdeles (x : (FiniteAdeleRing R K)) :
-    ∃ a : (FiniteAdeleRing R K)ˣ, a.1 ∈ FiniteAdeleRing.integralAdeles R K ∧
-      a * x ∈ FiniteAdeleRing.integralAdeles R K ∧ Set.Finite {x | a.1 x ≠ 1} := by
-  classical
-  choose a b hb hab using fun (v : HeightOneSpectrum R) ↦
-    IsFractionRing.div_surjective (v.adicCompletionIntegers K) (x v)
-  simp only [ValuationSubring.algebraMap_apply] at hab
-  simp only [mem_nonZeroDivisors_iff_ne_zero, ne_eq] at hb
-  refine ⟨(IsUnit.unit ?_), ⟨fun v ↦ if x v ∈ v.adicCompletionIntegers K then 1 else b v, rfl⟩,
-    ⟨fun v ↦ if h : x v ∈ v.adicCompletionIntegers K then ⟨x v, h⟩ else a v, ?_⟩, ?_⟩
-  · refine isUnit_iff.mpr ⟨?_, ?_⟩
-    · intro i
-      rw [structureMap_apply_apply]
-      split_ifs <;> simp [hb]
-    · refine x.prop.mono (by simp +contextual)
-  · apply RestrictedProduct.ext
-    intro v
-    change (if h : x v ∈ v.adicCompletionIntegers K then
-      (⟨x v, h⟩ : v.adicCompletionIntegers K) else a v).val =
-      (if x v ∈ v.adicCompletionIntegers K then
-        (1 : v.adicCompletionIntegers K) else b v).val * x v
-    split_ifs <;> simp [← hab, hb, mul_div_cancel_left₀, ← mul_div_assoc]
-  · refine x.prop.mono (by simp +contextual)
 
 end IsDedekindDomain.FiniteAdeleRing

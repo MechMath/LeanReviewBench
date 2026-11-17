@@ -3,7 +3,7 @@
   "dataset": "carleson",
   "project_id": "CAR-01-before",
   "task_id": "carleson:CAR-01-before",
-  "input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
+  "input_sha256": "2518326efd9c1ff2e06a67d86c63e8b929edf939fc51d91d85d550a93a4204d5",
   "label": "misaligned",
   "reason": "The cancellation condition uses a global Lipschitz seminorm instead of the source ball-restricted seminorm, changing the admissible model class. A retained construction separates the hypotheses.",
   "review_status": "human_reviewed",

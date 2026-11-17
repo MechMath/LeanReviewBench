@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "kzg-function-binding-before",
   "task_id": "arklib:kzg-function-binding-before",
-  "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
+  "input_sha256": "56feaf3d7d0de61c280d7809a994a32808512242bb517b9559cef10b29d21055",
   "label": "misaligned",
   "reason": "The ARSDH hardness assumption quantifies over unrestricted Lean adversary functions instead of the circuit-size-bounded class specified by the source. The formal root and reduction definitions omit the explicit circuit-size overhead guarantee required by the source.",
   "review_status": "human_reviewed",

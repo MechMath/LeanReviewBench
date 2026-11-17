@@ -1,39 +1,388 @@
-/-
-Copyright (c) 2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Mirco Richter, Poulami Das (Least Authority)
--/
 module
 
-public import dep.ArkLib.Data.CodingTheory.Basic.DecodingRadius
+public import Aesop
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Nat.Bitwise.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.List.FinRange
+public import Init.Data.UInt.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Intervals
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Algebra
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.CharP.Lemmas
+public import Mathlib.Algebra.CharP.Reduced
+public import Mathlib.Algebra.Field.Basic
+public import Mathlib.Algebra.GCDMonoid.Finset
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.GroupWithZero.Nat
+public import Mathlib.Algebra.GroupWithZero.Units.Basic
+public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.Submodule.Union
+public import Mathlib.Algebra.Module.Torsion.Free
+public import Mathlib.Algebra.MvPolynomial.Basic
+public import Mathlib.Algebra.MvPolynomial.CommRing
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.Monad
+public import Mathlib.Algebra.MvPolynomial.NoZeroDivisors
+public import Mathlib.Algebra.MvPolynomial.PDeriv
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.MvPolynomial.Supported
+public import Mathlib.Algebra.MvPolynomial.Variables
+public import Mathlib.Algebra.Order.Antidiag.FinsuppEquiv
+public import Mathlib.Algebra.Order.Archimedean.Real.Basic
+public import Mathlib.Algebra.Order.BigOperators.Expect
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.Chebyshev
+public import Mathlib.Algebra.Order.Field.Basic
+public import Mathlib.Algebra.Order.Field.Rat
+public import Mathlib.Algebra.Order.Floor.Div
+public import Mathlib.Algebra.Order.Floor.Ring
+public import Mathlib.Algebra.Order.Floor.Semifield
+public import Mathlib.Algebra.Order.Floor.Semiring
+public import Mathlib.Algebra.Order.Group.Int
+public import Mathlib.Algebra.Order.Ring.GeomSum
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Ring.Star
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Basic
+public import Mathlib.Algebra.Polynomial.BigOperators
+public import Mathlib.Algebra.Polynomial.Bivariate
+public import Mathlib.Algebra.Polynomial.Coeff
+public import Mathlib.Algebra.Polynomial.Degree.Defs
+public import Mathlib.Algebra.Polynomial.Degree.Lemmas
+public import Mathlib.Algebra.Polynomial.Degree.Operations
+public import Mathlib.Algebra.Polynomial.Degree.SmallDegree
+public import Mathlib.Algebra.Polynomial.Degree.Units
+public import Mathlib.Algebra.Polynomial.Div
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Eval.SMul
+public import Mathlib.Algebra.Polynomial.Expand
+public import Mathlib.Algebra.Polynomial.FieldDivision
+public import Mathlib.Algebra.Polynomial.Inductions
+public import Mathlib.Algebra.Polynomial.OfFn
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Polynomial.Taylor
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Algebra.Ring.TransferInstance
+public import Mathlib.Algebra.Tropical.Basic
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Normed.Field.Lemmas
+public import Mathlib.Analysis.Polynomial.Basic
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Basic.ENNReal.Inv
+public import Mathlib.Basic.NNReal.Basic
+public import Mathlib.Basic.NNReal.Defs
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Combinatorics.Enumerative.DoubleCounting
+public import Mathlib.Combinatorics.Enumerative.InclusionExclusion
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.ENat.Basic
+public import Mathlib.Data.ENat.Defs
+public import Mathlib.Data.ENat.Lattice
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.SuccPred
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Embedding
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finset.Insert
+public import Mathlib.Data.Finset.Preimage
+public import Mathlib.Data.Finset.Prod
+public import Mathlib.Data.Finsupp.Basic
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Finsupp.Multiset
+public import Mathlib.Data.Finsupp.PWO
+public import Mathlib.Data.Finsupp.Weight
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Fin
+public import Mathlib.Data.Fintype.Order
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.GetD
+public import Mathlib.Data.List.Nodup
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Block
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Matrix.Reflection
+public import Mathlib.Data.Nat.Bitwise
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Nat.Cast.Order.Field
+public import Mathlib.Data.Nat.Choose.Basic
+public import Mathlib.Data.Nat.Choose.Bounds
+public import Mathlib.Data.Nat.Choose.Dvd
+public import Mathlib.Data.Nat.Choose.Sum
+public import Mathlib.Data.Nat.Digits.Defs
+public import Mathlib.Data.Nat.Factorial.BigOperators
+public import Mathlib.Data.Nat.Find
+public import Mathlib.Data.Nat.GCD.Basic
+public import Mathlib.Data.Nat.Log
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Cast.Lemmas
+public import Mathlib.Data.Rat.Cast.Order
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Finite.Basic
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Sym.Card
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.FieldTheory.Finiteness
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+public import Mathlib.FieldTheory.Perfect
+public import Mathlib.FieldTheory.RatFunc.AsPolynomial
+public import Mathlib.FieldTheory.RatFunc.Basic
+public import Mathlib.FieldTheory.Separable
+public import Mathlib.InformationTheory.Hamming
+public import Mathlib.LinearAlgebra.AffineSpace.Combination
+public import Mathlib.LinearAlgebra.AffineSpace.Pointwise
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.LinearAlgebra.FreeModule.StrongRankCondition
+public import Mathlib.LinearAlgebra.Lagrange
+public import Mathlib.LinearAlgebra.Matrix.Adjugate
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Misc
+public import Mathlib.LinearAlgebra.Matrix.Hadamard
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.Polynomial
+public import Mathlib.LinearAlgebra.Matrix.Rank
+public import Mathlib.LinearAlgebra.Matrix.RowCol
+public import Mathlib.LinearAlgebra.Matrix.SchurComplement
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
+public import Mathlib.LinearAlgebra.Projection
+public import Mathlib.LinearAlgebra.StdBasis
+public import Mathlib.LinearAlgebra.Vandermonde
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Equiv.Fin.Basic
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.CompletePartialOrder
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Order.Interval.Set.Infinite
+public import Mathlib.Order.Lattice.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.ProbabilityMassFunction.Monad
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.Adjoin.Polynomial.Basic
+public import Mathlib.RingTheory.Finiteness.Basic
+public import Mathlib.RingTheory.Finiteness.Ideal
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.Ideal.GoingUp
+public import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
+public import Mathlib.RingTheory.Ideal.Maps
+public import Mathlib.RingTheory.Ideal.MinimalPrime.Basic
+public import Mathlib.RingTheory.Ideal.MinimalPrime.Noetherian
+public import Mathlib.RingTheory.Ideal.Operations
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+public import Mathlib.RingTheory.Ideal.UFD
+public import Mathlib.RingTheory.IntegralClosure.GoingDown
+public import Mathlib.RingTheory.Jacobson.Artinian
+public import Mathlib.RingTheory.KrullDimension.NonZeroDivisors
+public import Mathlib.RingTheory.Localization.Away.Basic
+public import Mathlib.RingTheory.Localization.FractionRing
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.MvPolynomial.Expand
+public import Mathlib.RingTheory.MvPolynomial.Groebner
+public import Mathlib.RingTheory.MvPolynomial.Homogeneous
+public import Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex
+public import Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous
+public import Mathlib.RingTheory.NoetherNormalization
+public import Mathlib.RingTheory.Nullstellensatz
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Content
+public import Mathlib.RingTheory.Polynomial.DegreeLT
+public import Mathlib.RingTheory.Polynomial.GaussLemma
+public import Mathlib.RingTheory.Polynomial.HilbertPoly
+public import Mathlib.RingTheory.Polynomial.RationalRoot
+public import Mathlib.RingTheory.Polynomial.Resultant.Basic
+public import Mathlib.RingTheory.Polynomial.UniqueFactorization
+public import Mathlib.RingTheory.PrincipalIdealDomain
+public import Mathlib.RingTheory.Radical.Basic
+public import Mathlib.RingTheory.RegularLocalRing.Defs
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.SetTheory.Cardinal.Finite
+public import Mathlib.SetTheory.Cardinal.NatCard
+public import Mathlib.Tactic.Abel
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Cases
+public import Mathlib.Tactic.ComputeDegree
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.GCongr
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.LinearCombination
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Qify
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Zify
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Topology.MetricSpace.Infsep
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
 public import dep.ArkLib.Data.CodingTheory.Basic.Distance
 public import dep.ArkLib.Data.CodingTheory.Basic.LinearCode
 public import dep.ArkLib.Data.CodingTheory.Basic.RelativeDistance
-public import dep.ArkLib.Data.CodingTheory.ProximityGap.BCIKS20.Curves
+public import dep.ArkLib.Data.CodingTheory.BerlekampWelch.ElocPoly
+public import dep.ArkLib.Data.CodingTheory.BerlekampWelch.Existence
+public import dep.ArkLib.Data.CodingTheory.HiddenDerivative.Interpolation.Local.ConstraintMap
+public import dep.ArkLib.Data.CodingTheory.HiddenDerivative.Interpolation.Symbolic.SourceColumn
+public import dep.ArkLib.Data.CodingTheory.HiddenDerivative.Substitution
+public import dep.ArkLib.Data.CodingTheory.HiddenDerivative.Variables
+public import dep.ArkLib.Data.CodingTheory.InterleavedCode
+public import dep.ArkLib.Data.CodingTheory.Prelims
+public import dep.ArkLib.Data.CodingTheory.ProximityGenerator.Basic
 public import dep.ArkLib.Data.CodingTheory.ReedSolomon
-public import dep.VCVio.OracleComp.Constructions.SampleableType.Measure
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerBatchedAdmissibility
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerBatchedComponentRecognition
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerBatchedPointRecognition
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerTupleCounting
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.PowerAgreement
+public import dep.ArkLib.Data.Fin.Lift
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Finset.WeightedSimplex
+public import dep.ArkLib.Data.Matrix.Basic
+public import dep.ArkLib.Data.MvPolynomial.Interpolation
+public import dep.ArkLib.Data.MvPolynomial.Multilinear
+public import dep.ArkLib.Data.MvPolynomial.WeightedOrder
+public import dep.ArkLib.Data.Polynomial.Bivariate
+public import dep.ArkLib.Data.Polynomial.Differential.BaseChange
+public import dep.ArkLib.Data.Polynomial.Differential.Basic
+public import dep.ArkLib.Data.Polynomial.Differential.DerivativeDescent
+public import dep.ArkLib.Data.Polynomial.Differential.JetDegree
+public import dep.ArkLib.Data.Polynomial.Differential.JetPrefix
+public import dep.ArkLib.Data.Polynomial.Differential.JetPrefixPresentation
+public import dep.ArkLib.Data.Polynomial.Differential.RationalTaylor
+public import dep.ArkLib.Data.Polynomial.Differential.RationalTaylorAlgebra
+public import dep.ArkLib.Data.Polynomial.Differential.TaylorChart
+public import dep.ArkLib.Data.Polynomial.Differential.TaylorChartAlgebra
+public import dep.ArkLib.Data.Polynomial.Differential.TaylorResidual
+public import dep.ArkLib.Data.Polynomial.Differential.Types
+public import dep.ArkLib.Data.Polynomial.TaylorPrefix
 public import dep.ArkLib.ProofSystem.Stir.ProximityBound
-
-/-!
-# ArkLib.ProofSystem.Stir.ProximityGap
-
-Definitions and results for this component of ArkLib.
--/
+public import dep.ArkLib.ToMathlib.MvPolynomial.ClearedSubstitution
+public import dep.ArkLib.ToMathlib.MvPolynomial.PolynomialCoefficients
+public import dep.ArkLib.ToMathlib.MvPolynomial.SupportWeightOffset
+public import dep.ArkLib.ToMathlib.Polynomial.HasseTaylor.FiniteJet
+public import dep.CompPoly.Bivariate.Basic
+public import dep.CompPoly.Bivariate.ToPoly
+public import dep.CompPoly.Data.Array.Lemmas
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.ToMathlib.Polynomial.BivariateDegree
+public import dep.CompPoly.ToMathlib.Polynomial.BivariateWeightedDegree
+public import dep.CompPoly.Univariate.Basic
+public import dep.CompPoly.Univariate.Linear
+public import dep.CompPoly.Univariate.Raw.Core
+public import dep.CompPoly.Univariate.Raw.Division
+public import dep.CompPoly.Univariate.Raw.Ops
+public import dep.CompPoly.Univariate.Raw.Proofs
+public import dep.CompPoly.Univariate.ToPoly.Core
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
 open NNReal ProbabilityTheory ReedSolomon
 
 namespace STIR
-
-/-!
-## References
-
-* [Ben-Sasson, E., Carmon, D., Ishai, Y., Kopparty, S., and Saraf, S., *Proximity Gaps
-    for Reed-Solomon Codes*][BCIKS20]
-* [Arnon, G., Chiesa, A., Fenzi, G., and Yogev, E., *STIR: Reed-Solomon proximity testing
-    with fewer queries*][ACFY24stir]
--/
 
 /-- Theorem 4.1 of [ACFY24stir] (due to [BCIKS20]): taking the powers of a uniform `r ∈ F` as
   coefficients, the random linear combination is a proximity generator for `RS[F, ι, degree]`.
@@ -61,63 +410,6 @@ lemma proximity_gap
       ENNReal.ofReal (proximityError F degree (LinearCode.rate (code φ degree)) δ m)) :
   ∃ S : Finset ι,
     S.card ≥ (1 - δ) * (Fintype.card ι) ∧
-    ∀ i : Fin m, ∃ u : ι → F, u ∈ (code φ degree) ∧ ∀ x ∈ S, f i x = u x := by
-  classical
-  cases m with
-  | zero =>
-    refine ⟨Finset.univ, ?_, fun i => Fin.elim0 i⟩
-    simp
-  | succ k =>
-    have hn : 0 < Fintype.card ι := Fintype.card_pos
-    have hproper : degree < Fintype.card ι := by
-      by_contra h
-      have hfull : Fintype.card ι ≤ degree := by omega
-      have hrate : LinearCode.rate (code φ degree) = 1 := by
-        rw [rateOfLinearCode_eq_min_div, min_eq_right hfull]
-        exact div_self (by exact_mod_cast hn.ne')
-      simp [Bstar, hrate] at hδLt
-    have herr : proximityError F degree (LinearCode.rate (code φ degree)) δ (k + 1) =
-        k * ProximityGap.errorBound δ degree φ := by
-      by_cases hUD : δ ≤ (1 - LinearCode.rate (code φ degree)) / 2
-      · have herror : ProximityGap.errorBound δ degree φ =
-            Fintype.card ι / Fintype.card F := by
-          simp [ProximityGap.errorBound, hUD]
-        rw [herror]
-        simp only [proximityError, ite_eq_left hUD, Nat.cast_add, Nat.cast_one,
-          add_tsub_cancel_right]
-        rw [rateOfLinearCode_eq_div hproper.le]
-        push_cast
-        have hd : (degree : ℝ≥0) ≠ 0 := by positivity
-        have hn' : (Fintype.card ι : ℝ≥0) ≠ 0 := by positivity
-        field_simp
-      · have hJohnson : δ ∈ Set.Ioo
-            ((1 - (LinearCode.rate (code φ degree) : ℝ≥0)) / 2)
-            (1 - NNReal.sqrt (LinearCode.rate (code φ degree))) :=
-          ⟨lt_of_not_ge hUD, hδLt⟩
-        have herror : ProximityGap.errorBound δ degree φ =
-            (degree : ℝ≥0) ^ 2 / ((2 * min
-              (1 - NNReal.sqrt (LinearCode.rate (code φ degree)) - δ)
-              (NNReal.sqrt (LinearCode.rate (code φ degree)) / 20)) ^ 7 * Fintype.card F) := by
-          rw [ProximityGap.errorBound_eq_johnson hJohnson]
-          rfl
-        rw [herror]
-        simp only [proximityError, ite_eq_right hUD, ite_eq_left hJohnson.2, Nat.cast_add,
-          Nat.cast_one, add_tsub_cancel_right]
-        ring
-    have hcurve := ProximityGap.correlatedAgreement_affine_curves
-      hdegPos hδPos (show δ < 1 - sqrtRate degree φ from hδLt) f
-    have hword (r : F) : (fun x => ∑ j : Fin (k + 1), r ^ (j : ℕ) * f j x) =
-        ∑ j : Fin (k + 1), r ^ (j : ℕ) • f j := by
-      ext x
-      simp
-    have hprob' : Pr{let r ← $ᵗ F}[
-        δᵣ(∑ j : Fin (k + 1), r ^ (j : ℕ) • f j, code φ degree) ≤ δ] >
-        (k : ENNReal) * ProximityGap.errorBound δ degree φ := by
-      simpa only [herr, ENNReal.ofReal_coe_nnreal, ENNReal.coe_mul, ENNReal.coe_natCast,
-        hword] using hProb
-    obtain ⟨S, hS, v, hv⟩ := hcurve hprob'
-    refine ⟨S, hS, fun i => ⟨v i, (hv i).1, ?_⟩⟩
-    intro x hx
-    exact ((Finset.mem_filter.mp ((hv i).2 hx)).2).symm
+    ∀ i : Fin m, ∃ u : ι → F, u ∈ (code φ degree) ∧ ∀ x ∈ S, f i x = u x := sorry
 
 end STIR

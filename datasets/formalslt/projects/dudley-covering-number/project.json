@@ -66,8 +66,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 9,
-    "sha256": "1c01053e1d21f34cba0670c9202963b77b1048f2af9ced2e206351f12d896973"
+    "file_count": 5,
+    "sha256": "49d5976e03ccd4b07915dadb742f443f38f32454baed176bbce546882826d711",
+    "effective_root_sha256": "a73b8c77ce2647310ca2a8ec86eba75edda7b7d402171e1e4cd0f958a269fc75",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/formalslt-batch2/dudley/receipt.json",
@@ -80,8 +83,8 @@
   },
   "pairing_status": "standalone_no_same_task_historical_repair",
   "mechanism_group": "formalslt:unit-interval-paircount",
-  "input_sha256": "d64e4cfd5c80d1f4daebc9c6af917ab33ee5bf95109a957b38b97441663b6387",
+  "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/formalslt.jsonl"
 }

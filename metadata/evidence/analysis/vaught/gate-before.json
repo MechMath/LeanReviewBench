@@ -3,7 +3,7 @@
   "dataset": "vaught",
   "project_id": "gate-before",
   "task_id": "vaught:gate-before",
-  "input_sha256": "67f479b72414f3df259b16ae7814b96113703590370402fe3e6491546921871a",
+  "input_sha256": "244db73738a2c4ee7222d7d1d0467a80040a0a64b1be5a17fe94bc3301598c02",
   "label": "misaligned",
   "reason": "A universal extension premise absent from the independent completion/R1 target is added; retained witnesses refute that premise in the relevant stages.",
   "review_status": "human_reviewed",

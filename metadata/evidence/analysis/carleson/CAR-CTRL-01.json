@@ -3,7 +3,7 @@
   "dataset": "carleson",
   "project_id": "CAR-CTRL-01",
   "task_id": "carleson:CAR-CTRL-01",
-  "input_sha256": "5c08ab80fca8d065607c121fe3d12bf699ac596c8e87668cbc125aa8969b3bc8",
+  "input_sha256": "dfcee02b31b840b0e93e16ef4cf2f94811f20fda770cfe20a74e51a2e3b0c5b5",
   "label": "aligned",
   "reason": "The continuity and periodicity assumptions, symmetric Fourier sums, coefficient normalization, and almost-everywhere convergence match.",
   "review_status": "human_reviewed",

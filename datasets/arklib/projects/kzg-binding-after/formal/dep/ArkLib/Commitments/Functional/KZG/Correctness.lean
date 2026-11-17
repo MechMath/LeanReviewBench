@@ -1,34 +1,215 @@
-/-
-Copyright (c) 2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Tobias Rothmann
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.Field.ZMod
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.GroupWithZero.Nat
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Div
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.FieldDivision
+public import Mathlib.Algebra.Polynomial.Inductions
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.TransferInstance
+public import Mathlib.Algebra.Tropical.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.GetD
+public import Mathlib.Data.List.Nodup
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Nat.Log
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.GroupTheory.SpecificGroups.Cyclic
+public import Mathlib.Init
+public import Mathlib.LinearAlgebra.Lagrange
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Lattice.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Cases
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Commitments.Functional.Basic
+public import dep.ArkLib.Commitments.Functional.KZG.Algebra
 public import dep.ArkLib.Commitments.Functional.KZG.Basic
-public import dep.VCVio.OracleComp.QueryTracking.RandomOracle.Simulation
-public import dep.VCVio.OracleComp.SimSemantics.OptionT.Basic
-public import dep.VCVio.OracleComp.SimSemantics.StateT.Basic
--- `simp [coeff]` and `Raw.coeff`/`Raw.mk` need CompPoly's unexposed bodies.
-import all dep.CompPoly.Univariate.Basic
-import all dep.CompPoly.Univariate.Raw.Core
-
-/-!
-# Correctness of the KZG Polynomial Commitment Scheme
-
-This file proves that the concrete KZG commitment, opening, and verification operations from
-`KZG.Basic` satisfy the expected evaluation equation. It then lifts that algebraic statement to
-`Commitment.perfectCorrectness` for the commitment-scheme interface.
-
-## Notation
-
-The main algebraic theorem is `KZG.correctness`; the interface-level theorem is
-`KZG.CommitmentScheme.correctness`.
-
-## References
-
-This file proves correctness from the definitions.
--/
+public import dep.ArkLib.Commitments.Functional.KZG.Sampling
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.Data.GroupTheory.PrimeOrder
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.CompPoly.Data.Array.Lemmas
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.CompPoly.Univariate.Basic
+public import dep.CompPoly.Univariate.Linear
+public import dep.CompPoly.Univariate.Raw.Core
+public import dep.CompPoly.Univariate.Raw.Division
+public import dep.CompPoly.Univariate.Raw.Ops
+public import dep.CompPoly.Univariate.Raw.Proofs
+public import dep.CompPoly.Univariate.ToPoly.Core
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Semantics.Core
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.ProbCompLift
+public import dep.VCVio.OracleComp.QueryTracking.CachingOracle
+public import dep.VCVio.OracleComp.QueryTracking.RandomOracle.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.SimSemantics.StateT.PreservesInv
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -46,107 +227,7 @@ variable {G₁ : Type} [Group G₁] [PrimeOrderWith G₁ p] [DecidableEq G₁] {
   [Module (ZMod p) (Additive Gₜ)]
   (pairing : (Additive G₁) →ₗ[ZMod p] (Additive G₂) →ₗ[ZMod p] (Additive Gₜ))
 
-variable {n : ℕ} -- the maximal degree of polynomials that can be committed to/opened.
-
-/-- Conversion to mathlib polynomials commutes with division by a monic polynomial. -/
-lemma to_poly_div_by_monic {p : ℕ} [Fact (Nat.Prime p)]
-    (f q : CPolynomial (ZMod p)) (hq : q.toPoly.Monic) :
-    (f.divByMonic q).toPoly = f.toPoly /ₘ q.toPoly :=
-  CPolynomial.toPoly_divByMonic f q hq
-
-omit [DecidableEq G₁] [Fact (0 < p)] in
-/-- Algebraic correctness of one KZG opening for a coefficient vector. -/
-theorem correctness (hpG1 : Nat.card G₁ = p) (n : ℕ) (a : ZMod p)
-    (coeffs : Fin (n + 1) → ZMod p) (z : ZMod p) :
-  let poly : CPolynomial (ZMod p) :=
-    ⟨(Raw.mk (Array.ofFn coeffs)).trim, Raw.Trim.isCanonical_trim _⟩
-  let v : ZMod p := eval z poly
-  let srs : Vector G₁ (n + 1) × Vector G₂ 2 :=
-    Groups.PowerSrs.generate (g₁ := g₁) (g₂ := g₂) n a
-  let C : G₁ := commit srs.1 coeffs
-  let opening : G₁ := generateOpening srs.1 coeffs z
-  verifyOpening pairing (g₁ := g₁) (g₂ := g₂) srs.2 C opening z v := by
-  intro poly v
-  unfold verifyOpening Groups.PowerSrs.generate
-  simp only [decide_eq_true_eq]
-  -- helper facts for the proof
-  -- coeffs is the finite coefficients map of poly
-  have hcoeffs : coeffs = (coeff poly) ∘ Fin.val := by
-    simp_all only [poly]
-    ext x : 1
-    simp only [Function.comp_apply, coeff]
-    rw [Raw.Trim.coeff_eq_coeff]
-    simp only [Raw.coeff, Raw.mk]
-    have : ↑x < (Array.ofFn coeffs).size := by simp; omega
-    simp [Array.getD]
-    omega
-  -- the (mathematical) degree of poly is at most n
-  have hpdeg : degree poly ≤ n := by
-    unfold CPolynomial.degree
-    cases h : poly.val.size with
-    | zero => exact bot_le
-    | succ k =>
-      simp only [Nat.cast_le]
-      have hsz : poly.val.size ≤ n + 1 := by
-        change (Raw.mk (Array.ofFn coeffs)).trim.size ≤ n + 1
-        exact le_trans (Raw.Trim.size_le_size _) (by simp [Array.size_ofFn])
-      omega
-  -- expansion of (a-z) to Polynomial form
-  have haz : (a - z) = eval a (X - C z) := by
-    rw [eval_toPoly, CPolynomial.toPoly_sub, Polynomial.eval_sub, X_toPoly, C_toPoly,
-      Polynomial.eval_X, Polynomial.eval_C]
-  -- the polynomial form of (a-z) is monic
-  have hmonic : Polynomial.Monic ((X : CPolynomial (ZMod p)) - C z).toPoly := by
-    rw [CPolynomial.toPoly_sub, X_toPoly, C_toPoly]
-    exact Polynomial.monic_X_sub_C z
-  -- the proof
-  -- restate the commitment as the evaluation of poly at a (C => g₁^poly(a))
-  simp_rw [hcoeffs, commit_eq_c_polynomial hpG1 poly hpdeg]
-  -- define q(X) := (poly(X) - poly(z)) / (X-z)
-  -- and restate the opening as the evaluation of q at a (opening => g₁^q(a))
-  simp_rw [generateOpening, ←hcoeffs]
-  set q := (poly - C (eval z poly)).divByMonic (X - C z)
-  have hqdeg : degree q ≤ n := by
-    rw [degree_toPoly, to_poly_div_by_monic _ _ hmonic]
-    apply le_trans (Polynomial.degree_divByMonic_le _ _)
-    rw [CPolynomial.toPoly_sub, C_toPoly]
-    apply le_trans (Polynomial.degree_sub_le _ _)
-    apply max_le
-    · rw [← degree_toPoly]; exact hpdeg
-    · exact le_trans Polynomial.degree_C_le (by exact_mod_cast Nat.zero_le n)
-  have hfun :
-      (fun i ↦ q.coeff ↑i : Fin (n + 1) → ZMod p) = (coeff q) ∘ Fin.val := by
-    rfl
-  simp_rw [ofFn]
-  change pairing (g₁ ^ (eval a poly).val / g₁ ^ v.val) (Groups.PowerSrs.tower g₂ a 1)[0] =
-    pairing (commit (Groups.PowerSrs.tower g₁ a n) (fun i : Fin (n + 1) => q.coeff i) : G₁)
-      ((Groups.PowerSrs.tower g₂ a 1)[1] / g₂ ^ z.val)
-  rw [hfun]
-  rw [commit_eq_c_polynomial hpG1 q hqdeg]
-  -- evaluate the pairing linearly.
-  -- e (g₁^poly(a) / g₂^poly(z), g₂)= e (g₁^q(a), g₂^a / g₂^(z))
-  -- => (poly(a) - poly(z)) • e (g₁,g₂) = (q(a) * (a-z)) • e (g₁,g₂)
-  simp only [Groups.PowerSrs.tower, Nat.reduceAdd, Vector.getElem_ofFn, pow_zero, pow_one]
-  simp_rw [← zpow_natCast_sub_natCast, ← zpow_natCast, ← lin_snd, ← lin_fst, smul_smul]
-  -- eliminate the pairing and reason only about the exponents: poly(a) - poly(z) = q(a) * (a-z)
-  apply mod_p_eq_additive
-  refine (Int.modEq_iff_dvd).2 ?_
-  let x : ℤ := (↑(eval a poly).val) - (↑v.val)
-  let y : ℤ := (↑(a.val) - ↑(z.val)) * ↑(eval a q).val
-  refine (Iff.mp (ZMod.intCast_eq_intCast_iff_dvd_sub (a := x) (b := y) (c := p))) ?_
-  subst x y; simp only [ZMod.natCast_val, Int.cast_sub, ZMod.intCast_cast, ZMod.cast_id', id_eq,
-    Int.cast_mul]
-  -- unfold q to obtain the self canceling goal:
-  -- poly(a) - poly(z) = (poly(a) - poly(z)) / (a-z) * (a-z)
-  -- prove the goal using the eval isomorphism to mathlib Polynomials
-  subst v q
-  simp_rw [haz]
-  simp_rw [eval_toPoly, to_poly_div_by_monic _ _ hmonic, CPolynomial.toPoly_sub,
-    ←Polynomial.eval_mul, C_toPoly, X_toPoly]
-  simp_rw [Polynomial.X_sub_C_mul_divByMonic_eq_sub_modByMonic,
-    Polynomial.modByMonic_X_sub_C_eq_C_eval]
-  simp only [Polynomial.eval_sub, Polynomial.eval_C, sub_self, map_zero, sub_zero]
-
+variable {n : ℕ}
 
 open Commitment
 
@@ -163,70 +244,6 @@ namespace CommitmentScheme
 open OracleSpec _root_.OracleComp SubSpec ProtocolSpec
 
 section Correctness
-
-omit [Fact (0 < p)] [DecidableEq G₁] in
-/-- The KZG scheme satisfies perfect correctness as defined in `CommitmentScheme`. -/
-theorem correctness (hpG1 : Nat.card G₁ = p) {g₁ : G₁} {g₂ : G₂}
-    [SampleableType G₁] :
-    Commitment.perfectCorrectness (pure ∅) (randomOracle)
-    (kzg (n := n) (g₁ := g₁) (g₂ := g₂) (pairing := pairing)) := by
-  intro data query
-  simp only [ENNReal.coe_zero, tsub_zero]
-  refine ge_of_eq ?_
-  refine OptionT.prEvent_mk_simulateQ_run'_eq_one_of_support _ _ _ _ ?_
-  intro x hx
-  simp only [kzg] at hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨⟨ck, vk⟩, hkeygen, hx⟩ := hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨⟨cm, decomm⟩, hcommit, hx⟩ := hx
-  replace hkeygen := OracleComp.mem_support_of_mem_support_liftComp
-    (superSpec := _) (oa := _) (x := (ck, vk)) hkeygen
-  replace hcommit := OracleComp.mem_support_of_mem_support_liftComp
-    (superSpec := _) (oa := _) (x := (cm, decomm)) hcommit
-  rw [mem_support_bind_iff] at hkeygen
-  obtain ⟨τ, _hτ, hkeygen⟩ := hkeygen
-  rw [mem_support_pure_iff] at hkeygen
-  simp only [Prod.mk.injEq] at hkeygen
-  obtain ⟨rfl, rfl⟩ := hkeygen
-  rw [mem_support_pure_iff] at hcommit
-  obtain ⟨rfl, rfl⟩ := Prod.mk.inj hcommit
-  have : ProverOnly ({ dir := !v[Direction.P_to_V], «Type» := !v[G₁] } : ProtocolSpec 1) := {
-    prover_first' := by simp
-  }
-  rw [Reduction.run_of_prover_first] at hx
-  simp only [OptionT.run_bind, OptionT.run_pure] at hx
-  have hverify : verifyOpening (g₁ := g₁) (g₂ := g₂) pairing
-      (Groups.PowerSrs.generate (g₁ := g₁) (g₂ := g₂) n τ).2
-      (commit (Groups.PowerSrs.generate (g₁ := g₁) (g₂ := g₂) n τ).1 data)
-      (generateOpening (Groups.PowerSrs.generate (g₁ := g₁) (g₂ := g₂) n τ).1 data query)
-      query (OracleInterface.answer data query) := by
-    change verifyOpening pairing _ _ _ query ((CPolynomial.ofFn data).eval query) = true
-    simpa only [CPolynomial.ofFn, CPolynomial.ofArray] using
-      KZG.correctness (pairing := pairing) (g₁ := g₁) (g₂ := g₂) hpG1 n τ data query
-  simp only [Option.elimM] at hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨openingOpt, hopeningOpt, hx⟩ := hx
-  simp at hopeningOpt
-  subst openingOpt
-  dsimp only [Option.elim] at hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨outputOpt, houtputOpt, hx⟩ := hx
-  simp at houtputOpt
-  subst outputOpt
-  dsimp only [Option.elim] at hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨verifierOpt, hverifierOpt, hx⟩ := hx
-  simp [hverify] at hverifierOpt
-  subst verifierOpt
-  simp only [Option.getM_some] at hx
-  rw [mem_support_bind_iff] at hx
-  obtain ⟨verdict, hverdict, hx⟩ := hx
-  simp at hverdict
-  subst verdict
-  simp at hx
-  subst x
-  simp [acceptRejectRel]
 
 end Correctness
 

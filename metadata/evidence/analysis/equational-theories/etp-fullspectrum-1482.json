@@ -3,7 +3,7 @@
   "dataset": "equational-theories",
   "project_id": "etp-fullspectrum-1482",
   "task_id": "equational-theories:etp-fullspectrum-1482",
-  "input_sha256": "9ac50a67eefde62663e5170b2fb1970a24e4ab1f79e8caac36ae909807e412ac",
+  "input_sha256": "e745da2362b591371d8160842f168436fc2554f0138491ff078e3c2a520accf5",
   "label": "aligned",
   "reason": "The quantifiers and equation syntax specify a model of law 1482 at every positive finite size. The additional size-zero case follows vacuously on the empty carrier.",
   "review_status": "human_reviewed",

@@ -1,26 +1,9 @@
-/-
-Copyright (c) 2024 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma
--/
 module
 
+public import Batteries.Control.AlternativeMonad
 public import Mathlib.Algebra.Group.TypeTags.Basic
 public import Mathlib.Control.Monad.Writer
 public import Mathlib.Order.Basic
-public import Batteries.Control.AlternativeMonad
-
-/-!
-# Writer Monad Transformer Utilities
-
-This file extends `WriterT` with helper lemmas and the additive wrapper `AddWriterT`.
-
-The first half of the file collects basic `WriterT` run, bind, and lifting lemmas, together with
-the `LawfulAppend` class used to build lawful `WriterT` instances over append-like logs.
-
-The second half specializes `WriterT` to additive cost accumulation via `Multiplicative`, and
-introduces predicates and notation for reasoning about outputs and accumulated costs.
--/
 
 @[expose] public section
 
@@ -42,28 +25,13 @@ attribute [grind =] LawfulAppend.empty_append
 
 instance {M : Type u → Type v} {ω : Type u} [Monad M]
     [EmptyCollection ω] [Append ω] [LawfulAppend ω] [LawfulMonad M] :
-    LawfulMonad (WriterT ω M) := LawfulMonad.mk'
-  (bind_pure_comp := fun _ _ => by ext; simp)
-  (id_map := fun _ => by ext; simp)
-  (pure_bind := fun _ _ => by ext; simp)
-  (bind_assoc := fun _ _ _ => by ext; simp [LawfulAppend.append_assoc])
+    LawfulMonad (WriterT ω M) := sorry
 
-instance (α : Type u) : LawfulAppend (List α) where
-  empty_append := by simp
-  append_empty := by simp
-  append_assoc := by grind
+instance (α : Type u) : LawfulAppend (List α) := sorry
 
 end LawfulAppend
 
 namespace WriterT
-
-/-- A direct core monad lift writes the empty multiplicative log. -/
-@[simp]
-theorem run_core_monadLift {m : Type u → Type v} [Monad m] {ω α : Type u}
-    [Monoid ω] (x : m α) :
-    (MonadLift.monadLift x : WriterT ω m α).run = (fun a ↦ (a, 1)) <$> x := rfl
-
-
 
 section basic
 
@@ -73,96 +41,17 @@ section monoid
 
 variable [Monoid ω]
 
-@[simp]
-lemma run_monadLift (x : m α) : (monadLift x : WriterT ω m α).run = (·, 1) <$> x := rfl
-
-lemma liftM_def (x : m α) :
-    (liftM x : WriterT ω m α) = WriterT.mk ((·, 1) <$> x) := rfl
-
-lemma monadLift_def (x : m α) :
-    (MonadLift.monadLift x : WriterT ω m α) = WriterT.mk ((·, 1) <$> x) := rfl
-
-lemma bind_def (x : WriterT ω m α) (f : α → WriterT ω m β) :
-    x >>= f = WriterT.mk (x.run >>= fun (a, w₁) ↦
-      (Prod.map id (w₁ * ·)) <$> (f a)) := rfl
-
-@[simp]
-lemma run_seqLeft {m : Type u → Type v} [Monad m] {ω : Type u} [Monoid ω] {α β : Type u}
-    (x : WriterT ω m α) (y : WriterT ω m β) :
-    (x *> y).run = x.run >>= fun z => Prod.map id (z.2 * ·) <$> y.run := rfl
-
-/-- `Prod.fst <$> WriterT.run` preserves `pure` (Monoid flavour). -/
-lemma fst_map_run_pure [LawfulMonad m] (x : α) :
-    Prod.fst <$> ((pure x : WriterT ω m α).run) = pure x := by
-  simp [WriterT.run_pure]
-
-/-- `Prod.fst <$> WriterT.run` preserves `bind` (Monoid flavour) — i.e. it is a
-monad morphism `WriterT ω m → m`. -/
-lemma fst_map_run_bind [LawfulMonad m] (b : WriterT ω m α) (f : α → WriterT ω m β) :
-    Prod.fst <$> (b >>= f).run =
-      (Prod.fst <$> b.run) >>= fun x => Prod.fst <$> (f x).run := by
-  simp only [WriterT.run_bind, map_bind, Functor.map_map]
-  exact (bind_map_left (m := m) Prod.fst b.run (fun x => Prod.fst <$> (f x).run)).symm
-
 end monoid
 
 section append
 
 variable [EmptyCollection ω]
 
-@[simp]
-lemma run_monadLift' (x : m α) : (monadLift x : WriterT ω m α).run = (·, ∅) <$> x := rfl
-
-lemma liftM_def' (x : m α) :
-    (liftM x : WriterT ω m α) = WriterT.mk ((·, ∅) <$> x) := rfl
-
-lemma monadLift_def' (x : m α) :
-    (MonadLift.monadLift x : WriterT ω m α) = WriterT.mk ((·, ∅) <$> x) := rfl
-
 variable [Append ω]
-
-lemma bind_def' (x : WriterT ω m α) (f : α → WriterT ω m β) :
-    x >>= f = WriterT.mk (x.run >>= fun (a, w₁) ↦
-      (Prod.map id (w₁ ++ ·)) <$> (f a)) := rfl
-
-@[simp]
-lemma run_pure' [LawfulMonad m] (x : α) :
-    (pure x : WriterT ω m α).run = pure (x, ∅) := rfl
-
-lemma run_bind' [LawfulMonad m] (x : WriterT ω m α) (f : α → WriterT ω m β) :
-    (x >>= f).run = x.run >>= fun (a, w₁) => Prod.map id (w₁ ++ ·) <$> (f a).run := rfl
-
-lemma run_map' (x : WriterT ω m α) (f : α → β) : (f <$> x).run = Prod.map f id <$> x.run := rfl
-
-/-- `Prod.fst <$> WriterT.run` preserves `pure` (Append flavour). -/
-lemma fst_map_run_pure' [LawfulMonad m] (x : α) :
-    Prod.fst <$> ((pure x : WriterT ω m α).run) = pure x := by
-  simp
-
-/-- `Prod.fst <$> WriterT.run` preserves `bind` (Append flavour) — i.e. it is a
-monad morphism `WriterT ω m → m`. -/
-lemma fst_map_run_bind' [LawfulMonad m] (b : WriterT ω m α) (f : α → WriterT ω m β) :
-    Prod.fst <$> (b >>= f).run =
-      (Prod.fst <$> b.run) >>= fun x => Prod.fst <$> (f x).run := by
-  simp only [WriterT.run_bind', map_bind, Functor.map_map]
-  exact (bind_map_left (m := m) Prod.fst b.run (fun x => Prod.fst <$> (f x).run)).symm
 
 end append
 
 end basic
-
--- @[simp]
--- lemma run_fail [AlternativeMonad m] [LawfulAlternative m] :
---     (failure : WriterT ω m α).run = Failure.fail := by
---   simp [failureOfLift_eq_lift_fail, WriterT.liftM_def]
-
--- /-- The naturally induced `Failure` on `WriterT` is lawful. -/
--- instance [Monad m] [LawfulMonad m] [Failure m] [LawfulFailure m] :
---     LawfulFailure (WriterT ω m) where
---   fail_bind' {α β} f := by
---     show WriterT.mk _ = WriterT.mk _
---     simp [monadLift_def, map_eq_bind_pure_comp, WriterT.mk, bind_assoc,
---       failureOfLift_eq_lift_fail, liftM_def]
 
 section fail
 
@@ -180,20 +69,11 @@ instance [Monoid ω] : AlternativeMonad (WriterT ω m) where
   failure := WriterT.failure
   orElse  := WriterT.orElse
 
-@[simp]
-lemma run_failure [Monoid ω] {α : Type u} : (failure : WriterT ω m α).run = failure := rfl
-
-instance [Monoid ω] [LawfulMonad m] : LawfulMonadLift m (WriterT ω m) where
-  monadLift_pure x := map_pure (·, 1) x
-  monadLift_bind {_ _} _ _ := by
-    ext
-    simp [MonadLift.monadLift]
+instance [Monoid ω] [LawfulMonad m] : LawfulMonadLift m (WriterT ω m) := sorry
 
 end fail
 
 end WriterT
-
-/-! ## AddWriterT: Additive Writer Monad Transformer -/
 
 /-- Writer monad transformer with additive cost accumulation.
 Defined as `WriterT (Multiplicative ω) M`, which uses `Monoid (Multiplicative ω)`
@@ -207,39 +87,6 @@ namespace AddWriterT
 
 variable {ω : Type u} {M : Type u → Type v} [Monad M] {α : Type u}
 
-/-- Observe the output and additive cost, removing the writer's multiplicative type tag. -/
-def runAdd (oa : AddWriterT ω M α) : M (α × ω) :=
-  Prod.map id Multiplicative.toAdd <$> oa.run
-
-/-- Removing the cost tag preserves the output projection. -/
-@[simp]
-lemma fst_map_runAdd [LawfulMonad M] (oa : AddWriterT ω M α) :
-    Prod.fst <$> oa.runAdd = Prod.fst <$> oa.run := by
-  simp [runAdd, Functor.map_map]
-
-@[simp]
-lemma runAdd_pure [AddMonoid ω] [LawfulMonad M] (x : α) :
-    (pure x : AddWriterT ω M α).runAdd = pure (x, 0) := by
-  simp [runAdd]
-
-@[simp]
-lemma runAdd_bind [AddMonoid ω] [LawfulMonad M] {β : Type u}
-    (oa : AddWriterT ω M α) (ob : α → AddWriterT ω M β) :
-    (oa >>= ob).runAdd = oa.runAdd >>= fun (x, cost) =>
-      Prod.map id (cost + ·) <$> (ob x).runAdd := by
-  simp [runAdd, WriterT.run_bind, map_bind, bind_map_left, Functor.map_map, Prod.map]
-
-@[simp]
-lemma runAdd_map [AddMonoid ω] [LawfulMonad M] {β : Type u}
-    (f : α → β) (oa : AddWriterT ω M α) :
-    (f <$> oa).runAdd = Prod.map f id <$> oa.runAdd := by
-  simp [runAdd, Functor.map_map, Prod.map]
-
-@[simp]
-lemma runAdd_liftM [AddMonoid ω] [LawfulMonad M] (oa : M α) :
-    (liftM oa : AddWriterT ω M α).runAdd = (fun x => (x, 0)) <$> oa := by
-  simp [runAdd, Functor.map_map]
-
 /-- Forget the additive cost log and keep only the outputs of an `AddWriterT` computation. -/
 def outputs (oa : AddWriterT ω M α) : M α :=
   Prod.fst <$> oa.run
@@ -247,41 +94,6 @@ def outputs (oa : AddWriterT ω M α) : M α :=
 /-- Observe only the accumulated additive cost of an `AddWriterT` computation. -/
 def costs (oa : AddWriterT ω M α) : M ω :=
   (fun z => Multiplicative.toAdd z.2) <$> oa.run
-
-/-- Record an additive cost `w` in the writer log. -/
-def addTell [AddMonoid ω] (w : ω) : AddWriterT ω M PUnit :=
-  tell (Multiplicative.ofAdd w)
-
-@[simp]
-lemma outputs_def (oa : AddWriterT ω M α) :
-    oa.outputs = Prod.fst <$> oa.run := rfl
-
-@[simp]
-lemma costs_def (oa : AddWriterT ω M α) :
-    oa.costs = (fun z => Multiplicative.toAdd z.2) <$> oa.run := rfl
-
-/-- A pure additive-writer computation has zero cost. -/
-@[simp high]
-lemma costs_pure [AddMonoid ω] [LawfulMonad M] (x : α) :
-    (pure x : AddWriterT ω M α).costs = pure 0 := by
-  simp [costs]
-
-@[simp]
-lemma run_addTell [AddMonoid ω] (w : ω) :
-    (addTell (M := M) w).run = pure (⟨⟩, Multiplicative.ofAdd w) := rfl
-
-@[simp]
-lemma runAdd_addTell [AddMonoid ω] [LawfulMonad M] (w : ω) :
-    (addTell (M := M) w).runAdd = pure (⟨⟩, w) := by
-  simp [runAdd]
-
-lemma outputs_addTell [AddMonoid ω] [LawfulMonad M] (w : ω) :
-    (addTell (M := M) w).outputs = pure ⟨⟩ := by
-  simp [outputs, addTell]
-
-lemma costs_addTell [AddMonoid ω] [LawfulMonad M] (w : ω) :
-    (addTell (M := M) w).costs = pure w := by
-  simp [costs, addTell]
 
 section costPredicates
 
@@ -344,36 +156,6 @@ syntax:max "OutputCost[ " term " ]" " ≥ " term:50 : term
 
 macro_rules
   | `(OutputCost[ $oa ] ≥ $w) => `(AddWriterT.OutputCostAtLeast $oa $w)
-
-@[simp]
-lemma costsAs_iff (oa : AddWriterT ω M α) (f : α → ω) :
-    oa.CostsAs f ↔ oa.costs = f <$> oa.outputs :=
-  Iff.rfl
-
-@[simp]
-lemma hasCost_iff (oa : AddWriterT ω M α) (w : ω) :
-    (Cost[ oa ] = w) ↔ oa.costs = (fun _ ↦ w) <$> oa.outputs :=
-  Iff.rfl
-
-@[simp]
-lemma outputCostAtMost_iff [Preorder ω] (oa : AddWriterT ω M α) (w : ω) :
-    (OutputCost[ oa ] ≤ w) ↔ ∃ f : α → ω, oa.CostsAs f ∧ ∀ a, f a ≤ w :=
-  Iff.rfl
-
-@[simp]
-lemma outputCostAtLeast_iff [Preorder ω] (oa : AddWriterT ω M α) (w : ω) :
-    (OutputCost[ oa ] ≥ w) ↔ ∃ f : α → ω, oa.CostsAs f ∧ ∀ a, w ≤ f a :=
-  Iff.rfl
-
-lemma outputCostAtMost_of_hasCost [Preorder ω] {oa : AddWriterT ω M α} {w b : ω}
-    (h : Cost[ oa ] = w) (hwb : w ≤ b) : OutputCost[ oa ] ≤ b := by
-  refine ⟨fun _ ↦ w, ?_, fun _ ↦ hwb⟩
-  exact h
-
-lemma outputCostAtLeast_of_hasCost [Preorder ω] {oa : AddWriterT ω M α} {w b : ω}
-    (h : Cost[ oa ] = w) (hbw : b ≤ w) : OutputCost[ oa ] ≥ b := by
-  refine ⟨fun _ ↦ w, ?_, fun _ ↦ hbw⟩
-  exact h
 
 end costPredicates
 

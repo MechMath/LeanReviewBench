@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Frozen prose explicitly requires Re(s)>2. Formal has exactly that hypothesis and the same totient Dirichlet-series quotient, so both coefficient and convergence-domain conventions agree.",
   "external_imports": [
     "Mathlib.NumberTheory.LSeries.Dirichlet",
     "Mathlib.NumberTheory.LSeries.Nonvanishing"
@@ -42,7 +41,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "f8db3c7ef7dad1e48f17f4225abfaf820720d1cb0d00d876ee5dc35dc9264025"
+    "sha256": "ffa0ffed17a58c3315ebc91ae515c0c40975f90871278d31b8c9a8ba621e5cf6",
+    "effective_root_sha256": "051db18830578d045e71fa85c00c221e0856e9c37c7baf72352d276ef436d488",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-ik-extraction/repaired/ik-totient-after/20261105T052947437827Z/receipt.json",
@@ -65,8 +67,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "502db45dcc8ec2b9f954e26fec79ca9185a1c2b5fd58afc8b85ae08d451959b8",
+  "input_sha256": "1aef1f2092349a7e22fafc502f992db10765a1bb308e07adaed36a93ccbd323d",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

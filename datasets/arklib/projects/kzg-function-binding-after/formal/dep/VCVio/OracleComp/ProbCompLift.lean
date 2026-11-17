@@ -1,31 +1,94 @@
-/-
-Copyright (c) 2026 Quang Dao. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
-
 module
-public import dep.VCVio.OracleComp.ProbComp.Basic
-public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
-public import dep.VCVio.EvalDist.Defs.Semantics.Core
+
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.UniformOn
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
 public import dep.PolyFun.Control.Monad.Hom
-import dep.VCVio.EvalDist.Monad.Measure
-
-/-!
-# Bundled Lifts from `ProbComp`
-
-This file packages the "public randomness" capability separately from denotational semantics.
-
-Many crypto constructions need two orthogonal pieces of structure on their ambient monad `m`:
-
-1. a way to observe successful outputs as a measure
-2. a way to *inject* plain probabilistic sampling into `m`
-
-This file packages the second capability as a bundled monad homomorphism `ProbComp →ᵐ m`, so it
-can be carried independently of whatever denotational semantics the construction uses. It also
-defines `ProbCompRuntime`, the common crypto-facing bundle that pairs public-randomness lifting
-with bundled measure semantics for an ambient monad.
--/
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Semantics.Core
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -42,11 +105,6 @@ structure ProbCompLift (m : Type → Type v) [Monad m] where
   liftProbComp : ProbComp →ᵐ m
 
 namespace ProbCompLift
-
-/-- Build a bundled `ProbCompLift` from an existing lawful `MonadLiftT ProbComp m` instance. -/
-def ofMonadLift (m : Type → Type v) [Monad m]
-    [MonadLiftT ProbComp m] [LawfulMonadLiftT ProbComp m] : ProbCompLift m where
-  liftProbComp := MonadHom.ofLift ProbComp m
 
 /-- The identity lift on `ProbComp` itself. -/
 def id : ProbCompLift ProbComp where
@@ -83,37 +141,16 @@ noncomputable def evalDist (runtime : ProbCompRuntime m) [MeasurableSpace α]
     (mx : m α) : Measure α :=
   runtime.toSemanticsVia.evalDist mx
 
-/-- Failure probability of an ambient computation under the runtime's bundled semantics. -/
-noncomputable def prFail (runtime : ProbCompRuntime m) [MeasurableSpace α]
-    (mx : m α) : ENNReal :=
-  runtime.toSemanticsVia.prFail mx
-
-@[simp]
-lemma evalDist_apply_univ_le_one (runtime : ProbCompRuntime m) [MeasurableSpace α]
-    (mx : m α) : runtime.evalDist mx Set.univ ≤ 1 :=
-  runtime.toSemanticsVia.evalDist_apply_univ_le_one mx
-
 /-- Every runtime observation is a subprobability measure. Registering the bundled mass bound as
 an instance lets the ordinary measure API discharge finite-mass and `≤ 1` side conditions. -/
 instance (runtime : ProbCompRuntime m) [MeasurableSpace α] (mx : m α) :
-    IsSubprobabilityMeasure (runtime.evalDist mx) :=
-  ⟨runtime.evalDist_apply_univ_le_one mx⟩
+    IsSubprobabilityMeasure (runtime.evalDist mx) := sorry
 
 /-- Runtime observation commutes with measurable maps. -/
 @[simp]
 lemma evalDist_map (runtime : ProbCompRuntime m) {β : Type}
     [MeasurableSpace α] [MeasurableSpace β] (f : α → β) (hf : Measurable f) (mx : m α) :
-    runtime.evalDist (f <$> mx) = (runtime.evalDist mx).map f :=
-  runtime.evalDist_map_eq f hf mx
-
-/-- Binding a pure measurable function pushes the runtime's output measure forward. -/
-lemma evalDist_bind_pure (runtime : ProbCompRuntime m) {β : Type}
-    [LawfulMonad m] [MeasurableSpace α] [MeasurableSpace β]
-    (mx : m α) (f : α → β) (hf : Measurable f) :
-    runtime.evalDist (mx >>= fun x => pure (f x)) = (runtime.evalDist mx).map f := by
-  rw [show (mx >>= fun x => pure (f x)) = f <$> mx from
-    (map_eq_bind_pure_comp _ f mx).symm]
-  exact runtime.evalDist_map f hf mx
+    runtime.evalDist (f <$> mx) = (runtime.evalDist mx).map f := sorry
 
 /-- Lift a plain `ProbComp` computation into the ambient monad using the runtime's public
 randomness capability. -/
@@ -126,25 +163,8 @@ noncomputable def probComp : ProbCompRuntime ProbComp where
   toProbCompLift := ProbCompLift.id
   evalDist_map_eq _f hf mx := _root_.evalDist_map mx hf
 
-@[simp]
-lemma probComp_evalDist [MeasurableSpace α] (mx : ProbComp α) :
-    probComp.evalDist mx = 𝒟[mx] := rfl
-
 /-- The canonical `ProbComp` runtime assigns every computation a probability measure. -/
 instance [MeasurableSpace α] (mx : ProbComp α) :
-    MeasureTheory.IsProbabilityMeasure (probComp.evalDist mx) := by
-  rw [probComp_evalDist]
-  infer_instance
-
-/-- The canonical `ProbComp` runtime satisfies the pure-return factoring law: `evalDist`
-commutes with binding a pure measurable function. Security decompositions that couple several
-experiments through one joint execution (e.g. the exact SUF-CMA partition in
-`VCVio.CryptoFoundations.SignatureAlg`) take exactly this equation as their pull-through
-hypothesis, so consumers instantiating them at `ProbCompRuntime.probComp` can use this
-lemma directly. -/
-lemma probComp_evalDist_bind_pure {α β : Type} [MeasurableSpace α] [MeasurableSpace β]
-    (f : α → β) (hf : Measurable f) (mx : ProbComp α) :
-    probComp.evalDist (mx >>= fun x => pure (f x)) = (probComp.evalDist mx).map f := by
-  exact probComp.evalDist_bind_pure mx f hf
+    MeasureTheory.IsProbabilityMeasure (probComp.evalDist mx) := sorry
 
 end ProbCompRuntime

@@ -1,15 +1,23 @@
 import Mathlib
+
 open ArithmeticFunction hiding log
+
 open Nat hiding log
+
 open Finset Topology
+
 open BigOperators Filter Real Classical Asymptotics Chebyshev
+
 open MeasureTheory intervalIntegral
+
 open scoped ArithmeticFunction.Moebius
+
 open scoped ArithmeticFunction.Omega Chebyshev
 
 noncomputable def Eψ (x : ℝ) : ℝ := |ψ x - x| / x
 
 namespace Dusart
+
 def Table1 : List (ℝ × ℝ × ℕ × ℝ × ℝ × ℝ) := [
   (20, 0.86, 5, 1.595e-5, 1132492, 1.067e-3),
   (21, 0.86, 5, 1.468e-5, 1132492, 6.498e-4),
@@ -56,10 +64,12 @@ def Table1 : List (ℝ × ℝ × ℕ × ℝ × ℝ × ℝ) := [
   (10000, 0.99, 3, 1.222e-17, 2445999556030, 8.144e-18),
   (13900, 0.99, 2, 3.144e-20, 2445999556030, 2.358e-20)
 ]
+
 end Dusart
 
 namespace Dusart
-theorem proposition_3_2 {b σ₀ : ℝ} {m : ℕ} {δ T₁ ε : ℝ} (h : (b, σ₀, m, δ, T₁, ε) ∈ Table1)
-{x : ℝ} (hx : x ≥ exp b) : Eψ x ≤ ε := by sorry
-end Dusart
 
+theorem proposition_3_2 {b σ₀ : ℝ} {m : ℕ} {δ T₁ ε : ℝ} (h : (b, σ₀, m, δ, T₁, ε) ∈ Table1)
+{x : ℝ} (hx : x ≥ exp b) : Eψ x ≤ ε := sorry
+
+end Dusart

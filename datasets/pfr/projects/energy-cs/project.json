@@ -27,7 +27,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Use the normalized target and its normalized energy definition. The formal inequality generalizes A x A to s x t; specialize s=t=A. The raw formulation is equivalent after cardinality rescaling.",
   "external_imports": [
     "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
     "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
@@ -48,8 +47,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 3,
-    "sha256": "2773fa264b49a175ebf97a95b20a6f0c842b02459948cba1d4c3a8e1cb123952"
+    "file_count": 1,
+    "sha256": "cc16867a0ea56e3a3366e4141121f7aff53b1c2c8d03ea828a042a04a05a65da",
+    "effective_root_sha256": "a4f21487a8cf7969df37d2b0dc9698e6e9d28c9aca16774793df9dbd3dd5d808",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-extraction/technical/energy-cs/20261104T080108454225Z/receipt.json",
@@ -79,8 +81,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "3b06907580f43a60f291a35bb25cf52ac984969478fda3256d30e3af4d5e51a8",
+  "input_sha256": "43e0bc4e916619f94ac665d7901f151a8fa48d0d804fcf3cf599182400bb562f",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

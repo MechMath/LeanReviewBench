@@ -1,129 +1,89 @@
 module
 
-public import dep.CoarseDeGiorgi.Foundations.FractionalSobolev.SurfaceEmbeddingCharts
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.Floor.Ring
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.MeanInequalitiesPow
+public import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+public import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.LIntegral
+public import Mathlib.MeasureTheory.Group.Prod
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.NatInt
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Lipschitz
+public import dep.CoarseDeGiorgi.Foundations.FracGeometry.Defs
+public import dep.CoarseDeGiorgi.Foundations.FracGeometry.FaceHausdorff
+public import dep.CoarseDeGiorgi.Statements.CubeFaceMeasure
+public import dep.CoarseDeGiorgi.Statements.FaceCoordinateMeasures
+public import dep.CoarseDeGiorgi.Statements.SurfaceMeasure
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.Sobolev.Fractional.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
 namespace CoarseDeGiorgi.Foundations.FractionalSobolev
+
 open Homogenization MeasureTheory Set
+
 open scoped ENNReal BigOperators
+
 noncomputable section
 
-instance embedding_surface_finite {d : ℕ} (τ : ℝ) : IsFiniteMeasure (surfaceMeasure (d := d) τ) := by
-  change IsFiniteMeasure (FracGeometry.surfaceMeasure τ)
-  infer_instance
-
-lemma embedding_face_le_surface {d : ℕ} (τ : ℝ) (i : Fin d) (pos : Bool) :
-    cubeFaceMeasure τ i pos ≤ surfaceMeasure τ := by
-  classical
-  apply Measure.le_iff.mpr
-  intro A hA
-  simp only [surfaceMeasure, Measure.finsetSum_apply]
-  have hb : cubeFaceMeasure τ i pos A ≤ ∑ b : Bool, cubeFaceMeasure τ i b A :=
-    Finset.single_le_sum (f := fun b : Bool => cubeFaceMeasure τ i b A)
-      (fun _ _ => zero_le) (Finset.mem_univ pos)
-  have hi : (∑ b : Bool, cubeFaceMeasure τ i b A) ≤
-      ∑ j : Fin d, ∑ b : Bool, cubeFaceMeasure τ j b A :=
-    Finset.single_le_sum (f := fun j : Fin d => ∑ b : Bool, cubeFaceMeasure τ j b A)
-      (fun _ _ => zero_le) (Finset.mem_univ i)
-  exact hb.trans hi
-
-lemma embedding_surfaceNorm_power {d : ℕ} (τ α : ℝ) {r : ℝ} (hr : 0 < r) (g : Vec d → ℝ) :
-    surfaceFracNorm τ α r g ^ r = eLpNorm g (ENNReal.ofReal r) (surfaceMeasure τ) ^ r +
-      ∫⁻ xy, fracKernelWithDimension ((d : ℝ) - 1) α r g xy
-        ∂((surfaceMeasure τ).prod (surfaceMeasure τ)) := by
-  unfold surfaceFracNorm surfaceFracSeminorm
-  simp only [ENNReal.rpow_eq_pow]
-  rw [← ENNReal.rpow_mul, one_div_mul_cancel hr.ne', ENNReal.rpow_one,
-    ← ENNReal.rpow_mul, one_div_mul_cancel hr.ne', ENNReal.rpow_one]
-
-lemma embedding_surfaceKernel_measurable {d : ℕ} {g : Vec d → ℝ}
-    (hg : Measurable g) (α r : ℝ) :
-    Measurable (fracKernelWithDimension ((d : ℝ) - 1) α r g) := by
-  unfold fracKernelWithDimension
-  exact (((hg.comp measurable_fst).sub (hg.comp measurable_snd)).norm.pow_const _).div
-    (euclidDist_continuous.measurable.pow_const _) |>.ennreal_ofReal
-
-lemma embedding_chart_lp_le {n : ℕ} {τ : ℝ} (hτ : (1/2 : ℝ) ≤ τ) (hτ1 : τ ≤ 1)
-    (i : Fin (n+1)) (pos : Bool) {g : Vec (n+1) → ℝ} (hg : Measurable g)
-    {r : ℝ} (hr : 0 < r) :
-    eLpNorm (g ∘ embeddingFaceChart τ i pos) (ENNReal.ofReal r)
-        (volume.restrict (dnpvUnitCube n)) ^ r ≤
-      (2 ^ n : ℝ≥0∞) * eLpNorm g (ENNReal.ofReal r) (surfaceMeasure τ) ^ r := by
-  have hm := embeddingFaceChart_measurable τ i pos
-  have hμ := (embeddingFaceChart_measure_bounds hτ hτ1 i pos).2.trans
-    (smul_le_smul_left _ (embedding_face_le_surface τ i pos))
-  rw [lp_power_integral (hg.comp hm).aestronglyMeasurable hr,
-    lp_power_integral hg.aestronglyMeasurable hr]
-  calc
-    _ = ∫⁻ x, (ENNReal.ofReal |g x|) ^ r
-        ∂Measure.map (embeddingFaceChart τ i pos) (volume.restrict (dnpvUnitCube n)) := by
-      exact (lintegral_map (show Measurable (fun x => (ENNReal.ofReal |g x|) ^ r) from
-        (hg.norm.ennreal_ofReal).pow_const r) hm).symm
-    _ ≤ ∫⁻ x, (ENNReal.ofReal |g x|) ^ r ∂((2 ^ n : ℝ≥0∞) • surfaceMeasure τ) :=
-      lintegral_mono' hμ le_rfl
-    _ = _ := by rw [lintegral_smul_measure, smul_eq_mul]
-
-lemma embedding_chart_kernel_le {n : ℕ} {τ α r : ℝ} (hτ : 0 < τ) (hτ1 : τ ≤ 1)
-    (hr : 0 < r) (hβ : 0 ≤ (n : ℝ) + α * r) (i : Fin (n+1)) (pos : Bool)
-    (g : Vec (n+1) → ℝ) (x y : Vec n) :
-    fracKernel α r (g ∘ embeddingFaceChart τ i pos) (x,y) ≤
-      fracKernelWithDimension ((n+1 : ℕ) - 1 : ℝ) α r g
-        (embeddingFaceChart τ i pos x, embeddingFaceChart τ i pos y) := by
-  by_cases hxy : x = y
-  · simp only [fracKernel, fracKernelWithDimension, Function.comp_apply, hxy, sub_self,
-      abs_zero, Real.zero_rpow hr.ne', zero_div, ENNReal.ofReal_zero, le_refl]
-  · apply ENNReal.ofReal_le_ofReal
-    simp only [Nat.cast_add, Nat.cast_one, add_sub_cancel_right, Function.comp_apply]
-    apply div_le_div_of_nonneg_left (Real.rpow_nonneg (abs_nonneg _) _)
-      (Real.rpow_pos_of_pos (by rw [embeddingFaceChart_distance hτ.le]; exact mul_pos hτ (euclidDist_pos hxy)) _)
-    apply Real.rpow_le_rpow (euclidDist_nonneg _ _) _ hβ
-    rw [embeddingFaceChart_distance hτ.le]
-    exact mul_le_of_le_one_left (euclidDist_nonneg x y) hτ1
-
-lemma embedding_chart_energy_le {n : ℕ} {τ α r : ℝ}
-    (hτ : (1/2 : ℝ) ≤ τ) (hτ1 : τ ≤ 1) (hr : 0 < r) (hβ : 0 ≤ (n : ℝ) + α * r)
-    (i : Fin (n+1)) (pos : Bool) {g : Vec (n+1) → ℝ} (hg : Measurable g) :
-    fracSeminorm (dnpvUnitCube n) α r (g ∘ embeddingFaceChart τ i pos) ^ r ≤
-      ((2 ^ n : ℝ≥0∞) * (2 ^ n : ℝ≥0∞)) *
-        ∫⁻ xy, fracKernelWithDimension ((n+1 : ℕ) - 1 : ℝ) α r g xy
-          ∂((surfaceMeasure τ).prod (surfaceMeasure τ)) := by
-  have hτ0 : 0 < τ := lt_of_lt_of_le (by norm_num) hτ
-  have hm := embeddingFaceChart_measurable τ i pos
-  let μ := volume.restrict (dnpvUnitCube n)
-  let ψ := embeddingFaceChart τ i pos
-  let K := fracKernelWithDimension ((n+1 : ℕ) - 1 : ℝ) α r g
-  have hK : Measurable K := embedding_surfaceKernel_measurable hg α r
-  have hμ : Measure.map ψ μ ≤ (2 ^ n : ℝ≥0∞) • surfaceMeasure τ :=
-    (embeddingFaceChart_measure_bounds hτ hτ1 i pos).2.trans
-      (smul_le_smul_left _ (embedding_face_le_surface τ i pos))
-  rw [fracSeminorm_power _ _ hr]
-  calc
-    _ ≤ ∫⁻ xy, K (ψ xy.1, ψ xy.2) ∂(μ.prod μ) :=
-      lintegral_mono (fun xy => embedding_chart_kernel_le hτ0 hτ1 hr hβ i pos g xy.1 xy.2)
-    _ = ∫⁻ xy, K xy ∂((Measure.map ψ μ).prod (Measure.map ψ μ)) := by
-      rw [Measure.map_prod_map μ μ (show Measurable ψ from hm) (show Measurable ψ from hm)]
-      exact (lintegral_map hK (hm.prodMap hm)).symm
-    _ ≤ ∫⁻ xy, K xy ∂(((2 ^ n : ℝ≥0∞) • surfaceMeasure τ).prod
-        ((2 ^ n : ℝ≥0∞) • surfaceMeasure τ)) :=
-      lintegral_mono' (Measure.prod_mono hμ hμ) le_rfl
-    _ = _ := by
-      rw [Measure.prod_smul_left, Measure.prod_smul_right, smul_smul, lintegral_smul_measure, smul_eq_mul]
-
-/-- The normalized chart's full norm is controlled uniformly over every face. -/
-lemma embedding_chart_norm_le {n : ℕ} {τ α r : ℝ}
-    (hτ : (1/2 : ℝ) ≤ τ) (hτ1 : τ ≤ 1) (hr : 0 < r) (hβ : 0 ≤ (n : ℝ) + α * r)
-    (i : Fin (n+1)) (pos : Bool) {g : Vec (n+1) → ℝ} (hg : Measurable g) :
-    fracNorm (dnpvUnitCube n) α r (g ∘ embeddingFaceChart τ i pos) ≤
-      ((2 ^ n : ℝ≥0∞) * (2 ^ n : ℝ≥0∞)) ^ (1/r) * surfaceFracNorm τ α r g := by
-  have ha : (1 : ℝ≥0∞) ≤ 2 ^ n := one_le_pow₀ (by norm_num)
-  have hL := embedding_chart_lp_le hτ hτ1 i pos hg hr
-  have hS := embedding_chart_energy_le hτ hτ1 hr hβ i pos hg
-  apply (ENNReal.rpow_le_rpow_iff hr).mp
-  rw [ENNReal.mul_rpow_of_nonneg _ _ hr.le, ← ENNReal.rpow_mul,
-    one_div_mul_cancel hr.ne', ENNReal.rpow_one, fracNorm_power _ _ hr,
-    embedding_surfaceNorm_power _ _ hr, mul_add]
-  exact add_le_add (hL.trans (mul_le_mul' (le_mul_of_one_le_right' ha) le_rfl)) hS
+instance embedding_surface_finite {d : ℕ} (τ : ℝ) : IsFiniteMeasure (surfaceMeasure (d := d) τ) := sorry
 
 end
+
 end CoarseDeGiorgi.Foundations.FractionalSobolev

@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "LOS02CombinatorialAuctions-after",
   "task_id": "aml:LOS02CombinatorialAuctions-after",
-  "input_sha256": "f6aa8fec8613fc45a0c249a8e604a09d47da55de66d32847506a337783082106",
+  "input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
   "label": "aligned",
   "reason": "The density ordering, fixed tie-breaking, greedy allocation, critical payments, and truthfulness against joint value-and-bundle deviations match the source mechanism.",
   "review_status": "human_reviewed",

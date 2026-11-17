@@ -1,8 +1,170 @@
 module
 
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.QuadraticDiscriminant
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Convex.Basic
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.FunctionalSpaces.SobolevInequality
+public import Mathlib.Analysis.InnerProductSpace.Basic
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Matrix.Order
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Normed.Operator.Banach
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Basic.Real.Pointwise
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.PosDef
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Swap
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.LinearAlgebra.QuadraticForm.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Metrizable
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Covering.DensityTheorem
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Function.SpecialFunctions.Basic
+public import Mathlib.MeasureTheory.Group.Arithmetic
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Prod
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Map
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Restrict
+public import Mathlib.MeasureTheory.Measure.SeparableMeasure
+public import Mathlib.MeasureTheory.Measure.Sum
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.Real
+public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.PiProd
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.Basic
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.Instances.Matrix
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Pseudo.Defs
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Topology.Order.Compact
+public import Mathlib.Topology.Sets.Opens
+public import dep.CoarseDeGiorgi.Statements.IsSmoothCore
+public import dep.CoarseDeGiorgi.Statements.IsWeightedCoeffOn
+public import dep.CoarseDeGiorgi.Statements.MemH1a
+public import dep.CoarseDeGiorgi.Statements.MemH1a0
+public import dep.CoarseDeGiorgi.Statements.SmoothGrad
+public import dep.CoarseDeGiorgi.Statements.WeightedEnergy
 public import dep.CoarseDeGiorgi.Weighted.Defs
-public import dep.CoarseDeGiorgi.Foundations.QuadraticForm
-public import dep.Homogenization.CoarseGraining.QuadraticStability.Integral
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.Euclidean
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Book.Ch02.Dilation
+public import dep.Homogenization.Book.Ch02.Matrices
+public import dep.Homogenization.Book.Ch02.MultiscaleEllipticity
+public import dep.Homogenization.Book.Ch02.Response
+public import dep.Homogenization.Book.Ch02.Setup
+public import dep.Homogenization.CoarseGraining.Definitions
+public import dep.Homogenization.CoarseGraining.ResponseIdentities.Foundations.Algebra
+public import dep.Homogenization.CoarseGraining.SharpBlockBounds.DiagonalSandwich
+public import dep.Homogenization.Geometry.BoundedMeasurableDomain
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.CubeMetric
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.SignedPermutation
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.PDE.Harmonic
+public import dep.Homogenization.Probability.LocalEllipticitySlices
+public import dep.Homogenization.Probability.RandomField
+public import dep.Homogenization.Probability.RegCoeffField
+public import dep.Homogenization.Probability.RegCoeffField.EllipticSet
+public import dep.Homogenization.Probability.RegCoeffField.Sigma
+public import dep.Homogenization.Probability.Source.Coarse
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.Foundations.Cutoff.Euclidean
+public import dep.Homogenization.Sobolev.Foundations.H10Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.CoerciveHilbert
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Preliminaries
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.Basic
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.RieszPowerMean
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.SegmentChangeOfVariables
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.TimeCollapse
+public import dep.Homogenization.Sobolev.Foundations.PoincareMeanZero
+public import dep.Homogenization.Sobolev.Foundations.PoincareW1p.Core
+public import dep.Homogenization.Sobolev.Foundations.PoincareW1p.Seminorms
+public import dep.Homogenization.Sobolev.Foundations.PoincareZeroTrace
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.PotentialSolenoidal
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
@@ -12,206 +174,10 @@ open Homogenization MeasureTheory
 
 variable {d : ℕ} {V : Set (Vec d)} {a : CoeffField d}
 
-/-- Measurability of the coefficient flux. -/
-theorem flux_aestronglyMeasurable (ha : IsWeightedCoeffOn V a)
-    {G : Vec d → Vec d} (hG : AEStronglyMeasurable G (volume.restrict V)) :
-    AEStronglyMeasurable (fun x => matVecMul (a x) (G x)) (volume.restrict V) := by
-  have hc : Continuous (fun p : Mat d × Vec d => matVecMul p.1 p.2) := by
-    unfold matVecMul
-    fun_prop
-  exact hc.comp_aestronglyMeasurable (ha.1.prodMk hG)
-
-/-- The nonnegative quadratic energy density is measurable. -/
-theorem quadratic_aestronglyMeasurable (ha : IsWeightedCoeffOn V a)
-    {G : Vec d → Vec d} (hG : AEStronglyMeasurable G (volume.restrict V)) :
-    AEStronglyMeasurable (fun x => vecDot (G x) (matVecMul (a x) (G x)))
-      (volume.restrict V) := by
-  have hc : Continuous (fun p : Vec d × Vec d => vecDot p.1 p.2) := by
-    unfold vecDot
-    fun_prop
-  exact hc.comp_aestronglyMeasurable (hG.prodMk (flux_aestronglyMeasurable ha hG))
-
-/-- Positivity of the quadratic energy density. -/
-theorem quadratic_nonneg (ha : IsWeightedCoeffOn V a) (G : Vec d → Vec d) :
-    0 ≤ᵐ[volume.restrict V] fun x => vecDot (G x) (matVecMul (a x) (G x)) := by
-  filter_upwards [ha.2.1] with x hx
-  simpa [vecDot, matVecMul, dotProduct, Matrix.mulVec] using
-    hx.posSemidef.dotProduct_mulVec_nonneg (x := G x)
-
 /-- Finite extended energy gives an integrable real quadratic density. -/
 theorem quadratic_integrable (ha : IsWeightedCoeffOn V a)
     {G : Vec d → Vec d} (hG : AEStronglyMeasurable G (volume.restrict V))
     (hE : weightedEnergy a V G < ⊤) :
-    IntegrableOn (fun x => vecDot (G x) (matVecMul (a x) (G x))) V :=
-  (lintegral_ofReal_ne_top_iff_integrable
-    (quadratic_aestronglyMeasurable ha hG) (quadratic_nonneg ha G)).mp hE.ne
-
-/-- Conversion of finite weighted energy to its real integral. -/
-theorem energy_toReal (ha : IsWeightedCoeffOn V a)
-    {G : Vec d → Vec d} (hG : AEStronglyMeasurable G (volume.restrict V)) :
-    (weightedEnergy a V G).toReal =
-      ∫ x in V, vecDot (G x) (matVecMul (a x) (G x)) :=
-  (integral_eq_lintegral_of_nonneg_ae (quadratic_nonneg ha G)
-    (quadratic_aestronglyMeasurable ha hG)).symm
-
-/-- The square-root product occurring in Cauchy–Schwarz is integrable. -/
-theorem sqrt_mul_sqrt_integrable {α : Type*} [MeasurableSpace α] {μ : Measure α}
-    {f g : α → ℝ} (hf : Integrable f μ) (hg : Integrable g μ)
-    (hf0 : 0 ≤ᵐ[μ] f) (hg0 : 0 ≤ᵐ[μ] g) :
-    Integrable (fun x => Real.sqrt (f x) * Real.sqrt (g x)) μ := by
-  refine ((hf.add hg).div_const 2).mono'
-    ((Real.continuous_sqrt.comp_aestronglyMeasurable hf.1).mul
-      (Real.continuous_sqrt.comp_aestronglyMeasurable hg.1)) ?_
-  filter_upwards [hf0, hg0] with x hx hy
-  rw [Real.norm_eq_abs, abs_of_nonneg (mul_nonneg (Real.sqrt_nonneg _) (Real.sqrt_nonneg _))]
-  exact sqrt_mul_sqrt_le_half_add hx hy
-
-/-- Scalar trace domination gives the Euclidean L¹ bound. -/
-theorem length_integrable_and_bound {G : Vec d → Vec d} {t : Vec d → ℝ}
-    (ha : IsWeightedCoeffOn V a)
-    (hG : AEStronglyMeasurable G (volume.restrict V))
-    (hE : weightedEnergy a V G < ⊤) (ht : IntegrableOn t V)
-    (ht0 : 0 ≤ᵐ[volume.restrict V] t)
-    {H : Vec d → Vec d} (hH : AEStronglyMeasurable H (volume.restrict V))
-    (hbound : ∀ᵐ x ∂(volume.restrict V),
-      vecDot (H x) (H x) ≤ t x * vecDot (G x) (matVecMul (a x) (G x))) :
-    IntegrableOn (fun x => Real.sqrt (vecDot (H x) (H x))) V ∧
-      (∫ x in V, Real.sqrt (vecDot (H x) (H x))) ≤
-        Real.sqrt (∫ x in V, t x) * Real.sqrt (weightedEnergy a V G).toReal := by
-  classical
-  have hq := quadratic_integrable ha hG hE
-  have hq0 := quadratic_nonneg ha G
-  have hprod := sqrt_mul_sqrt_integrable ht hq ht0 hq0
-  have hlen : AEStronglyMeasurable (fun x => Real.sqrt (vecDot (H x) (H x)))
-      (volume.restrict V) := by
-    apply Real.continuous_sqrt.comp_aestronglyMeasurable
-    have hc : Continuous (fun z : Vec d => vecDot z z) := by
-      unfold vecDot
-      fun_prop
-    exact hc.comp_aestronglyMeasurable hH
-  have hle : ∀ᵐ x ∂(volume.restrict V), Real.sqrt (vecDot (H x) (H x)) ≤
-      Real.sqrt (t x) * Real.sqrt (vecDot (G x) (matVecMul (a x) (G x))) := by
-    filter_upwards [hbound, ht0] with x hx htx
-    exact (Real.sqrt_le_sqrt hx).trans_eq (Real.sqrt_mul htx _)
-  have hint : IntegrableOn (fun x => Real.sqrt (vecDot (H x) (H x))) V := by
-    refine hprod.mono' hlen ?_
-    filter_upwards [hle] with x hx
-    simpa only [Real.norm_eq_abs, abs_of_nonneg (Real.sqrt_nonneg _)] using hx
-  refine ⟨hint, (integral_mono_ae hint hprod hle).trans ?_⟩
-  rw [energy_toReal ha hG]
-  exact integral_sqrt_mul_sqrt_le ht hq ht0 hq0
-
-/-- Gradient length estimate, for every measurable finite-energy field. -/
-theorem gradient_length_integrable_and_bound (ha : IsWeightedCoeffOn V a)
-    {G : Vec d → Vec d} (hG : AEStronglyMeasurable G (volume.restrict V))
-    (hE : weightedEnergy a V G < ⊤) :
-    IntegrableOn (fun x => Real.sqrt (vecDot (G x) (G x))) V ∧
-      (∫ x in V, Real.sqrt (vecDot (G x) (G x))) ≤
-        Real.sqrt (∫ x in V, ((a x)⁻¹).trace) * Real.sqrt (weightedEnergy a V G).toReal := by
-  refine length_integrable_and_bound ha hG hE ha.2.2.2 ?_ hG ?_
-  · filter_upwards [ha.2.1] with x hx
-    exact hx.inv.posSemidef.trace_nonneg
-  · filter_upwards [ha.2.1] with x hx
-    exact Foundations.vecDot_self_le_inv_trace_mul_quadratic (a x) hx (G x)
-
-/-- Flux length estimate, for every measurable finite-energy field. -/
-theorem flux_length_integrable_and_bound (ha : IsWeightedCoeffOn V a)
-    {G : Vec d → Vec d} (hG : AEStronglyMeasurable G (volume.restrict V))
-    (hE : weightedEnergy a V G < ⊤) :
-    IntegrableOn (fun x => Real.sqrt
-      (vecDot (matVecMul (a x) (G x)) (matVecMul (a x) (G x)))) V ∧
-      (∫ x in V, Real.sqrt
-        (vecDot (matVecMul (a x) (G x)) (matVecMul (a x) (G x)))) ≤
-        Real.sqrt (∫ x in V, (a x).trace) * Real.sqrt (weightedEnergy a V G).toReal := by
-  refine length_integrable_and_bound ha hG hE ha.2.2.1 ?_ (flux_aestronglyMeasurable ha hG) ?_
-  · filter_upwards [ha.2.1] with x hx
-    exact hx.posSemidef.trace_nonneg
-  · filter_upwards [ha.2.1] with x hx
-    exact Foundations.vecDot_matVecMul_self_le_trace_mul_quadratic (a x) hx (G x)
-
-/-- Coordinate integrability follows from the Euclidean length estimate. -/
-theorem coord_integrable_of_length {H : Vec d → Vec d}
-    (hH : AEStronglyMeasurable H (volume.restrict V))
-    (hL : IntegrableOn (fun x => Real.sqrt (vecDot (H x) (H x))) V) (i : Fin d) :
-    IntegrableOn (fun x => H x i) V := by
-  refine hL.mono' ((continuous_apply i).comp_aestronglyMeasurable hH) ?_
-  filter_upwards with x
-  rw [Real.norm_eq_abs, ← Real.sqrt_sq_eq_abs]
-  exact Real.sqrt_le_sqrt (sq_apply_le_vecNormSq (H x) i)
-
-/-- Two finite-energy fields have finite-energy sum. -/
-theorem energy_add_lt_top (ha : IsWeightedCoeffOn V a)
-    {G H : Vec d → Vec d}
-    (hG : AEStronglyMeasurable G (volume.restrict V))
-    (hH : AEStronglyMeasurable H (volume.restrict V))
-    (hEG : weightedEnergy a V G < ⊤) (hEH : weightedEnergy a V H < ⊤) :
-    weightedEnergy a V (G + H) < ⊤ := by
-  have hpos (A : Mat d) (hA : A.PosDef) (z : Vec d) :
-      0 ≤ vecDot z (matVecMul A z) := by
-    simpa [vecDot, matVecMul, dotProduct, Matrix.mulVec] using
-      hA.posSemidef.dotProduct_mulVec_nonneg (x := z)
-  have hqG := quadratic_integrable ha hG hEG
-  have hqH := quadratic_integrable ha hH hEH
-  have hqsum : IntegrableOn
-      (fun x => vecDot ((G + H) x) (matVecMul (a x) ((G + H) x))) V := by
-    refine ((hqG.add hqH).const_mul 2).mono'
-      (quadratic_aestronglyMeasurable ha (hG.add hH)) ?_
-    filter_upwards [ha.2.1] with x hx
-    rw [Real.norm_eq_abs, abs_of_nonneg (hpos _ hx _)]
-    have hdiff := hpos (a x) hx (G x - H x)
-    have hcomm : vecDot (H x) (matVecMul (a x) (G x)) =
-        vecDot (G x) (matVecMul (a x) (H x)) :=
-      vecDot_matVecMul_comm_of_isSymm (by simpa [Matrix.IsSymm, Matrix.IsHermitian] using hx.1) _ _
-    simp only [Pi.add_apply, sub_eq_add_neg, matVecMul_add, matVecMul_neg,
-      vecDot_add_left, vecDot_add_right, vecDot_neg_left, vecDot_neg_right, hcomm] at hdiff ⊢
-    linarith only [hdiff]
-  exact lt_top_iff_ne_top.mpr ((lintegral_ofReal_ne_top_iff_integrable
-    (quadratic_aestronglyMeasurable ha (hG.add hH)) (quadratic_nonneg ha (G + H))).mpr hqsum)
-
-/-- Negating a gradient does not change its energy. -/
-theorem energy_neg (G : Vec d → Vec d) : weightedEnergy a V (-G) = weightedEnergy a V G := by
-  unfold weightedEnergy CoarseDeGiorgi.weightedEnergy
-  simp only [Pi.neg_apply, matVecMul_neg, vecDot_neg_left, vecDot_neg_right, neg_neg]
-
-/-- Integral Cauchy–Schwarz for arbitrary measurable finite-energy fields. -/
-theorem pairing_integrable_and_bound (ha : IsWeightedCoeffOn V a)
-    {G H : Vec d → Vec d}
-    (hG : AEStronglyMeasurable G (volume.restrict V))
-    (hH : AEStronglyMeasurable H (volume.restrict V))
-    (hEG : weightedEnergy a V G < ⊤) (hEH : weightedEnergy a V H < ⊤) :
-    IntegrableOn (fun x => vecDot (G x) (matVecMul (a x) (H x))) V ∧
-      |∫ x in V, vecDot (G x) (matVecMul (a x) (H x))| ≤
-        Real.sqrt (weightedEnergy a V G).toReal * Real.sqrt (weightedEnergy a V H).toReal := by
-  have hqG := quadratic_integrable ha hG hEG
-  have hqH := quadratic_integrable ha hH hEH
-  have h0G := quadratic_nonneg ha G
-  have h0H := quadratic_nonneg ha H
-  have hprod := sqrt_mul_sqrt_integrable hqG hqH h0G h0H
-  have hc : Continuous (fun p : Vec d × Vec d => vecDot p.1 p.2) := by
-    unfold vecDot
-    fun_prop
-  have hmeas := hc.comp_aestronglyMeasurable (hG.prodMk (flux_aestronglyMeasurable ha hH))
-  have hbound : ∀ᵐ x ∂(volume.restrict V),
-      |vecDot (G x) (matVecMul (a x) (H x))| ≤
-        Real.sqrt (vecDot (G x) (matVecMul (a x) (G x))) *
-        Real.sqrt (vecDot (H x) (matVecMul (a x) (H x))) := by
-    filter_upwards [ha.2.1, h0G] with x hx hzero
-    have hcs := hx.star_dotProduct_mulVec_mul_le (G x) (H x)
-    have hcs' : vecDot (G x) (matVecMul (a x) (H x)) ^ 2 ≤
-        vecDot (G x) (matVecMul (a x) (G x)) * vecDot (H x) (matVecMul (a x) (H x)) := by
-      simpa [vecDot, matVecMul, dotProduct, Matrix.mulVec, pow_two] using hcs
-    rw [← Real.sqrt_sq_eq_abs]
-    exact (Real.sqrt_le_sqrt hcs').trans_eq (Real.sqrt_mul hzero _)
-  have hint : IntegrableOn (fun x => vecDot (G x) (matVecMul (a x) (H x))) V :=
-    hprod.mono' hmeas (by simpa only [Real.norm_eq_abs] using hbound)
-  refine ⟨hint, ?_⟩
-  calc
-    |∫ x in V, vecDot (G x) (matVecMul (a x) (H x))| ≤
-        ∫ x in V, |vecDot (G x) (matVecMul (a x) (H x))| := abs_integral_le_integral_abs
-    _ ≤ ∫ x in V, Real.sqrt (vecDot (G x) (matVecMul (a x) (G x))) *
-        Real.sqrt (vecDot (H x) (matVecMul (a x) (H x))) := integral_mono_ae hint.abs hprod hbound
-    _ ≤ Real.sqrt (weightedEnergy a V G).toReal * Real.sqrt (weightedEnergy a V H).toReal := by
-      rw [energy_toReal ha hG, energy_toReal ha hH]
-      exact integral_sqrt_mul_sqrt_le hqG hqH h0G h0H
+    IntegrableOn (fun x => vecDot (G x) (matVecMul (a x) (G x))) V := sorry
 
 end CoarseDeGiorgi.Weighted

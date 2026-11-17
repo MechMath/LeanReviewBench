@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "formal量化x≥23而文字x≥2；且Eπ=|π−Li|/(x/log x)，B=0.801展开为未归一化log指数−0.199，文字要求+0.801。缺失1的指数不是同一数量界。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "06608b88de8cfc08f289be81508fa096b23ce452ad6584e52a712e9388b81a5e"
+    "sha256": "232b6aa8846c982297accf0c40bd0044852d05ef9c39722e53e8e527735a5078",
+    "effective_root_sha256": "d3e273523ecc32aac4a12b33ca35b8c65b1e47268d5d6747ff8564c921b8ae02",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-before/20261105T053449737400Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "d0a9b408179eca581794137bbc0c65e499dfb8a5eb217afa347a0455fb4be4cc",
+  "input_sha256": "1760ae0c0e228cba8c10e23c31f61966dac6f870333a12e3813c96d7bf8c5ad4",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

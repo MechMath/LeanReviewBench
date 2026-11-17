@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "在原文的零分母按无穷处理的 KL 下，真实概率输入的发散度与 formal 的全实数总化不同；formal 的非负结论因此不是所选 Gibbs 命题。",
   "external_imports": [
     "Mathlib",
     "Mathlib.MeasureTheory.Measure.Real",
@@ -44,8 +43,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 3,
-    "sha256": "c4547ed9ace62e2a45ddeb47f387f738fc6377eafa239aa3d4aacffee59215ac"
+    "file_count": 2,
+    "sha256": "7a40685615b47ffee28e0c8ba1c8fc5f8015939621fd54e947aebef1d0ec5bfc",
+    "effective_root_sha256": "1a9376be761b4361e370f598ce3eb3b9476d03e2ada54c5e4ff104a58414c16d",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-repair/repaired/pr227-before-nonneg/20261104T091630889043Z/receipt.json",
@@ -82,8 +84,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "definition_preserving_slice"
   },
-  "input_sha256": "49e105b354d98fcab015a1c7b6f1b88cb6011b0a2264293547e949838db6c9d6",
+  "input_sha256": "04467815f77ba6ed08381cc71a82a47e807640d0dc66aaa72e6ebe699af225b9",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

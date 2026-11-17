@@ -1,0 +1,91 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "pfr",
+  "project_id": "pr48-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "ent_of_diff_le"
+  ],
+  "input_sha256": "69c873fd6a10f3271f952d0e570430857063f7181dbdf833007a62ef0dbac943",
+  "graph_sha256": "10c99b6185e3f1cb3376c91462461e6c87b29f1a89c7b91dac68248a8f873e9c",
+  "graph_path": "metadata/derived-graphs/graphs/pfr--pr48-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "deab17c6313b294c2b2c2722328db1c8278daa5a3d1788cb5f60e600091f6c68"
+    ],
+    [
+      "formal/dep/LegacyMap.lean",
+      "2f291110495430b75bb364f0348387e492f29e489667adc6ba0658d5baae0edf"
+    ],
+    [
+      "formal/dep/PFR/ForMathlib/Entropy/Kernel/Basic.lean",
+      "ba85555c8d6a08d5c1087c7b1db41f54afd39b331e9e53673f502deebce563d7"
+    ],
+    [
+      "formal/dep/PFR/ForMathlib/Entropy/Kernel/MutualInfo.lean",
+      "fe1334e334d66794a45782214b9d54f2670174bd7f1ce508cb4b0a2b69673242"
+    ],
+    [
+      "formal/dep/PFR/ForMathlib/Entropy/Measure.lean",
+      "4e1e8990b7a8af3a7d7b7e6defe4511c442e7064210dcd359a97534cffa8ab05"
+    ],
+    [
+      "formal/dep/PFR/ForMathlib/FiniteRange/Defs.lean",
+      "be854fb1f19da2180c8e07aeda9e5f3dbf9bf93df277fca6b451fd35a19af6dc"
+    ],
+    [
+      "formal/dep/PFR/ForMathlib/Pair.lean",
+      "d3ab8f7779be4d63585b0bda0fa9222f699c78ca74bee964312d16267838f6a5"
+    ],
+    [
+      "formal/dep/PFR/ForMathlib/Uniform.lean",
+      "39d609a74bf43644b859336d15bc012fb746b1eaf105d44eb9b70f9261c62ecf"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/MeasureTheory/Constructions/Pi.lean",
+      "3ec0e808f6b1a9bbf1497f1ccc34d75b0a958779a10171d26cf3c34989d6329c"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+      "974c9780e61acbf0403fe1c11493ce4a48d1c85d9503a5a19b2e22df86e8d885"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/MeasureTheory/Measure/Prod.lean",
+      "3f6c994d10d3602370c163827e2bd03537ace64426ab057544e2d65f13d6e913"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/Probability/IdentDistrib.lean",
+      "54c082ea7e8685c555175e073fa1a6250115deffdf0d201321896b780a664fe8"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/Probability/Independence/Basic.lean",
+      "901ec6d72576bd03888b9244696fc6a49f826820969193e3e6a32102bd687167"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/Probability/Kernel/Composition/Comp.lean",
+      "4dda228123e64b3a793e170ae7eb617ae0df36d6671f526493d16147b2587cf4"
+    ],
+    [
+      "formal/dep/PFR/Mathlib/Probability/Kernel/Disintegration.lean",
+      "625d53308615914c5c53e26d2c3acfd38a23ed59fd77b22bec2b3bb0b59c31db"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 15,
+  "nodes": 82,
+  "edges": 119,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

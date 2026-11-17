@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "pnt",
+  "project_id": "kln-j-before",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "KLN.J"
+  ],
+  "input_sha256": "97a7f5f5d401e14fda60e9e14ee7b7d2cd1bb44395d2ef8b7e3a5acba028c692",
+  "graph_sha256": "21af90340eb64f8bcdacb722a1a57484237f23d9cfd7e301c8ce0381fd2f9d38",
+  "graph_path": "metadata/derived-graphs/graphs/pnt--kln-j-before.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "6cd84feb9e0e4a251d29d8b5d349b56241a2b34984e1d2d2e0c1497696d4f17f"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 73,
+  "edges": 215,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

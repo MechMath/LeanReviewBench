@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr311-before",
   "task_id": "pfr:pr311-before",
-  "input_sha256": "53c1c2cbb25d51aa64db8334dddc8ff26b3b6f285098c9c8610c5bc2817ae127",
+  "input_sha256": "63d1ce0b8b34198c96ba81f06ae6b5b24dd2d83610e4c66f58a18cab31345efe",
   "label": "aligned",
   "reason": "The conclusion supplies measurable random variables, a probability measure, the required joint laws, and conditional independence. Finite conditioning codomains satisfy the source countability and finite-range conditions.",
   "review_status": "human_reviewed",

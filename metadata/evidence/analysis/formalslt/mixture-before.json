@@ -3,7 +3,7 @@
   "dataset": "formalslt",
   "project_id": "mixture-before",
   "task_id": "formalslt:mixture-before",
-  "input_sha256": "1f4be19364a75f455f8503470c5a13d1b114bcff36faf60b4c0b53c542fce3a5",
+  "input_sha256": "55699af3eccb3752878fc95362c3574898796febb9c016fc5b460094d813d0da",
   "label": "misaligned",
   "reason": "Adaptedness uses filtration index k instead of k+1; with conditional centering this forces zero increments.",
   "review_status": "human_reviewed",

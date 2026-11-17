@@ -1,61 +1,68 @@
 module
 
-public import dep.Homogenization.Multiscale.CubeAverage
-public import dep.Homogenization.Sobolev.WeakDerivatives
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.PiL2
 public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
 public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
 public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
 public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 public import Mathlib.MeasureTheory.Measure.Prod
-
-public import dep.CoarseDeGiorgi.Foundations.Euclid.Gagliardo
-public import dep.CoarseDeGiorgi.Statements.EuclidDist
-public import dep.CoarseDeGiorgi.Statements.FracSeminorm
-public import dep.CoarseDeGiorgi.Statements.FracNorm
-public import dep.CoarseDeGiorgi.Statements.CubeSurface
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.MetricSpace.Bounded
 public import dep.CoarseDeGiorgi.Statements.CubeFaceMeasure
+public import dep.CoarseDeGiorgi.Statements.FaceCoordinateMeasures
 public import dep.CoarseDeGiorgi.Statements.SurfaceMeasure
-public import dep.CoarseDeGiorgi.Statements.SurfaceFracSeminorm
-public import dep.CoarseDeGiorgi.Statements.SurfaceFracNorm
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.Sobolev.Fractional.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
 namespace CoarseDeGiorgi.Foundations.FracGeometry
 
 open Homogenization MeasureTheory
+
 open scoped BigOperators ENNReal
 
 noncomputable section
 
-/- Compatibility names retain the existing implementation API while all mathematical
-bodies are supplied by the `Statements/` definitions. -/
-/-- Compatibility name for the Euclidean distance. -/
-abbrev euclidDist {d : ℕ} (x y : Vec d) : ℝ :=
-  CoarseDeGiorgi.euclidDist x y
-
-/-- Compatibility name for the Euclidean Gagliardo seminorm. -/
-abbrev fracSeminorm {d : ℕ} (V : Set (Vec d)) (α r : ℝ) (w : Vec d → ℝ) : ℝ≥0∞ :=
-  CoarseDeGiorgi.fracSeminorm V α r w
-
-/-- Compatibility name for the fractional Sobolev norm. -/
-abbrev fracNorm {d : ℕ} (V : Set (Vec d)) (α r : ℝ) (w : Vec d → ℝ) : ℝ≥0∞ :=
-  CoarseDeGiorgi.fracNorm V α r w
-
-/-- Compatibility name for the centered cube boundary. -/
-abbrev cubeSurface {d : ℕ} (τ : ℝ) : Set (Vec d) :=
-  CoarseDeGiorgi.cubeSurface τ
-
 /-- Compatibility name for the surface measure, the sum of the face measures. -/
 abbrev surfaceMeasure {d : ℕ} (τ : ℝ) : Measure (Vec d) :=
   CoarseDeGiorgi.surfaceMeasure τ
-
-/-- Compatibility name for the surface fractional seminorm. -/
-abbrev surfaceFracSeminorm {d : ℕ} (τ α r : ℝ) (f : Vec d → ℝ) : ℝ≥0∞ :=
-  CoarseDeGiorgi.surfaceFracSeminorm τ α r f
-
-/-- Compatibility name for the surface fractional norm. -/
-abbrev surfaceFracNorm {d : ℕ} (τ α r : ℝ) (f : Vec d → ℝ) : ℝ≥0∞ :=
-  CoarseDeGiorgi.surfaceFracNorm τ α r f
 
 variable {d : ℕ}
 
@@ -63,82 +70,17 @@ variable {d : ℕ}
 abbrev faceMeasure (τ : ℝ) (i : Fin d) (positive : Bool) : Measure (Vec d) :=
   CoarseDeGiorgi.cubeFaceMeasure τ i positive
 
-theorem faceMeasure_eq_pi (τ : ℝ) (i : Fin d) (positive : Bool) :
-    faceMeasure τ i positive = Measure.pi (fun j : Fin d =>
-      if j = i then Measure.dirac (if positive then τ / 2 else -τ / 2)
-      else volume.restrict (Set.Ioo (-τ / 2) (τ / 2))) := rfl
-
-theorem surfaceMeasure_eq_sum_faceMeasure (τ : ℝ) :
-    surfaceMeasure (d := d) τ = ∑ i : Fin d, ∑ positive : Bool,
-      faceMeasure τ i positive := rfl
-
-/-- The Euclidean distance is definitionally the infrastructure distance. -/
-theorem euclidDist_eq_eDist2 (x y : Vec d) :
-    euclidDist x y = Euclid.eDist2 x y := rfl
-
-/-- The fractional seminorm is definitionally the Euclidean comparison seminorm. -/
-theorem fracSeminorm_eq_eFracSeminorm (V : Set (Vec d)) (α r : ℝ) (w : Vec d → ℝ) :
-    fracSeminorm V α r w = Euclid.eFracSeminorm V α r w := rfl
-
-/-- The surface kernel has the intrinsic dimension `d-1`. -/
-theorem surfaceFracSeminorm_eq_lintegral (τ α r : ℝ) (w : Vec d → ℝ) :
-    surfaceFracSeminorm τ α r w =
-      (∫⁻ xy, Euclid.euclidKernel ((d : ℝ) - 1 + α * r) r w xy
-        ∂((surfaceMeasure τ).prod (surfaceMeasure τ))) ^ (1 / r) := rfl
-
-/-- The full norm's positive power is its defining power sum. -/
-theorem fracNorm_rpow (V : Set (Vec d)) (α : ℝ) {r : ℝ} (hr : 0 < r)
-    (w : Vec d → ℝ) :
-    fracNorm V α r w ^ r =
-      eLpNorm w (ENNReal.ofReal r) (volume.restrict V) ^ r + fracSeminorm V α r w ^ r := by
-  unfold fracNorm CoarseDeGiorgi.fracNorm
-  simp only [ENNReal.rpow_eq_pow]
-  rw [← ENNReal.rpow_mul, one_div_mul_cancel hr.ne', ENNReal.rpow_one]
-
-/-- The analogous surface power identity keeps every cross-face term. -/
-theorem surfaceFracNorm_rpow (τ α : ℝ) {r : ℝ} (hr : 0 < r) (w : Vec d → ℝ) :
-    surfaceFracNorm τ α r w ^ r =
-      eLpNorm w (ENNReal.ofReal r) (surfaceMeasure τ) ^ r + surfaceFracSeminorm τ α r w ^ r := by
-  unfold surfaceFracNorm CoarseDeGiorgi.surfaceFracNorm
-  simp only [ENNReal.rpow_eq_pow]
-  rw [← ENNReal.rpow_mul, one_div_mul_cancel hr.ne', ENNReal.rpow_one]
-
-/-- The full norm controls its Lebesgue component. -/
-theorem eLpNorm_le_fracNorm (V : Set (Vec d)) (α : ℝ) {r : ℝ} (hr : 0 < r)
-    (w : Vec d → ℝ) :
-    eLpNorm w (ENNReal.ofReal r) (volume.restrict V) ≤ fracNorm V α r w := by
-  rw [← ENNReal.rpow_le_rpow_iff hr, fracNorm_rpow V α hr w]
-  exact le_add_right le_rfl
-
-/-- The full norm controls its seminorm component. -/
-theorem fracSeminorm_le_fracNorm (V : Set (Vec d)) (α : ℝ) {r : ℝ} (hr : 0 < r)
-    (w : Vec d → ℝ) : fracSeminorm V α r w ≤ fracNorm V α r w := by
-  rw [← ENNReal.rpow_le_rpow_iff hr, fracNorm_rpow V α hr w]
-  exact le_add_left le_rfl
-
 private instance faceCoordinateMeasures_finite (τ : ℝ) (i : Fin d) (positive : Bool)
-    (j : Fin d) : IsFiniteMeasure (CoarseDeGiorgi.faceCoordinateMeasures τ i positive j) := by
-  unfold CoarseDeGiorgi.faceCoordinateMeasures
-  split_ifs <;> infer_instance
+    (j : Fin d) : IsFiniteMeasure (CoarseDeGiorgi.faceCoordinateMeasures τ i positive j) := sorry
 
 private instance cubeFaceMeasure_finite (τ : ℝ) (i : Fin d) (positive : Bool) :
-    IsFiniteMeasure (CoarseDeGiorgi.cubeFaceMeasure τ i positive) := by
-  unfold CoarseDeGiorgi.cubeFaceMeasure
-  infer_instance
+    IsFiniteMeasure (CoarseDeGiorgi.cubeFaceMeasure τ i positive) := sorry
 
 instance faceMeasure_finite (τ : ℝ) (i : Fin d) (positive : Bool) :
-    IsFiniteMeasure (faceMeasure τ i positive) := by
-  unfold faceMeasure
-  infer_instance
+    IsFiniteMeasure (faceMeasure τ i positive) := sorry
 
 /-- The surface measure (sum of face measures) is finite, even at an inadmissible radius. -/
-instance surfaceMeasure_finite (τ : ℝ) : IsFiniteMeasure (surfaceMeasure (d := d) τ) := by
-  unfold surfaceMeasure CoarseDeGiorgi.surfaceMeasure
-  infer_instance
-
-/-- The zero-dimensional surface has no faces. -/
-theorem surfaceMeasure_zero_dim (τ : ℝ) : surfaceMeasure (d := 0) τ = 0 := by
-  simp only [surfaceMeasure, CoarseDeGiorgi.surfaceMeasure, Finset.univ_eq_empty, Finset.sum_empty]
+instance surfaceMeasure_finite (τ : ℝ) : IsFiniteMeasure (surfaceMeasure (d := d) τ) := sorry
 
 end
 

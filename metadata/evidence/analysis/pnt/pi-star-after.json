@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "pi-star-after",
   "task_id": "pnt:pi-star-after",
-  "input_sha256": "ba8531bb0b37e077873e6c86b65d9fffdc3d8f5e84d54de9b67861b01b4370c3",
+  "input_sha256": "4e1725dfed6c8a6d9422a870fde9f2bd42116fdd97c640ac5952ea63a795131d",
   "label": "aligned",
   "reason": "The positive-index terms match the source prime-power sum. The extra index-zero term vanishes under real division totalization.",
   "review_status": "human_reviewed",

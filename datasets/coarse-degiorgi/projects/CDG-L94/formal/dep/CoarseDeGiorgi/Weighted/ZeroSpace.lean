@@ -1,8 +1,180 @@
 module
 
-public import dep.CoarseDeGiorgi.Weighted.GraphRepresentation
-public import dep.CoarseDeGiorgi.Weighted.ZeroBoundary
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.QuadraticDiscriminant
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Convex.Basic
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.FunctionalSpaces.SobolevInequality
+public import Mathlib.Analysis.InnerProductSpace.Basic
+public import Mathlib.Analysis.InnerProductSpace.Completion
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Matrix.Order
+public import Mathlib.Analysis.Normed.Module.Convex
 public import Mathlib.Analysis.Normed.Operator.Banach
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Basic.Real.Pointwise
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.PosDef
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Swap
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.LinearAlgebra.QuadraticForm.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Metrizable
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Covering.DensityTheorem
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Function.SpecialFunctions.Basic
+public import Mathlib.MeasureTheory.Group.Arithmetic
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Prod
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Map
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Restrict
+public import Mathlib.MeasureTheory.Measure.SeparableMeasure
+public import Mathlib.MeasureTheory.Measure.Sum
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.Real
+public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.PiProd
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.Basic
+public import Mathlib.Topology.Compactness.LocallyCompact
+public import Mathlib.Topology.Compactness.SigmaCompact
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.Instances.Matrix
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Pseudo.Defs
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Topology.Order.Compact
+public import Mathlib.Topology.Sequences
+public import Mathlib.Topology.Sets.Opens
+public import dep.CoarseDeGiorgi.Statements.IsSmoothCore
+public import dep.CoarseDeGiorgi.Statements.IsWeightedCoeffOn
+public import dep.CoarseDeGiorgi.Statements.MemH1a
+public import dep.CoarseDeGiorgi.Statements.MemH1a0
+public import dep.CoarseDeGiorgi.Statements.SmoothGrad
+public import dep.CoarseDeGiorgi.Statements.WeightedEnergy
+public import dep.CoarseDeGiorgi.Weighted.Defs
+public import dep.CoarseDeGiorgi.Weighted.Energy
+public import dep.CoarseDeGiorgi.Weighted.GradientHilbert
+public import dep.CoarseDeGiorgi.Weighted.SmoothCore
+public import dep.CoarseDeGiorgi.Weighted.SmoothSpace
+public import dep.CoarseDeGiorgi.Weighted.ZeroCore
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.Euclidean
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Book.Ch02.Dilation
+public import dep.Homogenization.Book.Ch02.Matrices
+public import dep.Homogenization.Book.Ch02.MultiscaleEllipticity
+public import dep.Homogenization.Book.Ch02.Response
+public import dep.Homogenization.Book.Ch02.Setup
+public import dep.Homogenization.CoarseGraining.Definitions
+public import dep.Homogenization.CoarseGraining.ResponseIdentities.Foundations.Algebra
+public import dep.Homogenization.CoarseGraining.SharpBlockBounds.DiagonalSandwich
+public import dep.Homogenization.Geometry.BoundedMeasurableDomain
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.CubeMetric
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.SignedPermutation
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.PDE.Harmonic
+public import dep.Homogenization.Probability.LocalEllipticitySlices
+public import dep.Homogenization.Probability.RandomField
+public import dep.Homogenization.Probability.RegCoeffField
+public import dep.Homogenization.Probability.RegCoeffField.EllipticSet
+public import dep.Homogenization.Probability.RegCoeffField.Sigma
+public import dep.Homogenization.Probability.Source.Coarse
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.Foundations.Cutoff.Euclidean
+public import dep.Homogenization.Sobolev.Foundations.H10Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.CoerciveHilbert
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Preliminaries
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.Basic
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.RieszPowerMean
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.SegmentChangeOfVariables
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.TimeCollapse
+public import dep.Homogenization.Sobolev.Foundations.PoincareMeanZero
+public import dep.Homogenization.Sobolev.Foundations.PoincareW1p.Core
+public import dep.Homogenization.Sobolev.Foundations.PoincareW1p.Seminorms
+public import dep.Homogenization.Sobolev.Foundations.PoincareZeroTrace
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.PotentialSolenoidal
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
@@ -16,18 +188,9 @@ variable {d : ℕ} {V : Set (Vec d)} {a : CoeffField d}
 noncomputable abbrev supportedCoreSubmodule (V : Set (Vec d)) :
     Submodule ℝ (Vec d → ℝ) where
   carrier := {f | ContDiff ℝ (⊤ : ℕ∞) f ∧ HasCompactSupport f ∧ tsupport f ⊆ V}
-  zero_mem' := by
-    refine ⟨contDiff_const, ?_, ?_⟩
-    · exact HasCompactSupport.of_support_subset_isCompact isCompact_empty (by simp)
-    · simp
-  add_mem' := by
-    intro f g hf hg
-    exact ⟨hf.1.add hg.1, hf.2.1.add hg.2.1,
-      (tsupport_add f g).trans (Set.union_subset hf.2.2 hg.2.2)⟩
-  smul_mem' := by
-    intro c f hf
-    exact ⟨hf.1.const_smul c, hf.2.1.smul_left,
-      (tsupport_smul_subset_right (fun _ => c) f).trans hf.2.2⟩
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
 
 /-- Inclusion of the supported core into the smooth core. -/
 noncomputable def supportedToSmooth (hV : IsOpen V) (ha : IsWeightedCoeffOn V a) :
@@ -45,132 +208,6 @@ noncomputable abbrev zeroGraphSubmodule (hV : IsOpen V) (ha : IsWeightedCoeffOn 
     Submodule ℝ (WeightedAmbient ha) := (supportedGraphMap hV ha).range.topologicalClosure
 
 instance zeroGraph_complete (hV : IsOpen V) (ha : IsWeightedCoeffOn V a) :
-    CompleteSpace (zeroGraphSubmodule hV ha) :=
-  (Submodule.isClosed_topologicalClosure _).completeSpace_coe
-
-/-- Supported smooth graph limits represent the zero-boundary completion. -/
-theorem memH1a0_of_smoothGraph_tendsto [NeZero d]
-    (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty) (ha : IsWeightedCoeffOn V a)
-    {f : ℕ → smoothCoreSubmodule hV.isOpen ha} {x : WeightedAmbient ha}
-    (hs : ∀ n, ContDiff ℝ (⊤ : ℕ∞) (f n).val ∧ HasCompactSupport (f n).val ∧
-      tsupport (f n).val ⊆ V)
-    (ht : Tendsto (fun n => smoothGraphMap hV.isOpen ha (f n)) atTop (𝓝 x)) :
-    ∃ u : Vec d → ℝ, MemH1a0 a V u (gradientHilbertRep ha x.snd).field ∧
-      volumeAverage V u = x.fst := by
-  obtain ⟨u, hu, hm, hi, htu⟩ := memH1a_of_smoothGraph_tendsto hV hne ha ht
-  have htc : Tendsto (fun n => (smoothEnergyField hV.isOpen ha (f n).property : GradientHilbert ha))
-      atTop (𝓝 (gradientHilbertRep ha x.snd : GradientHilbert ha)) := by
-    rw [gradientHilbertRep_coe]
-    exact (WithLp.sndL 2 ℝ ℝ (GradientHilbert ha)).continuous.continuousAt.tendsto.comp ht
-  have hE := GradientCore.tendsto_energy_of_coe ha htc
-  refine ⟨u, ?_, hm⟩
-  refine ⟨hu.1, hu.2.1, fun n => (f n).val, hs, ?_, ?_, ?_⟩
-  · exact smoothGraph_cauchy hV.isOpen ha ht.cauchySeq
-  · intro K _ hKV
-    exact local_l1_of_global (fun n => (f n).property.2.1) hi htu hKV
-  · change Tendsto (fun n => weightedEnergy a V
-      (smoothGrad (f n).val - (gradientHilbertRep ha x.snd).field)) atTop (𝓝 0)
-    simpa only [smoothEnergyField_field] using hE
-
-/-- The supported graph represents literal zero-boundary pairs. -/
-theorem zeroGraph_exists_rep [NeZero d] (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty)
-    (ha : IsWeightedCoeffOn V a) (x : zeroGraphSubmodule hV.isOpen ha) :
-    ∃ u : Vec d → ℝ, MemH1a0 a V u (gradientHilbertRep ha x.val.snd).field ∧
-      volumeAverage V u = x.val.fst := by
-  obtain ⟨y, hy, ht⟩ := mem_closure_iff_seq_limit.mp x.property
-  choose f hf using hy
-  have htf : Tendsto (fun n => supportedGraphMap hV.isOpen ha (f n)) atTop (𝓝 x.val) := by
-    simpa only [hf] using ht
-  let s : ℕ → smoothCoreSubmodule hV.isOpen ha := fun n => supportedToSmooth hV.isOpen ha (f n)
-  have hts : Tendsto (fun n => smoothGraphMap hV.isOpen ha (s n)) atTop (𝓝 x.val) := htf
-  exact memH1a0_of_smoothGraph_tendsto hV hne ha (f := s) (fun n => (f n).property) hts
-
-/-- Zero-boundary approximations converge in the graph and in value L¹. -/
-theorem MemH1a0.supportedGraph_tendsto [NeZero d]
-    (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty) (ha : IsWeightedCoeffOn V a)
-    {u : Vec d → ℝ} {G : Vec d → Vec d} (hu : MemH1a0 a V u G) :
-    ∃ f : ℕ → supportedCoreSubmodule V,
-      Tendsto (fun n => supportedGraphMap hV.isOpen ha (f n)) atTop
-        (𝓝 (WithLp.toLp 2 (volumeAverage V u,
-          (memH1aEnergyField hV.isOpen ha (hu.memH1a ha) : GradientHilbert ha)))) ∧
-      Tendsto (fun n => eLpNorm ((f n).val - u) 1 (volume.restrict V)) atTop (𝓝 0) := by
-  have hdata := hu
-  obtain ⟨huM, _, φ, hφ, hc, hlocal, henergy⟩ := hdata
-  have hcore (n : ℕ) := isSmoothCore_of_supported ha (hφ n).1 (hφ n).2.1
-  have hL := core_tendsto_l1 hV hne ha hcore hc huM hlocal
-  let f : ℕ → supportedCoreSubmodule V := fun n => ⟨φ n, hφ n⟩
-  let s : ℕ → smoothCoreSubmodule hV.isOpen ha := fun n => supportedToSmooth hV.isOpen ha (f n)
-  have ht : Tendsto (fun n => supportedGraphMap hV.isOpen ha (f n)) atTop
-      (𝓝 (WithLp.toLp 2 (volumeAverage V u,
-        (memH1aEnergyField hV.isOpen ha (hu.memH1a ha) : GradientHilbert ha)))) :=
-    smoothGraph_tendsto_of_l1_energy hV.isOpen ha (f := s) hL.2 henergy
-  exact ⟨f, ht, hL.2⟩
-
-/-- Every zero-boundary pair belongs to the closed supported graph. -/
-theorem MemH1a0.graph_mem [NeZero d] (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty)
-    (ha : IsWeightedCoeffOn V a) {u : Vec d → ℝ} {G : Vec d → Vec d}
-    (hu : MemH1a0 a V u G) :
-    WithLp.toLp 2 (volumeAverage V u,
-      (memH1aEnergyField hV.isOpen ha (hu.memH1a ha) : GradientHilbert ha)) ∈
-        zeroGraphSubmodule hV.isOpen ha := by
-  obtain ⟨f, ht, _⟩ := hu.supportedGraph_tendsto hV hne ha
-  exact (Submodule.isClosed_topologicalClosure _).mem_of_tendsto ht
-    (Eventually.of_forall fun n => subset_closure ⟨f n, rfl⟩)
-
-/-- Gradient projection from the closed supported graph. -/
-noncomputable def zeroGradientMap (hV : IsOpen V) (ha : IsWeightedCoeffOn V a) :
-    zeroGraphSubmodule hV ha →L[ℝ] GradientHilbert ha :=
-  (WithLp.sndL 2 ℝ ℝ (GradientHilbert ha)).comp (zeroGraphSubmodule hV ha).subtypeL
-
-/-- The zero-boundary gradient map has a bounded inverse on its range. -/
-theorem zeroGradientMap_antilipschitz [NeZero d]
-    (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty) (ha : IsWeightedCoeffOn V a) :
-    ∃ K : NNReal, AntilipschitzWith K (zeroGradientMap hV.isOpen ha) := by
-  obtain ⟨C, hC, hb⟩ := exists_memH1a0_coercivity hV hne
-  let K : NNReal := ⟨1 + C * Real.sqrt (∫ x in V, ((a x)⁻¹).trace),
-    add_nonneg zero_le_one (mul_nonneg hC (Real.sqrt_nonneg _))⟩
-  refine ⟨K, ContinuousLinearMap.antilipschitz_of_bound _ ?_⟩
-  intro x
-  obtain ⟨u, hu, hm⟩ := zeroGraph_exists_rep hV hne ha x
-  have hmean := (hb a ha u _ hu).2.2.1
-  have he : Real.sqrt (weightedEnergy a V (gradientHilbertRep ha x.val.snd).field).toReal =
-      ‖x.val.snd‖ := by
-    rw [← GradientCore.norm_sq ha, Real.sqrt_sq (norm_nonneg _),
-      ← UniformSpace.Completion.norm_coe, gradientHilbertRep_coe]
-  rw [he, hm] at hmean
-  have hnorm : ‖x‖ ≤ |x.val.fst| + ‖x.val.snd‖ := by
-    apply le_of_sq_le_sq _ (add_nonneg (abs_nonneg _) (norm_nonneg _))
-    change ‖x.val‖ ^ 2 ≤ _
-    rw [WithLp.prod_norm_sq_eq_of_L2, Real.norm_eq_abs]
-    nlinarith only [abs_nonneg x.val.fst, norm_nonneg x.val.snd]
-  change ‖x‖ ≤ (1 + C * Real.sqrt (∫ x in V, ((a x)⁻¹).trace)) * ‖x.val.snd‖
-  nlinarith only [hnorm, hmean]
-
-/-- Closed zero-boundary carrier with the energy inner product inherited from gradients. -/
-noncomputable abbrev zeroSubmodule (hV : IsOpen V) (ha : IsWeightedCoeffOn V a) :
-    Submodule ℝ (GradientHilbert ha) := (zeroGradientMap hV ha).range
-
-theorem zeroHilbert_complete [NeZero d] (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty)
-    (ha : IsWeightedCoeffOn V a) : CompleteSpace (zeroSubmodule hV.isOpen ha) := by
-  obtain ⟨K, hK⟩ := zeroGradientMap_antilipschitz hV hne ha
-  exact (hK.isClosed_range (zeroGradientMap hV.isOpen ha).uniformContinuous).completeSpace_coe
-
-/-- Every zero-boundary gradient belongs to the energy Hilbert carrier. -/
-theorem MemH1a0.gradient_mem [NeZero d] (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty)
-    (ha : IsWeightedCoeffOn V a) {u : Vec d → ℝ} {G : Vec d → Vec d}
-    (hu : MemH1a0 a V u G) :
-    (memH1aEnergyField hV.isOpen ha (hu.memH1a ha) : GradientHilbert ha) ∈
-      zeroSubmodule hV.isOpen ha :=
-  ⟨⟨_, hu.graph_mem hV hne ha⟩, rfl⟩
-
-/-- Every element of the energy boundary carrier has a zero-boundary pair. -/
-theorem zeroHilbert_exists_rep [NeZero d] (hV : IsOpenBoundedConvexDomain V) (hne : V.Nonempty)
-    (ha : IsWeightedCoeffOn V a) (x : zeroSubmodule hV.isOpen ha) :
-    ∃ u : Vec d → ℝ, MemH1a0 a V u (gradientHilbertRep ha x.val).field := by
-  obtain ⟨y, hy⟩ := x.property
-  obtain ⟨u, hu, _⟩ := zeroGraph_exists_rep hV hne ha y
-  change y.val.snd = x.val at hy
-  rw [hy] at hu
-  exact ⟨u, hu⟩
+    CompleteSpace (zeroGraphSubmodule hV ha) := sorry
 
 end CoarseDeGiorgi.Weighted

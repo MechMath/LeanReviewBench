@@ -1,0 +1,51 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "formalslt",
+  "project_id": "dudley-covering-number",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber"
+  ],
+  "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
+  "graph_sha256": "61176863b158c1d925afd7b3193c4d1a4bfc8bae3265167bd0b0356b348a5475",
+  "graph_path": "metadata/derived-graphs/graphs/formalslt--dudley-covering-number.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "a73b8c77ce2647310ca2a8ec86eba75edda7b7d402171e1e4cd0f958a269fc75"
+    ],
+    [
+      "formal/dep/Covering/FiniteSubGaussianChaining.lean",
+      "0ea87ff4d8aeb1a50a5af6c393f0a4b42d745101f7f569425c20c8fc377c9221"
+    ],
+    [
+      "formal/dep/Covering/TotalBoundedDudley.lean",
+      "563fb804a05aff3aadb7fe8d8245523b400471e8ecb469d04ac3281e10810439"
+    ],
+    [
+      "formal/dep/Covering/UnitIntervalDudley.lean",
+      "57c5ab32472d42dfd0169226f263087da947c9aaba0d1c941716c0f90aa4f3fe"
+    ],
+    [
+      "formal/dep/Rademacher/FiniteSample.lean",
+      "50b93a90fa800c0cdedc0b5a787e1ae266bd42bafee874e1ad4339b83c9b8459"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 5,
+  "nodes": 109,
+  "edges": 288,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

@@ -13,7 +13,7 @@ datasets/
     projects/<id>/
       project.json
       informal.jsonl
-      CHANGES.md                 # When compatibility changes exist
+      CHANGES.md                 # Concise Lean migration and context notes
       formal/
         Main.lean
         dep/
@@ -25,7 +25,7 @@ metadata/
   taxonomy/                      # Classification standard and all negative labels
   derived-graphs/
     index.json                   # Current derived-graph/receipt bindings
-    retained-index.json          # Local access to all 171 original contexts
+    retained-index.json          # Local access to all 171 current contexts
   provenance.json
   manifest.json
   release.json
@@ -37,7 +37,7 @@ scripts/
 licenses/
 ```
 
-Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes and verdicts are unchanged. Label records contain concise English reasons and scope, with completed human review recorded explicitly. The analysis index links them to evidence under `metadata/evidence/analysis/`; upstream claims are separate under `metadata/evidence/upstream/`. Technical receipts and composition evidence live under `metadata/derived-graphs/`. Exact compatibility aliases in `metadata/layout.json` resolve embedded historical receipt locators.
+Each package retains its informal target, root bindings, version/group links, a statement-only Lean context and a concise `CHANGES.md`. The context contains the required declarations and elaboration support; theorem proofs are replaced by `sorry`, while computational definitions are preserved. All 171 contexts have been compiled and freshly extracted with Lean 4.34.1. Input hashes and evidence bindings follow these current files; the 81 aligned and 90 misaligned verdicts are unchanged. Labels and review evidence remain outside model-visible exports.
 
 ## Validate and inspect
 
@@ -88,14 +88,7 @@ python3 scripts/construction/compile_projects.py env
 python3 scripts/construction/compile_projects.py compile --dataset carleson --ids CAR-01-before
 ```
 
-Six previously blocked AppliedModelingLib inputs now contain target-specific native dependency slices, freshly compiled and re-extracted with Lean 4.34.1. Their receipts record the source inventory, root-type checks and axiom dependencies. CDG-L94 retains its historical blocked flag and a subsequent original-theorem compilation receipt. Compilation is separate from semantic labeling. See the [construction instructions](docs/CONSTRUCTION.md) for replay.
-
-To rebuild this publication layout from the pinned research checkout and its local archive Git objects:
-
-```sh
-python3 scripts/maintenance/migrate.py --source /path/to/clean/research-checkout \
-  --output /path/to/fresh-publication-directory
-```
+Compilation and extraction receipts are bound to the released statement contexts. They do not certify the omitted original theorem proofs or semantic alignment. Source repository/commit/root pins identify the full upstream sources; each input's `CHANGES.md` describes its Lean migration. Ordinary use does not require reconstructing a complete upstream project. See the [construction method](docs/CONSTRUCTION.md) and [known extraction issues](https://github.com/MechMath/LeanReviewBench/issues/2).
 
 See [environment configuration](docs/ENVIRONMENT.md), [validation](docs/VALIDATION.md) and [maintenance](docs/MAINTENANCE.md) for current procedures. Refresh the support inventory before the data manifest after intentional changes.
 

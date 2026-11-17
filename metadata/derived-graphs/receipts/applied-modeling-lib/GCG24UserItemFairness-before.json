@@ -1,120 +1,71 @@
 {
-  "schema_version": 1,
+  "schema_version": "paperlean-statement-only-receipt-1",
   "dataset": "applied-modeling-lib",
   "project_id": "GCG24UserItemFairness-before",
   "status": "passed",
   "evidence": "compiled_environment",
-  "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
-  "input_sha256": "36433fc1db471bf0b7a6586db3732784eef80e9b7c7ae6971a3b7414f42e417f",
-  "graph_sha256": "9e7d41de5980921fb5bb3d7f6f61f8845defa207f8f7d067f1656b7c16ed95a8",
-  "graph": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
+  "roots": [
+    "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
+  ],
+  "input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+  "graph_sha256": "c6c5881e3ce424577134e8106b36b591750155929aa4e43565990ee74f891ca3",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "original_source_commit": "fa5379e08df8c13e2bbfb85757bd2675b201d124",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
   "fresh_compilation": true,
-  "new_sorry_or_axioms": false,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "d3e09cb7ba622e9d05fb43012f618d30233dac7615aeddf60b55a0b662d1a182"
+    ],
+    [
+      "formal/dep/EconCSLib/Applications/RecommenderSystems/Classwise.lean",
+      "87c9229b952b7113f1757d42f93e1b7dacf0af17746157c758ef9ea1c4cce796"
+    ],
+    [
+      "formal/dep/EconCSLib/Applications/RecommenderSystems/Policy.lean",
+      "1a7443a6fb81b728f4f23b9521600e10a125ef57372cdd9717197e595e672e29"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Math/FiniteOptimization.lean",
+      "0c5c0a4489e608e077e0e0cc9d640ca36113ecd33268799eed82e2939f21aac7"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Probability/FiniteExpectation.lean",
+      "829c63803130514751e851802de8d04d475505fa2276c853a8364117f0e3c9ad"
+    ],
+    [
+      "formal/dep/GCG24UserItemFairness/Basic.lean",
+      "500a4b8db18592a3a493c69a954f6d118977bd53986264830eb778d0e9ba85ba"
+    ],
+    [
+      "formal/dep/GCG24UserItemFairness/LPReduction.lean",
+      "b78820e1d194eb318fbb69f71074e2ab5fddbbce344309235e9d80e27fa9a075"
+    ],
+    [
+      "formal/dep/GCG24UserItemFairness/OpposingTypes.lean",
+      "bb8c3d7ff74cb83c77ef18149a70912b7bae619355e8b9588482ccc0336b60c4"
+    ],
+    [
+      "formal/dep/GCG24UserItemFairness/Optimization.lean",
+      "c6f620640cf484f289500301744e0f47b5037dd0e7d17b8b794e6c44ef5234f5"
+    ],
+    [
+      "formal/dep/GCG24UserItemFairness/Symmetry.lean",
+      "d830f637133af2fab7acc7671a3adb7d9c420cec8e94f3a76bbef8b911033e59"
+    ]
+  ],
   "canonical_dataset_changed": true,
   "packaged_project_full_build_passed": true,
-  "root_definition_checked": true,
-  "root_proof_dependencies_checked": true,
-  "source_manifest": [
-    {
-      "path": "formal/Main.lean",
-      "sha256": "c6fa8bc177e67f6c1d974db086338dcc712e3740b892071f68a395bb6f9beb28"
-    },
-    {
-      "path": "formal/dep/EconCSLib/Applications/RecommenderSystems/Classwise.lean",
-      "sha256": "5fa716b34c8a6d2c681a973b880389f3c6fb3d12a077452b96e0a68d58cd4feb"
-    },
-    {
-      "path": "formal/dep/EconCSLib/Applications/RecommenderSystems/Policy.lean",
-      "sha256": "ec755ad76e475a9cdd5186a85b1e20c8f2ddf24d9784e443fc3fdfdced007c02"
-    },
-    {
-      "path": "formal/dep/EconCSLib/Applications/RecommenderSystems/PolicyAveraging.lean",
-      "sha256": "ea28d25f56069cd39964606cb0df59f2a957df28367f9ce61c93f9ce33be1722"
-    },
-    {
-      "path": "formal/dep/EconCSLib/Foundations/Math/FiniteOptimization.lean",
-      "sha256": "acc6233f46e1e355be79898adeb72b7f1fa0ea514e1b3a3e66966fd36ac868fd"
-    },
-    {
-      "path": "formal/dep/EconCSLib/Foundations/Math/FiniteSum.lean",
-      "sha256": "7321eefba24e8621022ea2f863e483391594e178ed1355b0ff116a92fc355b35"
-    },
-    {
-      "path": "formal/dep/EconCSLib/Foundations/Probability/FiniteExpectation.lean",
-      "sha256": "283f5eb2410c7e404af3f4b7e18e840f0879066bb4f6ffd58697e8e99a71a9aa"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/Assumptions.lean",
-      "sha256": "b4995b68626fecaaba7b0ab90293129e2e41aae621bd92b328b3e540bbe4e4f6"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/Basic.lean",
-      "sha256": "a99c3fc8f3ea51a05fd73c24c475c1210ed13838066f806708405d3de28d5bfb"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/LPReduction.lean",
-      "sha256": "5da74e2d99af22958afbffe009cc756610c6a28ef23df8c9431d1246d7a38081"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/MainTheorems.lean",
-      "sha256": "373ab8a6747a2e6d8707a1d7c41537a2955bb419bbd23afb75d093ada31bc342"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/OpposingTypes.lean",
-      "sha256": "56abffdaeecde972379a90b54d8b01712aaddd59eee301ed5cf3b0d23964e439"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/Optimization.lean",
-      "sha256": "0912c4f35d55183104a032cd341eac02fefe362b9a8b0e35f687dece329ed68b"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/ReductionPreservation.lean",
-      "sha256": "35e3df132a2a7e9f34d038e749053f419a1dd0f8fe85969ec90bcbe9667a634a"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/Symmetrization.lean",
-      "sha256": "1118ee8629513fcc2da078d95f8cc008cd63eb0d6ea28fe7df04f4da82ea25f8"
-    },
-    {
-      "path": "formal/dep/GCG24UserItemFairness/Symmetry.lean",
-      "sha256": "1eb95a03498c253c54d5a4be5752b7127752661a3b8418ceb3b9dab443d71362"
-    }
-  ],
-  "module_count": 16,
-  "graph_nodes": 135,
-  "graph_edges": 676,
-  "root_axioms": [
-    "propext",
-    "Classical.choice",
-    "Quot.sound"
-  ],
-  "root_type_check": {
-    "status": "passed",
-    "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
-    "historical_type": "∀ {m n : ℕ} [inst : NeZero m] [inst_1 : NeZero n] (S S' : RecommendationModel.SymmetricData m n 2)\n  (hTypes : Function.Surjective S.types.toType) (hTypes' : Function.Surjective S'.types.toType) {alpha alpha' : ℝ}\n  {v : Item n → ℝ},\n  (S.canonicalReductionOfSurjective hTypes).reduced = OpposingTypes.twoTypeReducedModel alpha v →\n    (S'.canonicalReductionOfSurjective hTypes').reduced = OpposingTypes.twoTypeReducedModel alpha' v →\n      0 < alpha →\n        alpha < 1 →\n          0 < alpha' →\n            alpha' < 1 →\n              alpha ≤ alpha' →\n                alpha ≤ 1 / 2 →\n                  alpha' ≤ 1 / 2 →\n                    (∀ (j : Item n), 0 < v j) →\n                      OpposingTypes.StrictlyDecreasingByIndex v → S'.model.priceOfFairness ≤ S.model.priceOfFairness",
-    "check": "Lean kernel checks the migrated root against the historical elaborated type."
-  },
-  "previous_input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
-  "previous_formal": {
-    "file_count": 19,
-    "sha256": "9913cb797d1f458a9c9bafbe9427b66f3048a12568de79426acc481c951bb0fa",
-    "effective_root_sha256": "9b201e02b64b4ab0908284e06a1f3dc80cd690aa0ddad37be88e1b800d65e586"
-  },
-  "previous_graph": {
-    "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
-    "graph_sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
-    "graph_source": {
-      "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
-      "path": "metadata/derived-graphs/graphs/applied-modeling-lib--GCG24UserItemFairness-before.json",
-      "sha256": "9e5f11311c3c41c74e2fdf35540b5c476834aa28d6ea629f4fd8b5aa6714c8cd",
-      "binding": "verified_derived_graph"
-    }
-  },
+  "module_count": 10,
+  "nodes": 138,
+  "edges": 653,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
   "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
-  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
-  "replay_command": "python3 scripts/construction/extract_projects.py --dataset applied-modeling-lib --ids GCG24UserItemFairness-before",
-  "migration_scope": "Target-specific native module/declaration slice; complete retained proof bodies. Compatibility changes affect proofs and Lean/mathlib interfaces, not the target statement or semantic label."
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
 }

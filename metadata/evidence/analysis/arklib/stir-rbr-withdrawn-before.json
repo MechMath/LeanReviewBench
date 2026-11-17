@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "stir-rbr-withdrawn-before",
   "task_id": "arklib:stir-rbr-withdrawn-before",
-  "input_sha256": "545c0e0b9578c2967a56401f6057466057cfe0c7ba5ce4a873027c1ce6a7581a",
+  "input_sha256": "a306d41db737c2fcced3fcfb6de5eaab40070e3ec2f4252b40b4bfdfbe0add59",
   "label": "misaligned",
   "reason": "The parameter inequality |L_0| <= d_0 forces rate 1 and conflicts with the retained nonnegative-distance bound requiring delta_0 < 0. The error quantities are arbitrary inputs before the protocol witness, rather than existentially supplied controlled protocol errors. The shift error uses err(...,t)+s instead of err(...,t+s). The folding and shift error formulas use repetition parameters t_i where the source uses folding parameters k_i. The shifted index j=i-1 is constrained by j != 0, incorrectly omitting the first source round i=1.",
   "review_status": "human_reviewed",

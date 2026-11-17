@@ -30,7 +30,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Mathlib.Algebra.Module.ZLattice.Basic",
     "Mathlib.Algebra.Module.ZLattice.Covolume",
@@ -81,7 +80,7 @@
       "sha256": "4729ceae9b3c6110e2ffccadce12904061e20fe2eb1f3ab10fa9d00d53b5d15b"
     }
   },
-  "input_sha256": "71856dd9d9cfdbcb0254353cf119a33933fa267bee1d832b8e9dc11ee2dc0767",
+  "input_sha256": "4fd704a4a06efbc4f6bddad0f8a0c9dd60b5f71f5ba9e49c819f55403fabeeee",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -90,11 +89,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 10,
-    "sha256": "fa07129819ea3eacf7f5276a9d6a92de2f5f5ac3bec5c8d364290fdd2f05e580",
-    "effective_root_sha256": "9dfad9d67d0696860f908ce86f3a57302c63f82817d51769ef53ca7be9af28af"
+    "file_count": 4,
+    "sha256": "6279e3409209c09ab367eb4d8d21050a1780265442bc795d401ac6511a1b69b9",
+    "effective_root_sha256": "65c893466feaa1d2df66c657212411c6206f3183b67659b5c4e9ad37c25048f2",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/sphere-packing.jsonl"
 }

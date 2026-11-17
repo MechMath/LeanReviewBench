@@ -3,7 +3,7 @@
   "dataset": "vaught",
   "project_id": "coupled-after",
   "task_id": "vaught:coupled-after",
-  "input_sha256": "ea69edce5bb7a80a36a5cee7b7d44d6ccf890c010f216b0b4d186f3b29a59be0",
+  "input_sha256": "41e9617830e9578935aaa325686eab751c546d7a61ca70f9adb74c57d498ffc9",
   "label": "misaligned",
   "reason": "A universal extension premise absent from the independent completion/R1 target is added; retained witnesses refute that premise in the relevant stages.",
   "review_status": "human_reviewed",

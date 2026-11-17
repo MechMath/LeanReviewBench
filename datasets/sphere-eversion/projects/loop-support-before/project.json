@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The old independent text takes the closure of the constant-loop locus, while Formal takes the closure of the nonconstant-loop locus. A constant zero family on R gives the empty set in Formal and all of R in the old text; a Lean-checked separation is retained.",
   "external_imports": [
     "Mathlib.Data.Real.Basic",
     "Mathlib.Topology.Closure"
@@ -43,7 +42,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "e3c11aa763ad4db77b70ad5009fef19c1efb3a159a1b56ddc46e44d07cc40aef"
+    "sha256": "33ffe2876b314752f25aa55c805606b2bae801c7ebf84bccb753a0b978e27c18",
+    "effective_root_sha256": "2fd1333710ea06f5c7f10f59ed0d6a51d425d722cbb6ee2131046f0e13951a2e",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/sphere-eversion-extraction/repaired/loop-support/20261105T042903719345Z/receipt.json",
@@ -72,8 +74,8 @@
     "assessment_scope": "own-version definition or lemma",
     "historical_sorryAx": false
   },
-  "input_sha256": "4409d5a425b19e8e64d334e8aa3c67c2f29eadb99d4c23d38e3d48d5025e474b",
+  "input_sha256": "f06bdde08413dcee5888f28a501e76d90e3102799758c1e799f0894e94688a1d",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/sphere-eversion.jsonl"
 }

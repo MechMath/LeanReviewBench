@@ -43,7 +43,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "c51fc6f57ef4a66c62d9a2eebc0a0dc0b64b2e37fc919ad20027a0afc4895065"
+    "sha256": "38d6445f164b674056c24d2684065658f347f06033e5bfaec81ee165d69cb4db",
+    "effective_root_sha256": "61bae11414c008b71f0fbc598ec8fd51c079ea8809f38ba0f4629065c797a82a",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/sphere-eversion-extraction/repaired/immersion-before/20261105T042853374688Z/receipt.json",
@@ -72,8 +75,8 @@
     "assessment_scope": "own-version definition or lemma",
     "historical_sorryAx": false
   },
-  "input_sha256": "467e7839ad7f4ad935d38c3ea1d3f2e239c304d55d53a132b3feefda7eafd79e",
+  "input_sha256": "4e72119aff81a0db29352a3b3a94606f738a1951fc06b66eef22ebe415d1052d",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/sphere-eversion.jsonl"
 }

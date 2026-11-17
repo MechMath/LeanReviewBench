@@ -1,29 +1,75 @@
-/-
-Copyright (c) 2025 Sidharth Hariharan. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Sidharth Hariharan
--/
 module
 
-
--- import Mathlib
-
+public import Mathlib.Algebra.Field.ZMod
+public import Mathlib.Algebra.Order.Star.Real
+public import Mathlib.Analysis.CStarAlgebra.Classes
+public import Mathlib.Analysis.CStarAlgebra.Module.Defs
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Calculus.UniformLimitsDeriv
+public import Mathlib.Analysis.Complex.Trigonometric
+public import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
+public import Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty
+public import Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction
+public import Mathlib.Analysis.Distribution.SchwartzSpace.Basic
+public import Mathlib.Analysis.Distribution.SchwartzSpace.Deriv
+public import Mathlib.Analysis.InnerProductSpace.Calculus
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Normed.Group.FunctionSeries
+public import Mathlib.Analysis.Normed.Group.InfiniteSum
+public import Mathlib.Analysis.Normed.Group.Tannery
+public import Mathlib.Analysis.RCLike.Basic
+public import Mathlib.Analysis.Real.Pi.Bounds
+public import Mathlib.Analysis.SpecialFunctions.Log.Summable
+public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+public import Mathlib.Analysis.SpecificLimits.Normed
+public import Mathlib.Basic.Complex.Basic
+public import Mathlib.Data.Fintype.Parity
+public import Mathlib.Geometry.Manifold.MFDeriv.Defs
+public import Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions
+public import Mathlib.Geometry.Manifold.Notation
+public import Mathlib.LinearAlgebra.Dimension.Localization
+public import Mathlib.LinearAlgebra.Matrix.FixedDetMatrices
+public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+public import Mathlib.NumberTheory.ModularForms.BoundedAtCusp
+public import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
+public import Mathlib.NumberTheory.ModularForms.Derivative
+public import Mathlib.NumberTheory.ModularForms.Discriminant
+public import Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic
+public import Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform
+public import Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion
+public import Mathlib.NumberTheory.ModularForms.JacobiTheta.Bounds
+public import Mathlib.NumberTheory.ModularForms.LevelOne.GradedRing
+public import Mathlib.NumberTheory.ModularForms.QExpansion
+public import Mathlib.NumberTheory.ModularForms.RamanujanFormula
+public import Mathlib.NumberTheory.ModularForms.SlashActions
+public import Mathlib.Tactic.Convert
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.NormNum.Parity
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.NatInt
+public import Mathlib.Topology.Algebra.Ring.Basic
+public import Mathlib.Topology.ContinuousMap.Compact
 public import dep.SpherePacking.ForMathlib.RadialSchwartz.Multidimensional
+public import dep.SpherePacking.MagicFunction.IntegralParametrisations
 public import dep.SpherePacking.MagicFunction.b.Basic
-
-/-!
-# `b` is a Schwartz Function
-
-The purpose of this file is to prove that `b` is a Schwartz function. It collects results stated
-elsewhere and presents them concisely.
--/
+public import dep.SpherePacking.MagicFunction.b.Psi
+public import dep.SpherePacking.ModularForms.E2
+public import dep.SpherePacking.ModularForms.Eisenstein
+public import dep.SpherePacking.ModularForms.FG
+public import dep.SpherePacking.ModularForms.IsCuspForm
+public import dep.SpherePacking.ModularForms.JacobiTheta.Basic
+public import dep.SpherePacking.ModularForms.JacobiTheta.Defs
+public import dep.SpherePacking.ModularForms.JacobiTheta.Derivative
+public import dep.SpherePacking.ModularForms.JacobiTheta.JacobiIdentity
+public import dep.SpherePacking.ModularForms.JacobiTheta.MDifferentiable
+public import dep.SpherePacking.ModularForms.ResToImagAxis
+public import dep.SpherePacking.ModularForms.SlashActionAuxil
 
 @[expose] public section
-
--- NOTE: We are not ready for the contents of this file. We first need to fix
--- the dimension bridge for Schwartz functions.
-
--- #exit
 
 open MagicFunction MagicFunction.b MagicFunction.b.RadialFunctions MagicFunction.b.RealIntegrals
   MagicFunction.Parametrisations
@@ -36,65 +82,39 @@ namespace MagicFunction.b.SchwartzProperties
 
 section Smooth
 
-/-! # `b` is smooth.
+theorem J₁'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₁' := sorry
 
-There is no reference for this in the blueprint. The idea is to use integrability to differentiate
-inside the integrals. The proof path I have in mind is the following.
+theorem J₂'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₂' := sorry
 
-We need to use the Leibniz Integral Rule to differentiate under the integral sign. This is stated as
-`hasDerivAt_integral_of_dominated_loc_of_deriv_le` in `Mathlib.Analysis.Calculus.ParametricIntegral`
--/
+theorem J₃'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₃' := sorry
 
-theorem J₁'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₁' := by
-  sorry
+theorem J₄'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₄' := sorry
 
-theorem J₂'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₂' := by
-  sorry
+theorem J₅'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₅' := sorry
 
-theorem J₃'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₃' := by
-  sorry
-
-theorem J₄'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₄' := by
-  sorry
-
-theorem J₅'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₅' := by
-  sorry
-
-theorem J₆'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₆' := by
-  sorry
+theorem J₆'_smooth' : ContDiff ℝ ∞ RealIntegrals.J₆' := sorry
 
 end Smooth
 
 section Decay
 
-/-! # `b` decays faster than any inverse power of the norm squared.
-
-We follow the proof of Proposition 7.8 in the blueprint.
--/
-
 theorem J₁'_decay' : ∀ (k n : ℕ), ∃ C, ∀ (x : ℝ),
-    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n RealIntegrals.J₁' x‖ ≤ C := by
-  sorry
+    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n RealIntegrals.J₁' x‖ ≤ C := sorry
 
 theorem J₂'_decay' : ∀ (k n : ℕ), ∃ C, ∀ (x : ℝ),
-    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n RealIntegrals.J₂' x‖ ≤ C := by
-  sorry
+    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n RealIntegrals.J₂' x‖ ≤ C := sorry
 
 theorem J₃'_decay' : ∀ (k n : ℕ), ∃ C, ∀ (x : ℝ),
-    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n RealIntegrals.J₃' x‖ ≤ C := by
-  sorry
+    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n RealIntegrals.J₃' x‖ ≤ C := sorry
 
 theorem J₄'_decay' : ∀ (k n : ℕ), ∃ C, ∀ (x : ℝ),
-    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n J₄' x‖ ≤ C := by
-  sorry
+    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n J₄' x‖ ≤ C := sorry
 
 theorem J₅'_decay' : ∀ (k n : ℕ), ∃ C, ∀ (x : ℝ),
-    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n J₅' x‖ ≤ C := by
-  sorry
+    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n J₅' x‖ ≤ C := sorry
 
 theorem J₆'_decay' : ∀ (k n : ℕ), ∃ C, ∀ (x : ℝ),
-    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n J₆' x‖ ≤ C := by
-  sorry
+    ‖x‖ ^ k * ‖iteratedFDeriv ℝ n J₆' x‖ ≤ C := sorry
 
 end Decay
 
@@ -134,24 +154,6 @@ def J₆' : 𝓢(ℝ, ℂ) where
   smooth' := MagicFunction.b.SchwartzProperties.J₆'_smooth'
   decay' := MagicFunction.b.SchwartzProperties.J₆'_decay'
 
-def J₁ : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) :=
-  schwartzMap_multidimensional_of_schwartzMap_real (EuclideanSpace ℝ (Fin 8)) J₁'
-
-def J₂ : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) :=
-  schwartzMap_multidimensional_of_schwartzMap_real (EuclideanSpace ℝ (Fin 8)) J₂'
-
-def J₃ : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) :=
-  schwartzMap_multidimensional_of_schwartzMap_real (EuclideanSpace ℝ (Fin 8)) J₃'
-
-def J₄ : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) :=
-  schwartzMap_multidimensional_of_schwartzMap_real (EuclideanSpace ℝ (Fin 8)) J₄'
-
-def J₅ : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) :=
-  schwartzMap_multidimensional_of_schwartzMap_real (EuclideanSpace ℝ (Fin 8)) J₅'
-
-def J₆ : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) :=
-  schwartzMap_multidimensional_of_schwartzMap_real (EuclideanSpace ℝ (Fin 8)) J₆'
-
 end MagicFunction.b.SchwartzIntegrals
 
 namespace MagicFunction.FourierEigenfunctions
@@ -170,30 +172,6 @@ def b' : 𝓢(ℝ, ℂ) :=
 @[simps!]
 def b : 𝓢(EuclideanSpace ℝ (Fin 8), ℂ) := schwartzMap_multidimensional_of_schwartzMap_real
   (EuclideanSpace ℝ (Fin 8)) b'
-
-theorem b_eq_sum_integrals_RadialFunctions : b =
-    MagicFunction.b.RadialFunctions.J₁
-  + MagicFunction.b.RadialFunctions.J₂
-  + MagicFunction.b.RadialFunctions.J₃
-  + MagicFunction.b.RadialFunctions.J₄
-  + MagicFunction.b.RadialFunctions.J₅
-  + MagicFunction.b.RadialFunctions.J₆ := rfl
-
-theorem b_eq_sum_integrals_SchwartzIntegrals : b =
-    MagicFunction.b.SchwartzIntegrals.J₁
-  + MagicFunction.b.SchwartzIntegrals.J₂
-  + MagicFunction.b.SchwartzIntegrals.J₃
-  + MagicFunction.b.SchwartzIntegrals.J₄
-  + MagicFunction.b.SchwartzIntegrals.J₅
-  + MagicFunction.b.SchwartzIntegrals.J₆ := rfl
-
-theorem b'_eq_sum_RealIntegrals : b' =
-    MagicFunction.b.RealIntegrals.J₁'
-  + MagicFunction.b.RealIntegrals.J₂'
-  + MagicFunction.b.RealIntegrals.J₃'
-  + MagicFunction.b.RealIntegrals.J₄'
-  + MagicFunction.b.RealIntegrals.J₅'
-  + MagicFunction.b.RealIntegrals.J₆' := rfl
 
 end MagicFunction.FourierEigenfunctions
 

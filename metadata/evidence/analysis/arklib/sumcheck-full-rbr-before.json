@@ -3,7 +3,7 @@
   "dataset": "arklib",
   "project_id": "sumcheck-full-rbr-before",
   "task_id": "arklib:sumcheck-full-rbr-before",
-  "input_sha256": "062db02a9203343df616b5b80adbbaecda38e1cd8dea755e1a598a618343cce7",
+  "input_sha256": "490121ec80a0e9712958fdeb87b2f9e84f5b029949aaa165a79e5f201af88556",
   "label": "misaligned",
   "reason": "The finite commutative-semiring assumptions omit the source integral-domain restrictions, admitting structures with zero divisors such as Z/4Z.",
   "review_status": "human_reviewed",

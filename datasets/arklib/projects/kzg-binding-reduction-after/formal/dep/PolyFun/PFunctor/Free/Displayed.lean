@@ -1,42 +1,27 @@
-/-
-Copyright (c) 2026 PolyFun Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import dep.PolyFun.PFunctor.Free.Basic
-
-/-!
-# Displayed families over `PFunctor.FreeM`
-
-This file defines displayed algebras over the free monad of a polynomial
-functor.
-
-For a polynomial/container `P`, a payload type `α`, and a tree
-`s : PFunctor.FreeM P α`, `FreeM.Displayed D s` is the family obtained by
-interpreting terminal payloads through `D.leaf` and internal positions through
-`D.node`.
-
-This is the common substrate behind several familiar structures:
-
-* decorations, where each node stores metadata and recursively decorates every
-  child;
-* paths, where each node chooses one child and recursively follows that child;
-* compact observations, where some nodes may be skipped or otherwise
-  reinterpreted.
-
-Categorically, this is the displayed algebra generated over the initial
-`FreeM` algebra. A `Displayed.Section D` is a global dependent section: it
-chooses data in the displayed fiber over every tree. Constructor-local fold
-data produces such a section via `Displayed.Section.ofConstructors`.
--/
+public import Batteries.Tactic.Lint
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Util.Notation3
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
 universe uA uB v w w₂ w₃ w₄ w₅ w₆
 
 namespace PFunctor
+
 namespace FreeM
 
 variable {P : PFunctor.{uA, uB}} {α : Type v}
@@ -76,16 +61,6 @@ def Displayed (D : Displayed.Algebra P α) :
 
 namespace Displayed
 
-@[simp]
-theorem pure_eq (D : Algebra P α) (x : α) :
-    Displayed D (pure x) = D.leaf x :=
-  rfl
-
-theorem liftBind_eq (D : Algebra P α) (a : P.A) (rest : P.B a → FreeM P α) :
-    Displayed D (FreeM.liftBind a rest) =
-      D.node a (fun b => Displayed D (rest b)) :=
-  rfl
-
 variable {D : Displayed.Algebra.{uA, uB, v, w} P α}
 
 /--
@@ -123,75 +98,13 @@ def Over (E : Over.Algebra D) :
 
 namespace Over
 
-@[simp]
-theorem pure_eq
-    (E : _root_.PFunctor.FreeM.Displayed.Over.Algebra D)
-    (x : α) (d : D.leaf x) :
-    _root_.PFunctor.FreeM.Displayed.Over E (pure x) d = E.leaf x d :=
-  rfl
-
-theorem liftBind_eq
-    (E : _root_.PFunctor.FreeM.Displayed.Over.Algebra D)
-    (a : P.A) (rest : P.B a → FreeM P α)
-    (d : D.node a (fun b => Displayed D (rest b))) :
-    _root_.PFunctor.FreeM.Displayed.Over E (FreeM.liftBind a rest) d =
-      E.node a (fun b => Displayed D (rest b))
-        (fun b d => _root_.PFunctor.FreeM.Displayed.Over E (rest b) d) d :=
-  rfl
-
 end Over
-
-/-- The total space of a displayed family together with one displayed-over layer. -/
-abbrev Over.Total (E : Over.Algebra D) (s : FreeM P α) :=
-  PSigma fun d : Displayed D s => _root_.PFunctor.FreeM.Displayed.Over E s d
 
 /-- A section chooses displayed data over every `FreeM` tree. -/
 abbrev Section (D : _root_.PFunctor.FreeM.Displayed.Algebra P α) :=
   (s : FreeM P α) → Displayed D s
 
 namespace Section
-
-/--
-Construct a section from constructor-local data.
-
-This is the displayed-family specialization of the dependent recursor for
-`FreeM`.
--/
-def ofConstructors
-    (onLeaf : (x : α) → D.leaf x)
-    (onNode :
-      (a : P.A) →
-      (children : (b : P.B a) → Sort w) →
-      ((b : P.B a) → children b) →
-      D.node a children) :
-    Section D
-  | .pure x => onLeaf x
-  | .liftBind a rest => onNode a _ (fun b => ofConstructors onLeaf onNode (rest b))
-
-@[simp]
-theorem ofConstructors_pure
-    (onLeaf : (x : α) → D.leaf x)
-    (onNode :
-      (a : P.A) →
-      (children : (b : P.B a) → Sort w) →
-      ((b : P.B a) → children b) →
-      D.node a children)
-    (x : α) :
-    ofConstructors onLeaf onNode (pure x) = onLeaf x :=
-  rfl
-
-theorem ofConstructors_liftBind
-    (onLeaf : (x : α) → D.leaf x)
-    (onNode :
-      (a : P.A) →
-      (children : (b : P.B a) → Sort w) →
-      ((b : P.B a) → children b) →
-      D.node a children)
-    (a : P.A) (rest : P.B a → FreeM P α) :
-    ofConstructors onLeaf onNode (FreeM.liftBind a rest) =
-      onNode a (fun b => Displayed D (rest b))
-        (fun b => ofConstructors onLeaf onNode (rest b)) :=
-  rfl
 
 end Section
 
@@ -215,12 +128,7 @@ namespace Hom
 
 @[ext]
 theorem ext (f g : Hom D E)
-    (h : ∀ s d, f s d = g s d) : f = g := by
-  cases f
-  cases g
-  congr
-  funext s d
-  exact h s d
+    (h : ∀ s d, f s d = g s d) : f = g := sorry
 
 /-- Identity morphism of a displayed family. -/
 protected def id : Hom D D where
@@ -230,31 +138,6 @@ protected def id : Hom D D where
 def comp (g : Hom E F) (f : Hom D E) :
     Hom D F where
   toFun := fun s d => g s (f s d)
-
-@[simp]
-theorem id_apply (s : FreeM P α) (d : Displayed D s) :
-    Hom.id s d = d :=
-  rfl
-
-@[simp]
-theorem comp_apply (g : Hom E F) (f : Hom D E)
-    (s : FreeM P α) (d : Displayed D s) :
-    comp g f s d = g s (f s d) :=
-  rfl
-
-@[simp]
-theorem id_comp (f : Hom D E) :
-    comp Hom.id f = f :=
-  rfl
-
-@[simp]
-theorem comp_id (f : Hom D E) :
-    comp f Hom.id = f :=
-  rfl
-
-theorem comp_assoc (h : Hom F G) (g : Hom E F) (f : Hom D E) :
-    comp h (comp g f) = comp (comp h g) f :=
-  rfl
 
 end Hom
 
@@ -293,20 +176,6 @@ def toHomFun (η : LocalMap D E) :
 /-- Interpret a constructor-local map as a tree-indexed displayed morphism. -/
 def toHom (η : LocalMap D E) : Hom D E where
   toFun := toHomFun η
-
-@[simp]
-theorem toHom_pure (η : LocalMap D E) (x : α) (d : D.leaf x) :
-    η.toHom (pure x) d = η.mapLeaf x d :=
-  rfl
-
-theorem toHom_liftBind (η : LocalMap D E)
-    (a : P.A) (rest : P.B a → FreeM P α)
-    (d : D.node a (fun b => Displayed D (rest b))) :
-    η.toHom (FreeM.liftBind a rest) d =
-      η.mapNode a (fun b => Displayed D (rest b))
-        (fun b => Displayed E (rest b))
-        (fun b => η.toHom (rest b)) d :=
-  rfl
 
 end LocalMap
 
@@ -350,12 +219,7 @@ namespace Hom
 
 @[ext]
 theorem ext {η : Displayed.Hom D E} (f g : Displayed.Over.Hom η R S)
-    (h : ∀ s d r, f s d r = g s d r) : f = g := by
-  cases f
-  cases g
-  congr
-  funext s d r
-  exact h s d r
+    (h : ∀ s d r, f s d r = g s d r) : f = g := sorry
 
 /-- Identity morphism of a displayed-over family. -/
 protected def id
@@ -369,37 +233,6 @@ def comp {η : Displayed.Hom D E} {θ : Displayed.Hom E F}
     Displayed.Over.Hom (Displayed.Hom.comp θ η) R T where
   toFun := fun s d r => g s (η s d) (f s d r)
 
-@[simp]
-theorem id_apply (s : FreeM P α) (d : Displayed D s)
-    (r : _root_.PFunctor.FreeM.Displayed.Over R s d) :
-    Displayed.Over.Hom.id R s d r = r :=
-  rfl
-
-@[simp]
-theorem comp_apply {η : Displayed.Hom D E} {θ : Displayed.Hom E F}
-    (g : Displayed.Over.Hom θ S T) (f : Displayed.Over.Hom η R S)
-    (s : FreeM P α) (d : Displayed D s) (r : _root_.PFunctor.FreeM.Displayed.Over R s d) :
-    comp g f s d r = g s (η s d) (f s d r) :=
-  rfl
-
-@[simp]
-theorem id_comp {η : Displayed.Hom D E} (f : Displayed.Over.Hom η R S) :
-    comp (Displayed.Over.Hom.id S) f = f :=
-  rfl
-
-@[simp]
-theorem comp_id {η : Displayed.Hom D E} (f : Displayed.Over.Hom η R S) :
-    comp f (Displayed.Over.Hom.id R) = f :=
-  rfl
-
-theorem comp_assoc {η : Displayed.Hom D E} {θ : Displayed.Hom E F}
-    {ι : Displayed.Hom F G}
-    {U : _root_.PFunctor.FreeM.Displayed.Over.Algebra.{uA, uB, v, w₄, w₅} G}
-    (h : Displayed.Over.Hom ι T U) (g : Displayed.Over.Hom θ S T)
-    (f : Displayed.Over.Hom η R S) :
-    comp h (comp g f) = comp (comp h g) f :=
-  rfl
-
 end Hom
 
 /-- Map displayed-over data by a displayed-over morphism. -/
@@ -409,25 +242,6 @@ def map {η : Displayed.Hom D E} (f : Displayed.Over.Hom η R S) :
     _root_.PFunctor.FreeM.Displayed.Over R s d →
     _root_.PFunctor.FreeM.Displayed.Over S s (η s d)
   | s, d, r => f s d r
-
-@[simp]
-theorem map_apply {η : Displayed.Hom D E} (f : Displayed.Over.Hom η R S)
-    (s : FreeM P α) (d : Displayed D s) (r : _root_.PFunctor.FreeM.Displayed.Over R s d) :
-    map f s d r = f s d r :=
-  rfl
-
-@[simp]
-theorem map_id (s : FreeM P α) (d : Displayed D s)
-    (r : _root_.PFunctor.FreeM.Displayed.Over R s d) :
-    map (Displayed.Over.Hom.id R) s d r = r :=
-  rfl
-
-@[simp]
-theorem map_comp {η : Displayed.Hom D E} {θ : Displayed.Hom E F}
-    (g : Displayed.Over.Hom θ S T) (f : Displayed.Over.Hom η R S)
-    (s : FreeM P α) (d : Displayed D s) (r : _root_.PFunctor.FreeM.Displayed.Over R s d) :
-    map (Displayed.Over.Hom.comp g f) s d r = map g s (η s d) (map f s d r) :=
-  rfl
 
 /--
 A constructor-local fiber map between dependent displayed algebras over the
@@ -479,24 +293,6 @@ def toHomFun (η : FiberLocalMap R' S') :
 def toHom (η : FiberLocalMap R' S') :
     Displayed.Over.Hom (Displayed.Hom.id (D := D)) R' S' where
   toFun := toHomFun η
-
-@[simp]
-theorem toHom_pure (η : FiberLocalMap R' S') (x : α)
-    (d : D.leaf x) (r : R'.leaf x d) :
-    η.toHom (pure x) d r = η.mapLeaf x d r :=
-  rfl
-
-theorem toHom_liftBind (η : FiberLocalMap R' S')
-    (a : P.A) (rest : P.B a → FreeM P α)
-    (d : D.node a (fun b => Displayed D (rest b)))
-    (r : R'.node a (fun b => Displayed D (rest b))
-      (fun b d => _root_.PFunctor.FreeM.Displayed.Over R' (rest b) d) d) :
-    η.toHom (FreeM.liftBind a rest) d r =
-      η.mapNode a (fun b => Displayed D (rest b))
-        (fun b d => _root_.PFunctor.FreeM.Displayed.Over R' (rest b) d)
-        (fun b d => _root_.PFunctor.FreeM.Displayed.Over S' (rest b) d)
-        (fun b d => η.toHom (rest b) d) d r :=
-  rfl
 
 end FiberLocalMap
 
@@ -562,26 +358,6 @@ def toHom {η : Displayed.LocalMap D E} (φ : LocalMap η R S) :
     Displayed.Over.Hom η.toHom R S where
   toFun := toHomFun φ
 
-@[simp]
-theorem toHom_pure {η : Displayed.LocalMap D E} (φ : LocalMap η R S)
-    (x : α) (d : D.leaf x) (r : R.leaf x d) :
-    φ.toHom (pure x) d r = φ.mapLeaf x d r :=
-  rfl
-
-theorem toHom_liftBind {η : Displayed.LocalMap D E} (φ : LocalMap η R S)
-    (a : P.A) (rest : P.B a → FreeM P α)
-    (d : D.node a (fun b => Displayed D (rest b)))
-    (r : R.node a (fun b => Displayed D (rest b))
-      (fun b d => _root_.PFunctor.FreeM.Displayed.Over R (rest b) d) d) :
-    φ.toHom (FreeM.liftBind a rest) d r =
-      φ.mapNode a (fun b => Displayed D (rest b))
-        (fun b => Displayed E (rest b))
-        (fun b => η.toHom (rest b))
-        (fun b d => _root_.PFunctor.FreeM.Displayed.Over R (rest b) d)
-        (fun b d => _root_.PFunctor.FreeM.Displayed.Over S (rest b) d)
-        (fun b d => φ.toHom (rest b) d) d r :=
-  rfl
-
 end LocalMap
 
 end Over
@@ -591,23 +367,8 @@ def map (f : Hom D E) :
     (s : FreeM P α) → Displayed D s → Displayed E s
   | s, d => f s d
 
-@[simp]
-theorem map_apply (f : Hom D E) (s : FreeM P α) (d : Displayed D s) :
-    map f s d = f s d :=
-  rfl
-
-@[simp]
-theorem map_id (s : FreeM P α) (d : Displayed D s) :
-    map Hom.id s d = d :=
-  rfl
-
-@[simp]
-theorem map_comp (g : Hom E F) (f : Hom D E)
-    (s : FreeM P α) (d : Displayed D s) :
-    map (Hom.comp g f) s d = map g s (map f s d) :=
-  rfl
-
 end Displayed
 
 end FreeM
+
 end PFunctor

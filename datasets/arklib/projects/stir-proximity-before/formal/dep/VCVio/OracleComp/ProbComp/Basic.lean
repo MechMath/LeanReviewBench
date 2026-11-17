@@ -1,25 +1,64 @@
-/-
-Copyright (c) 2024 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma, Quang Dao
--/
-
 module
-public import dep.VCVio.Prelude.Core
-public import dep.VCVio.OracleComp.Support
-public import dep.VCVio.EvalDist.Defs.Support.Failure
-public import dep.ToMathlib.Control.OptionT
+
+public import Batteries.Control.AlternativeMonad
 public import Batteries.Control.OptionT
-
-/-!
-# Executable uniform oracle programs
-
-`ProbComp` programs draw finite-range uniform inputs. The sampling operations and container
-notation in this module are executable; their possible outputs use PolyFun's attachment semantics.
--/
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.Defs.Support.Failure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 public section
-
 
 open OracleComp ENNReal
 
@@ -32,11 +71,6 @@ abbrev ProbComp : Type → Type := OracleComp unifSpec
 
 namespace ProbComp
 
-/-- Independently sample `k` values from `samp`, returning them as a `Fin k → α`. -/
-@[expose]
-def sampleIID {α : Type} (k : ℕ) (samp : ProbComp α) : ProbComp (Fin k → α) :=
-  Fin.mOfFn k fun _ => samp
-
 section uniformFin
 
 /-- `$[0..n]` is the computation choosing a random value in the given range, inclusively.
@@ -48,26 +82,6 @@ def uniformFin (n : ℕ) : ProbComp (Fin (n + 1)) :=
 /-- `$[0..n]` is `uniformFin n`, a uniformly random element of `Fin (n + 1)`. -/
 notation "$[0.." n "]" => uniformFin n
 
-@[grind =]
-lemma uniformFin_def (n : ℕ) : $[0..n] = unifSpec.query n := rfl
-
-@[simp]
-lemma support_uniformFin (n : ℕ) :
-    support (do $[0..n]) = Set.univ := by simp [uniformFin_def]
-
-/-- Nicer induction rule for `ProbComp` that uses monad notation.
-Allows inductive definitions on computations by considering the two cases:
-* `return x` / `pure x` for any `x`
-* `do let u ← $[0..n]; oa u` (with inductive results for `oa u`)
-See `oracleComp_emptySpec_equiv` for an example of using this in a proof.
-If the final result needs to be a `Type` and not a `Prop`, see `OracleComp.construct`. -/
-@[elab_as_elim]
-protected theorem inductionOn {α} {C : ProbComp α → Prop}
-    (pure : (a : α) → C (pure a))
-    (query_bind : (n : ℕ) → (mx : Fin (n + 1) → ProbComp α) → (∀ m, C (mx m)) → C ($[0..n] >>= mx))
-    (oa : ProbComp α) : C oa :=
-  PFunctor.FreeM.induction pure query_bind oa
-
 end uniformFin
 
 section uniformRange
@@ -76,37 +90,17 @@ section uniformRange
 @[expose]
 def uniformRange (n m : ℕ) (h : n < m) :
     ProbComp (Fin (m + 1)) :=
-  (fun ⟨x, hx⟩ => ⟨x + n, by omega⟩) <$> $[0..(m - n)]
+  (fun ⟨x, hx⟩ => ⟨x + n, sorry⟩) <$> $[0..(m - n)]
 
 /-- Tactic to attempt to prove `uniformRange` decreasing bound, similar to array indexing. -/
 syntax (name := uniformRangeTactic) "uniform_range_tactic" : tactic
+
 macro_rules | `(tactic| uniform_range_tactic) => `(tactic | trivial)
+
 macro_rules | `(tactic| uniform_range_tactic) => `(tactic | get_elem_tactic)
 
 /-- Select uniformly from `[n, m]`, proving the bound with `uniform_range_tactic`. -/
 notation "$[" n "⋯" m "]" => uniformRange n m (by uniform_range_tactic)
-
-example {m n : ℕ} (h : m < n) : ProbComp ℕ := do
-  let x ← $[314⋯31415]; let y ← $[0⋯10] -- Prove by trivial reduction
-  let z ← $[m⋯n] -- Use value from hypothesis
-  return x + 2 * y
-
-@[simp, grind =]
-lemma uniformRange_eq_uniformFin (n : ℕ) (hn : 0 < n) : $[0⋯n] = $[0..n] := rfl
-
-@[simp, grind =]
-lemma support_uniformRange (n m : ℕ) (h : n < m) :
-    support (uniformRange n m h) =
-      Set.Icc (Fin.ofNat (m + 1) n) (Fin.ofNat (m + 1) m) := by
-  ext k
-  rw [uniformRange, MonadAttach.support_map, support_uniformFin,
-    Set.mem_Icc, Fin.ofNat_Icc_iff h]
-  simp only [Set.mem_image, Set.mem_univ, true_and]
-  constructor
-  · rintro ⟨i, rfl⟩; dsimp; omega
-  · intro hk
-    exact ⟨⟨k - n, by omega⟩, Fin.ext (by simp; omega)⟩
-
 
 end uniformRange
 
@@ -130,11 +124,13 @@ class HasUniformSelect! (cont : Type u) (β : outParam Type) where
   uniformSelect! : cont → ProbComp β
 
 export HasUniformSelect (uniformSelect)
+
 export HasUniformSelect! (uniformSelect!)
 
 /-- `$ xs` is `uniformSelect xs`, a uniformly random element of `xs` that fails when `xs`
 offers none. -/
 prefix : 75 "$" => uniformSelect
+
 /-- `$! xs` is `uniformSelect! xs`, a uniformly random element of a collection `xs` that is
 nonempty by construction. -/
 prefix : 75 "$!" => uniformSelect!
@@ -146,15 +142,6 @@ using `OptionT.lift` -/
 instance hasUniformSelect_of_hasUniformSelect!
     [h : HasUniformSelect! cont β] : HasUniformSelect cont β where
   uniformSelect cont := OptionT.lift ($! cont)
-
-/-- Compatibility of the `$! xs` operation with `$ xs` given the inferred instance.
-TODO: I think we probably want to `simp` in the other direction when possible? -/
-@[simp, grind =] lemma liftM_uniformSelect! [HasUniformSelect! cont β]
-    (xs : cont) : (liftM ($! xs) : OptionT ProbComp β) = $ xs := by
-  simp [OptionT.liftM_def]; rfl
-
-lemma uniformSelect_eq_liftM_uniformSelect! [HasUniformSelect! cont β]
-    (xs : cont) : ($ xs : OptionT ProbComp β) = liftM ($! xs) := by grind
 
 end uniformSelect
 
@@ -172,24 +159,6 @@ instance hasUniformSelectList (α : Type) :
 
 variable {α : Type} (xs : List α)
 
-lemma uniformSelectList_def : $ xs = match xs with
-  | [] => failure
-  | x :: xs => ((x :: xs)[·]) <$> $[0..xs.length] := rfl
-
-@[simp, grind =]
-lemma uniformSelectList_nil : $ ([] : List α) = failure := rfl
-
-@[grind =]
-lemma uniformSelectList_cons (x : α) (xs : List α) :
-    $ (x :: xs) = ((x :: xs)[·]) <$> $[0..xs.length] := rfl
-
-@[simp, grind =]
-lemma support_uniformSelectList (xs : List α) :
-    support ($ xs) = {x | x ∈ xs} := match xs with
-  | [] => by simp
-  | x :: xs => by simp [uniformSelectList_cons, Set.ext_iff, Fin.exists_iff,
-      - List.mem_cons, List.mem_iff_getElem]
-
 end uniformSelectList
 
 section uniformSelectVector
@@ -201,13 +170,6 @@ instance hasUniformSelectVector (α : Type) (n : ℕ) :
 
 variable {α : Type} {n : ℕ} (xs : Vector α (n + 1))
 
-lemma uniformSelectVector_def : $! xs = (xs[·]) <$> $[0..n] := rfl
-
-@[simp, grind =]
-lemma support_uniformSelectVector : support ($! xs) = {x | x ∈ xs.toList} := by
-  ext x
-  simp [uniformSelectVector_def, Vector.mem_iff_getElem, Fin.exists_iff]
-
 end uniformSelectVector
 
 section uniformSelectListVector
@@ -217,8 +179,6 @@ instance hasUniformSelectListVector (α : Type) (n : ℕ) :
   uniformSelect! xs := (xs[·]) <$> $[0..n]
 
 variable {α : Type} {n : ℕ} (xs : List.Vector α (n + 1))
-
-lemma uniformSelectListVector_def : $! xs = (xs[·]) <$> $[0..n] := rfl
 
 end uniformSelectListVector
 
@@ -233,13 +193,6 @@ noncomputable instance hasUniformSelectFinset (α : Type) :
 
 variable {α : Type} (s : Finset α)
 
-lemma uniformSelectFinset_def : $ s = $ s.toList := rfl
-
-@[simp, grind =]
-lemma support_uniformSelectFinset :
-    support ($ s) = if s.Nonempty then ↑s else ∅ := by
-  aesop (add norm uniformSelectFinset_def)
-
 end uniformSelectFinset
 
 section uniformSelectArray
@@ -247,26 +200,9 @@ section uniformSelectArray
 instance hasUniformSelectArray (α : Type _) : HasUniformSelect (Array α) α where
   uniformSelect xs := if h : xs.size = 0 then failure else do
     let u ← $[0..xs.size-1]
-    return xs[u] -- Note the in-index bound here relies on `h`.
+    return xs[u]
 
 variable {α : Type} (xs : Array α)
-
-lemma uniformSelectArray_def :
-    ($ xs : OptionT ProbComp α) =
-      if h : xs.size = 0 then failure else do
-        let u ← $[0..xs.size-1]
-        return xs[u] := rfl
-
-@[simp, grind =]
-lemma uniformSelectArray_empty : ($ (#[] : Array α) : OptionT ProbComp α) = failure := rfl
-
-@[simp, grind =]
-lemma support_uniformSelectArray : support ($ xs) = {x | x ∈ xs} := by
-  ext x
-  rcases Nat.eq_zero_or_pos xs.size with h | h
-  · simp [Array.size_eq_zero_iff.mp h]
-  · rw [uniformSelectArray_def, dite_eq_right h.ne']
-    simp [Array.mem_iff_getElem, Fin.exists_iff, eq_comm, Nat.sub_add_cancel h]
 
 end uniformSelectArray
 
@@ -282,22 +218,10 @@ noncomputable instance hasUniformSelectMultiset (α : Type) :
 
 variable {α : Type} (s : Multiset α)
 
-lemma uniformSelectMultiset_def : ($ s : OptionT ProbComp α) = $ s.toList := rfl
-
-@[simp, grind =]
-lemma support_uniformSelectMultiset :
-    support ($ s) = {x | x ∈ s} := by
-  ext x; simp [uniformSelectMultiset_def, Multiset.mem_toList]
-
 end uniformSelectMultiset
 
 end ProbComp
 
 section coinSpec
--- NOTE: This treats `coin` as essentially part of `ProbComp`, but it is more general.
--- In particular we can have a seperate theory of bounded uniform selection using only coins.
-
-@[simp, grind =]
-lemma support_coin : support coin = {true, false} := by aesop
 
 end coinSpec

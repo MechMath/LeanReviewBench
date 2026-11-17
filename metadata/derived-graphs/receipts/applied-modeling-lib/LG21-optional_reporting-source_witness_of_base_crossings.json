@@ -1,0 +1,43 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-optional_reporting-source_witness_of_base_crossings",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_source_witness_of_base_crossings"
+  ],
+  "input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+  "graph_sha256": "ef99eef14179f28e8f4f122681a8ecc14be549cdb219731dcbfd3d5215b7a836",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-optional_reporting-source_witness_of_base_crossings.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "7cd1fcf5310793ba0b7d5c1705fb0e48028e54b52f2a33f225375ec0bbdb9b1c"
+    ],
+    [
+      "formal/dep/EconCSLib/Foundations/Probability/Gaussian.lean",
+      "5102eaac9df04fd9b8bb29ad070cd563ca2d4ae86bf113f98f6655e8ea424253"
+    ],
+    [
+      "formal/dep/LG21TestOptionalPolicies/MainTheorems.lean",
+      "99cd53170f7f0c02da6e5ddb80d1781e18e8ac1cc8fd442da315cc3a08418145"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 3,
+  "nodes": 27,
+  "edges": 38,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

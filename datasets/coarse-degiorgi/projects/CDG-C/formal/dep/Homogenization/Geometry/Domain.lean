@@ -1,7 +1,13 @@
 module
 
-public import dep.Homogenization.Ambient.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
 public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import dep.Homogenization.Ambient.Basic
 
 @[expose] public section
 
@@ -23,12 +29,10 @@ def IsSobolevRegularDomain {d : ℕ} (U : Set (Vec d)) : Prop :=
 namespace IsSobolevRegularDomain
 
 theorem measurableSet {d : ℕ} {U : Set (Vec d)} (hU : IsSobolevRegularDomain U) :
-    MeasurableSet U :=
-  hU.1
+    MeasurableSet U := sorry
 
 theorem isBoundedDomain {d : ℕ} {U : Set (Vec d)} (hU : IsSobolevRegularDomain U) :
-    IsBoundedDomain U :=
-  hU.2
+    IsBoundedDomain U := sorry
 
 end IsSobolevRegularDomain
 

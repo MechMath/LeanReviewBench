@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "已绑定作者论文式(4.17)的独立定义。formal 的积分对数次数、log(kT)与log T、整分子除法括号及a₂常数均存在差异；after仅修正T的分数幂，其他差异仍在。详见逐项公式对照及数值区分。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "8e73a5905f0c43e1e50b0aa59369523804379962049229d37b0fead582bad0a3"
+    "sha256": "50f2e919989a3323e7ed1b844415c98db8868b9032500268faea320e2114cc22",
+    "effective_root_sha256": "55057b4a65fbbb752bcbe602f57a28b94804b872734ffc79778e520acb446df9",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/kln-j-after/20261105T052256552988Z/receipt.json",
@@ -66,8 +68,8 @@
   },
   "informal_status": "independent_paper_target_bound",
   "evaluation_eligible": true,
-  "input_sha256": "494f0dfb8d408565ba8d8139ea85fb90b8baf8477b3ec2fbad573aa4883747b2",
+  "input_sha256": "8565ff7686c96d4513c22fe60b351b7f7da09566c6845dcd2fde38377e23058c",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

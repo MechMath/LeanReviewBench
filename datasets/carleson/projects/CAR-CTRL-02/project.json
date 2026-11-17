@@ -26,9 +26,8 @@
   "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Mathlib.Analysis.Fourier.AddCircle"
   ],
@@ -47,7 +46,7 @@
       "sha256": "33d8b771faf4041ac11fa4ccbbb1ed5e328f04af4a23ed702d85a2b36bb2a176"
     }
   },
-  "input_sha256": "489383a7867c353ac7dcda513c9a27f99d071898fa4b68e52e28ba2b94312ad4",
+  "input_sha256": "e932a87cd61cbda63690cac484a981025a0fcade29a34948c3c694cca3edadc5",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -57,10 +56,12 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "72ec69e82a6397c0aa99084179092d8a093762090f8db872e0e1dd2a1b2b7f2d",
-    "effective_root_sha256": "85d484bea4ac10d39573c50b95abc2fa771f39fe507f271aa013a6e27c1d1732"
+    "sha256": "f78dcf51a9713c064c11783cc58cc0f768dc49956f2f781bb1b57c15fba85184",
+    "effective_root_sha256": "36aad5c09af99e4ec3e79c1b4f3f24fd8310621d489503fe3bf07738f8e08743",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/carleson.jsonl"
 }

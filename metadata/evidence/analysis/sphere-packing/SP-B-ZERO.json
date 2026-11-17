@@ -3,7 +3,7 @@
   "dataset": "sphere-packing",
   "project_id": "SP-B-ZERO",
   "task_id": "sphere-packing:SP-B-ZERO",
-  "input_sha256": "c2f047b78ce8b88dc90985f68f4d3e3c9f3cee8391bcdae993604ea8367549e3",
+  "input_sha256": "4ab327333564fbe3ff19c50f91d6638fa85b707ee3e09b68bb998a371409837f",
   "label": "misaligned",
   "reason": "The final integral has coefficient +2 instead of -2 after matching path directions.",
   "review_status": "human_reviewed",

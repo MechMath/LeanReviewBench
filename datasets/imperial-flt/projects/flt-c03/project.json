@@ -2609,7 +2609,7 @@
   "changes": "CHANGES.md",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "compatibility_files": [
     "FLT/DedekindDomain/AdicValuation.lean",
     "FLT/DedekindDomain/Completion/BaseChange.lean",
@@ -2643,12 +2643,13 @@
   "source_family": "haar-adelic-product-formula",
   "material_complete": true,
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 82,
-    "resource_count": 0,
-    "sha256": "0bf43cd1bea46bb8b9bced219dd70abf543cddcbb0f6e0360863ce736c8ff23d"
+    "file_count": 51,
+    "sha256": "3b2dba63ad436e3c3afaf7d558b242cca89ce38734a8042f9fa7306c26107722",
+    "effective_root_sha256": "38ae03fa1abe7aa1923a37d4503f69c0d17af1203695dd0f17500edb166db8a8",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
-  "input_sha256": "229f6186c8fd360d971a36492ad48d9930a2cd7aa0d642ea93d488aa4ebcd041",
+  "input_sha256": "117e6ba5f8ccaa5b52362e4fb245dfd0198a83efa5483b8ed69db82e2ef5260d",
   "external_imports": [
     "Mathlib.Algebra.Algebra.Pi",
     "Mathlib.Algebra.Algebra.Prod",
@@ -2798,7 +2799,6 @@
   ],
   "missing_modules": [],
   "packaged_compilation": "passed",
-  "pending_reason": null,
   "historical_technical_receipt": "technical/receipt.json",
   "admitted_to_dataset": true,
   "alignment_reference": "metadata/labels/imperial-flt.jsonl"

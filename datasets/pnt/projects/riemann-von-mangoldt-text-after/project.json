@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "T≥2时log(T/(2πe))=log(T/(2π))−1，formal绝对值内展开正是当前文字的−7/8版本；三个误差系数与范围均相同。按scope使用保留的N定义（0<Imρ<T并按重数），不替换成其他文章的计数端点约定。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "3793dd9ffca246cb387ff9be01090a2042e345dc9fbb10251840253ff53c377c"
+    "sha256": "2f3a2f206498240dcc05f33c3ac7742d154ef0b0882268fee36a9baed22840d9",
+    "effective_root_sha256": "63b844a2c84f06b600877e3e8c62f544359173648b6e3740ff268b46a400f853",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "cd7383940e6ee321108205881dbdee3d645fa941420f5e7972a77ac031e8786e",
+  "input_sha256": "d06e781d2475cc061c203455c82c8d55b4f94af0cd73810cac22ea308c6ceed3",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

@@ -3073,7 +3073,7 @@
   "changes": "CHANGES.md",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "compatibility_files": [
     "FLT/AutomorphicForm/GroupTheoryStuff.lean",
     "FLT/DedekindDomain/AdicValuation.lean",
@@ -3115,12 +3115,13 @@
   "source_family": "fujisaki",
   "material_complete": true,
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 95,
-    "resource_count": 0,
-    "sha256": "0b423df9460929d552baf9b316056718c1932eef1a48741da018367849f7263c"
+    "file_count": 63,
+    "sha256": "61d969c480c1df80b9bd191864806e203604dc1ae1989f5b7d52042359799a1d",
+    "effective_root_sha256": "281d7de50671aaa3fadb4f0e0014f73d2c5f383c42501789ccff71d3869af8ce",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
-  "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
+  "input_sha256": "1f1d9778831c26f6c0413d25960d34ccc222b800f9fd658328b4c775370776ca",
   "external_imports": [
     "Mathlib.Algebra.Algebra.Hom",
     "Mathlib.Algebra.Algebra.Pi",
@@ -3287,7 +3288,6 @@
   ],
   "missing_modules": [],
   "packaged_compilation": "passed",
-  "pending_reason": null,
   "historical_technical_receipt": "technical/receipt.json",
   "admitted_to_dataset": true,
   "relocation_patch": "relocation.patch",

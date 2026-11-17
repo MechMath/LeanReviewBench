@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "The paper constant B3 is the negative of the retained mertensConstant. Thus log x−B3 and Formal log x+mertensConstant agree, and the threshold and O* remainder match.",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "7ee3443a40678d22feb9be7461fac7a86b386047d8054b522073ddc8e84027fb"
+    "sha256": "1394fc3b48451bdeed83657f9dcaa68a465265826f9fa1bb6b5623339c501dfc",
+    "effective_root_sha256": "d5581d5c09cfc22f78729170da9cca630e3943a1ea03f7d073724eeef09814f1",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-mertens-error/20261105T053701812583Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "f5f1709066cc2312e9b456fc706063ce1ed92e4f2aa0ba468691ffa70c4776c8",
+  "input_sha256": "6624122e84b9aaf3efef8fc79571860aa6105d9ce040352ae551a7a30ef3adf5",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

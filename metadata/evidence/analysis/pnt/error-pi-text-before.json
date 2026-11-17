@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "error-pi-text-before",
   "task_id": "pnt:error-pi-text-before",
-  "input_sha256": "d99c940e7cdfeebdc3ecc9dbe8e8917e09c3335a2951128d8cee5873eac594ef",
+  "input_sha256": "cbd07af46bebb399219a5539efd4ec7e96f3f583fce67b66e1d0e92781269de8",
   "label": "misaligned",
   "reason": "The normalization denominator is x/log(x) instead of Li(x) in the bound text.",
   "review_status": "human_reviewed",

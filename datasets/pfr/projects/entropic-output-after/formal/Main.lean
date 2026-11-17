@@ -1,25 +1,61 @@
 module
 
 public import Mathlib.Algebra.Module.ZMod
-public import dep.PFR.TauFunctional
-public import dep.PFR.HundredPercent
+public import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
+public import Mathlib.Data.Finset.Pairwise
+public import Mathlib.Data.Set.Basic
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Insert
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Group.Arithmetic
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.Measure.Dirac.Def
+public import Mathlib.MeasureTheory.Measure.FiniteMeasureProd
+public import Mathlib.MeasureTheory.Measure.Map
+public import Mathlib.MeasureTheory.Measure.MeasureSpaceDef
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Prokhorov
+public import Mathlib.MeasureTheory.Measure.Real
+public import Mathlib.Probability.ConditionalProbability
+public import Mathlib.Probability.IdentDistrib
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Probability.Independence.Kernel.IndepFun
+public import Mathlib.Probability.Kernel.Composition.Comp
+public import Mathlib.Probability.Kernel.Composition.Prod
+public import Mathlib.Probability.Kernel.CondDistrib
+public import Mathlib.Probability.UniformOn
+public import Mathlib.Tactic.Basic
+public import Mathlib.Tactic.Finiteness
+public import Mathlib.Util.Notation3
 public import dep.PFR.Endgame
-
-/-!
-# Entropic version of polynomial Freiman-Ruzsa conjecture
-
-Here we prove the entropic version of the polynomial Freiman-Ruzsa conjecture.
-
-## Main results
-
-* `entropic_PFR_conjecture`: For two $G$-valued random variables $X^0_1, X^0_2$, there is some
-  subgroup $H \leq G$ such that $d[X^0_1;U_H] + d[X^0_2;U_H] \le 11 d[X^0_1;X^0_2]$.
-
--/
+public import dep.PFR.ForMathlib.Entropy.Basic
+public import dep.PFR.ForMathlib.Entropy.Kernel.Basic
+public import dep.PFR.ForMathlib.Entropy.Kernel.MutualInfo
+public import dep.PFR.ForMathlib.Entropy.Kernel.RuzsaDist
+public import dep.PFR.ForMathlib.Entropy.Measure
+public import dep.PFR.ForMathlib.Entropy.RuzsaDist
+public import dep.PFR.ForMathlib.FiniteRange.Defs
+public import dep.PFR.ForMathlib.FourVariables
+public import dep.PFR.ForMathlib.Pair
+public import dep.PFR.ForMathlib.Uniform
+public import dep.PFR.Mathlib.MeasureTheory.Constructions.Pi
+public import dep.PFR.Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import dep.PFR.Mathlib.MeasureTheory.Measure.Prod
+public import dep.PFR.Mathlib.Probability.IdentDistrib
+public import dep.PFR.Mathlib.Probability.Independence.Basic
+public import dep.PFR.Mathlib.Probability.Kernel.Composition.Comp
+public import dep.PFR.Mathlib.Probability.Kernel.Disintegration
+public import dep.PFR.TauFunctional
 
 public section
 
 open MeasureTheory ProbabilityTheory
+
 universe uG
 
 variable {Ω₀₁ Ω₀₂ : Type*} [MeasureSpace Ω₀₁] [MeasureSpace Ω₀₂]
@@ -29,53 +65,13 @@ variable {Ω Ω' : Type*} [mΩ : MeasureSpace Ω] [IsProbabilityMeasure (ℙ : M
 
 variable {G : Type uG} [AddCommGroup G] [Module (ZMod 2) G] [Finite G] [MeasurableSpace G]
   [MeasurableSingletonClass G]
+
 variable (p : refPackage Ω₀₁ Ω₀₂ G) {X₁ : Ω → G} {X₂ : Ω → G} (hX₁ : Measurable X₁)
   (hX₂ : Measurable X₂)
 
-include hX₁ hX₂ in
-/-- If $d[X_1;X_2] > 0$ then there are $G$-valued random variables $X'_1, X'_2$ such that
-$\tau[X'_1;X'_2] < \tau[X_1;X_2]$. Phrased in the contrapositive form for convenience of proof. -/
-theorem tau_strictly_decreases (h_min : TauMinimizes p X₁ X₂) (hpη : p.η = 1 / 9) :
-    d[X₁ # X₂] = 0 := by
-  cases nonempty_fintype G
-  let ⟨A, mA, μ, Y₁, Y₂, Y₁', Y₂', hμ, h_indep, hY₁, hY₂, hY₁', hY₂', h_id1, h_id2, h_id1', h_id2'⟩
-    := independent_copies4_nondep hX₁ hX₂ hX₁ hX₂ ℙ ℙ ℙ ℙ
-  rw [← h_id1.rdist_congr h_id2]
-  let : MeasureSpace A := ⟨μ⟩
-  have : IsProbabilityMeasure (ℙ : Measure A) := hμ
-  rw [← h_id1.tauMinimizes p h_id2] at h_min
-  apply tau_strictly_decreases_aux p Y₁ Y₂ Y₁' Y₂' hY₁ hY₂ hY₁' hY₂' (h_id1.trans h_id1'.symm)
-    (h_id2.trans h_id2'.symm) h_indep h_min hpη
-
-/-- `entropic_PFR_conjecture`: For two $G$-valued random variables $X^0_1, X^0_2$, there is some
-    subgroup $H \leq G$ such that $d[X^0_1;U_H] + d[X^0_2;U_H] \le 11 d[X^0_1;X^0_2]$. -/
-theorem entropic_PFR_conjecture (hpη : p.η = 1 / 9) :
-    ∃ H : Submodule (ZMod 2) G, ∃ Ω : Type uG, ∃ mΩ : MeasureSpace Ω, ∃ U : Ω → G,
-    IsProbabilityMeasure (ℙ : Measure Ω) ∧ Measurable U ∧
-    IsUniform H U ∧ d[p.X₀₁ # U] + d[p.X₀₂ # U] ≤ 11 * d[p.X₀₁ # p.X₀₂] := by
-  cases nonempty_fintype G
-  obtain ⟨Ω', mΩ', X₁, X₂, hX₁, hX₂, _, htau_min⟩ := tau_minimizer_exists p
-  have hdist : d[X₁ # X₂] = 0 := tau_strictly_decreases p hX₁ hX₂ htau_min hpη
-  obtain ⟨H, U, hU, hH_unif, hdistX₁, hdistX₂⟩ := exists_isUniform_of_rdist_eq_zero hX₁ hX₂ hdist
-  refine ⟨AddSubgroup.toZModSubmodule _ H, Ω', inferInstance, U, inferInstance, hU, hH_unif , ?_⟩
-  have h : τ[X₁ # X₂ | p] ≤ τ[p.X₀₂ # p.X₀₁ | p] := is_tau_min p htau_min p.hmeas2 p.hmeas1
-  rw [tau, tau, hpη] at h
-  norm_num at h
-  have : d[p.X₀₁ # p.X₀₂] = d[p.X₀₂ # p.X₀₁] := rdist_symm
-  have : d[p.X₀₁ # U] ≤ d[p.X₀₁ # X₁] + d[X₁ # U] := rdist_triangle p.hmeas1 hX₁ hU
-  have : d[p.X₀₂ # U] ≤ d[p.X₀₂ # X₂] + d[X₂ # U] := rdist_triangle p.hmeas2 hX₂ hU
-  linarith
-
+include p in
 theorem entropic_PFR_conjecture' (hpη : p.η = 1 / 9) :
     ∃ H : Submodule (ZMod 2) G, ∃ Ω : Type uG, ∃ mΩ : MeasureSpace Ω, ∃ U : Ω → G,
     IsProbabilityMeasure (ℙ : Measure Ω) ∧ Measurable U ∧
     IsUniform H U ∧ d[p.X₀₁ # U] ≤ 6 * d[p.X₀₁ # p.X₀₂] ∧
-      d[p.X₀₂ # U] ≤ 6 * d[p.X₀₁ # p.X₀₂] := by
-  have : d[p.X₀₁ # p.X₀₂] = d[p.X₀₂ # p.X₀₁] := rdist_symm
-  obtain ⟨H, Ω, mΩ, U, H', hU, hUnif, h'⟩ := entropic_PFR_conjecture p hpη
-  refine ⟨H, Ω, mΩ, U, H', hU, hUnif, ?_⟩
-  have : d[p.X₀₁ # U] ≤ d[p.X₀₁ # p.X₀₂] + d[p.X₀₂ # U] := rdist_triangle p.hmeas1 p.hmeas2 hU
-  have : d[p.X₀₂ # U] ≤ d[p.X₀₂ # p.X₀₁] + d[p.X₀₁ # U] := rdist_triangle p.hmeas2 p.hmeas1 hU
-  constructor
-  · linarith
-  · linarith
+      d[p.X₀₂ # U] ≤ 6 * d[p.X₀₁ # p.X₀₂] := sorry

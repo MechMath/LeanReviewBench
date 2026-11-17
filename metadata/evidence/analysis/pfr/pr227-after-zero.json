@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr227-after-zero",
   "task_id": "pfr:pr227-after-zero",
-  "input_sha256": "1c370f2e9fa6b9e40d33be68adfa664cd1606e84aa24f9840dfb738e0539274b",
+  "input_sha256": "0b1407cb12cd373abf011e833619f3dd9cf6e5fa361130a6db6f61c61f65d3c0",
   "label": "misaligned",
   "reason": "The formal input group is finite, excluding general groups and infinite-support distributions allowed by the bound target.",
   "review_status": "human_reviewed",

@@ -26,7 +26,7 @@
     "misaligned": 90,
     "aligned": 81
   },
-  "formal_files": 8670,
+  "formal_files": 3075,
   "reference_ready": 0,
   "model_export_status": "Native project-case data; no frozen model task export is asserted.",
   "omitted": [
@@ -36,7 +36,7 @@
     "build caches",
     "optional original/ copies, source caches, patches and construction logs"
   ],
-  "packaging_policy": "Test/runtime dependencies only; optional construction materials use immutable archive links.",
+  "packaging_policy": "Statement-only declaration closures and required source/runtime support; per-input CHANGES.md records Lean migration edits.",
   "excluded_batches": {
     "stat-learning-theory": {
       "repository": "YuanheZ/lean-stat-learning-theory",

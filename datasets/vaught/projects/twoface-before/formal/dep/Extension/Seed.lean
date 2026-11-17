@@ -1,50 +1,38 @@
-/-
-Copyright (c) 2026 Cameron Freer. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Cameron Freer
--/
+import Mathlib.Data.Fin.Tuple.Embedding
+import Mathlib.Data.Finset.Lattice.Fold
+import Mathlib.Data.Finset.Max
+import Mathlib.Data.Finset.Preimage
+import Mathlib.Data.Finset.Sort
+import Mathlib.Data.Fintype.Basic
+import Mathlib.Data.Fintype.Sort
+import Mathlib.Data.Fintype.Sum
+import Mathlib.Data.Prod.Lex
+import Mathlib.Data.Set.Countable
+import Mathlib.Order.InitialSeg
+import Mathlib.Order.Interval.Finset.Fin
+import Mathlib.Order.SupClosed
+import Mathlib.SetTheory.Cardinal.Aleph
+import Mathlib.SetTheory.Cardinal.Ordinal
+import Mathlib.SetTheory.Ordinal.Arithmetic
+import dep.Extension.Basic
 import dep.Extension.CoatomAmalgam
-
-/-!
-# The seed of the completion of the coatom extension
-
-Roadmap, Layer 3 (the coatom extension construction: the finite input of the completion of the
-amalgam, with the clauses it satisfies), checkpoint 2.1; semantic contract, items 2–4.
-
-**A seed** (`Seed α m`) is the finite input of the completion of the coatom extension on `m + 2`
-points, together with the clauses it satisfies, each stated as a separate field:
-
-* the data: two stage types `left` and `right` on the coatoms of `m + 1` points, their common face
-  `face` on `m` points, and the amalgam, a stage type on `m + 2` points with the glued lawful
-  labelling;
-* legality of the two coatom types, and the common face literally the face of both along
-  `Fin.castSuccEmb`;
-* the literal restrictions: the faces of the amalgam along the two coatoms are the two coatom types,
-  labels included;
-* the laws of the amalgam: consistent rows, and bountiful rows (the lifting condition)
-  [Kni26, Lemma 4.3.2];
-* its cells and faces: no cell of full scope, every graded face of scope other than the ground set
-  the graded index of a cell, and every face other than the ground set inside one of the two
-  coatoms (the face structure under which bountifulness is checked coatom by coatom,
-  `CellScheme.Rows.isBountiful_of_coatoms`).
-
-Every cell of the amalgam has grade below `m + 2` (`Seed.grade_lt`), and no cell lies above a pair
-on the full face (`Seed.not_univ_le`).
-
-**The amalgam of two legal coatom types is a seed** (`Seed.ofCoatoms`), from
-`Coatom.isConsistent_amalgamType`, `Coatom.isBountiful_amalgamType`, and the restriction theorems
-`Coatom.restrictFace_left_amalgamType` and `Coatom.restrictFace_right_amalgamType`; its face
-structure is `Coatom.subset_or_subset_of_mem_amalgamFaces`, read off the faces of the amalgam
-(`Coatom.mem_amalgamFaces`).
-
-The completion of a seed by cells of full scope, below the full grade, is
-`VaughtConjecture.Extension.CompletionBelowFullGrade`.
-
-## References
-
-The amalgam is [Kni26, Definition 4.3.1] with its consistency and bountifulness
-[Kni26, Lemma 4.3.2]; its completion is the subject of [Kni26, Corollary 4.3.22].
--/
+import dep.Extension.CoatomScheme
+import dep.Extension.Merge
+import dep.Geometry.ConvexGeometry
+import dep.Geometry.Plan
+import dep.Label.Basic
+import dep.Label.Cap
+import dep.Label.OrdinalVisibility
+import dep.Label.Transform
+import dep.Label.Visibility
+import dep.Scheme.Bountiful
+import dep.Scheme.Cell
+import dep.Scheme.Row
+import dep.Scheme.Transport
+import dep.Stage.Basic
+import dep.Stage.Countable
+import dep.Stage.Legal
+import dep.Stage.Scheme
 
 universe u
 
@@ -97,42 +85,9 @@ variable {α : Ordinal.{u}} {m : ℕ} (I : Seed.{u} α m)
 
 /-- Every cell of the amalgam has grade below `m + 2`: its scope is a proper subset of the `m + 2`
 points. -/
-theorem grade_lt (d : Fin I.amalgam.card) : I.amalgam.toCellScheme.grade d < m + 2 := by
-  have hlt : #(I.amalgam.toCellScheme.scope d) < m + 2 := by
-    simpa using card_lt_card (ssubset_univ_iff.mpr (I.scope_ne_univ d))
-  exact (I.amalgam.isWellFormed.isWellFormed.grade_le_card d).trans_lt hlt
-
-/-- No cell of the amalgam lies above a pair on the full face. -/
-theorem not_univ_le (j : ℕ) (d : Fin I.amalgam.card) :
-    ¬ ((univ : Finset (Fin (m + 2))), j) ≤ I.amalgam.toCellScheme.gradedIndex d :=
-  fun h ↦ I.scope_ne_univ d (eq_univ_of_forall fun x ↦ h.1 (mem_univ x))
+theorem grade_lt (d : Fin I.amalgam.card) : I.amalgam.toCellScheme.grade d < m + 2 := sorry
 
 variable {ta tb : StageType.{u} α (m + 1)} {p : StageType.{u} α m}
-
-/-- **The amalgam of two legal coatom types is a seed**: two legal stage types with the same face
-along `Fin.castSuccEmb`, their amalgam with the glued labelling, and the laws proved for it
-[Kni26, Definition 4.3.1 and Lemma 4.3.2]. -/
-noncomputable def ofCoatoms (hla : ta.IsLegal) (hlb : tb.IsLegal)
-    (hpa : StageType.restrictFace (Coatom.face m) ta = some p)
-    (hpb : StageType.restrictFace (Coatom.face m) tb = some p) : Seed.{u} α m where
-  amalgam := Coatom.amalgamType hpa hpb
-  left := ta
-  right := tb
-  face := p
-  isLegal_left := hla
-  isLegal_right := hlb
-  restrictFace_face_left := hpa
-  restrictFace_face_right := hpb
-  restrictFace_left := Coatom.restrictFace_left_amalgamType hpa hpb
-  restrictFace_right := Coatom.restrictFace_right_amalgamType hpa hpb
-  isConsistent := Coatom.isConsistent_amalgamType hpa hpb hla hlb
-  isBountiful := Coatom.isBountiful_amalgamType hpa hpb hla hlb
-  subset_or_subset B hB hne := by
-    rw [← Coatom.univ_map_left, ← Coatom.univ_map_right]
-    exact Coatom.subset_or_subset_of_mem_amalgamFaces (Sa := ta.toScheme) (Sb := tb.toScheme)
-      hB hne
-  scope_ne_univ := Coatom.amalgamType_scope_ne_univ hpa hpb
-  exists_gradedIndex_eq _ hX hne := Coatom.exists_gradedIndex_eq_amalgamType hpa hpb hla hlb hX hne
 
 end Seed
 

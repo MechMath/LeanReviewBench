@@ -1,26 +1,35 @@
+import Batteries.Data.Array.Lemmas
+import Lean
+import Lean.Elab.Declaration
+import Lean.Elab.Exception
+import Lean.Environment
+import Lean.Meta.Basic
+import Lean.ToExpr
+import Lean.Util
+import Lean.Util.CollectAxioms
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Set.Defs
+import Mathlib.Data.Set.Function
+import Mathlib.Logic.Equiv.Basic
+import Mathlib.Tactic.Cases
 import dep.equational_theories.EndToEnd.Basic
-
-/-!
-# The certificate, its checker, and the decision procedure
-
-The certificate is untrusted data: `checkCert` validates it, and `resolve` uses it only to
-*find* a witness, which is then checked by `checkImplication`/`checkRefutation` from `Basic.lean`.
-
-Everything is done on the ~1415 strongly connected components rather than on the 4694
-equations, because the rank induction that justifies the forward walk has nowhere to descend
-inside an SCC. Each SCC's reachability set is one `Nat` used as a bitset over SCCs; the
-Lean kernel has GMP fast paths for `Nat.testBit`, `|||` and `<<<`, so these are cheap.
-
-Both directions get their own fixpoint and rank:
-
-* `reaches`/`out`/`rank`   -- forward:  `reaches[i]` is the set of SCCs `i` implies
-* `reachedBy`/`rout`/`rrank` -- reverse: `reachedBy[c]` is the set of SCCs implying `c`
-
-The reverse copy is not a convenience. A refutation needs a *forward* implication `m ⟹ b`, while the
-refuters supply the reverse fact that `b` is implied by `m`. Deriving one from the other means
-checking that `reachedBy` is the transpose of `reaches`, which is Θ(K²); walking the reverse
-graph and emitting it in forward order avoids the transpose entirely.
--/
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.Equations.Basic
+import dep.equational_theories.Equations.Command
+import dep.equational_theories.Equations.Eqns1000_1999
+import dep.equational_theories.Equations.Eqns1_999
+import dep.equational_theories.Equations.Eqns2000_2999
+import dep.equational_theories.Equations.Eqns3000_3999
+import dep.equational_theories.Equations.Eqns4000_4694
+import dep.equational_theories.Equations.LawsComplete
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.Homomorphisms
+import dep.equational_theories.Magma
+import dep.equational_theories.MagmaLaw
+import dep.equational_theories.ParseImplications
+import dep.equational_theories.Preorder
+import dep.equational_theories.RArray
 
 namespace EndToEnd
 
@@ -70,6 +79,7 @@ variable (C : Certificate) (pos : RArray PosFact) (neg : RArray NegFact)
 
 /-- SCC of the source of base fact `k`. -/
 abbrev srcScc (k : Nat) : Nat := C.scc.get (pos.get k).hyp
+
 /-- SCC of the target of base fact `k`. -/
 abbrev tgtScc (k : Nat) : Nat := C.scc.get (pos.get k).conc
 
@@ -116,13 +126,6 @@ def checkRefuters (i : Nat) : Bool :=
   ((C.refuters.get i).all fun k => Nat.blt k C.numNeg && satAt C neg k i) &&
   ((C.reaches.get i ||| (C.refuters.get i).foldl (fun acc k => acc ||| C.fmask.get k) 0)
       == fullMask C)
-
-/-- The whole certificate check. -/
-def checkCert : Bool :=
-  (List.range C.numEq).all (fun e => Nat.blt (C.scc.get e) C.numSccs && checkScc C pos e) &&
-  (List.range C.numNeg).all (fun k => checkFmask C neg k) &&
-  (List.range C.numSccs).all
-    (fun i => checkFwd C pos i && checkRev C pos i && checkRefuters C neg i)
 
 /-- Implication from `rep i` to `rep j`, following forward edges whose target still reaches `j`.
 Each cross-SCC step `a ⟹ b` is padded to run between representatives:

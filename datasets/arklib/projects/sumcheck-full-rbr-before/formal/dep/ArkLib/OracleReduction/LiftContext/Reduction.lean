@@ -1,54 +1,196 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
 public import dep.ArkLib.OracleReduction.LiftContext.Lens
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
 public import dep.ArkLib.OracleReduction.Security.RoundByRound
--- import ArkLib.OracleReduction.Security.StateRestoration
-
-/-!
-  ## Lifting Reductions to Larger Contexts
-
-  Sequential composition is usually not enough to represent oracle reductions in a modular way. We
-  also need to formalize **virtual** oracle reductions, which lift reductions from one (virtual /
-  inner) context into the another (real / outer) context.
-
-  This is what is meant when we informally say "apply so-and-so protocol to this quantity (derived
-  from the input statement & witness)".
-
-  Put in other words, we define a mapping between the input-output interfaces of two (oracle)
-  reductions, without changing anything about the underlying reductions.
-
-  Recall that the input-output interface of an oracle reduction consists of:
-  - Input: `OuterStmtIn : Type`, `OuterOStmtIn : ιₛᵢ → Type`, and `OuterWitIn : Type`
-  - Output: `OuterStmtOut : Type`, `OuterOStmtOut : ιₛₒ → Type`, and `OuterWitOut : Type`
-
-  The liftContext is defined as the following mappings of projections / lifts:
-
-  - `projStmt : OuterStmtIn → InnerStmtIn`
-  - `projOStmt : (simulation involving OuterOStmtIn to produce InnerOStmtIn)`
-  - `projWit : OuterWitIn → InnerWitIn`
-  - `liftStmt : OuterStmtIn × InnerStmtOut → OuterStmtOut`
-  - `liftOStmt : (simulation involving InnerOStmtOut to produce OuterOStmtOut)`
-  - `liftWit : OuterWitIn × InnerWitOut → OuterWitOut`
-
-  Note that since completeness & soundness for oracle reductions are defined in terms of the same
-  properties after converting to (non-oracle) reductions, we only need to focus our efforts on the
-  non-oracle case.
-
-  Note that this _exactly_ corresponds to lenses in programming languages / category theory. Namely,
-  liftContext on the inputs correspond to a `view`/`get` operation (our "proj"), while liftContext
-  on the output corresponds to a `modify`/`set` operation (our "lift").
-
-  More precisely, the `proj/lift` operations correspond to a Lens between two monomial polyonmial
-  functors: `OuterCtxIn y^ OuterCtxOut ⇆ InnerCtxIn y^ InnerCtxOut`.
-
-  All the lens definitions are in `Lens.lean`. This file deals with the lens applied to reductions.
-  See `OracleReduction.lean` for the application to oracle reduction.
--/
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -123,8 +265,6 @@ def Extractor.RoundByRound.liftContext
     (E : Extractor.RoundByRound oSpec InnerStmtIn InnerWitIn InnerWitOut pSpec WitMid) :
       Extractor.RoundByRound oSpec OuterStmtIn OuterWitIn OuterWitOut pSpec WitMid :=
   sorry
-  -- fun roundIdx outerStmtIn fullTranscript proveQueryLog =>
-  --   rbrLensInv.liftWit (E roundIdx (lens.projStmt outerStmtIn) fullTranscript proveQueryLog)
 
 /-- Compatibility relation between the outer input statement and the inner output statement,
 relative to a verifier.
@@ -185,152 +325,19 @@ def Verifier.StateFunction.liftContext
 where
   toFun := fun m outerStmtIn transcript =>
     stF m (lens.proj outerStmtIn) transcript
-  toFun_empty := fun stmt => by
-    have := stF.toFun_empty (lens.proj stmt)
-    sorry
+  toFun_empty := fun stmt => sorry
     -- stF.toFun_empty (lens.proj stmt) (lensSound.proj_sound stmt hStmt)
   toFun_next := fun m hDir outerStmtIn transcript hStmt msg =>
     stF.toFun_next m hDir (lens.proj outerStmtIn) transcript hStmt msg
-  toFun_full := fun outerStmtIn transcript hStmt => by
-    have h := stF.toFun_full (lens.proj outerStmtIn) transcript hStmt
-    simp [Verifier.run, Verifier.liftContext] at h ⊢
-    stop
-    intro outerStmtOut s hs innerStmtOut s' h' hLens
-    have := lensSound.lift_sound outerStmtIn innerStmtOut
-    sorry
-    -- apply lensSound.lift_sound
-    -- · simp [compatStatement]; exact ⟨transcript, hSupport⟩
-    -- · exact h innerStmtOut hSupport
+  toFun_full := fun outerStmtIn transcript hStmt => sorry
 
 section Theorems
 
-/- Theorems about liftContext interacting with reduction execution and security properties -/
-
 namespace Prover
-
-/- Breaking down the intertwining of liftContext and prover execution -/
-
-/-- Lifting the prover intertwines with the process round function -/
-theorem liftContext_processRound
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {i : Fin n}
-    {P : Prover oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec}
-    {resultRound : OracleComp (oSpec + [pSpec.Challenge]ₒ)
-      (pSpec.Transcript i.castSucc × (P.liftContext lens).PrvState i.castSucc)} :
-      (P.liftContext lens).processRound i resultRound
-      = do
-        let ⟨transcript, prvState, outerStmtIn, outerWitIn⟩ ← resultRound
-        let ⟨newTranscript, newPrvState⟩ ← P.processRound i (do return ⟨transcript, prvState⟩)
-        return ⟨newTranscript, ⟨newPrvState, outerStmtIn, outerWitIn⟩⟩ := by
-  unfold processRound liftContext
-  simp only [bind_pure_comp]
-  congr 1; funext ⟨tr, ps, outerStmtIn', outerWitIn'⟩
-  simp only [pure_bind]
-  split <;> simp [Functor.map_map, liftM_map, map_bind]
-
-
-theorem liftContext_runToRound
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {outerStmtIn : OuterStmtIn} {outerWitIn : OuterWitIn} {i : Fin (n + 1)}
-    (P : Prover oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec) :
-      (P.liftContext lens).runToRound i outerStmtIn outerWitIn
-      = do
-        let ⟨transcript, prvState⟩ ←
-          (P.runToRound i).uncurry (lens.proj (outerStmtIn, outerWitIn))
-        return ⟨transcript, ⟨prvState, outerStmtIn, outerWitIn⟩⟩ := by
-  unfold runToRound Function.uncurry
-  dsimp
-  induction i using Fin.induction with
-  | zero => simp [liftContext]
-  | succ i ih =>
-    simp only [Fin.induction_succ, ih, bind_pure_comp,
-      liftContext_processRound, ChallengeIdx, bind_map_left, Prod.mk.eta]
-    simp [processRound]
-
--- Requires more lemmas about `simulateQ` for logging oracles
-theorem liftContext_runWithLogToRound
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {outerStmtIn : OuterStmtIn} {outerWitIn : OuterWitIn} {i : Fin (n + 1)}
-    (P : Prover oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec) :
-      (P.liftContext lens).runWithLogToRound i outerStmtIn outerWitIn
-      = do
-        let ⟨⟨transcript, prvState⟩, queryLog⟩ ←
-          (P.runWithLogToRound i).uncurry (lens.proj (outerStmtIn, outerWitIn))
-        return ⟨⟨transcript, ⟨prvState, outerStmtIn, outerWitIn⟩⟩, queryLog⟩ := by
-  unfold runWithLogToRound
-  induction i using Fin.induction with
-  | zero => simp [runToRound, liftContext, Function.uncurry, simulateQ_pure]
-  | succ i ih => simp [liftContext_runToRound, Function.uncurry]
-
-/-- Running the lifted outer prover is equivalent to running the inner prover on the projected
-  input, and then integrating the output -/
-theorem liftContext_run
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {outerStmtIn : OuterStmtIn} {outerWitIn : OuterWitIn}
-    {P : Prover oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec} :
-      (P.liftContext lens).run outerStmtIn outerWitIn
-      = do
-        let ⟨fullTranscript, innerCtxOut⟩ ←
-          P.run.uncurry (lens.proj (outerStmtIn, outerWitIn))
-        return ⟨fullTranscript, lens.lift (outerStmtIn, outerWitIn) innerCtxOut⟩ := by
-  simp only [run, liftContext_runToRound]
-  simp [liftContext, Function.uncurry]
-
-/-- Lifting the prover intertwines with logging queries of the prover -/
-theorem liftContext_runWithLog
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {outerStmtIn : OuterStmtIn} {outerWitIn : OuterWitIn}
-    {P : Prover oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec} :
-      (P.liftContext lens).runWithLog outerStmtIn outerWitIn
-      = do
-        let ⟨⟨fullTranscript, innerCtxOut⟩, queryLog⟩ ←
-          P.runWithLog.uncurry (lens.proj (outerStmtIn, outerWitIn))
-        return ⟨⟨fullTranscript, lens.lift (outerStmtIn, outerWitIn) innerCtxOut⟩, queryLog⟩ := by
-  rw [runWithLog, liftContext_run]
-  simp only [ChallengeIdx, Challenge, Function.uncurry, bind_pure_comp, simulateQ_map,
-    WriterT.run_map]
-  congr
 
 end Prover
 
 namespace Reduction
-
-theorem liftContext_run
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {outerStmtIn : OuterStmtIn} {outerWitIn : OuterWitIn}
-    {R : Reduction oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec} :
-      (R.liftContext lens).run outerStmtIn outerWitIn = do
-        let ⟨⟨fullTranscript, innerCtxOut⟩, verInnerStmtOut⟩ ←
-          R.run.uncurry (lens.proj (outerStmtIn, outerWitIn))
-        return ⟨⟨fullTranscript, lens.lift (outerStmtIn, outerWitIn) innerCtxOut⟩ ,
-                lens.stmt.lift outerStmtIn verInnerStmtOut⟩ := by
-  unfold run
-  simp only [ChallengeIdx, Challenge, liftContext, Verifier.liftContext, bind_pure_comp,
-    Prover.liftContext_run, Function.uncurry, liftM_map, Verifier.run, OptionT.run_map,
-    bind_map_left, map_bind, Functor.map_map]
-  congr 1; funext ⟨_, _⟩; congr 1; funext a_1
-  simp?
-  cases a_1 <;> simp [Option.getM, map_pure]
-
-theorem liftContext_runWithLog
-    {lens : Context.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                        OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    {outerStmtIn : OuterStmtIn} {outerWitIn : OuterWitIn}
-    {R : Reduction oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec} :
-      (R.liftContext lens).runWithLog outerStmtIn outerWitIn = do
-        let ⟨⟨⟨fullTranscript, innerCtxOut⟩, verInnerStmtOut⟩, queryLog⟩ ←
-          R.runWithLog.uncurry (lens.proj (outerStmtIn, outerWitIn))
-        return ⟨⟨⟨fullTranscript, lens.lift (outerStmtIn, outerWitIn) innerCtxOut⟩,
-                lens.stmt.lift outerStmtIn verInnerStmtOut⟩, queryLog⟩ := by
-  unfold runWithLog
-  simp [liftContext, Prover.liftContext_runWithLog, Verifier.liftContext, Verifier.run]
-  sorry
 
 end Reduction
 
@@ -349,209 +356,9 @@ variable
     [lensComplete : lens.IsComplete outerRelIn innerRelIn outerRelOut innerRelOut
       (R.compatContext lens)]
 
-/-- Lifting the reduction preserves completeness, assuming the lens satisfies its completeness
-  conditions
--/
-theorem liftContext_completeness
-    (h : R.completeness init impl innerRelIn innerRelOut completenessError) :
-      (R.liftContext lens).completeness init impl outerRelIn outerRelOut completenessError := by
-  unfold completeness at h ⊢
-  intro outerStmtIn outerWitIn hRelIn
-  have hR := h (lens.stmt.proj outerStmtIn) (lens.wit.proj (outerStmtIn, outerWitIn))
-    (lensComplete.proj_complete _ _ hRelIn)
-  rw [Reduction.liftContext_run]
-  refine le_trans hR ?_
-  simp?
-  sorry
-  -- Refine by event monotonicity.
-  -- intro ⟨innerContextOut, a, b⟩ hSupport ⟨hRelOut, hRelOut'⟩
-  -- have : innerContextOut ∈
-  --     Prod.fst <$>
-  --       (R.run (lens.stmt.proj outerStmtIn)
-  -- (lens.wit.proj (outerStmtIn, outerWitIn))).support := by
-  --   simp
-  --   exact ⟨a, b, hSupport⟩
-  -- simp_all
-  -- rw [← hRelOut'] at hRelOut ⊢
-  -- refine lensComplete.lift_complete _ _ _ _ ?_ hRelIn hRelOut
-  -- simp [compatContext]; exact this
-
-theorem liftContext_perfectCompleteness
-    (h : R.perfectCompleteness init impl innerRelIn innerRelOut) :
-      (R.liftContext lens).perfectCompleteness init impl outerRelIn outerRelOut := by
-  exact liftContext_completeness h
-
--- Can't turn the above into an instance because Lean needs to synthesize `innerRelIn` and
--- `innerRelOut` out of thin air.
-
--- instance [Reduction.IsComplete innerRelIn innerRelOut R completenessError] :
---     R.liftContext.IsComplete outerRelIn outerRelOut completenessError :=
---   ⟨R.liftContext.completeness⟩
-
--- instance [R.IsPerfectComplete relIn relOut] :
---     R.liftContext.IsPerfectComplete relIn relOut :=
---   ⟨fun _ => R.liftContext.perfectCompleteness _ _ _⟩
-
 end Reduction
 
 namespace Verifier
-
-/-- Lifting the reduction preserves soundness, assuming the lens satisfies its soundness
-  conditions -/
-theorem liftContext_soundness [Inhabited InnerStmtOut]
-    {outerLangIn : Set OuterStmtIn} {outerLangOut : Set OuterStmtOut}
-    {innerLangIn : Set InnerStmtIn} {innerLangOut : Set InnerStmtOut}
-    {soundnessError : ℝ≥0}
-    {lens : Statement.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut}
-    (V : Verifier oSpec InnerStmtIn InnerStmtOut pSpec)
-    -- TODO: figure out the right compatibility relation for the IsSound condition
-    [lensSound : lens.IsSound outerLangIn outerLangOut innerLangIn innerLangOut
-      (V.compatStatement lens)]
-    (h : V.soundness init impl innerLangIn innerLangOut soundnessError) :
-      (V.liftContext lens).soundness init impl outerLangIn outerLangOut soundnessError := by
-  unfold soundness Reduction.run at h ⊢
-  -- Note: there is no distinction between `Outer` and `Inner` here
-  intro WitIn WitOut outerWitIn outerP outerStmtIn hOuterStmtIn
-  simp only [ChallengeIdx, Challenge, QueryImpl.addLift_def,
-    PFunctor.Handler.liftTarget_self, bind_pure_comp, OptionT.run_bind,
-    OptionT.run_monadLift, monadLift_self, OptionT.run_map, Option.elimM_map,
-    Option.elim_some, simulateQ_bind, StateT.run'_eq, StateT.run_bind, map_bind,
-    OptionT.mk_bind] at h ⊢
-  have innerP : Prover oSpec InnerStmtIn WitIn InnerStmtOut WitOut pSpec := {
-    PrvState := outerP.PrvState
-    input := fun _ => outerP.input (outerStmtIn, outerWitIn)
-    sendMessage := outerP.sendMessage
-    receiveChallenge := outerP.receiveChallenge
-    output := fun state => do
-      let ⟨outerStmtOut, outerWitOut⟩ ← outerP.output state
-      return ⟨default, outerWitOut⟩
-  }
-  have : lens.proj outerStmtIn ∉ innerLangIn := by
-    apply lensSound.proj_sound
-    exact hOuterStmtIn
-  have hSound := h WitIn WitOut outerWitIn innerP (lens.proj outerStmtIn) this
-  refine le_trans ?_ hSound
-  simp [Verifier.liftContext, Verifier.run]
-  -- Put the two events over the same base computation `oa`.
-  -- Then apply `lensSound.lift_sound`?
-  sorry
-
-/-
-  Lifting the reduction preserves knowledge soundness, assuming the lens satisfies its knowledge
-  soundness conditions
-
-  Note: since knowledge soundness is defined existentially in terms of the extractor, we also cannot
-  impose any meaningful compatibility conditions on the witnesses (outer output & inner input),
-  hence `compatWit` field is just always true
-
-  (future extensions may define lifting relative to a particular extractor, if needed)
--/
-theorem liftContext_knowledgeSoundness [Inhabited InnerStmtOut] [Inhabited InnerWitIn]
-    {outerRelIn : Set (OuterStmtIn × OuterWitIn)} {outerRelOut : Set (OuterStmtOut × OuterWitOut)}
-    {innerRelIn : Set (InnerStmtIn × InnerWitIn)} {innerRelOut : Set (InnerStmtOut × InnerWitOut)}
-    {knowledgeError : ℝ≥0}
-    {stmtLens : Statement.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut}
-    {witLens : Witness.InvLens OuterStmtIn OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    (V : Verifier oSpec InnerStmtIn InnerStmtOut pSpec)
-    [lensKS : Extractor.Lens.IsKnowledgeSound outerRelIn innerRelIn outerRelOut innerRelOut
-      (V.compatStatement stmtLens) (fun _ _ => True) ⟨stmtLens, witLens⟩]
-    (h : V.knowledgeSoundness init impl innerRelIn innerRelOut knowledgeError) :
-      (V.liftContext stmtLens).knowledgeSoundness init impl outerRelIn outerRelOut
-        knowledgeError := by
-  unfold knowledgeSoundness at h ⊢
-  obtain ⟨E, h'⟩ := h
-  refine ⟨E.liftContext ⟨stmtLens, witLens⟩, ?_⟩
-  intro outerStmtIn outerWitIn outerP
-  simp only [ChallengeIdx, Challenge, QueryImpl.addLift_def,
-    PFunctor.Handler.liftTarget_self, Extractor.Straightline.liftContext,
-    bind_pure_comp, OptionT.run_map, liftM_map, Functor.map_map, OptionT.run_bind,
-    StateT.run'_eq, OptionT.mk_bind, Option.mem_def, Prod.mk.eta]
-  let innerP : Prover oSpec InnerStmtIn InnerWitIn InnerStmtOut InnerWitOut pSpec :=
-    {
-      PrvState := outerP.PrvState
-      input := fun _ => outerP.input (outerStmtIn, outerWitIn)
-      sendMessage := outerP.sendMessage
-      receiveChallenge := outerP.receiveChallenge
-      output := fun state => do
-        let ⟨outerStmtOut, outerWitOut⟩ ← outerP.output state
-        return ⟨default, witLens.proj (outerStmtIn, outerWitOut)⟩
-    }
-  have h_innerP_input {innerStmtIn} {innerWitIn} :
-      innerP.input (innerStmtIn, innerWitIn) = outerP.input (outerStmtIn, outerWitIn) := rfl
-  simp only [ChallengeIdx, Challenge, QueryImpl.addLift_def,
-    PFunctor.Handler.liftTarget_self, bind_pure_comp, OptionT.run_bind,
-    OptionT.run_map, StateT.run'_eq, OptionT.mk_bind, Option.mem_def, Prod.mk.eta] at h'
-  have hR := h' (stmtLens.proj outerStmtIn) default innerP
-  simp only [Reduction.runWithLog, ChallengeIdx, Challenge, run, bind_pure_comp,
-    OptionT.run_bind, OptionT.run_monadLift, monadLift_self, OptionT.run_map,
-    Option.elimM_map, Option.elim_some, Option.elimM_bind, simulateQ_bind,
-    StateT.run_bind, map_bind, OptionT.mk_bind, liftContext, ge_iff_le] at hR ⊢
-  have h_innerP_runWithLog {innerStmtIn} {innerWitIn} :
-      innerP.runWithLog innerStmtIn innerWitIn
-      = do
-        let ⟨⟨transcript, ⟨_, outerWitOut⟩⟩, rest⟩ ← outerP.runWithLog outerStmtIn outerWitIn
-        return ⟨⟨transcript, ⟨default, witLens.proj (outerStmtIn, outerWitOut)⟩⟩, rest⟩ := by
-    sorry
-  refine le_trans ?_ hR
-  -- Put the two events over the same base computation `oa`.
-  simp [h_innerP_runWithLog]
-  -- Apply event monotonicity.
-  sorry
-
-/-
-  Lifting the reduction preserves round-by-round soundness, assuming the lens satisfies its
-  soundness conditions
--/
-theorem liftContext_rbr_soundness [Inhabited InnerStmtOut]
-    {outerLangIn : Set OuterStmtIn} {outerLangOut : Set OuterStmtOut}
-    {innerLangIn : Set InnerStmtIn} {innerLangOut : Set InnerStmtOut}
-    {rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0}
-    {lens : Statement.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut}
-    (V : Verifier oSpec InnerStmtIn InnerStmtOut pSpec)
-    -- TODO: figure out the right compatibility relation for the IsSound condition
-    [lensSound : lens.IsSound outerLangIn outerLangOut innerLangIn innerLangOut
-      (V.compatStatement lens)]
-    (h : V.rbrSoundness init impl innerLangIn innerLangOut rbrSoundnessError) :
-      (V.liftContext lens).rbrSoundness init impl outerLangIn outerLangOut rbrSoundnessError := by
-  unfold rbrSoundness at h ⊢
-  obtain ⟨stF, h⟩ := h
-  simp only [ChallengeIdx, Challenge, QueryImpl.addLift_def,
-    PFunctor.Handler.liftTarget_self, HasQuery.instOfMonadLift_query, bind_pure_comp,
-    simulateQ_bind, simulateQ_map, StateT.run'_eq, StateT.run_bind, StateT.run_map,
-    map_bind, Functor.map_map, Subtype.forall] at h ⊢
-  refine ⟨stF.liftContext lens (lensSound := lensSound), ?_⟩
-  intro outerStmtIn hOuterStmtIn WitIn WitOut witIn outerP roundIdx hDir
-  have innerP : Prover oSpec InnerStmtIn WitIn InnerStmtOut WitOut pSpec := {
-    PrvState := outerP.PrvState
-    input := fun _ => outerP.input (outerStmtIn, witIn)
-    sendMessage := outerP.sendMessage
-    receiveChallenge := outerP.receiveChallenge
-    output := fun state => do
-      let ⟨outerStmtOut, outerWitOut⟩ ← outerP.output state
-      pure ⟨default, outerWitOut⟩
-  }
-  have h' := h (lens.proj outerStmtIn) (lensSound.proj_sound _ hOuterStmtIn)
-    WitIn WitOut witIn innerP roundIdx hDir
-  refine le_trans ?_ h'
-  sorry
-
-/-
-  Lifting the reduction preserves round-by-round knowledge soundness, assuming the lens
-  satisfies its knowledge soundness conditions
--/
-theorem liftContext_rbr_knowledgeSoundness [Inhabited InnerStmtOut] [Inhabited InnerWitIn]
-    {outerRelIn : Set (OuterStmtIn × OuterWitIn)} {outerRelOut : Set (OuterStmtOut × OuterWitOut)}
-    {innerRelIn : Set (InnerStmtIn × InnerWitIn)} {innerRelOut : Set (InnerStmtOut × InnerWitOut)}
-    {rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0}
-    {stmtLens : Statement.Lens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut}
-    {witLens : Witness.InvLens OuterStmtIn OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    (V : Verifier oSpec InnerStmtIn InnerStmtOut pSpec)
-    [lensKS : Extractor.Lens.IsKnowledgeSound outerRelIn innerRelIn outerRelOut innerRelOut
-      (V.compatStatement stmtLens) (fun _ _ => True) ⟨stmtLens, witLens⟩]
-    (h : V.rbrKnowledgeSoundness init impl innerRelIn innerRelOut rbrKnowledgeError) :
-      (V.liftContext stmtLens).rbrKnowledgeSoundness init impl outerRelIn outerRelOut
-        rbrKnowledgeError := by
-  sorry
 
 end Verifier
 
@@ -561,26 +368,28 @@ section Test
 
 open Polynomial
 
--- Testing out sum-check-like relations
-
 noncomputable section
 
 def OuterStmtIn_Test := ℤ[X] × ℤ[X] × ℤ
+
 def InnerStmtIn_Test := ℤ[X] × ℤ
 
 @[simp]
 def outerRelIn_Test : Set (OuterStmtIn_Test × Unit) :=
   Set.ofPred (fun ⟨⟨p, q, t⟩, _⟩ => ∑ x ∈ {0, 1}, (p * q).eval x = t)
+
 @[simp]
 def innerRelIn_Test : Set (InnerStmtIn_Test × Unit) :=
   Set.ofPred (fun ⟨⟨f, t⟩, _⟩ => ∑ x ∈ {0, 1}, f.eval x = t)
 
 def OuterStmtOut_Test := ℤ[X] × ℤ[X] × ℤ × ℤ
+
 def InnerStmtOut_Test := ℤ[X] × ℤ × ℤ
 
 @[simp]
 def outerRelOut_Test : Set (OuterStmtOut_Test × Unit) :=
   Set.ofPred (fun ⟨⟨p, q, t, r⟩, _⟩ => (p * q).eval r = t)
+
 @[simp]
 def innerRelOut_Test : Set (InnerStmtOut_Test × Unit) :=
   Set.ofPred (fun ⟨⟨f, t, r⟩, _⟩ => f.eval r = t)
@@ -596,33 +405,9 @@ def testLens : Context.Lens OuterStmtIn_Test OuterStmtOut_Test InnerStmtIn_Test 
   stmt := testStmtLens
   wit := Witness.Lens.id
 
-@[simp]
-def testLensE : Extractor.Lens OuterStmtIn_Test OuterStmtOut_Test InnerStmtIn_Test InnerStmtOut_Test
-    Unit Unit Unit Unit where
-  stmt := testStmtLens
-  wit := Witness.InvLens.id
-
 instance instTestLensComplete : testLens.IsComplete
       outerRelIn_Test innerRelIn_Test outerRelOut_Test innerRelOut_Test
-      (fun ⟨⟨p, q, _⟩, _⟩ ⟨⟨f, _⟩, _⟩ => p * q = f) where
-  proj_complete := fun ⟨p, q, t⟩ () hRelIn => by
-    simpa [outerRelIn_Test, innerRelIn_Test, testLens, testStmtLens, eval_mul] using hRelIn
-  lift_complete := fun ⟨p, q, t⟩ _ ⟨f, t', r⟩ _ hCompat hRelIn hRelOut' => by
-    change (p * q).eval r = t'
-    change f.eval r = t' at hRelOut'
-    simpa [hCompat] using hRelOut'
-
-theorem instTestLensKnowledgeSound : testLensE.IsKnowledgeSound
-    outerRelIn_Test innerRelIn_Test outerRelOut_Test innerRelOut_Test
-      (fun ⟨p, q, _⟩ ⟨f, _⟩ => p * q = f) (fun _ _ => True) where
-  proj_knowledgeSound := fun ⟨p, q, t⟩ ⟨f, t', r⟩ _ h h' => by
-    change f.eval r = t'
-    change (p * q).eval r = t' at h'
-    simpa [← h] using h'
-  lift_knowledgeSound := fun ⟨p, q, t⟩ _ _ _ hInner => by
-    have hInner' : (p * q).eval 0 + (p * q).eval 1 = t := by
-      simpa [innerRelIn_Test, testLensE, testStmtLens] using hInner
-    simpa [outerRelIn_Test] using hInner'
+      (fun ⟨⟨p, q, _⟩, _⟩ ⟨⟨f, _⟩, _⟩ => p * q = f) := sorry
 
 end
 

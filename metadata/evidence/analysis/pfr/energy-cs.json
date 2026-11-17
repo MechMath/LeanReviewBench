@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "energy-cs",
   "task_id": "pfr:energy-cs",
-  "input_sha256": "3b06907580f43a60f291a35bb25cf52ac984969478fda3256d30e3af4d5e51a8",
+  "input_sha256": "43e0bc4e916619f94ac665d7901f151a8fa48d0d804fcf3cf599182400bb562f",
   "label": "aligned",
   "reason": "Specializing the formal two-set inequality to s=t=A gives the normalized source inequality; cardinality rescaling recovers its raw-count formulation.",
   "review_status": "human_reviewed",

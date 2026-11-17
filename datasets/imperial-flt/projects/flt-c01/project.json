@@ -856,7 +856,7 @@
   "changes": "CHANGES.md",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "compatibility_files": [
     "FLT/DedekindDomain/AdicValuation.lean",
     "FLT/Deformations/Lemmas.lean",
@@ -874,12 +874,13 @@
   "source_family": "flt-reductions",
   "material_complete": true,
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 26,
-    "resource_count": 0,
-    "sha256": "f22f178f7fe8d6fa1284d2e44b48c78341e29c34197e75a4be6a952a296ad729"
+    "file_count": 17,
+    "sha256": "317685f970fe5989fc02b11bce3a9f1a2693a93ca56d90d1377d36476169496b",
+    "effective_root_sha256": "230d5b1cc0a2915d5375bea95e13349660b831bc2f343fcbd3fec958276b4d3b",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
-  "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
+  "input_sha256": "abcb2304f7939c210170e9fe39b136e07c14c30f98c72c235dbdf9838af43a80",
   "external_imports": [
     "Mathlib.Algebra.Field.ZMod",
     "Mathlib.Algebra.GCDMonoid.IntegrallyClosed",
@@ -956,7 +957,6 @@
   ],
   "missing_modules": [],
   "packaged_compilation": "passed",
-  "pending_reason": null,
   "historical_technical_receipt": "technical/receipt.json",
   "admitted_to_dataset": true,
   "relocation_patch": "relocation.patch",

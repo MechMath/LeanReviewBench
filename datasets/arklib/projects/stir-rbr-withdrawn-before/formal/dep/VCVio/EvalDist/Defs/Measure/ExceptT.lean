@@ -1,25 +1,44 @@
-/-
-Copyright (c) 2026 Devon Tuma. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Devon Tuma
--/
 module
-public import dep.dep.MathlibCompat.BindMap
 
+public import Batteries.Tactic.Lint.Basic
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
 public import dep.VCVio.EvalDist.Defs.Measure.Core
-public import dep.ToMathlib.MeasureTheory.Measure.Except
-
-/-!
-# Successful-output measure semantics for exceptional computations
-
-An `ExceptT ε m` computation denotes the pullback of its underlying `Except ε α`-valued
-measure along the measurable embedding `Except.ok`. Errors are therefore missing successful
-mass, while the effect-preserving denotation remains available by observing `mx.run` directly.
-
-The construction uses Mathlib's `Measure.comap`; no transformer-specific measure operation is
-needed. The pure, map, and bind laws inherit the base monad's measure laws. Successful-output
-measurability suffices for the full bind law, without requiring the error family to be measurable.
--/
 
 public section
 
@@ -40,149 +59,22 @@ noncomputable instance (priority := 20) instEvalDistSemanticsExceptT
       _ ≤ 𝒟[mx.run] Set.univ := measure_mono (Set.subset_univ _)
       _ ≤ 1 := evalDist_apply_univ_le_one mx.run
 
-/-- Unfold the successful-output semantics to Mathlib's pullback along `Except.ok`. -/
-theorem ExceptT.evalDist_eq_comap_ok
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v} [EvalDistSemantics m]
-    {α : Type u} [MeasurableSpace α] (mx : ExceptT ε m α) :
-    𝒟[mx] = (𝒟[mx.run]).comap Except.ok := by
-  rfl
-
-/-- The successful-output measure of an exceptional computation on an event is the
-run measure of the corresponding `Except.ok` outcomes. -/
-theorem ExceptT.evalDist_apply
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v} [EvalDistSemantics m]
-    {α : Type u} [MeasurableSpace α] (mx : ExceptT ε m α) {event : Set α} :
-    𝒟[mx] event = 𝒟[mx.run] (Except.ok '' event) :=
-  Except.measurableEmbedding_ok.comap_apply _ _
-
-/-- The total successful mass of an exceptional computation is the mass of its `ok` branch. -/
-@[simp]
-theorem ExceptT.evalDist_apply_univ
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v} [EvalDistSemantics m]
-    {α : Type u} [MeasurableSpace α] (mx : ExceptT ε m α) :
-    𝒟[mx] Set.univ = 𝒟[mx.run] (Set.range Except.ok) := by
-  rw [ExceptT.evalDist_apply, Set.image_univ]
-
-/-- Pure exceptional computations have Dirac successful-output semantics. -/
-theorem ExceptT.evalDist_pure
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
-    [Monad m] [EvalDistSemantics m] [LawfulPureEvalDistSemantics m]
-    {α : Type u} [MeasurableSpace α] (x : α) :
-    𝒟[(pure x : ExceptT ε m α)] = Measure.dirac x := by
-  rw [ExceptT.evalDist_eq_comap_ok, ExceptT.run_pure, _root_.evalDist_pure,
-    Measure.comap_ok_dirac_ok]
-
 /-- Exceptional semantics preserves pure whenever the base semantics does. -/
 instance (priority := 20) instLawfulPureEvalDistSemanticsExceptT
     {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
     [Monad m] [EvalDistSemantics m] [LawfulPureEvalDistSemantics m] :
-    LawfulPureEvalDistSemantics (ExceptT ε m) where
-  denote_pure := ExceptT.evalDist_pure
-
-/-- Throwing an exception carries no successful-output mass. -/
-@[simp]
-theorem ExceptT.evalDist_throw
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
-    [Monad m] [EvalDistSemantics m] [LawfulPureEvalDistSemantics m]
-    {α : Type u} [MeasurableSpace α] (error : ε) :
-    𝒟[(throw error : ExceptT ε m α)] = 0 := by
-  rw [ExceptT.evalDist_eq_comap_ok, ExceptT.run_throw, _root_.evalDist_pure,
-    Measure.comap_ok_dirac_error]
-
-/-- Lifting a computation into `ExceptT` preserves its successful-output measure. -/
-@[simp]
-theorem ExceptT.evalDist_liftM
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
-    [Monad m] [LawfulMonad m] [EvalDistSemantics m] [LawfulEvalDistSemantics m]
-    {α : Type u} [MeasurableSpace α] (mx : m α) :
-    𝒟[(liftM mx : ExceptT ε m α)] = 𝒟[mx] := by
-  rw [ExceptT.evalDist_eq_comap_ok, ExceptT.run_liftM,
-    _root_.evalDist_map mx Except.measurable_ok,
-    Except.measurableEmbedding_ok.comap_map]
+    LawfulPureEvalDistSemantics (ExceptT ε m) := sorry
 
 /-- Lifting a lossless computation into the exceptional monad preserves its probability measure. -/
 instance ExceptT.isProbabilityMeasure_evalDist_liftM
     {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
     [Monad m] [LawfulMonad m] [EvalDistSemantics m] [LawfulEvalDistSemantics m]
     {α : Type u} [MeasurableSpace α] (mx : m α) [IsProbabilityMeasure 𝒟[mx]] :
-    IsProbabilityMeasure 𝒟[(liftM mx : ExceptT ε m α)] := by
-  rw [ExceptT.evalDist_liftM]
-  infer_instance
-
-/-- A measurable map of successful exceptional results is the measure pushforward. -/
-theorem ExceptT.evalDist_map
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
-    [Monad m] [LawfulMonad m] [EvalDistSemantics m] [LawfulEvalDistSemantics m]
-    {α β : Type u} [MeasurableSpace α] [MeasurableSpace β]
-    (mx : ExceptT ε m α) (f : α → β) (hf : Measurable f) :
-    𝒟[f <$> mx] = 𝒟[mx].map f := by
-  rw [ExceptT.evalDist_eq_comap_ok, ExceptT.run_map,
-    _root_.evalDist_map mx.run (Except.measurable_map hf), Measure.comap_ok_map _ f hf,
-    ExceptT.evalDist_eq_comap_ok]
-
-/-- A measurable family of full run measures suffices to compose exceptional denotations. -/
-theorem ExceptT.evalDist_bind
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
-    [Monad m] [EvalDistSemantics m] [LawfulEvalDistSemantics m]
-    {α β : Type u} [MeasurableSpace α] [MeasurableSpace β]
-    (mx : ExceptT ε m α) (f : α → ExceptT ε m β)
-    (hf : Measurable fun x => 𝒟[(f x).run]) :
-    𝒟[mx >>= f] = Measure.bind 𝒟[mx] fun x => 𝒟[f x] := by
-  simp_rw [ExceptT.evalDist_eq_comap_ok]
-  have hCont : (fun value : Except ε α =>
-      𝒟[match value with
-        | .ok x => (f x).run
-        | .error error => pure (Except.error error)]) =
-      (fun value => match value with
-        | .error error => Measure.dirac (Except.error error)
-        | .ok x => 𝒟[(f x).run]) := by
-    funext value
-    cases value <;> simp only [_root_.evalDist_pure]
-  have hBindCont : Measurable fun value : Except ε α =>
-      𝒟[match value with
-        | .ok x => (f x).run
-        | .error error => pure (Except.error error)] := by
-    rw [hCont]
-    exact Except.measurable_elim
-      (Measure.measurable_dirac.comp Except.measurable_error) hf
-  have hRun : 𝒟[(mx >>= f).run] = Measure.bind 𝒟[mx.run] fun value =>
-      𝒟[match value with
-        | .ok x => (f x).run
-        | .error error => pure (Except.error error)] := by
-    rw [ExceptT.run_bind]
-    exact _root_.evalDist_bind mx.run
-      (fun value => match value with
-        | .ok x => (f x).run
-        | .error error => pure (Except.error error)) hBindCont
-  rw [hRun]
-  rw [hCont]
-  exact Measure.comap_ok_bind 𝒟[mx.run] (fun x => 𝒟[(f x).run]) hf
-
-/-- Discrete intermediate values discharge the run-measurability premise of
-`ExceptT.evalDist_bind`. -/
-theorem ExceptT.evalDist_bind_of_discrete
-    {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
-    [Monad m] [EvalDistSemantics m] [LawfulEvalDistSemantics m]
-    {α β : Type u} [MeasurableSpace α] [DiscreteMeasurableSpace α] [MeasurableSpace β]
-    (mx : ExceptT ε m α) (f : α → ExceptT ε m β) :
-    𝒟[mx >>= f] = Measure.bind 𝒟[mx] fun x => 𝒟[f x] :=
-  ExceptT.evalDist_bind mx f Measurable.of_discrete
+    IsProbabilityMeasure 𝒟[(liftM mx : ExceptT ε m α)] := sorry
 
 /-- Exceptional semantics satisfies the measurable-bind law for successful-output families. The
 full-run observer refines the source space, whose identity map transports the source measure. -/
 instance (priority := 20) instLawfulEvalDistSemanticsExceptT
     {ε : Type u} [MeasurableSpace ε] {m : Type u → Type v}
     [Monad m] [LawfulMonad m] [EvalDistSemantics m] [LawfulEvalDistSemantics m] :
-    LawfulEvalDistSemantics (ExceptT ε m) where
-  denote_bind {α β} mα mβ mx f hf := by
-    let mObs := mα ⊔ MeasurableSpace.comap (fun x ↦ 𝒟[(f x).run]) inferInstance
-    have hId : @Measurable α α mObs mα id :=
-      Measurable.of_comap_le (by simpa only [MeasurableSpace.comap_id] using
-        (le_sup_left : mα ≤ mObs))
-    have hRun : @Measurable α (Measure (Except ε β)) mObs _
-        (fun x ↦ 𝒟[(f x).run]) := Measurable.of_comap_le le_sup_right
-    have hmap := @ExceptT.evalDist_map ε _ m _ _ _ _ α α mObs mα mx id hId
-    rw [id_map] at hmap
-    rw [hmap, @Measure.bind_map α α mObs mα β mβ _ _ _
-      (@Measurable.aemeasurable α α mObs mα id _ hId) hf.aemeasurable]
-    exact @ExceptT.evalDist_bind ε _ m _ _ _ α β mObs mβ mx f hRun
+    LawfulEvalDistSemantics (ExceptT ε m) := sorry

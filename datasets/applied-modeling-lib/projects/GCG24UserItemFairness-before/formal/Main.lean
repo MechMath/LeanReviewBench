@@ -1,17 +1,52 @@
 import Mathlib
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Analysis.Convex.StdSimplex
+import Mathlib.Data.Fin.Basic
+import Mathlib.Data.Finset.Lattice.Basic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Finset.Sum
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.List.GetD
+import Mathlib.Data.List.Sort
+import Mathlib.Data.Real.Basic
+import Mathlib.Probability.ProbabilityMassFunction.Constructions
+import Mathlib.Probability.ProbabilityMassFunction.Integrals
+import Mathlib.Probability.ProbabilityMassFunction.Monad
+import Mathlib.Tactic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Topology.Algebra.Module.Basic
+import Mathlib.Topology.Order.Compact
+import Mathlib.Topology.Order.IntermediateValue
+import dep.EconCSLib.Applications.RecommenderSystems.Classwise
+import dep.EconCSLib.Applications.RecommenderSystems.Policy
+import dep.EconCSLib.Foundations.Math.FiniteOptimization
+import dep.EconCSLib.Foundations.Probability.FiniteExpectation
+import dep.GCG24UserItemFairness.Basic
+import dep.GCG24UserItemFairness.LPReduction
+import dep.GCG24UserItemFairness.OpposingTypes
+import dep.GCG24UserItemFairness.Optimization
+import dep.GCG24UserItemFairness.Symmetry
 
-import dep.GCG24UserItemFairness.MainTheorems
-import dep.GCG24UserItemFairness.Assumptions
 namespace GCG24UserItemFairness
+
 namespace PaperInterface
 
 open scoped BigOperators
 
 noncomputable section
 
-/-! ## Paper Definitions -/
-
-/- Recommendation utility matrix `w_{ij}` for users and items. -/
 theorem theorem3_price_decreases_first_half
     {m n : ℕ} [NeZero m] [NeZero n]
     (S S' : RecommendationModel.SymmetricData m n 2)
@@ -30,39 +65,10 @@ theorem theorem3_price_decreases_first_half
     (hpos : ∀ j : Item n, 0 < v j)
     (hdec : OpposingTypes.StrictlyDecreasingByIndex v) :
     RecommendationModel.priceOfFairness S'.model ≤
-      RecommendationModel.priceOfFairness S.model := by
-  let reps : UserTypeAssignment.TypeRepresentatives S.types :=
-    EconCSLib.Policy.FiberRepresentatives.ofSurjective hTypes
-  let reps' : UserTypeAssignment.TypeRepresentatives S'.types :=
-    EconCSLib.Policy.FiberRepresentatives.ofSurjective hTypes'
-  have hPos : assumption_positive_recommendation_utilities S.model := by
-    intro u j
-    change 0 < (S.canonicalReductionOfSurjective hTypes).data.model.utility u j
-    rw [(S.canonicalReductionOfSurjective hTypes).utility_agrees u j, hred]
-    exact OpposingTypes.twoTypeReducedModel_positiveUtilities alpha v hpos _ _
-  have hPos' : assumption_positive_recommendation_utilities S'.model := by
-    intro u j
-    change 0 < (S'.canonicalReductionOfSurjective hTypes').data.model.utility u j
-    rw [(S'.canonicalReductionOfSurjective hTypes').utility_agrees u j, hred']
-    exact OpposingTypes.twoTypeReducedModel_positiveUtilities alpha' v hpos _ _
-  have hNonneg : S.model.Nonnegative :=
-    RecommendationModel.nonnegative_of_positive S.model hPos
-  have hRow : S.model.RowHasPositiveItem :=
-    RecommendationModel.rowHasPositiveItem_of_positive S.model hPos
-  have hNonneg' : S'.model.Nonnegative :=
-    RecommendationModel.nonnegative_of_positive S'.model hPos'
-  have hRow' : S'.model.RowHasPositiveItem :=
-    RecommendationModel.rowHasPositiveItem_of_positive S'.model hPos'
-  exact OpposingTypes.paper_theorem3_price_decreases_firstHalf_of_reduction
-    (S.canonicalReduction reps) (S'.canonicalReduction reps')
-    reps reps' hred hred' halpha0 halpha1 halpha0' halpha1'
-    halpha_le halpha_half halpha_half' hpos hdec hNonneg hRow hNonneg' hRow'
+      RecommendationModel.priceOfFairness S.model := sorry
 
-/-
-Theorem 3, second half: in the opposing two-type model, increasing `alpha`
-away from `1 / 2` weakly increases the price of fairness.
--/
 end
 
 end PaperInterface
+
 end GCG24UserItemFairness

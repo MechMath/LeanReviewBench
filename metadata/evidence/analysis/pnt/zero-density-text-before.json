@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "zero-density-text-before",
   "task_id": "pnt:zero-density-text-before",
-  "input_sha256": "de08bdd08260ab1bed68f7f2da5946700be28d086c62751909b9cb794cd35712",
+  "input_sha256": "9415393142e202b06be56e29c8e52995f81ef1094cda40cb5a20e9f06dfeaa8e",
   "label": "misaligned",
   "reason": "The formal predicate omits the additional Riemann-von-Mangoldt constraints spliced into the bound text. The stated threshold T>=2 differs from the formal T>=T0 and retained sigma range.",
   "review_status": "human_reviewed",

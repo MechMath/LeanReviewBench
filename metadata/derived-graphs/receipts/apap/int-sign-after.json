@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "apap",
+  "project_id": "int-sign-after",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "int"
+  ],
+  "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+  "graph_sha256": "214be4043547d73c8c90bb614a7045c0f8e006d25bb0b3b397277eb45b9dca13",
+  "graph_path": "metadata/derived-graphs/graphs/apap--int-sign-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "7b65f1a88b14a933add72da781e0eb9b9b6717b41c7a77a322e325703998324d"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 42,
+  "edges": 41,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

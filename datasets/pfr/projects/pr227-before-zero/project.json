@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "formal 的实数 log/division 在零分母处把不同点质量的 KL 变为 0，令零值判据错误识别相同分布；原文按无穷处理该输入，故定义与谓词不对应。",
   "external_imports": [
     "Mathlib",
     "Mathlib.MeasureTheory.Measure.Real",
@@ -44,8 +43,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 3,
-    "sha256": "c4547ed9ace62e2a45ddeb47f387f738fc6377eafa239aa3d4aacffee59215ac"
+    "file_count": 2,
+    "sha256": "1c8024252c2afeb889eed8743684371317d9c26083e988746de95396b9af75ae",
+    "effective_root_sha256": "623a780aa565b4bf59799d141ad39b5269aacef59f8d090aeeb1c16c3a93dcb1",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-repair/repaired/pr227-before-zero/20261104T091643741378Z/receipt.json",
@@ -82,8 +84,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "definition_preserving_slice"
   },
-  "input_sha256": "cf43ca25e4dd593c11ddcf7ea69c9f2fd575a06d8537aa403d9a33ff807aff91",
+  "input_sha256": "fa7ad5f861febfa1d9f1e2d24a14854a44ab48825241b004ef895d1406b8e872",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GCG24UserItemFairness-after-spec",
   "task_id": "aml:GCG24UserItemFairness-after-spec",
-  "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
+  "input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
   "label": "misaligned",
   "reason": "Unnormalized integer user counts are equated to proportions alpha and 1-alpha; the missing normalization makes the premises inconsistent.",
   "review_status": "human_reviewed",

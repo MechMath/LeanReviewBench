@@ -1,78 +1,39 @@
 {
-  "schema_version": 1,
+  "schema_version": "paperlean-statement-only-receipt-1",
   "dataset": "applied-modeling-lib",
   "project_id": "EOS-lemma5_locally_envy_free_stable",
   "status": "passed",
   "evidence": "compiled_environment",
-  "root": "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable",
-  "input_sha256": "176d94f84158aae462287484e66a116254707640beb99c08bcf03b52b652bad4",
-  "graph_sha256": "f322b5b6b96cf5fcbba59e6f20bc39f1dee54081fea3da141bf821bcf051e3dc",
-  "graph": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
+  "roots": [
+    "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
+  ],
+  "input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+  "graph_sha256": "d499743aba824cd7d6f8435217f197b6553d94317347b2fec5b9beceaebfb348",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "original_source_commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
   "fresh_compilation": true,
-  "new_sorry_or_axioms": false,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "c953bf5fc1c62aa0f6f7cc73d292cfc7ab532ded71bcace24660b77d77033726"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/Position.lean",
+      "af30a00d79544d7967f890eebf3c410c165c12ea51cbd6ef55647b3b31ce4ab5"
+    ]
+  ],
   "canonical_dataset_changed": true,
   "packaged_project_full_build_passed": true,
-  "root_definition_checked": true,
-  "root_proof_dependencies_checked": true,
-  "source_manifest": [
-    {
-      "path": "formal/Main.lean",
-      "sha256": "e0086ae789c9bee13ffc996c9d6c287e8fc41b81c11518e7daf8a608998d22f9"
-    },
-    {
-      "path": "formal/dep/EOS07GSP/PostPaperAudit.lean",
-      "sha256": "db286cd7669d0f88bba31b288f413d5dbf637d91d569f09230b23a0c4730c004"
-    },
-    {
-      "path": "formal/dep/EconCSLib/MechanismDesign/Auctions/MainTheorems.lean",
-      "sha256": "d58f08d94daaf105d28eb83ec57baa6a81d15943a5c06f2564931bf6a38ef228"
-    },
-    {
-      "path": "formal/dep/EconCSLib/MechanismDesign/Auctions/Position.lean",
-      "sha256": "6ca2e07040015fc92b4b3ece8add8248c231b22388fa636581ff280b3a47a674"
-    }
-  ],
-  "module_count": 4,
-  "graph_nodes": 41,
-  "graph_edges": 157,
-  "root_axioms": [
-    "propext",
-    "Classical.choice",
-    "Quot.sound"
-  ],
-  "root_type_check": {
-    "status": "passed",
-    "root": "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable",
-    "historical_type": "∀ {Bidder : Type u_1} {Slot : Type u_2} [inst : DecidableEq Bidder] (E : PositionEnvironment Slot)\n  (M : PositionMechanism Bidder Slot) (values bids : Bidder → ℝ),\n  (M bids).FeasibleAssignment →\n    PositionOutcome.IndividuallyRational E (M bids) values →\n      PositionMechanism.LocallyEnvyFreeEquilibrium E M values bids → PositionOutcome.StableAssignment E (M bids) values",
-    "check": "Lean kernel checks the migrated root against the historical elaborated type."
-  },
-  "previous_input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
-  "previous_formal": {
-    "file_count": 4,
-    "sha256": "849c57e70efac74e03f4aced353fb38168f4d70260ac4c14aa5efc61bcae83ae",
-    "effective_root_sha256": "4662efec3ff231e00fe6965ef53e490e00f6cf74b443197416ee7c83bb398524"
-  },
-  "previous_graph": {
-    "input_sha256": "92499a6946cf5b5ece373d03f52f4748a92af241448b521fb320ecaed1d19336",
-    "graph_sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
-    "graph_source": {
-      "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
-      "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-lemma5_locally_envy_free_stable.json",
-      "sha256": "d54d1e624432e6ad76434d998c3b01dce0038f82653b789211bfcbfe810f9119",
-      "binding": "verified_derived_graph"
-    }
-  },
+  "module_count": 2,
+  "nodes": 41,
+  "edges": 157,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
   "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
-  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
-  "replay_command": "python3 scripts/construction/extract_projects.py --dataset applied-modeling-lib --ids EOS-lemma5_locally_envy_free_stable",
-  "migration_scope": "Target-specific native module/declaration slice; complete retained proof bodies. Compatibility changes affect proofs and Lean/mathlib interfaces, not the target statement or semantic label.",
-  "supplemental_source": {
-    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
-    "commit": "3c6a64802de232585064cf906faaefc9ba31b3bc",
-    "path": "EconCSLib/MechanismDesign/Auctions/MainTheorems.lean",
-    "sha256": "24e1b0e779535e76df706a91f7dff04b53d4f397b61e2434faddffd697b628c2"
-  }
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
 }

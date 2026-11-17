@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "在目标指定的有限 F₂ 向量空间范围，根输出概率空间、可测均匀变量和两项完全相同的 6d 上界；历史 IsUniform 加这些条件确实等于通常均匀分布，refPackage 也不增加输入限制。",
   "external_imports": [
     "Mathlib.Algebra.Module.ZMod",
     "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
@@ -72,8 +71,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 41,
-    "sha256": "dda91ae1bdfa1465e4780fd7febc208e7909dbff58387d37f679514e2dcc7c9b"
+    "file_count": 20,
+    "sha256": "fe981c178aad46d2d59643adbda6180b114c540d06ee389b358a7034b97c2a41",
+    "effective_root_sha256": "808a5973d077826812c7baff543d0b54295ac39cf5e598b0fbe223ad36f78e3c",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-extraction/technical/entropic-output-after/20261104T080208099614Z/receipt.json",
@@ -96,8 +98,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "unchanged_source_with_import_relocation"
   },
-  "input_sha256": "028f52b0515a4207c5977f85fdaded3aab74b8f64755ad0d0165e09a56e50717",
+  "input_sha256": "dda4818198a2c3b7c8d28d859a1f8456d206843b2d129dbeedbe560610c8b44a",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

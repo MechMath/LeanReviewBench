@@ -32,7 +32,6 @@
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
-  "pending_reason": null,
   "external_imports": [
     "Batteries.Control.AlternativeMonad",
     "Batteries.Control.Lemmas",
@@ -161,10 +160,11 @@
     "Cslib"
   ],
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 193,
-    "resource_count": 0,
-    "sha256": "a54435d99924be5a4daafa0cebdc30b32eb275c79f2dfb5f3136fcd836b40933"
+    "file_count": 97,
+    "sha256": "fd87aad8abc84420f908c15b2af8675b0dac4615261b365f28d981903892f8d4",
+    "effective_root_sha256": "0e7fe1694b1bcaa60909fb08ef144c9fa089493a7a9dabedf0bf9f303e815ea9",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "changes": "CHANGES.md",
   "preparation": {
@@ -263,10 +263,10 @@
   "source_role": "after",
   "source_family": "KZG",
   "material_complete": true,
-  "input_sha256": "6a2ef493106f36c966998348a6522678edb31f73126af9d553291ebf617f67e2",
+  "input_sha256": "2e115ec742a1c59bafee5003498a7333fe5a0bf3b71f3a8d7d50d37f1b31e26d",
   "missing_modules": [],
   "historical_technical_receipt": "technical/receipt.json",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "technical_receipt": "technical/relocated-receipt.json",
   "historical_status": "undetermined",
   "alignment_reference": "metadata/labels/arklib.jsonl"

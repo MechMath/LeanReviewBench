@@ -1,33 +1,130 @@
-/-
-Copyright (c) 2024 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
 public import Batteries.Data.Vector.Lemmas
-public import dep.VCVio.OracleComp.Constructions.SampleableType
-
-/-!
-  # Prelude for Interactive (Oracle) Reductions
-
-  This file contains preliminary definitions and instances that is used in defining I(O)Rs.
--/
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
 open OracleComp
-
--- -- Notation for sums (maybe not needed?)
--- @[inherit_doc] postfix:max "↪ₗ" => Sum.inl
--- @[inherit_doc] postfix:max "↪ᵣ" => Sum.inr
 
 /-- `⊕ᵥ` is notation for `Sum.rec`, the dependent elimination of `Sum.
 
 This sends `(a : α) → γ (.inl a)` and `(b : β) → γ (.inr b)` to `(a : α ⊕ β) → γ a`. -/
 infixr:35 " ⊕ᵥ " => Sum.rec
 
--- Figure out where to put this instance
 instance instDecidableEqOption {α : Type*} [DecidableEq α] :
     DecidableEq (Option α) := inferInstance
 
@@ -38,12 +135,8 @@ class VCVCompatible (α : Type*) extends Fintype α, Inhabited α where
 
 instance {α : Type*} [VCVCompatible α] : DecidableEq α := VCVCompatible.type_decidableEq'
 
--- TODO: port first to batteries, second to mathlib
-
 @[simp]
-theorem Vector.ofFn_get {α : Type*} {n : ℕ} (v : Vector α n) : Vector.ofFn (Vector.get v) = v := by
-  ext
-  simp [getElem]
+theorem Vector.ofFn_get {α : Type*} {n : ℕ} (v : Vector α n) : Vector.ofFn (Vector.get v) = v := sorry
 
 def Equiv.rootVectorEquivFin {α : Type*} {n : ℕ} : Vector α n ≃ (Fin n → α) :=
   ⟨Vector.get, Vector.ofFn, Vector.ofFn_get, fun f => funext <| Vector.get_ofFn f⟩
@@ -73,7 +166,7 @@ namespace Direction
 /-- Equivalence between `Direction` and `Fin 2`, sending `V_to_P` to `0` and `P_to_V` to `1`
 (the choice is essentially arbitrary). -/
 def equivFin2 : Direction ≃ Fin 2 where
-  toFun := fun dir => match dir with | .V_to_P => ⟨0, by decide⟩ | .P_to_V => ⟨1, by decide⟩
+  toFun := fun dir => match dir with | .V_to_P => ⟨0, sorry⟩ | .P_to_V => ⟨1, sorry⟩
   invFun := fun n => match n with | ⟨0, _⟩ => .V_to_P | ⟨1, _⟩ => .P_to_V
   left_inv := fun dir => match dir with | .P_to_V => rfl | .V_to_P => rfl
   right_inv := fun n => match n with | ⟨0, _⟩ => rfl | ⟨1, _⟩ => rfl
@@ -91,63 +184,8 @@ instance : Coe (Fin 2) Direction := ⟨equivFin2.invFun⟩
 
 instance : Coe Bool Direction := ⟨equivBool.invFun⟩
 
-lemma not_P_to_V_eq_V_to_P {x : Direction} (h : x ≠ .V_to_P) : x = .P_to_V := by
-  cases x <;> simp_all
-
-lemma not_V_to_P_eq_P_to_V {x : Direction} (h : x ≠ .P_to_V) : x = .V_to_P := by
-  cases x <;> simp_all
-
 end Direction
 
 section Relation
-
--- TODO: use mathlib's `Rel` which will be `Set`-based in the next update
-
-/-- The associated language `Set α` for a relation `Set (α × β)`. -/
-@[reducible]
-def Set.language {α β} (rel : Set (α × β)) : Set α :=
-  Prod.fst '' rel
-
-@[simp]
-theorem Set.mem_language_iff {α β} (rel : Set (α × β)) (stmt : α) :
-    stmt ∈ rel.language ↔ ∃ wit, (stmt, wit) ∈ rel := by
-  simp [language]
-
-@[simp]
-theorem Set.not_mem_language_iff {α β} (rel : Set (α × β)) (stmt : α) :
-    stmt ∉ rel.language ↔ ∀ wit, (stmt, wit) ∉ rel := by
-  simp [language]
-
-/-- The classical witness selector for a relation: some witness of `stmt` when one exists, and
-`none` otherwise. -/
-noncomputable def Set.chooseWitness {α β} (rel : Set (α × β)) (stmt : α) : Option β :=
-  open Classical in if h : ∃ wit, (stmt, wit) ∈ rel then some h.choose else none
-
-/-- The selected witness is invalid exactly when the statement is outside the language. -/
-theorem Set.forall_mem_chooseWitness_notMem_iff {α β} (rel : Set (α × β)) (stmt : α) :
-    (∀ wit ∈ rel.chooseWitness stmt, (stmt, wit) ∉ rel) ↔ stmt ∉ rel.language := by
-  unfold Set.chooseWitness
-  split_ifs with h
-  · simp only [Option.mem_def, Option.some.injEq, forall_eq', Set.not_mem_language_iff]
-    exact iff_of_false (· h.choose_spec) (· _ h.choose_spec)
-  · simpa using h
-
-/-- The trivial relation on Boolean statement and unit witness, which outputs the Boolean (i.e.
-  accepts or rejects). -/
-def acceptRejectRel : Set (Bool × Unit) :=
-  { (true, ()) }
-
-/-- The trivial relation on Boolean statement, no oracle statements, and unit witness. -/
-def acceptRejectOracleRel : Set ((Bool × (∀ _ : Empty, Unit)) × Unit) :=
-  { ((true, isEmptyElim), ()) }
-
-@[simp]
-theorem acceptRejectRel_language : acceptRejectRel.language = { true } := by
-  unfold Set.language acceptRejectRel; simp
-
-@[simp]
-theorem acceptRejectOracleRel_language :
-    acceptRejectOracleRel.language = { (true, isEmptyElim) } := by
-  unfold Set.language acceptRejectOracleRel; simp
 
 end Relation

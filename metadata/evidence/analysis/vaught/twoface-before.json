@@ -3,7 +3,7 @@
   "dataset": "vaught",
   "project_id": "twoface-before",
   "task_id": "vaught:twoface-before",
-  "input_sha256": "a76ef85aea40657c3e19e8c78c1720fc2300dfae646ab84d239b701074f406cd",
+  "input_sha256": "78aa834cc1885b783b3b9e5b47a045696eefa2d6fc2cd38de676350763ea8bad",
   "label": "misaligned",
   "reason": "A universal extension premise absent from the independent completion/R1 target is added; retained witnesses refute that premise in the relevant stages.",
   "review_status": "human_reviewed",

@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "文字p_n≤10^11下的严格下界与formal相同；formal对n=0的总化扩展只多出2>0的真边界实例，不限制正整数下的原文；n=1时log1=log0=0、下界−1，也成立。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "949c3ed055580e7f735467fb360e4fdb1ddbe31be29c20388da31d46d360871b"
+    "sha256": "5b6db60491edadcadeaa6b9aa818341462f4a1f9ff1ca266aba159952e761c44",
+    "effective_root_sha256": "e5f18ecdcdbc5479b32b129bb1f60ef11325964306ffb340951326c2630b4ce2",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-bounded-extraction/repaired/bounded-robin-before/20261105T053533749389Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": true,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "611bc3c94817136f3b8316f988e14b99268e8b89f87c1db2ef083105dc5f9078",
+  "input_sha256": "b2f4ebeb7619cd2f0ccf66fc7ac9541cbf500b67a84b579ecd9239ca4761ea47",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

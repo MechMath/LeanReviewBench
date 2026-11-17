@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "pfr",
+  "project_id": "energy-cs",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "Finset.card_sq_le_card_mul_addEnergy'"
+  ],
+  "input_sha256": "43e0bc4e916619f94ac665d7901f151a8fa48d0d804fcf3cf599182400bb562f",
+  "graph_sha256": "9cb243b83be35f9e50ecb4d0992f720fe3bd105b21a94c3fd11d97a9178c6954",
+  "graph_path": "metadata/derived-graphs/graphs/pfr--energy-cs.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "a4f21487a8cf7969df37d2b0dc9698e6e9d28c9aca16774793df9dbd3dd5d808"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 59,
+  "edges": 91,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

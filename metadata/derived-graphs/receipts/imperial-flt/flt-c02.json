@@ -1,0 +1,39 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c02",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5"
+  ],
+  "input_sha256": "34d856cef8108022bce4c83f00429841d9d06d33f045a921aa407f145bb1c01c",
+  "graph_sha256": "be1fe855a2df34197e8fb0d33fbb196c5f9e9ab2b03ec64a4fa9ae6f58135a7e",
+  "graph_path": "metadata/derived-graphs/graphs/imperial-flt--flt-c02.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "57d4e758a384206a3940fa2e7893d6dc5c844a50503e380719b174c9c1baac30"
+    ],
+    [
+      "formal/dep/FLT/FreyCurve/FreyPackage.lean",
+      "f99a64548608ddfecdf0cedd9ce032b7f04b10ffc800ae0b5470f6bfbc0166d5"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 2,
+  "nodes": 49,
+  "edges": 55,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

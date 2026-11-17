@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "MBJG-VARIANCE-INTERIOR",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
+  ],
+  "input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+  "graph_sha256": "a65b33bd3a718cd51695ca676172328df8e9cc6f7710d26680e73e66a3a7a9a2",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--MBJG-VARIANCE-INTERIOR.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "fc00365ca4995cb8c8eb5343cda9dbb324bc7efe635a9287fa63f2be6bef6aec"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 32,
+  "edges": 39,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

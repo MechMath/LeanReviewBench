@@ -3,7 +3,7 @@
   "dataset": "carleson",
   "project_id": "CAR-CTRL-03",
   "task_id": "carleson:CAR-CTRL-03",
-  "input_sha256": "8b979e353b332068e7f303698a66f82645e8ba42eb67f7949bc5098e643d4eef",
+  "input_sha256": "10642925a6d9757521e2305aa929d213df9e4b08f7460ba13527e987937ac8ec",
   "label": "misaligned",
   "reason": "The cancellation test class admits functions Lipschitz only inside the ball, whereas the source requires global Lipschitz continuity. A retained construction distinguishes these hypotheses at the same auxiliary distances.",
   "review_status": "human_reviewed",

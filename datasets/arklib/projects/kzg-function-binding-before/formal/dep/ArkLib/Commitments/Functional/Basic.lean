@@ -1,44 +1,183 @@
-/-
-Copyright (c) 2024 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao, Tobias Rothmann
--/
 module
 
-public import dep.ArkLib.OracleReduction.Security.Basic
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
 public import dep.ArkLib.Data.Fin.Fold
-public import dep.VCVio.EvalDist.Monad.Option
-
-/-!
-  # Functional Commitment Schemes (with Oracle Openings)
-
-  A commitment scheme, relative to an oracle `oSpec : OracleSpec ι`, and for a given
-  function `oracle : Data → Query → Response` transforming underlying data `Data` into an
-  oracle `Query → Response`, is a tuple of three operations:
-
-  - KeyGen, which is a function `keygen : OracleComp oSpec (ComKey × VerifKey)` that samples keys
-    for the committer and the verifier.
-  - Commit, which is a function `commit : Data → OracleComp oSpec (Commitment × Decommitment)`.
-    The `Decommitment` value captures any auxiliary information (e.g. blinding randomness) produced
-    during the commit phase that is needed to open the commitment later.
-  - Open, which is (roughly) an interactive proof (relative to `oSpec`) for the following relation:
-    - `StmtIn := (cm : Commitment) × (x : Query) × (y : Response)`
-    - `WitIn := Data × Decommitment`
-    - `rel : StmtIn → WitIn → Prop :=
-        fun ⟨cm, x, y⟩ ⟨d, dc⟩ ↦ commit d ⇝ (cm, dc) ∧ oracle d x = y`
-
-  For deterministic schemes (e.g. KZG), `Decommitment` is `Unit`.
-  For randomized schemes (e.g. Pedersen, RO-based), `Decommitment` carries the blinding factor.
-
-  There is one inaccuracy about the relation above: `commit` is an oracle computation, and not a
-  deterministic function; hence the relation is not literally true as described. This is why
-  security definitions for commitment schemes have to be stated differently than those for IOPs.
-
-  ## References
-
-  * [Chiesa, A., Guan, Z., Knabenhans, C., and Yu, Z., *On the Fiat-Shamir Security of
-      Succinct Arguments from Functional Commitments*][CGKY25]
--/
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.SimSemantics.StateT.PreservesInv
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -84,187 +223,6 @@ variable [DecidableEq ι]
   [∀ i, SampleableType (pSpec.Challenge i)]
   {σ : Type} (init : ProbComp σ) (impl : QueryImpl oSpec (StateT σ ProbComp))
   (scheme : Scheme oSpec Data Commitment Decommitment ComKey VerifKey pSpec)
-
-/-- A commitment scheme satisfies **correctness** with error `correctnessError` if for all
-  `data : Data` and `query : O.Query`, the probability of accepting upon executing the commitment
-  and opening procedures honestly is at least `1 - correctnessError`. Any randomness used by the
-  committer is sampled inside the `OracleComp` in `scheme.commit`.
--/
-def correctness (correctnessError : ℝ≥0) : Prop :=
-  ∀ data : Data,
-  ∀ query : O.Query,
-  let pImpl : QueryImpl (oSpec + [pSpec.Challenge]ₒ) (StateT σ ProbComp) :=
-    QueryImpl.addLift impl challengeQueryImpl
-  Pr{let result ← (OptionT.mk do
-      (simulateQ pImpl (do
-        let (ck, vk) ← liftComp scheme.keygen _
-        let (cm, decomm) ← liftComp (scheme.commit ck data) _
-        let proof := scheme.opening (ck, vk)
-        let stmt : Commitment × (q : O.Query) × O.Response q :=
-          (cm, ⟨query, O.answer data query⟩)
-        let wit : Data × Decommitment := (data, decomm)
-        (proof.run stmt wit).run
-      )).run' (← init))}[let ⟨⟨_, (prvStmtOut, witOut)⟩, stmtOut⟩ := result
-        (stmtOut, witOut) ∈ acceptRejectRel ∧ prvStmtOut = stmtOut] ≥ 1 - correctnessError
-
-/-- A commitment scheme satisfies **perfect correctness** if it satisfies correctness with no error.
--/
-def perfectCorrectness : Prop :=
-  correctness init impl scheme 0
-
-omit [DecidableEq ι] [∀ t, Fintype (oSpec.Range t)] [∀ t, Inhabited ([pSpec.Challenge]ₒ.Range t)]
-  [∀ t, Fintype ([pSpec.Challenge]ₒ.Range t)]
-  [(i : pSpec.ChallengeIdx) → VCVCompatible (pSpec.Challenge i)] in
-/-- **Perfect correctness from perfect completeness of the opening.**
-If every honest key/commitment pair puts
-the claimed opening statement into a relation `rel`, and the opening protocol is perfectly
-complete for `rel` **from every post-setup state** (hence the `pure s` initialization — the
-opening runs in whatever oracle state key generation and commitment left behind), then the
-scheme is perfectly correct.
-
-This is the generic bridge between the reduction-level completeness theory and the
-commitment-level correctness game: the game's setup prefix is peeled off support-element by
-support-element (`OptionT.prEvent_mk_bind_eq_one_of_support`), and each leaf is the completeness
-game of the opening at the honest input. -/
-theorem perfectCorrectness_of_opening_perfectCompleteness
-    (rel : ComKey → VerifKey →
-      Set ((Commitment × (q : O.Query) × O.Response q) × (Data × Decommitment)))
-    (hRel : ∀ data query ck vk cm dc, (ck, vk) ∈ support scheme.keygen →
-      (cm, dc) ∈ support (scheme.commit ck data) →
-      ((cm, ⟨query, O.answer data query⟩), (data, dc)) ∈ rel ck vk)
-    (hComplete : ∀ ck vk, (ck, vk) ∈ support scheme.keygen → ∀ s : σ,
-      (scheme.opening (ck, vk)).perfectCompleteness (pure s) impl (rel ck vk)) :
-    perfectCorrectness init impl scheme := by
-  intro data query
-  simp only [ENNReal.coe_zero, tsub_zero]
-  refine ge_of_eq ?_
-  -- Normalize the game into nested `ProbComp` binds.
-  simp only [simulateQ_bind, StateT.run'_eq, StateT.run_bind, QueryImpl.addLift_def,
-    QueryImpl.simulateQ_add_liftComp_left, QueryImpl.liftTarget_self, map_bind]
-  -- Peel off the setup prefix, support-element by support-element.
-  refine OptionT.prEvent_mk_bind_eq_one_of_support _ (prEvent_true_eq_one _) _ _ (fun s _ => ?_)
-  refine OptionT.prEvent_mk_bind_eq_one_of_support _ (prEvent_true_eq_one _) _ _ (fun p hp => ?_)
-  have hkg : p.1 ∈ support scheme.keygen :=
-    support_simulateQ_run'_subset impl _ s
-      (by rw [StateT.run'_eq, support_map]; exact ⟨p, hp, rfl⟩)
-  refine OptionT.prEvent_mk_bind_eq_one_of_support _ (prEvent_true_eq_one _) _ _ (fun p₁ hp₁ => ?_)
-  have hcm : p₁.1 ∈ support (scheme.commit p.1.1 data) :=
-    support_simulateQ_run'_subset impl _ p.2
-      (by rw [StateT.run'_eq, support_map]; exact ⟨p₁, hp₁, rfl⟩)
-  -- The leaf: the opening's perfect completeness at the honest input, from the post-setup state.
-  have hmem := hRel data query p.1.1 p.1.2 p₁.1.1 p₁.1.2 (by simpa using hkg) (by simpa using hcm)
-  have hcore := hComplete p.1.1 p.1.2 (by simpa using hkg) p₁.2
-  rw [Proof.perfectCompleteness, Reduction.perfectCompleteness_eq_prob_one] at hcore
-  have h := hcore (p₁.1.1, ⟨query, O.answer data query⟩) (data, p₁.1.2) hmem
-  simp only [pure_bind, StateT.run'_eq, QueryImpl.addLift_def,
-    QueryImpl.liftTarget_self] at h
-  exact h
-
-/-- An adversary in the (evaluation) binding game returns a commitment `cm`, a query `q`, two
-  purported responses `r₁, r₂` to the query, and an auxiliary private state (to be passed to the
-  malicious prover in the opening procedure). -/
-structure BindingAdversary (oSpec : OracleSpec ι) (Data Commitment AuxState : Type)
-  [O : OracleInterface Data] {n : ℕ} (pSpec : ProtocolSpec n) (ComKey : Type)
-where
-  claim : (ComKey →
-    OracleComp oSpec
-      (Commitment × (q : O.Query) × O.Response q × O.Response q × AuxState × AuxState))
-  prover : (ComKey →
-    Prover oSpec (Commitment × (q : O.Query) × O.Response q) AuxState Bool Unit pSpec)
-
-/-- Evaluation binding condition for an adversary to win the binding game. -/
-abbrev bindingCondition :
-    ((query : O.Query) × O.Response query × O.Response query × Bool × Bool) → Prop :=
-  fun ⟨_, resp₁, resp₂, accept₁, accept₂⟩ ↦
-    resp₁ ≠ resp₂ ∧ accept₁ ∧ accept₂
-
-/-- The evaluation-binding game for a specific adversary. -/
-abbrev bindingGame (AuxState : Type)
-    (adversary : BindingAdversary oSpec Data Commitment AuxState pSpec ComKey) :
-    OptionT ProbComp ((query : O.Query) × O.Response query × O.Response query × Bool × Bool) :=
-  let pImpl : QueryImpl (oSpec + [pSpec.Challenge]ₒ) (StateT σ ProbComp) :=
-    QueryImpl.addLift impl (challengeQueryImpl (pSpec := pSpec))
-  OptionT.mk do
-    let s ← init
-    let (ck, vk) ← (simulateQ impl scheme.keygen).run' s
-    (simulateQ pImpl <| (show OracleComp _ _ from do
-      let ⟨cm, query, resp₁, resp₂, st₁, st₂⟩ ← liftComp (adversary.claim ck) _
-      let reduction := Reduction.mk (adversary.prover ck) (scheme.opening (ck, vk)).verifier
-      let accept₁ := (← (reduction.verdict
-        (cm, (⟨query, resp₁⟩ : (q : O.Query) × O.Response q)) st₁).run).getD false
-      let accept₂ := (← (reduction.verdict
-        (cm, (⟨query, resp₂⟩ : (q : O.Query) × O.Response q)) st₂).run).getD false
-      pure (some ((⟨query, resp₁, resp₂, accept₁, accept₂⟩ :
-        (query : O.Query) × O.Response query × O.Response query × Bool × Bool)))
-    )).run' s
-
-/-- The probability of breaking evaluation binding for a specific adversary. -/
-def bindingExperiment (AuxState : Type)
-    (adversary : BindingAdversary oSpec Data Commitment AuxState pSpec ComKey) : ℝ≥0∞ :=
-  Pr{let result ← bindingGame init impl scheme AuxState adversary}[
-    bindingCondition (Data := Data) result]
-
-/-- A commitment scheme satisfies **(evaluation) binding** with error `bindingError` if for all
-    adversaries that output a commitment `cm`, query `q`, two responses `resp₁, resp₂`, and
-    auxiliary state `st`, and for all malicious provers in the opening procedure taking in `st`, the
-    probability that:
-
-  1. The responses are different (`resp₁ ≠ resp₂`);
-  2. The verifier accepts both openings
-
-  is at most `bindingError`.
-
-  Informally, evaluation binding says that it's computationally infeasible to open a commitment to
-  two different responses for the same query. -/
-def binding (bindingError : ℝ≥0) : Prop :=
-  ∀ AuxState : Type,
-  ∀ adversary : BindingAdversary oSpec Data Commitment AuxState pSpec ComKey,
-    bindingExperiment init impl scheme AuxState adversary ≤ bindingError
-
-/-- A **straightline extractor** for a commitment scheme takes in the commitment, the log of queries
-    made during the commitment phase, and returns the underlying data for the commitment. -/
-abbrev StraightlineExtractor (oSpec : OracleSpec ι) (Data Commitment : Type) :=
-  Commitment → QueryLog oSpec → Data
-
-/-- An adversary in the extractability game is an oracle computation that returns a commitment, a
-  query, a response value, and some auxiliary state (to be used in the opening procedure). -/
-abbrev ExtractabilityAdversary (oSpec : OracleSpec ι) (Data Commitment AuxState : Type)
-    [O : OracleInterface Data] :=
-  OracleComp oSpec (Commitment × (q : O.Query) × O.Response q × AuxState)
-
-
-/-- A commitment scheme satisfies **extractability** with error `extractabilityError` if there
-    exists a straightline extractor `E` such that for all adversaries that output a commitment `cm`,
-    a query `q`, a response `r`, and some auxiliary state `st`, and for all malicious provers in the
-    opening procedure that takes in `st`, the probability that:
-
-  1. The verifier accepts in the opening procedure given `cm, q, r`
-  2. The extracted data `d` is inconsistent with the claimed response (i.e., `O.answer d q ≠ r`)
-
-  is at most `extractabilityError`.
-
-  Informally, extractability says that if an adversary can convince the verifier to accept an
-  opening, then the extractor must be able to recover some underlying data that is consistent with
-  the evaluation query. -/
-def extractability (_extractabilityError : ℝ≥0) : Prop :=
-  ∃ _extractor : StraightlineExtractor oSpec Data Commitment,
-  ∀ AuxState : Type,
-  ∀ _adversary : ExtractabilityAdversary oSpec Data Commitment AuxState,
-  ∀ _prover : Prover oSpec (Commitment × (q : O.Query) × O.Response q) AuxState Bool Unit pSpec,
-    False
-    -- [ fun ⟨b, d, q, r⟩ ↦ b ∧ O.answer d q = r | do
-    --     let result ← liftM (simulate loggingOracle ∅ adversary)
-    --     let ⟨⟨cm, query, response, st⟩, queryLog⟩ := result
-    --     let proof : Proof pSpec oSpec (Commitment × O.Query × O.Response) AuxState :=
-    --       ⟨prover, scheme.opening.verifier⟩
-    --     let ⟨accept, _⟩ ← proof.run ⟨cm, query, response⟩ st
-    --     letI data := extractor cm queryLog
-    --     return (accept, data, query, response)] ≤ extractabilityError
-
-
--- TODO: version where the query is chosen according to some public coin?
-
--- TODO: multi-instance versions?
 
 /-- An adversary in the function binding game returns a commitment `cm`, and for each index in
   `Fin L`, a query, a claimed response to the query, and an auxiliary private state (to be passed

@@ -3,7 +3,7 @@
   "dataset": "formalslt",
   "project_id": "dudley-covering-number",
   "task_id": "formalslt:dudley-covering-number",
-  "input_sha256": "d64e4cfd5c80d1f4daebc9c6af917ab33ee5bf95109a957b38b97441663b6387",
+  "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
   "label": "misaligned",
   "reason": "An adjacent-grid cardinality product replaces the minimum ball-cover count in the entropy functional.",
   "review_status": "human_reviewed",

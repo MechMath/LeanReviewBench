@@ -1,21 +1,197 @@
-/-
-Copyright (c) 2024-2025 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.Lemmas
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Vector.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.Free
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Init.Data.Vector.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.FreeMonoid.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Group.Hom.Defs
+public import Mathlib.Algebra.Group.Pi.Basic
+public import Mathlib.Algebra.Group.Pi.Lemmas
+public import Mathlib.Algebra.Group.TypeTags.Basic
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Sets
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Init
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Basic
+public import Mathlib.Order.CompleteLattice.Basic
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.Classes.Slice
+public import dep.ArkLib.Data.Fin.Basic
+public import dep.ArkLib.Data.Fin.Fold
+public import dep.ArkLib.Data.Fin.Sigma
+public import dep.ArkLib.Data.Fin.Tuple.Defs
+public import dep.ArkLib.Data.Fin.Tuple.Lemmas
+public import dep.ArkLib.Data.Fin.Tuple.Notation
+public import dep.ArkLib.OracleReduction.Basic
+public import dep.ArkLib.OracleReduction.Execution
+public import dep.ArkLib.OracleReduction.LiftContext.Lens
 public import dep.ArkLib.OracleReduction.LiftContext.Reduction
-
-/-!
-  ## Lifting Oracle Reductions to Larger Contexts
-
-  This file is a continuation of `LiftContext/Reduction.lean`, where we lift oracle reductions to
-  larger contexts.
-
-  The only new thing here is the definition of the oracle verifier. The rest (oracle prover +
-  security properties) are just ported from `LiftContext/Reduction.lean`, with suitable conversions.
--/
+public import dep.ArkLib.OracleReduction.OracleInterface
+public import dep.ArkLib.OracleReduction.Prelude
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Basic
+public import dep.ArkLib.OracleReduction.ProtocolSpec.Cast
+public import dep.ArkLib.OracleReduction.ProtocolSpec.SeqCompose
+public import dep.ArkLib.OracleReduction.Security.Basic
+public import dep.ArkLib.OracleReduction.Security.RoundByRound
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.CompPoly.Data.MvPolynomial.Notation
+public import dep.CompPoly.ToMathlib.Finsupp.Fin
+public import dep.CompPoly.ToMathlib.MvPolynomial.Equiv
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.Control.Trace
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Bound
+public import dep.PolyFun.PFunctor.Chart.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Path.Execution
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Free.WP
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Lens.Cartesian
+public import dep.PolyFun.PFunctor.Obj
+public import dep.PolyFun.PFunctor.Trace
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Control.WriterT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Except
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Deterministic
+public import dep.VCVio.EvalDist.Defs.Measure.ExceptT
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.Instances.OptionT
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Coercions.Add.Basic
+public import dep.VCVio.OracleComp.Coercions.SubSpec.Basic
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleContext
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.QueryTracking.LoggingOracle.Core
+public import dep.VCVio.OracleComp.QueryTracking.QueryBound.Basic
+public import dep.VCVio.OracleComp.QueryTracking.Structures
+public import dep.VCVio.OracleComp.QueryTracking.Tracing.Core
+public import dep.VCVio.OracleComp.SimSemantics.Append.Core
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Constructions.Core
+public import dep.VCVio.OracleComp.SimSemantics.ReaderT.Basic
+public import dep.VCVio.OracleComp.SimSemantics.SimulateQ
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -57,83 +233,6 @@ def OracleVerifier.liftContextQueryImpl
     (QueryImpl.addLift (lens.simulateInput outerStmt) (QueryImpl.id' [pSpec.Message]ₒ) :
       QueryImpl ([InnerOStmtIn]ₒ + [pSpec.Message]ₒ)
         (OracleComp ([OuterOStmtIn]ₒ + [pSpec.Message]ₒ)))
-
-private theorem OracleVerifier.simulateLiftContextQueryImpl
-    (lens : OracleStatement.ExecutableLens
-      OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-      OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut)
-    (outerStmt : OuterStmtIn) (outerOStmt : ∀ i, OuterOStmtIn i)
-    (messages : pSpec.Messages)
-    (q : (oSpec + ([InnerOStmtIn]ₒ + [pSpec.Message]ₒ)).Domain) :
-    simulateQ (OracleInterface.simOracle2 oSpec outerOStmt messages)
-        (liftContextQueryImpl (oSpec := oSpec) (pSpec := pSpec) lens outerStmt q) =
-      OracleInterface.simOracle2 oSpec
-        (lens.materializeInput outerStmt outerOStmt) messages q := by
-  rcases q with q | q
-  · simp only [liftContextQueryImpl, QueryImpl.addLift_def,
-      QueryImpl.add_apply_inl, QueryImpl.liftTarget_apply]
-    simp only [OracleInterface.simOracle2, QueryImpl.addLift, QueryImpl.add_apply_inl,
-      QueryImpl.liftTarget_apply]
-    rfl
-  · rcases q with q | q
-    · rcases q with ⟨i, q⟩
-      simp only [liftContextQueryImpl, QueryImpl.addLift_def, QueryImpl.add_apply_inr,
-        QueryImpl.add_apply_inl, QueryImpl.liftTarget_apply]
-      unfold OracleInterface.simOracle2
-      calc
-        _ = liftM (simulateQ (OracleInterface.simOracle0 OuterOStmtIn outerOStmt)
-            (lens.simulateInput outerStmt ⟨i, q⟩)) := by
-            rw [QueryImpl.addLift_def]
-            change simulateQ
-                (((QueryImpl.id oSpec).liftTarget (OracleComp oSpec))
-                  + ((OracleInterface.simOracle0 OuterOStmtIn outerOStmt
-                      + OracleInterface.simOracle0 pSpec.Message messages).liftTarget
-                        (OracleComp oSpec)))
-                (liftM
-                  (liftM (lens.simulateInput outerStmt ⟨i, q⟩) :
-                    OracleComp ([OuterOStmtIn]ₒ + [pSpec.Message]ₒ) _) :
-                  OracleComp (oSpec + ([OuterOStmtIn]ₒ + [pSpec.Message]ₒ)) _) = _
-            rw [QueryImpl.simulateQ_add_liftM_right, simulateQ_liftTarget,
-              QueryImpl.simulateQ_add_liftM_left]
-        _ = _ := by
-          rw [lens.simulateInput_eq outerStmt outerOStmt ⟨i, q⟩]
-          rfl
-    · rcases q with ⟨i, q⟩
-      simp only [liftContextQueryImpl, QueryImpl.addLift_def,
-        QueryImpl.add_apply_inr, QueryImpl.liftTarget_apply]
-      unfold OracleInterface.simOracle2
-      calc
-        _ = liftM (simulateQ (OracleInterface.simOracle0 pSpec.Message messages)
-            (QueryImpl.id' [pSpec.Message]ₒ ⟨i, q⟩)) := by
-            rw [QueryImpl.addLift_def]
-            change simulateQ
-                (((QueryImpl.id oSpec).liftTarget (OracleComp oSpec))
-                  + ((OracleInterface.simOracle0 OuterOStmtIn outerOStmt
-                      + OracleInterface.simOracle0 pSpec.Message messages).liftTarget
-                        (OracleComp oSpec)))
-                (liftM
-                  (liftM (QueryImpl.id' [pSpec.Message]ₒ ⟨i, q⟩) :
-                    OracleComp ([OuterOStmtIn]ₒ + [pSpec.Message]ₒ) _) :
-                  OracleComp (oSpec + ([OuterOStmtIn]ₒ + [pSpec.Message]ₒ)) _) = _
-            rw [QueryImpl.simulateQ_add_liftM_right, simulateQ_liftTarget,
-              QueryImpl.simulateQ_add_liftM_right]
-        _ = _ := rfl
-
-private theorem OracleVerifier.simulateLiftContextQueryImplComp
-    (lens : OracleStatement.ExecutableLens
-      OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-      OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut)
-    (outerStmt : OuterStmtIn) (outerOStmt : ∀ i, OuterOStmtIn i)
-    (messages : pSpec.Messages) {A : Type}
-    (oa : OracleComp (oSpec + ([InnerOStmtIn]ₒ + [pSpec.Message]ₒ)) A) :
-    simulateQ (OracleInterface.simOracle2 oSpec outerOStmt messages)
-        (simulateQ (liftContextQueryImpl (oSpec := oSpec) (pSpec := pSpec) lens outerStmt) oa) =
-      simulateQ (OracleInterface.simOracle2 oSpec
-        (lens.materializeInput outerStmt outerOStmt) messages) oa := by
-  rw [← QueryImpl.simulateQ_compose]
-  apply congrArg (fun impl ↦ simulateQ impl oa)
-  apply QueryImpl.ext
-  exact simulateLiftContextQueryImpl lens outerStmt outerOStmt messages
 
 /-- The output-oracle contract for an executable context lift.  The adapter's
 public output representation must agree with applying the extensional lens to
@@ -183,46 +282,6 @@ def OracleReduction.liftContext
 
 section Execution
 
-/-- The lifting of the verifier commutes with the conversion from the oracle verifier to the
-  verifier -/
-theorem OracleVerifier.liftContext_toVerifier_comm
-    (lens : OracleStatement.ExecutableLens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                              OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut)
-    (V : OracleVerifier oSpec InnerStmtIn InnerOStmtIn InnerStmtOut InnerOStmtOut pSpec)
-    (output : OracleVerifier.LiftContextOutput lens V) :
-      (V.liftContext lens output).toVerifier = V.toVerifier.liftContext lens.toLens := by
-  apply Verifier.ext
-  funext outerInput transcript
-  rcases outerInput with ⟨outerStmt, outerOStmt⟩
-  apply OptionT.ext
-  simp only [OracleVerifier.toVerifier, Verifier.liftContext,
-    OracleVerifier.liftContext, OptionT.run_bind, OptionT.run_pure,
-    OptionT.run_mk, simulateQ_map, Functor.map_map]
-  rw [simulateLiftContextQueryImplComp]
-  simp only [OracleVerifier.materializeOutput]
-  rw [output.materialize_eq outerStmt transcript.challenges outerOStmt transcript.messages]
-  simp only [OracleVerifier.materializeOutput, Statement.Lens.lift]
-  simp only [map_eq_bind_pure_comp]
-  simp only [Option.elimM, bind_assoc, pure_bind, Function.comp_apply]
-  apply bind_congr
-  intro result
-  cases result <;> rfl
-
-/-- The lifting of the reduction commutes with the conversion from the oracle reduction to the
-  reduction -/
-theorem OracleReduction.liftContext_toReduction_comm
-    (lens : OracleContext.ExecutableLens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                              OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut
-                              OuterWitIn OuterWitOut InnerWitIn InnerWitOut)
-    (R : OracleReduction oSpec InnerStmtIn InnerOStmtIn InnerWitIn
-                            InnerStmtOut InnerOStmtOut InnerWitOut pSpec)
-    (output : OracleVerifier.LiftContextOutput lens.stmt R.verifier) :
-      (R.liftContext lens output).toReduction =
-        R.toReduction.liftContext lens.toLens.toContext := by
-  apply Reduction.ext
-  · rfl
-  · exact OracleVerifier.liftContext_toVerifier_comm lens.stmt R.verifier output
-
 end Execution
 
 section Security
@@ -247,19 +306,6 @@ variable
     (R.toReduction.compatContext lens.toLens.toContext)]
   {completenessError : ℝ≥0}
 
-theorem liftContext_completeness
-    (h : R.completeness init impl innerRelIn innerRelOut completenessError) :
-      (R.liftContext lens output).completeness init impl outerRelIn outerRelOut
-        completenessError := by
-  unfold OracleReduction.completeness at h ⊢
-  rw [liftContext_toReduction_comm lens R output]
-  exact R.toReduction.liftContext_completeness h (lens := lens.toLens.toContext)
-
-theorem liftContext_perfectCompleteness
-    (h : R.perfectCompleteness init impl innerRelIn innerRelOut) :
-      (R.liftContext lens output).perfectCompleteness init impl outerRelIn outerRelOut :=
-  liftContext_completeness h
-
 end OracleReduction
 
 namespace OracleVerifier
@@ -269,78 +315,6 @@ variable {outerLangIn : Set (OuterStmtIn × (∀ i, OuterOStmtIn i))}
     {innerLangIn : Set (InnerStmtIn × (∀ i, InnerOStmtIn i))}
     {innerLangOut : Set (InnerStmtOut × (∀ i, InnerOStmtOut i))}
     [Inhabited InnerStmtOut] [∀ i, Inhabited (InnerOStmtOut i)]
-
-/-- Lifting the reduction preserves soundness, assuming the lens satisfies its soundness
-  conditions -/
-theorem liftContext_soundness
-    {soundnessError : ℝ≥0}
-    {lens : OracleStatement.ExecutableLens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                                OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut}
-    (V : OracleVerifier oSpec InnerStmtIn InnerOStmtIn InnerStmtOut InnerOStmtOut pSpec)
-    (output : OracleVerifier.LiftContextOutput lens V)
-    [lensSound : lens.toLens.IsSound outerLangIn outerLangOut innerLangIn innerLangOut
-      (V.toVerifier.compatStatement lens.toLens)]
-    (h : V.soundness init impl innerLangIn innerLangOut soundnessError) :
-      (V.liftContext lens output).soundness init impl outerLangIn outerLangOut soundnessError := by
-  unfold OracleVerifier.soundness at h ⊢
-  rw [liftContext_toVerifier_comm lens V output]
-  exact V.toVerifier.liftContext_soundness h (lens := lens.toLens)
-
-theorem liftContext_knowledgeSoundness [Inhabited InnerWitIn]
-    {knowledgeError : ℝ≥0}
-    {stmtLens : OracleStatement.ExecutableLens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                                OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut}
-    {witLens : Witness.InvLens (OuterStmtIn × ∀ i, OuterOStmtIn i)
-                            OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    (V : OracleVerifier oSpec InnerStmtIn InnerOStmtIn InnerStmtOut InnerOStmtOut pSpec)
-    (output : OracleVerifier.LiftContextOutput stmtLens V)
-    [lensKS : Extractor.Lens.IsKnowledgeSound
-      outerRelIn innerRelIn outerRelOut innerRelOut
-      (V.toVerifier.compatStatement stmtLens.toLens) (fun _ _ => True)
-      ⟨stmtLens.toLens, witLens⟩]
-    (h : V.knowledgeSoundness init impl innerRelIn innerRelOut knowledgeError) :
-      (V.liftContext stmtLens output).knowledgeSoundness init impl outerRelIn outerRelOut
-        knowledgeError := by
-  unfold OracleVerifier.knowledgeSoundness at h ⊢
-  rw [liftContext_toVerifier_comm stmtLens V output]
-  exact V.toVerifier.liftContext_knowledgeSoundness h
-    (stmtLens := stmtLens.toLens) (witLens := witLens)
-
-theorem liftContext_rbr_soundness
-    {rbrSoundnessError : pSpec.ChallengeIdx → ℝ≥0}
-    {lens : OracleStatement.ExecutableLens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                                OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut}
-    (V : OracleVerifier oSpec InnerStmtIn InnerOStmtIn InnerStmtOut InnerOStmtOut pSpec)
-    (output : OracleVerifier.LiftContextOutput lens V)
-    [lensSound : lens.toLens.IsSound
-      outerLangIn outerLangOut innerLangIn innerLangOut
-      (V.toVerifier.compatStatement lens.toLens)]
-    (h : V.rbrSoundness init impl innerLangIn innerLangOut rbrSoundnessError) :
-      (V.liftContext lens output).rbrSoundness init impl outerLangIn outerLangOut
-        rbrSoundnessError := by
-  unfold OracleVerifier.rbrSoundness at h ⊢
-  rw [liftContext_toVerifier_comm lens V output]
-  exact V.toVerifier.liftContext_rbr_soundness h (lens := lens.toLens)
-
-theorem liftContext_rbr_knowledgeSoundness [Inhabited InnerWitIn]
-    {rbrKnowledgeError : pSpec.ChallengeIdx → ℝ≥0}
-    {stmtLens : OracleStatement.ExecutableLens OuterStmtIn OuterStmtOut InnerStmtIn InnerStmtOut
-                                OuterOStmtIn OuterOStmtOut InnerOStmtIn InnerOStmtOut}
-    {witLens : Witness.InvLens (OuterStmtIn × ∀ i, OuterOStmtIn i)
-                            OuterWitIn OuterWitOut InnerWitIn InnerWitOut}
-    (V : OracleVerifier oSpec InnerStmtIn InnerOStmtIn InnerStmtOut InnerOStmtOut pSpec)
-    (output : OracleVerifier.LiftContextOutput stmtLens V)
-    [lensKS : Extractor.Lens.IsKnowledgeSound
-      outerRelIn innerRelIn outerRelOut innerRelOut
-      (V.toVerifier.compatStatement stmtLens.toLens) (fun _ _ => True)
-      ⟨stmtLens.toLens, witLens⟩]
-    (h : V.rbrKnowledgeSoundness init impl innerRelIn innerRelOut rbrKnowledgeError) :
-      (V.liftContext stmtLens output).rbrKnowledgeSoundness init impl outerRelIn outerRelOut
-        rbrKnowledgeError := by
-  unfold OracleVerifier.rbrKnowledgeSoundness at h ⊢
-  rw [liftContext_toVerifier_comm stmtLens V output]
-  exact V.toVerifier.liftContext_rbr_knowledgeSoundness h
-    (stmtLens := stmtLens.toLens) (witLens := witLens)
 
 end OracleVerifier
 

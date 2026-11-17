@@ -1,224 +1,120 @@
-import dep.PRPKG24AccuracyDiversity.ProofInterface
-import dep.PRPKG24AccuracyDiversity.SourcePreferenceMixture
-
-/-!
-# Paper Assumptions: PRPKG24 Accuracy-Diversity
-
-This file records source theorem-domain conditions and validation notes used by
-the paper-facing review surface. Proposition 4's concrete sphere/uniform-measure
-argument is proved; its ledger row records the regularity and paper-`Gamma`
-interpretation used to read the displayed limit as the compact supremum
-objective used by the Lean theorem.
--/
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
+import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Algebra.Order.Floor.Semiring
+import Mathlib.Algebra.Order.Ring.Pow
+import Mathlib.Analysis.Asymptotics.Defs
+import Mathlib.Analysis.Calculus.ContDiff.Deriv
+import Mathlib.Analysis.Calculus.ContDiff.Operations
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import Mathlib.Analysis.Calculus.Deriv.Slope
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.Deriv
+import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Analysis.Complex.ExponentialBounds
+import Mathlib.Analysis.Convex.Deriv
+import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+import Mathlib.Analysis.Convex.StdSimplex
+import Mathlib.Analysis.MeanInequalities
+import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+import Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Base
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Deriv
+import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
+import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecificLimits.Basic
+import Mathlib.Analysis.SpecificLimits.Normed
+import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
+import Mathlib.Data.Fin.Basic
+import Mathlib.Data.Fin.Rev
+import Mathlib.Data.Fin.Tuple.Sort
+import Mathlib.Data.Finset.Lattice.Basic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.List.GetD
+import Mathlib.Data.List.Sort
+import Mathlib.Data.Nat.Choose.Bounds
+import Mathlib.Data.Nat.Choose.Sum
+import Mathlib.Data.Real.Archimedean
+import Mathlib.Data.Real.Basic
+import Mathlib.Data.Real.Sqrt
+import Mathlib.Data.Set.Basic
+import Mathlib.LinearAlgebra.AffineSpace.Ordered
+import Mathlib.MeasureTheory.Function.AbsolutelyContinuous
+import Mathlib.MeasureTheory.Function.JacobianOneDim
+import Mathlib.MeasureTheory.Integral.Average
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+import Mathlib.MeasureTheory.Integral.Bochner.Set
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+import Mathlib.MeasureTheory.Integral.Gamma
+import Mathlib.MeasureTheory.Integral.IntegrableOn
+import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+import Mathlib.MeasureTheory.Integral.Layercake
+import Mathlib.MeasureTheory.Integral.Pi
+import Mathlib.MeasureTheory.Integral.Prod
+import Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym
+import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+import Mathlib.MeasureTheory.Measure.OpenPos
+import Mathlib.MeasureTheory.Measure.Real
+import Mathlib.MeasureTheory.Measure.Support
+import Mathlib.NumberTheory.Harmonic.EulerMascheroni
+import Mathlib.Order.ConditionallyCompleteLattice.Basic
+import Mathlib.Order.Filter.Finite
+import Mathlib.Order.Interval.Set.LinearOrder
+import Mathlib.Probability.CDF
+import Mathlib.Probability.ConditionalProbability
+import Mathlib.Probability.Distributions.Beta
+import Mathlib.Probability.Distributions.Exponential
+import Mathlib.Probability.Distributions.Pareto
+import Mathlib.Probability.Distributions.Poisson.PoissonLimitThm
+import Mathlib.Probability.Kernel.Composition.MeasureComp
+import Mathlib.Probability.Moments.Variance
+import Mathlib.Probability.ProbabilityMassFunction.Constructions
+import Mathlib.Probability.ProbabilityMassFunction.Integrals
+import Mathlib.Probability.ProbabilityMassFunction.Monad
+import Mathlib.Tactic
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Topology.Algebra.Module.Basic
+import Mathlib.Topology.Algebra.Order.Field
+import Mathlib.Topology.Compactness.Compact
+import Mathlib.Topology.Instances.Real.Lemmas
+import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Topology.MetricSpace.Pseudo.Defs
+import Mathlib.Topology.MetricSpace.Pseudo.Lemmas
+import Mathlib.Topology.MetricSpace.Pseudo.Real
+import Mathlib.Topology.Order.Compact
+import Mathlib.Topology.Order.ProjIcc
+import dep.AppliedModelingLib.Applications.RecommenderSystems.Allocation
+import dep.AppliedModelingLib.Foundations.Math.Asymptotics
+import dep.AppliedModelingLib.Foundations.Probability.OrderStatistics
+import dep.AppliedModelingLib.Foundations.Probability.PMFKernel
+import dep.PRPKG24AccuracyDiversity.Basic
+import dep.PRPKG24AccuracyDiversity.Bernoulli
+import dep.PRPKG24AccuracyDiversity.Exchange
+import dep.PRPKG24AccuracyDiversity.Representation
+import dep.PRPKG24AccuracyDiversity.SeparableAsymptotic
+import dep.PRPKG24AccuracyDiversity.TopKOracle
+import dep.PRPKG24AccuracyDiversity.Uniform
 
 namespace PRPKG24AccuracyDiversity
-
-/-- Example 1 uses a calibrated two-type exponential mixture with positive parameters. -/
--- audit-premise: hp1 : 0 < p1
--- audit-premise: hp2 : 0 < p2
--- audit-premise: hlambda : 0 < lambda
--- audit-premise: hp_sum : p1 + p2 = 1
-abbrev assumption_example1_positive_calibrated_exponential_parameters
-    (p1 p2 lambda : ℝ) : Prop :=
-  0 < p1 ∧ 0 < p2 ∧ 0 < lambda ∧ p1 + p2 = 1
-
-/-- Theorem 1(i) finite-discrete endpoint separates a top value from lower values. -/
--- audit-premise: hk_pos : 0 < k
--- audit-premise: hxTop_pos : 0 < xTop
--- audit-premise: hxSecond_nonneg : 0 ≤ xSecond
--- audit-premise: hsecond_le_top : xSecond ≤ xTop
--- audit-premise: hsecond_lt_top : xSecond < xTop
--- audit-premise: hvalue_nonneg : ∀ ω, 0 ≤ value ω
--- audit-premise: hvalue_le : ∀ ω, value ω ≤ xTop
--- audit-premise: hvalue_split : ∀ ω, value ω = xTop ∨ value ω ≤ xSecond
-abbrev assumption_finite_discrete_top_value_domain {Ω : Type*}
-    (k : ℕ) (value : Ω → ℝ) (xTop xSecond : ℝ) : Prop :=
-  0 < k ∧
-    0 < xTop ∧
-      0 ≤ xSecond ∧
-        xSecond ≤ xTop ∧
-          xSecond < xTop ∧
-            (∀ ω, 0 ≤ value ω) ∧
-              (∀ ω, value ω ≤ xTop) ∧
-                (∀ ω, value ω = xTop ∨ value ω ≤ xSecond)
-
-/-- A source preference PMF has positive support when every type is selectable. -/
--- audit-premise: hpreference_pos : ∀ t, 0 < (preferenceLaw t).toReal
-abbrev assumption_positive_source_preference_law {T : ℕ}
-    (preferenceLaw : SourcePreferenceLaw T) : Prop :=
-  ∀ t : ItemType T, 0 < (preferenceLaw t).toReal
-
-/-- Type-likelihood weights in the optimization model are positive. -/
--- audit-premise: hlike_pos : ∀ t : ItemType T, 0 < likelihood t
--- audit-premise: hlike_pos : ∀ t, 0 < likelihood t
--- audit-premise: hlike_pos : ∀ t, 0 < B.likelihood t
-abbrev assumption_positive_type_likelihoods {T : ℕ}
-    (likelihood : ItemType T → ℝ) : Prop :=
-  ∀ t : ItemType T, 0 < likelihood t
-
-/-- Theorem 1(ii) and Lemma 1 use the bounded-support upper-endpoint density domain. -/
--- audit-premise: h_base_bounds : ∀ᵐ y ∂baseMeasure, L ≤ y ∧ y ≤ M
--- audit-premise: h_nonneg : ∀ᵐ y ∂baseMeasure, 0 ≤ y
--- audit-premise: hM_pos : 0 < M
--- audit-premise: hbeta_pos : 0 < beta
--- audit-premise: hc_pos : 0 < c
--- audit-premise: hwidth_pos : 0 < M - L
-abbrev assumption_bounded_upper_endpoint_density_domain
-    (baseMeasure : MeasureTheory.Measure ℝ) (L M beta c : ℝ) : Prop :=
-  (∀ᵐ y ∂baseMeasure, L ≤ y ∧ y ≤ M) ∧
-    (∀ᵐ y ∂baseMeasure, 0 ≤ y) ∧
-      0 < M ∧ 0 < beta ∧ 0 < c ∧ 0 < M - L
-
-/-- Theorem 1(iii)/Lemma D.3 use positive exponential rate and top-k size. -/
--- audit-premise: hlambda_pos : 0 < lambda
--- audit-premise: hk_pos : 0 < k
-abbrev assumption_exponential_order_statistic_domain
-    (lambda : ℝ) (k : ℕ) : Prop :=
-  0 < lambda ∧ 0 < k
-
-/-- Theorem 1(iv)/Lemma D.4 use the finite-mean Pareto domain. -/
--- audit-premise: halpha : 1 < alpha
--- audit-premise: hk : 0 < k
-abbrev assumption_pareto_finite_mean_domain (alpha : ℝ) (k : ℕ) : Prop :=
-  1 < alpha ∧ 0 < k
-
-/-- Theorem 1(v) common-mean all-consumed endpoint uses an argmax condition. -/
--- audit-premise: hmean_nonneg : 0 ≤ mean
--- audit-premise: hbest : ∀ t, likelihood t ≤ likelihood best
-abbrev assumption_common_mean_argmax_domain {T : ℕ}
-    (likelihood : ItemType T → ℝ) (mean : ℝ) (best : ItemType T) : Prop :=
-  0 ≤ mean ∧ ∀ t, likelihood t ≤ likelihood best
-
-/-- Theorem 1(v) converse uses a positive mean and unique likelihood maximizer. -/
--- audit-premise: hmean_pos : 0 < mean
--- audit-premise: hbest_strict : ∀ t, t ≠ best → likelihood t < likelihood best
-abbrev assumption_unique_common_mean_argmax_domain {T : ℕ}
-    (likelihood : ItemType T → ℝ) (mean : ℝ) (best : ItemType T) : Prop :=
-  0 < mean ∧ ∀ t, t ≠ best → likelihood t < likelihood best
-
-/-- Corollary 1 ranges over nonnegative homogeneity exponents. -/
--- audit-premise: hgamma_nonneg : 0 ≤ gamma
-abbrev assumption_nonnegative_homogeneity_exponent (gamma : ℝ) : Prop :=
-  0 ≤ gamma
-
-/-
-Theorem 2's literal finite rank-varying Bernoulli law.  The source's phrase
-"i.i.d. Bernoulli" is not used here: different ranks have different success
-parameters, so the checked model is independent across ranks rather than iid.
--/
--- audit-premise: halpha_nonneg : 0 ≤ alpha
--- audit-premise: hc_nonneg : 0 ≤ c
--- audit-premise: hd_nonneg : 0 ≤ d
--- audit-premise: hfirst_le_one : decayingBernoulliSuccess c d alpha 0 ≤ 1
-abbrev assumption_decaying_bernoulli_probability_domain
-    (alpha c d : ℝ) : Prop :=
-  0 ≤ alpha ∧
-    0 ≤ c ∧
-      0 ≤ d ∧
-        decayingBernoulliSuccess c d alpha 0 ≤ 1
-
-/-
-The universal-optimum top-one branches additionally need a nonflat first
-rank.  At `c = 0` or first-rank success probability one, non-homogeneous
-optimal selections can exist; this is a visible corrected-source condition.
--/
--- audit-premise: halpha_nonneg : 0 ≤ alpha
--- audit-premise: hc_pos : 0 < c
--- audit-premise: hd_nonneg : 0 ≤ d
--- audit-premise: hfirst_lt_one : decayingBernoulliSuccess c d alpha 0 < 1
-abbrev assumption_decaying_bernoulli_top_one_nondegenerate_domain
-    (alpha c d : ℝ) : Prop :=
-  0 ≤ alpha ∧
-    0 < c ∧
-      0 ≤ d ∧
-        decayingBernoulliSuccess c d alpha 0 < 1
-
-/-- Backward-compatible audit alias for the literal finite-law domain. -/
-abbrev assumption_decaying_bernoulli_parameter_domain
-    (alpha c d : ℝ) : Prop :=
-  assumption_decaying_bernoulli_probability_domain alpha c d
-
-/-- Every source Bernoulli probability lies in its probability range. -/
--- audit-premise: hprob_valid : ∀ t, 0 ≤ B.successProb t ∧ B.successProb t ≤ 1
-abbrev assumption_bernoulli_success_probability_range {T : ℕ}
-    (B : BernoulliSatisfactionModel T) : Prop :=
-  ∀ t, 0 ≤ B.successProb t ∧ B.successProb t ≤ 1
-
-/-- Theorem 3's top-one conclusion uses typewise probabilities in `(0,1)`. -/
--- audit-premise: hprob_pos : ∀ t, 0 < B.successProb t
--- audit-premise: hprob_lt_one : ∀ t, B.successProb t < 1
-abbrev assumption_theorem3_varying_bernoulli_probability_domain {T : ℕ}
-    (B : BernoulliSatisfactionModel T) : Prop :=
-  assumption_bernoulli_success_probability_range B ∧
-    (∀ t, 0 < B.successProb t) ∧
-      (∀ t, B.successProb t < 1)
-
-/-- Corollary 3 additionally specializes Theorem 3 to a common probability. -/
--- audit-premise: hprob_pos : ∀ t, 0 < B.successProb t
--- audit-premise: hprob_lt_one : ∀ t, B.successProb t < 1
--- audit-premise: hprob_eq : ∀ i j : ItemType T, B.successProb i = B.successProb j
-abbrev assumption_corollary3_iid_bernoulli_probability_domain {T : ℕ}
-    (B : BernoulliSatisfactionModel T) : Prop :=
-  assumption_theorem3_varying_bernoulli_probability_domain B ∧
-      (∀ i j : ItemType T, B.successProb i = B.successProb j)
-
-/-- Proposition 2's corrected uniform route uses positive type likelihoods and top-k counts. -/
--- audit-premise: hkpos : ∀ N, 0 < N → 0 < kseq N
-abbrev assumption_uniform_top_k_positive_count_domain (kseq : ℕ → ℕ) : Prop :=
-  ∀ N, 0 < N → 0 < kseq N
-
-/--
-Lemma D.2 uses the bounded-tail CDF power sandwich, monotonicity/range facts,
-and bounded-support saturation for the reflected CDF.
--/
--- audit-premise: tail : BoundedTailCDFPowerSandwich G β c
--- audit-premise: k_pos : 0 < k
--- audit-premise: hM_pos : 0 < M
--- audit-premise: hG_measurable : Measurable G
--- audit-premise: hG_mono : Monotone G
--- audit-premise: hG_nonneg : ∀ x : ℝ, 0 ≤ G x
--- audit-premise: hG_le_one : ∀ x : ℝ, G x ≤ 1
--- audit-premise: hG_eq_one_of_support : ∀ x : ℝ, M ≤ x → G x = 1
-abbrev assumption_lemmaD2_cdf_power_sandwich_monotone_bounded_support
-    {G : ℝ → ℝ} (β c M : ℝ) (k : ℕ) : Prop :=
-  BoundedTailCDFPowerSandwich G β c ∧
-    0 < k ∧
-      0 < M ∧
-        Measurable G ∧
-          Monotone G ∧
-            (∀ x : ℝ, 0 ≤ G x) ∧
-              (∀ x : ℝ, G x ≤ 1) ∧
-                (∀ x : ℝ, M ≤ x → G x = 1)
-
-/--
-Proposition 4's source radial kernel is nonconstant on distances realized by
-the unit sphere and takes values in `(0, 1]` there.  The two witnessed radii
-make "nonconstant" an explicit property of the realized distance range rather
-than of irrelevant values of `q` outside `[0, 2]`.
--/
--- audit-premise: hp_nonconstant : ∃ r ∈ Set.Icc (0 : ℝ) 2, ∃ s ∈ Set.Icc (0 : ℝ) 2, q r ≠ q s
--- audit-premise: hp_range : ∀ r ∈ Set.Icc (0 : ℝ) 2, 0 < q r ∧ q r ≤ 1
-abbrev assumption_proposition4_radial_nonsatisfaction_kernel
-    (q : ℝ → ℝ) : Prop :=
-  (∃ r ∈ Set.Icc (0 : ℝ) 2,
-      ∃ s ∈ Set.Icc (0 : ℝ) 2, q r ≠ q s) ∧
-    ∀ r : ℝ, r ∈ Set.Icc (0 : ℝ) 2 → 0 < q r ∧ q r ≤ 1
-
-/--
-The compact-sphere Laplace step needs continuity of the radial kernel.  The
-paper does not state this regularity explicitly; Lean exposes it as the minor
-analytic boundary needed to turn the Laplace heuristic into an exact limit.
-Source status: explicit formalization boundary, not a source-stated premise.
-Source note: Schema-2 issue PRPKG24-PROP4-CONTINUITY-BOUNDARY-01 governs continuity; it is not literal source provenance.
--/
--- audit-premise: hp : Continuous q
-abbrev assumption_proposition4_continuous_sphere_laplace_boundary
-    (q : ℝ → ℝ) : Prop :=
-  Continuous q
-
-/-- Lemma D.5's finite rounding endpoint is stated for positive `N`. -/
--- audit-premise: hNpos : 0 < N
-abbrev assumption_positive_rounding_population_size (N : ℕ) : Prop :=
-  0 < N
 
 end PRPKG24AccuracyDiversity

@@ -9,7 +9,7 @@
    "type":
    "∀ {m n : ℕ} [inst : NeZero m] [inst_1 : NeZero n] (S S' : GCG24UserItemFairness.RecommendationModel.SymmetricData m n 2)\n  (hTypes : Function.Surjective S.types.toType) (hTypes' : Function.Surjective S'.types.toType) {alpha alpha' : ℝ}\n  {v : GCG24UserItemFairness.Item n → ℝ},\n  (S.canonicalReductionOfSurjective hTypes).reduced = GCG24UserItemFairness.OpposingTypes.twoTypeReducedModel alpha v →\n    (S'.canonicalReductionOfSurjective hTypes').reduced =\n        GCG24UserItemFairness.OpposingTypes.twoTypeReducedModel alpha' v →\n      0 < alpha →\n        alpha < 1 →\n          0 < alpha' →\n            alpha' < 1 →\n              alpha ≤ alpha' →\n                alpha ≤ 1 / 2 →\n                  alpha' ≤ 1 / 2 →\n                    (∀ (j : GCG24UserItemFairness.Item n), 0 < v j) →\n                      GCG24UserItemFairness.OpposingTypes.StrictlyDecreasingByIndex v →\n                        S'.model.priceOfFairness ≤ S.model.priceOfFairness",
    "source_range":
-   {"start_line": 15, "start_column": 0, "end_line": 59, "end_column": 76},
+   {"start_line": 50, "start_column": 0, "end_line": 68, "end_column": 58},
    "proof_valued": true,
    "projection": false,
    "private": false,
@@ -81,7 +81,7 @@
   {"value": null,
    "type": "ℕ → ℕ → ℕ → Type",
    "source_range":
-   {"start_line": 14, "start_column": 0, "end_line": 21, "end_column": 58},
+   {"start_line": 45, "start_column": 0, "end_line": 52, "end_column": 58},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -140,7 +140,7 @@
   {"value": "fun m => Fin m",
    "type": "ℕ → Type",
    "source_range":
-   {"start_line": 9, "start_column": 0, "end_line": 10, "end_column": 28},
+   {"start_line": 36, "start_column": 0, "end_line": 37, "end_column": 28},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -170,7 +170,7 @@
    "type":
    "{m K : ℕ} → GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K → GCG24UserItemFairness.User m → Fin K",
    "source_range":
-   {"start_line": 288, "start_column": 2, "end_line": 288, "end_column": 8},
+   {"start_line": 100, "start_column": 2, "end_line": 100, "end_column": 8},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -185,7 +185,7 @@
    "type":
    "{m n K : ℕ} →\n  GCG24UserItemFairness.RecommendationModel.SymmetricData m n K →\n    GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K",
    "source_range":
-   {"start_line": 20, "start_column": 2, "end_line": 20, "end_column": 7},
+   {"start_line": 51, "start_column": 2, "end_line": 51, "end_column": 7},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -214,7 +214,7 @@
   {"value": "fun n => Fin n",
    "type": "ℕ → Type",
    "source_range":
-   {"start_line": 12, "start_column": 0, "end_line": 13, "end_column": 28},
+   {"start_line": 39, "start_column": 0, "end_line": 40, "end_column": 28},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -243,7 +243,7 @@
   {"value": null,
    "type": "ℕ → ℕ → Type",
    "source_range":
-   {"start_line": 315, "start_column": 0, "end_line": 321, "end_column": 25},
+   {"start_line": 74, "start_column": 0, "end_line": 80, "end_column": 25},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -259,7 +259,7 @@
    "type":
    "{m n K : ℕ} → GCG24UserItemFairness.ReductionWitness m n K → GCG24UserItemFairness.TypeWeightedRecommendationModel K n",
    "source_range":
-   {"start_line": 1339, "start_column": 2, "end_line": 1339, "end_column": 9},
+   {"start_line": 93, "start_column": 2, "end_line": 93, "end_column": 9},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -275,7 +275,7 @@
    "type":
    "{m n K : ℕ} →\n  (S : GCG24UserItemFairness.RecommendationModel.SymmetricData m n K) →\n    Function.Surjective S.types.toType → GCG24UserItemFairness.ReductionWitness m n K",
    "source_range":
-   {"start_line": 1369, "start_column": 0, "end_line": 1380, "end_column": 63},
+   {"start_line": 114, "start_column": 0, "end_line": 125, "end_column": 63},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -293,7 +293,7 @@
    "type":
    "{n : ℕ} → ℝ → (GCG24UserItemFairness.Item n → ℝ) → GCG24UserItemFairness.TypeWeightedRecommendationModel 2 n",
    "source_range":
-   {"start_line": 2045, "start_column": 0, "end_line": 2053, "end_column": 55},
+   {"start_line": 52, "start_column": 0, "end_line": 60, "end_column": 55},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -539,7 +539,7 @@
    "fun {n} v => ∀ ⦃i j : GCG24UserItemFairness.Item n⦄, ↑i < ↑j → v j < v i",
    "type": "{n : ℕ} → (GCG24UserItemFairness.Item n → ℝ) → Prop",
    "source_range":
-   {"start_line": 517, "start_column": 0, "end_line": 519, "end_column": 45},
+   {"start_line": 48, "start_column": 0, "end_line": 50, "end_column": 45},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -555,7 +555,7 @@
    "type":
    "{m n : ℕ} → [NeZero m] → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → ℝ",
    "source_range":
-   {"start_line": 1473, "start_column": 0, "end_line": 1476, "end_column": 23},
+   {"start_line": 80, "start_column": 0, "end_line": 83, "end_column": 23},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -570,7 +570,7 @@
    "type":
    "{m n K : ℕ} →\n  GCG24UserItemFairness.RecommendationModel.SymmetricData m n K → GCG24UserItemFairness.RecommendationModel m n",
    "source_range":
-   {"start_line": 19, "start_column": 2, "end_line": 19, "end_column": 7},
+   {"start_line": 50, "start_column": 2, "end_line": 50, "end_column": 7},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -585,7 +585,7 @@
    "type":
    "{m n K : ℕ} →\n  (model : GCG24UserItemFairness.RecommendationModel m n) →\n    (types : GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K) →\n      model.UtilitiesAgreeWithinTypes types → GCG24UserItemFairness.RecommendationModel.SymmetricData m n K",
    "source_range":
-   {"start_line": 18, "start_column": 10, "end_line": 18, "end_column": 23},
+   {"start_line": 49, "start_column": 10, "end_line": 49, "end_column": 23},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -599,7 +599,7 @@
   {"value": null,
    "type": "ℕ → ℕ → Type",
    "source_range":
-   {"start_line": 283, "start_column": 0, "end_line": 288, "end_column": 25},
+   {"start_line": 95, "start_column": 0, "end_line": 100, "end_column": 25},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -615,7 +615,7 @@
    "type":
    "{K n : ℕ} →\n  (GCG24UserItemFairness.UserType K → GCG24UserItemFairness.Item n → ℝ) →\n    (GCG24UserItemFairness.UserType K → ℝ) → GCG24UserItemFairness.TypeWeightedRecommendationModel K n",
    "source_range":
-   {"start_line": 319, "start_column": 10, "end_line": 319, "end_column": 41},
+   {"start_line": 78, "start_column": 10, "end_line": 78, "end_column": 41},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -629,7 +629,7 @@
   {"value": null,
    "type": "ℕ → ℕ → ℕ → Type",
    "source_range":
-   {"start_line": 1332, "start_column": 0, "end_line": 1343, "end_column": 85},
+   {"start_line": 86, "start_column": 0, "end_line": 97, "end_column": 85},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -646,7 +646,7 @@
    "type":
    "{m n K : ℕ} →\n  (S : GCG24UserItemFairness.RecommendationModel.SymmetricData m n K) →\n    GCG24UserItemFairness.UserTypeAssignment.TypeRepresentatives S.types → GCG24UserItemFairness.ReductionWitness m n K",
    "source_range":
-   {"start_line": 1345, "start_column": 0, "end_line": 1367, "end_column": 7},
+   {"start_line": 99, "start_column": 0, "end_line": 112, "end_column": 31},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -664,7 +664,7 @@
    "type":
    "{α : Type u_1} → {κ : Type u_2} → {τ : α → κ} → Function.Surjective τ → EconCSLib.Policy.FiberRepresentatives τ",
    "source_range":
-   {"start_line": 42, "start_column": 0, "end_line": 46, "end_column": 52},
+   {"start_line": 44, "start_column": 0, "end_line": 48, "end_column": 52},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -679,7 +679,7 @@
   {"value": "fun K => Fin K",
    "type": "ℕ → Type",
    "source_range":
-   {"start_line": 9, "start_column": 0, "end_line": 9, "end_column": 32},
+   {"start_line": 39, "start_column": 0, "end_line": 39, "end_column": 32},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -750,7 +750,7 @@
    "type":
    "{n : ℕ} → GCG24UserItemFairness.Item n → GCG24UserItemFairness.Item n",
    "source_range":
-   {"start_line": 298, "start_column": 0, "end_line": 300, "end_column": 27},
+   {"start_line": 44, "start_column": 0, "end_line": 46, "end_column": 24},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -838,7 +838,7 @@
   {"value": null,
    "type": "ℕ → ℕ → Type",
    "source_range":
-   {"start_line": 34, "start_column": 0, "end_line": 39, "end_column": 31},
+   {"start_line": 45, "start_column": 0, "end_line": 50, "end_column": 31},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -855,7 +855,7 @@
    "type":
    "{m n : ℕ} → [NeZero m] → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → ℝ → ℝ",
    "source_range":
-   {"start_line": 1454, "start_column": 0, "end_line": 1458, "end_column": 76},
+   {"start_line": 74, "start_column": 0, "end_line": 78, "end_column": 76},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -872,7 +872,7 @@
    "type":
    "{m n K : ℕ} →\n  GCG24UserItemFairness.RecommendationModel m n →\n    GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K → Prop",
    "source_range":
-   {"start_line": 290, "start_column": 0, "end_line": 293, "end_column": 63},
+   {"start_line": 102, "start_column": 0, "end_line": 105, "end_column": 63},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -887,7 +887,7 @@
    "type":
    "{m K : ℕ} → (GCG24UserItemFairness.User m → Fin K) → GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K",
    "source_range":
-   {"start_line": 287, "start_column": 10, "end_line": 287, "end_column": 28},
+   {"start_line": 99, "start_column": 10, "end_line": 99, "end_column": 28},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -902,7 +902,7 @@
    "type":
    "{m n K : ℕ} →\n  (data : GCG24UserItemFairness.RecommendationModel.SymmetricData m n K) →\n    (reduced : GCG24UserItemFairness.TypeWeightedRecommendationModel K n) →\n      (∀ (u : GCG24UserItemFairness.User m) (j : GCG24UserItemFairness.Item n),\n          data.model.utility u j = reduced.utility (data.types.toType u) j) →\n        (∀ (k : GCG24UserItemFairness.UserType K), reduced.weight k = data.types.typeWeight k) →\n          GCG24UserItemFairness.ReductionWitness m n K",
    "source_range":
-   {"start_line": 1337, "start_column": 10, "end_line": 1337, "end_column": 26},
+   {"start_line": 91, "start_column": 10, "end_line": 91, "end_column": 26},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -917,7 +917,7 @@
    "type":
    "{m K : ℕ} → GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K → Type",
    "source_range":
-   {"start_line": 173, "start_column": 0, "end_line": 176, "end_column": 48},
+   {"start_line": 58, "start_column": 0, "end_line": 61, "end_column": 48},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -932,7 +932,7 @@
    "type":
    "{m n : ℕ} →\n  GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.User m → GCG24UserItemFairness.Item n → ℝ",
    "source_range":
-   {"start_line": 39, "start_column": 2, "end_line": 39, "end_column": 9},
+   {"start_line": 50, "start_column": 2, "end_line": 50, "end_column": 9},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -947,7 +947,7 @@
    "type":
    "{α : Type u_1} → {κ : Type u_2} → {τ : α → κ} → EconCSLib.Policy.FiberRepresentatives τ → κ → α",
    "source_range":
-   {"start_line": 39, "start_column": 2, "end_line": 39, "end_column": 6},
+   {"start_line": 41, "start_column": 2, "end_line": 41, "end_column": 6},
    "proof_valued": false,
    "projection": true,
    "private": false,
@@ -962,7 +962,7 @@
    "type":
    "{m K : ℕ} → GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K → GCG24UserItemFairness.UserType K → ℝ",
    "source_range":
-   {"start_line": 303, "start_column": 0, "end_line": 306, "end_column": 20},
+   {"start_line": 67, "start_column": 0, "end_line": 70, "end_column": 20},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -976,39 +976,128 @@
    "docstring":
    "The same multiplicity, but as a real weight for the reduced LP. "},
   {"value": null,
-   "type":
-   "∀ {m n K : ℕ} (S : GCG24UserItemFairness.RecommendationModel.SymmetricData m n K)\n  (reps : GCG24UserItemFairness.UserTypeAssignment.TypeRepresentatives S.types) (u : GCG24UserItemFairness.User m)\n  (j : GCG24UserItemFairness.Item n), S.model.utility u j = S.model.utility (reps.repr (S.types.toType u)) j",
-   "source_range": null,
-   "proof_valued": true,
+   "type": "(α : Sort u) → Bool → α",
+   "source_range":
+   {"start_line": 722, "start_column": 0, "end_line": 738, "end_column": 49},
+   "proof_valued": false,
    "projection": false,
    "private": false,
+   "module": "Init.Prelude",
+   "kind": "axiom",
+   "internal": false,
+   "id": "sorryAx",
+   "generated_kind": null,
+   "external": true,
+   "docstring":
+   "Auxiliary axiom used to implement the `sorry` term and tactic.\n\nThe `sorry` term/tactic expands to `sorryAx _ (synthetic := false)`.\nIt is intended for stubbing-out incomplete parts of a value or proof while still having a syntactically correct skeleton.\nLean will give a warning whenever a declaration uses `sorry`, so you aren't likely to miss it,\nbut you can check if a declaration depends on `sorry` either directly or indirectly by looking for `sorryAx` in the output\nof the `#print axioms my_thm` command.\n\nThe `synthetic` flag is false when a `sorry` is written explicitly by the user, but it is\nset to `true` when a tactic fails to prove a goal, or if there is a type error\nin the expression. A synthetic `sorry` acts like a regular one, except that it\nsuppresses follow-up errors in order to prevent an error from causing a cascade\nof other errors because the desired term was not constructed.\n"},
+  {"value": null,
+   "type": "Type",
+   "source_range":
+   {"start_line": 4698, "start_column": 0, "end_line": 4749, "end_column": 144},
+   "proof_valued": false,
+   "projection": false,
+   "private": false,
+   "module": "Init.Prelude",
+   "kind": "inductive",
+   "internal": false,
+   "id": "Lean.Name",
+   "generated_kind": null,
+   "external": true,
+   "docstring":
+   "Hierarchical names consist of a sequence of components, each of\nwhich is either a string or numeric, that are written separated by dots (`.`).\n\nHierarchical names are used to name declarations and for creating\nunique identifiers for free variables and metavariables.\n\nYou can create hierarchical names using a backtick:\n```\n`Lean.Meta.whnf\n```\nIt is short for `.str (.str (.str .anonymous \"Lean\") \"Meta\") \"whnf\"`.\n\nYou can use double backticks to request Lean to statically check whether the name\ncorresponds to a Lean declaration in scope.\n```\n``Lean.Meta.whnf\n```\nIf the name is not in scope, Lean will report an error.\n\nThere are two ways to convert a `String` to a `Name`:\n\n 1. `Name.mkSimple` creates a name with a single string component.\n\n 2. `String.toName` first splits the string into its dot-separated\n    components, and then creates a hierarchical name.\n"},
+  {"value": "fun K n self => self.1",
+   "type":
+   "{K n : ℕ} →\n  GCG24UserItemFairness.TypeWeightedRecommendationModel K n →\n    GCG24UserItemFairness.UserType K → GCG24UserItemFairness.Item n → ℝ",
+   "source_range":
+   {"start_line": 79, "start_column": 2, "end_line": 79, "end_column": 9},
+   "proof_valued": false,
+   "projection": true,
+   "private": false,
    "module": "dep.GCG24UserItemFairness.LPReduction",
-   "kind": "theorem",
-   "internal": true,
-   "id":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
+   "kind": "abbrev",
+   "internal": false,
+   "id": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
    "generated_kind": null,
    "external": false,
    "docstring": null},
   {"value": null,
-   "type":
-   "∀ {m n K : ℕ} (S : GCG24UserItemFairness.RecommendationModel.SymmetricData m n K)\n  (reps : GCG24UserItemFairness.UserTypeAssignment.TypeRepresentatives S.types) (k : GCG24UserItemFairness.UserType K),\n  { utility := fun k j => S.model.utility (reps.repr k) j, weight := S.types.typeWeight }.weight k =\n    { utility := fun k j => S.model.utility (reps.repr k) j, weight := S.types.typeWeight }.weight k",
-   "source_range": null,
-   "proof_valued": true,
+   "type": "Bool",
+   "source_range":
+   {"start_line": 108, "start_column": 2, "end_line": 109, "end_column": 16},
+   "proof_valued": false,
    "projection": false,
    "private": false,
+   "module": "Init.Prelude",
+   "kind": "constructor",
+   "internal": false,
+   "id": "Bool.false",
+   "generated_kind": null,
+   "external": true,
+   "docstring":
+   "The Boolean value `false`, not to be confused with the proposition `False`. "},
+  {"value": null,
+   "type": "Lean.Name → ℕ → Lean.Name",
+   "source_range":
+   {"start_line": 4735, "start_column": 2, "end_line": 4742, "end_column": 30},
+   "proof_valued": false,
+   "projection": false,
+   "private": false,
+   "module": "Init.Prelude",
+   "kind": "constructor",
+   "internal": false,
+   "id": "Lean.Name.num",
+   "generated_kind": null,
+   "external": true,
+   "docstring":
+   "A numerical name. This kind of name is used, for example, to create hierarchical names for\nfree variables and metavariables. The identifier `_uniq.231` is represented as\n```lean\n.num (.str .anonymous \"_uniq\") 231\n```\n"},
+  {"value": null,
+   "type": "Lean.Name → String → Lean.Name",
+   "source_range":
+   {"start_line": 4728, "start_column": 2, "end_line": 4734, "end_column": 35},
+   "proof_valued": false,
+   "projection": false,
+   "private": false,
+   "module": "Init.Prelude",
+   "kind": "constructor",
+   "internal": false,
+   "id": "Lean.Name.str",
+   "generated_kind": null,
+   "external": true,
+   "docstring":
+   "A string name. The name `Lean.Meta.run` is represented as\n```lean\n.str (.str (.str .anonymous \"Lean\") \"Meta\") \"run\"\n```\n"},
+  {"value": null,
+   "type": "Lean.Name",
+   "source_range":
+   {"start_line": 4726, "start_column": 2, "end_line": 4727, "end_column": 20},
+   "proof_valued": false,
+   "projection": false,
+   "private": false,
+   "module": "Init.Prelude",
+   "kind": "constructor",
+   "internal": false,
+   "id": "Lean.Name.anonymous",
+   "generated_kind": null,
+   "external": true,
+   "docstring": "The \"anonymous\" name. "},
+  {"value": "fun K n self => self.2",
+   "type":
+   "{K n : ℕ} → GCG24UserItemFairness.TypeWeightedRecommendationModel K n → GCG24UserItemFairness.UserType K → ℝ",
+   "source_range":
+   {"start_line": 80, "start_column": 2, "end_line": 80, "end_column": 8},
+   "proof_valued": false,
+   "projection": true,
+   "private": false,
    "module": "dep.GCG24UserItemFairness.LPReduction",
-   "kind": "theorem",
-   "internal": true,
-   "id":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+   "kind": "abbrev",
+   "internal": false,
+   "id": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "generated_kind": null,
    "external": false,
    "docstring": null},
   {"value": null,
    "type": "{α : Type u_1} → {κ : Type u_2} → (α → κ) → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 34, "start_column": 0, "end_line": 40, "end_column": 33},
+   {"start_line": 36, "start_column": 0, "end_line": 42, "end_column": 33},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1024,7 +1113,7 @@
    "type":
    "{α : Type u_1} →\n  {κ : Type u_2} → {τ : α → κ} → (repr : κ → α) → (∀ (k : κ), τ (repr k) = k) → EconCSLib.Policy.FiberRepresentatives τ",
    "source_range":
-   {"start_line": 38, "start_column": 10, "end_line": 38, "end_column": 30},
+   {"start_line": 40, "start_column": 10, "end_line": 40, "end_column": 30},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1151,23 +1240,10 @@
    "external": true,
    "docstring": null},
   {"value": null,
-   "type": "∀ {n : ℕ} (j : GCG24UserItemFairness.Item n), n - 1 - ↑j < n",
-   "source_range": null,
-   "proof_valued": true,
-   "projection": false,
-   "private": false,
-   "module": "dep.GCG24UserItemFairness.OpposingTypes",
-   "kind": "theorem",
-   "internal": true,
-   "id": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "generated_kind": null,
-   "external": false,
-   "docstring": null},
-  {"value": null,
    "type":
    "{m n : ℕ} →\n  (GCG24UserItemFairness.User m → GCG24UserItemFairness.Item n → ℝ) → GCG24UserItemFairness.RecommendationModel m n",
    "source_range":
-   {"start_line": 38, "start_column": 10, "end_line": 38, "end_column": 29},
+   {"start_line": 49, "start_column": 10, "end_line": 49, "end_column": 29},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1183,7 +1259,7 @@
    "type":
    "{m n : ℕ} → [NeZero m] → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → ℝ → ℝ",
    "source_range":
-   {"start_line": 1326, "start_column": 0, "end_line": 1329, "end_column": 42},
+   {"start_line": 69, "start_column": 0, "end_line": 72, "end_column": 42},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1239,36 +1315,6 @@
    "external": true,
    "docstring":
    "`Not p`, or `¬p`, is the negation of `p`. It is defined to be `p → False`,\nso if your goal is `¬p` you can use `intro h` to turn the goal into\n`h : p ⊢ False`, and if you have `hn : ¬p` and `h : p` then `hn h : False`\nand `(hn h).elim` will prove anything.\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `¬` in identifiers is `not`."},
-  {"value": "fun K n self => self.1",
-   "type":
-   "{K n : ℕ} →\n  GCG24UserItemFairness.TypeWeightedRecommendationModel K n →\n    GCG24UserItemFairness.UserType K → GCG24UserItemFairness.Item n → ℝ",
-   "source_range":
-   {"start_line": 320, "start_column": 2, "end_line": 320, "end_column": 9},
-   "proof_valued": false,
-   "projection": true,
-   "private": false,
-   "module": "dep.GCG24UserItemFairness.LPReduction",
-   "kind": "abbrev",
-   "internal": false,
-   "id": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "generated_kind": null,
-   "external": false,
-   "docstring": null},
-  {"value": "fun K n self => self.2",
-   "type":
-   "{K n : ℕ} → GCG24UserItemFairness.TypeWeightedRecommendationModel K n → GCG24UserItemFairness.UserType K → ℝ",
-   "source_range":
-   {"start_line": 321, "start_column": 2, "end_line": 321, "end_column": 8},
-   "proof_valued": false,
-   "projection": true,
-   "private": false,
-   "module": "dep.GCG24UserItemFairness.LPReduction",
-   "kind": "abbrev",
-   "internal": false,
-   "id": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "generated_kind": null,
-   "external": false,
-   "docstring": null},
   {"value": null,
    "type": "{R : Type u} → [NatCast R] → ℕ → R",
    "source_range":
@@ -1288,7 +1334,7 @@
    "type":
    "{m K : ℕ} → GCG24UserItemFairness.RecommendationModel.UserTypeAssignment m K → GCG24UserItemFairness.UserType K → ℕ",
    "source_range":
-   {"start_line": 298, "start_column": 0, "end_line": 301, "end_column": 51},
+   {"start_line": 62, "start_column": 0, "end_line": 65, "end_column": 51},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1334,7 +1380,7 @@
    "type":
    "{m n : ℕ} → [NeZero m] → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → ℝ → Set ℝ",
    "source_range":
-   {"start_line": 1195, "start_column": 0, "end_line": 1198, "end_column": 70},
+   {"start_line": 64, "start_column": 0, "end_line": 67, "end_column": 70},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1456,7 +1502,7 @@
    "fun m n => EconCSLib.Policy (GCG24UserItemFairness.User m) (GCG24UserItemFairness.Item n)",
    "type": "ℕ → ℕ → Type",
    "source_range":
-   {"start_line": 15, "start_column": 0, "end_line": 16, "end_column": 61},
+   {"start_line": 42, "start_column": 0, "end_line": 43, "end_column": 61},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1487,7 +1533,7 @@
    "type":
    "{m n : ℕ} → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → ℝ → GCG24UserItemFairness.Policy m n → Prop",
    "source_range":
-   {"start_line": 1190, "start_column": 0, "end_line": 1193, "end_column": 46},
+   {"start_line": 59, "start_column": 0, "end_line": 62, "end_column": 46},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1503,7 +1549,7 @@
    "type":
    "{m n : ℕ} →\n  [NeZero m] → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Policy m n → ℝ",
    "source_range":
-   {"start_line": 95, "start_column": 0, "end_line": 98, "end_column": 39},
+   {"start_line": 69, "start_column": 0, "end_line": 72, "end_column": 39},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1517,7 +1563,7 @@
   {"value": "fun α β => α → PMF β",
    "type": "Type u_1 → Type u_2 → Type (max u_1 u_2)",
    "source_range":
-   {"start_line": 8, "start_column": 0, "end_line": 9, "end_column": 40},
+   {"start_line": 33, "start_column": 0, "end_line": 34, "end_column": 40},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1576,7 +1622,7 @@
    "type":
    "{m n : ℕ} → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → ℝ",
    "source_range":
-   {"start_line": 29, "start_column": 0, "end_line": 32, "end_column": 36},
+   {"start_line": 54, "start_column": 0, "end_line": 57, "end_column": 36},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1592,7 +1638,7 @@
    "type":
    "{m n : ℕ} → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Policy m n → ℝ",
    "source_range":
-   {"start_line": 159, "start_column": 0, "end_line": 162, "end_column": 39},
+   {"start_line": 90, "start_column": 0, "end_line": 93, "end_column": 39},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1606,7 +1652,7 @@
   {"value": "fun {α} [Fintype α] [Nonempty α] f => Finset.univ.inf' ⋯ f",
    "type": "{α : Type u_1} → [Fintype α] → [Nonempty α] → (α → ℝ) → ℝ",
    "source_range":
-   {"start_line": 94, "start_column": 0, "end_line": 97, "end_column": 54},
+   {"start_line": 30, "start_column": 0, "end_line": 33, "end_column": 54},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1636,7 +1682,7 @@
    "type":
    "{m n : ℕ} →\n  [NeZero n] →\n    GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Policy m n → GCG24UserItemFairness.User m → ℝ",
    "source_range":
-   {"start_line": 90, "start_column": 0, "end_line": 93, "end_column": 44},
+   {"start_line": 64, "start_column": 0, "end_line": 67, "end_column": 44},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1666,7 +1712,7 @@
    "type":
    "{m n : ℕ} → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → Set ℝ",
    "source_range":
-   {"start_line": 24, "start_column": 0, "end_line": 27, "end_column": 46},
+   {"start_line": 49, "start_column": 0, "end_line": 52, "end_column": 46},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1686,7 +1732,7 @@
    "module": "dep.GCG24UserItemFairness.Basic",
    "kind": "theorem",
    "internal": true,
-   "id": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "id": "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "generated_kind": null,
    "external": false,
    "docstring": null},
@@ -1695,7 +1741,7 @@
    "type":
    "{m n : ℕ} →\n  GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Policy m n → GCG24UserItemFairness.Item n → ℝ",
    "source_range":
-   {"start_line": 153, "start_column": 0, "end_line": 157, "end_column": 59},
+   {"start_line": 84, "start_column": 0, "end_line": 88, "end_column": 59},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1786,7 +1832,7 @@
    "type":
    "{m n : ℕ} →\n  GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Policy m n → GCG24UserItemFairness.User m → ℝ",
    "source_range":
-   {"start_line": 80, "start_column": 0, "end_line": 83, "end_column": 43},
+   {"start_line": 54, "start_column": 0, "end_line": 57, "end_column": 43},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1801,7 +1847,7 @@
    "type":
    "{m n : ℕ} → [NeZero n] → GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.User m → ℝ",
    "source_range":
-   {"start_line": 85, "start_column": 0, "end_line": 88, "end_column": 25},
+   {"start_line": 59, "start_column": 0, "end_line": 62, "end_column": 25},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1816,7 +1862,7 @@
    "type":
    "{m n : ℕ} → GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Item n → ℝ",
    "source_range":
-   {"start_line": 148, "start_column": 0, "end_line": 151, "end_column": 20},
+   {"start_line": 79, "start_column": 0, "end_line": 82, "end_column": 20},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1831,7 +1877,7 @@
    "type":
    "{m n : ℕ} →\n  GCG24UserItemFairness.RecommendationModel m n → GCG24UserItemFairness.Policy m n → GCG24UserItemFairness.Item n → ℝ",
    "source_range":
-   {"start_line": 143, "start_column": 0, "end_line": 146, "end_column": 37},
+   {"start_line": 74, "start_column": 0, "end_line": 77, "end_column": 37},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1847,7 +1893,7 @@
    "type":
    "{α : Type u_1} → {β : Type u_2} → [Fintype β] → [DecidableEq β] → EconCSLib.Policy α β → (α → β → ℝ) → α → ℝ",
    "source_range":
-   {"start_line": 17, "start_column": 0, "end_line": 21, "end_column": 24},
+   {"start_line": 38, "start_column": 0, "end_line": 42, "end_column": 24},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1862,7 +1908,7 @@
   {"value": "fun {α} [Fintype α] [Nonempty α] f => Finset.univ.sup' ⋯ f",
    "type": "{α : Type u_1} → [Fintype α] → [Nonempty α] → (α → ℝ) → ℝ",
    "source_range":
-   {"start_line": 89, "start_column": 0, "end_line": 92, "end_column": 54},
+   {"start_line": 25, "start_column": 0, "end_line": 28, "end_column": 54},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -1982,7 +2028,7 @@
    "type":
    "{α : Type u_1} → [Fintype α] → [DecidableEq α] → PMF α → (α → ℝ) → ℝ",
    "source_range":
-   {"start_line": 15, "start_column": 0, "end_line": 18, "end_column": 25},
+   {"start_line": 26, "start_column": 0, "end_line": 29, "end_column": 25},
    "proof_valued": false,
    "projection": false,
    "private": false,
@@ -2621,13 +2667,51 @@
    "source":
    "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
    "site": "definition_value"},
-  {"target":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
+  {"target": "sorryAx",
    "source":
    "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
    "site": "definition_value"},
-  {"target":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "Lean.Name",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "Eq",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "Real",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "Bool.false",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "Lean.Name.num",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "Lean.Name.str",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "Lean.Name.anonymous",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "OfNat.ofNat",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "instOfNatNat",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
+   "site": "definition_value"},
+  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "source":
    "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction",
    "site": "definition_value"},
@@ -2716,7 +2800,28 @@
   {"target": "Fin.val",
    "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
    "site": "definition_value"},
-  {"target": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
+  {"target": "sorryAx",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "Lean.Name",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "LT.lt",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "instLTNat",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "Bool.false",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "Lean.Name.num",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "Lean.Name.str",
+   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
+   "site": "definition_value"},
+  {"target": "Lean.Name.anonymous",
    "source": "GCG24UserItemFairness.OpposingTypes.reverseItem",
    "site": "definition_value"},
   {"target": "Nat",
@@ -3020,128 +3125,44 @@
    "GCG24UserItemFairness.RecommendationModel.UserTypeAssignment.typeWeight",
    "site": "definition_value"},
   {"target": "Nat",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
    "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.SymmetricData",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.UserTypeAssignment.TypeRepresentatives",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.SymmetricData.types",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.User",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.Item",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "Eq",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "Real",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.utility",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.SymmetricData.model",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "EconCSLib.Policy.FiberRepresentatives.repr",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "Fin",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target":
-   "GCG24UserItemFairness.RecommendationModel.UserTypeAssignment.toType",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_1",
-   "site": "type"},
-  {"target": "Nat",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.SymmetricData",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.UserTypeAssignment.TypeRepresentatives",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.SymmetricData.types",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
    "site": "type"},
   {"target": "GCG24UserItemFairness.UserType",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "Eq",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "Real",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel.mk",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
    "site": "type"},
   {"target": "GCG24UserItemFairness.Item",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
    "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.utility",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "Real",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
    "site": "type"},
-  {"target": "GCG24UserItemFairness.RecommendationModel.SymmetricData.model",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "Nat",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
+   "site": "definition_value"},
+  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
+   "site": "definition_value"},
+  {"target": "Nat",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "site": "type"},
-  {"target": "EconCSLib.Policy.FiberRepresentatives.repr",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "site": "type"},
-  {"target": "GCG24UserItemFairness.User",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "GCG24UserItemFairness.UserType",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "site": "type"},
-  {"target": "Fin",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
+  {"target": "Real",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "site": "type"},
-  {"target":
-   "GCG24UserItemFairness.RecommendationModel.UserTypeAssignment.toType",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
-  {"target":
-   "GCG24UserItemFairness.RecommendationModel.UserTypeAssignment.typeWeight",
-   "source":
-   "GCG24UserItemFairness.RecommendationModel.SymmetricData.canonicalReduction._proof_2",
-   "site": "type"},
+  {"target": "Nat",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
+   "site": "definition_value"},
+  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
+   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
+   "site": "definition_value"},
   {"target": "EconCSLib.Policy.FiberRepresentatives.mk",
    "source": "EconCSLib.Policy.FiberRepresentatives",
    "site": "constructor_type"},
@@ -3159,36 +3180,6 @@
    "site": "type"},
   {"target": "Classical.choose",
    "source": "EconCSLib.Policy.FiberRepresentatives.ofSurjective._proof_1",
-   "site": "type"},
-  {"target": "Nat",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.Item",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "LT.lt",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "instLTNat",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "HSub.hSub",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "instHSub",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "instSubNat",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "OfNat.ofNat",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "instOfNatNat",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
-   "site": "type"},
-  {"target": "Fin.val",
-   "source": "GCG24UserItemFairness.OpposingTypes.reverseItem._proof_2",
    "site": "type"},
   {"target": "Nat",
    "source": "GCG24UserItemFairness.RecommendationModel.mk",
@@ -3265,45 +3256,6 @@
    "GCG24UserItemFairness.RecommendationModel.attainableUserFairnessAtLevel",
    "source":
    "GCG24UserItemFairness.RecommendationModel.optimalUserFairnessAtLevel",
-   "site": "definition_value"},
-  {"target": "Nat",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.UserType",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.Item",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "type"},
-  {"target": "Real",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "type"},
-  {"target": "Nat",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "definition_value"},
-  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.utility",
-   "site": "definition_value"},
-  {"target": "Nat",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "site": "type"},
-  {"target": "GCG24UserItemFairness.UserType",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "site": "type"},
-  {"target": "Real",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "site": "type"},
-  {"target": "Nat",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
-   "site": "definition_value"},
-  {"target": "GCG24UserItemFairness.TypeWeightedRecommendationModel",
-   "source": "GCG24UserItemFairness.TypeWeightedRecommendationModel.weight",
    "site": "definition_value"},
   {"target": "Nat",
    "source":
@@ -3671,7 +3623,8 @@
   {"target": "Fin.fintype",
    "source": "GCG24UserItemFairness.RecommendationModel.itemFairness",
    "site": "definition_value"},
-  {"target": "GCG24UserItemFairness.uniformPolicy._proof_1",
+  {"target":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "source": "GCG24UserItemFairness.RecommendationModel.itemFairness",
    "site": "definition_value"},
   {"target": "GCG24UserItemFairness.RecommendationModel.normalizedItemUtility",
@@ -3858,22 +3811,28 @@
    "GCG24UserItemFairness.RecommendationModel.attainableItemFairnessSet",
    "site": "definition_value"},
   {"target": "Nat",
-   "source": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "site": "type"},
   {"target": "NeZero",
-   "source": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "site": "type"},
   {"target": "MulZeroClass.toZero",
-   "source": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "site": "type"},
   {"target": "Nat.instMulZeroClass",
-   "source": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "site": "type"},
   {"target": "Nonempty",
-   "source": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "site": "type"},
   {"target": "GCG24UserItemFairness.Item",
-   "source": "GCG24UserItemFairness.uniformPolicy._proof_1",
+   "source":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "site": "type"},
   {"target": "Nat",
    "source": "GCG24UserItemFairness.RecommendationModel.normalizedItemUtility",
@@ -4034,7 +3993,8 @@
   {"target": "Fin.fintype",
    "source": "GCG24UserItemFairness.RecommendationModel.bestItemUtility",
    "site": "definition_value"},
-  {"target": "GCG24UserItemFairness.uniformPolicy._proof_1",
+  {"target":
+   "GCG24UserItemFairness.RecommendationModel.bestItemUtility._proof_1",
    "source": "GCG24UserItemFairness.RecommendationModel.bestItemUtility",
    "site": "definition_value"},
   {"target": "GCG24UserItemFairness.RecommendationModel.utility",

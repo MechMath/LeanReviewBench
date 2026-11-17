@@ -1,22 +1,12 @@
-/-
-Copyright (c) 2026 Salvatore Mercuri. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Salvatore Mercuri, Kevin Buzzard
--/
 module
 
-public import dep.FLT.Mathlib.Algebra.Algebra.Hom
-public meta import Mathlib.Tactic.Basic
-public meta import Mathlib.Tactic.ToAdditive
+public import Mathlib.Algebra.Algebra.Prod
+public import Mathlib.Algebra.Order.AbsoluteValue.Basic
+public import Mathlib.Data.Rat.Floor
+public import Mathlib.Tactic.Basic
+public import Mathlib.Tactic.ToAdditive
 public import Mathlib.Topology.Constructions.SumProd
-import Mathlib.Algebra.Order.AbsoluteValue.Basic
-import Mathlib.Data.Rat.Floor
-
-/-!
-# Hom
-
-Material destined for Mathlib.
--/
+public import dep.FLT.Mathlib.Algebra.Algebra.Hom
 
 @[expose] public section
 
@@ -49,11 +39,7 @@ variable {R S : Type*} [CommSemiring R] [CommSemiring S] (φ : R →+* S)
 
 instance instFunLike : FunLike (A →SA[φ] B) A B where
   coe f := f.toFun
-  coe_injective f g h := by
-    cases f
-    cases g
-    congr
-    exact DFunLike.coe_injective h
+  coe_injective f g h := sorry
 
 instance : CoeOut (A →SA[φ] B) (A →ₛₐ[φ] B) :=
   ⟨fun f => f.toSemialgHom⟩
@@ -62,13 +48,7 @@ variable (F : Type*) (A B : outParam Type*)
   [Semiring A] [Semiring B] [Algebra R A] [Algebra S B]
   [FunLike F A B] [TopologicalSpace A] [TopologicalSpace B] [ContinuousSemialgHomClass F φ A B]
 
-instance : ContinuousSemialgHomClass (A →SA[φ] B) φ A B where
-  map_add ψ := ψ.map_add
-  map_smulₛₗ ψ := ψ.map_smulₛₗ
-  map_mul ψ := ψ.map_mul
-  map_one ψ := ψ.map_one
-  map_zero ψ := ψ.map_zero
-  continuous_toFun ψ := ψ.continuous_toFun
+instance : ContinuousSemialgHomClass (A →SA[φ] B) φ A B := sorry
 
 variable {F} {φ} {A} {B} in
 /-- Turn an element of `F` which satisfies `ContinuousSemialgHomClass F φ A B` to a
@@ -79,24 +59,8 @@ def _root_.ContinuousSemialgHomClass.toContinuousSemialgHom (f : F) : A →SA[φ
 instance : CoeTC F (A →SA[φ] B) :=
   ⟨ContinuousSemialgHomClass.toContinuousSemialgHom⟩
 
-@[simp]
-theorem coe_coe (f : F) : ⇑(f : A →SA[φ] B) = f :=
-  rfl
-
-theorem toSemialgHom_eq_coe (f : A →SA[φ] B) : f.toSemialgHom = f :=
-  rfl
-
-@[simp]
-theorem toLinearMap_eq_coe (f : A →SA[φ] B) : f.toLinearMap = f := by
-  rfl
-
-@[simp]
-theorem toRingHom_eq_coe (f : A →SA[φ] B) : f.toRingHom = f :=
-  rfl
-
 theorem commutes (ψ : A →SA[φ] B) (r : R) :
-    ψ (algebraMap R A r) = algebraMap S B (φ r) :=
-  ψ.toSemialgHom.commutes r
+    ψ (algebraMap R A r) = algebraMap S B (φ r) := sorry
 
 /-- The product of two continuous semi-algebra isomorphisms on the same domain. -/
 def prod {C : Type*} [Semiring C] [Algebra S C] [TopologicalSpace C] (f : A →SA[φ] B)

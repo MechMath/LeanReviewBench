@@ -1,0 +1,35 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-optional_reporting-threshold_equilibrium_exists_of_crossing",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_threshold_equilibrium_exists_of_crossing"
+  ],
+  "input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+  "graph_sha256": "e66b575f3ee09bcead5ce00f0efa81a3f64c177e7e1bc2ff422bb945ae4785cf",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--LG21-optional_reporting-threshold_equilibrium_exists_of_crossing.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "8702bacebe691a1cf29f3c8171155b1f3263062d6cf0deae07bd8c519572a2bc"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 1,
+  "nodes": 21,
+  "edges": 20,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

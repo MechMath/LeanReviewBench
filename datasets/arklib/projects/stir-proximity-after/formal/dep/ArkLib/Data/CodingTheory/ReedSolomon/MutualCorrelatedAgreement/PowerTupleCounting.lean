@@ -1,39 +1,246 @@
-/-
-Copyright (c) 2026 ArkLib Contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Quang Dao
--/
 module
 
-public import
-  dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerBatchedComponentRecognition
-public import
-  dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.TupleSpecialization
-public import dep.ArkLib.ToMathlib.MvPolynomial.OptionRoots
+public import Batteries.Control.AlternativeMonad
+public import Batteries.Control.OptionT
+public import Batteries.Data.Fin.Fold
+public import Batteries.Data.Nat.Bitwise.Lemmas
+public import Batteries.Tactic.Lint
+public import Batteries.Tactic.Lint.Basic
+public import Cslib.Foundations.Control.Monad.IsMonadHom
+public import Cslib.Foundations.Control.Monad.IsMonadHom.List
+public import Cslib.Foundations.Data.PFunctor.Free
+public import Cslib.Init
+public import Init.Data.UInt.Lemmas
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Finsupp.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Algebra.CharP.Lemmas
 public import Mathlib.Algebra.CharP.Reduced
-
-/-!
-# Counting admissible Frobenius power tuples
-
-An admissible tuple lies on the initial equation's polynomial graph. Sparse reconstruction makes
-the tuple unique for each graph, so the generic polynomial graph root count bounds every finite
-family of admissible tuples.
-
-## Main statements
-
-* `ReedSolomon.IsAdmissibleFrobeniusPowerTuple`: the initial, sparse, and sampled conditions for a
-  tuple on a Frobenius power graph.
-* `ReedSolomon.IsAdmissibleFrobeniusPowerTuple.specialize`: reconstruction at every regular
-  challenge.
-* `ReedSolomon.IsAdmissibleFrobeniusPowerTuple.eq_of_initialGraph_eq`: uniqueness from the initial
-  graph.
-* `ReedSolomon.admissibleFrobeniusPowerTuples_card_le_degreeOf`: the finite-family root-degree
-  bound.
-
-## References
-
-* [DKT26]
--/
+public import Mathlib.Algebra.Field.Basic
+public import Mathlib.Algebra.Group.Action.Pointwise.Finset
+public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.Submodule.Union
+public import Mathlib.Algebra.MvPolynomial.CommRing
+public import Mathlib.Algebra.MvPolynomial.Degrees
+public import Mathlib.Algebra.MvPolynomial.Equiv
+public import Mathlib.Algebra.MvPolynomial.Eval
+public import Mathlib.Algebra.MvPolynomial.Monad
+public import Mathlib.Algebra.MvPolynomial.PDeriv
+public import Mathlib.Algebra.MvPolynomial.SchwartzZippel
+public import Mathlib.Algebra.MvPolynomial.Variables
+public import Mathlib.Algebra.Order.Antidiag.FinsuppEquiv
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Algebra.Order.BigOperators.Group.List
+public import Mathlib.Algebra.Order.Chebyshev
+public import Mathlib.Algebra.Order.Floor.Div
+public import Mathlib.Algebra.Order.Floor.Semifield
+public import Mathlib.Algebra.Order.Group.Int
+public import Mathlib.Algebra.Order.Ring.GeomSum
+public import Mathlib.Algebra.Order.Ring.Nat
+public import Mathlib.Algebra.Order.Ring.Star
+public import Mathlib.Algebra.Order.Star.Basic
+public import Mathlib.Algebra.Order.Sub.Basic
+public import Mathlib.Algebra.Polynomial.BigOperators
+public import Mathlib.Algebra.Polynomial.Div
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+public import Mathlib.Algebra.Polynomial.Eval.SMul
+public import Mathlib.Algebra.Polynomial.Expand
+public import Mathlib.Algebra.Polynomial.OfFn
+public import Mathlib.Algebra.Polynomial.Roots
+public import Mathlib.Algebra.Polynomial.Taylor
+public import Mathlib.Algebra.Ring.Regular
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Polynomial.Basic
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Basic.ENNReal.Inv
+public import Mathlib.Basic.NNReal.Basic
+public import Mathlib.Basic.NNReal.Defs
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Basic.Real.ENatENNReal
+public import Mathlib.Combinatorics.Enumerative.InclusionExclusion
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Control.Monad.Writer
+public import Mathlib.Data.ENat.Basic
+public import Mathlib.Data.ENat.Defs
+public import Mathlib.Data.ENat.Lattice
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.Fin.Tuple.Take
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Card
+public import Mathlib.Data.Finsupp.Basic
+public import Mathlib.Data.Finsupp.Fin
+public import Mathlib.Data.Finsupp.PWO
+public import Mathlib.Data.Finsupp.Weight
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.Fintype.Order
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Fintype.Vector
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.List.Sym
+public import Mathlib.Data.Nat.Bitwise
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Nat.Cast.Order.Field
+public import Mathlib.Data.Nat.Choose.Dvd
+public import Mathlib.Data.Nat.Choose.Sum
+public import Mathlib.Data.Nat.Digits.Defs
+public import Mathlib.Data.Nat.GCD.Basic
+public import Mathlib.Data.PFunctor.Multivariate.Basic
+public import Mathlib.Data.PFunctor.Univariate.Basic
+public import Mathlib.Data.Rat.Star
+public import Mathlib.Data.Set.Finite.Lattice
+public import Mathlib.Data.Set.Functor
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.FieldTheory.Finiteness
+public import Mathlib.InformationTheory.Hamming
+public import Mathlib.LinearAlgebra.AffineSpace.Combination
+public import Mathlib.LinearAlgebra.AffineSpace.Pointwise
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.LinearAlgebra.FreeModule.StrongRankCondition
+public import Mathlib.LinearAlgebra.Lagrange
+public import Mathlib.LinearAlgebra.Matrix.Rank
+public import Mathlib.LinearAlgebra.StdBasis
+public import Mathlib.Logic.Embedding.Basic
+public import Mathlib.Logic.Equiv.Bool
+public import Mathlib.Logic.Equiv.Fin.Basic
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Sub
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Comap
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.CompletePartialOrder
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Order.Interval.Finset.Nat
+public import Mathlib.Order.Interval.Set.Infinite
+public import Mathlib.Probability.Distributions.Uniform
+public import Mathlib.Probability.UniformOn
+public import Mathlib.RingTheory.Finiteness.Basic
+public import Mathlib.RingTheory.Finiteness.Ideal
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.Ideal.Operations
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+public import Mathlib.RingTheory.Jacobson.Artinian
+public import Mathlib.RingTheory.Localization.Away.Basic
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.MvPolynomial.Groebner
+public import Mathlib.RingTheory.MvPolynomial.Homogeneous
+public import Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex
+public import Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous
+public import Mathlib.RingTheory.Nullstellensatz
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.Polynomial.Basic
+public import Mathlib.RingTheory.Polynomial.DegreeLT
+public import Mathlib.RingTheory.Polynomial.HilbertPoly
+public import Mathlib.RingTheory.RegularLocalRing.Defs
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.DepRewrite
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.IntervalCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.LinearCombination
+public import Mathlib.Tactic.Qify
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Topology.MetricSpace.Infsep
+public import Mathlib.Util.Notation3
+public import Std.Internal.ForIn
+public import dep.ArkLib.Data.CodingTheory.Basic.Distance
+public import dep.ArkLib.Data.CodingTheory.Basic.LinearCode
+public import dep.ArkLib.Data.CodingTheory.Basic.RelativeDistance
+public import dep.ArkLib.Data.CodingTheory.InterleavedCode
+public import dep.ArkLib.Data.CodingTheory.Prelims
+public import dep.ArkLib.Data.CodingTheory.ProximityGenerator.Basic
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerBatchedComponentRecognition
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.MutualCorrelatedAgreement.PowerBatchedPointRecognition
+public import dep.ArkLib.Data.CodingTheory.ReedSolomon.PowerAgreement
+public import dep.ArkLib.Data.Fin.Lift
+public import dep.ArkLib.Data.MvPolynomial.Interpolation
+public import dep.ArkLib.Data.MvPolynomial.Multilinear
+public import dep.ArkLib.Data.Polynomial.Differential.Basic
+public import dep.ArkLib.Data.Polynomial.Differential.JetDegree
+public import dep.ArkLib.Data.Polynomial.Differential.RationalTaylor
+public import dep.ArkLib.Data.Polynomial.Differential.RationalTaylorAlgebra
+public import dep.ArkLib.Data.Polynomial.Differential.TaylorChart
+public import dep.ArkLib.Data.Polynomial.Differential.TaylorChartAlgebra
+public import dep.ArkLib.Data.Polynomial.Differential.TaylorResidual
+public import dep.ArkLib.Data.Polynomial.Differential.Types
+public import dep.ArkLib.Data.Polynomial.TaylorPrefix
+public import dep.ArkLib.ToMathlib.MvPolynomial.ClearedSubstitution
+public import dep.ArkLib.ToMathlib.MvPolynomial.PolynomialCoefficients
+public import dep.ArkLib.ToMathlib.Polynomial.HasseTaylor.FiniteJet
+public import dep.CompPoly.Data.Classes.DCast
+public import dep.PolyFun.Control.Monad.Hom
+public import dep.PolyFun.Control.Monad.Support
+public import dep.PolyFun.Control.Monad.Support.Instances
+public import dep.PolyFun.PFunctor.Basic
+public import dep.PolyFun.PFunctor.Equiv.Basic
+public import dep.PolyFun.PFunctor.Free.Displayed
+public import dep.PolyFun.PFunctor.Free.Path
+public import dep.PolyFun.PFunctor.Free.Support
+public import dep.PolyFun.PFunctor.Handler
+public import dep.PolyFun.PFunctor.Handler.Instrumentation
+public import dep.PolyFun.PFunctor.Lens.Basic
+public import dep.PolyFun.PFunctor.Obj
+public import dep.ToCslib.Data.PFunctor.Free.Basic
+public import dep.ToMathlib.Control.OptionT
+public import dep.ToMathlib.Data.FinEnum
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.MeasurableSpace.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Option
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.Defs.Measure.Failure
+public import dep.VCVio.EvalDist.Defs.Measure.OptionT
+public import dep.VCVio.EvalDist.Defs.Support
+public import dep.VCVio.EvalDist.EvalDistEq
+public import dep.VCVio.EvalDist.PFunctorMeasure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+public import dep.VCVio.OracleComp.Constructions.Replicate.Basic
+public import dep.VCVio.OracleComp.Constructions.SampleableType.Basic
+public import dep.VCVio.OracleComp.EvalDist.AnswerMeasure
+public import dep.VCVio.OracleComp.HasQuery.Basic
+public import dep.VCVio.OracleComp.OracleComp
+public import dep.VCVio.OracleComp.OracleQuery
+public import dep.VCVio.OracleComp.OracleSpec
+public import dep.VCVio.OracleComp.ProbComp.Basic
+public import dep.VCVio.OracleComp.SimSemantics.QueryImpl.Basic
+public import dep.VCVio.OracleComp.Support
+public import dep.dep.CslibCompat.Basic
+public import dep.dep.CslibCompat.Free
 
 @[expose] public section
 
@@ -85,218 +292,6 @@ theorem IsAdmissibleFrobeniusPowerTuple.specialize
       (fun j ↦ (frobeniusPowerGraphMap center (p ^ e) (fun t ↦ (P t).map ι)
         (some j)).eval z) =
       Polynomial.expand E (p ^ e)
-        (powerBatchedPolynomial (fun t ↦ (P t).map ι) (z ^ (p ^ e))) := by
-  obtain ⟨sample, hcard, hsample, hcuts⟩ := hP.sample
-  obtain ⟨R, hRdegree, hRsample, hrecognize⟩ :=
-    exists_frobeniusPowerGraph_of_symbolic_sample domain values sample hcard
-      ι p e roots (fun i hi ↦ hroots i) center Q hK hKk τ hτ
-  have hRP : R = P := polynomialTuple_eq_of_common_samples
-    domain values R P sample hcard.ge hRdegree hP.degree hRsample hsample
-  subst R
-  let graph := frobeniusPowerGraphMap center (p ^ e) (fun t ↦ (P t).map ι)
-  let point : Option (Fin 1) → E := fun i ↦ (graph i).eval z
-  let jet : Fin 1 → E := fun j ↦ point (some j)
-  have hpointNone : point none = z := by
-    simp [point, graph, frobeniusPowerGraphMap]
-  let φ : E[X] →ₐ[E] E := Polynomial.aeval z
-  let Qz : DifferentialPolynomial E 0 := MvPolynomial.map φ.toRingHom Q
-  have hcenter : φ (Polynomial.C center) = center := by simp [φ]
-  have hcenterRing : φ.toRingHom (Polynomial.C center) = center := hcenter
-  have hφ : φ.toRingHom = Polynomial.evalRingHom z := by
-    ext a <;> simp [φ, Polynomial.evalRingHom]
-  have hS_eq : MvPolynomial.aeval point (jointInitialJetSeparant center Q) =
-      MvPolynomial.aeval jet (initialJetSeparant center Qz) := by
-    simpa only [jet, Qz, φ, hpointNone] using
-      aeval_jointInitialJetSeparant center Q point
-  have hEval := MvPolynomial.polynomial_eval_aeval graph z (jointInitialJetSeparant center Q)
-  rw [hEval] at hz
-  have hS_point : MvPolynomial.aeval point (jointInitialJetSeparant center Q) ≠ 0 := by
-    simpa only [MvPolynomial.aeval_eq_eval, Polynomial.eval_zero] using hz
-  have hS_field : MvPolynomial.aeval jet (initialJetSeparant center Qz) ≠ 0 := by
-    rw [← hS_eq]
-    exact hS_point
-  have hS : MvPolynomial.aeval jet (MvPolynomial.map (Polynomial.evalRingHom z)
-      (initialJetSeparant (Polynomial.C center) Q)) ≠ 0 := by
-    rw [← hφ, map_initialJetSeparant]
-    rw [hcenterRing]
-    simpa only [Qz] using hS_field
-  have hsparse : ∀ l : Fin K, ¬p ^ e ∣ l.val →
-      MvPolynomial.aeval jet (MvPolynomial.map (Polynomial.evalRingHom z)
-        (commonTaylorNumeratorOver (F := E) (Polynomial.C center) Q τ l.val)) = 0 := by
-    intro l hl
-    have hz' := congrArg (fun f : E[X] ↦ f.eval z) (hP.sparse l hl)
-    have hEval := MvPolynomial.polynomial_eval_aeval graph z
-      (jointCommonTaylorNumerator center Q τ l)
-    rw [hEval] at hz'
-    have hz'' : MvPolynomial.aeval point (jointCommonTaylorNumerator center Q τ l) = 0 := by
-      simpa only [MvPolynomial.aeval_eq_eval, Polynomial.eval_zero] using hz'
-    have hnum_eq : MvPolynomial.aeval point (jointCommonTaylorNumerator center Q τ l) =
-        MvPolynomial.aeval jet (commonTaylorNumerator center Qz τ l.val) := by
-      simpa only [jet, Qz, φ, hpointNone] using
-        aeval_jointCommonTaylorNumerator center Q τ l point
-    rw [hnum_eq] at hz''
-    rw [← hφ, map_commonTaylorNumeratorOver_eq, hcenter]
-    simpa only [Qz] using hz''
-  have hcuts' : ∀ i ∈ sample,
-      MvPolynomial.aeval jet (MvPolynomial.map (Polynomial.evalRingHom z)
-        (taylorAgreementEquationOver (F := E) (Polynomial.C center) Q K
-          (Polynomial.C (roots i))
-          (frobeniusPowerCoordinate (p ^ e) (fun t ↦ ι (values t i)))
-          (τ := τ))) = 0 := by
-    intro i hi
-    have hz' := congrArg (fun f : E[X] ↦ f.eval z) (hcuts i hi)
-    have hEval := MvPolynomial.polynomial_eval_aeval graph z
-      (jointTaylorAgreementEquation center Q K τ (Polynomial.C (roots i))
-        (frobeniusPowerCoordinate (p ^ e) (fun t ↦ ι (values t i))))
-    rw [hEval] at hz'
-    have hz'' : MvPolynomial.aeval point (jointTaylorAgreementEquation center Q K τ
-        (Polynomial.C (roots i))
-        (frobeniusPowerCoordinate (p ^ e) (fun t ↦ ι (values t i)))) = 0 := by
-      simpa only [MvPolynomial.aeval_eq_eval, Polynomial.eval_zero] using hz'
-    have hagree_eq : MvPolynomial.aeval point (jointTaylorAgreementEquation center Q K τ
-        (Polynomial.C (roots i))
-        (frobeniusPowerCoordinate (p ^ e) (fun t ↦ ι (values t i)))) =
-        MvPolynomial.aeval jet (taylorAgreementEquation center Qz K τ (roots i)
-          (Polynomial.eval z (frobeniusPowerCoordinate (p ^ e)
-            (fun t ↦ ι (values t i))))) := by
-      simpa only [jet, Qz, φ, hpointNone, Polynomial.eval_C] using
-        aeval_jointTaylorAgreementEquation center Q K τ (Polynomial.C (roots i))
-          (frobeniusPowerCoordinate (p ^ e) (fun t ↦ ι (values t i))) point
-    rw [hagree_eq] at hz''
-    have hmap : MvPolynomial.map (Polynomial.evalRingHom z)
-        (taylorAgreementEquationOver (F := E) (Polynomial.C center) Q K
-          (Polynomial.C (roots i))
-          (frobeniusPowerCoordinate (p ^ e) (fun t ↦ ι (values t i))) (τ := τ)) =
-        taylorAgreementEquation center Qz K τ (roots i)
-          (Polynomial.eval z (frobeniusPowerCoordinate (p ^ e)
-            (fun t ↦ ι (values t i)))) := by
-      rw [← hφ, map_taylorAgreementEquationOver_eq (τ := τ)]
-      simp [φ, hcenter, Qz]
-    rw [hmap]
-    exact hz''
-  simpa only [jet, point, graph] using (hrecognize z jet hS hsparse hcuts').1
-
-/-- Equality of initial graphs determines admissible power tuples. -/
-theorem IsAdmissibleFrobeniusPowerTuple.eq_of_initialGraph_eq [Infinite E]
-    {domain : α ↪ F} {values : Fin (ℓ + 1) → α → F} {ι : F →+* E}
-    {roots : α → E} {center : E} {Q : DifferentialPolynomial E[X] 0}
-    {τ p e : ℕ} [ExpChar E p] {P R : Fin (ℓ + 1) → F[X]}
-    (hP : IsAdmissibleFrobeniusPowerTuple
-      domain values ι roots center Q K k τ (p ^ e) P)
-    (hR : IsAdmissibleFrobeniusPowerTuple
-      domain values ι roots center Q K k τ (p ^ e) R)
-    (hroots : ∀ i, roots i ^ (p ^ e) = ι (domain i))
-    (hK : 0 < K) (hKk : K ≤ p ^ e * k) (hτ : TaylorExponentSufficient 0 K τ)
-    (hgraph : frobeniusPowerInitialGraph center (p ^ e) (fun t ↦ (P t).map ι) =
-      frobeniusPowerInitialGraph center (p ^ e) (fun t ↦ (R t).map ι)) : P = R := by
-  let graphP := frobeniusPowerGraphMap center (p ^ e) (fun t ↦ (P t).map ι)
-  let graphR := frobeniusPowerGraphMap center (p ^ e) (fun t ↦ (R t).map ι)
-  let sep := aeval graphP (jointInitialJetSeparant center Q)
-  have hinfinite : {z : E | sep.eval z ≠ 0}.Infinite :=
-    (Set.infinite_univ.sdiff (Polynomial.finite_setOfPred_isRoot hP.regular)).mono
-      (fun _ hz ↦ hz.2)
-  have hs : 0 < p ^ e := pow_pos (expChar_pos E p) e
-  have hgraphs : graphP = graphR := by
-    funext i
-    cases i with
-    | none => rfl
-    | some i =>
-      have hi : i = 0 := Subsingleton.elim _ _
-      subst i
-      exact congrFun hgraph 0
-  have heq (z : E) (hz : sep.eval z ≠ 0) :
-      powerBatchedPolynomial (fun t ↦ (P t).map ι) (z ^ (p ^ e)) =
-        powerBatchedPolynomial (fun t ↦ (R t).map ι) (z ^ (p ^ e)) := by
-    apply Polynomial.expand_injective hs
-    let jetP : Fin 1 → E := fun j ↦ (graphP (some j)).eval z
-    let jetR : Fin 1 → E := fun j ↦ (graphR (some j)).eval z
-    let T : (Fin 1 → E) → E[X] := fun jet ↦
-      rationalTaylorPolynomial center (MvPolynomial.map (Polynomial.evalRingHom z) Q) K jet
-    have hjet : jetP = jetR := by
-      funext j
-      exact congrArg (fun f : E[X] ↦ f.eval z) (congrFun hgraphs (some j))
-    have hT := congrArg T hjet
-    have hPspec : T jetP =
-        Polynomial.expand E (p ^ e)
-          (powerBatchedPolynomial (fun t ↦ (P t).map ι) (z ^ (p ^ e))) := by
-      simpa only [T, jetP, graphP] using hP.specialize hroots hK hKk hτ z
-        (by simpa [sep, graphP] using hz)
-    have hzR : (aeval graphR (jointInitialJetSeparant center Q)).eval z ≠ 0 := by
-      simpa [sep, graphP, graphR, hgraphs] using hz
-    have hRspec : T jetR =
-        Polynomial.expand E (p ^ e)
-          (powerBatchedPolynomial (fun t ↦ (R t).map ι) (z ^ (p ^ e))) := by
-      simpa only [T, jetR, graphR] using hR.specialize hroots hK hKk hτ z hzR
-    have hExpanded :
-        Polynomial.expand E (p ^ e)
-          (powerBatchedPolynomial (fun t ↦ (P t).map ι) (z ^ (p ^ e))) =
-        Polynomial.expand E (p ^ e)
-          (powerBatchedPolynomial (fun t ↦ (R t).map ι) (z ^ (p ^ e))) :=
-      hPspec.symm.trans (hT.trans hRspec)
-    exact hExpanded
-  have hpow_inj : Function.Injective (fun z : E ↦ z ^ (p ^ e)) := by
-    intro x y hxy
-    apply iterateFrobenius_inj E p e
-    simpa only [iterateFrobenius_def] using hxy
-  have hpowered : {w : E | ∃ z, sep.eval z ≠ 0 ∧ w = z ^ (p ^ e)}.Infinite := by
-    have himage : ((fun z : E ↦ z ^ (p ^ e)) '' {z : E | sep.eval z ≠ 0}).Infinite :=
-      hinfinite.image hpow_inj.injOn
-    apply himage.mono
-    rintro w ⟨z, hz, rfl⟩
-    exact ⟨z, hz, rfl⟩
-  have hspecializations :
-      {w : E | powerBatchedPolynomial (fun t ↦ (P t).map ι) w =
-        powerBatchedPolynomial (fun t ↦ (R t).map ι) w}.Infinite := by
-    apply hpowered.mono
-    rintro w ⟨z, hz, rfl⟩
-    exact heq z hz
-  exact polynomialTuple_eq_of_infinite_specializations ι P R hspecializations
-
-/-- The graph-coordinate degree of the nonzero initial equation bounds every finite family of
-admissible Frobenius power tuples. -/
-theorem admissibleFrobeniusPowerTuples_card_le_degreeOf [Infinite E]
-    (domain : α ↪ F) (values : Fin (ℓ + 1) → α → F) (ι : F →+* E)
-    (roots : α → E) (center : E) (Q : DifferentialPolynomial E[X] 0)
-    (p e τ : ℕ) [ExpChar E p]
-    (hroots : ∀ i, roots i ^ (p ^ e) = ι (domain i))
-    (hK : 0 < K) (hKk : K ≤ p ^ e * k) (hτ : TaylorExponentSufficient 0 K τ)
-    (hinit : jointInitialJetEquation center Q ≠ 0)
-    (tuples : Finset (Fin (ℓ + 1) → F[X]))
-    (htuples : ∀ P ∈ tuples,
-      IsAdmissibleFrobeniusPowerTuple
-        domain values ι roots center Q K k τ (p ^ e) P) :
-    tuples.card ≤ (jointInitialJetEquation center Q).degreeOf (some 0) := by
-  classical
-  let graph : (Fin (ℓ + 1) → F[X]) → E[X] := fun P ↦
-    frobeniusPowerInitialGraph center (p ^ e) (fun t ↦ (P t).map ι) 0
-  have hinj : Set.InjOn graph (tuples : Set (Fin (ℓ + 1) → F[X])) := by
-    intro P hP R hR heq
-    have hgraphs :
-        frobeniusPowerInitialGraph center (p ^ e) (fun t ↦ (P t).map ι) =
-          frobeniusPowerInitialGraph center (p ^ e) (fun t ↦ (R t).map ι) := by
-      funext j
-      have hj : j = 0 := Subsingleton.elim _ _
-      subst j
-      exact heq
-    exact (htuples P hP).eq_of_initialGraph_eq (htuples R hR)
-      hroots hK hKk hτ hgraphs
-  have hcount := MvPolynomial.card_le_degreeOf_some_of_aeval_eq_zero
-    (R := E) (ι := Fin 1) (g := jointInitialJetEquation center Q) hinit
-    (tuples.image graph) (by
-      intro q hq
-      obtain ⟨P, hP, rfl⟩ := Finset.mem_image.mp hq
-      have hgraph :
-          frobeniusPowerGraphMap center (p ^ e) (fun t ↦ (P t).map ι) =
-            fun o ↦ o.elim Polynomial.X fun _ ↦ graph P := by
-        funext o
-        cases o with
-        | none => rfl
-        | some j =>
-          have hj : j = 0 := Subsingleton.elim _ _
-          subst j
-          rfl
-      rw [← hgraph]
-      exact (htuples P hP).initial)
-  rwa [Finset.card_image_of_injOn hinj] at hcount
+        (powerBatchedPolynomial (fun t ↦ (P t).map ι) (z ^ (p ^ e))) := sorry
 
 end ReedSolomon

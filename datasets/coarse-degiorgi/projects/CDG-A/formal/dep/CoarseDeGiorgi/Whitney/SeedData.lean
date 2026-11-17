@@ -1,19 +1,70 @@
 module
 
-public import dep.CoarseDeGiorgi.Whitney.SeedRefinement
-public import Mathlib.Topology.Algebra.Support
-public import dep.CoarseDeGiorgi.Foundations.Triadic.WhitneyCubesProof
-public import dep.CoarseDeGiorgi.Statements.CubeSurface
-public import dep.CoarseDeGiorgi.Statements.SurfaceMeasure
-public import dep.CoarseDeGiorgi.Statements.EuclidDist
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.Archimedean.Basic
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.Floor.Ring
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Fin.Tuple.Sort
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Fintype.Pi
+public import Mathlib.Data.Int.Interval
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Nat.Find
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.Measure
 public import Mathlib.MeasureTheory.Integral.Bochner.Set
-
-/-!
-# Exterior cells of the selected Whitney cubes
-
-The coordinate projection onto the closed reference cube, and the exterior cells (the child Kuhn
-simplices of the selected Whitney cubes) with their centers, side lengths and levels.
--/
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Push
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.Constructions
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.Algebra.InfiniteSum.Order
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.HausdorffDistance
+public import Mathlib.Topology.Order.Compact
+public import dep.CoarseDeGiorgi.Statements.ClosedReferenceCube
+public import dep.CoarseDeGiorgi.Statements.ClosedTriadicCube
+public import dep.CoarseDeGiorgi.Statements.CubeFaceMeasure
+public import dep.CoarseDeGiorgi.Statements.FaceCoordinateMeasures
+public import dep.CoarseDeGiorgi.Statements.FivefoldClosedTriadicCube
+public import dep.CoarseDeGiorgi.Statements.SurfaceMeasure
+public import dep.CoarseDeGiorgi.Statements.TriadicCenter
+public import dep.CoarseDeGiorgi.Statements.WhitneyAdmissible
+public import dep.CoarseDeGiorgi.Statements.WhitneyCubes
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Sobolev.L2Ambient
 
 @[expose] public section
 
@@ -25,39 +76,12 @@ noncomputable section
 
 variable {d : ℕ}
 
-/-- Coordinate projection onto the closed reference cube. -/
-def seedProjection (τ : ℝ) (x : Vec d) : Vec d :=
-  fun i => max (-τ / 2) (min (x i) (τ / 2))
-
-theorem seedProjection_coordinate_bound {τ : ℝ} (hτ : 0 ≤ τ) (x : Vec d) (i : Fin d) :
-    |seedProjection τ x i| ≤ τ / 2 := by
-  change |max (-τ / 2) (min (x i) (τ / 2))| ≤ τ / 2
-  apply abs_le.mpr
-  constructor
-  · simpa only [neg_div] using le_max_left (-τ / 2) (min (x i) (τ / 2))
-  · exact max_le (by linarith only [hτ]) (min_le_right _ _)
-
 /-- A child Kuhn simplex of a selected cube; activity is a separate predicate. -/
 structure SeedCell (d : ℕ) where
   cube : TriadicCube d
   bins : Fin d → Fin 3
   order : Equiv.Perm (Fin d)
 
-/-- The center of the child cube carrying an exterior cell. -/
-def seedCellCenter (cell : SeedCell d) : Vec d :=
-  Foundations.Simplex.fineCubeCenter cell.cube.scale (triadicCenter cell.cube) cell.bins
-
-/-- Side length of the child cube, rather than the selected parent. -/
-def seedCellScale (cell : SeedCell d) : ℝ := (3 : ℝ) ^ (cell.cube.scale - 1)
-
-/-- Exterior cell of `e.whitney.simplex.size`. -/
-def seedCellSet (cell : SeedCell d) : Set (Vec d) :=
-  Foundations.Simplex.kuhnSimplex (cell.cube.scale - 1) cell.order (seedCellCenter cell)
-
-/-- Integer level; activity will force the nonnegative levels used in the source. -/
-def seedCellLevel (cell : SeedCell d) : ℤ := 1 - cell.cube.scale
-
 end
 
 end CoarseDeGiorgi.Whitney
-

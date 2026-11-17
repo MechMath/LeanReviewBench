@@ -6,6 +6,7 @@ public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 @[expose] public section
 
 open MeasureTheory
+
 open scoped BigOperators ENNReal
 
 namespace CoarseDeGiorgi

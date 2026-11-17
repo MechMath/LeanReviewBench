@@ -1,16 +1,54 @@
 import Mathlib
-
-import dep.GCG24UserItemFairness.ProofBridge
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Analysis.Convex.StdSimplex
+import Mathlib.Data.Fin.Basic
+import Mathlib.Data.Finset.Lattice.Basic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Finset.Sum
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.List.GetD
+import Mathlib.Data.List.Sort
+import Mathlib.Data.Real.Basic
+import Mathlib.Probability.ProbabilityMassFunction.Constructions
+import Mathlib.Probability.ProbabilityMassFunction.Integrals
+import Mathlib.Probability.ProbabilityMassFunction.Monad
+import Mathlib.Tactic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Topology.Algebra.Module.Basic
+import Mathlib.Topology.Order.Compact
+import Mathlib.Topology.Order.IntermediateValue
+import dep.EconCSLib.Applications.RecommenderSystems.Classwise
+import dep.EconCSLib.Applications.RecommenderSystems.Policy
+import dep.EconCSLib.Foundations.Math.FiniteOptimization
+import dep.EconCSLib.Foundations.Probability.FiniteExpectation
+import dep.GCG24UserItemFairness.Basic
+import dep.GCG24UserItemFairness.LPReduction
+import dep.GCG24UserItemFairness.OpposingTypes
+import dep.GCG24UserItemFairness.Optimization
+import dep.GCG24UserItemFairness.Symmetry
 
 namespace GCG24UserItemFairness
 
 namespace PaperInterface
 
 open scoped BigOperators
-open GCG24UserItemFairness.ProofBridge
+
+
+
 noncomputable section
 
-/- Source-facing semantic target for the definition `recommendationUtility`. -/
 def theorem3_price_decreases_first_halfSpec
     {m n : ℕ} [NeZero m] [NeZero n]
     (S S' : RecommendationModel.SymmetricData m n 2)
@@ -31,8 +69,8 @@ def theorem3_price_decreases_first_halfSpec
   RecommendationModel.priceOfFairness S'.model ≤
     RecommendationModel.priceOfFairness S.model
 
-/- Source-facing semantic target for `theorem3_price_increases_second_half`. -/
 end
 
 end PaperInterface
+
 end GCG24UserItemFairness

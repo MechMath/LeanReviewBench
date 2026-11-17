@@ -1,52 +1,47 @@
 {
-  "schema_version": "paperlean-stacks-admission-receipt-1",
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "stacks",
+  "project_id": "STK-09Y5-after",
   "status": "passed",
-  "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
-  "root": "LocallyClosedPartition.exists_finite_good_refinement",
-  "source_revision": "e420713207f0a6682a65b2171362b77f2d217fa4",
-  "lean_version": "4.34.1",
+  "evidence": "compiled_environment",
+  "roots": [
+    "LocallyClosedPartition.exists_finite_good_refinement"
+  ],
+  "input_sha256": "0851c64fbddc357753a1397a4f10730c4bec75a16cb51ec6f7528309d1290e86",
+  "graph_sha256": "b497eaa33d61a93e0f16ed8c76273a74c86308b8c8a89aa1cd1c0f6cb085fd99",
+  "graph_path": "metadata/derived-graphs/graphs/stacks--STK-09Y5-after.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "mathlib_source_pin_verified": true,
-  "modules": 5,
-  "commands": [
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
     [
-      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
-      "-o",
-      "dep/ReasLib/Topology/Stratification/Partition.olean",
-      "dep/ReasLib/Topology/Stratification/Partition.lean"
+      "formal/Main.lean",
+      "fa53f9cfadf25350b3ed8585f3cede44f55b201c775ce579017e51b92e898cef"
     ],
     [
-      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
-      "-o",
-      "dep/ReasLib/Topology/Stratification/Good.olean",
-      "dep/ReasLib/Topology/Stratification/Good.lean"
+      "formal/dep/ReasLib/Topology/Stratification/Good.lean",
+      "341d6f6efac3a3f86c31f9568a5ea2222e1c71f349f3d5e8390893b1c8cc08b7"
     ],
     [
-      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
-      "-o",
-      "dep/ReasLib/Topology/Stratification/Indexed.olean",
-      "dep/ReasLib/Topology/Stratification/Indexed.lean"
+      "formal/dep/ReasLib/Topology/Stratification/Indexed.lean",
+      "6e2b2b505bfdca5aad9a4ee093adca4857b521e06b7b613d4c5b5ed38ca93255"
     ],
     [
-      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
-      "-o",
-      "dep/ReasLib/Topology/Stratification/Initial.olean",
-      "dep/ReasLib/Topology/Stratification/Initial.lean"
-    ],
-    [
-      "/home/reed/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
-      "-o",
-      "Main.olean",
-      "Main.lean"
+      "formal/dep/ReasLib/Topology/Stratification/Partition.lean",
+      "28eef82bdbb68b0a6c04f8437603aaa6cd0591a15c762e2a5d0294ecc9da1ffd"
     ]
   ],
-  "new_sorry_or_axioms": false,
-  "original_theorem_proof_certified": false,
-  "original_holes_preserved": true,
-  "declaration_types_and_definition_values_equal": true,
-  "dependency_edges_equal": true,
-  "root_axioms_equal": true,
-  "graph_sha256": "9538810b22ee6f63d8ce94559b66102b771aabb532b17a7a9e587c045d80cf96",
-  "explicit_graph_sha256": "525edf77de37d93f8e389516eb3a89cc23d414156ac09fb17b37daef199f67cc",
-  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1"
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 4,
+  "nodes": 36,
+  "edges": 84,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
 }

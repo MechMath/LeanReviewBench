@@ -29,7 +29,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "原文前提为 (X,Z) 与 Y 独立，formal 前提为 (X,Y) 与 Z 独立；它们不是同一命题，也不能通过变量改名同时保持原不等式中的减项。",
   "external_imports": [
     "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
     "Mathlib.Data.Finset.Pairwise",
@@ -72,8 +71,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 35,
-    "sha256": "effe3868ca4a4cfa529e96cd4f6655b53c03e928d48fe71103c877ee06a7dda6"
+    "file_count": 15,
+    "sha256": "993197138a2a7fcb7701378d7bce9707009d88fd97a49253387484dd043c8d41",
+    "effective_root_sha256": "deab17c6313b294c2b2c2722328db1c8278daa5a3d1788cb5f60e600091f6c68",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pfr-repair/repaired/pr48-after/20261104T091621952633Z/receipt.json",
@@ -103,8 +105,8 @@
     "review": "reports/pfr-admission/review.json",
     "approach": "historical_statement_with_kernel_checked_bridge"
   },
-  "input_sha256": "111f13fdbc4792a7c6db4a2b16bf4186f7b7f6cf51528c9ebd018017d9924538",
+  "input_sha256": "69c873fd6a10f3271f952d0e570430857063f7181dbdf833007a62ef0dbac943",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pfr.jsonl"
 }

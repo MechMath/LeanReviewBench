@@ -1,12 +1,105 @@
 module
 
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.PiProd
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Basic
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Topology.Order.Compact
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
 public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.NormalizedNorms
 public import dep.Homogenization.PDE.Harmonic
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.CoerciveHilbert
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Preliminaries
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.Basic
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.RieszPowerMean
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.SegmentChangeOfVariables
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.TimeCollapse
+public import dep.Homogenization.Sobolev.Foundations.PoincareMeanZero
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.PotentialSolenoidal
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
 
 @[expose] public section
 
 namespace Homogenization
+
 namespace Book
+
 namespace Ch02
 
 noncomputable section
@@ -22,27 +115,13 @@ namespace Domain
 instance {d : ℕ} : Coe (Domain d) (Set (Vec d)) where
   coe U := U.carrier
 
-@[simp] theorem coe_mk {d : ℕ} (U : Set (Vec d))
-    (hU : IsOpenBoundedConvexDomain U) (hne : U.Nonempty) :
-    ((Domain.mk U hU hne : Domain d) : Set (Vec d)) = U :=
-  rfl
-
-theorem isOpen {d : ℕ} (U : Domain d) : IsOpen (U : Set (Vec d)) :=
-  U.isDomain.isOpen
-
 theorem isBoundedDomain {d : ℕ} (U : Domain d) :
-    IsBoundedDomain (U : Set (Vec d)) :=
-  U.isDomain.isBoundedDomain
+    IsBoundedDomain (U : Set (Vec d)) := sorry
 
-theorem convex {d : ℕ} (U : Domain d) : Convex ℝ (U : Set (Vec d)) :=
-  U.isDomain.convex
-
-theorem measurableSet {d : ℕ} (U : Domain d) : MeasurableSet (U : Set (Vec d)) :=
-  U.isOpen.measurableSet
+theorem measurableSet {d : ℕ} (U : Domain d) : MeasurableSet (U : Set (Vec d)) := sorry
 
 instance instIsFiniteMeasureVolumeMeasureOn {d : ℕ} (U : Domain d) :
-    MeasureTheory.IsFiniteMeasure (volumeMeasureOn (U : Set (Vec d))) := by
-  simpa [volumeMeasureOn] using U.isDomain.isFiniteMeasure_restrict_volume
+    MeasureTheory.IsFiniteMeasure (volumeMeasureOn (U : Set (Vec d))) := sorry
 
 end Domain
 
@@ -73,8 +152,7 @@ instance {d : ℕ} {U : Domain d} : CoeFun (CoeffOn U) (fun _ => CoeffField d) w
   coe a := a.toCoeffField
 
 theorem measurableSet {d : ℕ} {U : Domain d} (_a : CoeffOn U) :
-    MeasurableSet (U : Set (Vec d)) :=
-  U.measurableSet
+    MeasurableSet (U : Set (Vec d)) := sorry
 
 /-- Public adjoint coefficient field `a^t`, still as an a.e. coefficient object
 on the same Chapter 2 domain. -/
@@ -84,43 +162,13 @@ noncomputable def transpose {d : ℕ} {U : Domain d} (a : CoeffOn U) : CoeffOn U
   Lam := a.Lam
   lam_pos := a.lam_pos
   lam_le_Lam := a.lam_le_Lam
-  aeStronglyMeasurable := by
-    intro i j
-    have h := a.aeStronglyMeasurable j i
-    have hcoord :
-        (fun x : Vec d =>
-            restrictCoeffField (U : Set (Vec d))
-              (fun y => matTranspose (a.toCoeffField y)) x i j) =
-          fun x : Vec d =>
-            restrictCoeffField (U : Set (Vec d)) a.toCoeffField x j i := by
-      funext x
-      by_cases hx : x ∈ (U : Set (Vec d)) <;>
-        simp [restrictCoeffField, matTranspose, hx]
-    simpa [hcoord] using h
-  aeElliptic := by
-    exact a.aeElliptic.mono fun x hx => isEllipticMatrix_transpose hx
-
-@[simp] theorem transpose_apply {d : ℕ} {U : Domain d} (a : CoeffOn U)
-    (x : Vec d) :
-    a.transpose.toCoeffField x = matTranspose (a.toCoeffField x) :=
-  rfl
+  aeStronglyMeasurable := sorry
+  aeElliptic := sorry
 
 /-- Equality of public coefficient fields is equality of representatives almost
 everywhere on the public domain. -/
 def AEEq {d : ℕ} {U : Domain d} (a b : CoeffOn U) : Prop :=
   a.toCoeffField =ᵐ[volumeMeasureOn (U : Set (Vec d))] b.toCoeffField
-
-/-- Public a.e. symmetry predicate for coefficient representatives.
-
-The Chapter 2 public layer deliberately does not use pointwise symmetry as a
-theorem hypothesis. -/
-def IsSymmetric {d : ℕ} {U : Domain d} (a : CoeffOn U) : Prop :=
-  ∀ᵐ x ∂ volumeMeasureOn (U : Set (Vec d)), (a.toCoeffField x).IsSymm
-
-/-- `b` is the a.e. scalar rescaling `c a` on the public domain. -/
-def AEScaled {d : ℕ} {U : Domain d} (c : ℝ) (a b : CoeffOn U) : Prop :=
-  b.toCoeffField =ᵐ[volumeMeasureOn (U : Set (Vec d))]
-    fun x => c • a.toCoeffField x
 
 /-- `b` is the restriction of `a` to a smaller public domain, modulo null sets.
 
@@ -131,29 +179,10 @@ def RestrictsTo {d : ℕ} {U V : Domain d} (a : CoeffOn U) (b : CoeffOn V) : Pro
 
 namespace AEEq
 
-theorem refl {d : ℕ} {U : Domain d} (a : CoeffOn U) : AEEq a a :=
-  Filter.EventuallyEq.rfl
-
-theorem symm {d : ℕ} {U : Domain d} {a b : CoeffOn U}
-    (h : AEEq a b) : AEEq b a :=
-  Filter.EventuallyEq.symm h
-
-theorem trans {d : ℕ} {U : Domain d} {a b c : CoeffOn U}
-    (hab : AEEq a b) (hbc : AEEq b c) : AEEq a c :=
-  Filter.EventuallyEq.trans hab hbc
-
 end AEEq
 
 theorem AEEq.transpose {d : ℕ} {U : Domain d} {a b : CoeffOn U}
-    (h : AEEq a b) : AEEq a.transpose b.transpose :=
-  h.mono fun x hx => by
-    simp [hx]
-
-theorem transpose_transpose_aeeq {d : ℕ} {U : Domain d} (a : CoeffOn U) :
-    AEEq a.transpose.transpose a := by
-  exact Filter.Eventually.of_forall fun x => by
-    ext i j
-    simp [matTranspose]
+    (h : AEEq a b) : AEEq a.transpose b.transpose := sorry
 
 end CoeffOn
 
@@ -170,69 +199,14 @@ def SameGradientAE {d : ℕ} {U : Domain d} {a : CoeffOn U}
 
 namespace SameGradientAE
 
-theorem refl {d : ℕ} {U : Domain d} {a : CoeffOn U} (u : Solution U a) :
-    SameGradientAE u u :=
-  Filter.EventuallyEq.rfl
-
-theorem symm {d : ℕ} {U : Domain d} {a : CoeffOn U} {u v : Solution U a}
-    (h : SameGradientAE u v) : SameGradientAE v u :=
-  Filter.EventuallyEq.symm h
-
-theorem trans {d : ℕ} {U : Domain d} {a : CoeffOn U} {u v w : Solution U a}
-    (huv : SameGradientAE u v) (hvw : SameGradientAE v w) : SameGradientAE u w :=
-  Filter.EventuallyEq.trans huv hvw
-
 end SameGradientAE
 
-/-- Transport a solution across a change of coefficient representative on a null set. -/
-def ofAEEq {d : ℕ} {U : Domain d} {a b : CoeffOn U}
-    (h : CoeffOn.AEEq a b) (u : Solution U a) : Solution U b where
-  toH1 := u.toH1
-  isHarmonic := by
-    rcases u.isHarmonic with ⟨hpot, hsol⟩
-    refine ⟨hpot, ?_⟩
-    intro φ
-    calc
-      ∫ x in (U : Set (Vec d)),
-          vecDot (matVecMul (b.toCoeffField x) (u.toH1.grad x))
-            (φ.toH1Function.grad x) ∂MeasureTheory.volume
-          = ∫ x in (U : Set (Vec d)),
-              vecDot (matVecMul (a.toCoeffField x) (u.toH1.grad x))
-                (φ.toH1Function.grad x) ∂MeasureTheory.volume := by
-              refine MeasureTheory.integral_congr_ae ?_
-              exact h.symm.mono fun x hx => by
-                simp [hx]
-      _ = 0 := hsol φ
-
-@[simp] theorem toH1_ofAEEq {d : ℕ} {U : Domain d} {a b : CoeffOn U}
-    (h : CoeffOn.AEEq a b) (u : Solution U a) :
-    (ofAEEq h u).toH1 = u.toH1 :=
-  rfl
-
-@[simp] theorem ofAEEq_refl {d : ℕ} {U : Domain d} {a : CoeffOn U}
-    (u : Solution U a) :
-    ofAEEq (CoeffOn.AEEq.refl a) u = u :=
-  rfl
-
-theorem sameGradientAE_ofAEEq {d : ℕ} {U : Domain d} {a b : CoeffOn U}
-    (h : CoeffOn.AEEq a b) {u v : Solution U a}
-    (huv : SameGradientAE u v) : SameGradientAE (ofAEEq h u) (ofAEEq h v) :=
-  huv
-
 end Solution
-
-/-- Public Chapter 2 notation for the adjoint solution space `A*(U; a)`. -/
-abbrev AdjointSolution {d : ℕ} (U : Domain d) (a : CoeffOn U) :=
-  AStarHarmonicFunction (U : Set (Vec d)) a.toCoeffField
-
-/-- The zero solution, used to show that the response supremum is over a
-nonempty set. -/
-def zeroSolution {d : ℕ} (U : Domain d) (a : CoeffOn U) : Solution U a where
-  toH1 := 0
-  isHarmonic := isAHarmonicGradient_zero
 
 end
 
 end Ch02
+
 end Book
+
 end Homogenization

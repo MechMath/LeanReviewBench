@@ -1,20 +1,7 @@
-/-
-Copyright (c) 2026 Zichen Wang, Zaiwen Wen. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Zichen Wang, Zaiwen Wen
--/
-
 module
 
-public import Mathlib.Topology.Sober
 public import Mathlib.Tactic.CrossRefAttribute
-
-/-!
-# Topological Sums
-
-Reflection of separation and sobriety obstructions along the two canonical
-summand embeddings.
--/
+public import Mathlib.Topology.Sober
 
 @[expose] public section
 

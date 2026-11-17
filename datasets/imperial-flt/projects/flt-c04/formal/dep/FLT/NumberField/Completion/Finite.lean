@@ -1,25 +1,29 @@
-/-
-Copyright (c) 2025 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard
--/
 module
 
-public import Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import Mathlib.Algebra.Group.Int.TypeTags
+public import Mathlib.Analysis.Normed.Ring.Lemmas
+public import Mathlib.Data.Rat.Encodable
+public import Mathlib.LinearAlgebra.Countable
 public import Mathlib.LinearAlgebra.FreeModule.IdealQuotient
-public import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
-import dep.FLT.DedekindDomain.AdicValuation
-import dep.FLT.Mathlib.Topology.Algebra.Valued.WithZeroMulInt
-import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
-import Mathlib.NumberTheory.Padics.HeightOneSpectrum
-import Mathlib.NumberTheory.Padics.ProperSpace
+public import Mathlib.NumberTheory.NumberField.Basic
+public import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
+public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
+public import Mathlib.NumberTheory.Padics.ProperSpace
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient
+public import Mathlib.RingTheory.Ideal.Quotient.Defs
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+public import Mathlib.RingTheory.Valuation.Discrete.Basic
+public import Mathlib.RingTheory.Valuation.Discrete.RankOne
+public import Mathlib.Topology.Algebra.Valued.ValuationTopology
+public import Mathlib.Topology.Algebra.Valued.ValuedField
+public import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
+public import Mathlib.Topology.Path
+public import dep.FLT.DedekindDomain.AdicValuation
 public import dep.FLT.Mathlib.LinearAlgebra.Countable
-
-/-!
-
-# Completion of a number field at a finite place
-
--/
+public import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
 
 @[expose] public section
 
@@ -27,54 +31,30 @@ variable (K : Type*) [Field K] [NumberField K]
 
 open NumberField
 
-example (I : Ideal (𝓞 K)) (hI : I ≠ 0) : Finite ((𝓞 K) ⧸ I) :=
-  Ideal.finiteQuotientOfFreeOfNeBot I hI
-
 open IsDedekindDomain
 
 variable (v : HeightOneSpectrum (𝓞 K))
 
 open IsLocalRing
 
+include v in
 instance NumberField.instFiniteResidueFieldAdicCompletionIntegers :
-    Finite (ResidueField (v.adicCompletionIntegers K)) := by
-  apply (HeightOneSpectrum.ResidueFieldEquivCompletionResidueField K v).toEquiv.finite_iff.mp
-  exact Ideal.finiteQuotientOfFreeOfNeBot v.asIdeal v.ne_bot
+    Finite (ResidueField (v.adicCompletionIntegers K)) := sorry
 
 open scoped Valued in
-instance : Finite (𝓀[v.adicCompletion K]) :=
-  inferInstanceAs (Finite (ResidueField (v.adicCompletionIntegers K)))
+instance : Finite (𝓀[v.adicCompletion K]) := sorry
 
 instance NumberField.instCompactSpaceAdicCompletionIntegers :
-    CompactSpace (v.adicCompletionIntegers K) :=
-  Valued.WithZeroMulInt.integer_compactSpace (v.adicCompletion K) inferInstance
-    (v.valuedAdicCompletion_surjective K)
-
-lemma NumberField.isCompact_adicCompletionIntegers :
-    IsCompact (v.adicCompletionIntegers K : Set (v.adicCompletion K)) := by
-  rw [isCompact_iff_compactSpace]
-  exact instCompactSpaceAdicCompletionIntegers K v
+    CompactSpace (v.adicCompletionIntegers K) := sorry
 
 lemma NumberField.isOpenAdicCompletionIntegers :
-    IsOpen (v.adicCompletionIntegers K : Set (v.adicCompletion K)) :=
-  Valued.isOpen_valuationSubring _
+    IsOpen (v.adicCompletionIntegers K : Set (v.adicCompletion K)) := sorry
 
 instance Rat.adicCompletion.locallyCompactSpace (v : HeightOneSpectrum (𝓞 ℚ)) :
-    LocallyCompactSpace (v.adicCompletion ℚ) :=
-  (Rat.HeightOneSpectrum.adicCompletion.padicEquiv v).toHomeomorph.isClosedEmbedding
-  |>.locallyCompactSpace
+    LocallyCompactSpace (v.adicCompletion ℚ) := sorry
 
 instance (v : HeightOneSpectrum (𝓞 K)) :
-    WeaklyLocallyCompactSpace (v.adicCompletion K) where
-  exists_compact_mem_nhds x :=
-    open Pointwise in
-    ⟨x +ᵥ ((v.adicCompletionIntegers K) : Set (v.adicCompletion K)),
-      (isCompact_iff_compactSpace.mpr <| instCompactSpaceAdicCompletionIntegers K v).vadd x,
-      ((isOpenAdicCompletionIntegers K v).vadd x).mem_nhds (Set.mem_vadd_set.mpr ⟨0, by simp⟩)⟩
+    WeaklyLocallyCompactSpace (v.adicCompletion K) := sorry
 
 instance (v : HeightOneSpectrum (𝓞 K)) :
-    LocallyCompactSpace (v.adicCompletion K) := inferInstance
-
--- does this exist upstream? Should do.
-example (v : HeightOneSpectrum (𝓞 K)) : SecondCountableTopology (v.adicCompletion K) :=
-  inferInstance
+    LocallyCompactSpace (v.adicCompletion K) := sorry

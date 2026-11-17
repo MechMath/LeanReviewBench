@@ -1,61 +1,54 @@
-/-
-Copyright (c) 2025 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard, Yunzhou Xie
--/
 module
 
-public import dep.FLT.Mathlib.Algebra.Algebra.Bilinear
+public import Mathlib.Algebra.Algebra.Prod
+public import Mathlib.Algebra.Central.Basic
 public import Mathlib.Algebra.Central.Defs
+public import Mathlib.Algebra.Lie.OfAssociative
+public import Mathlib.Algebra.Module.Pi
+public import Mathlib.Algebra.Module.Submodule.Defs
 public import Mathlib.CategoryTheory.Category.Basic
+public import Mathlib.CategoryTheory.Category.Init
+public import Mathlib.CategoryTheory.Types.Basic
+public import Mathlib.Data.Nat.Totient
+public import Mathlib.Data.Sym.Sym2.Init
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+public import Mathlib.LinearAlgebra.Charpoly.BaseChange
 public import Mathlib.LinearAlgebra.Determinant
-import dep.FLT.Mathlib.RingTheory.SimpleRing.TensorProduct
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.LinearAlgebra.Charpoly.BaseChange
-import Mathlib.LinearAlgebra.FreeModule.PID
-import Mathlib.RingTheory.Henselian
-import Mathlib.RingTheory.PicardGroup
-import Mathlib.RingTheory.SimpleModule.IsAlgClosed
-import Mathlib.RingTheory.SimpleRing.Principal
-
-/-!
-# Determinant
-
-Material destined for Mathlib.
--/
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.LinearAlgebra.FreeModule.PID
+public import Mathlib.Logic.Equiv.PartialEquiv
+public import Mathlib.RingTheory.AlgebraTower
+public import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
+public import Mathlib.RingTheory.Henselian
+public import Mathlib.RingTheory.PicardGroup
+public import Mathlib.RingTheory.SimpleModule.IsAlgClosed
+public import Mathlib.RingTheory.SimpleRing.Principal
+public import Mathlib.RingTheory.TensorProduct.Basic
+public import Mathlib.RingTheory.TensorProduct.Finite
+public import Mathlib.RingTheory.TensorProduct.Free
+public import Mathlib.RingTheory.TensorProduct.Maps
+public import Mathlib.RingTheory.TwoSidedIdeal.Instances
+public import Mathlib.RingTheory.TwoSidedIdeal.Operations
+public import Mathlib.Tactic.NormNum.GCD
+public import Mathlib.Tactic.Positivity.Finset
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import dep.FLT.Deformations.ContinuousRepresentation.IsTopologicalModule
+public import dep.FLT.Hacks.RightActionInstances
+public import dep.FLT.Mathlib.Algebra.Algebra.Bilinear
+public import dep.FLT.Mathlib.Algebra.Algebra.Hom
+public import dep.FLT.Mathlib.Algebra.Algebra.Tower
+public import dep.FLT.Mathlib.RingTheory.SimpleRing.TensorProduct
+public import dep.FLT.Mathlib.Topology.Algebra.Module.ModuleTopology
 
 @[expose] public section
 
 variable (k : Type*) [Field k] {D : Type*} [Ring D] [Algebra k D]
+
 open scoped TensorProduct
-
-lemma mulLeft_conj (K : Type*) [Field K] [Algebra k K] (n : ℕ) (x : K ⊗[k] D)
-    (e : K ⊗[k] D ≃ₐ[K] Matrix (Fin n) (Fin n) K) :
-    LinearMap.mulLeft K (e x) = e ∘ₗ LinearMap.mulLeft K x ∘ₗ e.symm := by
-  apply LinearMap.ext
-  simp
-
-lemma mulRight_conj (K : Type*) [Field K] [Algebra k K] (n : ℕ) (x : K ⊗[k] D)
-    (e : K ⊗[k] D ≃ₐ[K] Matrix (Fin n) (Fin n) K) :
-    LinearMap.mulRight K (e x) = e ∘ₗ LinearMap.mulRight K x ∘ₗ e.symm := by
-  apply LinearMap.ext
-  simp
-
-lemma mulLeft_conj_ofLinear (K : Type*) [Field K] (n : ℕ) (N : Matrix (Fin n) (Fin n) K) :
-    (((Matrix.ofLinearEquiv K ≪≫ₗ Matrix.transposeLinearEquiv (Fin n) (Fin n) K K).symm.toLinearMap
-    ∘ₗ (LinearMap.mulLeft K N) ∘ₗ ((Matrix.ofLinearEquiv K) ≪≫ₗ Matrix.transposeLinearEquiv
-    (Fin n) (Fin n) K K).toLinearMap)) = LinearMap.pi fun i ↦ ((fun _ ↦ Matrix.toLin' N) i).comp
-    (LinearMap.proj i) := rfl
-
-lemma mulRight_conj_ofLinear (K : Type*) [Field K] (n : ℕ) (N : Matrix (Fin n) (Fin n) K) :
-    ((Matrix.ofLinearEquiv K).symm.toLinearMap ∘ₗ
-    LinearMap.mulRight K N ∘ₗ (Matrix.ofLinearEquiv K).toLinearMap :
-    (Fin n → Fin n → K) →ₗ[K] (Fin n) → Fin n → K) =
-    LinearMap.pi fun i ↦ ((fun _ ↦ Matrix.toLin' N.transpose) i).comp (LinearMap.proj i) := by
-  apply LinearMap.ext
-  intro M
-  ext i j
-  simp [Matrix.mul_apply, Matrix.mulVec, dotProduct, mul_comm]
 
 variable [Algebra.IsCentral k D] [IsSimpleRing D] [FiniteDimensional k D]
 
@@ -65,67 +58,17 @@ at https://github.com/leanprover-community/mathlib4/pull/26377 .
   For now it's in `import dep.FLT.Mathlib.RingTheory.SimpleRing.TensorProduct`.
 -/
 instance (A B : Type*) [Ring A] [Ring B] [Algebra k A] [Algebra k B]
-    [Algebra.IsCentral k B] [IsSimpleRing A] [IsSimpleRing B] : IsSimpleRing (B ⊗[k] A) :=
-  inferInstance
+    [Algebra.IsCentral k B] [IsSimpleRing A] [IsSimpleRing B] : IsSimpleRing (B ⊗[k] A) := sorry
 
 instance (A B : Type*) [Ring A] [Ring B] [Algebra k A] [Algebra k B]
-    [Algebra.IsCentral k B] [IsSimpleRing A] [IsSimpleRing B] : IsSimpleRing (A ⊗[k] B) :=
-  IsSimpleRing.of_ringEquiv
-    (Algebra.TensorProduct.comm k B A).toRingEquiv inferInstance
+    [Algebra.IsCentral k B] [IsSimpleRing A] [IsSimpleRing B] : IsSimpleRing (A ⊗[k] B) := sorry
 
-lemma IsSimpleRing.mulLeft_det_eq_mulRight_det (d : D) :
-    (LinearMap.mulLeft k d).det = (LinearMap.mulRight k d).det := by
-  let K' := AlgebraicClosure k
-  obtain ⟨n, hn, ⟨e⟩⟩ := IsSimpleRing.exists_algEquiv_matrix_of_isAlgClosed K' (K' ⊗[k] D)
-  have h1 : (LinearMap.mulLeft k d).baseChange K' = LinearMap.mulLeft K' ((1 : K') ⊗ₜ[k] d) := by
-    ext; simp
-  have h2 : (LinearMap.mulRight k d).baseChange K' = LinearMap.mulRight K' ((1 : K') ⊗ₜ[k] d) := by
-    ext; simp
-  apply FaithfulSMul.algebraMap_injective k K'
-  rw [LinearMap.det_baseChange (LinearMap.mulLeft k d) |>.symm, LinearMap.det_baseChange
-    (LinearMap.mulRight k d) |>.symm, h1, h2]
-  have h5 : LinearMap.det (LinearMap.mulLeft K' ((1 : K') ⊗ₜ[k] d)) =
-    LinearMap.det (LinearMap.mulLeft K' (e ((1 : K') ⊗ₜ d))) := by
-    rw [← LinearMap.det_conj (LinearMap.mulLeft _ _) e.toLinearEquiv, mulLeft_conj]
-    rfl
-  have h6: LinearMap.det (LinearMap.mulRight K' ((1 : K') ⊗ₜ[k] d)) =
-    LinearMap.det (LinearMap.mulRight K' (e ((1 : K') ⊗ₜ d))) := by
-    rw [← LinearMap.det_conj (LinearMap.mulRight _ _) e.toLinearEquiv, mulRight_conj]
-    rfl
-  rw [h5, h6, ← LinearMap.det_conj (LinearMap.mulRight K' (e (1 ⊗ₜ[k] d))) <|
-    (Matrix.ofLinearEquiv K').symm, LinearEquiv.symm_symm, mulRight_conj_ofLinear,
-    LinearMap.det_pi, ← LinearMap.det_conj (LinearMap.mulLeft K' (e (1 ⊗ₜ[k] d))) <|
-    (((Matrix.ofLinearEquiv K') ≪≫ₗ Matrix.transposeLinearEquiv (Fin n) (Fin n) K' K')).symm,
-    LinearEquiv.symm_symm, mulLeft_conj_ofLinear, LinearMap.det_pi]
-  simp [LinearMap.det_toLin', Finset.prod_const, Finset.card_univ, Fintype.card_fin]
-
-lemma IsSimpleRing.mulLeft_det_eq_mulRight_det' (d : Dˣ) :
-    (LinearEquiv.mulLeft k d).det = (LinearEquiv.mulRight k d).det := by
-  ext
-  simp [mulLeft_det_eq_mulRight_det]
-
-
-/-!
-### Auxiliary lemmas about linear equivalences and matrices
--/
 section LinearEquiv
 
 variable {F : Type*} [CommRing F]
+
 variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+
 variable {V : Type*} [AddCommGroup V] [Module F V]
-
-lemma LinearEquiv.det_ne_zero
-  {F : Type*} [CommRing F] [Nontrivial F] {V : Type*} [AddCommGroup V] [Module F V]
-  (e : V ≃ₗ[F] V) : e.toLinearMap.det ≠ 0 := (isUnit_det' e).ne_zero
-
-lemma Matrix.toLinearEquiv_toLinearMap
-    (b : Module.Basis ι F V) (M : Matrix ι ι F) (h : IsUnit M.det) :
-    (toLinearEquiv b M h).toLinearMap = Matrix.toLin b b M := rfl
-
-lemma LinearEquiv.det_toLinearEquiv
-    (b : Module.Basis ι F V) {M : Matrix ι ι F} (h : IsUnit M.det) :
-    LinearEquiv.det (M.toLinearEquiv b h) = h.unit := by
-  refine Units.val_inj.mp ?_
-  simp [Matrix.toLinearEquiv_toLinearMap]
 
 end LinearEquiv

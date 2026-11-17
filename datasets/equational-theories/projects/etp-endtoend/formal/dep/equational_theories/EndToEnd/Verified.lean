@@ -1,25 +1,236 @@
+import Aesop
+import Batteries.Data.Array.Lemmas
+import Batteries.Tactic.Exact
+import Init.Classical
+import Init.Core
+import Init.Prelude
+import Lean
+import Lean.Elab.Declaration
+import Lean.Elab.Exception
+import Lean.Environment
+import Lean.Meta.Basic
+import Lean.ToExpr
+import Lean.Util
+import Lean.Util.CollectAxioms
+import Mathlib.Algebra.DirectSum.Basic
+import Mathlib.Algebra.Group.Fin.Basic
+import Mathlib.Algebra.Group.Torsion
+import Mathlib.Algebra.Group.Units.Basic
+import Mathlib.Algebra.Lie.OfAssociative
+import Mathlib.Algebra.Module.LinearMap.Defs
+import Mathlib.Algebra.Order.Ring.Nat
+import Mathlib.Algebra.Ring.Nat
+import Mathlib.Algebra.Ring.NonZeroDivisors
+import Mathlib.Analysis.Normed.Field.Lemmas
+import Mathlib.Analysis.Normed.Module.Basic
+import Mathlib.Basic.Denumerable
+import Mathlib.Basic.Logic.Basic
+import Mathlib.Computability.Primrec.Basic
+import Mathlib.Data.Countable.Defs
+import Mathlib.Data.DFinsupp.Encodable
+import Mathlib.Data.DFinsupp.FiniteInfinite
+import Mathlib.Data.DFinsupp.Multiset
+import Mathlib.Data.DFinsupp.Notation
+import Mathlib.Data.ENat.Basic
+import Mathlib.Data.FinEnum
+import Mathlib.Data.Finite.Prod
+import Mathlib.Data.Finmap
+import Mathlib.Data.Finset.Basic
+import Mathlib.Data.Finset.Max
+import Mathlib.Data.Finset.Order
+import Mathlib.Data.Finset.Union
+import Mathlib.Data.Finsupp.Encodable
+import Mathlib.Data.Finsupp.Notation
+import Mathlib.Data.Finsupp.Pointwise
+import Mathlib.Data.Fintype.Basic
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Perm
+import Mathlib.Data.Fintype.Pigeonhole
+import Mathlib.Data.Fintype.Units
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.Int.Star
+import Mathlib.Data.List.AList
+import Mathlib.Data.List.Basic
+import Mathlib.Data.List.Chain
+import Mathlib.Data.List.Defs
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Nat.Bitwise
+import Mathlib.Data.Nat.Lattice
+import Mathlib.Data.Nat.ModEq
+import Mathlib.Data.Nat.Pairing
+import Mathlib.Data.Prod.Lex
+import Mathlib.Data.Rat.Encodable
+import Mathlib.Data.Rat.Star
+import Mathlib.Data.Real.Sqrt
+import Mathlib.Data.Rel
+import Mathlib.Data.Set.Basic
+import Mathlib.Data.Set.Card
+import Mathlib.Data.Set.Countable
+import Mathlib.Data.Set.Defs
+import Mathlib.Data.Set.Finite.Basic
+import Mathlib.Data.Set.Finite.Lattice
+import Mathlib.Data.Set.Function
+import Mathlib.Data.Set.Functor
+import Mathlib.Data.Sum.Basic
+import Mathlib.Data.ZMod.Defs
+import Mathlib.GroupTheory.FiniteAbelian.Basic
+import Mathlib.GroupTheory.FreeGroup.Basic
+import Mathlib.GroupTheory.FreeGroup.CyclicallyReduced
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.LinearAlgebra.Dimension.Localization
+import Mathlib.LinearAlgebra.FreeModule.StrongRankCondition
+import Mathlib.Logic.Embedding.Basic
+import Mathlib.Logic.Equiv.Basic
+import Mathlib.Logic.Equiv.Defs
+import Mathlib.Logic.Equiv.Finset
+import Mathlib.Logic.Function.Defs
+import Mathlib.Logic.Function.Iterate
+import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
+import Mathlib.Order.CompletePartialOrder
+import Mathlib.Order.OmegaCompletePartialOrder
+import Mathlib.Order.Preorder.Chain
+import Mathlib.Order.WithBot
+import Mathlib.RepresentationTheory.Basic
+import Mathlib.RingTheory.SimpleModule.Basic
+import Mathlib.SetTheory.Cardinal.Arithmetic
+import Mathlib.Tactic
+import Mathlib.Tactic.ByContra
+import Mathlib.Tactic.Cases
+import Mathlib.Tactic.CasesM
+import Mathlib.Tactic.DeriveFintype
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Group
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Linarith.Frontend
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.NthRewrite
+import Mathlib.Tactic.Recall
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.TypeStar
+import Mathlib.Topology.Instances.AddCircle.Real
+import Qq
+import dep.equational_theories.AdjoinFresh
+import dep.equational_theories.Asterix
+import dep.equational_theories.CentralGroupoids
+import dep.equational_theories.Completeness
+import dep.equational_theories.Confluence
+import dep.equational_theories.Confluence1
+import dep.equational_theories.ConfluenceSystem
+import dep.equational_theories.EndToEnd.Basic
+import dep.equational_theories.EndToEnd.Certificate
 import dep.equational_theories.EndToEnd.Correct
+import dep.equational_theories.EndToEnd.Dual
+import dep.equational_theories.EndToEnd.Load
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.Equations.Basic
+import dep.equational_theories.Equations.Command
+import dep.equational_theories.Equations.Eqns1000_1999
+import dep.equational_theories.Equations.Eqns1_999
+import dep.equational_theories.Equations.Eqns2000_2999
+import dep.equational_theories.Equations.Eqns3000_3999
+import dep.equational_theories.Equations.Eqns4000_4694
+import dep.equational_theories.Equations.LawsComplete
+import dep.equational_theories.FactsSyntax
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.FreeSemigroup
+import dep.equational_theories.FreshGenerator
 import dep.equational_theories.Generated.EndToEndCertificate.Data
-import dep.equational_theories.Generated.EndToEndCertificate.Pos
+import dep.equational_theories.Generated.EndToEndCertificate.DualTable
+import dep.equational_theories.Generated.EndToEndCertificate.DualTable0
+import dep.equational_theories.Generated.EndToEndCertificate.DualTable1
+import dep.equational_theories.Generated.EndToEndCertificate.DualTable2
 import dep.equational_theories.Generated.EndToEndCertificate.Neg
-import dep.equational_theories.DecideBang
-
-/-!
-# The end-to-end proof
-
-This file shows that for every pair of 4,694 considered by the Equational Theories Project,
-`resolveImplication` returns either a derivation of the implication from the
-proven results, or one of the project's model witnesses refuting it. These return values are
-checked by the `checkImplication`/`checkRefutation` functions.
-
-Note that implications and refutations are witnessed by indices into a list of theorems
-proved in this repository.
--/
+import dep.equational_theories.Generated.EndToEndCertificate.Neg0
+import dep.equational_theories.Generated.EndToEndCertificate.Neg1
+import dep.equational_theories.Generated.EndToEndCertificate.Neg2
+import dep.equational_theories.Generated.EndToEndCertificate.Neg3
+import dep.equational_theories.Generated.EndToEndCertificate.Neg4
+import dep.equational_theories.Generated.EndToEndCertificate.Neg5
+import dep.equational_theories.Generated.EndToEndCertificate.Neg6
+import dep.equational_theories.Generated.EndToEndCertificate.Neg7
+import dep.equational_theories.Generated.EndToEndCertificate.Pos
+import dep.equational_theories.Generated.EndToEndCertificate.Pos0
+import dep.equational_theories.Generated.EndToEndCertificate.Pos1
+import dep.equational_theories.Generated.EndToEndCertificate.Pos2
+import dep.equational_theories.Generated.EndToEndCertificate.Pos3
+import dep.equational_theories.Generated.EndToEndCertificate.Pos4
+import dep.equational_theories.Generated.EndToEndCertificate.Pos5
+import dep.equational_theories.Generated.EndToEndCertificate.Tfmask
+import dep.equational_theories.Generated.EndToEndCertificate.Tout
+import dep.equational_theories.Generated.EndToEndCertificate.TreachedBy
+import dep.equational_theories.Generated.EndToEndCertificate.Treaches
+import dep.equational_theories.Generated.EndToEndCertificate.Trefuters
+import dep.equational_theories.Generated.EndToEndCertificate.Trep
+import dep.equational_theories.Generated.EndToEndCertificate.Trout
+import dep.equational_theories.Generated.EndToEndCertificate.Tscc
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn0
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn1
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn2
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn3
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn4
+import dep.equational_theories.Generated.EndToEndCertificate.TsccDn5
+import dep.equational_theories.Generated.EndToEndCertificate.TsccUp
+import dep.equational_theories.Generated.EndToEndCertificate.TsccUp0
+import dep.equational_theories.Generated.EndToEndCertificate.TsccUp1
+import dep.equational_theories.Generated.EndToEndCertificate.TsccUp2
+import dep.equational_theories.Generated.MagmaEgg.small._000
+import dep.equational_theories.Generated.MagmaEgg.small._001
+import dep.equational_theories.Generated.MagmaEgg.small._002
+import dep.equational_theories.Generated.MagmaEgg.small._003
+import dep.equational_theories.Generated.MagmaEgg.small._004
+import dep.equational_theories.Generated.MagmaEgg.small._005
+import dep.equational_theories.Generated.MagmaEgg.small._006
+import dep.equational_theories.Generated.MagmaEgg.small._007
+import dep.equational_theories.Generated.MagmaEgg.small._008
+import dep.equational_theories.Generated.MagmaEgg.small._009
+import dep.equational_theories.Generated.MagmaEgg.small._010
+import dep.equational_theories.Generated.MagmaEgg.small._011
+import dep.equational_theories.Generated.MagmaEgg.small._012
+import dep.equational_theories.Generated.MagmaEgg.small._013
+import dep.equational_theories.Generated.MagmaEgg.small._014
+import dep.equational_theories.Generated.MagmaEgg.small._015
+import dep.equational_theories.Generated.MagmaEgg.small._016
+import dep.equational_theories.Generated.MagmaEgg.small._017
+import dep.equational_theories.Generated.MagmaEgg.small._018
+import dep.equational_theories.Homomorphisms
+import dep.equational_theories.Magma
+import dep.equational_theories.MagmaLaw
+import dep.equational_theories.MagmaOp
+import dep.equational_theories.ManuallyProved.Equation1076
+import dep.equational_theories.ManuallyProved.Equation1117
+import dep.equational_theories.ManuallyProved.Equation1289
+import dep.equational_theories.ManuallyProved.Equation1323
+import dep.equational_theories.ManuallyProved.Equation1437
+import dep.equational_theories.ManuallyProved.Equation1447
+import dep.equational_theories.ManuallyProved.Equation1516
+import dep.equational_theories.ManuallyProved.Equation1526
+import dep.equational_theories.ManuallyProved.Equation1648
+import dep.equational_theories.ManuallyProved.Equation1692
+import dep.equational_theories.ManuallyProved.Equation1722
+import dep.equational_theories.ManuallyProved.Equation1729.MagmaConstruction
+import dep.equational_theories.ManuallyProved.Equation1729.SmallMagma
+import dep.equational_theories.ManuallyProved.Equation3308
+import dep.equational_theories.ManuallyProved.Equation3342
+import dep.equational_theories.ManuallyProved.Equation63
+import dep.equational_theories.ManuallyProved.Equation713
+import dep.equational_theories.ManuallyProved.Equation73
+import dep.equational_theories.ManuallyProved.Equation854
+import dep.equational_theories.ManuallyProved.Equation917
+import dep.equational_theories.MemoFinOp
+import dep.equational_theories.Obelix
+import dep.equational_theories.ParseImplications
+import dep.equational_theories.PartialMagma
+import dep.equational_theories.Preorder
+import dep.equational_theories.RArray
+import dep.equational_theories.SmallMagmas
+import dep.equational_theories.Subgraph
+import dep.equational_theories.Superposition
+import dep.equational_theories.ThreeC2
 
 namespace EndToEnd
-
-/-- The generated certificate is valid. -/
-theorem cert_valid : Valid cert pos neg := valid_of_checkCert (by decide!)
 
 /-- For every ordered pair of laws, `resolveImplication` produces a witness that passes its
 checker, and the corresponding mathematical fact holds. The return type is a `Sum`, so it
@@ -27,31 +238,6 @@ always returns either an implication or a refutation. -/
 theorem end_to_end1 (n m : Nat) (hn : n < 4694) (hm : m < 4694) :
     match resolveImplication cert pos neg n m with
     | .inl c => checkImplication pos n m c = true ∧ (lawOf n).implies (lawOf m)
-    | .inr r => checkRefutation pos neg n m r = true ∧ ¬ ((lawOf n).implies (lawOf m)) := by
-  have h := resolveImplication_correct cert_valid n m hn hm
-  cases hr : resolveImplication cert pos neg n m with
-  | inl c =>
-      rw [hr] at h
-      exact ⟨h, checkImplication_sound pos c n m h⟩
-  | inr r =>
-      rw [hr] at h
-      exact ⟨h, checkRefutation_sound pos neg n m r h⟩
-
-/-- An alternative statement: every pair of equations is deriable as an implication or
-refutation from the theorems proved in this repository. -/
-theorem end_to_end2 (n m : Nat) (hn : n < 4694) (hm : m < 4694) :
-    Implied pos n m ∨ Refuted pos neg n m := by
-  have h := end_to_end1 n m hn hm
-  cases hr : resolveImplication cert pos neg n m with
-  | inl c => rw [hr] at h; exact Or.inl ⟨c, h.1⟩
-  | inr r => rw [hr] at h; exact Or.inr ⟨r, h.1⟩
-
-/-- An alternative statement: `Implied` is the same as `MagmaLaw.implies` -/
-theorem end_to_end3 (n m : Nat) (hn : n < 4694) (hm : m < 4694) :
-    (lawOf n).implies (lawOf m) ↔ Implied pos n m := by
-  refine ⟨fun himp => ?_, Implied.sound pos⟩
-  rcases end_to_end2 n m hn hm with h | h
-  · exact h
-  · exact absurd himp (Refuted.sound pos neg h)
+    | .inr r => checkRefutation pos neg n m r = true ∧ ¬ ((lawOf n).implies (lawOf m)) := sorry
 
 end EndToEnd

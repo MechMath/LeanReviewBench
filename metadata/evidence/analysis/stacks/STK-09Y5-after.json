@@ -3,7 +3,7 @@
   "dataset": "stacks",
   "project_id": "STK-09Y5-after",
   "task_id": "stacks:STK-09Y5-after",
-  "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
+  "input_sha256": "0851c64fbddc357753a1397a4f10730c4bec75a16cb51ec6f7528309d1290e86",
   "label": "aligned",
   "reason": "The locally closed input partition and finite good refinement match Definitions 09XZ and 09Y0.",
   "review_status": "human_reviewed",

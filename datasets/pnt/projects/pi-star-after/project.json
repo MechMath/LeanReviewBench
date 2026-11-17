@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "对当前文字Σ_{k≥1} π(x^(1/k))/k，formal多出的k=0项因实数除零总化为0；其余项逐项相同。π使用floor与primeCounting，编码≤x；正x下k足够大时x^(1/k)<2，和只有有限非零项。",
   "external_imports": [
     "Mathlib.NumberTheory.Chebyshev"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "315c067624f4faa93e2becf42b5e02d035870eabb5fae068650515322f662fbe"
+    "sha256": "fa1bd4e0ac75d7cfe5cc0e22f173d611306b301ca315679156ba2550432d77ee",
+    "effective_root_sha256": "1cf0bea047c9c065e2370d312a0552689b09413e627d8593b8fd28717eff59f9",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction/repaired/pi-star-after/20261105T051056293981Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "ba8531bb0b37e077873e6c86b65d9fffdc3d8f5e84d54de9b67861b01b4370c3",
+  "input_sha256": "4e1725dfed6c8a6d9422a870fde9f2bd42116fdd97c640ac5952ea63a795131d",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

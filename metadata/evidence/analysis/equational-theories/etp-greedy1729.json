@@ -3,7 +3,7 @@
   "dataset": "equational-theories",
   "project_id": "etp-greedy1729",
   "task_id": "equational-theories:etp-greedy1729",
-  "input_sha256": "99e78a223d32421d861b5da9b5570cf09b80b660989b70a948522a8ba131e40f",
+  "input_sha256": "1e99cf462ffc2731c2fb4a1d037b9bb389dccf74ef3d17666ee7669cff224892",
   "label": "aligned",
   "reason": "Both statements require one magma satisfying law 1729 and violating law 817; the law definitions and negation scope match.",
   "review_status": "human_reviewed",

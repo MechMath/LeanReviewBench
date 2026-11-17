@@ -3,7 +3,7 @@
   "dataset": "pfr",
   "project_id": "pr304-before",
   "task_id": "pfr:pr304-before",
-  "input_sha256": "d6f8a2b4b6022b9ce5835611616f39513eaccecef6aa74ea28e7ea8d0dda2237",
+  "input_sha256": "0f10ceb9007879069b7f5e661f1274af7150e26a4c73a6a96d355a89e4d9fc33",
   "label": "aligned",
   "reason": "The root supplies measurable uniform variables on a probability space, the required sum bound 10d, and stronger individual bounds 11d/2, which imply 6d for d>=0.",
   "review_status": "human_reviewed",

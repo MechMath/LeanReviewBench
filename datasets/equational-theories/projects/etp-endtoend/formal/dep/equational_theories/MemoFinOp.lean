@@ -1,13 +1,5 @@
 import Lean
 
-/-!
-This file defines the macro `memoFinOp` that memoizes a function `f : Fin n → Fin n → Fin n`; see
-its docstring for more info.
-
-The `finOpTable` macro is intended to replace `memoFinOp` as it's faster for large tables, but
-FinitePoly still requires the `memoFinOp` style.
--/
-
 namespace MemoFinOp
 
 open Lean Meta Elab Term
@@ -28,12 +20,6 @@ def buildMemo {n : Nat} (f : Fin n → Fin n → Fin n) : Nat := Id.run do
       t := t + f a b * n^i
   t
 
--- Quick sanity check:
-example :
-    let f := fun (a b : Fin 4) => a * a * b + 2
-    opOfTable (buildMemo f) = f := by
-  funext a b; revert a b; decide +kernel
-
 private unsafe def evalNatImpl (e : Expr) : MetaM Nat := do
   let t ← inferType e
   unless t.isConstOf ``Nat do
@@ -46,15 +32,6 @@ private unsafe def evalNatImpl (e : Expr) : MetaM Nat := do
 @[implemented_by evalNatImpl]
 private opaque evalNat (value : Expr) : MetaM Nat
 
-/-
-The syntax `memoFinOp f` takes a function `f : Fin n → Fin n → Fin n` and implements it in a
-kernel-reduction friendly way.
-
-More precisely, it tabulates all values of `f` at elabortion time and encodes that table into a
-single `Nat`, which it queries using `/` and `%`. This should perform decenetly well in compiled
-code, and make a big difference when using kernel reduction (e.g. `by decide`) because efficient
-arrays are not available there.
--/
 elab "memoFinOp" fn:term:arg :term <= expectedType? => do
   let fn ← elabTermAndSynthesize fn expectedType?
   Term.synthesizeSyntheticMVarsNoPostponing
@@ -78,14 +55,6 @@ elab "memoFinOp" fn:term:arg :term <= expectedType? => do
   let table ← evalNat (mkApp2 (mkConst ``buildMemo) nE fn)
   return mkApp2 (mkConst ``opOfTable) nE (.lit (.natVal table))
 
-example :
-    let f := fun (a b : Fin 4) => a * a * b + (2 : Fin 4)
-    memoFinOp f = f := by
-  funext a b; revert a b; decide
-
--- https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Austin.20pairs/near/486226698
-
--- assume each nat is ≤ 256
 def rowToNat (row : List Nat) : Nat :=
   match row with
   | [] => 0
@@ -105,6 +74,7 @@ def extractWrapper (n : Nat) (matrix : List Nat) (h : IsTable n matrix) (row col
   ⟨extract matrix row.val col.val, h row col⟩
 
 open Std.Internal.Parsec
+
 open Std.Internal.Parsec.String
 
 def parseArray {α : Type} (p : Parser α) : Parser (List α) := do
@@ -118,10 +88,6 @@ def parseData (data : String) : IO (List (List Nat)) := do
   | .ok v => return v
   | .error err => throw <| IO.userError (toString err)
 
-/-
-`finOpTable "[[0,1],[1,0]"` returns a method to compute the operation encoded by a given table, in
-a method specifically intended to be efficient for large tables.
--/
 elab "finOpTable" str:str :term => do
   let matrix ← parseData str.getString
   guard <| matrix.length < 256

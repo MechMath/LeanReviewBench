@@ -29,7 +29,7 @@
   "historical_status": "undetermined",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -66,10 +66,11 @@
   "packaged_compilation": "passed",
   "missing_modules": [],
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 19,
-    "resource_count": 0,
-    "sha256": "6da392874b1b4a7901a980fa18cd24df564c78a97906f7642e038a913b6b6ec7"
+    "file_count": 12,
+    "sha256": "9aa3ad2db93b8a760bcba4203d873ad4312f7661f9eae1583f8bbb3bef92d038",
+    "effective_root_sha256": "1eafe1fab66fd20b0f789cb4899263832baa13e4f44bf62fd04b2ae07b493069",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "resources": {},
   "compatibility": {
@@ -111,8 +112,7 @@
     "original_archive_sha256": "8b6aad743ad9faf7f25eac1d13d625119611be2cd5c48304d6315f2fd5552d54",
     "source_packet_sha256": "95d511a3f115193fb6c42b0798bc1c6fac10aefc1e4c2a92fc3cd32573fad30a"
   },
-  "pending_reason": null,
-  "input_sha256": "0f1d16d5c1648cb48c15316abcfdf4db2f03914eccd467e50ad027abf5238708",
+  "input_sha256": "a11e9e5f58572620e423ca2b1b51113661deee10fbe798ea4563c6cc5c74bfa5",
   "original_external_imports": [
     "Init.Data.Int.DivMod.Lemmas",
     "Lean",

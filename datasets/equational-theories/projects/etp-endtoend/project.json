@@ -29,7 +29,7 @@
   "historical_status": "undetermined",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -163,10 +163,11 @@
   "packaged_compilation": "passed",
   "missing_modules": [],
   "formal": {
-    "layout": "Main_and_dep",
-    "file_count": 752,
-    "resource_count": 13,
-    "sha256": "9740022f0f565b9a9ccd763b8de3a1c2a72e407e0ae5a833be1c58b3d2d5e873"
+    "file_count": 120,
+    "sha256": "95fed8a3314128dbf8b95611473bb064f65f512d68152a3793d879212673d2e1",
+    "effective_root_sha256": "e8bc4a172e795a506f09203708a560b5fe5a444a47e40fcdf1119b19ae0ebaf0",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "resources": {
     "equational_theories/Generated/EndToEndCertificate/json/dualtable.json": "b6167ef3556cd142090d76ded93b57fa400564d88c79fb186e3077f75d7b8255",
@@ -259,8 +260,7 @@
     "original_archive_sha256": "47004a2724c0df1feca2285ab252a1ba537e385cec70d820ff6b73dc85885c0d",
     "source_packet_sha256": "74972b7f99b3f9572a65fdc24425367ac5dd5dc0aa2dd2f92a638e3512e0fcc3"
   },
-  "pending_reason": null,
-  "input_sha256": "67b7134fb649809dc6818fa1e1791b21e6a908b464034e773581c7e245630acd",
+  "input_sha256": "d3165d3054b5d392777385243006b28b351c93881b8a74072f0bcff16f5a500f",
   "original_external_imports": [
     "Aesop",
     "Batteries.Data.Array.Lemmas",

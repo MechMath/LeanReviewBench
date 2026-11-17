@@ -1,78 +1,43 @@
 {
-  "schema_version": 1,
+  "schema_version": "paperlean-statement-only-receipt-1",
   "dataset": "applied-modeling-lib",
   "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
   "status": "passed",
   "evidence": "compiled_environment",
-  "root": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
-  "input_sha256": "975471b171db9b98f671a5f33a2e682a14da2b60acb3746541a6456e43b869b3",
-  "graph_sha256": "b1b573fbafa84c7966f5b3957200f3e5897d34b1fb2a3f6d5486d917383bb02c",
-  "graph": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
+  "roots": [
+    "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
+  ],
+  "input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+  "graph_sha256": "c31c86f2177c3a81a0459a50266456eb019f5c1f8cfebf12fbcd971d363f5458",
+  "graph_path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "original_source_commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
   "fresh_compilation": true,
-  "new_sorry_or_axioms": false,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "1c958e8333f65e7ae7c625ced8238f9057e37c222c43d97c81b2fb88c5799e5b"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/MainTheorems.lean",
+      "63830bfc5f5bba8c9c876ffb3cc6cd7770a83220f742ab8ee7ce60f6edc4a627"
+    ],
+    [
+      "formal/dep/EconCSLib/MechanismDesign/Auctions/Position.lean",
+      "b9a3d5b041a3253eab5e488f4ab0ccc108cb5eae34758c6e286e95619b4953a9"
+    ]
+  ],
   "canonical_dataset_changed": true,
   "packaged_project_full_build_passed": true,
-  "root_definition_checked": true,
-  "root_proof_dependencies_checked": true,
-  "source_manifest": [
-    {
-      "path": "formal/Main.lean",
-      "sha256": "bd8b9c70391efe6adfda353f9cf1202494dbbb78550e28304240115e6a06b3ce"
-    },
-    {
-      "path": "formal/dep/EOS07GSP/PostPaperAudit.lean",
-      "sha256": "6329305a0d7b44aa87db6216c0fc4f8c6875bfd53a58e4db01ec891d897da00d"
-    },
-    {
-      "path": "formal/dep/EconCSLib/MechanismDesign/Auctions/MainTheorems.lean",
-      "sha256": "90f52a195c5c53e89dab273b5e483a62f8f4771e9f22ad559f12687dd03bfa9e"
-    },
-    {
-      "path": "formal/dep/EconCSLib/MechanismDesign/Auctions/Position.lean",
-      "sha256": "9522e1ec9016501f8d0e71c3ee5001cbb9aa0e013d50b9f255a84594146b4585"
-    }
-  ],
-  "module_count": 4,
-  "graph_nodes": 78,
-  "graph_edges": 334,
-  "root_axioms": [
-    "propext",
-    "Classical.choice",
-    "Quot.sound"
-  ],
-  "root_type_check": {
-    "status": "passed",
-    "root": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
-    "historical_type": "∀ {n : ℕ} (model : PaperTheorem7OrderedRankedCanonicalTailComparisonPaymentCertificate n),\n  (∀ (i : ℕ), 0 ≤ model.value i) →\n    ∃ O : PositionOutcome (Fin n) (Fin n),\n      paper_position_no_positive_transfers O ∧\n        (PositionOutcome.SlotEnvyFree (paper_theorem7_ranked_environment model.clickThroughRate) O fun i =>\n            model.value ↑i) ∧\n          (PositionOutcome.StableAssignment (paper_theorem7_ranked_environment model.clickThroughRate) O fun i =>\n              model.value ↑i) ∧\n            (∀ (i : Fin n), O.slotOf i = model.vcgOutcome.slotOf i) ∧\n              (∀ (i : Fin n), O.paymentPerClick i = model.vcgOutcome.paymentPerClick i) ∧\n                ∀ (other : PositionOutcome (Fin n) (Fin n)),\n                  other.FeasibleAssignment →\n                    (PositionOutcome.IndividuallyRational (paper_theorem7_ranked_environment model.clickThroughRate)\n                        other fun i => model.value ↑i) →\n                      (PositionOutcome.SlotEnvyFree (paper_theorem7_ranked_environment model.clickThroughRate) other\n                          fun i => model.value ↑i) →\n                        (∀ (i : Fin n), O.slotOf i = other.slotOf i) →\n                          paper_position_no_positive_transfers other →\n                            PositionOutcome.revenue (paper_theorem7_ranked_environment model.clickThroughRate) O ≤\n                              PositionOutcome.revenue (paper_theorem7_ranked_environment model.clickThroughRate) other",
-    "check": "Lean kernel checks the migrated root against the historical elaborated type."
-  },
-  "previous_input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
-  "previous_formal": {
-    "file_count": 4,
-    "sha256": "849c57e70efac74e03f4aced353fb38168f4d70260ac4c14aa5efc61bcae83ae",
-    "effective_root_sha256": "4662efec3ff231e00fe6965ef53e490e00f6cf74b443197416ee7c83bb398524"
-  },
-  "previous_graph": {
-    "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
-    "graph_sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
-    "graph_source": {
-      "commit": "18086147ad0f8bcac09485289aeda217747de2f6",
-      "path": "metadata/derived-graphs/graphs/applied-modeling-lib--EOS-theorem7_no_positive_transfer_conclusion.json",
-      "sha256": "f7f73f975a62d5bab54fc20f207f00b5e8303676fbf0890b45ab918632970343",
-      "binding": "verified_derived_graph"
-    }
-  },
+  "module_count": 3,
+  "nodes": 78,
+  "edges": 334,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
   "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
-  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
-  "replay_command": "python3 scripts/construction/extract_projects.py --dataset applied-modeling-lib --ids EOS-theorem7_no_positive_transfer_conclusion",
-  "migration_scope": "Target-specific native module/declaration slice; complete retained proof bodies. Compatibility changes affect proofs and Lean/mathlib interfaces, not the target statement or semantic label.",
-  "supplemental_source": {
-    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
-    "commit": "3c6a64802de232585064cf906faaefc9ba31b3bc",
-    "path": "EconCSLib/MechanismDesign/Auctions/MainTheorems.lean",
-    "sha256": "24e1b0e779535e76df706a91f7dff04b53d4f397b61e2434faddffd697b628c2"
-  }
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
 }

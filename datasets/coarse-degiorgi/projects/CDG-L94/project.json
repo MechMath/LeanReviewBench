@@ -24,11 +24,10 @@
   "before_ids": [],
   "after_ids": [],
   "status": "misaligned",
-  "compiled_lean434": false,
-  "leantrace_extracted": false,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Full-paper semantic pairing resolved on 2026-11-05; technical compilation/extraction remains incomplete. Missing modules, if any, are unchanged.",
   "external_imports": [
     "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
     "Mathlib.Algebra.BigOperators.Ring.Finset",
@@ -228,7 +227,7 @@
     "graph": null,
     "review": null
   },
-  "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
+  "input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
   "included_dependency": {
     "repository": "https://github.com/scottnarmstrong/CoarseGraining",
     "commit": "310d1a6bab3ba2d398cdaffec32f3c9d4b5a24be",
@@ -242,11 +241,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 564,
-    "sha256": "615351993d20822bb8a179bd5c1cb63fcd4b8f7791266e29421b92e168ee6b33",
-    "effective_root_sha256": "863df8dbd4c127ff85e9ea0fde54c683b8d9a5600e8f8b2f2f4403f5fb5f7eea"
+    "file_count": 132,
+    "sha256": "94e6f214e187cc554c3ffa30de1a2bbc7f217902380eb213d8f74a7d7e0e72e8",
+    "effective_root_sha256": "a7064e4a79781f07a3f78dfd6d8cc3641c3f435b9dc63b9b43b3861d3ac35e47",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "blocked",
-  "technical_status": "blocked",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/coarse-degiorgi.jsonl"
 }

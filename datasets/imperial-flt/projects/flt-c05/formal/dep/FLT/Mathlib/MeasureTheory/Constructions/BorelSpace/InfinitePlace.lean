@@ -1,18 +1,8 @@
-/-
-Copyright (c) 2025 Bryan Wang Peng Jun. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Bryan Wang Peng Jun, Kevin Buzzard
--/
 module
 
+public import Mathlib.Analysis.CStarAlgebra.Classes
 public import Mathlib.NumberTheory.NumberField.InfiniteAdeleRing
-import dep.FLT.Mathlib.Topology.MetricSpace.ProperSpace.InfinitePlace
-
-/-!
-# Infinite Place
-
-Material destined for Mathlib.
--/
+public import dep.FLT.Mathlib.Topology.MetricSpace.ProperSpace.InfinitePlace
 
 @[expose] public section
 
@@ -24,9 +14,9 @@ variable (K : Type*) [Field K] [NumberField K] (v : InfinitePlace K)
 
 noncomputable instance : MeasurableSpace (v.Completion) := borel _
 
-instance : BorelSpace (v.Completion) := ⟨rfl⟩
+instance : BorelSpace (v.Completion) := sorry
 
 noncomputable instance : MeasurableSpace (InfiniteAdeleRing K) :=
   inferInstanceAs (MeasurableSpace (∀ _, _))
 
-instance : BorelSpace (InfiniteAdeleRing K) := inferInstanceAs (BorelSpace (∀ _, _))
+instance : BorelSpace (InfiniteAdeleRing K) := sorry

@@ -3,7 +3,7 @@
   "dataset": "pnt",
   "project_id": "vinogradov-pi-star-before",
   "task_id": "pnt:vinogradov-pi-star-before",
-  "input_sha256": "f8a7f7c7db2d7657abdf081d336c1da9f7aa2c9e354ea16330240b4ea389a9b7",
+  "input_sha256": "d213d1f687a3a64474fdf8974113b83d804cd77043832db79cbd282cca7dd4b8",
   "label": "misaligned",
   "reason": "Natural-number division makes the fractional exponents zero. The historical sum of Lambda(n)/n is a different counting function from the newly bound pi-star prime-power sum.",
   "review_status": "human_reviewed",

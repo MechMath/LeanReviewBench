@@ -32,7 +32,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "Provisional statement review complete; independent human adjudication pending.",
   "external_imports": [
     "Batteries",
     "Mathlib.Algebra.AddConstMap.Basic",
@@ -8573,8 +8572,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 11,
-    "sha256": "5bb6995cc129ec129f4ac35e172aa9ca643cfe5ecbffd5ef2db32ce6442e7925"
+    "file_count": 3,
+    "sha256": "26895747496dfd60fa25a7512200bcf662044230edb10b78b5ebd9fb14a7f854",
+    "effective_root_sha256": "b8cccead3113b826ba4f17028b7572019c4e33d65bd6bc9694a44e71daca1d1e",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/brownian-motion-history/technical/finite-set-after/20261104T063251811438Z/receipt.json",
@@ -8600,8 +8602,8 @@
       "explicit": "'ProbabilityTheory.finite_set_bound_of_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
     }
   },
-  "input_sha256": "9143a071c5bc6389a770d53b4ff59f79ee92f4f9f4f10037f2c8361dc9204bdb",
+  "input_sha256": "1f358f54221932f8c5169bef87e80c20b88eb64989ac5bb46cd7222ae2a894eb",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/brownian-motion.jsonl"
 }

@@ -30,9 +30,8 @@
   "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
-  "packaged_compilation": "not-rerun-after-import-relocation",
+  "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": null,
   "external_imports": [
     "Mathlib.Algebra.Order.Group.Int",
     "Mathlib.Analysis.CStarAlgebra.Classes",
@@ -80,7 +79,7 @@
       "sha256": "00b938b85151bebce243dbd34b37ae1fd0b2d0d5aa6f0ef99c17e0a5dbdc6639"
     }
   },
-  "input_sha256": "96018b69ebbc77b3af56b24c101f53fd81af0aee8d690dde18ca61d3248ec0a8",
+  "input_sha256": "80ebd0b75c59e2b89799163271e4571d33c9d33f103483f8cd28e091a486f4f0",
   "external_boundaries": [
     "Mathlib",
     "Lean",
@@ -89,11 +88,13 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 9,
-    "sha256": "8ade872328b7456f99096f6315d0caebf09981ae79f849533a459b9cd75601e5",
-    "effective_root_sha256": "e73c923bd407e55ea7c724900ae7794694b7105f9793c01350e15df3b581f395"
+    "file_count": 7,
+    "sha256": "dac71e303fba49623b84ca83c7073e69a6847183be24680c0934a79db154a647",
+    "effective_root_sha256": "718c27bf0def3c606ae009e95e1f468bbe06148cf92aa3df69d2f057ca97411c",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/carleson.jsonl"
 }

@@ -1,23 +1,12 @@
-/-
-Copyright (c) 2024 Salvatore Mercuri. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Salvatore Mercuri
--/
 module
 
+public import Mathlib.RingTheory.AlgebraTower
 public import Mathlib.Topology.Algebra.Algebra.Equiv
 public import dep.FLT.Mathlib.Algebra.Algebra.Tower
-
-/-!
-# Topological (sub)algebras
-
-This file contains an API for `ContinuousAlgEquiv`.
--/
 
 @[expose] public section
 
 open scoped Topology
-
 
 namespace ContinuousAlgEquiv
 

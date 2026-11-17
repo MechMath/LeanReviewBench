@@ -57,8 +57,11 @@
   ],
   "changes": "CHANGES.md",
   "formal": {
-    "file_count": 8,
-    "sha256": "23c738b0e2c58780045f6397ccda6179686a1cd8a1983d1eb738bdcf7881cf35"
+    "file_count": 2,
+    "sha256": "583677fc9331105f6e83d3ed861fcf2b91b56f0273fe9668c19d329eeb2d569d",
+    "effective_root_sha256": "17a83291ad351e7d378c2c14f02810dd6527c6d6049d9f97067f1e4711e7336a",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/formalslt-history/technical/mixture-before/20261103T130157057671Z/receipt.json",
@@ -72,8 +75,8 @@
   },
   "author_disclosure": "explicitly_confirmed_in_repair_commit",
   "mechanism_group": "formalslt:increment-adapted-zero-collapse",
-  "input_sha256": "1f4be19364a75f455f8503470c5a13d1b114bcff36faf60b4c0b53c542fce3a5",
+  "input_sha256": "55699af3eccb3752878fc95362c3574898796febb9c016fc5b460094d813d0da",
   "historical_status": "ready",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/formalslt.jsonl"
 }

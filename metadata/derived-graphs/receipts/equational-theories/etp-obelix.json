@@ -1,0 +1,79 @@
+{
+  "schema_version": "paperlean-statement-only-receipt-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-obelix",
+  "status": "passed",
+  "evidence": "compiled_environment",
+  "roots": [
+    "Obelix.PartialSolution.Equation1491_facts"
+  ],
+  "input_sha256": "32c389701623ee6fe628a9214401226be61383e3560ac9eb763f10399b5018f7",
+  "graph_sha256": "b51a4994c56056245eae7991ebe1ecbedf0237618dbcd2a4f05621045e48be54",
+  "graph_path": "metadata/derived-graphs/graphs/equational-theories--etp-obelix.json",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "proof_erasure": true,
+  "new_sorry_or_axioms": true,
+  "fresh_compilation": true,
+  "original_theorem_proof_certified": false,
+  "statement_preservation": "passed",
+  "nonproof_definition_preservation": "passed",
+  "formal_sources": [
+    [
+      "formal/Main.lean",
+      "2885059712eee45473cd5d3ddc073afbc19ec1f30a92542b909d3eabedce665c"
+    ],
+    [
+      "formal/dep/equational_theories/EquationLawConversion.lean",
+      "694edf36539d0dd39ad0ab9b4d69a1411d40c653b8c925f9702ee9e1255a145b"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Basic.lean",
+      "19a7236d43de21fcc09de3bbbb857668854504cf98875c2433970199c2d533b0"
+    ],
+    [
+      "formal/dep/equational_theories/Equations/Command.lean",
+      "bf6f204ae154dae3a7040374a2b9519d28d8d5c86b2d08464f58df64f8bafe0c"
+    ],
+    [
+      "formal/dep/equational_theories/FactsSyntax.lean",
+      "31b263c2cebe350863cf3ea75bd46e165795a8b67b66a38f1a0c2f42e1150a5f"
+    ],
+    [
+      "formal/dep/equational_theories/FreeMagma.lean",
+      "5ef76a7d8b6549846a7a6c339c8e9f59d7fd7ac3af29d3f378e291a15434b666"
+    ],
+    [
+      "formal/dep/equational_theories/Homomorphisms.lean",
+      "23a0afa710adf8ed49cc8ee881d20fdfb66f36ac00c9c0c6d1446ab936e6241b"
+    ],
+    [
+      "formal/dep/equational_theories/Magma.lean",
+      "e8cfaef1209b500fa8f3d096c7c252657610793cbee16b91affcae20d3593ea1"
+    ],
+    [
+      "formal/dep/equational_theories/MagmaLaw.lean",
+      "33513a388df8ca89de92c126b18bee36376365075bdb322bcc90e5c7acc6cfcc"
+    ],
+    [
+      "formal/dep/equational_theories/Obelix.lean",
+      "577cd4f7af7b870a131f033624983701afd2e386844afb47c0b4cbb0f9efdcbf"
+    ],
+    [
+      "formal/dep/equational_theories/ParseImplications.lean",
+      "c9c4b6bef89d3342d9e09b945791e01412ec2403cbdf81de2c31b3008c8c6e62"
+    ],
+    [
+      "formal/dep/equational_theories/Preorder.lean",
+      "865a16fdbb8406c57d893021c21e807afee34a346c369773650ac566c97e9ab9"
+    ]
+  ],
+  "canonical_dataset_changed": true,
+  "packaged_project_full_build_passed": true,
+  "module_count": 12,
+  "nodes": 10,
+  "edges": 18,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

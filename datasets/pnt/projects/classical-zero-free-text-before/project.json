@@ -28,7 +28,6 @@
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
   "missing_modules": [],
-  "pending_reason": "文字边界是1−(log|t|)/R且t>3，formal是1−1/(R log t)且t≥3。并非同一区域定义：例如R=1,t=e²，前者σ≥−1、后者σ≥1/2。",
   "external_imports": [
     "Mathlib"
   ],
@@ -41,7 +40,10 @@
   "changes": "CHANGES.md",
   "formal": {
     "file_count": 1,
-    "sha256": "42e5249d3e9c5e3b6391d1f1311a00c60d17f0b383f267d034f71b0dcb978809"
+    "sha256": "bda4b2fdba488396324ada6ecf5aa34a1a2741a06c0f146d7c52f7c01fe83389",
+    "effective_root_sha256": "77396e421d5ef4b7186578215964c026272d1fd18b570adcf0c1833eeda86cc4",
+    "declaration_slice": true,
+    "proofs_erased": true
   },
   "preparation": {
     "receipt": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/receipt.json",
@@ -64,8 +66,8 @@
     "historical_sorryAx": false,
     "review": "reports/pnt-admission/review.json"
   },
-  "input_sha256": "b0549b3de0991a4648f4342e85fba2b203fe8b9885baaa294151cd860a5fb2bc",
+  "input_sha256": "a90f3e5f0b4614bddbbb10f8724851a311cfc6cf367f6ca30975662cbd48e874",
   "historical_status": "undetermined",
-  "technical_status": "extracted",
+  "technical_status": "statement-context-compiled-and-extracted",
   "alignment_reference": "metadata/labels/pnt.jsonl"
 }

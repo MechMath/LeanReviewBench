@@ -1,24 +1,67 @@
-/-
-Copyright (c) 2024 Kevin Buzzard. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Kevin Buzzard
--/
 module
 
+public import Mathlib.Algebra.GCDMonoid.IntegrallyClosed
+public import Mathlib.Algebra.Group.Int.TypeTags
 public import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
+public import Mathlib.Analysis.Normed.Ring.Lemmas
+public import Mathlib.Analysis.Normed.Unbundled.SpectralNorm
+public import Mathlib.CategoryTheory.Types.Basic
+public import Mathlib.Data.Rat.Encodable
+public import Mathlib.FieldTheory.AbsoluteGaloisGroup
+public import Mathlib.FieldTheory.Galois.Infinite
+public import Mathlib.FieldTheory.IsSepClosed
+public import Mathlib.FieldTheory.KrullTopology
+public import Mathlib.LinearAlgebra.Charpoly.Basic
+public import Mathlib.LinearAlgebra.Countable
+public import Mathlib.LinearAlgebra.FreeModule.IdealQuotient
+public import Mathlib.LinearAlgebra.Matrix.Unique
+public import Mathlib.NumberTheory.NumberField.Basic
+public import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
+public import Mathlib.NumberTheory.Padics.HeightOneSpectrum
+public import Mathlib.NumberTheory.Padics.ProperSpace
+public import Mathlib.NumberTheory.RamificationInertia.Inertia
+public import Mathlib.RepresentationTheory.Irreducible
+public import Mathlib.RingTheory.Bialgebra.Basic
+public import Mathlib.RingTheory.Bialgebra.TensorProduct
+public import Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import Mathlib.RingTheory.Etale.Basic
+public import Mathlib.RingTheory.Etale.Field
+public import Mathlib.RingTheory.Frobenius
+public import Mathlib.RingTheory.HopfAlgebra.Basic
+public import Mathlib.RingTheory.HopkinsLevitzki
+public import Mathlib.RingTheory.Ideal.IsPrincipalPowQuotient
+public import Mathlib.RingTheory.Ideal.Quotient.Defs
+public import Mathlib.RingTheory.Invariant.Defs
+public import Mathlib.RingTheory.Invariant.Profinite
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic
+public import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+public import Mathlib.RingTheory.Valuation.Discrete.Basic
+public import Mathlib.RingTheory.Valuation.Discrete.RankOne
+public import Mathlib.RingTheory.Valuation.ValuationSubring
+public import Mathlib.Topology.Algebra.Algebra.Equiv
+public import Mathlib.Topology.Algebra.Group.Basic
+public import Mathlib.Topology.Algebra.Group.ClosedSubgroup
+public import Mathlib.Topology.Algebra.Group.Neighborhood
+public import Mathlib.Topology.Algebra.LinearTopology
+public import Mathlib.Topology.Algebra.Module.ModuleTopology
+public import Mathlib.Topology.Algebra.MulAction
+public import Mathlib.Topology.Algebra.Valued.ValuationTopology
+public import Mathlib.Topology.Algebra.Valued.ValuedField
+public import Mathlib.Topology.Algebra.Valued.WithZeroMulInt
+public import Mathlib.Topology.Instances.Matrix
 public import Mathlib.Topology.Instances.ZMod
+public import Mathlib.Topology.Path
+public import dep.FLT.DedekindDomain.AdicValuation
+public import dep.FLT.Deformations.Lemmas
+public import dep.FLT.Deformations.RepresentationTheory.AbsoluteGaloisGroup
+public import dep.FLT.Deformations.RepresentationTheory.ContinuousSMulDiscrete
+public import dep.FLT.Deformations.RepresentationTheory.Etale
+public import dep.FLT.Deformations.RepresentationTheory.Frobenius
 public import dep.FLT.Deformations.RepresentationTheory.GaloisRep
-
-/-!
-
-See
-https://leanprover.zulipchat.com/#narrow/stream/217875-Is-there-code-for-X.3F/topic/n-torsion.20or.20multiplication.20by.20n.20as.20an.20additive.20group.20hom/near/429096078
-
-The main theorems in this file are part of the PhD thesis work of David Angdinata, one of KB's
-PhD students. It would be great if anyone who is interested in working on these results
-could talk to David first. Note that he has already made substantial progress.
-
--/
+public import dep.FLT.Deformations.RepresentationTheory.IntegralClosure
+public import dep.FLT.Mathlib.LinearAlgebra.Countable
+public import dep.FLT.Mathlib.RingTheory.DedekindDomain.AdicValuation
+public import dep.FLT.NumberField.Completion.Finite
 
 @[expose] public section
 
@@ -32,69 +75,16 @@ open WeierstrassCurve WeierstrassCurve.Affine
 by `n` on the group of `k`-points of `E`. -/
 abbrev WeierstrassCurve.nTorsion (n : ℕ) : Type u := Submodule.torsionBy ℤ (E⁄k).Point n
 
---variable (n : ℕ) in
---#synth AddCommGroup (E.nTorsion n)
-
--- not sure if this instance will cause more trouble than it's worth
 noncomputable instance (n : ℕ) : Module (ZMod n) (E.nTorsion n) :=
-  AddCommGroup.zmodModule <| by
-  intro ⟨P, hP⟩
-  simpa using hP
+  AddCommGroup.zmodModule <| sorry
 
--- This theorem needs e.g. a theory of division polynomials. It's ongoing work of David Angdinata.
--- Please do not work on it without talking to KB and David first.
-theorem WeierstrassCurve.n_torsion_finite {n : ℕ} (hn : 0 < n) : Finite (E.nTorsion n) := sorry
+noncomputable instance (n : ℕ) : Module.Finite (ZMod n) (E.nTorsion n) := sorry
 
--- This theorem needs e.g. a theory of division polynomials. It's ongoing work of David Angdinata.
--- Please do not work on it without talking to KB and David first.
--- This theorem was well-known in the early part of the 20th century.
-theorem WeierstrassCurve.n_torsion_card [IsSepClosed k] {n : ℕ} (hn : (n : k) ≠ 0) :
-    Nat.card (E.nTorsion n) = n^2 := sorry
-
--- This theorem was well-known in the early part of the 20th century.
-theorem group_theory_lemma {A : Type*} [AddCommGroup A] {n : ℕ} (hn : 0 < n) (r : ℕ)
-    (h : ∀ d : ℕ, d ∣ n → Nat.card (Submodule.torsionBy ℤ A d) = d ^ r) :
-    Nonempty ((Submodule.torsionBy ℤ A n) ≃+ (Fin r → (ZMod n))) := sorry
-
--- I only need this if n is prime but there's no harm thinking about it in general I guess.
--- It follows from the previous theorem using pure group theory (possibly including the
--- structure theorem for finite abelian groups)
-theorem WeierstrassCurve.n_torsion_dimension [IsSepClosed k] {n : ℕ} (hn : (n : k) ≠ 0) :
-    Nonempty (E.nTorsion n ≃+ (ZMod n) × (ZMod n)) := by
-  obtain ⟨φ⟩ : Nonempty (E.nTorsion n ≃+ (Fin 2 → (ZMod n))) := by
-    apply group_theory_lemma (Nat.pos_of_ne_zero fun h ↦ by simp [h] at hn)
-    intro d hd
-    apply E.n_torsion_card
-    contrapose! hn
-    rcases hd with ⟨c, rfl⟩
-    simp [hn]
-  exact ⟨φ.trans (RingEquiv.piFinTwo _).toAddEquiv⟩
-
--- follows easily from the above
-noncomputable instance (n : ℕ) : Module.Finite (ZMod n) (E.nTorsion n) := by
-  sorry
-
--- This should be a straightforward but perhaps long unravelling of the definition
 /-- The map on points for an elliptic curve over `k` induced by a morphism of `k`-algebras
 is a group homomorphism. -/
 noncomputable def WeierstrassCurve.Points.map {K L : Type u} [Field K] [Field L] [Algebra k K]
     [Algebra k L] [DecidableEq K] [DecidableEq L]
     (f : K →ₐ[k] L) : (E⁄K).Point →+ (E⁄L).Point := WeierstrassCurve.Affine.Point.map f
-
-omit [E.IsElliptic] [DecidableEq k] in
-lemma WeierstrassCurve.Points.map_id (K : Type u) [Field K] [DecidableEq K] [Algebra k K] :
-    WeierstrassCurve.Points.map E (AlgHom.id k K) = AddMonoidHom.id _ := by
-      ext
-      exact WeierstrassCurve.Affine.Point.map_id _
-
-omit [E.IsElliptic] [DecidableEq k] in
-lemma WeierstrassCurve.Points.map_comp (K L M : Type u) [Field K] [Field L] [Field M]
-    [DecidableEq K] [DecidableEq L] [DecidableEq M] [Algebra k K] [Algebra k L] [Algebra k M]
-    (f : K →ₐ[k] L) (g : L →ₐ[k] M) :
-    (WeierstrassCurve.Affine.Point.map g).comp (WeierstrassCurve.Affine.Point.map f) =
-    WeierstrassCurve.Affine.Point.map (W' := E) (g.comp f) := by
-  ext P
-  exact WeierstrassCurve.Affine.Point.map_map _ _ _
 
 /-- The Galois action on the points of an elliptic curve. -/
 noncomputable instance WeierstrassCurve.galoisRepresentationSmul
@@ -110,9 +100,6 @@ noncomputable instance WeierstrassCurve.galoisRepresentation
       mul_smul := sorry
       smul_zero := sorry
       smul_add := sorry
-
--- the next `sorry` is data but the only thing which should be missing is
--- the continuity argument, which follows from the finiteness asserted above.
 
 /-- A classical decidable instance on `AlgebraicClosure ℚ`, given that there is
 no hope of a constructive one with the current definition of algebraic closure. -/
