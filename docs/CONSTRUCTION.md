@@ -28,13 +28,14 @@ Their source repository, commit and selected roots are recorded in each
    elaborated types and values, allowing proof irrelevance and source-neutral
    binder/let annotations. These checks validate statement contexts, rather than
    certify the original theorem proofs.
-6. Bind the released files, graphs and extraction receipts to the current input
-   digest. Preserve binary judgments, their reasons, taxonomy assignments and
+6. Record compilation, extraction and preservation results in
+   `metadata/validation.json`, bound to input/formal-source digests and roots.
+   Keep generated graphs and detailed processing outputs in ignored build directories. Preserve binary judgments, their reasons, taxonomy assignments and
    source evidence when the mathematical content is unchanged. Keep these
    annotations outside model-visible inputs.
 
-All 171 current contexts have compilation and fresh extraction evidence under
-`metadata/derived-graphs/`. Required non-Lean resources remain beside their Lean
+All 171 current contexts have recorded compilation and fresh extraction results in
+`metadata/validation.json`. Graph files are not part of the release. Required non-Lean resources remain beside their Lean
 users; Mathlib and Cslib remain pinned external libraries. EconCSLib belongs to
 the historical AppliedModelingLib sources and is vendored only where required
 under `formal/dep/`. Its historical source variations remain input-specific.

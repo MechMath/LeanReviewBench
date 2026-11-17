@@ -6,7 +6,7 @@ from pathlib import Path
 import project_cases
 from release_metadata import verify
 from alignment_labels import verify as verify_labels
-from derived_graphs import verify as verify_derived_graphs
+from context_validation import verify as verify_contexts
 
 
 BASE = Path(__file__).resolve().parents[2]
@@ -42,7 +42,7 @@ def main():
     check_scope(BASE, config)
     project_cases.check(config)
     verify_labels(BASE)
-    verify_derived_graphs(BASE)
+    verify_contexts(BASE)
     verify(BASE)
     print(f'PASS: {len(config["datasets"])} registered project-case batches; staging and archived frozen datasets excluded')
 

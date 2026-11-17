@@ -23,9 +23,7 @@ metadata/
     upstream/                    # Original upstream claims and input associations
     analysis/<batch>/<id>.json    # Current per-input judgment evidence
   taxonomy/                      # Classification standard and all negative labels
-  derived-graphs/
-    index.json                   # Current derived-graph/receipt bindings
-    retained-index.json          # Local access to all 171 current contexts
+  validation.json                # Input-bound context check results
   provenance.json
   manifest.json
   release.json
@@ -51,7 +49,7 @@ python3 scripts/data/inspect_dataset.py validate
 python3 -m unittest discover -s tests -v
 ```
 
-The native checker validates registered scope, project indexes and input hashes, label bindings, graph receipts, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command also checks local graph availability for all 171 inputs.
+The native checker validates registered scope, project indexes and input hashes, label bindings, recorded context checks, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command validates all 171 native Lean inputs without requiring graph files.
 
 Open `datasets/<batch>/projects/<id>/formal/Main.lean` directly to read a source snapshot. No blob restoration step is required. To inspect native metadata and complete informal records:
 
@@ -66,7 +64,8 @@ bench = Dataset('.')
 package = bench.project('stacks:STK-0B34')
 print(package['project']['targets'])
 print(package['informal'])
-graph = bench.graph('stacks:STK-0B34')
+formal_directory = bench.directory('stacks:STK-0B34') / 'formal'
+print((formal_directory / 'Main.lean').read_text())
 ```
 
 These are curator-facing package records, including source/history metadata. They are not filtered model prompts.
@@ -88,7 +87,7 @@ python3 scripts/construction/compile_projects.py env
 python3 scripts/construction/compile_projects.py compile --dataset carleson --ids CAR-01-before
 ```
 
-Compilation and extraction receipts are bound to the released statement contexts. They do not certify the omitted original theorem proofs or semantic alignment. Source repository/commit/root pins identify the full upstream sources; each input's `CHANGES.md` describes its Lean migration. Ordinary use does not require reconstructing a complete upstream project. See the [construction method](docs/CONSTRUCTION.md) and [known extraction issues](https://github.com/MechMath/LeanReviewBench/issues/2).
+`metadata/validation.json` records input-bound compilation, extraction and preservation checks. Dependency graphs are generated on demand and are not distributed. These checks do not certify the omitted original theorem proofs or semantic alignment. Source repository/commit/root pins identify the full upstream sources; each input's `CHANGES.md` describes its Lean migration. Ordinary use does not require reconstructing a complete upstream project. See the [construction method](docs/CONSTRUCTION.md) and [known extraction issues](https://github.com/MechMath/LeanReviewBench/issues/2).
 
 See [environment configuration](docs/ENVIRONMENT.md), [validation](docs/VALIDATION.md) and [maintenance](docs/MAINTENANCE.md) for current procedures. Refresh the support inventory before the data manifest after intentional changes.
 

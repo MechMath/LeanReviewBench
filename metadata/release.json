@@ -34,7 +34,8 @@
     "qwen experiment runs",
     "per-declaration and duplicate graph encodings",
     "build caches",
-    "optional original/ copies, source caches, patches and construction logs"
+    "optional original/ copies, source caches, patches and construction logs",
+    "regenerable dependency graphs and historical graph/composition intermediates"
   ],
   "packaging_policy": "Statement-only declaration closures and required source/runtime support; per-input CHANGES.md records Lean migration edits.",
   "excluded_batches": {

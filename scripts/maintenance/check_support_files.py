@@ -62,7 +62,7 @@ def audit(root):
     layout=json.loads((root/'metadata/layout.json').read_text())
     if layout.get('schema_version')!='leanreviewbench-metadata-layout-2':errors.append('Unsupported metadata layout')
     for old,target in layout.get('path_aliases',{}).items():
-        if not old.startswith(('reports/','metadata/reports/')) or not target.startswith(('metadata/evidence/analysis/','metadata/derived-graphs/')):
+        if not old.startswith(('reports/','metadata/reports/')) or not target.startswith('metadata/evidence/analysis/'):
             errors.append('Unexpected evidence compatibility locator: '+old)
         else:
             path=resolve(root,old)
@@ -82,9 +82,6 @@ def audit(root):
     analysis=json.loads((root/'metadata/evidence/analysis/index.json').read_text())
     for row in analysis['records']:
         required[row['path']]=row['sha256']
-    derived=json.loads((root/'metadata/derived-graphs/index.json').read_text())
-    for row in derived['records']:
-        required[row['graph_path']]=row['graph_sha256'];required[row['receipt_path']]=row['receipt_sha256']
     for name,expected in required.items():
         path=resolve(root,name)
         if not path.is_file() or sha(path)!=expected:errors.append('Missing/changed runtime evidence: '+name)

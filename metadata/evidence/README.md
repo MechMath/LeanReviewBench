@@ -6,8 +6,8 @@
   available reasoning for each input, with links to relevant upstream excerpts.
 
 Semantic evidence is organized by source and input, not by review date or work
-batch. Graph extraction and composition evidence belong to
-[derived graphs](../derived-graphs/README.md). Classifications belong to
+batch. Context compilation, extraction and preservation results are recorded in
+`metadata/validation.json`; regenerable graphs are omitted. Classifications belong to
 [the taxonomy](../taxonomy/README.md). Earlier development reports are managed
 by Git history or explicitly identified archive locators.
 

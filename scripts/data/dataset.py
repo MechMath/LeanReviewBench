@@ -3,7 +3,6 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
-from .paths import resolve
 
 
 def file_hash(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -36,22 +35,6 @@ class Dataset:
         directory=self.directory(identity)
         return dict(project=json.loads((directory/'project.json').read_text()),
                     informal=list(records(directory/'informal.jsonl')))
-    def graph(self,identity):
-        batch,project=identity.split(':',1)
-        rows=json.loads((self.root/'metadata/derived-graphs/retained-index.json').read_text())['records']
-        selected=[r for r in rows if (r['dataset'],r['project_id'])==(batch,project)]
-        if len(selected)!=1:raise ValueError('Missing/duplicate retained graph binding')
-        row=selected[0];path=Path(row['graph_path'])
-        if not path.parts or path.is_absolute() or '..' in path.parts or (path.parts[:2]!=('metadata','derived-graphs') and path.parts[0]!='reports'):
-            raise ValueError('Unsafe graph path')
-        path=resolve(self.root,path)
-        if file_hash(path)!=row['graph_sha256']:raise ValueError('Retained graph hash mismatch')
-        meta=self.project(identity)['project']
-        if row['input_sha256']!=meta['input_sha256'] or row['roots']!=[t['declaration'] for t in meta['targets']]:
-            raise ValueError('Stale retained graph input binding')
-        graph=json.loads(path.read_text())
-        if not set(row['roots'])<=set(graph['roots']):raise ValueError('Missing graph roots')
-        return graph
     def validate(self):
         script=self.root/'scripts/data/project_cases.py'
         spec=importlib.util.spec_from_file_location('_native_project_cases',script)
@@ -60,5 +43,4 @@ class Dataset:
             meta=self.project(identity)['project']
             if meta['schema_version']!='paperlean-project-case-1':raise ValueError('Unknown project schema')
             if native.input_digest(directory)!=meta['input_sha256']:raise ValueError('Input digest mismatch: '+identity)
-            self.graph(identity)
-        return dict(inputs=len(self),graphs=len(self))
+        return dict(inputs=len(self))

@@ -28,12 +28,13 @@ version relationships, pinned environment, file inventory and input hashes.
 The Lean files retain the roots' declaration contexts and the notation,
 instances and other support needed to elaborate them. Proof bodies are replaced
 with `sorry`; non-proof definition values are preserved. All 171 contexts have
-fresh compilation and graph-extraction evidence. These checks validate the
+recorded compilation and graph-extraction checks in `metadata/validation.json`. These checks validate the
 statement contexts and do not certify the original proofs.
 
 Human judgments, taxonomy assignments and source evidence are stored separately
 under `metadata/` and are excluded from model-visible inputs. Input hashes bind
-annotations and graphs to the current packaged sources. See the
+annotations and validation records to the current packaged sources. Dependency
+graphs are generated on demand from Lean and are not distributed. See the
 [data contract](../docs/DATA-FORMAT.md) and
 [construction method](../docs/CONSTRUCTION.md).
 

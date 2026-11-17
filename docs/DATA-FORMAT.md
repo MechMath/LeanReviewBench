@@ -11,7 +11,7 @@ The native dataset schema is `paperlean-project-case-1`. It is not a frozen scor
 | `informal.jsonl` | One JSON object per line: ID, independently sourced text, source version/locator/hash, scope and selected target declaration(s). Empty inputs must be disclosed; never synthesize a target from Lean |
 | `formal/Main.lean`, `formal/dep/` | Statement-only declaration closure, necessary source elaboration support and runtime resources; external libraries remain pinned boundaries |
 | `CHANGES.md` | Concise per-input Lean migration changes and statement-context packaging notes |
-| `metadata/derived-graphs/` | Retained context graphs, extraction receipts and composition evidence. Embedded historical locators resolve through `metadata/layout.json` |
+| `metadata/validation.json` | Input-bound results of context compilation, extraction and preservation checks; no graph data |
 | `datasets/<batch>/index.csv` | Generated from project metadata. Exact columns: `id,root,commit,group_id,before_ids,after_ids,status`. The root column joins all selected declaration names with semicolons; authoritative root metadata remains in `targets` |
 | `metadata/labels/<batch>.jsonl` | One input-bound label record per registered project: dataset, project ID, root, `aligned`/`misaligned` label, concise English reason and scope, input hash, and current human-review state. `undetermined` is accepted by legacy validation but none remains in the audited latest research snapshot |
 | `metadata/evidence/analysis/<batch>/<id>.json` | Input-bound judgment evidence and available detailed reasoning, hashed by the analysis index. The outer `roots` array covers every selected target; coverage status distinguishes detailed reviews, reason-only records, and missing reasons |
@@ -50,9 +50,20 @@ tests/                 Offline regression tests
 licenses/              Source attribution and license copies
 ```
 
-`metadata/derived-graphs/retained-index.json` binds all 171 inputs to freshly extracted graphs, SHA-256 hashes, ordered roots and receipts. The matching `index.json` registers all 171 current extraction receipts. Each records intentional proof erasure and successful statement/non-proof-definition preservation checks, without claiming certification of original proofs. Historical graph/composition evidence remains available separately. Raw graphs can contain documentation and still require filtering before model use.
+`metadata/validation.json` records successful compilation, extraction and statement/
+non-proof-definition preservation checks for all 171 current inputs. Each record
+is bound to its input digest, formal-source digest and ordered roots; shared Lean,
+Mathlib/Cslib pins and exporter hashes are recorded once. It explicitly records
+proof erasure without certification of original proofs. Offline validation checks
+these bindings and coverage; it does not rerun Lean. The evidence commit identifies
+the Git revision containing the original detailed receipts.
 
-`metadata/evidence/analysis/index.json` associates each input with its current analysis file and hash. `metadata/layout.json` resolves exact historical paths embedded in technical receipts; active indexes use canonical paths. The taxonomy standard and classification records are documented in [metadata/taxonomy](../metadata/taxonomy/README.md).
+The Lean files under each input's `formal/` directory are authoritative. Dependency
+graphs are generated on demand into ignored build directories. Graphs, historical
+graph variants and composition inputs are not distributed. Raw generated graphs
+may contain documentation and require filtering before model use.
+
+`metadata/evidence/analysis/index.json` associates each input with its current analysis file and hash. `metadata/layout.json` resolves historical paths for retained semantic judgment evidence. Removed technical artifacts remain accessible in Git history. The taxonomy standard and classification records are documented in [metadata/taxonomy](../metadata/taxonomy/README.md).
 
 `metadata/manifest.json` inventories data, metadata and license bytes. `metadata/support-inventory.json` inventories current documentation, configuration, scripts and tests. Source attribution and archive locators are recorded in `metadata/provenance.json`, `metadata/materials/index.json` and `metadata/release.json`.
 
@@ -68,6 +79,6 @@ The release excludes `YuanheZ/lean-stat-learning-theory` and its sole input `slt
 
 The release retains registered source/resource files, complete informal records, compatibility notes, labels, evidence, graph bindings and source licenses. Build caches, experiment outputs, excluded candidates, duplicate source archives, optional acquisition caches and historical production logs are omitted. Independent mathematical text remains in `informal.jsonl`; optional acquired materials have pinned archive locators and hashes in `metadata/materials/index.json`.
 
-Native packages contain proof-erased declaration contexts, source comments and curator metadata. They still require a deliberate model-input export. Existing [evaluation tools](../scripts/evaluation/PROTOCOL.md) construct `input.json` from separately supplied evaluation JSONL packages; they do not currently convert native inputs or read `metadata/derived-graphs/` automatically. Model input scope and native conversion are tracked in [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
+Native packages contain proof-erased declaration contexts, source comments and curator metadata. They still require a deliberate model-input export. Existing [evaluation tools](../scripts/evaluation/PROTOCOL.md) construct `input.json` from separately supplied evaluation JSONL packages; they do not currently convert native inputs or generate native dependency graphs automatically. Model input scope and native conversion are tracked in [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
 
 The active source snapshot is pinned in `metadata/release.json`. Historical research documentation can be consulted at the [recorded documentation revision](https://github.com/MechMath/PaperLeanBench/tree/2f471585a4b71adb32f6e3fac214e366ce8979ae/docs); it does not override the current release contract.

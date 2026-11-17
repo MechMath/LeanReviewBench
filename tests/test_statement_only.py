@@ -1,4 +1,6 @@
-"""Proof-erased contexts require explicit, input-bound extraction evidence."""
+"""Recorded statement-context checks remain bound to sources without graph files."""
+import copy
+import importlib.util
 import json
 from pathlib import Path
 import sys
@@ -7,81 +9,74 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts/data'))
-from derived_graphs import load_for, sha
-from project_cases import formal_files, input_digest
+from context_validation import verify
+from project_cases import formal_digest, input_digest
 
-
-def write(path, value):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value) + '\n')
+spec = importlib.util.spec_from_file_location('release_fixtures', ROOT / 'tests/test_release.py')
+fixtures = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(fixtures)
 
 
 def fixture(base):
-    project = base / 'datasets/example/projects/sample'
-    (project / 'formal').mkdir(parents=True)
-    (project / 'formal/Main.lean').write_text('theorem sample : True := sorry\n')
-    write(project / 'informal.jsonl', {'id': 'main', 'text': 'True holds.'})
-    meta = {'targets': [{'declaration': 'sample'}]}
-    write(project / 'project.json', meta)
-    meta['input_sha256'] = input_digest(project)
-    write(project / 'project.json', meta)
-    graph = base / 'metadata/derived-graphs/graphs/sample.json'
-    write(graph, {'schema_version': 1, 'evidence': 'compiled_environment',
-                  'roots': ['sample'], 'nodes': [], 'edges': []})
-    receipt_path = base / 'metadata/derived-graphs/receipts/sample.json'
-    receipt = {'schema_version': 'paperlean-statement-only-receipt-1',
-               'status': 'passed', 'input_sha256': meta['input_sha256'],
-               'graph_sha256': sha(graph), 'proof_erasure': True,
-               'new_sorry_or_axioms': True, 'fresh_compilation': True,
-               'original_theorem_proof_certified': False,
-               'statement_preservation': 'passed',
-               'nonproof_definition_preservation': 'passed',
-               'formal_sources': [list(row) for row in formal_files(project)]}
-    write(receipt_path, receipt)
-    record = {'dataset': 'example', 'project_id': 'sample', 'roots': ['sample'],
-              'input_sha256': meta['input_sha256'], 'evidence': 'compiled_environment',
-              'graph_path': graph.relative_to(base).as_posix(), 'graph_sha256': sha(graph),
-              'receipt_path': receipt_path.relative_to(base).as_posix(),
-              'receipt_sha256': sha(receipt_path)}
-    index = base / 'metadata/derived-graphs/index.json'
-    write(index, {'schema_version': 'paperlean-derived-graphs-1', 'records': [record]})
-    return project, receipt_path, receipt, index, record
+    directory = fixtures.fixture(base)
+    config_path = base / 'datasets/project-cases.json'
+    config = json.loads(config_path.read_text())
+    config.update(lean_toolchain='leanprover/lean4:v4.34.1', external_libraries={})
+    fixtures.write(config_path, config)
+    (directory / 'formal/Main.lean').write_text('theorem sample : True := sorry\n')
+    meta = json.loads((directory / 'project.json').read_text())
+    meta.update(input_sha256=input_digest(directory),
+                formal={'proofs_erased': True, 'declaration_slice': True})
+    fixtures.write(directory / 'project.json', meta)
+    document = dict(schema_version='leanreviewbench-context-validation-1',
+                    lean_toolchain=config['lean_toolchain'], external_libraries={},
+                    proofs_erased=True, original_theorem_proofs_certified=False,
+                    records=[dict(dataset='example', project_id='sample', roots=['sample'],
+                                  input_sha256=meta['input_sha256'],
+                                  formal_sha256=formal_digest(directory), compilation='passed',
+                                  extraction='passed', statement_preservation='passed',
+                                  nonproof_definition_preservation='passed')])
+    fixtures.write(base / 'metadata/validation.json', document)
+    return directory, document
 
 
 class StatementOnlyEvidenceTests(unittest.TestCase):
-    def change_receipt(self, base, **changes):
-        project, path, receipt, index, record = fixture(base)
-        receipt.update(changes)
-        write(path, receipt)
-        record['receipt_sha256'] = sha(path)
-        write(index, {'schema_version': 'paperlean-derived-graphs-1', 'records': [record]})
-        return project
-
-    def test_explicit_proof_erasure_does_not_certify_original_proof(self):
+    def test_checks_available_without_graph_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
-            project, *_ = fixture(base)
-            _, evidence = load_for(base, project)
-            self.assertTrue(evidence['fresh_compilation'])
-            self.assertFalse(evidence['original_theorem_proof_certified'])
+            fixture(base)
+            verify(base)
+            self.assertFalse((base / 'metadata/derived-graphs').exists())
 
-    def test_legacy_receipt_cannot_silently_accept_new_holes(self):
+    def test_stale_checks_cannot_be_rebound_by_only_updating_project_hash(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
-            project = self.change_receipt(base, schema_version=1)
-            with self.assertRaisesRegex(ValueError, 'hole-free'):
-                load_for(base, project)
+            directory, _ = fixture(base)
+            (directory / 'formal/Main.lean').write_text('theorem sample : False := sorry\n')
+            meta = json.loads((directory / 'project.json').read_text())
+            meta['input_sha256'] = input_digest(directory)
+            fixtures.write(directory / 'project.json', meta)
+            with self.assertRaisesRegex(ValueError, 'Stale context'):
+                verify(base)
 
-    def test_statement_only_receipt_cannot_claim_original_proof_certification(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            base = Path(tmp)
-            project = self.change_receipt(base, original_theorem_proof_certified=True)
-            with self.assertRaisesRegex(ValueError, 'statement-only'):
-                load_for(base, project)
+    def test_invalid_claims_and_coverage_rejected(self):
+        mutations = [
+            lambda d: d.update(original_theorem_proofs_certified=True),
+            lambda d: d.update(lean_toolchain='other'),
+            lambda d: d['records'].clear(),
+            lambda d: d['records'].append(copy.deepcopy(d['records'][0])),
+            lambda d: d['records'][0].update(roots=['other']),
+            lambda d: d['records'][0].update(extraction='failed'),
+            lambda d: d['records'][0].update(formal_sha256='stale')]
+        for mutate in mutations:
+            with self.subTest(mutation=mutate), tempfile.TemporaryDirectory() as tmp:
+                base = Path(tmp)
+                _, document = fixture(base)
+                mutate(document)
+                fixtures.write(base / 'metadata/validation.json', document)
+                with self.assertRaises(ValueError):
+                    verify(base)
 
-    def test_source_inventory_must_match_compiled_context(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            base = Path(tmp)
-            project = self.change_receipt(base, formal_sources=[])
-            with self.assertRaisesRegex(ValueError, 'statement-only'):
-                load_for(base, project)
+
+if __name__ == '__main__':
+    unittest.main()

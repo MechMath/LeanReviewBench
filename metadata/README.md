@@ -10,7 +10,7 @@ outside model-visible task exports.
 | [evidence/upstream/](evidence/upstream/README.md) | Original upstream claims with exact source/input associations; not scoring labels |
 | [evidence/analysis/](evidence/analysis/README.md) | Current judgment evidence grouped by source batch and input |
 | [taxonomy/](taxonomy/README.md) | Current five-category standard and classifications for all 90 negative inputs |
-| [derived-graphs/](derived-graphs/README.md) | Context graphs, extraction receipts, and composition validation inputs |
+| `validation.json` | Input-bound compilation, extraction and preservation results; graphs are generated on demand |
 | `provenance.json` | Source project bindings and archive locators |
 | `materials/` | Independent-source acquisition locators and byte hashes |
 | `support-inventory.json` | Current documentation, configuration, scripts and test hashes |
@@ -22,3 +22,6 @@ Upstream claims, our semantic judgment, and technical extraction evidence are
 separate kinds of evidence. Compilation, proof completeness, and reference
 readiness are also separate facts. See [the data contract](../docs/DATA-FORMAT.md).
 The SLT batch remains excluded; see [the release scope](../docs/DATA-FORMAT.md#technical-states-and-limits).
+
+The released Lean files are authoritative. Graphs, archived graph variants and
+composition inputs are omitted; prior technical artifacts remain in Git history.

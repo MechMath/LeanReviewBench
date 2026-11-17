@@ -31,9 +31,8 @@ def fixture(base):
     shutil.copy2(ROOT/'scripts/data/project_cases.py',script)
     spec=importlib.util.spec_from_file_location('_fixture_native',script);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     meta['input_sha256']=module.input_digest(directory);write(directory/'project.json',meta)
-    graph=base/'metadata/derived-graphs/retained/example.json';write(graph,dict(roots=['sample'],nodes=[],edges=[]))
-    write(base/'metadata/derived-graphs/retained-index.json',dict(records=[dict(dataset='example',project_id='sample',input_sha256=meta['input_sha256'],roots=['sample'],graph_path=graph.relative_to(base).as_posix(),graph_sha256=file_hash(graph))]))
-    return directory,graph
+    return directory
+
 
 
 class NativeContractTests(unittest.TestCase):
@@ -45,29 +44,23 @@ class NativeContractTests(unittest.TestCase):
             self.assertEqual(row['scope'],'Complete supplied statement.')
             self.assertEqual(row['source']['locator'],'Section 1')
             self.assertEqual(row['targets'][0]['declaration'],'sample')
-            self.assertEqual(data.validate(),dict(inputs=1,graphs=1))
+            self.assertEqual(data.validate(),dict(inputs=1))
     def test_source_changes_invalidate_original_digest(self):
         with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);directory,_=fixture(base)
+            base=Path(tmp);directory=fixture(base)
             (directory/'formal/Main.lean').write_text('axiom sample : False\n')
             with self.assertRaisesRegex(ValueError,'Input digest mismatch'):Dataset(base).validate()
     def test_resource_changes_invalidate_original_digest(self):
         with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);directory,_=fixture(base)
+            base=Path(tmp);directory=fixture(base)
             (directory/'formal/certificate.json').write_text('{"bound": 3}\n')
             with self.assertRaisesRegex(ValueError,'Input digest mismatch'):Dataset(base).validate()
-    def test_changed_graph_rejected(self):
+    def test_native_validation_requires_no_graphs(self):
         with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);_,graph=fixture(base);graph.write_text('{}\n')
-            with self.assertRaisesRegex(ValueError,'graph hash'):Dataset(base).graph('example:sample')
-    def test_stale_graph_binding_rejected(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);fixture(base);p=base/'metadata/derived-graphs/retained-index.json';obj=json.loads(p.read_text());obj['records'][0]['input_sha256']='stale';write(p,obj)
-            with self.assertRaisesRegex(ValueError,'Stale retained'):Dataset(base).graph('example:sample')
-    def test_unsafe_graph_path_rejected(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            base=Path(tmp);fixture(base);p=base/'metadata/derived-graphs/retained-index.json';obj=json.loads(p.read_text());obj['records'][0]['graph_path']='../escape';write(p,obj)
-            with self.assertRaisesRegex(ValueError,'Unsafe graph'):Dataset(base).graph('example:sample')
+            base=Path(tmp);fixture(base)
+            self.assertFalse((base/'metadata/derived-graphs').exists())
+            self.assertEqual(Dataset(base).validate(),dict(inputs=1))
+            self.assertFalse(hasattr(Dataset,'graph'))
     def test_no_implicit_model_export(self):
         self.assertFalse(hasattr(Dataset,'task'))
         self.assertFalse((ROOT/'scripts/data/evaluate.py').exists())
@@ -99,8 +92,8 @@ class PublicationTests(unittest.TestCase):
         obj=json.loads(result.stdout)
         self.assertEqual(obj['totals']['inputs'],171)
         self.assertEqual(obj['totals']['reference_ready'],0)
-    def test_all_original_graph_bindings_available(self):
-        self.assertEqual(Dataset(ROOT).validate(),dict(inputs=171,graphs=171))
+    def test_all_native_inputs_valid_without_graphs(self):
+        self.assertEqual(Dataset(ROOT).validate(),dict(inputs=171))
     def test_binary_labels_and_joint_roots(self):
         data=Dataset(ROOT);labels=[r for path in (ROOT/'metadata/labels').glob('*.jsonl') for r in records(path)]
         self.assertEqual(len(labels),171)
