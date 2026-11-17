@@ -1,9 +1,11 @@
 # Source licenses and attribution
 
-This directory covers the thirteen retained project-case batches and identified
-third-party source material in their local closures. Names match dataset names.
-License bundles for the removed OpenAI/OAI, FLT and Kakeya datasets remain with
-their data in the `11_9_shenhao` archive branch.
+This directory covers all 16 registered dataset batches and four additional
+source repositories represented in the released data. Batch directory names
+match `datasets/project-cases.json`; additional sources are listed separately in
+`index.json`. All current license directories have a retained source or material
+association. The excluded `YuanheZ/lean-stat-learning-theory` repository has no
+license directory or active index entry; the separate FormalSLT batch remains.
 The repository-level [LICENSE](../LICENSE) does not override upstream terms.
 
 | Batch | Software license | Retained evidence |
@@ -19,6 +21,11 @@ The repository-level [LICENSE](../LICENSE) does not override upstream terms.
 | pfr | Apache-2.0 | [License copy](pfr/LICENSE) |
 | sphere-eversion | Apache-2.0 | [License copy](sphere-eversion/LICENSE) |
 | pnt | Apache-2.0 | [License copy](pnt/LICENSE) |
+| stacks | Apache-2.0 (code) | [License copy](stacks/LICENSE) and [source attribution](stacks/ATTRIBUTION.md) |
+| arklib | Apache-2.0 | [License copy](arklib/LICENSE) |
+| imperial-flt | Apache-2.0 | [License copy](imperial-flt/LICENSE) |
+| equational-theories | Apache-2.0 | [License copy](equational-theories/LICENSE) |
+| apap | Apache-2.0 | [License copy](apap/LICENSE) |
 
 Additional retained sources require [add-combi](add-combi/LICENSE),
 [CoarseGraining](coarse-graining/LICENSE), [Mathlib](mathlib/LICENSE), and
