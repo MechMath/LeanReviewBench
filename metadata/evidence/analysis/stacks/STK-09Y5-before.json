@@ -5,9 +5,9 @@
   "task_id": "stacks:STK-09Y5-before",
   "input_sha256": "59408da39a01dfcd44cb961fb458bf41c0a18b27fda25d3f682874870fa8d449",
   "label": "misaligned",
-  "reason": "Input partition omits source Definition 09XZ local-closedness; the cofinite-topology counterexample refutes the stronger statement.",
-  "review_status": "provisional_single_model_review",
-  "human_adjudicated": false,
+  "reason": "The input partition omits the local-closedness condition required by the source partition definition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Setoid.Partitions.exists_finite_good_refinement"
@@ -20,8 +20,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Locally closed is required by source Definition 09XZ. Good means the frontier condition of Definition 09Y0.",
+  "review_scope": "The finite refinement statement with locally closed blocks required by Definition 09XZ and goodness defined by the source frontier condition.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Input partition omits source Definition 09XZ local-closedness; the cofinite-topology counterexample refutes the stronger statement.",
+  "retained_review_scope": "Locally closed is required by source Definition 09XZ. Good means the frontier condition of Definition 09Y0."
 }

@@ -5,9 +5,9 @@
   "task_id": "carleson:CAR-02-before",
   "input_sha256": "96018b69ebbc77b3af56b24c101f53fd81af0aee8d690dde18ca61d3248ec0a8",
   "label": "misaligned",
-  "reason": "蓝图假设对所有 phase θ 的算子范数控制；Lean 的 hT 只对隐式单个 θ 成立，却推出不含该 θ 的 linearizedCarleson 结论，量词范围不匹配。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The operator bound is assumed for one implicit phase instead of all phases.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "linearized_metric_carleson"
@@ -25,7 +25,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The complete bound theorem with its project-defined cancellation and phase assumptions.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "蓝图假设对所有 phase θ 的算子范数控制；Lean 的 hT 只对隐式单个 θ 成立，却推出不含该 θ 的 linearizedCarleson 结论，量词范围不匹配。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

@@ -5,9 +5,9 @@
   "task_id": "pnt:zero-density-text-before",
   "input_sha256": "de08bdd08260ab1bed68f7f2da5946700be28d086c62751909b9cb794cd35712",
   "label": "misaligned",
-  "reason": "当前文字将N(σ,T)的密度界与另一条RvM误差式拼接，含未绑定的b1,b2,b3，固定T≥2。formal结构实际量化T≥T0、σ∈σ_range，只有c1(σ)T^p(σ)(logT)^q(σ)+c2(σ)(logT)^2一条界，未表达拼入的约束。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The formal predicate omits the additional Riemann-von-Mangoldt constraints spliced into the bound text. The stated threshold T>=2 differs from the formal T>=T0 and retained sigma range.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "zero_density_bound"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "当前文字将N(σ,T)的密度界与另一条RvM误差式拼接，含未绑定的b1,b2,b3，固定T≥2。formal结构实际量化T≥T0、σ∈σ_range，只有c1(σ)T^p(σ)(logT)^q(σ)+c2(σ)(logT)^2一条界，未表达拼入的约束。",
+  "review_scope": "The literal bound source text, retaining its malformed combination of density and counting-error constraints; no corrected target is substituted."
 }

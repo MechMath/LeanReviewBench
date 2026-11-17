@@ -5,9 +5,9 @@
   "task_id": "formalslt:mixture-after",
   "input_sha256": "9067f5e19eddd50865d57acc87644a1299d772b7be021003462e45c6a1131c27",
   "label": "aligned",
-  "reason": "根定理与 informal 的概率模型、假设及越界结论一致。展开可达定义后，混合过程恰为以 [lam0,lam1] 上归一化均匀先验积分的 exp(lambda*S_n - n*sigma2*lambda^2/(2*(1-b*lambda/3)))；根结论是存在 n>0 达到至少 1/delta 的事件概率不超过 delta。",
-  "review_status": "independent_blinded_subagent_label",
-  "human_adjudicated": false,
+  "reason": "The probability model, increment assumptions, predictable variance proxy, uniform-prior Bernstein mixture, and crossing-probability bound match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
@@ -42,8 +42,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance.",
+  "review_scope": "The bounded-increment specialization with a compact uniform prior and predictable variance proxy; realized sample variance is excluded.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根定理与 informal 的概率模型、假设及越界结论一致。展开可达定义后，混合过程恰为以 [lam0,lam1] 上归一化均匀先验积分的 exp(lambda*S_n - n*sigma2*lambda^2/(2*(1-b*lambda/3)))；根结论是存在 n>0 达到至少 1/delta 的事件概率不超过 delta。",
+  "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }

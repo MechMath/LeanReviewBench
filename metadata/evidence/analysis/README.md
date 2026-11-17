@@ -1,8 +1,8 @@
 # Per-input analysis evidence
 
 Each `<batch>/<input-id>.json` binds the current label, reason, review state and
-complete root list to the frozen input hash. Label records reference its path
-and SHA-256. [index.json](index.json) inventories all 171 records:
+complete root list to the frozen input hash. [index.json](index.json) associates
+all 171 input identities with evidence paths and SHA-256 digests:
 
 - 38 retain a detailed review under `analysis`.
 - 130 retain the existing label reason and source references only.
@@ -21,6 +21,9 @@ Dates and decision provenance remain metadata, not directory organization.
 Historical paths inside retained analysis are source locators, not a promise
 that every referenced artifact is available locally.
 
-These are provisional evaluation-side records and must never be sent to the
-model as task inputs. Missing reasons and unresolved material qualifications
+The binary judgments are human reviewed. Their concise English reasons and scopes
+match the label records; `retained_reason` and `retained_review_scope`, where
+present, preserve the original wording. Embedded earlier review states are source
+provenance, not the current adjudication status. These evidence records must never
+be sent to the model as task inputs. Missing reasons and unresolved material qualifications
 remain separate from binary labels and reference readiness.

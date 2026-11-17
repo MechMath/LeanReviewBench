@@ -5,9 +5,9 @@
   "task_id": "pfr:pfr-independent-blocks-after",
   "input_sha256": "9c4f11bbc8b27b3493ba7d7d2505e2c626d17475d4b53dd4c6ba7d2bc0d32287",
   "label": "aligned",
-  "reason": "独立概率讲义 Remark 1.71 已给出有限多个不交有限坐标块构成独立随机向量的完整数学结论；Definition 1.69 对任意族用全部有限子族定义独立。PR321 明确意图是允许任意/无限块索引 J，故提案保留任意 J。after 根直接允许任意 J，输入独立且可测、S_j 为两两不交 Finset，结论恰是各块取有限乘积坐标后的联合独立。formal 允许一般测度，特别包含讲义所用概率测度。",
-  "review_status": "model_remaining_undetermined_recheck",
-  "human_adjudicated": false,
+  "reason": "The root permits any block-index set and concludes joint independence of the vectors on pairwise disjoint finite coordinate blocks, matching the source.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ProbabilityTheory.iIndepFun.finsets"
@@ -40,5 +40,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "独立概率讲义 Remark 1.71 已给出有限多个不交有限坐标块构成独立随机向量的完整数学结论；Definition 1.69 对任意族用全部有限子族定义独立。PR321 明确意图是允许任意/无限块索引 J，故提案保留任意 J。after 根直接允许任意 J，输入独立且可测、S_j 为两两不交 Finset，结论恰是各块取有限乘积坐标后的联合独立。formal 允许一般测度，特别包含讲义所用概率测度。",
+  "review_scope": "Independence of random vectors on disjoint finite coordinate blocks, allowing an arbitrary block-index set."
 }

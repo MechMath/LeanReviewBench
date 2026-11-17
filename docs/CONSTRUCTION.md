@@ -36,7 +36,7 @@ this publication candidate.
    Give reciprocal before/after links and shared family splits; an after
    version need not be aligned. Keep unextracted deferred leads outside totals.
 7. Check project hashes, source bindings, graph/receipt evidence and statistics.
-   Keep provisional model labels outside model inputs; final scoring references need a separate labeling
+   Keep reviewed labels outside model inputs; final scoring references need a separate export-bound review
    contract and review. Merge only the reviewed
    repository's work; preserve other collaborators' cases and dirty files.
 

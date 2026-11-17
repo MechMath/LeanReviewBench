@@ -5,9 +5,9 @@
   "task_id": "coarse-degiorgi:CDG-D1",
   "input_sha256": "dbc2aa78a055b4c1591436113e249f50c8d0c5dc77225d832fc6588877713a0e",
   "label": "misaligned",
-  "reason": "固定配对的完整 Theorem D 包含 ∞ 端点；Lean 以实数 p,q>1 及有限指数公式建模，未表达 ∞ 端点分支。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "Finite real exponents omit the infinity endpoint allowed by the full bound target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "CoarseDeGiorgi.moment_bounds_lebesgue"
@@ -30,7 +30,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The complete bound Theorem D, including infinite-exponent endpoints.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "固定配对的完整 Theorem D 包含 ∞ 端点；Lean 以实数 p,q>1 及有限指数公式建模，未表达 ∞ 端点分支。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

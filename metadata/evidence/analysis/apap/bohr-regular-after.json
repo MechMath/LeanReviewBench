@@ -5,9 +5,9 @@
   "task_id": "apap:bohr-regular-after",
   "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
   "label": "misaligned",
-  "reason": "形式化将 rank 定义为有限宽度字符数，原文则统计宽度小于 2 的字符。该差异改变正则性的检查范围及误差界；存在 formal 判为 regular、原文判为非 regular 的输入。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The rank counts characters of finite width instead of characters whose width is strictly below 2, changing the numerical regularity range and bounds.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "BohrSet.IsRegular"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 after 输入。",
+  "review_scope": "The bound Bohr-set regularity definition.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -81,5 +81,7 @@
       "使用正的 source rank=1；该例不依赖 d=0 或原文 1/100d 的排版歧义。",
       "用户确认已记录；仍沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
     ]
-  }
+  },
+  "retained_reason": "形式化将 rank 定义为有限宽度字符数，原文则统计宽度小于 2 的字符。该差异改变正则性的检查范围及误差界；存在 formal 判为 regular、原文判为非 regular 的输入。",
+  "retained_review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 after 输入。"
 }

@@ -5,9 +5,9 @@
   "task_id": "pnt:ik-liouville-before",
   "input_sha256": "3af95d1d845257125a7a62ee71b796ab61dc8d885bd35bd31ef8faa5a6200c5d",
   "label": "aligned",
-  "reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The coefficients lambda(n)=(-1)^Omega(n), convergence domain Re(s)>1, and quotient zeta(2s)/zeta(s) match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ArithmeticFunction.LSeries_liouville_eq"
@@ -39,5 +39,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
+  "review_scope": "The Dirichlet-series identity on its ordinary absolute-convergence domain Re(s)>1."
 }

@@ -5,9 +5,9 @@
   "task_id": "apap:int-uniform-before",
   "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
   "label": "misaligned",
-  "reason": "原文要求独立于 A、N 的统一正常数 c；形式化在 A、N 及其假设之后存在量化 c，允许常数依赖具体输入，削弱了统一渐近界。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The existential constant c may depend on the particular A and N, whereas the source requires one positive constant uniform over admissible inputs.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "int"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-uniform-before 输入。",
+  "review_scope": "The bound asymptotic estimate with one positive constant uniform in A and N.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -94,5 +94,7 @@
       "review_report_sha256": "04fc59b4519a0ab365ae33f8b7c371711ccf23fa820d8eb49f44130d9435dd92",
       "note": "两个版本项目各计一个输入，当前选定声明、formal 与 informal 相同；沿用相同的量词错配论证，并记录本项目的独立用户确认。"
     }
-  }
+  },
+  "retained_reason": "原文要求独立于 A、N 的统一正常数 c；形式化在 A、N 及其假设之后存在量化 c，允许常数依赖具体输入，削弱了统一渐近界。",
+  "retained_review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-uniform-before 输入。"
 }

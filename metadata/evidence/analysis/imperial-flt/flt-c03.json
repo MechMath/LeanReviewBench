@@ -5,9 +5,9 @@
   "task_id": "imperial-flt:flt-c03",
   "input_sha256": "229f6186c8fd360d971a36492ad48d9930a2cd7aa0d642ea93d488aa4ebcd041",
   "label": "aligned",
-  "reason": "有限维 ℚ-向量空间、ℚ-线性自同构及阿代尔张量积对应；baseChange 实际作用为 v⊗a↦φ(v)⊗a，显式实例使用阿代尔模拓扑，addEquivAddHaarChar 与原文 d 的归一化一致。BorelSpace 仅指定可自然选取的 Borel 可测结构，无实质范围差异。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The rational vector space, scalar extension, adelic module topology, and normalized Haar factor match. The Borel structure adds no substantive restriction.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "绑定原文的有限维有理向量空间自同构扩张至阿代尔后 Haar 因子为 1 的陈述；核对底环、标量扩张的实际数据、模拓扑、Borel 可测结构及 Haar 因子的归一化。",
+  "review_scope": "The unit Haar factor of an adelically extended automorphism of a finite-dimensional rational vector space.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -173,5 +173,7 @@
       "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "有限维 ℚ-向量空间、ℚ-线性自同构及阿代尔张量积对应；baseChange 实际作用为 v⊗a↦φ(v)⊗a，显式实例使用阿代尔模拓扑，addEquivAddHaarChar 与原文 d 的归一化一致。BorelSpace 仅指定可自然选取的 Borel 可测结构，无实质范围差异。",
+  "retained_review_scope": "绑定原文的有限维有理向量空间自同构扩张至阿代尔后 Haar 因子为 1 的陈述；核对底环、标量扩张的实际数据、模拓扑、Borel 可测结构及 Haar 因子的归一化。"
 }

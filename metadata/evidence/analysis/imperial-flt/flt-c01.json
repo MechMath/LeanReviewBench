@@ -5,9 +5,9 @@
   "task_id": "imperial-flt:flt-c01",
   "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
   "label": "misaligned",
-  "reason": "原文指定自然伽罗瓦作用在 Frey 曲线 p-扭点上的表示；formal 的 galoisRep 整体为数据 sorry，类型仅指定群、标量域与扭点载体，没有绑定到自然作用。源码和显式提取值确认这一缺口，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The formal galoisRep value is a data placeholder of the appropriate representation type without binding to the specified natural Galois action on Frey-curve p-torsion.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FreyPackage.mazur"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "独立 blueprint 的 Mazur 不可约性陈述及其自然伽罗瓦表示定义，与 FreyPackage.mazur 及实际依赖定义；区分数据对象未绑定与证明未完成，保留已核对的 Frey package 条件、曲线坐标变换和不可约性谓词对应。",
+  "review_scope": "The bound Mazur irreducibility statement and the specified natural Galois action on Frey-curve p-torsion; proof placeholders alone are not discrepancies.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -181,5 +181,7 @@
       "formal、informal、输入哈希、目标及技术状态保持原样；不传播标签到下一题。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文指定自然伽罗瓦作用在 Frey 曲线 p-扭点上的表示；formal 的 galoisRep 整体为数据 sorry，类型仅指定群、标量域与扭点载体，没有绑定到自然作用。源码和显式提取值确认这一缺口，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。",
+  "retained_review_scope": "独立 blueprint 的 Mazur 不可约性陈述及其自然伽罗瓦表示定义，与 FreyPackage.mazur 及实际依赖定义；区分数据对象未绑定与证明未完成，保留已核对的 Frey package 条件、曲线坐标变换和不可约性谓词对应。"
 }

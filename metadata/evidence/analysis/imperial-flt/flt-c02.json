@@ -5,9 +5,9 @@
   "task_id": "imperial-flt:flt-c02",
   "input_sha256": "b1e6aaeb52beaa55772427a231566c0570df0f94b493af7c45b46a8d85ad1443",
   "label": "aligned",
-  "reason": "FreyPackage 结构的整数、非零、素数指数下界、费马方程、同余和互素条件与独立定义对应；只存 gcd(a,b)=1 与两两互素在方程及 p>0 下等价，另两对已有具体引理。主定理与绑定原文均以某个 Frey package 的存在性为结论。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The Frey package fields match the source conditions. The Fermat equation and positive exponent make the stored coprimality condition equivalent to pairwise coprimality.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前绑定的独立原文 lemma：素数 p≥5 上费马大定理失败蕴含存在一个 Frey package；重点展开 FreyPackage 的真实结构字段，并明确保留同一指数结论未写入类型的限制。",
+  "review_scope": "Existence of some Frey package from failure of Fermat at a prime exponent at least 5; preservation of the same exponent is not asserted by the target.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -179,5 +179,7 @@
       "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "FreyPackage 结构的整数、非零、素数指数下界、费马方程、同余和互素条件与独立定义对应；只存 gcd(a,b)=1 与两两互素在方程及 p>0 下等价，另两对已有具体引理。主定理与绑定原文均以某个 Frey package 的存在性为结论。",
+  "retained_review_scope": "当前绑定的独立原文 lemma：素数 p≥5 上费马大定理失败蕴含存在一个 Frey package；重点展开 FreyPackage 的真实结构字段，并明确保留同一指数结论未写入类型的限制。"
 }

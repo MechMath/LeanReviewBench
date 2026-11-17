@@ -5,9 +5,9 @@
   "task_id": "pfr:pr227-before-nonneg",
   "input_sha256": "49e105b354d98fcab015a1c7b6f1b88cb6011b0a2264293547e949838db6c9d6",
   "label": "misaligned",
-  "reason": "在原文的零分母按无穷处理的 KL 下，真实概率输入的发散度与 formal 的全实数总化不同；formal 的非负结论因此不是所选 Gibbs 命题。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Real log/division totalization at zero denominators replaces the intended infinite KL value.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KL_div_nonneg"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "在原文的零分母按无穷处理的 KL 下，真实概率输入的发散度与 formal 的全实数总化不同；formal 的非负结论因此不是所选 Gibbs 命题。",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

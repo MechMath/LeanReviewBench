@@ -5,9 +5,9 @@
   "task_id": "pfr:entropic-output-before",
   "input_sha256": "ece21f2153a80707d604becad5ecc5599fd4bbd85afa2ec5ce2499ac5113f5d0",
   "label": "misaligned",
-  "reason": "根结论把概率空间及可测性要求丢掉，所用历史 IsUniform 在零测度上对任意子群都成立；结合距离定义，整个见证条件退化。不是仅凭少写两个类型类判负，而是输出见证规格没有表达原文的概率均匀变量。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The output witness lacks probability-space and measurability requirements, allowing the uniformity specification to degenerate on zero measure.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "entropic_PFR_conjecture'"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根结论把概率空间及可测性要求丢掉，所用历史 IsUniform 在零测度上对任意子群都成立；结合距离定义，整个见证条件退化。不是仅凭少写两个类型类判负，而是输出见证规格没有表达原文的概率均匀变量。",
+  "review_scope": "The bound probability-space and measurable-uniform-witness specification over finite F_2 vector spaces."
 }

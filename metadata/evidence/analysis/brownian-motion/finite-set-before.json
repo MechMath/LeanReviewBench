@@ -5,9 +5,9 @@
   "task_id": "brownian-motion:finite-set-before",
   "input_sha256": "27fcc7defc6da97b4ba96850a567947b127f3fce9ab22d9a38684957e554824a",
   "label": "misaligned",
-  "reason": "The independent finite-set corollary assumes a finite index set. The historical formal root omits J.Finite and allows an infinite-index spike counterexample.",
-  "review_status": "provisional",
-  "human_adjudicated": false,
+  "reason": "The finite-index requirement J.Finite is omitted, admitting an infinite-index counterexample.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ProbabilityTheory.finite_set_bound_of_edist_le"
@@ -22,5 +22,7 @@
   ],
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The independent finite-set corollary assumes a finite index set. The historical formal root omits J.Finite and allows an infinite-index spike counterexample.",
+  "review_scope": "The bound finite-index-set corollary."
 }

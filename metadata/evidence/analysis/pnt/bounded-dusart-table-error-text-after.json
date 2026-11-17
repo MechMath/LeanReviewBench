@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-dusart-table-error-text-after",
   "input_sha256": "183d7a73767d204609e63a6b9e1bc63f46eae92793278c281cef2a31fe6a5321",
   "label": "aligned",
-  "reason": "Frozen prose states the normalized error bound |ψ(x)−x|/x≤ε for x≥exp(b). Formal unfolds to exactly this statement, and every retained Table1 row matches the cited published table.",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The normalized error |psi(x)-x|/x<=epsilon for x>=exp(b) matches, and the retained table rows agree with the cited table.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Dusart.proposition_3_2"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Frozen prose states the normalized error bound |ψ(x)−x|/x≤ε for x≥exp(b). Formal unfolds to exactly this statement, and every retained Table1 row matches the cited published table.",
+  "review_scope": "The normalized Chebyshev-function error estimate and retained Table 1 rows."
 }

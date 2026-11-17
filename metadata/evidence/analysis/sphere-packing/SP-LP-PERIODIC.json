@@ -5,9 +5,9 @@
   "task_id": "sphere-packing:SP-LP-PERIODIC",
   "input_sha256": "ad315154091f2c808aa9f8af30bf50acb1e92d144341a1afd46448c7d93ab7ed",
   "label": "misaligned",
-  "reason": "根新增 Summable f，其中 f 的索引是整个欧氏空间，不是离散格点；论文允许非零 Schwartz 辅助函数，没有此全空间计数可和假设。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "Summability over the entire Euclidean index space is an additional premise absent from the Schwartz-function target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LinearProgrammingBound'"
@@ -25,7 +25,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根新增 Summable f，其中 f 的索引是整个欧氏空间，不是离散格点；论文允许非零 Schwartz 辅助函数，没有此全空间计数可和假设。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

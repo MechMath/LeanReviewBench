@@ -5,9 +5,9 @@
   "task_id": "aml:LG21-T31-HIST",
   "input_sha256": "e7d7e9630e8355768d2775adae88d0b543d61d01019e890fcece6cc6146a0f61",
   "label": "misaligned",
-  "reason": "完整 Theorem 3.1 要求实际均衡的策略具有阈值并满足不公平结论；此根对每个抽象 e 构造 ∃W，却未把 W.takes/W.reports 绑定为 e 的真实行为。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The constructed strategy witness is not bound to the behavior of the actual equilibrium.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
@@ -25,7 +25,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Complete paper Theorem 3.1, user-authorized scope; source pairing fixed in this review.",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "完整 Theorem 3.1 要求实际均衡的策略具有阈值并满足不公平结论；此根对每个抽象 e 构造 ∃W，却未把 W.takes/W.reports 绑定为 e 的真实行为。",
+  "retained_review_scope": "Complete paper Theorem 3.1, user-authorized scope; source pairing fixed in this review."
 }

@@ -5,9 +5,9 @@
   "task_id": "equational-theories:etp-endtoend",
   "input_sha256": "67b7134fb649809dc6818fa1e1791b21e6a908b464034e773581c7e245630acd",
   "label": "aligned",
-  "reason": "对 4694 条等式律的所有有序对，formal 根据固定证书返回蕴含或反驳证据，并同时断言检查通过及对应数学结论。lawOf 正确绑定定律列表，implies 量化一般 magma，正负事实表携带证明或模型证据，与原文选定的 end_to_end1 覆盖和正确性目标一致。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The certificates cover every ordered pair of 4,694 laws and establish the corresponding implication or countermodel over general magmas.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "EndToEnd.end_to_end1"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前独立论文 foundations.tex 所描述的 EndToEnd.end_to_end1：4694 条律之间的所有有序对，由项目证书给出检查通过的推导或模型反驳，并建立一般 magma 的对应蕴含或非蕴含；工程统计与有限 magma 图不作为本题端点。",
+  "review_scope": "The end_to_end1 certificate-coverage and correctness statement; engineering statistics and the finite-magma graph are excluded.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -136,5 +136,7 @@
       "formal、informal、输入哈希和技术状态均保持原样；项目状态由 undetermined 改为 ready 仅反映本次正向标注及已有编译提取状态。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "对 4694 条等式律的所有有序对，formal 根据固定证书返回蕴含或反驳证据，并同时断言检查通过及对应数学结论。lawOf 正确绑定定律列表，implies 量化一般 magma，正负事实表携带证明或模型证据，与原文选定的 end_to_end1 覆盖和正确性目标一致。",
+  "retained_review_scope": "当前独立论文 foundations.tex 所描述的 EndToEnd.end_to_end1：4694 条律之间的所有有序对，由项目证书给出检查通过的推导或模型反驳，并建立一般 magma 的对应蕴含或非蕴含；工程统计与有限 magma 图不作为本题端点。"
 }

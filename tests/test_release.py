@@ -77,10 +77,11 @@ class PublicationTests(unittest.TestCase):
     def test_consolidated_evidence_paths(self):
         from scripts.data.paths import resolve
         self.assertFalse((ROOT/'reports').exists())
-        for row in records(ROOT/'metadata/labels/arklib.jsonl'):
-            path=resolve(ROOT,row['review_report'])
+        index=json.loads((ROOT/'metadata/evidence/analysis/index.json').read_text())
+        for row in index['records']:
+            path=resolve(ROOT,row['path'])
             self.assertTrue(path.is_relative_to(ROOT/'metadata/evidence/analysis'))
-            self.assertEqual(file_hash(path),row['review_report_sha256'])
+            self.assertEqual(file_hash(path),row['sha256'])
         self.assertFalse((ROOT/'metadata/reports').exists())
         self.assertFalse((ROOT/'metadata/upstream-evidence').exists())
         with self.assertRaises(ValueError):resolve(ROOT,'../outside')

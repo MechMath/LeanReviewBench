@@ -5,9 +5,9 @@
   "task_id": "pnt:ik-totient-after",
   "input_sha256": "502db45dcc8ec2b9f954e26fec79ca9185a1c2b5fd58afc8b85ae08d451959b8",
   "label": "aligned",
-  "reason": "Frozen prose explicitly requires Re(s)>2. Formal has exactly that hypothesis and the same totient Dirichlet-series quotient, so both coefficient and convergence-domain conventions agree.",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The explicit domain Re(s)>2 and the totient Dirichlet-series quotient match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ArithmeticFunction.LSeries_totient_eq"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Frozen prose explicitly requires Re(s)>2. Formal has exactly that hypothesis and the same totient Dirichlet-series quotient, so both coefficient and convergence-domain conventions agree.",
+  "review_scope": "The bound totient Dirichlet-series identity on Re(s)>2."
 }

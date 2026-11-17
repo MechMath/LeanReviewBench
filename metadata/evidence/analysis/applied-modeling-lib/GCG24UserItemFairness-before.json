@@ -5,9 +5,9 @@
   "task_id": "aml:GCG24UserItemFairness-before",
   "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
   "label": "misaligned",
-  "reason": "informal 中 α 是第一类用户比例，人数应为 mα；canonicalReduction 的 typeWeight 却是未归一化的用户人数，而 twoTypeReducedModel 的权重为 α 和 1−α。根定理的 hred 要求两者严格相等，故第一类人数等于 α。hTypes 保证该人数至少为 1，与 α<1 矛盾；formal 前提无实例，定理空真，未表达论文对实际模型的单调性。此判定不依赖前半区间与完整区间的覆盖争议；尚未做 Lean 编译认证。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "Unnormalized integer user counts are equated to proportions alpha and 1-alpha; the missing normalization makes the premises inconsistent.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
@@ -28,7 +28,7 @@
   "review_date": "2026-11-09",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "Compare the full paper Theorem 3 with the selected before root, expanding the canonical reduction and its exact model-equality premises. The decisive mismatch is inconsistent count-versus-proportion weights, independently of the first-half symmetry question.",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "detailed_review_retained",
   "analysis": {
     "dataset": "applied-modeling-lib",
@@ -116,5 +116,7 @@
       "The prior missing-half argument is not used as the decisive reason; exchanging types may recover the other half under a correct model correspondence.",
       "Formal and informal inputs are unchanged; this is a provisional label update, not a gold-label adjudication."
     ]
-  }
+  },
+  "retained_reason": "informal 中 α 是第一类用户比例，人数应为 mα；canonicalReduction 的 typeWeight 却是未归一化的用户人数，而 twoTypeReducedModel 的权重为 α 和 1−α。根定理的 hred 要求两者严格相等，故第一类人数等于 α。hTypes 保证该人数至少为 1，与 α<1 矛盾；formal 前提无实例，定理空真，未表达论文对实际模型的单调性。此判定不依赖前半区间与完整区间的覆盖争议；尚未做 Lean 编译认证。",
+  "retained_review_scope": "Compare the full paper Theorem 3 with the selected before root, expanding the canonical reduction and its exact model-equality premises. The decisive mismatch is inconsistent count-versus-proportion weights, independently of the first-half symmetry question."
 }

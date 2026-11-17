@@ -5,9 +5,9 @@
   "task_id": "sphere-packing:SP-B-EIG",
   "input_sha256": "0308328261c13dc76e1cd22f02f2100a5ed40ea737bf6f61f4fe077d0354e104",
   "label": "misaligned",
-  "reason": "目标引用的 b 定义中，最后的 i→i∞ 积分系数是 +2；论文定义式 (52) 是 −2。其余路径方向和 ψ 对应后，此差异改变被讨论的函数。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The final integral has coefficient +2 instead of -2 after matching path directions.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "MagicFunction.b.Fourier.eig_b"
@@ -30,7 +30,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "目标引用的 b 定义中，最后的 i→i∞ 积分系数是 +2；论文定义式 (52) 是 −2。其余路径方向和 ψ 对应后，此差异改变被讨论的函数。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

@@ -5,9 +5,9 @@
   "task_id": "pnt:zero-density-text-after",
   "input_sha256": "781a5cda388b6f871e21275a920003f5e8a0805f4aab83a3e961472310be5e2a",
   "label": "aligned",
-  "reason": "文字明确给T0、σ给定范围以及依σ变化的四个系数/指数函数；formal结构字段和bound量词逐一对应。N(σ,T)按当前保留N′定义解释，其开端点不是此次文字修改的额外要求。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The threshold T0, sigma range, coefficient functions, exponent functions, and bound quantifiers match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "zero_density_bound"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "文字明确给T0、σ给定范围以及依σ变化的四个系数/指数函数；formal结构字段和bound量词逐一对应。N(σ,T)按当前保留N′定义解释，其开端点不是此次文字修改的额外要求。",
+  "review_scope": "The bound zero-density structure using the retained N-prime counting convention."
 }

@@ -5,9 +5,9 @@
   "task_id": "aml:GHW-theorem9_3_deterministic_truthful_lower_bound",
   "input_sha256": "77784b836363410511239ee5a0d78f5a52be578e6fec682c46382ad047742a98",
   "label": "aligned",
-  "reason": "按完整论文的上下文模型判 aligned：原稿 §2 以报价集合为输入，§5.1 用同一个报价值集合到价格的函数，Lemma 9.2 将结果联系到此模型；结合原作者在后续论文中明确将早期下界归于 symmetric auctions，采用匿名报价集合模型的解释。formal 的共同 focusedOutcome 显式表示这一模型，不能仅因有匿名字段就判其新增源外限制。自然数 H 给出无界坏例族；对添加固定报价 1 的派生机制应用 formal，再回到原机制，得到实际 min=1、max=H、F≥αH 及 R/F≤2/H，补齐 lowCount 可为 0 的规范化问题。此为有明确源模型解释的暂定语义对齐，不声称覆盖允许身份定价的任意非匿名机制，也不是 Lean 机器认证的跨模型等价证明。",
-  "review_status": "model_rechecked_aligned_under_contextual_source_model",
-  "human_adjudicated": false,
+  "reason": "The anonymous bid-set model matches the source interpretation. A fixed-bid reduction supplies the required normalization and an unbounded family attaining the stated lower bound.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound"
@@ -28,7 +28,7 @@
   "review_date": "2026-11-09",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "完整论文 Theorem 9.3，结合 §2、§5.1 与 Lemma 9.2 确定源模型；保持当前 frozen informal 和 formal 原文不变。",
+  "review_scope": "Theorem 9.3 in the anonymous auction model specified by Sections 2 and 5.1 and Lemma 9.2; identity-dependent pricing is outside scope.",
   "analysis_status": "detailed_review_retained",
   "analysis": {
     "dataset": "applied-modeling-lib",
@@ -110,5 +110,7 @@
       "No formal or informal source text was changed; existing compilation/extraction fields retain their historical meaning.",
       "The user authorized an update after review, not a human gold adjudication."
     ]
-  }
+  },
+  "retained_reason": "按完整论文的上下文模型判 aligned：原稿 §2 以报价集合为输入，§5.1 用同一个报价值集合到价格的函数，Lemma 9.2 将结果联系到此模型；结合原作者在后续论文中明确将早期下界归于 symmetric auctions，采用匿名报价集合模型的解释。formal 的共同 focusedOutcome 显式表示这一模型，不能仅因有匿名字段就判其新增源外限制。自然数 H 给出无界坏例族；对添加固定报价 1 的派生机制应用 formal，再回到原机制，得到实际 min=1、max=H、F≥αH 及 R/F≤2/H，补齐 lowCount 可为 0 的规范化问题。此为有明确源模型解释的暂定语义对齐，不声称覆盖允许身份定价的任意非匿名机制，也不是 Lean 机器认证的跨模型等价证明。",
+  "retained_review_scope": "完整论文 Theorem 9.3，结合 §2、§5.1 与 Lemma 9.2 确定源模型；保持当前 frozen informal 和 formal 原文不变。"
 }

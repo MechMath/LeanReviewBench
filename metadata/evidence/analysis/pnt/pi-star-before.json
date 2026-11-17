@@ -5,9 +5,9 @@
   "task_id": "pnt:pi-star-before",
   "input_sha256": "022a26b94e3693432178be5c51ec33485038d163b8dd8294971cf5d48be4c9a4",
   "label": "aligned",
-  "reason": "当前文字定义就是截至x的Λ(n)/n之和；formal用Ioc 1 floor(x)。n=1项Λ(1)=0，去掉它不改值，取整恰好编码整数n≤x。此判定不将其替换成另一篇论文的半权prime-power计数。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The finite sum represents the source sum of Lambda(n)/n through x; the omitted n=1 term is zero and floor(x) implements the integer cutoff.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "pi_star"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "当前文字定义就是截至x的Λ(n)/n之和；formal用Ioc 1 floor(x)。n=1项Λ(1)=0，去掉它不改值，取整恰好编码整数n≤x。此判定不将其替换成另一篇论文的半权prime-power计数。",
+  "review_scope": "The bound Lambda(n)/n sum, retaining its own counting-function convention."
 }

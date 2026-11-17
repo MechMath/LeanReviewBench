@@ -5,9 +5,9 @@
   "task_id": "pfr:pr227-after-nonneg",
   "input_sha256": "e1cbe1cf8eb3074517036521fa6b0e9fb0dbea9abfc24b3748e82765e4d780c7",
   "label": "misaligned",
-  "reason": "after 修复了有限域 KL 的支持条件，但根仍只量化有限 G；原文完整范围没有有限值或有限支持约定，包含真实的无限支持概率输入。因输入域缩窄而不满足冻结完整目标。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The formal input group is finite, excluding general groups and infinite-support distributions allowed by the bound target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KL_div_nonneg"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "after 修复了有限域 KL 的支持条件，但根仍只量化有限 G；原文完整范围没有有限值或有限支持约定，包含真实的无限支持概率输入。因输入域缩窄而不满足冻结完整目标。",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

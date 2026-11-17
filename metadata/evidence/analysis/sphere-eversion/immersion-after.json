@@ -5,9 +5,9 @@
   "task_id": "sphere-eversion:immersion-after",
   "input_sha256": "f76a9c59f84de817191d612cbfec3d45a1fb48c65184a8afac41e3aaaaff5d39",
   "label": "aligned",
-  "reason": "源的光滑 immersion 在参数化 API 中对应 𝕜=ℝ、源的有限维流形以及 n=∞。该对应不是本轮方便地挑选子情形：同一 27a2c7fd revision 的公开 Main.lean 将“every f t is an immersion”直接写为 Immersion ... (f t) ⊤。在这个有来源的映射下，结构的两个字段正好是 C∞ 光滑性与处处微分单射，和冻结 jet 定义双向对应。一般 n、其他标量和无限维 API 仍完整记录，但没有把它们全部解释成当前源文中的光滑 immersion。",
-  "review_status": "model_remaining_undetermined_recheck",
-  "human_adjudicated": false,
+  "reason": "Under the source real finite-dimensional smooth interpretation, the formal predicate requires exactly smoothness and injectivity of the differential.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Immersion"
@@ -40,5 +40,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "源的光滑 immersion 在参数化 API 中对应 𝕜=ℝ、源的有限维流形以及 n=∞。该对应不是本轮方便地挑选子情形：同一 27a2c7fd revision 的公开 Main.lean 将“every f t is an immersion”直接写为 Immersion ... (f t) ⊤。在这个有来源的映射下，结构的两个字段正好是 C∞ 光滑性与处处微分单射，和冻结 jet 定义双向对应。一般 n、其他标量和无限维 API 仍完整记录，但没有把它们全部解释成当前源文中的光滑 immersion。",
+  "review_scope": "Smooth immersions over the reals with differentiability index infinity, as specified by the source use of the parametrized API."
 }

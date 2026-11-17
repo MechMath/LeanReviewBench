@@ -5,9 +5,9 @@
   "task_id": "equational-theories:etp-obelix",
   "input_sha256": "705f126485e3cfdd29cf0b1fe27bbe574295f85d12849b7f406a49326ad1cb10",
   "label": "aligned",
-  "reason": "Facts G [1491] [65] 展开为同一 magma 满足 Equation1491 且不满足 Equation65，独立 blueprint 中 Obelix/Asterix 的定义与 formal 等式对应。根无附加前提；initial.closure 给出具体模型，closure_prop 证明 1491，并以 x=0、y=-x₁ 见证 65 失败。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The root supplies one magma satisfying law 1491 and violating law 65, matching the source Obelix-not-Asterix assertion.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Obelix.PartialSolution.Equation1491_facts"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "独立 blueprint 的 Obelix 非 Asterix 存在性推论及等式 1491/65 定义，与 Obelix.PartialSolution.Equation1491_facts；保留部分解扩张和 closure 构造的原始输入。",
+  "review_scope": "The Obelix-not-Asterix existence corollary with the specified definitions of laws 1491 and 65.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -131,5 +131,7 @@
       "formal、informal、输入哈希及技术状态保持原样；ready 状态结合正向标签与已有编译提取状态，不传播标签到下一题。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "Facts G [1491] [65] 展开为同一 magma 满足 Equation1491 且不满足 Equation65，独立 blueprint 中 Obelix/Asterix 的定义与 formal 等式对应。根无附加前提；initial.closure 给出具体模型，closure_prop 证明 1491，并以 x=0、y=-x₁ 见证 65 失败。",
+  "retained_review_scope": "独立 blueprint 的 Obelix 非 Asterix 存在性推论及等式 1491/65 定义，与 Obelix.PartialSolution.Equation1491_facts；保留部分解扩张和 closure 构造的原始输入。"
 }

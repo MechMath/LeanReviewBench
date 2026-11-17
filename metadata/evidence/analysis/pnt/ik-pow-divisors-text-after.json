@@ -5,9 +5,9 @@
   "task_id": "pnt:ik-pow-divisors-text-after",
   "input_sha256": "85076c2db681671ff32efc332543423af599799aa3a7b4760870aea1c3b99aaf",
   "label": "aligned",
-  "reason": "文字明确使用a|m且a^k|m、b|n且b^k|n的筛选域；formal的divisors.filter/product及乘法image或InjOn逐项对应，coprime前提和自然数参数一致。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The filtered divisor domains, product image or injectivity condition, coprimality premise, and natural-number parameters match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ArithmeticFunction.pow_divisors_mul"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "文字明确使用a|m且a^k|m、b|n且b^k|n的筛选域；formal的divisors.filter/product及乘法image或InjOn逐项对应，coprime前提和自然数参数一致。",
+  "review_scope": "The bound statement on divisors a of m and b of n satisfying a^k divides m and b^k divides n."
 }

@@ -5,9 +5,9 @@
   "task_id": "stacks:STK-08ZR",
   "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
   "label": "misaligned",
-  "reason": "原文要求 Hausdorff/T2Space，formal 仅要求严格更弱的 R1Space，扩大适用范围；两点不可分拓扑满足 R1 而非 Hausdorff。两端局部紧致性概念对应，formal 是正确推广，但按绑定原文的适用条件一致性判为 misaligned（A）。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The source assumes Hausdorff spaces, but the root requires only R1Space, admitting non-Hausdorff spaces. Local compactness agrees; the mismatch is the broader applicability domain, not falsity of the generalized theorem.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "locallyCompactSpace_iff_weaklyLocallyCompactSpace"
@@ -28,7 +28,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按绑定的 Hausdorff 原文与实际 R1Space 根声明比较适用范围；不以可取 Hausdorff 特例代替实际根，不将正确推广称为假定理。",
+  "review_scope": "The bound source statement with its specified space hypotheses; valid generalization does not establish matching applicability.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -173,5 +173,7 @@
       "用户确认更新为 misaligned；旧 undetermined 标签、原文、formal、输入哈希和技术状态保留。",
       "标签保持暂定，human_adjudicated=false、reference_ready=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文要求 Hausdorff/T2Space，formal 仅要求严格更弱的 R1Space，扩大适用范围；两点不可分拓扑满足 R1 而非 Hausdorff。两端局部紧致性概念对应，formal 是正确推广，但按绑定原文的适用条件一致性判为 misaligned（A）。",
+  "retained_review_scope": "按绑定的 Hausdorff 原文与实际 R1Space 根声明比较适用范围；不以可取 Hausdorff 特例代替实际根，不将正确推广称为假定理。"
 }

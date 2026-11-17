@@ -11,5 +11,5 @@ batch. Graph extraction and composition evidence belong to
 [the taxonomy](../taxonomy/README.md). Earlier development reports are managed
 by Git history or explicitly identified archive locators.
 
-All evidence is outside the model-visible input. Existing provisional judgments
-remain provisional; reorganization performs no fresh semantic adjudication.
+All evidence is outside the model-visible input. Current binary judgments are
+human reviewed; separate export/reference readiness remains unchanged.

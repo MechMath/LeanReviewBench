@@ -5,9 +5,9 @@
   "task_id": "arklib:kzg-binding-after",
   "input_sha256": "6a2ef493106f36c966998348a6522678edb31f73126af9d553291ebf617f67e2",
   "label": "aligned",
-  "reason": "用户在查看完整 informal、formal 及详细复核后指定标为 aligned。求值绑定成功事件及代数归约的对应已核对；此前关于随机实验翻译、PPT 攻击者类和归约保持性的待确认事项保留在复核记录中。",
-  "review_status": "user_selected_aligned_after_model_review",
-  "human_adjudicated": false,
+  "reason": "The evaluation-binding success event and algebraic reduction correspond to the source. The retained analysis leaves the randomized-experiment interpretation, efficient-adversary class, and reduction preservation unresolved.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KZG.CommitmentScheme.binding"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "用户对当前冻结 informal 与选定根 KZG.CommitmentScheme.binding 的标签决定；本次未修改目标范围或输入。",
+  "review_scope": "The bound KZG evaluation-binding statement and selected binding root; the retained aligned verdict remains provisional.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -151,5 +151,7 @@
       "本次标签更新不修改此前精确枚举结果、来源记录或模型复核结论。",
       "沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
     ]
-  }
+  },
+  "retained_reason": "用户在查看完整 informal、formal 及详细复核后指定标为 aligned。求值绑定成功事件及代数归约的对应已核对；此前关于随机实验翻译、PPT 攻击者类和归约保持性的待确认事项保留在复核记录中。",
+  "retained_review_scope": "用户对当前冻结 informal 与选定根 KZG.CommitmentScheme.binding 的标签决定；本次未修改目标范围或输入。"
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit label coverage and user-decision evidence without promoting labels to gold."""
+"""Audit current labels and indexed evidence without promoting labels to gold."""
 import argparse
 from collections import Counter
 import hashlib
@@ -15,6 +15,8 @@ NEW_BATCHES = {'arklib', 'imperial-flt', 'equational-theories', 'apap'}
 def audit():
     config = json.loads((BASE / 'datasets/project-cases.json').read_text())
     rows, errors, warnings = [], [], []
+    index=json.loads((BASE/'metadata/evidence/analysis/index.json').read_text())
+    evidence={(r['dataset'],r['project_id']):r for r in index['records']}
     for batch in config['datasets']:
         projects = {p.parent.name: json.loads(p.read_text()) for p in
                     (BASE / 'datasets' / batch / 'projects').glob('*/project.json')}
@@ -53,16 +55,11 @@ def audit():
             counts['human_adjudicated'] += record.get('human_adjudicated') is True
             counts['reference_ready'] += record.get('reference_ready') is True
             counts['evaluation_eligible'] += project.get('evaluation_eligible') is True
-            user_evidence = record.get('decision_author') == 'user' or (
-                record.get('decision_source', '').startswith('Explicit user instruction')
-                and 'user_confirmed' in record.get('review_status', ''))
-            counts['user_decision_evidence'] += user_evidence
-            report_path = record.get('review_report')
-            report_hash = record.get('review_report_sha256')
-            # Legacy provenance paths may resolve to historical archives; only
-            # validate current hashed reports, requiring them for new batches.
-            if batch in NEW_BATCHES and not (report_path and report_hash):
-                errors.append(f'{key}: missing bound review report')
+            binding=evidence.get((batch,identity),{})
+            report_path=binding.get('path')
+            report_hash=binding.get('sha256')
+            if not (report_path and report_hash):
+                errors.append(f'{key}: missing indexed analysis evidence')
             if report_path and report_hash:
                 report = resolve(BASE,report_path)
                 if not report.is_file() or hashlib.sha256(report.read_bytes()).hexdigest() != report_hash:
@@ -80,12 +77,12 @@ def audit():
         errors.extend(f'{batch}:{identity}: missing label' for identity in missing)
         rows.append(dict(dataset=batch, inputs=len(projects), labels=len(records),
                          missing_labels=missing, **{k: counts[k] for k in (
-                             'aligned', 'misaligned', 'user_decision_evidence', 'human_adjudicated',
+                             'aligned', 'misaligned', 'human_adjudicated',
                              'reference_ready', 'evaluation_eligible', 'verified_review_reports')}))
-    keys = ['inputs', 'labels', 'aligned', 'misaligned', 'user_decision_evidence',
+    keys = ['inputs', 'labels', 'aligned', 'misaligned',
             'human_adjudicated', 'reference_ready', 'evaluation_eligible', 'verified_review_reports']
     return dict(audited_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=BASE, text=True).strip(),
-                meaning='User decision evidence is recorded provenance, not a promotion to human adjudication or scoring gold.',
+                meaning='Current human-reviewed label and indexed-evidence coverage; evaluation-export readiness is tracked separately.',
                 totals={k: sum(r[k] for r in rows) for k in keys},
                 new_batch_totals={k: sum(r[k] for r in rows if r['dataset'] in NEW_BATCHES) for k in keys},
                 batches=rows, warnings=warnings, errors=errors)

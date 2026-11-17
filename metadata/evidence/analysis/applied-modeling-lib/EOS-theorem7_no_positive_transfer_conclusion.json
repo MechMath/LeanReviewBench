@@ -5,9 +5,9 @@
   "task_id": "aml:EOS-theorem7_no_positive_transfer_conclusion",
   "input_sha256": "003d63f90bc3ec7202aa027ef0b6183addf19718e6de565cc1ce9d3700b43c13",
   "label": "misaligned",
-  "reason": "完整 Theorem 7（作者稿 Theorem 1）涉及 GSP 均衡 B*、VCG 支付及稳定结果比较；根由 ComparisonPaymentCertificate 得到抽象 outcome，只在相同 slotOf、无正转移类内比较，未绑定 GSP 均衡。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The abstract outcome is not bound to the GSP equilibrium and VCG payment objects required by the target. The comparison is restricted to the same slot assignment and no-positive-transfer class.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "完整 Theorem 7（作者稿 Theorem 1）涉及 GSP 均衡 B*、VCG 支付及稳定结果比较；根由 ComparisonPaymentCertificate 得到抽象 outcome，只在相同 slotOf、无正转移类内比较，未绑定 GSP 均衡。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

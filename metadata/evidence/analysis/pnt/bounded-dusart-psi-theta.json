@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-dusart-psi-theta",
   "input_sha256": "71e7696a702b6be070310064c96471a728a490df3857c156019a35f3d96c331f",
   "label": "aligned",
-  "reason": "当前文字恰好是x≥121下两个严格下界的合取；formal的ψ、θ、sqrt以及0.9999和4/(log x)^3项逐项对应。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Both strict lower bounds, their constants and logarithmic terms, and the range x>=121 match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Dusart.proposition_4_3"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "当前文字恰好是x≥121下两个严格下界的合取；formal的ψ、θ、sqrt以及0.9999和4/(log x)^3项逐项对应。",
+  "review_scope": "The conjunction of the two bound lower estimates for psi and theta on x>=121."
 }

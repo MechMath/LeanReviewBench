@@ -5,9 +5,9 @@
   "task_id": "apap:int-sign-after",
   "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
   "label": "misaligned",
-  "reason": "原文要求独立于 A、N 的统一正常数 c；形式化在 A、N 及其假设之后存在量化 c，允许常数依赖具体输入，削弱了统一渐近界。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The positive asymptotic constant is existentially quantified after A, N, and their hypotheses, permitting input-dependent constants instead of one uniform constant.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "int"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-sign-after 输入。",
+  "review_scope": "The bound asymptotic estimate with one positive constant uniform in A and N.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -86,5 +86,7 @@
       "未纳入 README 后续章节另述的 1/9 改进。",
       "用户确认已记录；沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文要求独立于 A、N 的统一正常数 c；形式化在 A、N 及其假设之后存在量化 c，允许常数依赖具体输入，削弱了统一渐近界。",
+  "retained_review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-sign-after 输入。"
 }

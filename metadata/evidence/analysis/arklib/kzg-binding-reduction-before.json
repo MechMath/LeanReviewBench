@@ -5,9 +5,9 @@
   "task_id": "arklib:kzg-binding-reduction-before",
   "input_sha256": "7ccd9e57a27f8ad0e9e698f071e3bba4cdd26cb6776f4d7a41a34ec4613faae7",
   "label": "misaligned",
-  "reason": "当前绑定的附录 C.1 原文要求成功概率相等及少量额外运行时间；before 的 formal 根仅给出单向概率界。归约仍忽略验证结果，同一确定性例子得到绑定概率 0、t-SDH 概率 1/(p-1)>0，且未表达运行时间或 PPT 保持结论。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The reduction promises only a one-sided success-probability inequality instead of the source equality; the retained deterministic witness has probabilities 0 and 1/(p-1). The source running-time overhead and preservation of the admissible efficient-adversary class are not established by the reduction statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KZG.CommitmentScheme.binding_reduces_to_tSdh"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 informal 所绑定的 Appendix C.1 求值绑定到 t-SDH 的完整归约，包括成功概率等式和运行时间说明；不缩小为单向概率归约。",
+  "review_scope": "The complete Appendix C.1 reduction, including equality of success probabilities and efficiency guarantees.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -172,5 +172,7 @@
       "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。",
       "本题未将缓存随机预言机与私有随机数的普遍语义差异作为额外定案依据；不修改任何其他输入的标签。"
     ]
-  }
+  },
+  "retained_reason": "当前绑定的附录 C.1 原文要求成功概率相等及少量额外运行时间；before 的 formal 根仅给出单向概率界。归约仍忽略验证结果，同一确定性例子得到绑定概率 0、t-SDH 概率 1/(p-1)>0，且未表达运行时间或 PPT 保持结论。",
+  "retained_review_scope": "当前冻结 informal 所绑定的 Appendix C.1 求值绑定到 t-SDH 的完整归约，包括成功概率等式和运行时间说明；不缩小为单向概率归约。"
 }

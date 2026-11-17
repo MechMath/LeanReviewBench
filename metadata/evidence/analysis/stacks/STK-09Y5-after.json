@@ -5,9 +5,9 @@
   "task_id": "stacks:STK-09Y5-after",
   "input_sha256": "578ed30b8f00395ee3c66886f320403a33a5b9bb419c281add1a3236313ee93f",
   "label": "aligned",
-  "reason": "Input LocallyClosedPartition restores source Definition 09XZ and the finite good refinement matches source Definition 09Y0.",
-  "review_status": "provisional_single_model_review",
-  "human_adjudicated": false,
+  "reason": "The locally closed input partition and finite good refinement match Definitions 09XZ and 09Y0.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LocallyClosedPartition.exists_finite_good_refinement"
@@ -20,8 +20,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Locally closed is required by source Definition 09XZ. Good means the frontier condition of Definition 09Y0.",
+  "review_scope": "The finite refinement statement with locally closed partition blocks and the source frontier condition.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Input LocallyClosedPartition restores source Definition 09XZ and the finite good refinement matches source Definition 09Y0.",
+  "retained_review_scope": "Locally closed is required by source Definition 09XZ. Good means the frontier condition of Definition 09Y0."
 }

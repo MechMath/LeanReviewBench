@@ -68,3 +68,13 @@ reason text, review states, dataset files, graph bytes and extraction receipt
 bytes remain unchanged. Exact compatibility aliases preserve embedded technical
 locators. The rebuild helper carries this curated publication metadata after
 verifying source inputs against the pinned construction snapshot.
+
+## Current label cleanup
+
+All 171 labels now contain current annotation results only, with concise English
+reasons and review scopes. Previous labels, restoration details, conversational
+decision provenance, and evidence paths/hashes are removed from JSONL records.
+The analysis index maintains evidence bindings. The original wording remains in
+analysis evidence; prior versions remain in Git. All labels are human reviewed
+(`human_adjudicated=true`, `review_status=human_reviewed`); model-export readiness
+and gold-label fields are unchanged. The three missing reasons remain empty.

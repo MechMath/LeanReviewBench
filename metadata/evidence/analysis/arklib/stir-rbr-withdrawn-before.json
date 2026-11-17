@@ -5,9 +5,9 @@
   "task_id": "arklib:stir-rbr-withdrawn-before",
   "input_sha256": "545c0e0b9578c2967a56401f6057466057cfe0c7ba5ce4a873027c1ce6a7581a",
   "label": "misaligned",
-  "reason": "ParamConditions 要求 |L₀|≤d₀，使初始 RS 码率为 1，与非负 δ₀<1-sqrt(ρ₀)=0 矛盾。formal 还将误差作为任意输入却在结论要求其上界，把 err(...,t+s) 写成 err(...,t)+s、折叠参数 k 换成重复次数 t，并以 j≠0 跳过首轮。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The parameter inequality |L_0| <= d_0 forces rate 1 and conflicts with the retained nonnegative-distance bound requiring delta_0 < 0. The error quantities are arbitrary inputs before the protocol witness, rather than existentially supplied controlled protocol errors. The shift error uses err(...,t)+s instead of err(...,t+s). The folding and shift error formulas use repetition parameters t_i where the source uses folding parameters k_i. The shifted index j=i-1 is constrained by j != 0, incorrectly omitting the first source round i=1.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "StirIOP.stir_rbr_soundness"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 blueprint lemma:rnd_by_rnd_soundness 与 StirIOP.stir_rbr_soundness；核对包含 ParamConditions 的完整前提及误差结论。",
+  "review_scope": "The bound STIR round-by-round soundness lemma, including all parameter conditions and error formulas.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -143,5 +143,7 @@
       "formal、informal、输入哈希与技术状态均保持原样；不传播标签到下一项 Sumcheck。",
       "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "ParamConditions 要求 |L₀|≤d₀，使初始 RS 码率为 1，与非负 δ₀<1-sqrt(ρ₀)=0 矛盾。formal 还将误差作为任意输入却在结论要求其上界，把 err(...,t+s) 写成 err(...,t)+s、折叠参数 k 换成重复次数 t，并以 j≠0 跳过首轮。",
+  "retained_review_scope": "当前冻结 blueprint lemma:rnd_by_rnd_soundness 与 StirIOP.stir_rbr_soundness；核对包含 ParamConditions 的完整前提及误差结论。"
 }

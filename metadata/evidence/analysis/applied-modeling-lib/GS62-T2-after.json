@@ -5,9 +5,9 @@
   "task_id": "aml:GS62-T2-after",
   "input_sha256": "225be72dd9bc57d272adb380c86744f76cd4ca9e6bf87b2eb36a44bb90aea41b",
   "label": "aligned",
-  "reason": "依此前已冻结婚姻域对齐。原文§3明确将婚姻作为等人数、配额1特例，故此范围是合法specialization；不声称覆盖一般college quota。strictMarriageDomain逐人偏好单射、所有配对效用>0，对应严格全可接受排名；效用仅用于顺序，未匹配值0低于所有配对。Assignment一致性对应匹配，stableMarriage是个体理性且无双方严格获益的阻塞对；applicantOptimalStableMarriage逐个申请者比较全部稳定匹配。root直接把这些性质断言在deferredAcceptance输入偏好所得输出上。展开实现：初始全未匹配/全部候选；选未匹配且仍有可接受候选的男方；选其最好未提议女方；删除此次proposal；女方若未匹配或更喜欢新男则接受并释放旧男；最多|M||W|个proposal（结束后恒等步）。这对应原文提出/暂留最佳/拒绝其他/继续的DA过程的逐提议调度；未用算法名代替检查。完整性为此婚姻范围下原程序的附带保证。若把informal改为原文任意配额完整Theorem 2，应重新标记范围不匹配，不能把本aligned泛化。",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The root attributes stability and applicant optimality to the actual deferred-acceptance output. The proposal, retention, and rejection steps match the source algorithm.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The equal-size, unit-quota marriage specialization with strict, fully acceptable preferences; general college quotas are excluded.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "依此前已冻结婚姻域对齐。原文§3明确将婚姻作为等人数、配额1特例，故此范围是合法specialization；不声称覆盖一般college quota。strictMarriageDomain逐人偏好单射、所有配对效用>0，对应严格全可接受排名；效用仅用于顺序，未匹配值0低于所有配对。Assignment一致性对应匹配，stableMarriage是个体理性且无双方严格获益的阻塞对；applicantOptimalStableMarriage逐个申请者比较全部稳定匹配。root直接把这些性质断言在deferredAcceptance输入偏好所得输出上。展开实现：初始全未匹配/全部候选；选未匹配且仍有可接受候选的男方；选其最好未提议女方；删除此次proposal；女方若未匹配或更喜欢新男则接受并释放旧男；最多|M||W|个proposal（结束后恒等步）。这对应原文提出/暂留最佳/拒绝其他/继续的DA过程的逐提议调度；未用算法名代替检查。完整性为此婚姻范围下原程序的附带保证。若把informal改为原文任意配额完整Theorem 2，应重新标记范围不匹配，不能把本aligned泛化。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

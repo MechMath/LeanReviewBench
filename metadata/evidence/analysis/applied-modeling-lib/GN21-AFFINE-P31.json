@@ -5,9 +5,9 @@
   "task_id": "aml:GN21-AFFINE-P31",
   "input_sha256": "5eb01243a9aa023992ea812e142925a3ab24bdf0989f8224fef0c741a904b32d",
   "label": "aligned",
-  "reason": "配对原AppendixC.3 Proposition3.1在既定有限renewal-reward单状态域。λ>0、0≤a≤m/λ与原句完全相同（并蕴含m≥0）；μ归一化和有限性对应trip概率分布。Assumptions其余字段为正τ积分非负、子集时间≤总时间、零正τ积分⇒零质量，属于该概率模型的标准性质，没有直接假设IC。formal仿射收益为λ(m∫στ+aμσ)/(1+λ∫στ)，正是原式积分w=mτ+a的展开；IC量化所有σ⊆(0,∞)且可测，并比较其收益≤accept-all，不仅比较某有限策略族。原文C.3在同一有限T=∫τdF模型推导。formal允许原子μ是有效推广，不妨碍其覆盖源连续分布域；此标签仍不声称扩展到没有有限期望的模型。",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The affine reward formula, parameter range, and comparison with every feasible measurable policy match. The model assumptions express standard finite-probability properties.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "Appendix C.3, Proposition 3.1 in the finite-integral single-state renewal-reward model.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "配对原AppendixC.3 Proposition3.1在既定有限renewal-reward单状态域。λ>0、0≤a≤m/λ与原句完全相同（并蕴含m≥0）；μ归一化和有限性对应trip概率分布。Assumptions其余字段为正τ积分非负、子集时间≤总时间、零正τ积分⇒零质量，属于该概率模型的标准性质，没有直接假设IC。formal仿射收益为λ(m∫στ+aμσ)/(1+λ∫στ)，正是原式积分w=mτ+a的展开；IC量化所有σ⊆(0,∞)且可测，并比较其收益≤accept-all，不仅比较某有限策略族。原文C.3在同一有限T=∫τdF模型推导。formal允许原子μ是有效推广，不妨碍其覆盖源连续分布域；此标签仍不声称扩展到没有有限期望的模型。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

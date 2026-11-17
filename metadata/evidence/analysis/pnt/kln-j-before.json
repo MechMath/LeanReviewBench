@@ -5,9 +5,9 @@
   "task_id": "pnt:kln-j-before",
   "input_sha256": "ac485f2221b5202584effd23dc275f1a7d00f241a2f53a51906f4f5d04826ef0",
   "label": "misaligned",
-  "reason": "已绑定作者论文式(4.17)的独立定义。formal 的积分对数次数、log(kT)与log T、整分子除法括号及a₂常数均存在差异；after仅修正T的分数幂，其他差异仍在。详见逐项公式对照及数值区分。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Log powers, log(kT) versus log(T), quotient parentheses, and the a2 constant differ from the independently bound formula.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KLN.J"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "已绑定作者论文式(4.17)的独立定义。formal 的积分对数次数、log(kT)与log T、整分子除法括号及a₂常数均存在差异；after仅修正T的分数幂，其他差异仍在。详见逐项公式对照及数值区分。",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

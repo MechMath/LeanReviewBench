@@ -5,9 +5,9 @@
   "task_id": "pfr:pr228-before",
   "input_sha256": "48e96fc0a7daff061584e48d64cfad01664fa9264e8fbf54f8cf99afeecfddad",
   "label": "misaligned",
-  "reason": "formal 的下确界允许非概率输出并沿用零分母总化 KL；在完全有限标准目标中已得到与原文不同的数值，因此不是仅凭候选集合写法不同判负。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The infimum admits nonprobability candidates. The KL expression retains zero-denominator totalization instead of the intended infinite value.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "rho_minus"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "formal 的下确界允许非概率输出并沿用零分母总化 KL；在完全有限标准目标中已得到与原文不同的数值，因此不是仅凭候选集合写法不同判负。",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

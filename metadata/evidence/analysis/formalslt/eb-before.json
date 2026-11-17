@@ -5,9 +5,9 @@
   "task_id": "formalslt:eb-before",
   "input_sha256": "84fccd39b0b4043a9149592aa38cd7898fb7ba2e5ee36385e46f6fc09388b40b",
   "label": "misaligned",
-  "reason": "根定理要求 StronglyAdapted ℱ X，即每个 X_k 在 ℱ_k 可测；informal 只要求 X_k 在 ℱ_(k+1) 可测。结合可积及 E[X_k|ℱ_k]=0，formal 的假设迫使所有 X_k=0 几乎处处，排除了 informal 所允许的非平凡鞅差。因此模型范围实质缩窄，尽管混合过程和概率界公式一致。",
-  "review_status": "independent_blinded_subagent_label",
-  "human_adjudicated": false,
+  "reason": "Adaptedness uses filtration index k instead of k+1; with conditional centering this forces zero increments.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
@@ -42,8 +42,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance.",
+  "review_scope": "The bounded-increment specialization with a compact uniform prior and predictable variance proxy; realized sample variance is excluded.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根定理要求 StronglyAdapted ℱ X，即每个 X_k 在 ℱ_k 可测；informal 只要求 X_k 在 ℱ_(k+1) 可测。结合可积及 E[X_k|ℱ_k]=0，formal 的假设迫使所有 X_k=0 几乎处处，排除了 informal 所允许的非平凡鞅差。因此模型范围实质缩窄，尽管混合过程和概率界公式一致。",
+  "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }

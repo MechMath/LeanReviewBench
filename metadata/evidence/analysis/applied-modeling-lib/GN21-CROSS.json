@@ -5,9 +5,9 @@
   "task_id": "aml:GN21-CROSS",
   "input_sha256": "d27decf1ad8051cc2fc54ca4130b09f946f00b657babacabae237375f2030a96",
   "label": "misaligned",
-  "reason": "根的前提固定 C < ρ < 1，只覆盖 Theorem 3 的一个参数分支；完整论文命题还包含另一分支。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The premise C < rho < 1 restricts the result to one parameter branch of the full theorem.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根的前提固定 C < ρ < 1，只覆盖 Theorem 3 的一个参数分支；完整论文命题还包含另一分支。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

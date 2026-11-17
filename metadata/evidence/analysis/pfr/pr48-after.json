@@ -5,9 +5,9 @@
   "task_id": "pfr:pr48-after",
   "input_sha256": "111f13fdbc4792a7c6db4a2b16bf4186f7b7f6cf51528c9ebd018017d9924538",
   "label": "misaligned",
-  "reason": "原文前提为 (X,Z) 与 Y 独立，formal 前提为 (X,Y) 与 Z 独立；它们不是同一命题，也不能通过变量改名同时保持原不等式中的减项。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Independence of (X,Z) from Y is replaced by independence of (X,Y) from Z, with the inequality variables fixed.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ent_of_diff_le"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "原文前提为 (X,Z) 与 Y 独立，formal 前提为 (X,Y) 与 Z 独立；它们不是同一命题，也不能通过变量改名同时保持原不等式中的减项。",
+  "review_scope": "The bound entropy inequality with the original random-variable roles and independence premise."
 }

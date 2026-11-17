@@ -5,9 +5,9 @@
   "task_id": "imperial-flt:flt-c04",
   "input_sha256": "075f7c59547dfcf9caa4e6aabea1c2b072440826a49b956fe792c894e821f009",
   "label": "aligned",
-  "reason": "原文上下文明确要求数域、有限维及中心性，DivisionRing 自动满足单性。formal 使用全阿代尔张量积的 Haar 特征核，对角 Dˣ 的像经 comap 视作核内子群；rightRel 给出 Hx 陪集，Quotient 使用商拓扑，CompactSpace 与原文紧致性一致。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The full adelic tensor product, Haar-character kernel, diagonal subgroup, right cosets, and quotient topology express the source compactness statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "NumberField.AdeleRing.DivisionAlgebra.compact_quotient"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "独立 blueprint 在数域上的有限维中心单代数上下文中，加入除代数条件后的 Dˣ\\D_𝔸^(1) 商空间紧致性；核对全阿代尔张量积、Haar 核、对角嵌入、陪集方向和拓扑实例。",
+  "review_scope": "Compactness of the norm-one adelic quotient for a finite-dimensional central division algebra over a number field.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -218,5 +218,7 @@
       "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文上下文明确要求数域、有限维及中心性，DivisionRing 自动满足单性。formal 使用全阿代尔张量积的 Haar 特征核，对角 Dˣ 的像经 comap 视作核内子群；rightRel 给出 Hx 陪集，Quotient 使用商拓扑，CompactSpace 与原文紧致性一致。",
+  "retained_review_scope": "独立 blueprint 在数域上的有限维中心单代数上下文中，加入除代数条件后的 Dˣ\\D_𝔸^(1) 商空间紧致性；核对全阿代尔张量积、Haar 核、对角嵌入、陪集方向和拓扑实例。"
 }

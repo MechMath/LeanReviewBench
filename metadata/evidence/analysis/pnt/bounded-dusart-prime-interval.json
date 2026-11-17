@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-dusart-prime-interval",
   "input_sha256": "15c044d4f945b5728515aa53e61a02bc02d49a619517638b6dd136833bb3db56",
   "label": "aligned",
-  "reason": "展开HasPrimeInInterval后为存在自然素数p且x<p≤x+x/(5000log²x)。阈值相同，而x+x/(5000log²x)=x(1+1/(5000log²x))，与文字一致。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The conclusion is a prime p with x<p<=x+x/(5000*log(x)^2), algebraically identical to the source interval, at the same threshold.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Dusart.corollary_5_5"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "展开HasPrimeInInterval后为存在自然素数p且x<p≤x+x/(5000log²x)。阈值相同，而x+x/(5000log²x)=x(1+1/(5000log²x))，与文字一致。",
+  "review_scope": "The bound explicit prime-existence interval and its stated threshold."
 }

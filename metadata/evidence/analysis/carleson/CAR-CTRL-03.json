@@ -5,9 +5,9 @@
   "task_id": "carleson:CAR-CTRL-03",
   "input_sha256": "8b979e353b332068e7f303698a66f82645e8ba42eb67f7949bc5098e643d4eef",
   "label": "misaligned",
-  "reason": "原文只对全局 Lipschitz 且支撑于球内的函数要求消去估计；formal 只要求球内 iLipENorm 有限与 Function.support⊆B，扩大测试函数类并收紧消去假设。固定 a=4、X=ℝ（Lebesgue 测度）、Θ={0,id} 与 d_B(0,id)=2^18R 时，全部 compatible 条件及原文消去估计成立，但 φ=1_(-1,1) 违反 formal 估计：2sin(1)>√2>32/(1+2^18)^(1/4)。取 Q≡0 相位、K=0，Q 为有限值 Borel 函数且所有相位的 T_Q^θ 均为零，故线性化定理新增前提不排除该区分模型。formal 的 ∀θ 量词正确，判负不涉及 CAR-02 的单相位错误。判定固定同一辅助结构，不宣称主结论为假或排除重选 d_B 的重编码；尚未做 Lean 机器认证。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The cancellation test class admits functions Lipschitz only inside the ball, whereas the source requires global Lipschitz continuity. A retained construction distinguishes these hypotheses at the same auxiliary distances.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LinearizedMetricCarleson"
@@ -28,7 +28,7 @@
   "review_date": "2026-11-09",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "Compare the complete paper statement with the same parameter a, phase family and chosen local distances d_B. The construction distinguishes the cancellative hypotheses for this fixed auxiliary structure; it does not rule out a separate equivalence proof that reselects the auxiliary distances.",
+  "review_scope": "The complete theorem at fixed parameter a, phase family, and auxiliary local distances; reselection of those distances is not assessed.",
   "analysis_status": "detailed_review_retained",
   "analysis": {
     "dataset": "carleson",
@@ -97,5 +97,7 @@
       "The mathematical witness has not been encoded or checked in Lean.",
       "The input texts and formal sources are unchanged; this is a provisional label update, not a gold-label adjudication."
     ]
-  }
+  },
+  "retained_reason": "原文只对全局 Lipschitz 且支撑于球内的函数要求消去估计；formal 只要求球内 iLipENorm 有限与 Function.support⊆B，扩大测试函数类并收紧消去假设。固定 a=4、X=ℝ（Lebesgue 测度）、Θ={0,id} 与 d_B(0,id)=2^18R 时，全部 compatible 条件及原文消去估计成立，但 φ=1_(-1,1) 违反 formal 估计：2sin(1)>√2>32/(1+2^18)^(1/4)。取 Q≡0 相位、K=0，Q 为有限值 Borel 函数且所有相位的 T_Q^θ 均为零，故线性化定理新增前提不排除该区分模型。formal 的 ∀θ 量词正确，判负不涉及 CAR-02 的单相位错误。判定固定同一辅助结构，不宣称主结论为假或排除重选 d_B 的重编码；尚未做 Lean 机器认证。",
+  "retained_review_scope": "Compare the complete paper statement with the same parameter a, phase family and chosen local distances d_B. The construction distinguishes the cancellative hypotheses for this fixed auxiliary structure; it does not rule out a separate equivalence proof that reselects the auxiliary distances."
 }

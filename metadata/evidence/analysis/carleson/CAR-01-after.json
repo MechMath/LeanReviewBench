@@ -5,9 +5,9 @@
   "task_id": "carleson:CAR-01-after",
   "input_sha256": "b9bb6c6d56e3e4f4d67ff0cd1855ae47400aab6a602c1625bf5351183859cfb8",
   "label": "misaligned",
-  "reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，严格放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 的 doubling、全部 compatible 和 cancellative 条件的连续相位族，零核满足其余前提；该相位族的球内振幅又迫使任何 informal compatible 距离与原文消去估计矛盾。此判定针对主命题适用条件，不宣称 formal 结论为假。after 的 hT 已使用 ENNReal，判负不涉及 toReal。数学论证尚未做 Lean 机器认证。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The cancellation condition uses a global Lipschitz seminorm instead of the source ball-restricted seminorm, changing the admissible model class. A retained construction separates the hypotheses.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "metric_carleson"
@@ -33,7 +33,7 @@
   "review_date": "2026-11-09",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete theorem cancellation hypothesis with the intended ball-restricted seminorm; the formal conclusion is not alleged to be false.",
   "analysis_status": "detailed_review_retained",
   "analysis": {
     "dataset": "carleson",
@@ -107,5 +107,7 @@
       "No claim that the formal main conclusion is false.",
       "User authorization does not turn provisional model review into human gold certification."
     ]
-  }
+  },
+  "retained_reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，严格放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 的 doubling、全部 compatible 和 cancellative 条件的连续相位族，零核满足其余前提；该相位族的球内振幅又迫使任何 informal compatible 距离与原文消去估计矛盾。此判定针对主命题适用条件，不宣称 formal 结论为假。after 的 hT 已使用 ENNReal，判负不涉及 toReal。数学论证尚未做 Lean 机器认证。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

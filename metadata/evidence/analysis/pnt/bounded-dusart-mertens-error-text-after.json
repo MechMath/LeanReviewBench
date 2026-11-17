@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-dusart-mertens-error-text-after",
   "input_sha256": "f5f1709066cc2312e9b456fc706063ce1ed92e4f2aa0ba468691ffa70c4776c8",
   "label": "aligned",
-  "reason": "The paper constant B3 is the negative of the retained mertensConstant. Thus log x−B3 and Formal log x+mertensConstant agree, and the threshold and O* remainder match.",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The source constant B3 equals the negative of mertensConstant, so log(x)-B3 matches log(x)+mertensConstant; the threshold and remainder agree.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Dusart.theorem_5_7"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The paper constant B3 is the negative of the retained mertensConstant. Thus log x−B3 and Formal log x+mertensConstant agree, and the threshold and O* remainder match.",
+  "review_scope": "The bound Mertens-type estimate with the specified B3 convention."
 }

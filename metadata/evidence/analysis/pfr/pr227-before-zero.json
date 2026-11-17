@@ -5,9 +5,9 @@
   "task_id": "pfr:pr227-before-zero",
   "input_sha256": "cf43ca25e4dd593c11ddcf7ea69c9f2fd575a06d8537aa403d9a33ff807aff91",
   "label": "misaligned",
-  "reason": "formal 的实数 log/division 在零分母处把不同点质量的 KL 变为 0，令零值判据错误识别相同分布；原文按无穷处理该输入，故定义与谓词不对应。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Real log/division totalization at zero denominators replaces the intended infinite KL value.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KL_div_eq_zero_iff_identDistrib"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "formal 的实数 log/division 在零分母处把不同点质量的 KL 变为 0，令零值判据错误识别相同分布；原文按无穷处理该输入，故定义与谓词不对应。",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-jy-after",
   "input_sha256": "3cb65b1719ef11092365a9a7693fe740b800fb9a4e45349b8c890afecfe8dc18",
   "label": "aligned",
-  "reason": "当前文字阈值23，formal B=1.801；乘回正因子x/log x后log指数1.801−1=0.801，其余常数、实数3/5及1/5指数、Li定义一致。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Multiplying by x/log(x) changes the formal logarithmic power 1.801 to the source power 0.801; the threshold 23 and remaining constants match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "JY.theorem_1_4"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "当前文字阈值23，formal B=1.801；乘回正因子x/log x后log指数1.801−1=0.801，其余常数、实数3/5及1/5指数、Li定义一致。",
+  "review_scope": "The bound explicit prime-counting estimate on x>=23."
 }

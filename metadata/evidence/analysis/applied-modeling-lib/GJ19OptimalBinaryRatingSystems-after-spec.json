@@ -5,9 +5,9 @@
   "task_id": "aml:GJ19OptimalBinaryRatingSystems-after-spec",
   "input_sha256": "5cf372ee5b4088d02c5b485d3e296fcee0fe903ce8145f7f9a6a564882b81267",
   "label": "misaligned",
-  "reason": "根假设任意 limitingValue 的最优点及整个 cut : ℕ→ℝ 的唯一性；论文的有限分割目标既未绑定到该任意函数，也不区分有限端点之后的尾部。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The arbitrary limitingValue objective is not bound to the finite-partition objective. Uniqueness of the entire infinite cut sequence distinguishes irrelevant tails beyond the finite partition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographicSpec"
@@ -25,7 +25,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根假设任意 limitingValue 的最优点及整个 cut : ℕ→ℝ 的唯一性；论文的有限分割目标既未绑定到该任意函数，也不区分有限端点之后的尾部。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

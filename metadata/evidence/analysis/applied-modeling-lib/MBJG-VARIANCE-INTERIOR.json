@@ -5,9 +5,9 @@
   "task_id": "aml:MBJG-VARIANCE-INTERIOR",
   "input_sha256": "a1eef88c96a3896fc1e882fff3d61b340f97d9bb58fe086d2e18fb9f3d2da4e5",
   "label": "aligned",
-  "reason": "按此前冻结的interior修正版分量比较：原模型的posterior-mean variance为t*q*(1-q)/(ηα+ηβ+t)^2，与paper_variance完全一致。root取0<q<1、正t与shape总量、非负且严格增加的η，所得strict decrease正是此公式在该域的比较。α、β仅通过其正和进入variance；允许实数t是该公式的解析推广，包含原离散正时间。此判定不把原文闭区间端点处错误的strict声称当作形式化负例，亦不宣称完整未修正Theorem3.1等价。",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The posterior-mean variance formula and strict decrease in eta match under the specified positivity and interior-parameter conditions.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The corrected interior variance statement with 0<q<1 and finite positive time and shape parameters; endpoint claims are excluded.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "按此前冻结的interior修正版分量比较：原模型的posterior-mean variance为t*q*(1-q)/(ηα+ηβ+t)^2，与paper_variance完全一致。root取0<q<1、正t与shape总量、非负且严格增加的η，所得strict decrease正是此公式在该域的比较。α、β仅通过其正和进入variance；允许实数t是该公式的解析推广，包含原离散正时间。此判定不把原文闭区间端点处错误的strict声称当作形式化负例，亦不宣称完整未修正Theorem3.1等价。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

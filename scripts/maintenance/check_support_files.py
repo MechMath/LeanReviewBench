@@ -79,10 +79,9 @@ def audit(root):
     # All locally consumed reports are needed for current checks; omitted history
     # is represented by archive locators, never a hidden runtime dependency.
     required={}
-    for path in (root/'metadata/labels').glob('*.jsonl'):
-        for line in path.read_text().splitlines():
-            row=json.loads(line)
-            if row.get('review_report_sha256'):required[row['review_report']]=row['review_report_sha256']
+    analysis=json.loads((root/'metadata/evidence/analysis/index.json').read_text())
+    for row in analysis['records']:
+        required[row['path']]=row['sha256']
     derived=json.loads((root/'metadata/derived-graphs/index.json').read_text())
     for row in derived['records']:
         required[row['graph_path']]=row['graph_sha256'];required[row['receipt_path']]=row['receipt_sha256']

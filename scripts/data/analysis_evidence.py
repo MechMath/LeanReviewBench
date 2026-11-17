@@ -25,10 +25,10 @@ def verify(base):
             raise ValueError('Invalid/duplicate analysis evidence binding')
         label=labels[key];path=base/expected;raw=path.read_bytes();item=json.loads(raw)
         digest=hashlib.sha256(raw).hexdigest()
-        if digest!=row['sha256'] or label.get('review_report')!=expected or label.get('review_report_sha256')!=digest:
-            raise ValueError('Analysis evidence hash/label reference differs')
+        if digest!=row['sha256']:
+            raise ValueError('Analysis evidence hash differs')
         project=json.loads((base/'datasets'/key[0]/'projects'/key[1]/'project.json').read_text())
-        if item.get('schema_version')!='leanreviewbench-analysis-evidence-1' or any(item.get(k)!=label[k] for k in ['dataset','project_id','task_id','input_sha256','label','reason','human_adjudicated','reference_ready','review_status']):
+        if item.get('schema_version')!='leanreviewbench-analysis-evidence-1' or any(item.get(k)!=label[k] for k in ['dataset','project_id','task_id','input_sha256','label','reason','review_scope','human_adjudicated','reference_ready','review_status']):
             raise ValueError('Analysis evidence verdict/input binding differs')
         if item['roots']!=[t['declaration'] for t in project['targets']] or row['input_sha256']!=label['input_sha256']:
             raise ValueError('Analysis evidence roots/input differ')

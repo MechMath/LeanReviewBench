@@ -5,9 +5,9 @@
   "task_id": "carleson:CAR-01-before",
   "input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
   "label": "misaligned",
-  "reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，实质放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 全部兼容性与消去性条件的连续相位族，取零核后其余前提也成立；原文消去性与兼容性对同一相位族给出互相矛盾的距离界，即使重新选择辅助距离也无法满足。此判定针对主命题适用条件，不宣称 formal 结论为假；不以尚未闭合的 toReal 问题作为判负依据。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The cancellation condition uses a global Lipschitz seminorm instead of the source ball-restricted seminorm, changing the admissible model class. A retained construction separates the hypotheses.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "metric_carleson"
@@ -33,7 +33,7 @@
   "review_date": "2026-11-09",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete theorem cancellation hypothesis with the intended ball-restricted seminorm; the formal conclusion is not alleged to be false.",
   "analysis_status": "detailed_review_retained",
   "analysis": {
     "dataset": "carleson",
@@ -115,5 +115,7 @@
       "This update changes only CAR-01-before; no verdict for another snapshot is inferred automatically.",
       "User confirmation authorizes the label update; the existing provisional-review fields do not become formal human-gold certification."
     ]
-  }
+  },
+  "retained_reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，实质放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 全部兼容性与消去性条件的连续相位族，取零核后其余前提也成立；原文消去性与兼容性对同一相位族给出互相矛盾的距离界，即使重新选择辅助距离也无法满足。此判定针对主命题适用条件，不宣称 formal 结论为假；不以尚未闭合的 toReal 问题作为判负依据。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

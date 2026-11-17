@@ -1,27 +1,33 @@
 # Binary alignment labels
 
-The current release has 171 input-bound provisional verdicts across 16 batches:
-81 aligned and 90 misaligned. Each `<batch>.jsonl` record identifies an input,
-its complete root scope, verdict, reason, review status, and input SHA-256.
+The release contains 171 human-reviewed labels across 16 batches: 81 aligned and
+90 misaligned. Each `<batch>.jsonl` contains only the current annotation result.
 
-`review_report` and `review_report_sha256` point to the current per-input
-[analysis evidence](../evidence/analysis/README.md). Its explicit coverage state
-distinguishes detailed reviews (38 inputs), retained label reasons only (130),
-and missing reasons (3). Source references and earlier decision fields are
-provenance, not additional active verdicts. An input is classified independently
-of its before/after partner; a later revision need not be aligned.
+| Fields | Meaning |
+| --- | --- |
+| `task_id`, `dataset`, `project_id` | Input identity |
+| `input_sha256` | Binding to the frozen mathematical input |
+| `root`, or `roots` and `target_mode` | Selected declaration scope |
+| `label` | Binary alignment verdict |
+| `reason` | Concise English mathematical explanation |
+| `review_scope` | Concise English statement of the target and relevant restrictions |
+| `review_status`, `human_adjudicated` | `human_reviewed` and `true` for all current labels |
+| `reference_ready`, `gold_label` | Formal evaluation-export readiness, still `false` and `null` |
 
-[Upstream evidence](../evidence/upstream/README.md) preserves original upstream
-claims and exact source associations. These claims are not benchmark labels.
-[The taxonomy](../taxonomy/README.md) separately classifies all 90 negative inputs.
+Completed human review is recorded independently from readiness of a separately
+frozen model-task export. Before/after order does not determine the label.
+Three existing aligned labels lack a retained mathematical reason; their `reason`
+remains empty rather than receiving an invented justification.
 
-All verdicts remain provisional: `human_adjudicated` and `reference_ready` are
-false, and `gold_label` is null. User confirmation following model review does
-not silently become independent human adjudication. No reason is invented for
-the three existing aligned records whose reason is empty. The joint Stacks
-`STK-0B34` record binds both roots and their shared informal target.
+[The analysis index](../evidence/analysis/index.json) associates input identities
+and hashes with evidence files and their digests. Evidence paths and hashes are
+not duplicated in label records. Full reasoning and original wording remain in
+[analysis evidence](../evidence/analysis/README.md); earlier label states and
+restoration logs do not belong in JSONL annotation results. Superseded versions
+are managed by Git. Restoration and status-change logs are omitted from the current release; Git
+history retains those process records.
 
-Run `python3 scripts/data/check_release_candidate.py` for exact input, evidence,
-label and graph checks. The SLT batch is excluded. Evidence relocation changes
-references and metadata hashes, not input bytes, labels, reasons, or review
-states. Keep this entire directory outside model-visible task exports.
+[Upstream evidence](../evidence/upstream/README.md) contains original source claims;
+[the taxonomy](../taxonomy/README.md) separately classifies the negative inputs.
+Keep labels, scope notes, reasons, and all evidence outside model-visible inputs.
+Run `python3 scripts/data/check_release_candidate.py` to verify current bindings.

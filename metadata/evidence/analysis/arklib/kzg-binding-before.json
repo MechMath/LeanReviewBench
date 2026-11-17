@@ -5,9 +5,9 @@
   "task_id": "arklib:kzg-binding-before",
   "input_sha256": "66e220c62b628b2d22836be33f160662204c7d4cffbc9d4a93bff627a61668ab",
   "label": "misaligned",
-  "reason": "原文将攻击者限制为概率多项式时间（PPT），formal 的 tSdhAssumption 却量化所有该 Lean 类型的函数。无资源限制的函数可从 SRS 中的 g₂^τ 恢复 τ，并以概率 1 赢得 t-SDH 实验，使 error<1 时的困难性前提不成立，偏离原文的计算困难性假设。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The computational hardness assumption ranges over all Lean functions of the adversary type rather than the source class of probabilistic polynomial-time adversaries.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KZG.CommitmentScheme.binding"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 KZG 求值绑定声明及论文的 PPT 攻击者上下文；仅 kzg-binding-before 输入。",
+  "review_scope": "The bound KZG evaluation-binding claim in the source efficient-adversary model.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -103,5 +103,7 @@
       "本次决定不修改已标为 aligned 的 kzg-binding-after，也不传播到不带困难性假设的 reduction 根。",
       "保留现有 provisional 标签约定及 evaluation_eligible=false，不自动升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文将攻击者限制为概率多项式时间（PPT），formal 的 tSdhAssumption 却量化所有该 Lean 类型的函数。无资源限制的函数可从 SRS 中的 g₂^τ 恢复 τ，并以概率 1 赢得 t-SDH 实验，使 error<1 时的困难性前提不成立，偏离原文的计算困难性假设。",
+  "retained_review_scope": "当前冻结 KZG 求值绑定声明及论文的 PPT 攻击者上下文；仅 kzg-binding-before 输入。"
 }

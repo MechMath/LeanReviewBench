@@ -5,9 +5,9 @@
   "task_id": "coarse-degiorgi:CDG-A",
   "input_sha256": "478e3568ffb91e335c26a5721a892aa6c46515eac528ae8e513f97131851f613",
   "label": "aligned",
-  "reason": "Source-level structure matches, including the shared γ and constants chosen before coefficient/function. External geometry/averaging definitions and elaborated instance choices remain technical verification tasks.",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The statement structure matches, including the shared gamma and constants quantified before the coefficient and function. Geometry, averaging definitions, and elaborated instances remain technical qualifications.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "CoarseDeGiorgi.local_boundedness"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The bound Theorem A statement and its quantified constants.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Source-level structure matches, including the shared γ and constants chosen before coefficient/function. External geometry/averaging definitions and elaborated instance choices remain technical verification tasks.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

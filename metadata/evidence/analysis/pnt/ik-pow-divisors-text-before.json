@@ -5,9 +5,9 @@
   "task_id": "pnt:ik-pow-divisors-text-before",
   "input_sha256": "ce5ef86d9c515bd16850ca3425da226e2b651921ec20ea8b7c6ff4a2fd03f404",
   "label": "aligned",
-  "reason": "允许显式的k次根参数化时对应：对m,n>0及k≥1，x↦x^k是{x|m:x^k|m}到m的完全k次幂除数的双射，并保持乘积。因此formal根除数的分解/乘法单射，经该双射就是文字的幂除数命题。k=0时文字的完全0次幂只有1，分解与单射直接成立；formal覆盖更强的普通互素除数结论。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "For positive inputs and k>=1, the bijection x->x^k converts root-divisors into perfect-kth-power divisors and preserves multiplication. The k=0 source case follows directly.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ArithmeticFunction.pow_divisors_mul"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "允许显式的k次根参数化时对应：对m,n>0及k≥1，x↦x^k是{x|m:x^k|m}到m的完全k次幂除数的双射，并保持乘积。因此formal根除数的分解/乘法单射，经该双射就是文字的幂除数命题。k=0时文字的完全0次幂只有1，分解与单射直接成立；formal覆盖更强的普通互素除数结论。",
+  "review_scope": "The bound perfect-power divisor statement, allowing the explicit kth-root parametrization."
 }

@@ -2,7 +2,7 @@
 
 A benchmark for informal–formal statement alignment in real Lean projects.
 
-This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned provisional labels**. It uses the original **`paperlean-project-case-1`** format described in the paper's construction appendix and the research branch documentation. All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
+This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format described in the paper's construction appendix and the research branch documentation. All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
 ```text
 datasets/
@@ -37,7 +37,7 @@ scripts/
 licenses/
 ```
 
-Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes, verdicts, reasons and review states are unchanged. Labels point to input-bound analysis under `metadata/evidence/analysis/`; upstream claims are separate under `metadata/evidence/upstream/`. Technical receipts and composition evidence live under `metadata/derived-graphs/`. Exact compatibility aliases in `metadata/layout.json` resolve embedded historical receipt locators.
+Each package preserves its original metadata, full informal records, target bindings, scope notes, before/after links and source/resource bytes. Labels and review evidence remain outside model-visible exports. Joint Stacks `STK-0B34` and Equational Sheffer inputs remain single multi-root packages. Original input hashes and verdicts are unchanged. Label records contain concise English reasons and scope, with completed human review recorded explicitly. The analysis index links them to evidence under `metadata/evidence/analysis/`; upstream claims are separate under `metadata/evidence/upstream/`. Technical receipts and composition evidence live under `metadata/derived-graphs/`. Exact compatibility aliases in `metadata/layout.json` resolve embedded historical receipt locators.
 
 ## Validate and inspect
 
@@ -103,4 +103,4 @@ See [configuration](docs/CONFIGURATION.md), [packaging policy](docs/PACKAGING.md
 
 Code follows [LICENSE](LICENSE); upstream sources retain their own [license records](licenses/index.json) and [NOTICE](NOTICE). This is not a blanket relicensing of source material. The historical AppliedModelingLib license-copy gap remains recorded.
 
-All 171 labels remain provisional with `reference_ready=false`. User decisions and model reviews are preserved without promoting them to human gold. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.
+All 171 labels have `human_adjudicated=true` and `review_status=human_reviewed`. Their separate evaluation-export state remains `reference_ready=false` and `gold_label=null`. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.

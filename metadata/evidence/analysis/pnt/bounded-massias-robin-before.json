@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-massias-robin-before",
   "input_sha256": "a94b08910fb7fd3f7c6274fd3cde450089b95195487f0b26ecdb435a4f509db9",
   "label": "aligned",
-  "reason": "与自己的冻结版本逐项一致：nth_prime′ n=Nat.nth Prime(n−1)对应从1开始的p_n；n和p_n上的阈值、严格/非严格不等号、自然对数项及常数均按当前文字保留。不同版本之间的阈值变化不构成各自配对的不一致。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The one-based nth-prime convention, thresholds, inequality strictness, logarithmic terms, and constants match the corresponding bound source version.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "MassiasRobin.p_n_lower"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "与自己的冻结版本逐项一致：nth_prime′ n=Nat.nth Prime(n−1)对应从1开始的p_n；n和p_n上的阈值、严格/非严格不等号、自然对数项及常数均按当前文字保留。不同版本之间的阈值变化不构成各自配对的不一致。",
+  "review_scope": "The selected source version of the explicit nth-prime bound, with its own thresholds and constants."
 }

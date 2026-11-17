@@ -5,9 +5,9 @@
   "task_id": "aml:LOS02CombinatorialAuctions-before",
   "input_sha256": "b3749f8a36c0b2c11fa25d02d9ed6e598f054264fed2f69df4508bf76fcf6aee",
   "label": "aligned",
-  "reason": "展开后的机制按value/|desired|降序并以固定bidder顺序一致破同分，贪心接受无冲突bundle；赢家付款为首个仅因该赢家被拒的后继bid的单位价乘本人bundle大小，无该bid或落选付款0。utility使用真实single-minded valuation减payment；truthfulness允许改变value与desired，并量化任意其余报告。与原§10机制及truthfulness一致；非空bundle/非负value就是所选single-minded域。before/after接口移动不改变这些定义。",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The density ordering, fixed tie-breaking, greedy allocation, critical payments, and truthfulness against joint value-and-bundle deviations match the source mechanism.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "Section 10 for single-minded bidders with nonempty desired bundles and nonnegative values.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "展开后的机制按value/|desired|降序并以固定bidder顺序一致破同分，贪心接受无冲突bundle；赢家付款为首个仅因该赢家被拒的后继bid的单位价乘本人bundle大小，无该bid或落选付款0。utility使用真实single-minded valuation减payment；truthfulness允许改变value与desired，并量化任意其余报告。与原§10机制及truthfulness一致；非空bundle/非负value就是所选single-minded域。before/after接口移动不改变这些定义。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

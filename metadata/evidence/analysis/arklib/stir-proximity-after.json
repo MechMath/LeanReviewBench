@@ -5,9 +5,9 @@
   "task_id": "arklib:stir-proximity-after",
   "input_sha256": "5dfcd375a2b7c01a07b2cef15b1db122e6d7e53c8f5fd7a06132e4e9f0749156",
   "label": "aligned",
-  "reason": "同一个均匀随机 r 的幂组合、相对距离事件、两段误差公式及严格概率阈值均与原文对应；结论保留共享子集的 ∃S∀i∃u 顺序及大小界。在原文含 1/ρ 的有定义参数域中，0<degree 明确了正码率要求，formal 的码率亦化为 degree/|L|。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The shared uniform random coefficient, power combination, distance event, error terms, strict probability threshold, and shared-subset quantifier order match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "STIR.proximity_gap"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 blueprint thm:proximity_gap 与 STIR.proximity_gap；按原文公式有定义的正次数、非空求值域解释。",
+  "review_scope": "The blueprint proximity-gap theorem on its defined positive-rate, nonempty evaluation-domain parameter range.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -126,5 +126,7 @@
       "formal、informal、输入哈希与技术状态均保持原样；不传播标签到 before 输入。",
       "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "同一个均匀随机 r 的幂组合、相对距离事件、两段误差公式及严格概率阈值均与原文对应；结论保留共享子集的 ∃S∀i∃u 顺序及大小界。在原文含 1/ρ 的有定义参数域中，0<degree 明确了正码率要求，formal 的码率亦化为 degree/|L|。",
+  "retained_review_scope": "当前冻结 blueprint thm:proximity_gap 与 STIR.proximity_gap；按原文公式有定义的正次数、非空求值域解释。"
 }

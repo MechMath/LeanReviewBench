@@ -5,9 +5,9 @@
   "task_id": "aml:LG21-optional_reporting-threshold_equilibrium_exists_of_crossing",
   "input_sha256": "5bbdb6db2278dac3207a66fb7119283c8757d14836a785d04de4cebec4102e8f",
   "label": "misaligned",
-  "reason": "Lean 从连续性、严格单调性和交叉条件推出阈值均衡存在；完整 Theorem 3.1 要刻画每个实际均衡并给出公平性失败，根不包含这些结论。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "Existence at a crossing does not supply the full characterization of actual equilibria and failure of fairness.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_threshold_equilibrium_exists_of_crossing"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Lean 从连续性、严格单调性和交叉条件推出阈值均衡存在；完整 Theorem 3.1 要刻画每个实际均衡并给出公平性失败，根不包含这些结论。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

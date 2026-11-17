@@ -5,9 +5,9 @@
   "task_id": "arklib:kzg-function-binding-before",
   "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
   "label": "misaligned",
-  "reason": "原文的 ARSDH 假设限定电路规模，before 的 arsdhAssumption 却量化所有该类型的 Lean 函数。无资源限制的函数可恢复 τ，选取 n+1 个避开 τ 的点并构造 ARSDH 解，以概率 1 成功，使 error<1 时的困难性前提无法成立；此外，formal 未表达原文的具体归约电路开销。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The ARSDH hardness assumption quantifies over unrestricted Lean adversary functions instead of the circuit-size-bounded class specified by the source. The formal root and reduction definitions omit the explicit circuit-size overhead guarantee required by the source.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "KZG.CommitmentScheme.function_binding"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路的 ARSDH 困难性假设与具体归约规模开销；仅本 before 输入。",
+  "review_scope": "CGKY25 Lemma 9.1, including circuit-bounded adversaries and the explicit reduction overhead; the exact original PDF revision remains unverified.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -149,5 +149,7 @@
       "location": "corroborating_after_lemma",
       "role": "对应 after 的源码给出非单位生成元、p≥D+2、error<1 时 unrestricted-class ARSDH 假设不成立的 Lean 证明；本次已阅读并与 before 的实验定义核对，未重新编译。"
     }
-  }
+  },
+  "retained_reason": "原文的 ARSDH 假设限定电路规模，before 的 arsdhAssumption 却量化所有该类型的 Lean 函数。无资源限制的函数可恢复 τ，选取 n+1 个避开 τ 的点并构造 ARSDH 解，以概率 1 成功，使 error<1 时的困难性前提无法成立；此外，formal 未表达原文的具体归约电路开销。",
+  "retained_review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路的 ARSDH 困难性假设与具体归约规模开销；仅本 before 输入。"
 }

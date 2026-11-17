@@ -5,9 +5,9 @@
   "task_id": "pfr:pr228-after",
   "input_sha256": "65652804f5f59397415343a5a826230879fde6d2f99196381a404c5e1d087574",
   "label": "misaligned",
-  "reason": "after 的概率乘积测度和支持筛选在有限群范围内正确实现目标下确界；但定义只接受有限 G，而冻结目标允许一般加法群和无限支持 X、T。完整输入范围仍缺失。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The formal input group is finite, excluding general groups and infinite-support distributions allowed by the bound target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "rhoMinus"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "after 的概率乘积测度和支持筛选在有限群范围内正确实现目标下确界；但定义只接受有限 G，而冻结目标允许一般加法群和无限支持 X、T。完整输入范围仍缺失。",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

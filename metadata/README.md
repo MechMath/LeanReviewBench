@@ -1,12 +1,12 @@
 # Benchmark metadata
 
 The release contains 171 versioned inputs across 16 batches, with 81 aligned and
-90 misaligned provisional labels. Metadata are curator-facing and must remain
+90 misaligned human-reviewed labels. Metadata are curator-facing and must remain
 outside model-visible task exports.
 
 | Path | Purpose |
 | --- | --- |
-| `labels/` | Binary verdicts, reasons, review states, and current analysis references |
+| `labels/` | Human-reviewed binary verdicts, concise English reasons, scope, and input bindings |
 | [evidence/upstream/](evidence/upstream/README.md) | Original upstream claims with exact source/input associations; not scoring labels |
 | [evidence/analysis/](evidence/analysis/README.md) | Current judgment evidence grouped by source batch and input |
 | [taxonomy/](taxonomy/README.md) | Current five-category standard and classifications for all 90 negative inputs |

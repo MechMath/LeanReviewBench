@@ -3,7 +3,9 @@
 The [current five-category standard](standard.md) and diagnostic annotations are
 kept together here. All **90 currently misaligned inputs** have one to three
 category labels. These remain provisional classifications of retained semantic
-judgments, not human-adjudicated gold labels or a new binary evaluation task.
+judgments, not human-adjudicated category labels or a new binary evaluation task.
+The underlying binary judgments are human reviewed; the category-assignment
+review state is separate.
 
 | File | Purpose |
 | --- | --- |

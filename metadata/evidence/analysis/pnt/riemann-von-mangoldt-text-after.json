@@ -5,9 +5,9 @@
   "task_id": "pnt:riemann-von-mangoldt-text-after",
   "input_sha256": "cd7383940e6ee321108205881dbdee3d645fa941420f5e7972a77ac031e8786e",
   "label": "aligned",
-  "reason": "T≥2时log(T/(2πe))=log(T/(2π))−1，formal绝对值内展开正是当前文字的−7/8版本；三个误差系数与范围均相同。按scope使用保留的N定义（0<Imρ<T并按重数），不替换成其他文章的计数端点约定。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Expanding the logarithmic main term gives the same -7/8 constant, error coefficients, and range T>=2.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "riemannZeta.Riemann_vonMangoldt_bound"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "T≥2时log(T/(2πe))=log(T/(2π))−1，formal绝对值内展开正是当前文字的−7/8版本；三个误差系数与范围均相同。按scope使用保留的N定义（0<Imρ<T并按重数），不替换成其他文章的计数端点约定。",
+  "review_scope": "The bound counting-error estimate using the retained multiplicity count with 0<Im(rho)<T."
 }

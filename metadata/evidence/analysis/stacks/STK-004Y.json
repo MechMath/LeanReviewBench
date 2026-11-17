@@ -5,9 +5,9 @@
   "task_id": "stacks:STK-004Y",
   "input_sha256": "143a9abe794373e0de6fd780354f4a4fd8e7b23d53da1ba0c7d35994fdc24257",
   "label": "aligned",
-  "reason": "Matches the explicitly selected irreducible-closed-subset direction of source Example 004Y.",
-  "review_status": "provisional_single_model_review",
-  "human_adjudicated": false,
+  "reason": "The root matches the selected irreducible-closed-subset direction of Example 004Y.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton"
@@ -20,8 +20,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Selects the irreducible-closed-subset direction of Example 004Y, not the entire example.",
+  "review_scope": "The irreducible-closed-subset direction only, rather than all of Example 004Y.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Matches the explicitly selected irreducible-closed-subset direction of source Example 004Y.",
+  "retained_review_scope": "Selects the irreducible-closed-subset direction of Example 004Y, not the entire example."
 }

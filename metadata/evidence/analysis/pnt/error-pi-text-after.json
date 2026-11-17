@@ -5,9 +5,9 @@
   "task_id": "pnt:error-pi-text-after",
   "input_sha256": "e42226a9137de3d93e105462ea8c80993fdda6e520c0cd232733f9fb97b3b692",
   "label": "aligned",
-  "reason": "The revised own-version numerator-absolute-value formula matches the retained Formal definition exactly for every real x, checked by definitional equality. This label assesses that explicit source definition, not global agreement with the paper quotient-absolute-value formula. The separately checked x>1 bridge records the paper-domain scope.",
-  "review_status": "provisional",
-  "human_adjudicated": false,
+  "reason": "The numerator-absolute-value formula is definitionally equal to the specified source definition. Its relation to the paper quotient-absolute-value formula is restricted to x>1.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Eπ"
@@ -27,5 +27,7 @@
   ],
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The revised own-version numerator-absolute-value formula matches the retained Formal definition exactly for every real x, checked by definitional equality. This label assesses that explicit source definition, not global agreement with the paper quotient-absolute-value formula. The separately checked x>1 bridge records the paper-domain scope.",
+  "review_scope": "The explicitly bound source definition over all real x; the paper-domain equivalence is a separate x>1 statement."
 }

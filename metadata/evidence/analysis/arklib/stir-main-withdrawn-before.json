@@ -5,9 +5,9 @@
   "task_id": "arklib:stir-main-withdrawn-before",
   "input_sha256": "624cddb03bf99d6bc4a2aa781987751b5cf6baf9c5a89b49c7340dc88f95e4da",
   "label": "misaligned",
-  "reason": "原文要求足够大的域（Ω 下界），formal 的 hF 却给出域大小上界。M、proofLen、qNumtoInput、qNumtoProofstr 是外部输入，未绑定到存在协议 π 的实际资源；复杂度常数在输入参数之后存在量化，缺少原文渐近界要求的统一性。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The field-size condition is an upper bound where the source requires an asymptotic lower bound. The external round, proof-length, and query-count parameters are not bound to the actual resource measures of the existentially supplied protocol. The existential complexity constants are chosen after the instance parameters, losing the corresponding uniform asymptotic bounds.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "StirIOP.stir_main"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 blueprint STIR Main Theorem（thm:stir）与 StirIOP.stir_main 的陈述对齐；仅本输入。",
+  "review_scope": "The complete bound STIR main theorem, including field size, protocol resources, and uniform complexity constants.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -119,5 +119,7 @@
       "formal、informal、输入哈希与技术状态均保持原样；不传播标签到相邻 STIR 输入。",
       "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文要求足够大的域（Ω 下界），formal 的 hF 却给出域大小上界。M、proofLen、qNumtoInput、qNumtoProofstr 是外部输入，未绑定到存在协议 π 的实际资源；复杂度常数在输入参数之后存在量化，缺少原文渐近界要求的统一性。",
+  "retained_review_scope": "当前冻结 blueprint STIR Main Theorem（thm:stir）与 StirIOP.stir_main 的陈述对齐；仅本输入。"
 }

@@ -5,9 +5,9 @@
   "task_id": "aml:LG21-report_required-source_witness_of_base_crossings",
   "input_sha256": "2c861aa9a8809b440ec958dc709d7ec204b615037a2ce4c367b9aa9441ef2a67",
   "label": "misaligned",
-  "reason": "根从各 base 的交叉条件构造 ∃W；未将该见证绑定到所有实际均衡，也未给出 Theorem 3.1 的完整不公平结论。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The constructed source witness is not bound to the actual equilibria. The full unfairness conclusion is absent as a separate required result.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根从各 base 的交叉条件构造 ∃W；未将该见证绑定到所有实际均衡，也未给出 Theorem 3.1 的完整不公平结论。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

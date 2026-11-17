@@ -5,9 +5,9 @@
   "task_id": "pnt:classical-zero-free-text-after",
   "input_sha256": "4137382a35c4f4d0cbeff3d04984d4015d5edbb8be87a154d1a764d16dbff8b3",
   "label": "aligned",
-  "reason": "文字与formal都在t≥3上要求σ≥1−1/(R log|t|)时ζ(σ+it)≠0；由于t≥3，|t|=t，公式和含端点条件一致。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Both definitions exclude zeta zeros when t>=3 and sigma>=1-1/(R*log(|t|)); |t|=t on this domain.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "riemannZeta.classicalZeroFree"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "文字与formal都在t≥3上要求σ≥1−1/(R log|t|)时ζ(σ+it)≠0；由于t≥3，|t|=t，公式和含端点条件一致。",
+  "review_scope": "The bound zero-free-region definition, including t=3."
 }

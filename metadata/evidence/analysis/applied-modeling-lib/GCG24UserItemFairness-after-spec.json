@@ -5,9 +5,9 @@
   "task_id": "aml:GCG24UserItemFairness-after-spec",
   "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
   "label": "misaligned",
-  "reason": "约化模型 canonicalReduction 使用用户人数 typeCard 作为权重，而 twoTypeReducedModel 使用比例 α、1−α；主规格的 hred 要求两者结构严格相等，取第 0 类权重即得 (typeCard S.types 0 : ℝ)=α，与 0<α<1 矛盾，导致全部前提不可满足。判负依据是人数与比例之间缺失归一化，不使用仅陈述前半区间的旧理由。相关原始定义片段已在 Lean 4.12.0-rc1 独立证明 hred 不可能成立，无 sorryAx；此验证不等于完整快照编译认证。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "Unnormalized integer user counts are equated to proportions alpha and 1-alpha; the missing normalization makes the premises inconsistent.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
@@ -28,7 +28,7 @@
   "review_date": "2026-11-09",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "detailed_review_retained",
   "analysis": {
     "dataset": "applied-modeling-lib",
@@ -120,5 +120,7 @@
       "The frozen formal and informal inputs are unchanged. This decision is only for GCG24UserItemFairness-after-spec.",
       "User authorization changes the provisional model label; it does not convert the record into a human gold label."
     ]
-  }
+  },
+  "retained_reason": "约化模型 canonicalReduction 使用用户人数 typeCard 作为权重，而 twoTypeReducedModel 使用比例 α、1−α；主规格的 hred 要求两者结构严格相等，取第 0 类权重即得 (typeCard S.types 0 : ℝ)=α，与 0<α<1 矛盾，导致全部前提不可满足。判负依据是人数与比例之间缺失归一化，不使用仅陈述前半区间的旧理由。相关原始定义片段已在 Lean 4.12.0-rc1 独立证明 hred 不可能成立，无 sorryAx；此验证不等于完整快照编译认证。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

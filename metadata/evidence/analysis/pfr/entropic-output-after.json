@@ -5,9 +5,9 @@
   "task_id": "pfr:entropic-output-after",
   "input_sha256": "028f52b0515a4207c5977f85fdaded3aab74b8f64755ad0d0165e09a56e50717",
   "label": "aligned",
-  "reason": "在目标指定的有限 F₂ 向量空间范围，根输出概率空间、可测均匀变量和两项完全相同的 6d 上界；历史 IsUniform 加这些条件确实等于通常均匀分布，refPackage 也不增加输入限制。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The output includes a probability measure, measurable uniform variables, and the two required 6d bounds; the uniformity predicate has its intended probabilistic meaning.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "entropic_PFR_conjecture'"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "在目标指定的有限 F₂ 向量空间范围，根输出概率空间、可测均匀变量和两项完全相同的 6d 上界；历史 IsUniform 加这些条件确实等于通常均匀分布，refPackage 也不增加输入限制。",
+  "review_scope": "The bound entropic statement over finite vector spaces over F_2."
 }

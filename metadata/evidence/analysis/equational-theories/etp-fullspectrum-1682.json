@@ -5,9 +5,9 @@
   "task_id": "equational-theories:etp-fullspectrum-1682",
   "input_sha256": "0f1d16d5c1648cb48c15316abcfdf4db2f03914eccd467e50ad027abf5238708",
   "label": "aligned",
-  "reason": "EqFullSpectrum 要求每个 n 的 Fin n 上存在满足等式 1682 的 magma，等式括号与模型存在量词对应原文。额外 n=0 分支可由空类型上的运算及全称等式无条件补出；证明对 n>2 给出分段运算，对 n=2 使用模 2 加法，对 n≤1 使用投影，覆盖所有大小。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The quantifiers and equation syntax specify a model of law 1682 at every positive finite size. The additional size-zero case follows vacuously on the empty carrier.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FullSpectrum.full_spectrum_Equation1682"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前独立 spectrum.tex 中明确选定的等式 1682 的所有正整数大小模型构造；不包含整段的 3074 条律分类、对偶律或分类完备性结论。",
+  "review_scope": "The construction of models of law 1682 at all positive integer sizes; the broader law classification is excluded.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -121,5 +121,7 @@
       "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "EqFullSpectrum 要求每个 n 的 Fin n 上存在满足等式 1682 的 magma，等式括号与模型存在量词对应原文。额外 n=0 分支可由空类型上的运算及全称等式无条件补出；证明对 n>2 给出分段运算，对 n=2 使用模 2 加法，对 n≤1 使用投影，覆盖所有大小。",
+  "retained_review_scope": "当前独立 spectrum.tex 中明确选定的等式 1682 的所有正整数大小模型构造；不包含整段的 3074 条律分类、对偶律或分类完备性结论。"
 }

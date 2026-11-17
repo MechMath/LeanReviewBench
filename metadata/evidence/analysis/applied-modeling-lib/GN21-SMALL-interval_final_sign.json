@@ -5,9 +5,9 @@
   "task_id": "aml:GN21-SMALL-interval_final_sign",
   "input_sha256": "d0af7eaae7407bc62ab8547d48eb71bfb23aac282c977c6bb82db97663067756",
   "label": "misaligned",
-  "reason": "完整 Theorem 3 同时规定分情形的最优结构与几乎处处唯一性；目标只是结构化正质量可测策略下的激励相容/符号结论，未给出完整唯一性及一般分支。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "The selected sign/incentive result omits the full uniqueness conclusion. The structured positive-mass strategy setting does not cover the full target input branches.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_interval_final_sign"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "完整 Theorem 3 同时规定分情形的最优结构与几乎处处唯一性；目标只是结构化正质量可测策略下的激励相容/符号结论，未给出完整唯一性及一般分支。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

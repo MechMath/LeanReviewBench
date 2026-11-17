@@ -5,9 +5,9 @@
   "task_id": "formalslt:eb-after",
   "input_sha256": "50c87cbc7984947d40d1754b741b267955f4053bb06e5847a0e21381f76d5d6e",
   "label": "aligned",
-  "reason": "根命题与 informal 的概率空间、滤过、增量及可预测方差代理假设一致；展开可达定义后，混合过程恰为所述均匀先验下的 Bernstein 指数积分，结论恰为所有正整数时间越过 1/δ 的概率至多 δ。",
-  "review_status": "independent_blinded_subagent_label",
-  "human_adjudicated": false,
+  "reason": "The probability model, increment assumptions, predictable variance proxy, uniform-prior Bernstein mixture, and crossing-probability bound match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
@@ -42,8 +42,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance.",
+  "review_scope": "The bounded-increment specialization with a compact uniform prior and predictable variance proxy; realized sample variance is excluded.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "根命题与 informal 的概率空间、滤过、增量及可预测方差代理假设一致；展开可达定义后，混合过程恰为所述均匀先验下的 Bernstein 指数积分，结论恰为所有正整数时间越过 1/δ 的概率至多 δ。",
+  "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }

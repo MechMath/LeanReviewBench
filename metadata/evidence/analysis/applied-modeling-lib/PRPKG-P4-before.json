@@ -5,9 +5,9 @@
   "task_id": "aml:PRPKG-P4-before",
   "input_sha256": "a58a42b7e5957c551a4ac15c223de36d76346ae1cbf323f9c018f44af11c8ba4",
   "label": "misaligned",
-  "reason": "Proposition 4 的径向非恒定概率核未要求连续；Lean 把 Continuous p 作为前提，缩小了适用域。 提交审查补充：上游 verdict 为 matches_approved_corrected_target，coverage_status 为 corrected_source_statement，且 archival_equivalence_claimed=false；因此该标签确认的是含连续性等条件的修订目标，不能直接转为当前论文原文配对的 aligned。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "Continuity of the radial probability kernel is an additional substantive premise absent from the bound full proposition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Proposition 4 的径向非恒定概率核未要求连续；Lean 把 Continuous p 作为前提，缩小了适用域。 提交审查补充：上游 verdict 为 matches_approved_corrected_target，coverage_status 为 corrected_source_statement，且 archival_equivalence_claimed=false；因此该标签确认的是含连续性等条件的修订目标，不能直接转为当前论文原文配对的 aligned。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

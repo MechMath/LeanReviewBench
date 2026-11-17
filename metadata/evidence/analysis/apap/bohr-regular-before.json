@@ -5,9 +5,9 @@
   "task_id": "apap:bohr-regular-before",
   "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
   "label": "misaligned",
-  "reason": "rank 统计口径与原文不同：formal 统计有限宽度字符，原文统计宽度小于 2 的字符，导致正则性定义不等价；此外，κ 的检查范围写成了 d/100，而非原文预期的 1/(100d)。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The rank counts finite-width characters instead of those with width below 2. The kappa bound is d/100 instead of the intended 1/(100*d).",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "BohrSet.IsRegular"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 before 输入。原文 1/100d 按现有 scope 的预期分母 100*d 解释。",
+  "review_scope": "The bound Bohr-set regularity definition, interpreting the source expression 1/100d as 1/(100*d).",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -87,5 +87,7 @@
       "source_typography": "1/100d",
       "scope_note": "分母按当前冻结 scope 的预期解释。rank 区分例中 source d=1，两种排版解释均给出 1/100；rank 判负依据不依赖此歧义。"
     }
-  }
+  },
+  "retained_reason": "rank 统计口径与原文不同：formal 统计有限宽度字符，原文统计宽度小于 2 的字符，导致正则性定义不等价；此外，κ 的检查范围写成了 d/100，而非原文预期的 1/(100d)。",
+  "retained_review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 before 输入。原文 1/100d 按现有 scope 的预期分母 100*d 解释。"
 }

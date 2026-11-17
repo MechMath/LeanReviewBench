@@ -5,9 +5,9 @@
   "task_id": "carleson:CAR-CTRL-01",
   "input_sha256": "5c08ab80fca8d065607c121fe3d12bf699ac596c8e87668cbc125aa8969b3bc8",
   "label": "aligned",
-  "reason": "Continuous complex-valued 2pi-periodic f, Lebesgue-a.e. convergence along natural N, symmetric integer Fourier sums and standard coefficient normalization all match the whole independent classical theorem.",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The continuity and periodicity assumptions, symmetric Fourier sums, coefficient normalization, and almost-everywhere convergence match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ClassicalCarleson"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The complete classical Fourier convergence theorem for continuous complex-valued 2*pi-periodic functions.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Continuous complex-valued 2pi-periodic f, Lebesgue-a.e. convergence along natural N, symmetric integer Fourier sums and standard coefficient normalization all match the whole independent classical theorem.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

@@ -5,9 +5,9 @@
   "task_id": "pfr:pfr-independent-blocks-before",
   "input_sha256": "89ab45325397c40b96513987b16f2adc36b2eac9bc8353b602738b514f238906",
   "label": "aligned",
-  "reason": "独立概率讲义 Remark 1.71 已给出有限多个不交有限坐标块构成独立随机向量的完整数学结论；Definition 1.69 对任意族用全部有限子族定义独立。PR321 明确意图是允许任意/无限块索引 J，故提案保留任意 J。before 根虽声明 [Finite J]，但它对每个有限索引类型均成立：对任意 J 的每个有限 F⊆J，在有限子类型 F 上实例化原根，即得到同一随机向量族在 F 上独立；按 Definition 1.69 的有限测试等价恢复整个 J 上独立。因此这是可逐项写出的定义性有限测试桥，不是忽略有限性、把目标缩窄，或因论文定理正确就判 aligned。",
-  "review_status": "model_remaining_undetermined_recheck",
-  "human_adjudicated": false,
+  "reason": "Applying the finite-index root to every finite subfamily establishes independence of the entire block-indexed family by the source finite-subfamily definition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ProbabilityTheory.iIndepFun.finsets"
@@ -40,5 +40,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "独立概率讲义 Remark 1.71 已给出有限多个不交有限坐标块构成独立随机向量的完整数学结论；Definition 1.69 对任意族用全部有限子族定义独立。PR321 明确意图是允许任意/无限块索引 J，故提案保留任意 J。before 根虽声明 [Finite J]，但它对每个有限索引类型均成立：对任意 J 的每个有限 F⊆J，在有限子类型 F 上实例化原根，即得到同一随机向量族在 F 上独立；按 Definition 1.69 的有限测试等价恢复整个 J 上独立。因此这是可逐项写出的定义性有限测试桥，不是忽略有限性、把目标缩窄，或因论文定理正确就判 aligned。",
+  "review_scope": "Independence of random vectors on disjoint finite coordinate blocks, allowing an arbitrary block-index set."
 }

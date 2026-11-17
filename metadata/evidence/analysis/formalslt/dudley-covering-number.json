@@ -5,9 +5,9 @@
   "task_id": "formalslt:dudley-covering-number",
   "input_sha256": "d64e4cfd5c80d1f4daebc9c6af917ab33ee5bf95109a957b38b97441663b6387",
   "label": "misaligned",
-  "reason": "The formal entropy function is sqrt(log of an adjacent-grid cardinality product), not sqrt(log of the minimum ball-cover count promised by the original genuine-covering-number task. Both inequalities may be true; the formal theorem solves a different, weaker-bound task.",
-  "review_status": "independent_source_and_graph_review",
-  "human_adjudicated": false,
+  "reason": "An adjacent-grid cardinality product replaces the minimum ball-cover count in the entropy functional.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber"
@@ -20,8 +20,10 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Author specialization and independent covering-number semantics",
+  "review_scope": "The bound entropy integral based on genuine minimum ball-cover counts.",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The formal entropy function is sqrt(log of an adjacent-grid cardinality product), not sqrt(log of the minimum ball-cover count promised by the original genuine-covering-number task. Both inequalities may be true; the formal theorem solves a different, weaker-bound task.",
+  "retained_review_scope": "Author specialization and independent covering-number semantics"
 }

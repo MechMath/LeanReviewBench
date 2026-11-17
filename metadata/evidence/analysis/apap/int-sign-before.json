@@ -5,9 +5,9 @@
   "task_id": "apap:int-sign-before",
   "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
   "label": "misaligned",
-  "reason": "指数符号与原文相反：formal 的分母为 exp(-c*(log N)^(1/12))，使上界成为 N*exp(c*(log N)^(1/12)) 的增长界，N≥1 时仅由 |A|≤N 即成立；同时 c 在 A、N 及假设之后存在量化，未表达原文要求的统一正常数。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The denominator uses exp(-c*(log N)^(1/12)) instead of exp(c*(log N)^(1/12)), replacing decay by growth. The constant c is chosen after the input parameters and hypotheses, losing the independent uniform-constant requirement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "int"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-sign-before 输入。",
+  "review_scope": "The bound asymptotic estimate with one positive constant uniform in A and N.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -87,5 +87,7 @@
       "未纳入 README 后续章节另述的 1/9 改进。",
       "用户确认已记录；沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
     ]
-  }
+  },
+  "retained_reason": "指数符号与原文相反：formal 的分母为 exp(-c*(log N)^(1/12))，使上界成为 N*exp(c*(log N)^(1/12)) 的增长界，N≥1 时仅由 |A|≤N 即成立；同时 c 在 A、N 及假设之后存在量化，未表达原文要求的统一正常数。",
+  "retained_review_scope": "当前冻结 README 主段落的 1/12 幂界，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-sign-before 输入。"
 }

@@ -5,9 +5,9 @@
   "task_id": "pfr:pr304-before",
   "input_sha256": "d6f8a2b4b6022b9ce5835611616f39513eaccecef6aa74ea28e7ea8d0dda2237",
   "label": "aligned",
-  "reason": "The formal root returns a probability space, measurable uniform variable, sum bound 10d and individual bounds 11d/2. Nonnegative d implies the old 6d bounds; the newer target uses 11d/2. A subgroup is a ZMod 2 subspace in this scope.",
-  "review_status": "provisional",
-  "human_adjudicated": false,
+  "reason": "The root supplies measurable uniform variables on a probability space, the required sum bound 10d, and stronger individual bounds 11d/2, which imply 6d for d>=0.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "entropic_PFR_conjecture_improv'"
@@ -27,5 +27,7 @@
   ],
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The formal root returns a probability space, measurable uniform variable, sum bound 10d and individual bounds 11d/2. Nonnegative d implies the old 6d bounds; the newer target uses 11d/2. A subgroup is a ZMod 2 subspace in this scope.",
+  "review_scope": "The bound earlier-version subgroup approximation statement over a finite F_2 vector space."
 }

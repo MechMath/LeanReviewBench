@@ -5,9 +5,9 @@
   "task_id": "arklib:sumcheck-full-rbr-after",
   "input_sha256": "f5e862f878a1c74fa96b3a458ac9134a0aa3858fc71ef16b92adf6f161d150b1",
   "label": "misaligned",
-  "reason": "原文要求有限整环；formal 使用 CommSemiring、Fintype、IsDomain，未要求加法逆元。布尔半环（加法 OR、乘法 AND）满足这些代数前提却不是环，说明适用范围严格扩大；按当前原文范围对齐标准判 misaligned，不声称已构造违反 d/|R| 的协议反例。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The formal finite CommSemiring plus IsDomain assumptions admit structures without additive inverses, whereas the source requires a finite integral domain.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 Sumcheck blueprint 两条安全性陈述及其参数约定，与 Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness 的完整类型前提；本次判负仅采用已确认的代数适用范围差异。",
+  "review_scope": "The bound Sumcheck soundness statement over finite integral domains; the diagnosis concerns algebraic applicability, not a protocol counterexample.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -127,5 +127,7 @@
       "保留此前初步审计的 undetermined 建议作为历史记录；不修改该审计文件。",
       "formal、informal、输入哈希和技术状态保持不变；保持 provisional、human_adjudicated=false 和 evaluation_eligible=false，不传播标签到下一题。"
     ]
-  }
+  },
+  "retained_reason": "原文要求有限整环；formal 使用 CommSemiring、Fintype、IsDomain，未要求加法逆元。布尔半环（加法 OR、乘法 AND）满足这些代数前提却不是环，说明适用范围严格扩大；按当前原文范围对齐标准判 misaligned，不声称已构造违反 d/|R| 的协议反例。",
+  "retained_review_scope": "当前冻结 Sumcheck blueprint 两条安全性陈述及其参数约定，与 Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness 的完整类型前提；本次判负仅采用已确认的代数适用范围差异。"
 }

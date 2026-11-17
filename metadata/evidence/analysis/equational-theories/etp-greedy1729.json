@@ -5,9 +5,9 @@
   "task_id": "equational-theories:etp-greedy1729",
   "input_sha256": "99e78a223d32421d861b5da9b5570cf09b80b660989b70a948522a8ba131e40f",
   "label": "aligned",
-  "reason": "原文与 formal 均要求存在同一个 magma 满足等式 1729 且不满足等式 817；独立编号表中的变量与括号对应，否定作用于整个全称等式律。根声明没有额外前提，扩张与链覆盖条件在证明内处理；空 magma 会满足 817，不能充当见证。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "Both statements require one magma satisfying law 1729 and violating law 817; the law definitions and negation scope match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Eq1729.not_817"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前独立 blueprint 的 1729 does not imply 817 定理及独立论文编号表，与 Eq1729.not_817 的同一 magma 存在性陈述；核对根证明对贪心链及扩张条件的内部调用。",
+  "review_scope": "The nonimplication of law 817 by law 1729, including the independently specified equation numbering.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -126,5 +126,7 @@
       "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态，不传播标签到下一题。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文与 formal 均要求存在同一个 magma 满足等式 1729 且不满足等式 817；独立编号表中的变量与括号对应，否定作用于整个全称等式律。根声明没有额外前提，扩张与链覆盖条件在证明内处理；空 magma 会满足 817，不能充当见证。",
+  "retained_review_scope": "当前独立 blueprint 的 1729 does not imply 817 定理及独立论文编号表，与 Eq1729.not_817 的同一 magma 存在性陈述；核对根证明对贪心链及扩张条件的内部调用。"
 }

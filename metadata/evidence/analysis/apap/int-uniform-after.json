@@ -5,9 +5,9 @@
   "task_id": "apap:int-uniform-after",
   "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
   "label": "aligned",
-  "reason": "统一常数 c、指数符号及 1/12 次幂与当前原文一致；未使用的 ∃C>0 可取 C=1 消去，区间端点通过平移对应。双方共同缺少小 N 的处理条件，数学来源有效性仍需修订。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The uniform positive constant, exponent sign, and 1/12 power match. The unused positive constant is eliminable and interval endpoints correspond by translation; both statements retain the same unresolved small-N qualification.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "int"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "当前冻结 README 主段落的 1/12 幂陈述对齐，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-uniform-after 输入；不认证双方命题为真。",
+  "review_scope": "The bound README asymptotic estimate with one positive constant uniform in A and N; alignment does not certify the estimate itself.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -89,5 +89,7 @@
       "未纳入 README 后续章节另述的 1/9 改进。",
       "用户确认已记录；沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
     ]
-  }
+  },
+  "retained_reason": "统一常数 c、指数符号及 1/12 次幂与当前原文一致；未使用的 ∃C>0 可取 C=1 消去，区间端点通过平移对应。双方共同缺少小 N 的处理条件，数学来源有效性仍需修订。",
+  "retained_review_scope": "当前冻结 README 主段落的 1/12 幂陈述对齐，按存在统一 c>0 对所有 A、N 成立解读。仅本 int-uniform-after 输入；不认证双方命题为真。"
 }

@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-jy-before",
   "input_sha256": "d0a9b408179eca581794137bbc0c65e499dfb8a5eb217afa347a0455fb4be4cc",
   "label": "misaligned",
-  "reason": "formal量化x≥23而文字x≥2；且Eπ=|π−Li|/(x/log x)，B=0.801展开为未归一化log指数−0.199，文字要求+0.801。缺失1的指数不是同一数量界。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "Expanding the normalized error yields log exponent -0.199 instead of +0.801. The formal threshold is x>=23 rather than x>=2.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "JY.theorem_1_4"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "formal量化x≥23而文字x≥2；且Eπ=|π−Li|/(x/log x)，B=0.801展开为未归一化log指数−0.199，文字要求+0.801。缺失1的指数不是同一数量界。",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

@@ -5,9 +5,9 @@
   "task_id": "imperial-flt:flt-c05",
   "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
   "label": "aligned",
-  "reason": "Dfx 展开为有限阿代尔张量积的单位群，incl₁ 为 d↦d⊗1 的单位群嵌入；DoubleCoset.Quotient 的关系是 y=h*x*u，左侧取 Dˣ 的像，右侧取 U。根仅要求 U 为开放子群，Finite 正是双陪集空间有限；背景数域、有限维和中心除代数条件来自原文上下文。",
-  "review_status": "model_rechecked_aligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The finite-adelic unit group, diagonal embedding, left and right subgroup actions, and openness hypothesis match the finite double-coset statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset"
@@ -23,7 +23,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "独立 blueprint 在数域上的有限维中心除代数上下文中，对任意开放子群 U 的有限阿代尔单位群双陪集空间有限性；核对对象、左右作用、开放条件与有限性结论。",
+  "review_scope": "Finiteness of the finite-adelic double-coset space for any open subgroup in the specified central-division-algebra setting.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -191,5 +191,7 @@
       "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "Dfx 展开为有限阿代尔张量积的单位群，incl₁ 为 d↦d⊗1 的单位群嵌入；DoubleCoset.Quotient 的关系是 y=h*x*u，左侧取 Dˣ 的像，右侧取 U。根仅要求 U 为开放子群，Finite 正是双陪集空间有限；背景数域、有限维和中心除代数条件来自原文上下文。",
+  "retained_review_scope": "独立 blueprint 在数域上的有限维中心除代数上下文中，对任意开放子群 U 的有限阿代尔单位群双陪集空间有限性；核对对象、左右作用、开放条件与有限性结论。"
 }

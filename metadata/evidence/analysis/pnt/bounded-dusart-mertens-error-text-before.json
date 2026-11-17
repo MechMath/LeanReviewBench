@@ -5,9 +5,9 @@
   "task_id": "pnt:bounded-dusart-mertens-error-text-before",
   "input_sha256": "2acbffac6e3c88a2a5a60ae3177206b298fd4497be999d65708f3ca8300546e0",
   "label": "aligned",
-  "reason": "The old E is explicitly defined in the retained historical dependency as lim_{x→∞}(Σ_{p≤x}log(p)/p−log x), the same mertensConstant used in Formal. It is not an undeclared error term. The threshold, summation and O* remainder match.",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The source constant E is the retained limit defining mertensConstant. The threshold, prime sum, and explicit remainder match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Dusart.theorem_5_7"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The old E is explicitly defined in the retained historical dependency as lim_{x→∞}(Σ_{p≤x}log(p)/p−log x), the same mertensConstant used in Formal. It is not an undeclared error term. The threshold, summation and O* remainder match.",
+  "review_scope": "The bound Mertens-type estimate with the retained limit definition of E."
 }

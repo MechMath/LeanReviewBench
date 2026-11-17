@@ -5,9 +5,9 @@
   "task_id": "coarse-degiorgi:CDG-C",
   "input_sha256": "c9e9004a2c2887a3daded5a21b022f0c86ba922a3f443bccc26f6a1f428ede1e",
   "label": "aligned",
-  "reason": "Source-level match on nonnegative weighted solutions; eLpNorm u ∞ is ess sup |u| and equals ess sup u under the existing a.e. nonnegativity. Constant and coefficient ranges match; do not pair with the whole two-component Theorem C.",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The weighted-solution assumptions and constant ranges match. Almost-everywhere nonnegativity identifies the formal essential supremum of |u| with the source supremum of u.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "CoarseDeGiorgi.harnack"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The nonnegative weighted-solution component of Theorem C; the other component is excluded.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Source-level match on nonnegative weighted solutions; eLpNorm u ∞ is ess sup |u| and equals ess sup u under the existing a.e. nonnegativity. Constant and coefficient ranges match; do not pair with the whole two-component Theorem C.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

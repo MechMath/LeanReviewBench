@@ -5,9 +5,9 @@
   "task_id": "brownian-motion:finite-set-after",
   "input_sha256": "9143a071c5bc6389a770d53b4ff59f79ee92f4f9f4f10037f2c8361dc9204bdb",
   "label": "aligned",
-  "reason": "The repaired root explicitly assumes J.Finite; its bound and inherited hypotheses match the independently frozen finite-set corollary. Finite diameter follows from its other assumptions.",
-  "review_status": "provisional",
-  "human_adjudicated": false,
+  "reason": "The finite-index hypothesis, bound, and inherited assumptions match the finite-set corollary; finite diameter follows from the other assumptions.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "ProbabilityTheory.finite_set_bound_of_edist_le"
@@ -22,5 +22,7 @@
   ],
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The repaired root explicitly assumes J.Finite; its bound and inherited hypotheses match the independently frozen finite-set corollary. Finite diameter follows from its other assumptions.",
+  "review_scope": "The bound finite-index-set corollary."
 }

@@ -5,9 +5,9 @@
   "task_id": "aml:EOS-lemma6_stable_assignment_slot_envy_free",
   "input_sha256": "9396d396b1533d1f6dbdb39073f27fcc79b5e595c4612afb51b4eb35e0328d34",
   "label": "misaligned",
-  "reason": "原 Lemma 6（作者稿 Lemma 2）从稳定结果得到实现它的 locally envy-free GSP 均衡；Lean 只推出 SlotEnvyFree，没有存在 bids 和 GSP/Nash 实现的结论。",
-  "review_status": "model_strict_recheck_confirmed_misaligned",
-  "human_adjudicated": false,
+  "reason": "Slot envy-freeness does not include existence of bids realizing the outcome as a GSP/Nash equilibrium.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
@@ -28,7 +28,9 @@
   "review_date": "2026-11-05",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "原 Lemma 6（作者稿 Lemma 2）从稳定结果得到实现它的 locally envy-free GSP 均衡；Lean 只推出 SlotEnvyFree，没有存在 bids 和 GSP/Nash 实现的结论。",
+  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
 }

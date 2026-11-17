@@ -5,9 +5,9 @@
   "task_id": "aml:LMMS04FairDivision-after",
   "input_sha256": "40a3c2dec06f1d02dc67a8cd438131def5d439f15891f2769d907bb55a976d48",
   "label": "aligned",
-  "reason": "在冻结的正确性分量范围内一致：有限单调bundle valuation、全局单物品marginal上界α，输出恰好分配无重复输入清单的全部物品，任意两人正部羡慕≤α。graph展开了allocation覆盖/唯一owner与max(0,差值)，无隐藏的结论同义假设。算法按物品fold并选择保羡慕界且有unenvied owner的重分配；其非计算选择不在此处冒称原论文运行时保证。before/after仅接口移动，语义相同。",
-  "review_status": "historical_model_review_packaged_input_not_reassessed",
-  "human_adjudicated": false,
+  "reason": "The allocation covers each input item exactly once and bounds every pairwise positive envy by the marginal-value bound alpha, matching the source correctness guarantee.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
@@ -20,7 +20,9 @@
       "availability": "historical_locator"
     }
   ],
-  "review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment.",
+  "review_scope": "The fair-division correctness component for finite monotone valuations; computational running-time guarantees are excluded.",
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "在冻结的正确性分量范围内一致：有限单调bundle valuation、全局单物品marginal上界α，输出恰好分配无重复输入清单的全部物品，任意两人正部羡慕≤α。graph展开了allocation覆盖/唯一owner与max(0,差值)，无隐藏的结论同义假设。算法按物品fold并选择保羡慕界且有unenvied owner的重分配；其非计算选择不在此处冒称原论文运行时保证。before/after仅接口移动，语义相同。",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

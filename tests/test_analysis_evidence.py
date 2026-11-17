@@ -15,6 +15,7 @@ def write(path,value):
 def fixture(base,alter=None):
     label=dict(dataset='example',project_id='sample',task_id='example:sample',
                input_sha256='a'*64,label='misaligned',reason='A premise is missing.',
+               review_scope='The complete source theorem.',
                human_adjudicated=False,reference_ready=False,review_status='provisional')
     analysis=dict(label,schema_version='leanreviewbench-analysis-evidence-1',
                   roots=['sample'],analysis_status='retained_label_reason_only',upstream_evidence=[])
@@ -22,7 +23,7 @@ def fixture(base,alter=None):
     path='metadata/evidence/analysis/example/sample.json'
     write(base/path,analysis)
     digest=hashlib.sha256((base/path).read_bytes()).hexdigest()
-    write(base/'metadata/labels/example.jsonl',dict(label,review_report=path,review_report_sha256=digest))
+    write(base/'metadata/labels/example.jsonl',label)
     write(base/'datasets/example/projects/sample/project.json',dict(targets=[dict(declaration='sample')]))
     write(base/'metadata/evidence/analysis/index.json',dict(
         schema_version='leanreviewbench-analysis-index-1',
@@ -47,6 +48,11 @@ class AnalysisEvidenceTests(unittest.TestCase):
             base=Path(tmp)
             fixture(base,lambda row:row.update(upstream_evidence=[dict(path='metadata/evidence/upstream/example.jsonl',id='absent')]))
             with self.assertRaisesRegex(ValueError,'upstream evidence binding'):verify(base)
+
+    def test_scope_mismatch_is_rejected_even_with_valid_evidence_hash(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);fixture(base,lambda row:row.update(review_scope='A restricted special case.'))
+            with self.assertRaisesRegex(ValueError,'verdict/input'):verify(base)
 
     def test_detailed_review_cannot_be_claimed_from_reason_only(self):
         with tempfile.TemporaryDirectory() as tmp:

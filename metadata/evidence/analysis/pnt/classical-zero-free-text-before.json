@@ -5,9 +5,9 @@
   "task_id": "pnt:classical-zero-free-text-before",
   "input_sha256": "b0549b3de0991a4648f4342e85fba2b203fe8b9885baaa294151cd860a5fb2bc",
   "label": "misaligned",
-  "reason": "文字边界是1−(log|t|)/R且t>3，formal是1−1/(R log t)且t≥3。并非同一区域定义：例如R=1,t=e²，前者σ≥−1、后者σ≥1/2。",
-  "review_status": "model_pre_qwen_semantic_recheck",
-  "human_adjudicated": false,
+  "reason": "The defining boundary uses 1-1/(R log(t)) instead of 1-log(abs(t))/R. The parameter condition includes t=3 while the bound text requires t>3.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "riemannZeta.classicalZeroFree"
@@ -35,5 +35,7 @@
   "reviewer_type": "model",
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
-  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review."
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "文字边界是1−(log|t|)/R且t>3，formal是1−1/(R log t)且t≥3。并非同一区域定义：例如R=1,t=e²，前者σ≥−1、后者σ≥1/2。",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

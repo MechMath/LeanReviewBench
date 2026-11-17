@@ -5,9 +5,9 @@
   "task_id": "equational-theories:etp-sheffer",
   "input_sha256": "5ca02153328f26b7c71939c62eb66de531b4a1b9f313a61ea1aab4451adbbb96",
   "label": "misaligned",
-  "reason": "原文 Sheffer 刻画未限定非空，且同一 blueprint 明确允许空 magma；空载体真空满足 Equation345169，却无法提供 BooleanAlgebra 的顶、底元素。formal 的逆向构造额外要求 Inhabited G，排除了这一情况。按独立原文判定，元数据摘要补写的 nonempty 不视为原文已有前提。",
-  "review_status": "model_rechecked_misaligned_user_confirmed",
-  "human_adjudicated": false,
+  "reason": "The reverse construction requires Inhabited G, excluding the empty magmas admitted by the bound source characterization.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "roots": [
     "Sheffer.Equation345169_is_Boolean",
@@ -24,7 +24,7 @@
   "review_date": "2026-11-16",
   "reviewer": "Codex",
   "reviewer_type": "model",
-  "review_scope": "独立 blueprint 的 Sheffer 等式刻画与两个 formal 根，重点核对原文允许空 magma 的约定和逆向构造的 Inhabited 前提；不以元数据摘要补写的非空范围替代原文。最短性及其他四个公理的等价性不在目标内。",
+  "review_scope": "The two-root Sheffer characterization under the source convention allowing empty magmas; minimality and other axiom equivalences are excluded.",
   "human_review_required": true,
   "analysis_status": "detailed_review_retained",
   "analysis": {
@@ -127,5 +127,7 @@
       "保留 formal、informal、输入哈希、两条目标和技术状态；不传播标签到下一题。",
       "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
     ]
-  }
+  },
+  "retained_reason": "原文 Sheffer 刻画未限定非空，且同一 blueprint 明确允许空 magma；空载体真空满足 Equation345169，却无法提供 BooleanAlgebra 的顶、底元素。formal 的逆向构造额外要求 Inhabited G，排除了这一情况。按独立原文判定，元数据摘要补写的 nonempty 不视为原文已有前提。",
+  "retained_review_scope": "独立 blueprint 的 Sheffer 等式刻画与两个 formal 根，重点核对原文允许空 magma 的约定和逆向构造的 Inhabited 前提；不以元数据摘要补写的非空范围替代原文。最短性及其他四个公理的等价性不在目标内。"
 }

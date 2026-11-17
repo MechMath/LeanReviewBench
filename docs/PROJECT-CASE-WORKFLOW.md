@@ -1,5 +1,10 @@
 # Real-project case maintenance
 
+Current annotation format: all 171 binary labels are human reviewed. JSONL records
+retain current results only, with concise English reasons/scopes. Analysis paths
+and hashes are maintained in the evidence index; dated descriptions below refer
+to earlier preparation stages.
+
 Current integration scope: **171 inputs across 16 batches**, with 171 binary labels (81 aligned, 90 misaligned). Stacks retains refactor’s joint STK-0B34 input; the two research component inputs and their newer labels are archived. The four newly extracted repositories retain all 30 inputs and their current labels. Older counts below describe dated baseline history.
 
 The original thirteen batches registered in [project-cases.json](../datasets/project-cases.json)

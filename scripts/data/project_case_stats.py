@@ -58,7 +58,7 @@ def markdown(data):
         'before/after declarations count separately. This is not a deduplicated count',
         'of independent mathematical cases. `group_id` groups related inputs and can',
         'also combine multiple mathematical roots, so it is not a case count either.',
-        'Provisional model reviews are retained separately in `metadata/labels/`.',
+        'Human-reviewed binary annotations are retained in `metadata/labels/`.',
         'Upstream statements are unverified claims,',
         'including scope changes; linked inputs do not automatically inherit a verdict.', '',
         '| Batch | Roots | Extracted roots | Inputs | Upstream records | Linked inputs | No retained evidence | Pairs |',
