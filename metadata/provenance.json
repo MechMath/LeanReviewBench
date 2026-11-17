@@ -10,7 +10,7 @@
   "projects": {
     "applied-modeling-lib/EOS-lemma5_locally_envy_free_stable.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-lemma5_locally_envy_free_stable/project.json",
-      "project_sha256": "fed190617db6ea58de3c7e79881dff137822b0c81e21c023ed4a18aba859f554",
+      "project_sha256": "2004406439c63ee9035f06898bfc65d3d5e9d8d7ee893c23555ce072bc48827b",
       "input_sha256": "176d94f84158aae462287484e66a116254707640beb99c08bcf03b52b652bad4",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -26,7 +26,7 @@
     },
     "applied-modeling-lib/EOS-lemma6_stable_assignment_slot_envy_free.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-lemma6_stable_assignment_slot_envy_free/project.json",
-      "project_sha256": "ec6dbc7e66288ec9d79105d701664b5748a8b2e2fb23c73d7be1fb5aad6e9911",
+      "project_sha256": "6eb9a06390402da9d8ea7f5bf31db81e69adef4e6747ea6a3615a63c93c363cd",
       "input_sha256": "7723bc8658d665d92d7b3d810ec18d94a0b775e3142504399ae1a1f0641b8d44",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -42,7 +42,7 @@
     },
     "applied-modeling-lib/EOS-theorem7_no_positive_transfer_conclusion.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-theorem7_no_positive_transfer_conclusion/project.json",
-      "project_sha256": "7f652d7bcb298861251bb52e6c568e0915bc76758207635c248ea0c4eb067cdc",
+      "project_sha256": "cb03cd9a24e3795e951f160ca52ce5adabeceb4888b88e8bfd2f50853f381c01",
       "input_sha256": "975471b171db9b98f671a5f33a2e682a14da2b60acb3746541a6456e43b869b3",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -58,7 +58,7 @@
     },
     "applied-modeling-lib/GCG24UserItemFairness-after-spec.json": {
       "project": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/project.json",
-      "project_sha256": "8870551928de9677feeb3a1d88af5492efa317d9a581e7cf30e3cb143ddfa7f9",
+      "project_sha256": "0766582b6f353c79912beeb461d36e1aa4e5d912482a47b57cad0a7eaaa643a3",
       "input_sha256": "8b9495664c3245e0d93c36fdb115aeee636bc56f3b7608d87830b78ba8439bec",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -74,7 +74,7 @@
     },
     "applied-modeling-lib/GCG24UserItemFairness-before.json": {
       "project": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/project.json",
-      "project_sha256": "6bb5c0716cb9d34fe8c4d638fadc82d50b1476f5c553764cedf5e72d7d9004ab",
+      "project_sha256": "ad0e22cb5720ced55238ffdda3644837ce5692f5903c5700670a0fbc0ee944be",
       "input_sha256": "36433fc1db471bf0b7a6586db3732784eef80e9b7c7ae6971a3b7414f42e417f",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -376,7 +376,7 @@
     },
     "applied-modeling-lib/LG21-T31-HIST.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-T31-HIST/project.json",
-      "project_sha256": "0ab327bc5340ca641afe84d3ba08e342190eab12d4c22ba5fc19573344164c2d",
+      "project_sha256": "d372bfab2e5b3a076ce3c6ab36d1a4cb24b9dbee2d000e697a1724f5ec99dd48",
       "input_sha256": "74e8097264ece5a35261e30c459ca3edd691ac048a7072766a657ad6d2adf2d1",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -568,7 +568,7 @@
     },
     "applied-modeling-lib/MBJG-VARIANCE-INTERIOR.json": {
       "project": "datasets/applied-modeling-lib/projects/MBJG-VARIANCE-INTERIOR/project.json",
-      "project_sha256": "cf9b349031a69a8d4f7938dc6ecd2cca287759d0522c3ca908b5378d1afde7ad",
+      "project_sha256": "d879f3342573756eb43cc7fc9a3c27a96191123cf25fcd7dd63cc1277de91c20",
       "input_sha256": "a1eef88c96a3896fc1e882fff3d61b340f97d9bb58fe086d2e18fb9f3d2da4e5",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -722,7 +722,7 @@
     },
     "carleson/CAR-CTRL-01.json": {
       "project": "datasets/carleson/projects/CAR-CTRL-01/project.json",
-      "project_sha256": "059deed9f382fe933a200e8e95386fa9839f9209adb0915ff3796b5c2125e27f",
+      "project_sha256": "0a896a53667cba362dbc5bd430b754eb6d38773b9a949680316a89960b29ffa0",
       "input_sha256": "5c08ab80fca8d065607c121fe3d12bf699ac596c8e87668cbc125aa8969b3bc8",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -744,7 +744,7 @@
     },
     "carleson/CAR-CTRL-02.json": {
       "project": "datasets/carleson/projects/CAR-CTRL-02/project.json",
-      "project_sha256": "3ccc17db2e4535800eeb05a5b52d8b0e8f2c26174bf5f389839953dea6499a5d",
+      "project_sha256": "e3d685b3eee6d4b832f70797587fc8c33ac3763697df03c425925cf1b4118e5c",
       "input_sha256": "489383a7867c353ac7dcda513c9a27f99d071898fa4b68e52e28ba2b94312ad4",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -766,7 +766,7 @@
     },
     "carleson/CAR-CTRL-03.json": {
       "project": "datasets/carleson/projects/CAR-CTRL-03/project.json",
-      "project_sha256": "cb14c826c8b697683e81f6efc4b97bcc3b607e71cadf9e791d13b88a6d59b73d",
+      "project_sha256": "a2639cf52462025ae348381a3e0938fbc709bed32e55f895d7c71a0d8ed8709b",
       "input_sha256": "8b979e353b332068e7f303698a66f82645e8ba42eb67f7949bc5098e643d4eef",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -832,7 +832,7 @@
     },
     "coarse-degiorgi/CDG-D1.json": {
       "project": "datasets/coarse-degiorgi/projects/CDG-D1/project.json",
-      "project_sha256": "10bf87f644d2ca5b7588be692d68aa1531c01825be5597e444d04dd2897ea951",
+      "project_sha256": "50893a06aea64ed9169f15fc9013dd453a7f436a22ba00f30acffec8bdecdcaf",
       "input_sha256": "dbc2aa78a055b4c1591436113e249f50c8d0c5dc77225d832fc6588877713a0e",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -854,7 +854,7 @@
     },
     "coarse-degiorgi/CDG-D2.json": {
       "project": "datasets/coarse-degiorgi/projects/CDG-D2/project.json",
-      "project_sha256": "4b68fa66e74b84075b4599c99721481d27c1423d972ce07a9f207aa5d70484c7",
+      "project_sha256": "f8ae3ce407269dcce5a7bf2aedf0e9008759c5e190ed9696bc88b6dd3b4c8993",
       "input_sha256": "3122d7a414935fdd21953b28895687d7a3b82f25cd54cd72657b41b89cd502d6",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -876,7 +876,7 @@
     },
     "coarse-degiorgi/CDG-D3.json": {
       "project": "datasets/coarse-degiorgi/projects/CDG-D3/project.json",
-      "project_sha256": "d223ef64961a6f2b96fcf90fe171f970654f98e24d2d20bc4b4b21364a82cd76",
+      "project_sha256": "f54b39c154e2fd8159244956f31687d11834eaf46963d434400159fb8f9502e5",
       "input_sha256": "a7ef8cb9b719b3b1c40a454bdbab8e46cfd91b7ff4203be1cd9a8f8b37c6bc09",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -898,7 +898,7 @@
     },
     "coarse-degiorgi/CDG-L41.json": {
       "project": "datasets/coarse-degiorgi/projects/CDG-L41/project.json",
-      "project_sha256": "f06487d72c317f1d45d22cb593f505128aafac5af997a647270476c9bd4bde46",
+      "project_sha256": "8ccc1d5289909259b0d71e0a19cbe428aa8bf2f3b44f90b2207b4351caf68918",
       "input_sha256": "81f58a8f465dad29f80e2a685aa17629500d6317d9990b073af263829cab0add",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -920,7 +920,7 @@
     },
     "coarse-degiorgi/CDG-L94.json": {
       "project": "datasets/coarse-degiorgi/projects/CDG-L94/project.json",
-      "project_sha256": "bc59acc992c9291c1475fa9fa2dbba764192e41cf96bd382a5cf909f2d83bebc",
+      "project_sha256": "587f2c46bc5fabc6fb2b4a8643cbdbdcbab8648796714828ad0d28d002bb7575",
       "input_sha256": "2b3bc4ed85ec24fd4b4659a35f049c9ba796125dea2ccc39839aad52c5e8a815",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
@@ -1222,7 +1222,7 @@
     },
     "vaught/coupled-after.json": {
       "project": "datasets/vaught/projects/coupled-after/project.json",
-      "project_sha256": "647f4c7be392fd33f2a5d481b6db981697a817af5d875939b4434d4df60ed41d",
+      "project_sha256": "04f8f0fcdbb883818550c48d7e498096ab4ac119c337019de1d23395362cc2f6",
       "input_sha256": "ea69edce5bb7a80a36a5cee7b7d44d6ccf890c010f216b0b4d186f3b29a59be0",
       "archived_preparation": {
         "receipt": "reports/vaught-build/technical/coupled-after/20261103T141703212107Z/receipt.json",
@@ -1237,7 +1237,7 @@
     },
     "vaught/gate-before.json": {
       "project": "datasets/vaught/projects/gate-before/project.json",
-      "project_sha256": "8445257e0098ba430612a1a23413b0a523030b8eeba4e5ddcb3d60499b32286c",
+      "project_sha256": "ec3fd4b87135eac5a23d1700e8696edf167fcfe19992b3dc981a26b3e8cf7c03",
       "input_sha256": "67f479b72414f3df259b16ae7814b96113703590370402fe3e6491546921871a",
       "archived_preparation": {
         "receipt": "reports/vaught-build/technical/gate-before/20261103T141555727456Z/receipt.json",
@@ -1252,7 +1252,7 @@
     },
     "vaught/twoface-before.json": {
       "project": "datasets/vaught/projects/twoface-before/project.json",
-      "project_sha256": "5002256aeca382cd24d9478903d80b138d6343bb24f51d263e16db25988181ff",
+      "project_sha256": "d032e088611b2f8ee51f545139efe9ed7ffc991a50f941ed8fef8833613fa668",
       "input_sha256": "a76ef85aea40657c3e19e8c78c1720fc2300dfae646ab84d239b701074f406cd",
       "archived_preparation": {
         "receipt": "reports/vaught-build/technical/twoface-before/20261103T141555727454Z/receipt.json",
@@ -1267,7 +1267,7 @@
     },
     "statsmllib/statsml-after.json": {
       "project": "datasets/statsmllib/projects/statsml-after/project.json",
-      "project_sha256": "c56fdc674d4d97d188d1b96937d64846ac77a7bea102910ee9adc1174639bb5e",
+      "project_sha256": "64c4d43f61d8615d7d785d4b0eb08872457af2c7487642883b97509e51de76c2",
       "input_sha256": "69affdea181000403cce345a0d2edccc0390e2c4b3ffec15160e075bc9b7cd53",
       "archived_preparation": {
         "receipt": "reports/stat-learning-extraction/technical/statsml-after/receipt.json",
@@ -1297,7 +1297,7 @@
     },
     "statsmllib/statsml-before.json": {
       "project": "datasets/statsmllib/projects/statsml-before/project.json",
-      "project_sha256": "497e7c78b7833df087a807e1b162832679ecb81315b3e9f8b576d784cc78c2b1",
+      "project_sha256": "415d86f4954ec94908899ad54970e0fc5576cd9932407c86b677c665547e59d3",
       "input_sha256": "4790b7a06521ca2baa50c37939b9dfff11e11c5cf627e907c36a08dec7ebf50b",
       "archived_preparation": {
         "receipt": "reports/stat-learning-extraction/technical/statsml-before/receipt.json",
@@ -14452,7 +14452,7 @@
     },
     "apap/int-sign-after.json": {
       "project": "datasets/apap/projects/int-sign-after/project.json",
-      "project_sha256": "b2c3b3a4b89559aa03b27d41ce946d893c686734811f8df792e9e69ac803d21a",
+      "project_sha256": "97bcfb27ae6e053f2c2e2fbca8bb5d242a66f22ac90697b5e332f67e5be78014",
       "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
       "archived_preparation": {
         "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-after/receipt.json",
@@ -14465,7 +14465,7 @@
     },
     "apap/int-sign-before.json": {
       "project": "datasets/apap/projects/int-sign-before/project.json",
-      "project_sha256": "ff56b1b09020ad7ac827aa890cd2b8e581c8075ae5a7290e7af0398f566c82be",
+      "project_sha256": "ee59f0fac046636f583e029663749c106b11e655983e3779f00a3b8fbf68d017",
       "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
       "archived_preparation": {
         "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
@@ -14478,7 +14478,7 @@
     },
     "apap/int-uniform-after.json": {
       "project": "datasets/apap/projects/int-uniform-after/project.json",
-      "project_sha256": "fa35b76c955eabc78ec741dd60f22f5c539b2eefe3d78acd94f86b1025706a4a",
+      "project_sha256": "0821086e49c43ed64b3b9ee974403ebf1620a1596e1c2bef7e0794efe9645992",
       "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
       "archived_preparation": {
         "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
@@ -14491,7 +14491,7 @@
     },
     "apap/int-uniform-before.json": {
       "project": "datasets/apap/projects/int-uniform-before/project.json",
-      "project_sha256": "61f82a9750295e0f30deb98a301ae15eee065f758ca3cdeac08c42b5a571b3d1",
+      "project_sha256": "67b533739b5678d93a3e19cad775f7693eed2e5c3b14ec01583404e02d664422",
       "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
       "archived_preparation": {
         "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-before/receipt.json",

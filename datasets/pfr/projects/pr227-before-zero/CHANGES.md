@@ -1,5 +1,11 @@
-Root-focused historical reconstruction; original statements and selected definitions preserved, with explicit historical pushforward and checked bridges. See reports/pfr-repair/README.md and preservation.json. This is not an unchanged historical proof build.
+# Lean migration
 
-Historical root axioms:
+Source: [https://github.com/teorth/pfr at `3dd249a8aec4961bc55de4744643fc3db7b4f252`](https://github.com/teorth/pfr/blob/3dd249a8aec4961bc55de4744643fc3db7b4f252/PFR/Kullback.lean).
 
-'KL_div_eq_zero_iff_identDistrib' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+Roots: `KL_div_eq_zero_iff_identDistrib`.
+
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+Relocate imports and retain the selected historical root and definition context.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

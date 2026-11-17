@@ -1,9 +1,13 @@
-# Staged source and compatibility
+# Lean migration
 
-Original source and author-written target are frozen at 8b87204d5b201e1cf6c69b8dcabb0558109bee00. Main.lean only imports the original target module.
+Source: [https://github.com/teorth/equational_theories at `8b87204d5b201e1cf6c69b8dcabb0558109bee00`](https://github.com/teorth/equational_theories).
 
-Compatibility patch changes 41 source modules; it preserves original theorem targets, definitions and generated data, except transparent API representation updates documented in the staging report. No new sorry or axiom is introduced. Original proof holes elsewhere, if any, remain visible in the source archive. Root axiom audits are retained with successful graph exports.
+Roots: `EndToEnd.end_to_end1`.
 
-Compilation: passed. Graph modes: 2/2. Labels remain undetermined.
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
 
-2026-11-13: relocated repository modules under formal/dep and prefixed local imports with dep. Declaration names and proof bodies unchanged. Historical receipts apply to pre-relocation sources; new receipt tracked separately.
+Relocate project modules and adapt the recorded Lean/Mathlib API interfaces. Retain the author-written target, non-proof definitions and generated mathematical data. Certificate resources used by retained definitions remain part of the input.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
+
+The historical migration recorded compatibility edits in 41 source modules.

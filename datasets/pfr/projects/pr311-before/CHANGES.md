@@ -1,5 +1,11 @@
-Relocation changes import paths only; original and packaged public declaration types and definition contexts agree in both export modes.
+# Lean migration
 
-Historical root axioms:
+Source: [https://github.com/teorth/pfr at `ce7d2919453ab3a3349700841e76f230740359dd`](https://github.com/teorth/pfr/blob/ce7d2919453ab3a3349700841e76f230740359dd/PFR/ForMathlib/ConditionalIndependence.lean).
 
-'ProbabilityTheory.condIndep_copies' depends on axioms: [propext, Classical.choice, Quot.sound]
+Roots: `ProbabilityTheory.condIndep_copies`.
+
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+Relocate imports and retain the selected historical root and definition context.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

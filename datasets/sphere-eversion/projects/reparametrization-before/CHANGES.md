@@ -1,3 +1,11 @@
-Selected historical declaration closure, with conservative Lean syntax/API compatibility edits and import relocation. Original root types and definition context are preserved against the checked pre-relocation slice in default and explicit exports. No new proof holes were introduced. This is not a build of the complete historical repository.
+# Lean migration
 
-See reports/sphere-eversion-pr51/preservation and historical-holes.json. The inverse integral construction is retained. The before slice retains one historical proof hole; the after slice retains fourteen historical holes, including centering_density as a data hole. No historical hole is filled or hidden.
+Source: [https://github.com/leanprover-community/sphere-eversion at `a8898f0d4208052375450d4bdc7271197e7021c1`](https://github.com/leanprover-community/sphere-eversion/blob/a8898f0d4208052375450d4bdc7271197e7021c1/src/loops/reparametrization.lean).
+
+Roots: `reparametrization`.
+
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+Select the historical declaration closure, relocate imports and adapt syntax/library APIs. Spell historical smooth-order `SmoothManifoldWithCorners` as `IsManifold`; retain the historical regularity index and avoid adding an analytic-order case.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

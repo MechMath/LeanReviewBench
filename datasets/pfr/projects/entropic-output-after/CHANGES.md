@@ -1,5 +1,11 @@
-Relocation changes import paths only; original and packaged public declaration types and definition contexts agree in both export modes.
+# Lean migration
 
-Historical root axioms:
+Source: [https://github.com/teorth/pfr at `802b521bf6f35504b4097e9ae1a7b513f50175df`](https://github.com/teorth/pfr/blob/802b521bf6f35504b4097e9ae1a7b513f50175df/PFR/EntropyPFR.lean).
 
-'entropic_PFR_conjecture'' depends on axioms: [propext, Classical.choice, Quot.sound]
+Roots: `entropic_PFR_conjecture'`.
+
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+Relocate imports and retain the selected historical root and definition context.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

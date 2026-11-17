@@ -1,6 +1,11 @@
-# Packaging changes
+# Lean migration
 
-Historical declaration types, definition values and proof holes are retained.
-Repository-local imports change from ReasLib.* to dep.ReasLib.* to match formal/dep/. No mathematical edits.
+Source: [https://github.com/optpku/stacks at `e420713207f0a6682a65b2171362b77f2d217fa4`](https://github.com/optpku/stacks/blob/e420713207f0a6682a65b2171362b77f2d217fa4/ReasLib/Topology/Stratification/Refinement.lean).
 
-Lean 4.34.1 packaging rebuild and semantic comparison are recorded in reports/stacks-admission/technical/STK-09Y5-after/receipt.json. Upstream proof obligations remain unproved.
+Roots: `LocallyClosedPartition.exists_finite_good_refinement`.
+
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+Relocate local imports and package the selected historical declarations. Keep each selected statement and its definition context, including historical proof admissions.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

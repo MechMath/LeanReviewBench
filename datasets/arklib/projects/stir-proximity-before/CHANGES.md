@@ -1,7 +1,12 @@
-The original root module is byte-for-byte unchanged. `Main.lean` imports that original module. The complete original source closure, licenses and pins are archived in `original/`.
+# Lean migration
 
-`compatibility.patch` records all source edits and locally vendored compatibility modules. These are module-name migration, transparent proof elaboration, proved instance aliases, original proved helper lemmas, explicit elaborator registry API/meta staging, and polynomial coefficient/support representation transport preserving coefficient identities; they introduce no new sorry/admit/axiom declarations or root assumptions. Shared Mathlib and Cslib were not modified. Passing compilation certifies these migrated inputs, not global semantic equivalence of external dependency versions; individual API/representation correspondences and unresolved target relationships remain subject to human review.
+Source: [https://github.com/Verified-zkEVM/ArkLib at `4b6d206585e7d3b67f630df13929f71431156426`](https://github.com/Verified-zkEVM/ArkLib/blob/4b6d206585e7d3b67f630df13929f71431156426/ArkLib/ProofSystem/Stir/ProximityGap.lean#L43).
 
-The true compilation result is in `compilation/result.json`; compilation success can still include admits already present upstream. Graphs, if available, are statement dependency exports including every local module prefix. All labels remain undetermined and evaluation eligibility is false.
+Roots: `STIR.proximity_gap`.
 
-2026-11-13: relocated repository modules under formal/dep and prefixed local imports with dep. Declaration names and proof bodies unchanged. Historical receipts apply to pre-relocation sources; new receipt tracked separately.
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+Cslib `7c8f6c0f67015df29b152fdcffaf7850db2e9185`.
+
+Update module names and elaboration interfaces; vendor compatibility modules for the historical Cslib/Mathlib interfaces. Adapt polynomial coefficient/support representations and elaborator registry/meta staging. Retain the selected root and its mathematical constraints.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

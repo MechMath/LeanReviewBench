@@ -1,7 +1,7 @@
 {
   "id": "int-sign-before",
   "schema_version": "paperlean-project-case-1",
-  "title": "APAP integer Kelley\u2013Meka int-sign-before",
+  "title": "APAP integer Kelley–Meka int-sign-before",
   "targets": [
     {
       "file": "formal/Main.lean",

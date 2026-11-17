@@ -54,7 +54,7 @@
     "Std",
     "Init"
   ],
-  "changes": null,
+  "changes": "CHANGES.md",
   "formal": {
     "file_count": 28,
     "sha256": "69ce1164c0153b71b7852e1ffcb8950481ff4459b8bfdb09970f5aede9f3a741"

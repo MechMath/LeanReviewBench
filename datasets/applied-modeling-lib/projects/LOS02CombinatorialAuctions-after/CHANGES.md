@@ -1,80 +1,14 @@
-# Changes from the selected upstream snapshot
+# Lean migration
 
-These changes prepare historical Formal for Lean 4.34.1. Upstream before/after fixes are separate snapshots; the compatibility port does not replace the selected historical revision.
+Source: [https://github.com/nikhgarg/AppliedModelingLib at `3523dfea9e3d6e6fa54db3594fe2b3140a31f18d`](https://github.com/nikhgarg/AppliedModelingLib/blob/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d/papers/LOS02CombinatorialAuctions/PaperInterface.lean).
 
-Packaging additionally relocates the target module to `formal/Main.lean`, places retained local imports under `formal/dep/`, and rewrites only local import paths. Namespaces, declaration names, binders, definition values and proof source are retained.
+Roots: `LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful`.
 
-The following exact diffs retain the recorded compatibility choices. Source hash and import-relocation checks do not prove global equivalence of the historical and modern library environments.
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+Cslib `7c8f6c0f67015df29b152fdcffaf7850db2e9185`.
 
-## EconCSLib/Foundations/Math/FiniteSum.lean
+Relocate project-local imports and adapt the historical finite-sum/probability interfaces and proof elaboration. Preserve the selected mechanism, rating-system or fair-division formulation.
 
-```diff
---- upstream/EconCSLib/Foundations/Math/FiniteSum.lean
-+++ lean-4.34.1/EconCSLib/Foundations/Math/FiniteSum.lean
-@@ -1,3 +1,4 @@
-+import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
- import Mathlib.Algebra.BigOperators.Group.Finset.Basic
- import Mathlib.Algebra.BigOperators.Ring.Finset
- import Mathlib.Algebra.Order.BigOperators.Group.Finset
-```
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
 
-## EconCSLib/MechanismDesign/Auctions/Combinatorial.lean
-
-```diff
---- upstream/EconCSLib/MechanismDesign/Auctions/Combinatorial.lean
-+++ lean-4.34.1/EconCSLib/MechanismDesign/Auctions/Combinatorial.lean
-@@ -6539,7 +6539,7 @@
-   have hlt_updated :
-       (updated j).value <
-         (updated j).bundleSize * (updated n).averageAmountPerGood := by
--    simpa [updated, singleMindedValueUpdate, hjn.symm] using hlt
-+    simpa [updated, singleMindedValueUpdate, hjn.symm, SingleMindedBid.bundleSize] using hlt
-   have havg :
-       (updated j).averageAmountPerGood <
-         (updated n).averageAmountPerGood :=
-@@ -6570,7 +6570,7 @@
-   have hlt_updated :
-       (updated j).bundleSize * (updated n).averageAmountPerGood <
-         (updated j).value := by
--    simpa [updated, singleMindedValueUpdate, hjn.symm] using hlt
-+    simpa [updated, singleMindedValueUpdate, hjn.symm, SingleMindedBid.bundleSize] using hlt
-   have havg :
-       (updated n).averageAmountPerGood <
-         (updated j).averageAmountPerGood :=
-@@ -7361,7 +7361,7 @@
-     have hnext_split :
-         singleMindedGreedyFirstDeniedBecauseOfFromState
-           bids acceptedWithJ base j = some n := by
--      simpa [acceptedWithJ,
-+      simpa [acceptedWithJ, singleMindedGreedyNextDeniedFromSplit,
-         singleMindedGreedyNextDeniedFromOrder_eq_split
-           bids before base j hjbefore] using hnext_display
-     have hnbase : n ∈ base :=
-@@ -7605,7 +7605,7 @@
-     have hbranch :=
-       singleMindedAverageSomeThresholdBranch_of_accepted_update
-         reports hreports i hs hbranchValue_nonneg (by
--          simpa [singleMindedAverageGreedyAcceptedMechanism] using hacc)
-+          simpa [singleMindedAverageGreedyAcceptedMechanism, singleMindedGreedyAcceptedMechanismFromOrderOf] using hacc)
-     simpa [singleMindedAverageGreedyAcceptedMechanism, hp] using hbranch
-   · have hnone :
-         singleMindedAverageGreedyCriticalThreshold reports i s = none := by
-@@ -8071,7 +8071,7 @@
-     exact
-       singleMindedAverageGreedyCriticalThreshold_accepted_threshold
-         reports hreports (by
--          simpa [singleMindedAverageGreedyAcceptedMechanism] using hacc)
-+          simpa [singleMindedAverageGreedyAcceptedMechanism, singleMindedGreedyAcceptedMechanismFromOrderOf] using hacc)
- 
- /--
- Build the domain-aware critical-value certificate for the LOS02 greedy
-@@ -8275,7 +8275,7 @@
-     simpa [before] using (Finset.mem_filter.mp hjfilter').1
-   have hjconflict : SingleMindedBidsConflict bids i j := by
-     exact (Finset.mem_filter.mp (by
--      simpa [before, singleMindedGreedyConflictingAccepted] using hjfilter)).2
-+      simpa [before, singleMindedGreedyConflictingAccepted, SingleMindedBidsConflict] using hjfilter)).2
-   have hjfinal : j ∈ singleMindedGreedyAcceptedFromOrder bids order := by
-     let afterStep : Finset Bidder := singleMindedGreedyStep bids before i
-     have hfinal_eq :
-```
+Recorded compatibility edits affect `EconCSLib/Foundations/Math/FiniteSum.lean`, `EconCSLib/MechanismDesign/Auctions/Combinatorial.lean`.

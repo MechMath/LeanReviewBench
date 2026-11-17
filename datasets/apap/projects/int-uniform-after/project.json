@@ -1,7 +1,7 @@
 {
   "id": "int-uniform-after",
   "schema_version": "paperlean-project-case-1",
-  "title": "APAP integer Kelley\u2013Meka int-uniform-after",
+  "title": "APAP integer Kelley–Meka int-uniform-after",
   "targets": [
     {
       "file": "formal/Main.lean",

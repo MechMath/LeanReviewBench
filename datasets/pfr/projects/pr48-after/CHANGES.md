@@ -1,5 +1,11 @@
-Root-focused historical reconstruction; original statements and selected definitions preserved, with explicit historical pushforward and checked bridges. See reports/pfr-repair/README.md and preservation.json. This is not an unchanged historical proof build.
+# Lean migration
 
-Historical root axioms:
+Source: [https://github.com/teorth/pfr at `52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48`](https://github.com/teorth/pfr/blob/52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48/PFR/ruzsa_distance.lean).
 
-'ent_of_diff_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Roots: `ent_of_diff_le`.
+
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
+
+Relocate imports and retain the selected historical root and definition context.
+
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.

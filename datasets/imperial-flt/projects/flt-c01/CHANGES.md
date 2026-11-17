@@ -1,20 +1,11 @@
-Original upstream closure is preserved byte-for-byte in original/. formal/Main.lean imports the natural root module, checks the original root name and prints its proof axioms. No new sorry or axiom is introduced. Existing sorry and knownin1980s admissions remain. All labels are undetermined and this is a control candidate.
+# Lean migration
 
-Compatibility changes preserve mathematical statements: explicit tensor induction, renamed or moved upstream API imports, typeclass elaboration options, completion-wrapper coercion transport, and collision avoidance for local names already present in the unified Mathlib. The local Field.absoluteGaloisGroup.map is renamed flt_map with its local references updated to retain the historical implementation. Full before/after source diff is in compatibility.patch.
+Source: [https://github.com/ImperialCollegeLondon/FLT at `8c4bb0b2046a1d564623057bb359212f92e0d1f2`](https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/FreyCurve/Mazur.lean).
 
-Changed upstream files:
+Roots: `FreyPackage.mazur`.
 
-- FLT/DedekindDomain/AdicValuation.lean
-- FLT/Deformations/Lemmas.lean
-- FLT/Deformations/RepresentationTheory/AbsoluteGaloisGroup.lean
-- FLT/Deformations/RepresentationTheory/Etale.lean
-- FLT/Deformations/RepresentationTheory/Frobenius.lean
-- FLT/Deformations/RepresentationTheory/GaloisRep.lean
-- FLT/Deformations/RepresentationTheory/IntegralClosure.lean
-- FLT/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean
-- FLT/Mathlib/Topology/Algebra/Group/Basic.lean
-- FLT/NumberField/Completion/Finite.lean
+Target environment: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`.
 
-See technical/receipt.json for actual closure/target/graph outcomes; failure logs identify unresolved migration work.
+Adapt imports, tensor-induction APIs, typeclass elaboration and completion-wrapper coercions. Rename the historical local `Field.absoluteGaloisGroup.map` to `flt_map` where needed to avoid a library-name collision, updating its local references.
 
-2026-11-13: relocated repository modules under formal/dep and prefixed local imports with dep. Declaration names and proof bodies unchanged. Historical receipts apply to pre-relocation sources; new receipt tracked separately.
+Packaging maps the target module to `formal/Main.lean` (or imports it there) and local dependency modules to `formal/dep/`. Historical before/after fixes remain separate inputs.
