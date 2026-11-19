@@ -46,6 +46,7 @@ def main():
             informal_record_sha256=sha(project / 'informal.jsonl'),
             provisional_label=labels.get(meta['id'], {}).get('label'),
             review_state=row['label_status'], declaration_slice=meta['formal']['declaration_slice'],
+            preparation_status=meta.get('preparation_status', 'not_deferred'),
             proofs_erased=meta['formal']['proofs_erased'],
             migration_preservation=receipt['migrated_source_preservation'],
             nonproof_preservation=receipt['nonproof_definition_preservation'],
@@ -55,7 +56,8 @@ def main():
           review_counts=dict(Counter(r['review_state'] for r in records))))
     write(md / 'human-review-queue.json', dict(source_batch=batch,
           review_status='agent_preliminary_pending_human',
-          records=[r for r in records if r['review_state'] != 'excluded_partial_development']))
+          records=[r for r in records if r['review_state'] != 'excluded_partial_development'
+                   and r['preparation_status'] != 'deferred_technical']))
     write(md / 'prepared-input-bindings.json', dict(source_batch=batch, records=[
           {k: r[k] for k in ('project_id', 'candidate_id', 'source_commit', 'roots',
                             'independent_informal', 'informal_record_sha256', 'input_sha256')}
@@ -76,10 +78,14 @@ def main():
                                     else 'prepared_pending_human_review')
                 if len(versions) < family.get('expected_version_count', 1):
                     family['status'] = 'partial_versions_prepared'
+                if any(r['preparation_status'] == 'deferred_technical' for r in versions):
+                    family['status'] = 'deferred_technical'
         processing['prepared_family_count'] = sum(
             r['status'] == 'prepared_pending_human_review' for r in processing['records'])
         processing['status'] = ('prepared_pending_human_review'
             if processing['prepared_family_count'] == processing['candidate_count']
+            else 'deferred_technical' if any(
+                r['status'] == 'deferred_technical' for r in processing['records'])
             else 'in_progress')
         write(processing_path, processing)
     write(md / 'preparation-manifest.json', dict(source_batch=batch,
@@ -90,6 +96,7 @@ def main():
           deferred_plan_sha256=sha(md / 'deferred-development-plan.jsonl')))
     print(json.dumps(dict(source_batch=batch, projects=len(records),
                          human_review_queue=sum(r['review_state'] != 'excluded_partial_development'
+                                                and r['preparation_status'] != 'deferred_technical'
                                                 for r in records))))
 
 

@@ -56,5 +56,8 @@
   "input_sha256": "ea706d9d6637cd8d0ec24a03a5f378be35cb1be0713fea7e2dcfcb6ae1d78c48",
   "review_status": "agent_preliminary_pending_human",
   "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "dataset_registration": "awaiting_human_review",
+  "preparation_status": "deferred_technical",
+  "processing_decision": "defer",
+  "technical_feasibility_assessment": "datasets/qinz1yang/metadata/technical-feasibility.json"
 }

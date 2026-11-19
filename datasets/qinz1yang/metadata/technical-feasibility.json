@@ -1,0 +1,158 @@
+{
+  "schema": "technical-preparation-feasibility-1",
+  "assessed_at": "2026-11-19",
+  "source_batch": "qinz1yang",
+  "decision": "defer_all_three_versions",
+  "timing_note": "Qualitative relative effort only; no fixed turnaround or probability estimate is justified by the current evidence.",
+  "historical_snapshots_preserved": 29,
+  "active_prepared_snapshots": 26,
+  "technical_deferred_snapshots": 3,
+  "records": [
+    {
+      "project_id": "QDG-SOBOLEV-after",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "input_sha256": "c9747fc2148beef07034b5389114ea82ca7587100490fe66b404e88d513f3c47",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "decision": "defer",
+      "defer_kind": "technical_preparation",
+      "difficulty": "medium_high",
+      "feasibility": "technically_plausible_but_full_preservation_not_yet_demonstrated",
+      "confidence": "moderate",
+      "estimate_basis": "Read-only assessment of committed compilation/preservation receipts and prior failed slicing diagnostics; no new Lean run or reproduction claimed.",
+      "scope": "Repair the extraction/preparation process while preserving the historical mathematical input; do not repair its mathematical statement.",
+      "existing_verified_progress": {
+        "packaged_compilation": "passed",
+        "fresh_extraction": "passed",
+        "module_files": 44,
+        "local_graph_nodes": 254,
+        "statement_preservation": "partial_root_and_selected_norm_expressions_only",
+        "nonproof_preservation": "partial_selected_norm_expressions; all_support_declarations_pending"
+      },
+      "reason": "The current 44-file module-support context has 254 local graph nodes. The full root and seven selected norm/helper values were checked, but the complete required supporting definitions and their section parameters were not independently certified. A strict declaration slice is still missing. Existing success makes completion plausible; the remaining coverage is too broad to call a small compatibility fix.",
+      "key_risks": [
+        "Implicit section parameters may change when proof bodies are erased.",
+        "Required computational norm/inner-product definitions and source nominal identities must remain unchanged.",
+        "Elaboration/simp/instance support can exceed the mathematical dependency graph."
+      ],
+      "next_actions": [
+        "Implement and regression-test proof erasure that retains original elaborated types and all section binders, including parameters inferred only from proof terms.",
+        "Use the actual root graph to reduce the context while preserving necessary notation, instances and data-valued tactics.",
+        "Independently compare the root type and every required non-proof definition type/value against the audited source context.",
+        "Recompile and freshly extract the final context, bind receipts to the final source hashes, and verify complete proof erasure."
+      ],
+      "resume_gate": "Resume when the binder-preserving erasure regression passes and a source-ledger audit can cover all required norm/carrier support, rather than only the selected seven helpers.",
+      "completion_criteria": [
+        "declaration_slice=true",
+        "complete proof erasure without changing required computational values",
+        "fresh compilation/extraction and complete migrated statement/non-proof preservation checks"
+      ],
+      "evidence": [
+        "datasets/qinz1yang/metadata/technical-evidence/QDG-SOBOLEV-after/compilation.json",
+        "datasets/qinz1yang/metadata/technical-evidence/QDG-SOBOLEV-after/preservation.json"
+      ],
+      "input_content_changed": false,
+      "upstream_formalization_error_inferred_from_technical_failure": false,
+      "human_adjudicated": false,
+      "reference_ready": false,
+      "gold_label": null
+    },
+    {
+      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "input_sha256": "b3cffc90569a2e1a0ac3feca56f841a7c8739246ee35d5e1cd1c22f4a6eaa005",
+      "source_commit": "16948d295b94a4e8783a4cccacfd324974ed22e3",
+      "decision": "defer",
+      "defer_kind": "technical_preparation",
+      "difficulty": "high",
+      "feasibility": "technically_plausible_but_full_preservation_not_yet_demonstrated",
+      "confidence": "moderate",
+      "estimate_basis": "Read-only assessment of committed compilation/preservation receipts and prior failed slicing diagnostics; no new Lean run or reproduction claimed.",
+      "scope": "Repair the extraction/preparation process while preserving the historical mathematical input; do not repair its mathematical statement.",
+      "existing_verified_progress": {
+        "packaged_compilation": "passed",
+        "fresh_extraction": "passed",
+        "module_files": 152,
+        "local_graph_nodes": 546,
+        "statement_preservation": "partial_independent_checks",
+        "nonproof_preservation": "partial_independent_checks"
+      },
+      "reason": "The current 152-file module-support context is compiled/extracted, but strict slicing, full proof erasure and complete required-value preservation remain unfinished. In the before slicing experiment, four of eight erased proof instances lost FiniteDimensional/Module.Finite section parameters and full-expression checks failed. The after package shares the supporting infrastructure, so the same tooling risk must be checked there; no independent after slicing failure is claimed.",
+      "key_risks": [
+        "A compiled slice can still change elaborated full types or computational values.",
+        "Proof-body-dependent section parameters must be materialized before erasure.",
+        "Support sharing between before and after requires separate input-bound verification."
+      ],
+      "next_actions": [
+        "Implement and regression-test proof erasure that retains original elaborated types and all section binders, including parameters inferred only from proof terms.",
+        "Use the actual root graph to reduce the context while preserving necessary notation, instances and data-valued tactics.",
+        "Independently compare the root type and every required non-proof definition type/value against the audited source context.",
+        "Recompile and freshly extract the final context, bind receipts to the final source hashes, and verify complete proof erasure."
+      ],
+      "resume_gate": "Resume after the eight-instance regression retains the original parameter telescopes and the two previously failing scalarMetricData/leviCivitaConnectionAt comparisons pass in a minimal verified fixture. Then validate each version separately.",
+      "completion_criteria": [
+        "declaration_slice=true",
+        "complete proof erasure without changing required computational values",
+        "fresh compilation/extraction and complete migrated statement/non-proof preservation checks"
+      ],
+      "evidence": [
+        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/compilation.json",
+        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/preservation.json",
+        "datasets/qinz1yang/metadata/retained-technical-followup.jsonl"
+      ],
+      "input_content_changed": false,
+      "upstream_formalization_error_inferred_from_technical_failure": false,
+      "human_adjudicated": false,
+      "reference_ready": false,
+      "gold_label": null
+    },
+    {
+      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "input_sha256": "ea706d9d6637cd8d0ec24a03a5f378be35cb1be0713fea7e2dcfcb6ae1d78c48",
+      "source_commit": "06066269ebe3ca88e155a093c548ba9c70a1a0aa",
+      "decision": "defer",
+      "defer_kind": "technical_preparation",
+      "difficulty": "high",
+      "feasibility": "technically_plausible_but_full_preservation_not_yet_demonstrated",
+      "confidence": "moderate",
+      "estimate_basis": "Read-only assessment of committed compilation/preservation receipts and prior failed slicing diagnostics; no new Lean run or reproduction claimed.",
+      "scope": "Repair the extraction/preparation process while preserving the historical mathematical input; do not repair its mathematical statement.",
+      "existing_verified_progress": {
+        "packaged_compilation": "passed",
+        "fresh_extraction": "passed",
+        "module_files": 152,
+        "local_graph_nodes": 614,
+        "statement_preservation": "partial_independent_checks",
+        "nonproof_preservation": "partial_independent_checks"
+      },
+      "reason": "The current 152-file module-support context is compiled/extracted, but strict slicing, full proof erasure and complete required-value preservation remain unfinished. In the before slicing experiment, four of eight erased proof instances lost FiniteDimensional/Module.Finite section parameters and full-expression checks failed. The after package shares the supporting infrastructure, so the same tooling risk must be checked there; no independent after slicing failure is claimed.",
+      "key_risks": [
+        "A compiled slice can still change elaborated full types or computational values.",
+        "Proof-body-dependent section parameters must be materialized before erasure.",
+        "Support sharing between before and after requires separate input-bound verification."
+      ],
+      "next_actions": [
+        "Implement and regression-test proof erasure that retains original elaborated types and all section binders, including parameters inferred only from proof terms.",
+        "Use the actual root graph to reduce the context while preserving necessary notation, instances and data-valued tactics.",
+        "Independently compare the root type and every required non-proof definition type/value against the audited source context.",
+        "Recompile and freshly extract the final context, bind receipts to the final source hashes, and verify complete proof erasure."
+      ],
+      "resume_gate": "Resume after the eight-instance regression retains the original parameter telescopes and the two previously failing scalarMetricData/leviCivitaConnectionAt comparisons pass in a minimal verified fixture. Then validate each version separately.",
+      "completion_criteria": [
+        "declaration_slice=true",
+        "complete proof erasure without changing required computational values",
+        "fresh compilation/extraction and complete migrated statement/non-proof preservation checks"
+      ],
+      "evidence": [
+        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-AFTER/compilation.json",
+        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-AFTER/preservation.json",
+        "datasets/qinz1yang/metadata/retained-technical-followup.jsonl"
+      ],
+      "input_content_changed": false,
+      "upstream_formalization_error_inferred_from_technical_failure": false,
+      "human_adjudicated": false,
+      "reference_ready": false,
+      "gold_label": null
+    }
+  ]
+}

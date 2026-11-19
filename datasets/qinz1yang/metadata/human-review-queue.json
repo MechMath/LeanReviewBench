@@ -17,6 +17,7 @@
       "provisional_label": "misaligned",
       "review_state": "agent_preliminary_pending_human",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "not_applicable_zero_local_nonproof_definitions",
@@ -43,6 +44,7 @@
       "provisional_label": "misaligned",
       "review_state": "agent_preliminary_pending_human",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "not_applicable_zero_local_nonproof_definitions",
@@ -69,6 +71,7 @@
       "provisional_label": "misaligned",
       "review_state": "agent_preliminary_pending_human",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed_in_migrated_environment",
@@ -95,6 +98,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed_in_migrated_environment",
@@ -121,6 +125,7 @@
       "provisional_label": "misaligned",
       "review_state": "agent_preliminary_pending_human",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed_in_migrated_environment",
@@ -128,32 +133,6 @@
       "version_links": {
         "before_ids": [
           "QDG-LIONS-before"
-        ],
-        "after_ids": []
-      }
-    },
-    {
-      "project_id": "QDG-SOBOLEV-after",
-      "candidate_id": "ROOT-SOBOLEV-VACUITY",
-      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
-      "roots": [
-        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
-      ],
-      "independent_informal": "datasets/qinz1yang/projects/QDG-SOBOLEV-after/informal.jsonl",
-      "formal_context": "datasets/qinz1yang/projects/QDG-SOBOLEV-after/formal/Main.lean",
-      "input_sha256": "c9747fc2148beef07034b5389114ea82ca7587100490fe66b404e88d513f3c47",
-      "formal_source_sha256": "91151a810ec1013a9c9a849dbd45ad373ab7d4b1ffa7427e24ce955f88c616c7",
-      "informal_record_sha256": "9dad8627ec025ab6339d041bd229faa0a4b2d505ec26621f603dc0e4c9670b1a",
-      "provisional_label": null,
-      "review_state": "requires_human_scope_resolution",
-      "declaration_slice": false,
-      "proofs_erased": true,
-      "migration_preservation": "partial_root_and_selected_norm_expressions_only",
-      "nonproof_preservation": "partial_selected_norm_expressions; all_support_declarations_pending",
-      "original_environment_preservation": "not_checked",
-      "version_links": {
-        "before_ids": [
-          "QDG-SOBOLEV-before"
         ],
         "after_ids": []
       }
@@ -173,6 +152,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed_full_root_type_in_migrated_environment",
       "nonproof_preservation": "not_applicable_no_local_helper_values",
@@ -199,6 +179,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed_full_root_type_in_migrated_environment",
       "nonproof_preservation": "not_applicable_no_local_helper_values",
@@ -225,6 +206,7 @@
       "provisional_label": "misaligned",
       "review_state": "agent_preliminary_pending_human",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed_full_type_value_with_nominal_structure_identity_policy",
       "nonproof_preservation": "passed_in_migrated_environment",
@@ -251,6 +233,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed_full_type_value_with_nominal_structure_identity_policy",
       "nonproof_preservation": "passed_in_migrated_environment",
@@ -277,6 +260,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed_with_source_exact_nominal_SectionAlongCurve_identity",
@@ -303,6 +287,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed_with_source_exact_nominal_SectionAlongCurve_identity",
@@ -329,6 +314,7 @@
       "provisional_label": "misaligned",
       "review_state": "agent_preliminary_pending_human",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed",
@@ -355,6 +341,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed",
       "nonproof_preservation": "passed",
@@ -383,6 +370,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed_entire_selected_declaration_closure_in_migrated_environment",
       "nonproof_preservation": "passed_all_selected_source_level_nonproof_values_and_data_fields",
@@ -410,6 +398,7 @@
       "provisional_label": null,
       "review_state": "requires_human_scope_resolution",
       "declaration_slice": true,
+      "preparation_status": "not_deferred",
       "proofs_erased": true,
       "migration_preservation": "passed_entire_selected_declaration_closure_in_migrated_environment",
       "nonproof_preservation": "passed_all_selected_source_level_nonproof_values_and_data_fields",
@@ -419,58 +408,6 @@
           "QDG-TENSOR-BUNDLE-before"
         ],
         "after_ids": []
-      }
-    },
-    {
-      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
-      "candidate_id": "vacuous-pointed-smooth-convergence",
-      "source_commit": "06066269ebe3ca88e155a093c548ba9c70a1a0aa",
-      "roots": [
-        "GC.LongTime.Ch12.PointedModelsConverge_S13"
-      ],
-      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-AFTER/informal.jsonl",
-      "formal_context": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-AFTER/formal/Main.lean",
-      "input_sha256": "ea706d9d6637cd8d0ec24a03a5f378be35cb1be0713fea7e2dcfcb6ae1d78c48",
-      "formal_source_sha256": "4b098b983c60f35f9cac298d8ba4cbb36e827579e8215a1efa8311dd7bfaa16f",
-      "informal_record_sha256": "da31223e31e4e3b7c1c76fdd89ee7118ab77791d6a4d7176238f8e4c529d6ddc",
-      "provisional_label": "aligned",
-      "review_state": "agent_preliminary_pending_human",
-      "declaration_slice": false,
-      "proofs_erased": false,
-      "migration_preservation": "partial_independent_checks",
-      "nonproof_preservation": "partial_independent_checks",
-      "original_environment_preservation": "not_checked",
-      "version_links": {
-        "before_ids": [
-          "QDG-POINTED-MODELS-CONVERGENCE-BEFORE"
-        ],
-        "after_ids": []
-      }
-    },
-    {
-      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
-      "candidate_id": "vacuous-pointed-smooth-convergence",
-      "source_commit": "16948d295b94a4e8783a4cccacfd324974ed22e3",
-      "roots": [
-        "GC.LongTime.Ch12.PointedModelsConverge_S13"
-      ],
-      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/informal.jsonl",
-      "formal_context": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/formal/Main.lean",
-      "input_sha256": "b3cffc90569a2e1a0ac3feca56f841a7c8739246ee35d5e1cd1c22f4a6eaa005",
-      "formal_source_sha256": "9c6fdbdea13c74ab0a45e605830ddb3edf77f0304494b563d3a9cae84394f9e9",
-      "informal_record_sha256": "da31223e31e4e3b7c1c76fdd89ee7118ab77791d6a4d7176238f8e4c529d6ddc",
-      "provisional_label": "misaligned",
-      "review_state": "agent_preliminary_pending_human",
-      "declaration_slice": false,
-      "proofs_erased": false,
-      "migration_preservation": "partial_independent_checks",
-      "nonproof_preservation": "partial_independent_checks",
-      "original_environment_preservation": "not_checked",
-      "version_links": {
-        "before_ids": [],
-        "after_ids": [
-          "QDG-POINTED-MODELS-CONVERGENCE-AFTER"
-        ]
       }
     }
   ]

@@ -93,6 +93,9 @@
     "excluded_development_artifacts": 5,
     "human_review_complete": false,
     "complete_declaration_slice_versions": 26,
-    "technical_followup_versions": 3
+    "technical_followup_versions": 3,
+    "counting_policy": "29 stored historical snapshots = 26 active prepared snapshots + 3 technically deferred snapshots; excluded development artifacts counted separately.",
+    "active_prepared_versions": 26,
+    "technically_deferred_versions": 3
   }
 }

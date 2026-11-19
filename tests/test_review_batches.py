@@ -15,6 +15,10 @@ spec = importlib.util.spec_from_file_location(
     'review_batch_check', ROOT / 'scripts/construction/review_batches/check_batch.py')
 checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
+refresh_spec = importlib.util.spec_from_file_location(
+    'review_batch_refresh', ROOT / 'scripts/construction/review_batches/refresh_batch.py')
+refresher = importlib.util.module_from_spec(refresh_spec)
+refresh_spec.loader.exec_module(refresher)
 
 
 class ReviewBatchTests(unittest.TestCase):
@@ -83,6 +87,29 @@ class ReviewBatchTests(unittest.TestCase):
         path.write_text(json.dumps(record) + '\n')
         with self.assertRaisesRegex(ValueError, 'promoted to gold'):
             self.run_check()
+
+    def test_refresh_preserves_technical_deferral_and_filters_active_queue(self):
+        project = self.base / 'projects/QDG-COMPACT-ISOTOPY-BEFORE/project.json'
+        meta = json.loads(project.read_text())
+        meta['preparation_status'] = 'deferred_technical'
+        self.write(project, meta)
+        self.write(self.md / 'retained-processing.json', {
+            'candidate_count': 1, 'records': [{
+                'candidate_id': 'compact-vector-space-isotopy-vacuity',
+                'expected_version_count': 2}]})
+        (self.md / 'deferred-development-plan.jsonl').write_text('')
+        with patch.object(refresher, 'ROOT', self.root), patch.object(
+                sys, 'argv', ['refresh_batch.py', '--batch', 'qinz1yang']), \
+                contextlib.redirect_stdout(io.StringIO()):
+            refresher.main()
+        processing = json.loads((self.md / 'retained-processing.json').read_text())
+        self.assertEqual(processing['records'][0]['status'], 'deferred_technical')
+        self.assertEqual(processing['prepared_family_count'], 0)
+        queue = json.loads((self.md / 'human-review-queue.json').read_text())
+        self.assertEqual([r['project_id'] for r in queue['records']],
+                         ['QDG-COMPACT-ISOTOPY-AFTER'])
+        # Deferral changes workflow metadata, not the bound mathematical input.
+        self.assertEqual(self.run_check()['projects'], 2)
 
 
 if __name__ == '__main__':

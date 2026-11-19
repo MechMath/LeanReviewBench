@@ -59,5 +59,8 @@
   "source_materials_distributed": false,
   "review_status": "requires_human_scope_resolution",
   "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "dataset_registration": "awaiting_human_review",
+  "preparation_status": "deferred_technical",
+  "processing_decision": "defer",
+  "technical_feasibility_assessment": "datasets/qinz1yang/metadata/technical-feasibility.json"
 }

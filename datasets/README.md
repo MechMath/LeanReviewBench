@@ -48,7 +48,7 @@ The evaluation protocol is tracked in
 
 Two further batches occupy the same dataset layout and await human review:
 [qinz1yang](qinz1yang/README.md) and [FrenzyMath](frenzymath/README.md).
-Together they retain 16 candidate families and 29 historical snapshots, including
-three contexts with unfinished technical preparation. One historical pair has
+Together they store 16 historical candidate families and 29 historical snapshots:
+26 prepared snapshots and three technically deferred support contexts. One historical pair has
 identical input content. Five additional artifacts are explicitly excluded as
 partial development. These counts do not change the 171 human-reviewed inputs.

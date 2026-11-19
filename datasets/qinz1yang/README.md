@@ -1,6 +1,8 @@
 # qinz1yang/differential-geometry
 
-9 families, 18 retained historical snapshots; 15 declaration slices and 3 partial support contexts.
+9 historical families, 18 stored snapshots: 15 prepared declaration slices and
+3 technically deferred support contexts. Deferred versions remain here with
+explicit JSON states; they do not count as active prepared inputs.
 
 These inputs await human review. Their directory is the normal dataset layout;
 review, exclusion and technical states are recorded in JSON. They are listed in
@@ -14,6 +16,12 @@ Historical source-license qualifications remain explicit in project metadata.
 - [Prior six-family batch audit](metadata/prior-batch-audit.json).
 - [Latest retained-family processing](metadata/retained-processing.json).
 - [Deferred development plan](metadata/deferred-development-plan.jsonl).
+- [Technical feasibility assessment](metadata/technical-feasibility.json):
+  Sobolev-after is medium-high difficulty; convergence-before/after are high
+  difficulty. All three are technically plausible but deferred pending safer
+  proof erasure, strict slicing and complete preservation checks. The plan has
+  12 earlier candidate-family entries plus 3 version-specific technical entries;
+  these are different counting units.
 - [Screening summary](metadata/screening/screening-summary.json).
 - [Technical validation](metadata/technical-validation.json) and compact receipts
   under `metadata/technical-evidence/`.
