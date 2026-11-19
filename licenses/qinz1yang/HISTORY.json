@@ -1,0 +1,752 @@
+{
+  "schema_version": "leanreviewbench-source-license-history-1",
+  "repository": "https://github.com/qinz1yang/differential-geometry",
+  "checked_at": "2026-11-19",
+  "repository_is_public": true,
+  "repository_license_found": "Apache-2.0",
+  "historical_coverage_status": "not_established_for_11_selected_historical_roots",
+  "interpretation": "Missing LICENSE at a historical commit is not proof of proprietary licensing or a legal finding of no authorization. This file records an unresolved evidence association for specific historical source snapshots.",
+  "first_license": {
+    "commit": "4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+    "date": "2026-06-02T00:15:51Z",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/4b62819045a01ccf9f3499e9ce4b46ff39139f35/LICENSE",
+    "commit_url": "https://github.com/qinz1yang/differential-geometry/commit/4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+    "file": "licenses/qinz1yang/LICENSE.2026-06-02",
+    "sha256": "71d3402adc1048881bd7665f9df2c8bb60142e84941c59621b61def6560abea6",
+    "git_blob_sha1": "3916f68d253962c1fd2145980c27cdd35a40e8db",
+    "copyright_notice": "Copyright 2026 Ziyang Qin",
+    "scope": "Positive evidence for the licensed distribution at this commit; not a blanket assertion that the eleven older root source bodies are identical or expressly covered."
+  },
+  "later_notice_update": {
+    "commit": "0236a302f3eaa988b9cb4131f9d99bb0ee8bbc96",
+    "date": "2026-08-19T17:24:00Z",
+    "url": "https://github.com/qinz1yang/differential-geometry/commit/0236a302f3eaa988b9cb4131f9d99bb0ee8bbc96",
+    "change": "Copyright attribution moved to a contributors NOTICE; Apache-2.0 terms retained."
+  },
+  "historical_pins": [
+    {
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "source_date": "2026-05-25T01:14:33Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-POINTWISE-before",
+        "QDG-LIONS-before",
+        "QDG-SOBOLEV-before"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean",
+        "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+        "DifferentialGeometry/PDE/RicciFlow/SobolevEmbedding.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "tree_listing_complete": true,
+      "tree_blob_count": 1175,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-POINTWISE-before",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-POINTWISE-before",
+            "pin": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "path": "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean",
+            "original_blob": "554e99d017847b47cbdc323479215ae66aaf20b7",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        },
+        {
+          "project_id": "QDG-LIONS-before",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-LIONS-before",
+            "pin": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+            "original_blob": "a0a7699cbba0dc0adc7f5aae2b5ab483ff580c82",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        },
+        {
+          "project_id": "QDG-SOBOLEV-before",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-SOBOLEV-before",
+            "pin": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "path": "DifferentialGeometry/PDE/RicciFlow/SobolevEmbedding.lean",
+            "original_blob": "60f27b525918c5291849d307f54cf53de0a4605c",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/3b43fea89fc8d4a42021cbd22d235960b81f6900...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "source_date": "2026-05-25T01:27:56Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-POINTWISE-after",
+        "QDG-LIONS-after"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean",
+        "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "tree_listing_complete": true,
+      "tree_blob_count": 1175,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-POINTWISE-after",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-POINTWISE-after",
+            "pin": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+            "path": "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean",
+            "original_blob": "fbd203a586cebc5a0998f1ac01bf9dc8fe123d76",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        },
+        {
+          "project_id": "QDG-LIONS-after",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-LIONS-after",
+            "pin": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+            "path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+            "original_blob": "43c61c1c1456175f5e2478859bc94ebe3c60575a",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/389a4fd195f3ee7600c9ed5424e6f1921bdc391e...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "source_date": "2026-05-25T15:14:40Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-CHART-PICARD-before"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/204ff35257a122939545b409dfdce0669961f5d7",
+      "tree_listing_complete": true,
+      "tree_blob_count": 1181,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-CHART-PICARD-before",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-CHART-PICARD-before",
+            "pin": "204ff35257a122939545b409dfdce0669961f5d7",
+            "path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean",
+            "original_blob": "0367c1b2987f6b1c96df4c2758d058cffa78edfa",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/204ff35257a122939545b409dfdce0669961f5d7...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "source_date": "2026-05-25T15:36:23Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-CHART-PICARD-after"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "tree_listing_complete": true,
+      "tree_blob_count": 1181,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-CHART-PICARD-after",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-CHART-PICARD-after",
+            "pin": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+            "path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean",
+            "original_blob": "9341b9f8f7c4b9d19d35613f11eee71940093e48",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/1f75c3061dbd68596ecb2720aa3525563e2af809...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "source_date": "2026-05-28T21:43:59Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-PARALLEL-TRANSPORT-BEFORE"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "tree_listing_complete": true,
+      "tree_blob_count": 910,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-PARALLEL-TRANSPORT-BEFORE",
+            "pin": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+            "path": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean",
+            "original_blob": "79bba6945b96fb605b216781db3afacdef186325",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/acb6b34cd5db29a41eef9a5caaf535bc2580bdc0...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "source_date": "2026-05-28T21:49:34Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-PARALLEL-TRANSPORT-AFTER"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "tree_listing_complete": true,
+      "tree_blob_count": 910,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+          "nested_license_files": [
+            "DifferentialGeometry/External/DeGiorgi/LICENSE"
+          ],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-PARALLEL-TRANSPORT-AFTER",
+            "pin": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+            "path": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean",
+            "original_blob": "07fde6152cc457a2d77d4f960b89cebab6d391be",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/ffe86b6b9462f10afcac60d514fe31d4ac602c57...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "source_date": "2026-03-20T14:58:25Z",
+      "source_author": "Ziyang Qin",
+      "project_ids": [
+        "QDG-TENSOR-BUNDLE-before"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/Tensor/RSTensor/Bundle.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/8203ec4eb870072447e321394bd981777608ab6f",
+      "tree_listing_complete": true,
+      "tree_blob_count": 64,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-TENSOR-BUNDLE-before",
+          "nested_license_files": [],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-TENSOR-BUNDLE-before",
+            "pin": "8203ec4eb870072447e321394bd981777608ab6f",
+            "path": "DifferentialGeometry/Tensor/RSTensor/Bundle.lean",
+            "original_blob": "24c3fff38b94787ceb55eabe68e9b62953e81708",
+            "later_same_path_blob": null,
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/8203ec4eb870072447e321394bd981777608ab6f...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    },
+    {
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "source_date": "2026-04-02T06:57:45Z",
+      "source_author": "Jack McCarthy",
+      "project_ids": [
+        "QDG-TENSOR-BUNDLE-after"
+      ],
+      "root_source_paths": [
+        "DifferentialGeometry/Tensor/RSTensor/Defs.lean"
+      ],
+      "source_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "tree_listing_complete": true,
+      "tree_blob_count": 70,
+      "nested_license_findings": [
+        {
+          "project_id": "QDG-TENSOR-BUNDLE-after",
+          "nested_license_files": [],
+          "covering_grant_found": false,
+          "source_file_explicit_grant_found": false,
+          "selected_root_wholefile_match": {
+            "case": "QDG-TENSOR-BUNDLE-after",
+            "pin": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+            "path": "DifferentialGeometry/Tensor/RSTensor/Defs.lean",
+            "original_blob": "3f7b2f0ec0efff7f4c546a64fe5a048af6354ecb",
+            "later_same_path_blob": "b65efbc922e0c1fbcc27ff76e0ec2f6c644327c3",
+            "later_any_path_exact_blob_matches": [],
+            "wholefile_byte_identical": false
+          }
+        }
+      ],
+      "ancestor_of_first_licensed_snapshot": true,
+      "ancestry_evidence_url": "https://api.github.com/repos/qinz1yang/differential-geometry/compare/73fa343211e33dc4d3bc295a6082b4f6866aebe9...4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+      "ancestry_scope": "Ancestry is established; ancestry alone is not taken as proof of the historical grant scope."
+    }
+  ],
+  "source_file_header_coverage": {
+    "unique_files_examined": 30,
+    "explicit_grant_markers_found": 0,
+    "scope": "Selected root files and sampled actual support source files; not a claim to have read every source in the repository."
+  },
+  "public_statements": {
+    "queries": [
+      {
+        "tool": "github_search_issues",
+        "query": "license",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "license",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "license",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 3,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "Apache",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "Apache",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "Apache",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 7,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "copyright",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "copyright",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "copyright",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 12,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "retroactive",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "retroactive",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "retroactive",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "historical",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "historical",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "historical",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 43,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "许可",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "许可",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "许可",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "授权",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "授权",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "授权",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 2,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "license in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "Apache in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "permission in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "redistribution in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "历史 in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_issues",
+        "query": "授权 in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "license in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "Apache in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "permission in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_prs",
+        "query": "redistribution in:title,body,comments",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "relicense",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "licensing",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 3,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "permission",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "native Apache",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      },
+      {
+        "tool": "github_search_commits",
+        "query": "historical license",
+        "repository": "qinz1yang/differential-geometry",
+        "returned_count": 0,
+        "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
+        "error": null
+      }
+    ],
+    "findings": [
+      {
+        "id": "LICENSE-INTRODUCTION",
+        "commit": "4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+        "locator": "LICENSE:L189-L201; commit message; added LICENSE diff",
+        "fixed_url": "https://github.com/qinz1yang/differential-geometry/blob/4b62819045a01ccf9f3499e9ce4b46ff39139f35/LICENSE#L189",
+        "established": "A general Apache-2.0 grant is present at this later snapshot; repository owner copyright is named.",
+        "not_established": "No explicit sentence states the grant includes all earlier historical commits. This absence alone is not a legal conclusion that earlier identical code is unlicensed."
+      },
+      {
+        "id": "NOTICE-UPDATE",
+        "commit": "0236a302f3eaa988b9cb4131f9d99bb0ee8bbc96",
+        "locator": "LICENSE:L189; NOTICE:L1-L2; README:L42; commit message and changed-file patches",
+        "fixed_url": "https://github.com/qinz1yang/differential-geometry/blob/0236a302f3eaa988b9cb4131f9d99bb0ee8bbc96/NOTICE#L1",
+        "established": "Copyright attribution moved to contributors NOTICE; README Apache attribution refers to the external DeGiorgi machinery.",
+        "not_established": "No explicit retrospective grant for historical native code."
+      },
+      {
+        "id": "TENSOR-HEADER-RESTORATION",
+        "commit": "7ffb8925bec17247bda64724596c1d9725f75514",
+        "locator": "13 Tensor files, added copyright/authors block lines1–6 or1–7; complete file patches recorded in commits array",
+        "fixed_url": "https://github.com/qinz1yang/differential-geometry/commit/7ffb8925bec17247bda64724596c1d9725f75514",
+        "established": "Specific attributed Tensor sources identify Apache license and original authors.",
+        "not_established": "Does not directly identify QDG-TENSOR-BUNDLE historical Bundle.lean as one of changed paths; no blanket native-code historical grant."
+      },
+      {
+        "id": "LATEST-PUBLIC-README",
+        "commit": "13c41a632efb8fbf93101c8a20f2a9214ab33240",
+        "locator": "README.md:L102,L115",
+        "fixed_url": "https://github.com/qinz1yang/differential-geometry/blob/13c41a632efb8fbf93101c8a20f2a9214ab33240/README.md#L115",
+        "established": "Third-party source/license provenance is acknowledged; native extensions are described separately.",
+        "not_established": "No express historical native-code authorization found in this README."
+      }
+    ],
+    "commit_discussions": [
+      {
+        "commit_sha": "4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+        "url": "https://api.github.com/repos/qinz1yang/differential-geometry/commits/4b62819045a01ccf9f3499e9ce4b46ff39139f35/comments",
+        "returned_count": 0,
+        "error": null
+      },
+      {
+        "commit_sha": "0236a302f3eaa988b9cb4131f9d99bb0ee8bbc96",
+        "url": "https://api.github.com/repos/qinz1yang/differential-geometry/commits/0236a302f3eaa988b9cb4131f9d99bb0ee8bbc96/comments",
+        "returned_count": 0,
+        "error": null
+      },
+      {
+        "commit_sha": "7ffb8925bec17247bda64724596c1d9725f75514",
+        "url": "https://api.github.com/repos/qinz1yang/differential-geometry/commits/7ffb8925bec17247bda64724596c1d9725f75514/comments",
+        "returned_count": 0,
+        "error": null
+      }
+    ],
+    "limits": "No explicit additional historical grant was found in these searches. Search absence is not proof that no such grant exists."
+  },
+  "licensed_copy_comparison": {
+    "first_licensed_commit": "4b62819045a01ccf9f3499e9ce4b46ff39139f35",
+    "selected_root_wholefile_matches": 0,
+    "positive_support_matches": [
+      {
+        "case": "QDG-SOBOLEV-before",
+        "pin": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+        "path": "DifferentialGeometry/Metric/Basic.lean",
+        "original_blob": "b3e9a6fc318d3247a34e13fa7714b3e18a664803",
+        "later_same_path_blob": null,
+        "later_any_path_exact_blob_matches": [
+          "DifferentialGeometry/Geometry/Metric/Basic.lean"
+        ],
+        "wholefile_byte_identical": true
+      }
+    ],
+    "limitation": "The one identical support file establishes a licensed copy of that support blob, not the distinct Sobolev root. Same declaration names in changed files are not treated as source-body identity."
+  },
+  "official_reference_material": [
+    {
+      "url": "https://www.apache.org/legal/apply-license.html",
+      "scope": "General guidance on applying Apache licensing to existing software; not project-specific authorization."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "scope": "Distinguishes public repository access from licensing; does not decide this historical grant scope."
+    }
+  ],
+  "author_contact_performed": false,
+  "remaining_action": "Obtain an explicit scope confirmation from a rights holder authorized for the selected historical code, or demonstrate licensed-copy identity for the complete required source context.",
+  "no_input_or_formal_source_changes": true
+}

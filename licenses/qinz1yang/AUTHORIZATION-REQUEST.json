@@ -1,0 +1,67 @@
+{
+  "schema_version": "historical-source-permission-request-1",
+  "status": "draft_not_sent",
+  "repository": "https://github.com/qinz1yang/differential-geometry",
+  "recipient": "A rights holder authorized to license the historical DifferentialGeometry native sources",
+  "subject": "Clarification of Apache-2.0 coverage for historical DifferentialGeometry code",
+  "affected_versions": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean"
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/SobolevEmbedding.lean"
+    },
+    {
+      "project_id": "QDG-POINTWISE-after",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean"
+    },
+    {
+      "project_id": "QDG-LIONS-after",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-before",
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-after",
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "root_source_path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "root_source_path": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "root_source_path": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-before",
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "root_source_path": "DifferentialGeometry/Tensor/RSTensor/Bundle.lean"
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-after",
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "root_source_path": "DifferentialGeometry/Tensor/RSTensor/Defs.lean"
+    }
+  ],
+  "message": "We are preparing LeanReviewBench, a research benchmark of informal/formal statement alignment. We retain selected historical Lean statements and the computational definitions required to interpret them, erase proofs, migrate them to Lean 4.34.1, and redistribute the resulting source contexts with attribution and modification notes.\n\nThe repository added Apache-2.0 at commit 4b62819045a01ccf9f3499e9ce4b46ff39139f35. Could you confirm whether that grant also covers the native project code, including declarations later modified or removed, as it appeared at the exact revisions listed in affected_versions?\n\nPlease confirm only code you own or are authorized to license. Identify any third-party code or other contributors' rights that require separate treatment. We will preserve their applicable terms and notices. A public upstream statement identifying the historical scope, or a dated written confirmation from an authorized rights holder, would let us retain the evidence with the benchmark.\n\nThis request is for scope clarification, not for a change to the mathematical history or attribution.",
+  "acceptable_evidence": "A public pinned upstream grant/scope statement or a preserved dated written authorization with provenance and authority recorded. This draft is not itself permission.",
+  "third_party_terms_preserved": true
+}
