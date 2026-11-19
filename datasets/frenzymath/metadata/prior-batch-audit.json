@@ -1,0 +1,74 @@
+{
+  "source_batch": "frenzymath",
+  "families": 3,
+  "versions": 6,
+  "records": [
+    {
+      "project_id": "FM-BISHOP-before",
+      "candidate_id": "FM-bishop-gromov-abstract",
+      "input_sha256": "3a462f27ec64619a1316088251df942088d58b579dd5b1b0b0f0282361688f2a",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "FM-GEODESIC-before",
+      "candidate_id": "FM-geodesic-continuity",
+      "input_sha256": "bbb6dc7265f2b0862c6bbfba5856f31f2985043ee854c9f0fe564e6b23d60ed4",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "preliminary_label": null,
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "FM-WEAK-LAPLACIAN-before",
+      "candidate_id": "FM-weak-laplacian-distance",
+      "input_sha256": "ec82ffbcef27f4b9caba532adc28dd06b9182a79f95756b8cbd045fc509c9143",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed_with_explicit_nominal_structure_identity_policy",
+      "nonproof_preservation": "passed_34_computational_checks_plus_nominal_structure_policy",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "FM-GEODESIC-after",
+      "candidate_id": "FM-geodesic-continuity",
+      "input_sha256": "0e5695958ea4429643c0693e415fd88bd672515bd3b89331a803d9c59a206308",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "preliminary_label": null,
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "FM-WEAK-LAPLACIAN-after",
+      "candidate_id": "FM-weak-laplacian-distance",
+      "input_sha256": "e6e27861f49e29722f34f7782c530c00dfc11a1d9e050d035e037e28ca77608f",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed_with_explicit_nominal_structure_identity_policy",
+      "nonproof_preservation": "passed_35_computational_checks_plus_nominal_structure_policy",
+      "preliminary_label": "aligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "FM-BISHOP-after",
+      "candidate_id": "FM-bishop-gromov-abstract",
+      "input_sha256": "8f490834e7b4e31346befecd9f6ae21dba4e4b059a6956445a9741d810ed72bd",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed_with_explicit_nominal_structure_identity_policy",
+      "nonproof_preservation": "all_78_required_nonproof_constants_covered_by_direct_or_source_reuse_evidence",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    }
+  ],
+  "audit_scope": "Persisted source/input hashes and receipts checked; no new Lean run. Sobolev-after support preservation remains partial."
+}

@@ -1,0 +1,60 @@
+{
+  "id": "FM-GEODESIC-COMPLETENESS-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.not_isConjugatePointAt_of_minimizing",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+    "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/MinimalGeodesicNoConjugate.lean",
+    "version_role": "before",
+    "after_head_qualification": null
+  },
+  "group_id": "frenzymath-geodesic-extra-completeness",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [
+    "FM-GEODESIC-COMPLETENESS-after"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "research_staging_source_license_review_pending",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled_extracted_migrated_source_checked_original_environment_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "1b70fcf242adadba590834859657b5da81409a5ef4c84c9900786ea43846b270",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "27c662eedaa4ba4fda89732688de93349751787510f15a9f7e7c15d5f25985d9",
+  "review_status": "agent_preliminary_pending_human",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

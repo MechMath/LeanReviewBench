@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "migrated_source_vs_slice": "passed",
+  "method": "Proof-irrelevance equality probe typechecks equality between theorem with exact original signature/proof and sliced proof-erased theorem, enforcing full type definitional equality in Lean4.34.1.",
+  "source_signature_bytes_unchanged": true,
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "nonproof_definition_preservation": "not_applicable_zero_local_nonproof_definitions",
+  "original_4_29_elaborated_preservation": "not_checked_toolchain_unavailable",
+  "original_proofs_certified": false,
+  "results": [
+    {
+      "module": "SourceContext",
+      "returncode": 0
+    },
+    {
+      "module": "Preservation",
+      "returncode": 0
+    }
+  ],
+  "original_receipt_locator": "build/preparation/qinz1yang/lions-before/preservation/receipt.json",
+  "original_receipt_sha256": "2820ef4c2cd9bde1e4b7208339832c39ac28f0a19d9a65191db841b8a2ec58b1"
+}

@@ -2,6 +2,20 @@
 
 The native dataset schema is `paperlean-project-case-1`. It is not a frozen scoring export. A retained input is one project snapshot; a multi-root snapshot remains one input and one label record. Related versions share group/split identities and reciprocal version links. Root counts and input counts must be reported separately.
 
+Datasets awaiting human review use the same `datasets/<batch>/projects/` layout.
+They are listed in `review_datasets` in the registry; `datasets` lists the
+human-reviewed release batches. Each project's JSON records review and technical
+states. Per-batch `metadata/` holds provisional labels, unresolved scope reviews,
+deferred development plans and input-bound technical receipts. A missing binary
+label or an incomplete technical context must remain explicit. Excluded development
+artifacts stay marked in the batch index and are not counted as retained inputs.
+Review status does not require a different filesystem location.
+
+The qinz1yang and FrenzyMath batches are separate sources with separate informal
+bindings. Their persistent receipts support offline hash checks; optional local
+graph checks require ignored build artifacts. These checks do not imply human
+review, full preservation of a partial context, or reference readiness.
+
 ## Authoritative files
 
 | File | Contract |

@@ -1,0 +1,261 @@
+{
+  "checked_at": "2026-11-19",
+  "status": "source_screening_only",
+  "release_branch": "investigate/poincare-extraction",
+  "repositories": [
+    {
+      "repository": "frenzymath/Poincare-Conjecture",
+      "main": "08f06794dd88b786ae560b5db1116f50322c4629",
+      "branches": [
+        {
+          "name": "chore/lightweight-ci-site",
+          "sha": "30a874f674a1494e33c4fa86aa1f69fa89332b4a",
+          "relative_to_main": "diverged",
+          "ahead": 2,
+          "behind": 7,
+          "returned_changed_files": 95,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "feat/poincare-stage-split",
+          "sha": "122421555f83bcda214a561c809495a2b040de7b",
+          "relative_to_main": "diverged",
+          "ahead": 1,
+          "behind": 13,
+          "returned_changed_files": 6,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "fix/docstrings-people",
+          "sha": "3ee3d14815caae403c80c9a846839ae615cdd45c",
+          "relative_to_main": "diverged",
+          "ahead": 1,
+          "behind": 6,
+          "returned_changed_files": 2,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "fix/issue-11-hopf-rinow-connection",
+          "sha": "787ed5f5a38becbea5efd0be13741ab86aefb261",
+          "relative_to_main": "diverged",
+          "ahead": 1,
+          "behind": 45,
+          "returned_changed_files": 3,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "fix/issue-12-hopf-rinow-quality",
+          "sha": "bbbd7fbee024a489fbaea62dbae3687afb5b6fdc",
+          "relative_to_main": "behind",
+          "ahead": 0,
+          "behind": 48,
+          "returned_changed_files": 0,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "fix/lean-blueprint-presentation",
+          "sha": "87831c1f99593a7c27c1ec1ecb80b7b33f6554e4",
+          "relative_to_main": "diverged",
+          "ahead": 4,
+          "behind": 2,
+          "returned_changed_files": 300,
+          "files_may_be_truncated": true,
+          "returned_lean_files": 199
+        },
+        {
+          "name": "fix/morgan-tian-issue-16",
+          "sha": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+          "relative_to_main": "behind",
+          "ahead": 0,
+          "behind": 24,
+          "returned_changed_files": 0,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "fix/morgan-tian-issue-18-correspondence",
+          "sha": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+          "relative_to_main": "diverged",
+          "ahead": 2,
+          "behind": 13,
+          "returned_changed_files": 2,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 1
+        },
+        {
+          "name": "graph/morgan-tian-issue-18-human-reviews",
+          "sha": "1019997e10f03aabf29f0a6134b85e4780118663",
+          "relative_to_main": "diverged",
+          "ahead": 8,
+          "behind": 16,
+          "returned_changed_files": 4,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "import/poincare-subject-library",
+          "sha": "6a5872c774cec04aa771a6661a539ee7a55b714a",
+          "relative_to_main": "diverged",
+          "ahead": 15,
+          "behind": 3,
+          "returned_changed_files": 300,
+          "files_may_be_truncated": true,
+          "returned_lean_files": 283
+        },
+        {
+          "name": "main",
+          "sha": "08f06794dd88b786ae560b5db1116f50322c4629"
+        },
+        {
+          "name": "port/mt-ch3-5-and-topping",
+          "sha": "40ec155f474e8819eaf6688e90f7bac5f468805e",
+          "relative_to_main": "diverged",
+          "ahead": 4,
+          "behind": 10,
+          "returned_changed_files": 300,
+          "files_may_be_truncated": true,
+          "returned_lean_files": 295
+        },
+        {
+          "name": "port/mt-ch03-shi-estimates",
+          "sha": "fe13d2274dc6b825238261a2530f278943cf9ec2",
+          "relative_to_main": "diverged",
+          "ahead": 1,
+          "behind": 9,
+          "returned_changed_files": 16,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 15
+        },
+        {
+          "name": "port/mt-ch04-hamilton-stage0",
+          "sha": "59a19a456f8d9de498c4fc0adf392a2558b843b4",
+          "relative_to_main": "diverged",
+          "ahead": 2,
+          "behind": 8,
+          "returned_changed_files": 131,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 129
+        },
+        {
+          "name": "port/poincare-blueprint-closure",
+          "sha": "aea33256f5aeaf55ea7a2fe81e19c5654f30dcd4",
+          "relative_to_main": "behind",
+          "ahead": 0,
+          "behind": 25,
+          "returned_changed_files": 0,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        },
+        {
+          "name": "verdicts/seed-reviewed-nodes",
+          "sha": "c55e954789e995f742aabdaf68bd533639ddaefb",
+          "relative_to_main": "diverged",
+          "ahead": 1,
+          "behind": 12,
+          "returned_changed_files": 40,
+          "files_may_be_truncated": false,
+          "returned_lean_files": 0
+        }
+      ]
+    },
+    {
+      "repository": "frenzymath/PoincareConjecture",
+      "branches": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "62db01af9388dc1d9b56b66d6674f4c09b2318a2",
+            "url": "https://api.github.com/repos/frenzymath/PoincareConjecture/commits/62db01af9388dc1d9b56b66d6674f4c09b2318a2"
+          },
+          "protected": false
+        }
+      ],
+      "relationship": "README explicitly identifies imported PoincareLib source at frenzymath/Poincare-Conjecture commit 432c38f2aa5a30efb13871292d17b4a3309a496a. Deduplicate matching declarations across repositories."
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "branch": "fix/morgan-tian-issue-18-correspondence",
+      "sha": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+      "base_for_before_after": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+      "repair_commit": "fd9a2d9e5ef036dfffc7a4c73a6d4c63737ea502",
+      "candidate_roots": [
+        "MorganTianLib.IsGeodesicOn",
+        "MorganTianLib.IsGeodesicCurveOn"
+      ],
+      "finding": "Patch adds continuous geodesic alias and revises blueprint attachments. Continuity alone does not establish smoothness; retain regularity qualifications. Other issue-18 findings are candidates for independent review, not automatically established labels.",
+      "files": [
+        "formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean",
+        "formalized-sources/MorganTian/blueprint/src/chapters/Ch01_Preliminaries.tex"
+      ],
+      "source_issue": "https://github.com/frenzymath/Poincare-Conjecture/issues/18"
+    },
+    {
+      "priority": 2,
+      "branch": "port/mt-ch03-shi-estimates",
+      "sha": "fe13d2274dc6b825238261a2530f278943cf9ec2",
+      "finding": "16 changed files include ShiFirstDerivative, ShiSquaredNormBridge and the chapter-3 blueprint. Candidate positive mathematical statements; no alignment verdict or compilation established.",
+      "files": [
+        "formalized-sources/MorganTian/MorganTianLib/Ch01/CovariantTensorExpansion.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/CurvatureBFieldTensorial.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/CurvatureBOrthonormalBasis.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/CurvatureEvolutionCorrectionTensorial.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/CurvatureEvolvingFrameEquation.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/CurvatureVariationArbitrary.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/DistanceContinuity.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/DistanceIntegralBound.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/DistanceVariation.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/DistanceVariationCutoff.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/ShiEvolvingFrameEnergy.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/ShiFirstDerivative.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/ShiOperatorEnergy.lean",
+        "formalized-sources/MorganTian/MorganTianLib/Ch03/RicciFlow/ShiSquaredNormBridge.lean",
+        "formalized-sources/MorganTian/blueprint/src/chapters/Ch03_BasicsOfRicciFlow.tex"
+      ]
+    },
+    {
+      "priority": 3,
+      "branch": "port/mt-ch04-hamilton-stage0",
+      "sha": "59a19a456f8d9de498c4fc0adf392a2558b843b4",
+      "finding": "131 changed files include Hamilton maximum-principle and positive Ricci cone infrastructure. Prefer a small independently stated target; auxiliary conditional bridges must not be substituted for a full geometric theorem."
+    },
+    {
+      "priority": 4,
+      "branch": "fix/morgan-tian-issue-16",
+      "sha": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+      "finding": "Ancestor of main, 0 ahead / 24 behind. Tip commit inspected: blueprint-only changes, including replacing abstract-volume prose with geometric-volume prose. Do not infer a Lean repair from branch name.",
+      "candidate_roots": [
+        "MorganTianLib.modelDensity",
+        "MorganTianLib.modelBallVolume_eq",
+        "MorganTianLib.bishop_gromov_ball",
+        "MorganTianLib.bishop_gromov_ball_ratio"
+      ],
+      "source_issue": "https://github.com/frenzymath/Poincare-Conjecture/issues/16"
+    },
+    {
+      "branch": "fix/issue-11-hopf-rinow-connection",
+      "finding": "Only 1 commit ahead of main; current comparison contains 3 blueprint files and no Lean file. Issue 11 describes intrinsic-versus-coordinate alignment concerns, but this current branch delta is not a formal declaration repair.",
+      "source_issue": "https://github.com/frenzymath/Poincare-Conjecture/issues/11"
+    },
+    {
+      "branch": "fix/issue-12-hopf-rinow-quality",
+      "finding": "Ancestor of main, 0 ahead / 48 behind. Issue describes API/code quality cleanup; low priority for semantic alignment cases.",
+      "source_issue": "https://github.com/frenzymath/Poincare-Conjecture/issues/12"
+    }
+  ],
+  "limitations": [
+    "GitHub branch enumeration returned 16 and 1 branches respectively; per_page=100.",
+    "All non-main first-repository branches compared against pinned main. Three large comparisons returned 300 files: inventories are potentially truncated.",
+    "Screening inspected API diffs, repository trees, READMEs, comparator challenge and issues 11,12,16,18. Full transitive Lean definitions and independent original book text have not been verified.",
+    "No lake build, dependency-closure extraction, migration to release Lean 4.34.1, or semantic gold labeling performed.",
+    "Review attachments and upstream issue claims are evidence leads, not new human adjudications.",
+    "No dataset inputs, registered labels, counts or release manifests changed."
+  ]
+}

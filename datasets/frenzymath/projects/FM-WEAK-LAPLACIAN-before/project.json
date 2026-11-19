@@ -1,0 +1,61 @@
+{
+  "id": "FM-WEAK-LAPLACIAN-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.WeakLaplacianLE",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+    "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean",
+    "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/bb91a091f0b968f8bbe8d861e025a88d82b161be/formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean"
+  },
+  "group_id": "frenzymath:FM-weak-laplacian-distance",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [
+    "FM-WEAK-LAPLACIAN-after"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "de3b5949490ede369110ca008c9266ec48f9be983f1bda01c3d0e34ea8529017",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "technical_status": "compiled-extracted-and-migrated-source-preserved; original-environment-preservation-pending",
+  "target_mode": "single",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Pinned upstream Apache-2.0 copy retained at ../../licenses/LICENSE.upstream.",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "input_sha256": "ec82ffbcef27f4b9caba532adc28dd06b9182a79f95756b8cbd045fc509c9143",
+  "source_materials_base": "build/preparation/frenzymath",
+  "source_materials_distributed": false,
+  "review_status": "agent_preliminary_pending_human",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

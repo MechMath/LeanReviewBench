@@ -25,11 +25,10 @@ def check_scope(base, config):
     project_cases.require(EXPECTED <= registered and registered <= EXPECTED | EXTRACTION_BATCHES,
                           'Candidate configuration must contain the twelve retained original batches plus explicitly approved extraction batches')
     actual = {p.name for p in (base / 'datasets').iterdir() if p.is_dir()}
-    # Preparation packets are checked separately and never registered/exported
-    # as part of the registered publication candidate.
-    actual.discard('staging')
-    project_cases.require(actual == registered,
-                          f'Dataset directories differ: {sorted(actual ^ registered)}')
+    review = set(config.get('review_datasets', {}))
+    project_cases.require(not registered & review, 'Overlapping review/released batches')
+    project_cases.require(actual == registered | review,
+                          f'Dataset directories differ: {sorted(actual ^ (registered | review))}')
     project_cases.require(not (base / 'datasets/manifest.json').exists(),
                           'Archived frozen-release manifest must not be included')
     for dataset in ('openai', 'flt', 'kakeya'):
@@ -44,7 +43,13 @@ def main():
     verify_labels(BASE)
     verify_contexts(BASE)
     verify(BASE)
-    print(f'PASS: {len(config["datasets"])} registered project-case batches; staging and archived frozen datasets excluded')
+    import subprocess
+    import sys
+    for batch in config.get('review_datasets', {}):
+        subprocess.run([sys.executable, str(BASE / 'scripts/construction/review_batches/check_batch.py'),
+                        '--batch', batch], check=True)
+    print(f'PASS: {len(config["datasets"])} released batches; '
+          f'{len(config.get("review_datasets", {}))} batches awaiting review')
 
 
 if __name__ == '__main__':

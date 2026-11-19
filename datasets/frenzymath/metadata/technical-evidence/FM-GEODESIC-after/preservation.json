@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "migrated_4.34.1_source_context_vs_slice",
+  "method": "Actual after revision source blocks byte-verified before reuse; independent namespaced migrated context retains source Module.Finite binder and rfl equality probes compare full types and computational values for all14 selected closure declarations.",
+  "declarations": 14,
+  "original_4_32_1_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "source_body_bytes_preserved": true,
+  "results": [
+    {
+      "module": "SourceContext",
+      "returncode": 0
+    },
+    {
+      "module": "Preservation",
+      "returncode": 0
+    }
+  ],
+  "sources": {
+    "SourceContext.lean": "2ee7809dd8dd5bcc9838ef9ce6f2591237712b8a523a8b52461ea61eb4f6053a",
+    "Preservation.lean": "c0f9521bd61ed9e065a7f83bdbe18ad26f51e6d1e18fa1e161ab717d17b7c4cb",
+    "Main.lean": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92"
+  },
+  "original_receipt_locator": "build/preparation/frenzymath/geodesic-after/technical/preservation/receipt.json",
+  "original_receipt_sha256": "bce8775f6980f6a3a34a5486f9d35c558e836c0d036382f435be7e7d693b10c2"
+}

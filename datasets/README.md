@@ -45,3 +45,10 @@ python3 scripts/data/project_case_stats.py --json
 
 The evaluation protocol is tracked in
 [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
+
+Two further batches occupy the same dataset layout and await human review:
+[qinz1yang](qinz1yang/README.md) and [FrenzyMath](frenzymath/README.md).
+Together they retain 16 candidate families and 29 historical snapshots, including
+three contexts with unfinished technical preparation. One historical pair has
+identical input content. Five additional artifacts are explicitly excluded as
+partial development. These counts do not change the 171 human-reviewed inputs.

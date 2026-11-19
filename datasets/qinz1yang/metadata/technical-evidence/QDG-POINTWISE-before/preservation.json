@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "method": "Lean equality of original-context and minimal-slice theorem constants; equality elaboration enforces definitional equality of complete types, proof equality by proof irrelevance",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "source_context": "Original section variables retained; source imports replaced by Mathlib and unrelated local open omitted; theorem names wrapped in OriginalContext for co-import",
+  "source_signature_bytes_unchanged": true,
+  "migrated_source_vs_slice": "passed",
+  "local_nonproof_definition_count": 0,
+  "nonproof_definition_preservation": "not_applicable_zero_local_nonproof_definitions",
+  "original_4_29_elaborated_preservation": "not_checked_toolchain_unavailable",
+  "original_proofs_certified": false,
+  "original_receipt_locator": "build/preparation/qinz1yang/pointwise-before/preservation/receipt.json",
+  "original_receipt_sha256": "6a31e9cdf630fc7673d7b999cace3e90f098c775964aed8f71c753aa0ecdcf97"
+}

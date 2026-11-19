@@ -1,0 +1,166 @@
+{
+  "status": "passed_migrated_source_context_with_verified_support_reuse",
+  "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+  "roots": [
+    "MorganTianLib.laplacianAt_eq_invGram_sum",
+    "MorganTianLib.laplacianAt_eq_chart_formula"
+  ],
+  "direct_new_declarations": [
+    "MorganTianLib.laplacianAt_eq_invGram_sum",
+    "MorganTianLib.laplacianAt_eq_chart_formula"
+  ],
+  "direct_check": "Preservation.lean independently re-elaborates pinned source roots/defs with exact original section variables; Lean.Meta.isDefEq compares full types and nonproof definition values.",
+  "required_local_nonproof_constants": 35,
+  "coverage": [
+    {
+      "declaration": "MorganTianLib.RiemannianMetric",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.laplacianAt",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.leviCivitaConnection",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Tensor.chartInvGramMatrix",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.hessianAt",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Tensor.chartBasisVecFiber",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.partialDeriv",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.chartChristoffel",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.AffineConnection",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.AffineConnection.mk",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.leviCivitaCovField",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField.instAdd",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField.smul",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField.toFun",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField.dir",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Tensor.chartGramMatrix",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.hessian",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.extendVector",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.chartGramOnE",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField.mk",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.koszulDualSection",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.SmoothVectorField.add",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.AffineConnection.cov",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.metricRiesz",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.koszulCovec",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "BilinearForm.riesz",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "_private.Main.0.Riemannian.RiemannianMetric.toBilinForm",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.koszulRHSraw",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "BilinearForm.Form",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "BilinearForm.IsPosDef",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "BilinearForm.toDualEquiv",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.metricInner",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.dirTangent",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    }
+  ],
+  "unchecked_required_local_nonproof_constants": [],
+  "support_main_prefix_sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+  "support_source_reverification": "../samepin-support-reuse.json",
+  "support_qualification": "All actual source files supplying selected support constants re-fetched at154ca3ec and byte equal to checked source. Differing BG sources unused by these roots. Weak-only hessian/laplacian source is also unchanged wholefile at pin. Prior fulltype/value and nominal identity policy retained.",
+  "original_4_32_1_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "formal_sha256": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89",
+  "graph_sha256": "d703a02dc0653b964268944464d0f7b099477b300d765cf065d12f8d665f020b",
+  "original_receipt_locator": "build/preparation/frenzymath/retained-lean/laplacian-before/technical/preservation/receipt.json",
+  "original_receipt_sha256": "cdac14386ca77516b2ccb4c86eda17736ea7ff2b6e6c789a4b3201b814ebcc03"
+}

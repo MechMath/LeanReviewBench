@@ -1,0 +1,58 @@
+{
+  "id": "QDG-COMPACT-ISOTOPY-BEFORE",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+    "root_file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean"
+  },
+  "group_id": "QDG-COMPACT-ISOTOPY",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [],
+  "after_ids": [
+    "QDG-COMPACT-ISOTOPY-AFTER"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "upstream_license_pending_attribution",
+  "original_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled_extracted_migrated_source_preserved_original_environment_not_checked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "257e1c83c066dafd58680034c4e02689632e70ae6e4855ca0ae7b208a3412d7b",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e",
+  "review_status": "agent_preliminary_pending_human",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

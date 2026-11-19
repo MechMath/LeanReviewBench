@@ -1,0 +1,69 @@
+{
+  "id": "FM-false-repair-after",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.ModelVol",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.modelBallVolume_eq_modelVol",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.modelBallVolume_eq_modelVol_zero",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "6530802c544270722767513028e0045862daa575",
+    "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1VolumeRemaining.lean",
+    "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/6530802c544270722767513028e0045862daa575/formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1VolumeRemaining.lean"
+  },
+  "group_id": "frenzymath:FM-model-volume-false-repair",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [
+    "FM-false-repair-before"
+  ],
+  "after_ids": [],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "joint",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Pinned upstream Apache-2.0 copy retained at ../../licenses/LICENSE.upstream.",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled-extracted-migrated-source-preserved; independent-target-scope-review-pending",
+  "formal": {
+    "file_count": 1,
+    "sha256": "c126ac1d6ec781b0e420de7a373b87bb739d4b9c94b88819f13df31e091eed10",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "d46fa2609537da940078afa00cb5075d5e7aecf96c44b54fc06a1b589e3690e7",
+  "review_status": "excluded_partial_development",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

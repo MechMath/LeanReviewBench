@@ -1,0 +1,610 @@
+{
+  "schema": "source-only-remaining-screening-1",
+  "source_batch": "frenzymath",
+  "reviewed_at": "2026-11-19",
+  "status": "source_only_scan_complete_lean_paused",
+  "selection_unit": "historical_candidate_family_not_individual_before_after_input",
+  "counts": {
+    "exclude": 2,
+    "defer": 2,
+    "retain": 3
+  },
+  "policy": {
+    "complete_boundary_cases_eligible": true,
+    "partial_development_excluded": true,
+    "proof_sorry_alone_excludes": false,
+    "forecasts_are_assigned_labels": false,
+    "after_is_automatically_positive": false
+  },
+  "records": [
+    {
+      "candidate_id": "FM-cut-time-interval-scope",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-cut-time-interval-scope",
+        "decision": "exclude",
+        "reason": "The completed downward-closure and order-connectedness lemmas are valid interval results. The historical complaint is the absence of separately packaged before/after-supremum conclusions (and later endpoint attainment), not an incorrect written formula or hypothesis. Treat that remainder as incomplete assembly; do not substitute a narrower new target just to extract.",
+        "completeness_evidence": [
+          "Pinned blueprint lem:minimizing-downward-closed attaches exactly these two roots and leanok; its prose adds the derived genuine-cut clause.",
+          "Source CutLocus.lean explicitly distinguishes elementary definitions/interval facts from further geometric claims.",
+          "Strictly-before-supremum membership follows from downward closure plus supremum order arguments; lack of one assembled lemma does not falsify the interval statements."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/CutLocus.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch."
+        },
+        "roots": [
+          "MorganTianLib.IsMinimizingUpTo.mono",
+          "MorganTianLib.minimizingTimes_ordConnected"
+        ],
+        "independent_informal": {
+          "title": "Riemannian geometry",
+          "authors": [
+            "Ilkka Holopainen",
+            "Tuomas Sahlsten"
+          ],
+          "version": "2023-04-26",
+          "url": "https://www.mv.helsinki.fi/home/iholopai/RiemannGeo.pdf",
+          "locator": "Definition8.15 printedp96/PDF95; Chapter9 cut-point properties pp104–106",
+          "qualification": "Defines unit-speed direction cut time as supremum of minimizing times. The selected Lean uses arbitrary velocity and real nonnegative times; extension to that normalization needs explicit target mapping. Original Morgan–Tian v2 instead defines segment domain geometrically, not this added blueprint interval lemma."
+        },
+        "source_binding_status": "independent_cut_time_definition_located_but_full_selected_packaging_not_exactly_bound",
+        "suggested_label": {
+          "before": "no_statement_error_established_missing_assembly",
+          "after": "no_verified_repaired_successor"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__MorganTianLib__Ch01__BookCutLocus.lean",
+            "sha256": "d6b9889bf586108b5f04cb7de9118638b4ee5db2717d46c751cf93e9303c85e7"
+          },
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__MorganTianLib__Ch01__BookCutLocus.lean",
+            "sha256": "d6b9889bf586108b5f04cb7de9118638b4ee5db2717d46c751cf93e9303c85e7"
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    },
+    {
+      "candidate_id": "FM-density-origin",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "boundary_pending_pointwise_vs_ae_scope; not_negative_for_integral",
+        "after": "pointwise_origin_value_repaired; full_alignment_not_established"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-density-origin",
+        "decision": "defer",
+        "reason": "Pointwise density-at-zero and the integral volume root must be separated. Original normal-coordinate metric expansion and volume-form formula support a derived canonical density value1 at zero, but the historical selected geometric object and canonical normalization are not yet fully matched. Changing one Haar-null point leaves modelBallVolume unchanged. Do not label an integral false from its integrand at zero.",
+        "completeness_evidence": [
+          "Actual before modelDensity is total function with value0 at zero for n>1; after uses if normx=0 then1.",
+          "Integral root is complete and invariant under point changes on Haar-null origin in nontrivial finite dimensional model.",
+          "If root is explicitly intended only as an a.e. representative for radial integration, point value need not be an error. The full claimed geometric identification is another previously excluded unfinished family."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+          "after_commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovBall.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch."
+        },
+        "roots": [
+          "MorganTianLib.modelDensity",
+          "MorganTianLib.modelBallVolume"
+        ],
+        "independent_informal": {
+          "sources": [
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                803,
+                847
+              ],
+              "acquired_text_path": "remaining-17/materials/original-normal-coordinate-and-volume.tex",
+              "sha256": "7ef05ea8ae978d22577f805d4106891262f79e6ef901e71de8677cb10f25955a",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            },
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                927,
+                948
+              ],
+              "acquired_text_path": "remaining-17/materials/original-model-geometry.tex",
+              "sha256": "9fa72fea60ceaf242570f0b359b297ac65f05ee7af1730dc15719aa85be46d5e",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            }
+          ],
+          "mathematical_inference": "In orthonormal Gaussian normal coordinates, original expansion has g_ij(0)=delta_ij and original volume density is sqrt(det g), hence its canonical coordinate density at0 is1. This is an explicit inference, not a verbatim origin-Jacobian assertion.",
+          "qualification": "Before root modelDensity exists late in pinned BishopGromovBall and equals raw ratio power; modelBallVolume integrates the same expression. Need distinguish canonical pointwise density from an almost-everywhere representative and arbitrary Haar normalization."
+        },
+        "source_binding_status": "partial_independent_normal_coordinate_density_inference_target_scope_pending",
+        "suggested_label": {
+          "before": "boundary_pending_pointwise_vs_ae_scope; not_negative_for_integral",
+          "after": "pointwise_origin_value_repaired; full_alignment_not_established"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "upstream/BishopGromovBall.lean",
+            "sha256": "fe68e56881888eb577b7a0c4226a056441d6c241ca16cdc3e800ff79e229e9ff",
+            "first_line": 424,
+            "declaration_excerpt": "def modelDensity (k : ℝ) (x : E) : ℝ := (snK k ‖x‖ / ‖x‖) ^ (finrank ℝ E - 1)\n\n/-- **Math.** **Non-vacuity of `bishop_gromov_ball`.** The model density satisfies the antitone\npolar-ratio hypothesis: in the model space the polar density *equals* `sn_k^{n−1}`, so the ratio is\nthe constant `1`, which is (weakly) non-increasing. -/\ntheorem modelDensity_polar_ratio_antitoneOn {k : ℝ} (hk : 0 ≤ k) (R : ℝ)\n    {ω : E} (hω : ω ∈ sphere (0 : E) 1) :\n    AntitoneOn (fun t => polarBallDensity (modelDensity (E := E) k) ω t\n      / snK k t ^ (finrank ℝ E - 1)) (Ioo 0 R) := by\n  have hωn : ‖ω‖ = 1 := mem_sphere_zero_iff_norm.1 hω\n  -- the ratio is identically `1` on `(0, R)`\n  have hone : ∀ t ∈ Ioo (0 : ℝ) R,\n      polarBallDensity (modelDensity (E := E) k) ω t / snK k t ^ (finrank ℝ E - 1) = 1 := by\n    intro t ht\n    have ht0 : t ≠ 0 := ne_of_gt ht.1\n    have hnorm : ‖t • ω‖ = t := by\n      rw [norm_smul, hωn, mul_one, Real.norm_eq_abs, abs_of_pos ht.1]\n    have hsn : (0 : ℝ) < snK k t ^ (finrank ℝ E - 1) := pow_pos (snK_pos k t hk ht.1) _\n    rw [polarBallDensity, modelDensity, hnorm, ← mul_pow, mul_div_cancel₀ _ ht0]\n    exact div_self hsn.ne'\n  intro t ht s hs hts\n  simp only\n  rw [hone t ht, hone s hs]\n\n/-- The model ball volume really is the `expBallVolume` of the model density — so the two sides of\n`bishop_gromov_ball` are the *same* construction applied to `ρ` and to `ρ_k`. -/\ntheorem expBallVolume_modelDensity (k r : ℝ) :\n    expBallVolume μ (modelDensity (E := E) k) r = modelBallVolume μ k r := rfl\n\ntheorem measurable_modelDensity (k : ℝ) : Measurable (modelDensity (E := E) k) := by\n  have hcont : Continuous (snK k) := continuous_snK_right k\n  unfold modelDensity\n  fun_prop\n\ntheorem modelDensity_nonneg {k : ℝ} (hk : 0 ≤ k) (x : E) : 0 ≤ modelDensity k x :=\n  pow_nonneg (div_nonneg (snK_nonneg k ‖x‖ hk (norm_nonneg x)) (norm_nonneg x)) _\n\n/-- **Math.** **`bishop_gromov_ball_ratio` is not vacuous.** Every one of its hypotheses is\ndischargeable: here they are all discharged, at the model space `H^n_k` itself. The conclusion is\nthen the (correct, and non-trivial to have arrived at) statement that `Vol/Vol_k ≡ 1` is\nnon-increasing.\n\nIf any hypothesis of `bishop_gromov_b"
+          },
+          {
+            "path": "bishop-after/technical/upstream/formalized-sources__MorganTian__MorganTianLib__Ch01__BishopGromovBall.lean",
+            "sha256": "f9e5315d6807da157650f662916aaf72c9dc51816a7d3f43d951cd8f815f20d7",
+            "first_line": 158,
+            "declaration_excerpt": "def modelDensity (k : ℝ) (x : E) : ℝ :=\n  if ‖x‖ = 0 then 1 else (snK k ‖x‖ / ‖x‖) ^ (finrank ℝ E - 1)\n\n/-- The abstract model chart integral used as the comparison denominator. No identification with\na Riemannian measure of a model-manifold ball is asserted here. -/\ndef modelBallVolume (k : ℝ) (r : ℝ) : ℝ≥0∞ :=\n  ∫⁻ x in ball (0 : E) r,\n    ENNReal.ofReal (modelDensity (E := E) k x) ∂μ\n\n/-- **Math.** **The model polar volume identity** — blueprint gap (b) of `thm:bishop-gromov`:\n\n  `ω_{n−1} · ∫₀ʳ sn_k^{n−1}(t) dt`,\n\nwith `ω_{n−1} = μ.toSphere univ` the total mass of the unit sphere. This abstract identity is\n`setLIntegral_ball_radial` applied to the model density, the point being that the radial weight\n`t^{n−1}` of polar coordinates cancels the `1/|v|^{n−1}` in the density:\n`t^{n−1} · (sn_k(t)/t)^{n−1} = sn_k(t)^{n−1}`.\n\nBlueprint: `lem:model-polar-isometry`, `thm:bishop-gromov`. -/\ntheorem modelBallVolume_eq (k r : ℝ) :\n    modelBallVolume μ k r\n      = μ.toSphere univ * ∫⁻ t in Ioo (0 : ℝ) r,\n          ENNReal.ofReal (snK k t ^ (finrank ℝ E - 1)) := by\n  have hcont : Continuous (snK k) := continuous_snK_right k\n  have hmeas : Measurable fun t : ℝ =>\n      ENNReal.ofReal (if t = 0 then 1 else (snK k t / t) ^ (finrank ℝ E - 1)) := by\n    apply ENNReal.measurable_ofReal.comp\n    apply Measurable.ite (measurableSet_singleton (0 : ℝ))\n    · fun_prop\n    · fun_prop\n  change (∫⁻ x in ball (0 : E) r,\n      ENNReal.ofReal (if ‖x‖ = 0 then 1 else\n        (snK k ‖x‖ / ‖x‖) ^ (finrank ℝ E - 1)) ∂μ) = _\n  rw [setLIntegral_ball_radial μ hmeas r]\n  congr 1\n  refine setLIntegral_congr_fun measurableSet_Ioo fun t ht => ?_\n  have ht0 : t ≠ 0 := ne_of_gt ht.1\n  simp [ht0]\n  rw [← ENNReal.ofReal_mul (pow_nonneg ht.1.le _), ← mul_pow, mul_div_cancel₀ _ ht0]\n\n/-! ### Step 3 — Bishop–Gromov for the ball -/\n\n/-- The **polar volume density** in the direction `ω`: `ν_ω(t) = t^{n−1} · ρ(t·ω)`.\n\nThis is Morgan–Tian's `λ(t,θ)`. It is the integrand produced by polar-decomposing\n`expBallVolume`, and (via the frame identification of `ComparisonMinimizing.lean`) it is\n`polarDensity 𝒥` for the matrix Jacobi field `𝒥` along the radial geodesic `γ_ω`. -/\ndef polarBallDensity (ρ : E → ℝ) (ω : E)"
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    },
+    {
+      "candidate_id": "FM-exp-local-diffeo-restriction",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "misaligned_or_boundary_scope_omits_constant_and_zero; completeness_reason_withdrawn",
+        "after": "no_verified_repaired_successor"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-exp-local-diffeo-restriction",
+        "decision": "retain",
+        "reason": "An actual complete final theorem is attached to the local-diffeomorphism corollary. It additionally requires nonzero initial velocity and 0<t0, omitting the constant-geodesic case and the origin endpoint. This is a concrete scope boundary in the written statement. Withdraw the old completeness complaint: the independent original paragraph explicitly assumes M complete.",
+        "completeness_evidence": [
+          "Source theorem explicitly concludes minimality, invertible strict chart derivative, and neighborhood injectivity, with no assumed result-producing interface.",
+          "Root docstring identifies it as precisely cor:exponential-local-diffeomorphism and spells out its nonzero/(0,1) restricted statement.",
+          "Nonzero velocity and t0>0 are actual hypotheses, independent of proof availability; no Lean counterexample run or false-proposition claim."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/ExpMinimizingLocalDiffeo.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch."
+        },
+        "roots": [
+          "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+        ],
+        "independent_informal": {
+          "sources": [
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                695,
+                759
+              ],
+              "acquired_text_path": "remaining-17/materials/original-exponential-complete-context.tex",
+              "sha256": "98e4fc060d2f7abd5d9e29a09cac2007a19b1f96c02fc7e558efb23d51fa1982",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            }
+          ],
+          "locator": "Corollary star, prelim.tex lines742–749; preceding complete-M paragraph lines726ff",
+          "qualifications": "Original t0<1 is read on the stated curve domain[0,1]; do not infer an intended negative-time theorem. Completeness is inherited. Original does not exclude constant geodesics; exp at zero is covered.",
+          "exact_root_correction": "Initial review guessed expDifferential_injective_iff_not_conjugate (a different differential criterion). The actual blueprint corollary maps to expMapGlobal_localDiffeo_of_minimizing."
+        },
+        "source_binding_status": "bound_original_corollary_with_preceding_complete_context",
+        "suggested_label": {
+          "before": "misaligned_or_boundary_scope_omits_constant_and_zero; completeness_reason_withdrawn",
+          "after": "no_verified_repaired_successor"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "remaining-17/upstream/formalized-sources__MorganTian__MorganTianLib__Ch01__ExpMinimizingLocalDiffeo.lean",
+            "sha256": "1edf5e3659b676791518420ab5d5cbfc47449a48afd0b0f4efebfa1dc4427453",
+            "first_line": 53,
+            "declaration_excerpt": "theorem expMapGlobal_localDiffeo_of_minimizing\n    (g : RiemannianMetric I M) (hg : g.IsRiemannianDist) [CompleteSpace M]\n    (p : M) {v : E} (hv0 : (v : TangentSpace I p) ≠ 0)\n    (hmin : IsMinimizingUpTo (I := I) g hg p (v : TangentSpace I p) 1)\n    {t₀ : ℝ} (ht₀0 : 0 < t₀) (ht₀1 : t₀ < 1) :\n    IsMinimizingUpTo (I := I) g hg p (v : TangentSpace I p) t₀ ∧\n      (∃ (ζ : M) (D : E ≃L[ℝ] E),\n        expMapGlobal (I := I) g hg p ((t₀ • v : E) : TangentSpace I p) ∈ (chartAt H ζ).source ∧\n        HasStrictFDerivAt (fun w : E => extChartAt I ζ (expMapGlobal (I := I) g hg p w))\n          (D : E →L[ℝ] E) (t₀ • v)) ∧\n      (∃ U ∈ 𝓝 ((t₀ • v : E)), Set.InjOn (expMapGlobal (I := I) g hg p) U) := by\n  classical\n  -- the length `ℓ = |v|_g > 0`, and the unit direction `u = ℓ⁻¹ • v`\n  have hpos : 0 < g.metricInner p (v : TangentSpace I p) v := g.metricInner_self_pos p v hv0\n  set ℓ : ℝ := Real.sqrt (g.metricInner p (v : TangentSpace I p) v) with hℓ\n  have hℓ0 : 0 < ℓ := Real.sqrt_pos.mpr hpos\n  have hℓsq : ℓ * ℓ = g.metricInner p (v : TangentSpace I p) v := Real.mul_self_sqrt hpos.le\n  set u : E := ℓ⁻¹ • v with hu_def\n  -- `u` is a unit vector\n  have hu : g.metricInner p (u : TangentSpace I p) (u : TangentSpace I p) = 1 := by\n    -- proved through a genuinely `TangentSpace`-typed vector so the bilinear-smul lemmas key-match\n    -- (writing `ℓ⁻¹ • v` with `v : E` would pick `E`'s smul instance, not the tangent one)\n    have key : ∀ w : TangentSpace I p, g.metricInner p (ℓ⁻¹ • w) (ℓ⁻¹ • w)\n        = ℓ⁻¹ * (ℓ⁻¹ * g.metricInner p w w) := by\n      intro w\n      rw [g.metricInner_smul_left, g.metricInner_smul_right]\n    have huk : g.metricInner p (u : TangentSpace I p) (u : TangentSpace I p)\n        = ℓ⁻¹ * (ℓ⁻¹ * g.metricInner p (v : TangentSpace I p) v) := key (v : TangentSpace I p)\n    rw [huk, ← hℓsq]\n    field_simp\n  -- `c = t₀ · ℓ` lies strictly inside `(0, ℓ)`, and `t₀ • v = c • u`\n  set c : ℝ := t₀ * ℓ with hc_def\n  have hc0 : 0 < c := mul_pos ht₀0 hℓ0\n  have hcℓ : c < ℓ := by\n    have h := mul_lt_mul_of_pos_right ht₀1 hℓ0\n    simpa using h\n  have hcu : (c • u : E) = t₀ • v := by\n    show (t₀ * ℓ) • (ℓ⁻¹ • v) = t₀ • v\n    rw [smul_smul, mul_assoc, mul_inv_cancel₀ hℓ0.ne', m"
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    },
+    {
+      "candidate_id": "FM-geodesic-extra-completeness",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "misaligned_or_boundary_excess_global_completeness",
+        "after": "same_completeness_scope_restriction_persists; not_automatically_aligned"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-geodesic-extra-completeness",
+        "decision": "retain",
+        "reason": "The written nonconjugacy theorem is complete but assumes global CompleteSpace M, whereas the independent original minimizing-geodesic proposition occurs before the later complete-M paragraph and assumes only a minimizing segment. Noncomplete manifolds containing such a segment are outside its source statement. This is an explicit excessive global hypothesis, not a missing proof/assembly.",
+        "completeness_evidence": [
+          "The exact root concludes not IsConjugatePointAt under its geodesic/continuity/minimizing hypotheses and is blueprint-attached as the final nonconjugacy proposition.",
+          "Fresh read of PR30 head shows the final root still explicitly has[CompleteSpace M]; exists_brokenVariationData also retains it. Therefore a claimed removal is not a verified fix.",
+          "Later bb91 blueprint adds completeM in prose; independent2007original does not, so do not silently change independent target to match the repaired repository prose."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+          "after_commit": "e2d6a088ccaa45f6e5056a076616391ec2bee569",
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/MinimalGeodesicNoConjugate.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch.",
+          "after_revision_role": "unmerged PR30 head; not automatically a repaired positive"
+        },
+        "roots": [
+          "MorganTianLib.not_isConjugatePointAt_of_minimizing"
+        ],
+        "independent_informal": {
+          "sources": [
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                541,
+                633
+              ],
+              "acquired_text_path": "remaining-17/materials/original-jacobi-and-minimizing-context.tex",
+              "sha256": "b05a1aaad5782c9a729006bb9fa57a32b54b9aa31cdc48bf20db0ec7f70917da",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            },
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                695,
+                759
+              ],
+              "acquired_text_path": "remaining-17/materials/original-exponential-complete-context.tex",
+              "sha256": "98e4fc060d2f7abd5d9e29a09cac2007a19b1f96c02fc7e558efb23d51fa1982",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            }
+          ],
+          "locator": "Original Proposition jacmin lines620–628, initial-point Jacobi definition lines565–573. Complete-M assumption begins only later at line726.",
+          "qualifications": "Original defines its Jacobi fields to vanish at initialp, so its prose is not to be misread as arbitrary one-zero Jacobi fields. Intended interior t0∈(0,1); no false literal t=0 objection."
+        },
+        "source_binding_status": "bound_original_minimizing_proposition_with_jacobi_initial_point_context",
+        "suggested_label": {
+          "before": "misaligned_or_boundary_excess_global_completeness",
+          "after": "same_completeness_scope_restriction_persists; not_automatically_aligned"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "batch-02/upstream/bb91a091/formalized-sources__MorganTian__MorganTianLib__Ch01__MinimalGeodesicNoConjugate.lean",
+            "sha256": "0ea1fc9114e2307cc5c4211574efbdb239b87490b0a9f588281a85424d968caa",
+            "first_line": 452,
+            "declaration_excerpt": "theorem not_isConjugatePointAt_of_minimizing [CompleteSpace M]\n    (g : RiemannianMetric I M) (hg : g.IsRiemannianDist) {γ : ℝ → M} {a b t₀ : ℝ}\n    (ha : a < 0) (hb : 1 < b) (ht₀ : 0 < t₀) (ht₁ : t₀ < 1)\n    (hgeo : IsGeodesicOn (I := I) g γ (Icc a b))\n    (hγc : ∀ t ∈ Icc a b, ContinuousAt γ t)\n    (hmin : Real.sqrt (speedSq (I := I) g γ 0) ≤ dist (γ 0) (γ 1)) :\n    ¬ IsConjugatePointAt (I := I) g γ t₀ := by\n  intro hconj\n  obtain ⟨e, W₀, W₁, hPar, horth, hW₀, hW₁, hW₀0, hW₁1, hmatch, hneg⟩ :=\n    exists_indexForm_neg_smooth_of_isConjugatePointAt (I := I) ha hb ht₀ ht₁ hgeo hγc hconj\n  have hnn := indexForm_nonneg_of_minimizing (I := I) g hg ha hb ht₀ ht₁ hgeo hγc hPar horth\n    hmin hW₀ hW₁ hW₀0 hW₁1 hmatch\n  linarith\n\nend MorganTianLib\n\nend\n\n#print axioms MorganTianLib.deriv_slice_snd_vec\n#print axioms MorganTianLib.frameFieldOf_eq_zero\n#print axioms MorganTianLib.two_mul_pieceEnergy_eq_chartMetricInner\n#print axioms MorganTianLib.indexForm_nonneg_of_minimizing\n#print axioms MorganTianLib.not_isConjugatePointAt_of_minimizing\n\n"
+          },
+          {
+            "path": "remaining-17/upstream/e2d6a088__MinimalGeodesicNoConjugate.lean",
+            "sha256": "f3bb173b171b46ea4054489e726cc8ea38b504e7f069233fa275d044a104dbec",
+            "first_line": 452,
+            "declaration_excerpt": "theorem not_isConjugatePointAt_of_minimizing [CompleteSpace M]\n    (g : RiemannianMetric I M) (hg : g.IsRiemannianDist) {γ : ℝ → M} {a b t₀ : ℝ}\n    (ha : a < 0) (hb : 1 < b) (ht₀ : 0 < t₀) (ht₁ : t₀ < 1)\n    (hgeo : IsGeodesicOn (I := I) g γ (Icc a b))\n    (hγc : ∀ t ∈ Icc a b, ContinuousAt γ t)\n    (hmin : Real.sqrt (speedSq (I := I) g γ 0) ≤ dist (γ 0) (γ 1)) :\n    ¬ IsConjugatePointAt (I := I) g γ t₀ := by\n  intro hconj\n  obtain ⟨e, W₀, W₁, hPar, horth, hW₀, hW₁, hW₀0, hW₁1, hmatch, hneg⟩ :=\n    exists_indexForm_neg_smooth_of_isConjugatePointAt (I := I) ha hb ht₀ ht₁ hgeo hγc hconj\n  have hnn := indexForm_nonneg_of_minimizing (I := I) g hg ha hb ht₀ ht₁ hgeo hγc hPar horth\n    hmin hW₀ hW₁ hW₀0 hW₁1 hmatch\n  linarith\n\nend MorganTianLib\n\nend\n\n#print axioms MorganTianLib.deriv_slice_snd_vec\n#print axioms MorganTianLib.frameFieldOf_eq_zero\n#print axioms MorganTianLib.two_mul_pieceEnergy_eq_chartMetricInner\n#print axioms MorganTianLib.indexForm_nonneg_of_minimizing\n#print axioms MorganTianLib.not_isConjugatePointAt_of_minimizing\n\n"
+          },
+          {
+            "path": "remaining-17/upstream/e2d6a088__BrokenVariationData.lean",
+            "sha256": "51370964cf51827bba6c5f4e13beb43d151862ebf2720b3eada14275012c8fc8",
+            "first_line": 264,
+            "declaration_excerpt": "theorem exists_brokenVariationData [CompleteSpace M] [T2Space (TangentBundle I M)]\n    (g : RiemannianMetric I M) (hg : g.IsRiemannianDist) {γ : ℝ → M} {a b c : ℝ}\n    {e : Fin (finrank ℝ E) → ℝ → E} {W₀ W₁ : ℝ → 𝔼}\n    (ha : a < 0) (hb : 1 < b) (hc₀ : 0 < c) (hc₁ : c < 1)\n    (hgeo : IsGeodesicOn (I := I) g γ (Icc a b))\n    (hγc : ∀ t ∈ Icc a b, ContinuousAt γ t)\n    (hPar : ∀ i, IsParallelAlongOn (I := I) g γ (e i) a b)\n    (hW₀ : ContDiffOn ℝ 3 W₀ (Ioo a b)) (hW₁ : ContDiff ℝ 3 W₁)\n    (hmatch : W₀ c = W₁ c) :\n    ∃ (N : ℕ) (τ : ℕ → ℝ) (β : ℕ → M) (u : ℕ → ℝ × ℝ → E) (ρ ε : ℝ) (k : ℕ),\n      0 < N ∧ 0 < ρ ∧ 0 < ε ∧ ε ≤ ρ ∧ 0 < k ∧ k < N ∧\n      τ 0 = 0 ∧ τ N = 1 ∧ τ k = c ∧ (∀ i, τ i < τ (i + 1)) ∧\n      (∀ i ≤ N, τ i ∈ Icc (0 : ℝ) 1) ∧\n      -- regularity of each piece's chart family\n      (∀ i < N, ContDiff ℝ 3 (u i)) ∧\n      -- each piece stays in its chart's (extended) target on the enlarged box\n      (∀ i < N, ∀ p ∈ Ioo (-ε) ε ×ˢ Ioo (τ i - ρ) (τ (i + 1) + ρ),\n        u i p ∈ (extChartAt I (β i)).target) ∧\n      -- the unvaried line IS `γ` read in the chart, near every time of the piece\n      (∀ i < N, ∀ t ∈ Icc (τ i) (τ (i + 1)),\n        ∀ᶠ s in 𝓝 t, u i ((0 : ℝ), s) = extChartAt I (β i) (γ s)) ∧\n      -- the junction curves are the global geodesics with the prescribed initial data\n      (∀ i < N, ∀ᶠ σ in 𝓝 (0 : ℝ), u i (σ, τ i) = extChartAt I (β i)\n        (maximalGeodesic (I := I) g (γ (τ i))\n          ((frameFieldOf (I := I) g γ e (glueCoeff c W₀ W₁) (τ i) : E)) σ)) ∧\n      (∀ i < N, ∀ᶠ σ in 𝓝 (0 : ℝ), u i (σ, τ (i + 1)) = extChartAt I (β i)\n        (maximalGeodesic (I := I) g (γ (τ (i + 1)))\n          ((frameFieldOf (I := I) g γ e (glueCoeff c W₀ W₁) (τ (i + 1)) : E)) σ)) ∧\n      -- the `∂_s`-field of the unvaried line is the piece field, read in the chart\n      (∀ i < N, ∀ t ∈ Icc (τ i) (τ (i + 1)), ∀ᶠ s in 𝓝 t,\n        fderiv ℝ (u i) ((0 : ℝ), s) ((1 : ℝ), (0 : ℝ))\n          = chartVectorRep (I := I) γ (β i)\n              (frameFieldOf (I := I) g γ e (if i < k then W₀ else W₁)) s) ∧\n      -- the junction geodesics stay in the chart source for small `σ` (so the chart readings\n      -- above may be read *back* into `M`)\n      (∀ i < N, ∀ᶠ σ in 𝓝 (0 "
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    },
+    {
+      "candidate_id": "FM-jacobi-curve-regularity",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "boundary_possible_valid_stronger_ODE_statement_not_established_error",
+        "after": "no_verified_repaired_successor"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-jacobi-curve-regularity",
+        "decision": "defer",
+        "reason": "The actual theorem is complete existence for a coordinate linear ODE using u and derivu only as continuous coefficient data. It does not assert u is C1; weaker assumptions can be a valid stronger analytic statement. The old review points to a documentation/target regularity mismatch, but an exact independent arbitrary-C1-chart-curve statement with the same paired-field definition is not bound. Original book discusses geodesic variations, a different scope.",
+        "completeness_evidence": [
+          "Source root has hab, ContinuousOn u, ContinuousOn(derivu), chart-interior membership and prescribed J0,DJ0; directly concludes existence of IsJacobiFieldOn.",
+          "Its docstring says C1 chart curve, while 154 blueprint likewise says C1. At bb91 later blueprint restates only continuity of u and coordinate derivative.",
+          "A totalized derivu for nondifferentiableu can still supply continuous ODE coefficients; no proof of inconsistency or wrong mathematical conclusion is established by missing DifferentiableOn alone."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/JacobiField.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch."
+        },
+        "roots": [
+          "MorganTianLib.exists_isJacobiFieldOn_Icc_of_curve",
+          "MorganTianLib.IsJacobiFieldOn"
+        ],
+        "independent_informal": {
+          "sources": [
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                541,
+                633
+              ],
+              "acquired_text_path": "remaining-17/materials/original-jacobi-and-minimizing-context.tex",
+              "sha256": "b05a1aaad5782c9a729006bb9fa57a32b54b9aa31cdc48bf20db0ec7f70917da",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            }
+          ],
+          "qualification": "Original Jacobi fields are along geodesics and vanish atinitialp; selected arbitrary coordinate curve paired-J,DJ system is a blueprint-added generalization. Do not invent the exact input statement from Lean or review."
+        },
+        "source_binding_status": "partial_original_geodesic_jacobi_context_not_exact_arbitrary_coordinate_curve_target",
+        "suggested_label": {
+          "before": "boundary_possible_valid_stronger_ODE_statement_not_established_error",
+          "after": "no_verified_repaired_successor"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "remaining-17/upstream/formalized-sources__MorganTian__MorganTianLib__Ch01__JacobiField.lean",
+            "sha256": "6097d3eed9f9c33911900f9ff899ffb5624ccc54dd1746f37c3bd011fbccab74",
+            "first_line": 543,
+            "declaration_excerpt": "theorem exists_isJacobiFieldOn_Icc_of_curve (hab : a ≤ b)\n    (hu : ContinuousOn u (Icc a b)) (hu' : ContinuousOn (deriv u) (Icc a b))\n    (hmem : ∀ t ∈ Icc a b, u t ∈ interior (extChartAt I α).target)\n    (J₀ DJ₀ : E) :\n    ∃ J DJ : ℝ → E, J a = J₀ ∧ DJ a = DJ₀\n      ∧ IsJacobiFieldOn (I := I) g α u J DJ a b := by\n  have hcont := continuousOn_jacobiPairCoeffCoord (I := I) g α hu hu' hmem\n  obtain ⟨K, hK⟩ := exists_nnnorm_jacobiPairCoeffCoord_le (I := I) g α\n    hu hu' hmem\n  exact exists_isJacobiFieldOn_Icc (I := I) g α u hab hcont hK J₀ DJ₀\n\nend Continuity\n\nend MorganTianLib\n\nend\n\n"
+          },
+          {
+            "path": "batch-02/upstream/bb91a091/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "8b83b253f470305eba38478cf89d5d5626f3e6afc1e5465b7296343104c4039b"
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    },
+    {
+      "candidate_id": "FM-laplacian-coefficients-scope",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "aligned_or_boundary_pending_equivalent_formula_mapping; old_negative_reason_withdrawn",
+        "after": "no_verified_repaired_successor"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-laplacian-coefficients-scope",
+        "decision": "retain",
+        "reason": "Actual roots resolve to complete proved inverse-Gram Hessian-trace and Christoffel-coordinate formulas, with g a genuine smooth RiemannianMetric and f smooth at a point in the chart. The old unresolved root=laplacian report and suggestion that missing separately stated coefficient regularity makes these formulas wrong are withdrawn. Retain these complete written formulas as a likely aligned/boundary example, with explicit original-source correspondence qualification; do not advertise the extra unassembled blueprint coefficient sentence as already concluded.",
+        "completeness_evidence": [
+          "Actual roots quantify a smooth function and a point in a chart, and conclude inverse-Gram Hessian trace / Christoffel formula.",
+          "No wrong coefficient definition identified. Symmetry/positive definiteness of inverse Gram and coefficient smoothness are separate geometric facts absent from the two roots conclusions.",
+          "154blueprint includes extra final coefficient sentence; bb91 blueprint deletes it. A missing clause is incomplete coverage, not a false completed formula.",
+          "RiemannianMetric is a Bundle.ContMDiffRiemannianMetric, not an arbitrary coefficient array; positive definiteness and smooth metric data are supplied by its genuine type. This invalidates a claim that a malformed raw g is used.",
+          "The extra coefficient sentence can be classified as incomplete blueprint coverage separately, but it is not a reason to exclude the already complete two root formula statements. Preserve target declaration scope explicitly; no half-finished object construction is needed by these roots."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch02/LaplacianCoord.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch."
+        },
+        "roots": [
+          "MorganTianLib.laplacianAt_eq_chart_formula",
+          "MorganTianLib.laplacianAt_eq_invGram_sum"
+        ],
+        "independent_informal": {
+          "sources": [
+            {
+              "title": "Ricci Flow and the Poincare Conjecture",
+              "authors": [
+                "John W. Morgan",
+                "Gang Tian"
+              ],
+              "version": "arXiv math/0607607v2 (2007-03-21)",
+              "url": "https://arxiv.org/src/math/0607607v2",
+              "source_file": "prelim.tex",
+              "lines": [
+                803,
+                847
+              ],
+              "acquired_text_path": "remaining-17/materials/original-normal-coordinate-and-volume.tex",
+              "sha256": "7ef05ea8ae978d22577f805d4106891262f79e6ef901e71de8677cb10f25955a",
+              "source_file_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+            }
+          ],
+          "additional_source": {
+            "title": "Introduction to Riemannian Geometry",
+            "authors": [
+              "Annegret Burtscher"
+            ],
+            "version": "2025-02-21",
+            "url": "https://www.math.ru.nl/~burtscher/lecturenotes/2425RGnotes.pdf",
+            "locator": "Definition2.64/Problem2.65 printedp19/PDF26; Remark2.66 p20/PDF27",
+            "qualification": "Defines div grad and gives divergence-coordinate formula; ellipticity remarked. This does not by itself bind all blueprint-added Christoffel-coefficient smoothness conclusions."
+          },
+          "correspondence_qualification": "Independently acquired original specifies the same Laplace-Beltrami operator in divergence coordinates. The selected source gives Hessian trace / Christoffel form, mathematically equivalent for the smooth genuine metric. Do not claim the exact Christoffel formula is a verbatim passage in this acquired original; human source mapping should confirm equivalence before extraction."
+        },
+        "source_binding_status": "independent_local_laplacian_operator_formula_bound_equivalent_Christoffel_form_requires_mapping_qualification",
+        "suggested_label": {
+          "before": "aligned_or_boundary_pending_equivalent_formula_mapping; old_negative_reason_withdrawn",
+          "after": "no_verified_repaired_successor"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "remaining-17/upstream/formalized-sources__MorganTian__MorganTianLib__Ch02__LaplacianCoord.lean",
+            "sha256": "cb0f2b837b422a684f0ca7cd0340619ca877d77f768bc9e65d0575a011736f57",
+            "first_line": 371,
+            "declaration_excerpt": "theorem laplacianAt_eq_chart_formula (g : RiemannianMetric I M) {f : M → ℝ}\n    (hf : ContMDiff I 𝓘(ℝ, ℝ) ∞ f) {α p : M}\n    (hp : p ∈ (chartAt H α).source) :\n    laplacianAt g g.leviCivitaConnection f p\n      = ∑ a, ∑ b, chartInvGramMatrix (I := I) g α p a b\n          * (partialDeriv (E := E) a\n              (fun y => partialDeriv (E := E) b (f ∘ (extChartAt I α).symm) y)\n              (extChartAt I α p)\n            - ∑ k, chartChristoffel (I := I) g α a b k (extChartAt I α p)\n                * partialDeriv (E := E) k (f ∘ (extChartAt I α).symm)\n                    (extChartAt I α p)) := by\n  rw [laplacianAt_eq_invGram_sum g hf hp]\n  refine Finset.sum_congr rfl fun a _ => Finset.sum_congr rfl fun b _ => ?_\n  rw [hessianAt_chartBasisVecFiber g hf hp a b]\n\nend MorganTianLib\n\nend\n\n"
+          },
+          {
+            "path": "remaining-17/upstream/formalized-sources__MorganTian__MorganTianLib__Ch02__LaplacianCoord.lean",
+            "sha256": "cb0f2b837b422a684f0ca7cd0340619ca877d77f768bc9e65d0575a011736f57",
+            "first_line": 311,
+            "declaration_excerpt": "theorem laplacianAt_eq_invGram_sum (g : RiemannianMetric I M) {f : M → ℝ}\n    (hf : ContMDiff I 𝓘(ℝ, ℝ) ∞ f) {α p : M}\n    (hp : p ∈ (chartAt H α).source) :\n    laplacianAt g g.leviCivitaConnection f p\n      = ∑ a, ∑ b, chartInvGramMatrix (I := I) g α p a b\n          * hessianAt g.leviCivitaConnection f p\n              (chartBasisVecFiber (I := I) α a p)\n              (chartBasisVecFiber (I := I) α b p) := by\n  letI : Bundle.RiemannianBundle (TangentSpace I : M → Type _) :=\n    ⟨g.toRiemannianMetric⟩\n  have hbase : p ∈ (trivializationAt E (TangentSpace I) α).baseSet := hp\n  -- the Hessian at `p` as a bilinear map\n  let B : TangentSpace I p →ₗ[ℝ] TangentSpace I p →ₗ[ℝ] ℝ :=\n    LinearMap.mk₂ ℝ (hessianAt g.leviCivitaConnection f p)\n      (fun v₁ v₂ w => hessianAt_add_left _ f p v₁ v₂ w)\n      (fun a v w => hessianAt_smul_left _ f p a v w)\n      (fun v w₁ w₂ => hessianAt_add_right _ hf p v w₁ w₂)\n      (fun a v w => hessianAt_smul_right _ hf p a v w)\n  have hB : ∀ (v w : TangentSpace I p),\n      B v w = hessianAt g.leviCivitaConnection f p v w := fun v w => rfl\n  -- the chart Gram matrix is the Gram matrix of the chart basis family\n  have hG : ∀ a b, chartGramMatrix (I := I) g α p a b\n      = inner ℝ (chartBasisFamily (I := I) α hbase a)\n          (chartBasisFamily (I := I) α hbase b) := by\n    intro a b\n    rw [chartBasisFamily_apply, chartBasisFamily_apply]\n    rfl\n  have h := sum_orthonormalBasis_diagonal_eq_invGram\n    (stdOrthonormalBasis ℝ (TangentSpace I p))\n    (chartBasisFamily (I := I) α hbase) B hG\n    (chartGramMatrix_mul_chartInvGramMatrix (I := I) g α hbase)\n  calc laplacianAt g g.leviCivitaConnection f p\n      = ∑ i, B (stdOrthonormalBasis ℝ (TangentSpace I p) i)\n          (stdOrthonormalBasis ℝ (TangentSpace I p) i) := by\n        simp only [laplacianAt, hB]\n    _ = ∑ a, ∑ b, chartInvGramMatrix (I := I) g α p a b\n          • B (chartBasisFamily (I := I) α hbase a)\n              (chartBasisFamily (I := I) α hbase b) := h\n    _ = ∑ a, ∑ b, chartInvGramMatrix (I := I) g α p a b\n          * hessianAt g.leviCivitaConnection f p\n              (chartBasisVecFiber (I := I) α a p)\n              (chartBasisVecFiber (I := I) α b p) := by\n        refine Finset."
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    },
+    {
+      "candidate_id": "FM-parallel-frame-packaging",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/frenzymath/remaining-17/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "FM-parallel-frame-packaging",
+        "decision": "exclude",
+        "reason": "Separate coordinate existence, uniqueness and metric-preservation results leave the arbitrary-smooth-curve chart regularity/continuity/boundedness discharge and joint packaging to be assembled. This is unfinished full-target coverage rather than a false written parallel-frame lemma; no extraction under latest user rule.",
+        "completeness_evidence": [
+          "154blueprint declares unique parallel field and transported orthonormal basis along a smooth curve contained in a chart, attaching four coordinate lemmas.",
+          "exists_parallelFrame_Icc assumes coefficient continuity and bound K; metric-preservation root separately assumes derivative/Gram/base conditions. Each is a complete conditional lemma.",
+          "Burtscher Theorem3.53 and Corollary3.56 give the full arbitrary-smooth-curve result. Current claimed defect is an interface/packaging gap, so exclude rather than label the conditional lemmas false."
+        ],
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/ParallelFrame.lean",
+          "pin_selection": "Latest commit at or before issue18 creation2026-08-30T05:47:39Z; exact resolved SHA, not default branch."
+        },
+        "roots": [
+          "MorganTianLib.exists_parallelFrame_Icc",
+          "MorganTianLib.IsParallelSolOn.eqOn_of_left",
+          "MorganTianLib.IsParallelSolOn.chartMetricInner_eq",
+          "MorganTianLib.chartMetricInner_parallelFrame_eq"
+        ],
+        "independent_informal": {
+          "title": "Introduction to Riemannian Geometry",
+          "authors": [
+            "Annegret Burtscher"
+          ],
+          "version": "Fall 2024/25; updated2025-02-21",
+          "url": "https://www.math.ru.nl/~burtscher/lecturenotes/2425RGnotes.pdf",
+          "source_kind": "primary author university lecture notes",
+          "locator": [
+            "Theorem3.46 printedp44/PDF51",
+            "Theorem3.53/Definition3.54 printedp46/PDF53",
+            "Proposition3.55/Corollary3.56 printedp47/PDF54"
+          ],
+          "scope": "Smooth curves on arbitrary smooth manifolds with affine connection admit unique parallel fields on entire interval; transport is invertible linear and Levi-Civita transport preserves metric.",
+          "original_source_correspondence_qualification": "Independent equivalent mathematical target, not a quotation attributed to Morgan–Tian or do Carmo."
+        },
+        "source_binding_status": "bound_independent_parallel_transport_and_frame_target",
+        "suggested_label": {
+          "before": "valid_conditional_components; full_target_incomplete_excluded",
+          "after": "no_verified_repaired_successor"
+        },
+        "evidence_files": [
+          {
+            "path": "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+            "sha256": "029314672a41ce5097d623032b94549f08b0d76de2d4ed80c8806b266185d6a4"
+          },
+          {
+            "path": "remaining-17/upstream/formalized-sources__MorganTian__MorganTianLib__Ch01__ParallelFrame.lean",
+            "sha256": "fb14d49b045a39fb176bd8aedd80a69852289bee5ebacd888da168bd66f71711",
+            "first_line": 178,
+            "declaration_excerpt": "theorem exists_parallelFrame_Icc (g : RiemannianMetric I M) (α : M) (u : ℝ → E)\n    {a b : ℝ} (hab : a ≤ b) {K : ℝ≥0}\n    (hcont : ContinuousOn\n      (fun t => chartChristoffelContractionRight (I := I) g α (deriv u t) (u t))\n      (Icc a b))\n    (hK : ∀ t ∈ Icc a b,\n      ‖chartChristoffelContractionRight (I := I) g α (deriv u t) (u t)‖₊ ≤ K)\n    {ι : Type*} (e₀ : ι → E) :\n    ∃ e : ι → ℝ → E, (∀ i, e i a = e₀ i)\n      ∧ ∀ i, IsParallelSolOn (I := I) g α u (e i) a b := by\n  choose e h1 h2 using fun i : ι =>\n    exists_isParallelCoord_Icc (I := I) g α u hab (e₀ i) hcont hK\n  exact ⟨e, h1, h2⟩\n\n/-- **Math.** A parallel frame **preserves the Gram matrix** of its initial\nvalues: for all `i, j` and `t ∈ [a, b]`,\n`⟨e i (t), e j (t)⟩_{u(t)} = ⟨e i (a), e j (a)⟩_{u(a)}`. In particular a frame\nthat starts orthonormal for the chart Gram inner product stays orthonormal\nalong the curve. Blueprint: `lem:parallel-frame`. -/\ntheorem chartMetricInner_parallelFrame_eq {g : RiemannianMetric I M} {α : M}\n    {u : ℝ → E} {a b : ℝ} {ι : Type*} {e : ι → ℝ → E}\n    (he : ∀ i, IsParallelSolOn (I := I) g α u (e i) a b)\n    (hu : ∀ t ∈ Icc a b, DifferentiableAt ℝ u t)\n    (hG : ∀ t ∈ Icc a b, ∀ i j,\n      DifferentiableAt ℝ (chartGramOnE (I := I) g α i j) (u t))\n    (hbase : ∀ t ∈ Icc a b, (extChartAt I α).symm (u t)\n      ∈ (trivializationAt E (TangentSpace I) α).baseSet) :\n    ∀ i j, ∀ t ∈ Icc a b,\n      chartMetricInner (I := I) g α (u t) (e i t) (e j t)\n        = chartMetricInner (I := I) g α (u a) (e i a) (e j a) :=\n  fun i j => (he i).chartMetricInner_eq (he j) hu hG hbase\n\nend MorganTianLib\n\nend\n\n"
+          },
+          {
+            "path": "remaining-17/upstream/formalized-sources__MorganTian__MorganTianLib__Ch01__ParallelFrame.lean",
+            "sha256": "fb14d49b045a39fb176bd8aedd80a69852289bee5ebacd888da168bd66f71711",
+            "first_line": 197,
+            "declaration_excerpt": "theorem chartMetricInner_parallelFrame_eq {g : RiemannianMetric I M} {α : M}\n    {u : ℝ → E} {a b : ℝ} {ι : Type*} {e : ι → ℝ → E}\n    (he : ∀ i, IsParallelSolOn (I := I) g α u (e i) a b)\n    (hu : ∀ t ∈ Icc a b, DifferentiableAt ℝ u t)\n    (hG : ∀ t ∈ Icc a b, ∀ i j,\n      DifferentiableAt ℝ (chartGramOnE (I := I) g α i j) (u t))\n    (hbase : ∀ t ∈ Icc a b, (extChartAt I α).symm (u t)\n      ∈ (trivializationAt E (TangentSpace I) α).baseSet) :\n    ∀ i j, ∀ t ∈ Icc a b,\n      chartMetricInner (I := I) g α (u t) (e i t) (e j t)\n        = chartMetricInner (I := I) g α (u a) (e i a) (e j a) :=\n  fun i j => (he i).chartMetricInner_eq (he j) hu hG hbase\n\nend MorganTianLib\n\nend\n\n"
+          }
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "technical_actions": "source_reading_only; no Lean migration/compile/extraction/preservation/counterexample"
+      }
+    }
+  ]
+}

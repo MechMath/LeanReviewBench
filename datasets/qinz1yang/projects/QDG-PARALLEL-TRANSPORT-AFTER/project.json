@@ -1,0 +1,58 @@
+{
+  "id": "QDG-PARALLEL-TRANSPORT-AFTER",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+    "root_file": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+  },
+  "group_id": "QDG-PARALLEL-TRANSPORT",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [
+    "QDG-PARALLEL-TRANSPORT-BEFORE"
+  ],
+  "after_ids": [],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "upstream_license_pending_attribution",
+  "original_toolchain": "leanprover/lean4:v4.29.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled_extracted_migrated_source_preserved_original_environment_not_checked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "48b2358d1a143e6e31954e02ca6096c74e423b81da571c0abc4a79b0bcdc9197",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "c7b4095a4a481cbe79053faa7772e43d85620b9cfcf795129518fda4ce15f4ab",
+  "review_status": "requires_human_scope_resolution",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

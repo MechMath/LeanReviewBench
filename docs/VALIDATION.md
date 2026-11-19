@@ -22,3 +22,17 @@ python3 scripts/construction/compile_projects.py compile --help
 The current project-case collection has no frozen native model evaluation export. The [evaluation guide](../scripts/evaluation/README.md) describes execution using separately supplied complete packages. The regression tests validate that tooling with synthetic fixtures; they do not establish semantic benchmark scores, gold labels or successful recompilation.
 
 Full historical source acquisition and construction records are archived using the pinned locators described in [DATA-FORMAT.md](DATA-FORMAT.md). They are not dependencies of ordinary benchmark checks.
+
+Batches awaiting review are checked by the native checker using their persistent
+input-bound receipts, without requiring ignored build directories:
+
+```sh
+python3 scripts/construction/review_batches/check_batch.py --batch qinz1yang
+python3 scripts/construction/review_batches/check_batch.py --batch frenzymath
+```
+
+Adding `--with-build-graphs` additionally verifies retained local graphs. The
+default result explicitly reports receipt-binding checks only. Partial contexts,
+unresolved labels and excluded development artifacts retain their separate JSON
+states; a successful integrity check does not promote them to complete contexts
+or human-reviewed data.

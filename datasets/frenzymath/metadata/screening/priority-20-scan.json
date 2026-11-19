@@ -1,0 +1,619 @@
+{
+  "schema": "source-only-priority-screening-1",
+  "source_batch": "frenzymath",
+  "reviewed_at": "2026-11-19",
+  "status": "source_only_scan_complete_lean_paused",
+  "selection_unit": "historical_candidate_family_not_individual_before_after_input",
+  "policy": {
+    "complete_boundary_cases_eligible": true,
+    "proof_sorry_alone_excludes": false,
+    "partial_development_excluded": true,
+    "forecasts_are_gold_labels": false,
+    "after_is_automatically_positive": false
+  },
+  "counts": {
+    "retain": 1,
+    "defer": 1,
+    "exclude": 6
+  },
+  "records": [
+    {
+      "candidate_id": "FM-jacobian-nonunique",
+      "decision": "defer",
+      "label_forecast": "boundary_not_established_error",
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-jacobian-nonunique",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "8e74d92a9d817df67e39564849b4ce55ee1e8b32",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/RiemannianJacobian.lean"
+        },
+        "roots": [
+          "MorganTianLib.HasRiemannianJacobianOn"
+        ],
+        "independent_informal": {
+          "status": "blocked_independent_source",
+          "requested_original_source": "No independent original textbook Jacobian statement yet acquired. Issue25 singleton counterexample is review evidence, not independent informal source. Need source specifying domain/differential uniqueness and correct scope.",
+          "search_evidence": "batch-02/source-search.json"
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/8e74d92a/formalized-sources__MorganTian__MorganTianLib__Ch01__RiemannianJacobian.lean",
+          "batch-02/source-search.json",
+          "batch-03/blocked-source-investigations/fm-jacobian-nonunique.json",
+          "batch-04-source-followup/eligibility.json"
+        ],
+        "eligibility": "exclude_no_completed_statement_error_established",
+        "reason": "Relation on arbitrary U legitimately permits nonunique within derivatives; on smooth full-domain maps usual unsigned Jacobian is recovered. A signed oriented Jacobian academic definition is not a counterexample to the relational change-of-variables premise. No independently specified uniqueness claim for degenerate U is established.",
+        "suggested_label": "boundary_not_established_error",
+        "extraction_recommendation": "hold_semantic_target_definition_not_unique_jacobian_function",
+        "completeness_evidence": [
+          "Pinned RiemannianJacobian.lean explicitly says HasRiemannianJacobianOn is a hypothesis rather than a definition so callers can supply any computable chart.",
+          "The actually written quantified relation and change-of-variables theorem are complete statements; they never assert uniqueness over arbitrary U. A singleton derivative ambiguity is not a contradiction to that relation."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "independent_informal_followup": {
+          "url": "https://www.mv.helsinki.fi/home/iholopai/RiemannGeo.pdf",
+          "authors": [
+            "Ilkka Holopainen",
+            "Tuomas Sahlsten"
+          ],
+          "version": "2023-04-26",
+          "locator": "Section8.17 printedp97 / PDFpage96",
+          "status": "not_exact_scope_for_legacy_relation",
+          "specific_scope_difference": "Defines signed coordinate determinant for smooth maps between oriented Riemannian manifolds, not unique unsigned determinant of arbitrary within-set derivatives. Taking absolute value is a clear magnitude corollary, but does not assert uniqueness over arbitrary U."
+        },
+        "specific_unresolved_scope": "Helsinki §8.17 is a smooth full-domain signed oriented Jacobian. Its absolute-value corollary describes magnitude for smooth maps, but says nothing about unique within-set derivatives on arbitrary U. A target requiring uniqueness of this relation would be newly invented.",
+        "source_scan_decision": "defer",
+        "before_prediction": "aligned_or_boundary_if_relational_target_is_bound; no_unique_function_error_established",
+        "after_prediction": "no_verified_repair_revision"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-model-volume-proxy",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-model-volume-proxy",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+          "after_commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovBall.lean"
+        },
+        "roots": [
+          "MorganTianLib.modelBallVolume_eq",
+          "MorganTianLib.model_polar_volume_identity"
+        ],
+        "independent_informal": {
+          "status": "bound",
+          "source": {
+            "title": "Ricci Flow and the Poincare Conjecture",
+            "authors": [
+              "John W. Morgan",
+              "Gang Tian"
+            ],
+            "version": "arXiv:math/0607607v2",
+            "version_date": "2007-03-21",
+            "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+            "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+            "pdf_path": "materials/morgan-tian-v2.pdf",
+            "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+            "archive_path": "materials/morgan-tian-v2-source.tar",
+            "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+            "tex_path": "materials/prelim.tex",
+            "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+          },
+          "parts": [
+            {
+              "path": "batch-02/materials/model-geometry.tex",
+              "version": "arXiv:math/0607607v2",
+              "source_file": "prelim.tex",
+              "first_line": 927,
+              "last_line": 948,
+              "sha256": "9fa72fea60ceaf242570f0b359b297ac65f05ee7af1730dc15719aa85be46d5e",
+              "text": "We fix a point $p\\in M$. For any real number $k\\ge 0$ let $H^n_k$ denote the\nsimply connected, complete Riemannian $n$-manifold of constant sectional\ncurvature $-k$. Fix a point $q_k\\in H^n_k$, and consider the exponential map\n${\\rm exp}_{q_k}\\colon T_{q_k}(H^n_k)\\to H^n_k$. This map is a global\ndiffeomorphism. Let us consider the pullback, $\\tilde h_k$, of the Riemannian\nmetric on $H^n_k$ to $T_{q_k}H^n_k$. A formula for this tensor is easily given\nin polar coordinates on $T_{q_k}(H^n_k)$ in terms of the following function.\n\n\\begin{defn}\nWe define a function ${\\rm sn}_k$ as follows:$${\\rm\nsn}_k(r)=\\begin{cases}\nr \\ \\  & {\\rm if\\ \\ }k=0 \\\\\n\\frac{1}{\\sqrt{k}}{\\rm sinh}(\\sqrt{k}r) \\ \\ & {\\rm if \\ \\ } k>0.\n\\end{cases}$$\n\\end{defn}\n\nThe function ${\\rm sn}_{k}(r)$ is the solution to the equation\n\\begin{align*}\n \\varphi'' - k\\varphi &= 0,\\\\\n\\varphi(0) &= 0,\\\\\n\\varphi'(0) &= 1.\n\\end{align*}\n"
+            },
+            {
+              "path": "batch-02/materials/actual-geometric-model-ball-volume.tex",
+              "version": "arXiv:math/0607607v2",
+              "source_file": "prelim.tex",
+              "first_line": 1008,
+              "last_line": 1019,
+              "sha256": "4fb7adb22dae7df42ddb3bfd123242ee7c1966e7356dcac8ed33a3d6f4e30302",
+              "text": "\\begin{thm}\\label{BishopGromov}\n(Relative Volume Comparison, Bishop-Gromov 1964-1980) Suppose $(M,\ng)$ is a Riemannian manifold. Fix a point $p\\in M$, and suppose that\n$B(p,R)$ has compact closure in $M$. Suppose that for some $k\\ge 0$\nwe have ${\\rm Ric} \\geq -(n-1)k$ on $B(p,R)$. Recall that $H^n_k$ is\nthe simply connected, complete manifold of constant curvature $-k$\nand $q_k\\in H^n_k$ is a point. Then\n\\[ \\frac{{\\rm Vol}\\,B(p,r)}{{\\rm Vol}\\, B_{H^n_k}B(q_k,r)} \\]\nis a non-increasing function of $r$ for $r<R$, whose limit as $r\\rightarrow 0$\nis 1. In particular, if the Ricci curvature of $(M,g)$ is $\\ge 0$ on $B(p,R)$,\nthen ${\\rm Vol}\\,B(p,r)/r^n$ is a non-increasing function of $r$ for $r<R$.\n\\end{thm}\n"
+            }
+          ],
+          "target_scope": "Actual Riemannian volume of a radius-r ball in the simply-connected complete constant-sectional-curvature -k model from original book. The original text defines that model and its ball volume in BG; it does not supply the selected exact radial-integral formula. This binding tests the claimed geometric identification, not the validity of the standalone abstract integral identity.",
+          "human_adjudicated": false,
+          "reference_ready": false
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/4dff1831/BishopGromovBall.lean",
+          "batch-04-source-followup/eligibility.json"
+        ],
+        "eligibility": "exclude_development_incomplete",
+        "reason": "The claimed geometric-volume identification has not been developed; the selected abstract radial identities remain valid. Missing model-manifold/measure bridge is development incompleteness, excluded by latest user instruction.",
+        "suggested_label": null,
+        "extraction_recommendation": "exclude_half_target_do_not_extract",
+        "completeness_evidence": [
+          "Before/after roots are complete valid radial-integral identities.",
+          "The claimed target is actual canonical model-manifold ball volume. The manifold/measure identification has not been constructed, so the full target remains half-developed.",
+          "Chapter1VolumeRemaining source expressly describes model_polar_volume_identity as an abstract calculation and geometric identification as a separate obligation. The new ModelVol is the same radial integral, not an independently built geometric volume."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "assessment_history": {
+          "former_negative_assessments": [
+            "build/preparation/frenzymath/batch-02/model-proxy-before/technical/agent-provisional-label.json",
+            "build/preparation/frenzymath/batch-02/model-proxy-after/technical/agent-provisional-label.json"
+          ],
+          "status": "superseded_by_user_exclusion",
+          "reason": "New user rule excludes uncompleted geometric identification; frozen technical artifacts are evidence only, not eligible negatives."
+        },
+        "source_scan_decision": "exclude",
+        "before_prediction": "exclude_development_incomplete_geometric_identification",
+        "after_prediction": "exclude_same_geometric_target_still_unidentified; standalone_radial_identity_not_a_new_target"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-model-volume-false-repair",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-model-volume-false-repair",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+          "after_commit": "6530802c544270722767513028e0045862daa575",
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1VolumeRemaining.lean"
+        },
+        "roots": [
+          "MorganTianLib.ModelVol",
+          "MorganTianLib.modelBallVolume_eq_modelVol",
+          "MorganTianLib.modelBallVolume_eq_modelVol_zero"
+        ],
+        "independent_informal": {
+          "status": "bound",
+          "source": {
+            "title": "Ricci Flow and the Poincare Conjecture",
+            "authors": [
+              "John W. Morgan",
+              "Gang Tian"
+            ],
+            "version": "arXiv:math/0607607v2",
+            "version_date": "2007-03-21",
+            "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+            "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+            "pdf_path": "materials/morgan-tian-v2.pdf",
+            "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+            "archive_path": "materials/morgan-tian-v2-source.tar",
+            "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+            "tex_path": "materials/prelim.tex",
+            "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+          },
+          "parts": [
+            {
+              "path": "batch-02/materials/model-geometry.tex",
+              "version": "arXiv:math/0607607v2",
+              "source_file": "prelim.tex",
+              "first_line": 927,
+              "last_line": 948,
+              "sha256": "9fa72fea60ceaf242570f0b359b297ac65f05ee7af1730dc15719aa85be46d5e",
+              "text": "We fix a point $p\\in M$. For any real number $k\\ge 0$ let $H^n_k$ denote the\nsimply connected, complete Riemannian $n$-manifold of constant sectional\ncurvature $-k$. Fix a point $q_k\\in H^n_k$, and consider the exponential map\n${\\rm exp}_{q_k}\\colon T_{q_k}(H^n_k)\\to H^n_k$. This map is a global\ndiffeomorphism. Let us consider the pullback, $\\tilde h_k$, of the Riemannian\nmetric on $H^n_k$ to $T_{q_k}H^n_k$. A formula for this tensor is easily given\nin polar coordinates on $T_{q_k}(H^n_k)$ in terms of the following function.\n\n\\begin{defn}\nWe define a function ${\\rm sn}_k$ as follows:$${\\rm\nsn}_k(r)=\\begin{cases}\nr \\ \\  & {\\rm if\\ \\ }k=0 \\\\\n\\frac{1}{\\sqrt{k}}{\\rm sinh}(\\sqrt{k}r) \\ \\ & {\\rm if \\ \\ } k>0.\n\\end{cases}$$\n\\end{defn}\n\nThe function ${\\rm sn}_{k}(r)$ is the solution to the equation\n\\begin{align*}\n \\varphi'' - k\\varphi &= 0,\\\\\n\\varphi(0) &= 0,\\\\\n\\varphi'(0) &= 1.\n\\end{align*}\n"
+            },
+            {
+              "path": "batch-02/materials/actual-geometric-model-ball-volume.tex",
+              "version": "arXiv:math/0607607v2",
+              "source_file": "prelim.tex",
+              "first_line": 1008,
+              "last_line": 1019,
+              "sha256": "4fb7adb22dae7df42ddb3bfd123242ee7c1966e7356dcac8ed33a3d6f4e30302",
+              "text": "\\begin{thm}\\label{BishopGromov}\n(Relative Volume Comparison, Bishop-Gromov 1964-1980) Suppose $(M,\ng)$ is a Riemannian manifold. Fix a point $p\\in M$, and suppose that\n$B(p,R)$ has compact closure in $M$. Suppose that for some $k\\ge 0$\nwe have ${\\rm Ric} \\geq -(n-1)k$ on $B(p,R)$. Recall that $H^n_k$ is\nthe simply connected, complete manifold of constant curvature $-k$\nand $q_k\\in H^n_k$ is a point. Then\n\\[ \\frac{{\\rm Vol}\\,B(p,r)}{{\\rm Vol}\\, B_{H^n_k}B(q_k,r)} \\]\nis a non-increasing function of $r$ for $r<R$, whose limit as $r\\rightarrow 0$\nis 1. In particular, if the Ricci curvature of $(M,g)$ is $\\ge 0$ on $B(p,R)$,\nthen ${\\rm Vol}\\,B(p,r)/r^n$ is a non-increasing function of $r$ for $r<R$.\n\\end{thm}\n"
+            }
+          ],
+          "target_scope": "Actual Riemannian volume of a radius-r ball in the simply-connected complete constant-sectional-curvature -k model from original book. The original text defines that model and its ball volume in BG; it does not supply the selected exact radial-integral formula. This binding tests the claimed geometric identification, not the validity of the standalone abstract integral identity.",
+          "human_adjudicated": false,
+          "reference_ready": false
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/bb91a091/formalized-sources__MorganTian__MorganTianLib__Ch01__Chapter1VolumeRemaining.lean",
+          "batch-04-source-followup/eligibility.json"
+        ],
+        "eligibility": "exclude_development_incomplete",
+        "reason": "The claimed geometric-volume identification has not been developed; the selected abstract radial identities remain valid. Missing model-manifold/measure bridge is development incompleteness, excluded by latest user instruction.",
+        "suggested_label": null,
+        "extraction_recommendation": "exclude_half_target_do_not_extract",
+        "completeness_evidence": [
+          "Before/after roots are complete valid radial-integral identities.",
+          "The claimed target is actual canonical model-manifold ball volume. The manifold/measure identification has not been constructed, so the full target remains half-developed.",
+          "Chapter1VolumeRemaining source expressly describes model_polar_volume_identity as an abstract calculation and geometric identification as a separate obligation. The new ModelVol is the same radial integral, not an independently built geometric volume."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "assessment_history": {
+          "former_negative_assessments": [
+            "build/preparation/frenzymath/batch-02/false-repair-before/technical/agent-provisional-label.json",
+            "build/preparation/frenzymath/batch-02/false-repair-after/technical/agent-provisional-label.json"
+          ],
+          "status": "superseded_by_user_exclusion",
+          "reason": "New user rule excludes uncompleted geometric identification; frozen technical artifacts are evidence only, not eligible negatives."
+        },
+        "source_scan_decision": "exclude",
+        "before_prediction": "exclude_abstract_integral_facade_only",
+        "after_prediction": "exclude_ModelVol_renames_same_integral_no_geometric_identification"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-intrinsic-covariant-derivative",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-intrinsic-covariant-derivative",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "3c3d098985310df3fe706029d84f5f21ebe31724",
+          "after_commit": "5039a0859304b37bf3ea67a0747c822bca7ad397",
+          "file": "formalized-sources/DoCarmo/DoCarmoLib/Riemannian/Geodesic/CovariantDerivative.lean",
+          "after_files": [
+            "formalized-sources/DoCarmo/DoCarmoLib/Riemannian/Connection/MetricCompatibilityAlong.lean",
+            "formalized-sources/DoCarmo/DoCarmoLib/Riemannian/Connection/ParallelAlong.lean",
+            "formalized-sources/DoCarmo/DoCarmoLib/Riemannian/Connection/AffineCovariantDerivativeAlong.lean"
+          ],
+          "after_root_evidence": {
+            "file": "formalized-sources/DoCarmo/DoCarmoLib/Riemannian/Connection/AffineCovariantDerivativeAlong.lean",
+            "roots": [
+              "Riemannian.AffineConnection.covDerivAlong",
+              "Riemannian.AffineConnection.covDerivAlong_unique_global"
+            ]
+          }
+        },
+        "roots": [
+          "Riemannian.covariantDerivCoord",
+          "Riemannian.IsParallelCoord",
+          "Riemannian.parallelTransport",
+          "Riemannian.CompatibleGen",
+          "Riemannian.compatibleGen_iff_productRuleGen"
+        ],
+        "independent_informal": {
+          "title": "Introduction to Riemannian Geometry",
+          "authors": [
+            "Annegret Burtscher"
+          ],
+          "version": "Fall 2024/25; 2025-02-21",
+          "url": "https://www.math.ru.nl/~burtscher/lecturenotes/2425RGnotes.pdf",
+          "locators": [
+            "Theorem3.46",
+            "Corollary3.49",
+            "Theorem3.53",
+            "Definition3.54"
+          ],
+          "status": "bound",
+          "original_source_correspondence_qualification": "Independent same mathematical target, not a claim this is the cited do Carmo original text.",
+          "acquired_text_path": "batch-04-source-followup/materials/burtscher-intrinsic-covariant.txt",
+          "acquired_text_sha256": "6f758b30068fef8e96d354ed370d74d0a3e6b739d123b133bcbc6788a0f70ec0",
+          "pdf_bytes_acquired": false,
+          "binding_scope_qualification": "Exact independent binding covers arbitrary-connection covariant derivative existence/uniqueness, parallel-field existence/uniqueness, and Levi-Civita metric product rule. Burtscher alone has not yet been checked to supply the full generic metric-compatibility iff along-curve-product-rule/parallel-transport equivalence of all historical family roots. Treat that remainder as pending scope binding, not a book-name gate."
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/3c3d0989/formalized-sources__DoCarmo__DoCarmoLib__Riemannian__Geodesic__CovariantDerivative.lean",
+          "batch-02/source-search.json",
+          "batch-03/upstream/5039a085/formalized-sources__DoCarmo__DoCarmoLib__Riemannian__Connection__MetricCompatibilityAlong.lean",
+          "batch-03/upstream/5039a085/formalized-sources__DoCarmo__DoCarmoLib__Riemannian__Connection__ParallelAlong.lean",
+          "batch-03/upstream/5039a085/formalized-sources__DoCarmo__DoCarmoLib__Riemannian__Connection__AffineCovariantDerivativeAlong.lean",
+          "batch-03/blocked-source-investigations/fm-intrinsic-covariant-derivative.json",
+          "batch-03/upstream/5039a085/",
+          "batch-04-source-followup/eligibility.json",
+          "batch-03/upstream/5039a085/",
+          "batch-04-source-followup/upstream/5039a085/"
+        ],
+        "eligibility": "exclude_development_incomplete",
+        "reason": "Independent same-scope source now bound, but fixed-chart coordinate layer preceding intrinsic connection construction is unfinished interface coverage, not an eligible negative under latest user rule. Actual PR15 adds the missing intrinsic layer.",
+        "suggested_label": null,
+        "extraction_recommendation": "exclude_half_target_do_not_extract",
+        "completeness_evidence": [
+          "Before CovariantDerivative.lean implements fixed-chart E-valued metric-Christoffel expressions, parallel ODE interfaces, and compatibility formulas.",
+          "PR15 adds new AffineCovariantDerivativeAlong.lean with actual AffineConnection.covDerivAlong plus additivity/product-rule/extension/uniqueness theorems. The old coordinate layer itself remains a legitimate local computation.",
+          "A missing intrinsic/arbitrary-connection interface relative to the full family target is development incompleteness, so do not extract this old partial layer as a negative."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "version_recommendations": {
+          "before": "exclude_half_target_local_coordinate_layer",
+          "after": "source_review_pending_for_full_joint_family; actual intrinsic operator/uniqueness and generic compatibility theorems present, could become aligned/boundary input if all original target clauses and hypotheses map; no negative inferred and no Lean authorized"
+        },
+        "source_scan_decision": "defer",
+        "before_prediction": "exclude_partial_coordinate_layer",
+        "after_prediction": "defer_completed_intrinsic_operator_present; possibly_aligned_or_boundary_after_full_family_source_scope_mapping"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-injectivity-radius-split",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-injectivity-radius-split",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/InjectivityRadiusAgreement.lean",
+          "pin_selection": "Latest commit at or before public Issue18 creation 2026-08-30T05:47:39Z, resolved via commits?until endpoint."
+        },
+        "roots": [
+          "MorganTianLib.metricBookInjectivityRadius",
+          "MorganTianLib.injectivityRadius_eq_segmentDomainFrontierDistance",
+          "MorganTianLib.injectivityRadius_eq_cutLocusDistance"
+        ],
+        "independent_informal": {
+          "status": "bound",
+          "source": {
+            "title": "Ricci Flow and the Poincare Conjecture",
+            "authors": [
+              "John W. Morgan",
+              "Gang Tian"
+            ],
+            "version": "arXiv:math/0607607v2",
+            "version_date": "2007-03-21",
+            "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+            "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+            "pdf_path": "materials/morgan-tian-v2.pdf",
+            "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+            "archive_path": "materials/morgan-tian-v2-source.tar",
+            "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+            "tex_path": "materials/prelim.tex",
+            "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d"
+          },
+          "parts": [
+            {
+              "path": "batch-02/materials/injectivity-radius-original.tex",
+              "version": "arXiv:math/0607607v2",
+              "source_file": "prelim.tex",
+              "first_line": 764,
+              "last_line": 804,
+              "sha256": "7801e9edd310df21e3656915a4ce7d6ae981cb1bf40a4a84580f89ba1b5d4ab1",
+              "text": "\\begin{defn}\nThere is an open neighborhood  $U_p\\subset T_pM$ of $0$ consisting\nof all $v\\in T_pM$ for which: (i) $\\gamma_v$ is the unique minimal\ngeodesic from $p$ to $\\gamma_v(1)$, and (ii) $ {\\rm exp}_p$ is a\nlocal diffeomorphism at $v$.  We set ${\\mathcal C}_p\\subset M$ equal\nto $M\\setminus {\\rm exp}_p(U_p)$. Then ${\\mathcal C}_p$ is called\nthe {\\sl cut locus from $p$}\\index{cut locus}. It is a closed subset\nof measure $0$.\n\\end{defn}\n\nIt follows from Corollary~\\ref{star} that  $U\\subset T_pM$ is a\nstar-shaped open neighborhood  of $0\\in T_pM$.\n\n\\begin{prop}\nThe map\n$${\\rm exp}_p\\colon U_p\\to M\\setminus {\\mathcal C}_p$$\nis a diffeomorphism. \\end{prop} For a proof see p. 139 of \\cite{Petersen}.\n\n\n\n\n\\begin{defn}\nThe {\\sl injectivity radius ${\\rm inj}_M(p)$ of $M$ at $p$} is the\nsupremum of the $r> 0$ for which the restriction of ${\\rm\nexp}_p\\colon T_pM\\to M$ to the ball $B(0,r)$ of radius $r$ in $T_pM$\nis a diffeomorphism into $M$. Clearly, ${\\rm inj}_M(p)$ is the\ndistance in $T_pM$ from $0$ to the frontier of $U_p$. It is also the\ndistance in $M$ from $p$ to the cut locus ${\\mathcal C}_p$.\n\\end{defn}\n\nSuppose that  ${\\rm inj}_M(p)=r$. There are two possibilities:\nEither there is a broken, closed geodesic through $p$, broken only\nat $p$, of length $2r$, or there is a geodesic $\\gamma$ of length\n$r$ emanating from $p$ whose endpoint is a conjugate point along\n$\\gamma$. The first case happens when the exponential mapping is not\none-to-one of the closed ball of radius $r$ in $T_pM$, and the\nsecond happens when there is a tangent vector in $T_pM$ of length\n$r$ at which ${\\rm exp}_p$ is not a local diffeomorphism.\n\n\\section{Computations in Gaussian normal coordinates}\n\n"
+            },
+            {
+              "path": "batch-02/materials/complete-setting-before-injectivity.tex",
+              "version": "arXiv:math/0607607v2",
+              "source_file": "prelim.tex",
+              "first_line": 725,
+              "last_line": 759,
+              "sha256": "17483640c064d7422ab64b61db607bd4af13f403d01d450d6197590564c21d4c",
+              "text": "\nSuppose now that  $M$ is complete, and fix a point $p\\in M$. For\nevery $q\\in M$, there is a length-minimizing path from $p$ to $q$.\nWhen parameterized at constant speed equal to its length, this path\nis a geodesic with domain  interval $[0,1]$. Consequently, ${\\rm\nexp}_p\\colon T_pM\\to M$ is onto. The differential of the exponential\nmapping is given by Jacobi fields:\n Let\n$\\gamma\\colon [0,1]\\to M$ be a geodesic from $p$ to $q$, and let\n $X\\in T_pM$ be $\\gamma'(0)$. Then the exponential\nmapping at $p$ is a smooth map from $T_p(M)\\to M$ sending $X$ to\n$q$. Fix $Z\\in T_pM$. Then there is a unique Jacobi field $Y_Z$\nalong $\\gamma$ with $\\nabla_XY_Z(0)=Z$. The association $Z\\mapsto\nY_Z(1)\\in T_qM$ is a linear map from $T_p(M)\\to T_qM$. Under the\nnatural identification of $T_pM$ with the tangent plane to $T_pM$ at\nthe point $Z$, this linear mapping is the differential of ${\\rm\nexp}_p\\colon T_pM\\to M$ at the point $X\\in T_pM$.\n\n\n\\begin{cor}\\label{star}\nSuppose that $\\gamma$ is a minimal geodesic parameterized by $[0,1]$\nstarting at $p$. Let $X(0)=\\gamma'(0)\\in T_pM$. Then for each\n$t_0<1$ the restriction $\\gamma|_{[0,t_0]}$ is a minimal geodesic\nand ${\\rm exp}_p\\colon T_pM\\to M$ is a local diffeomorphism near\n$t_0X(0)$.\n\\end{cor}\n\n\\begin{proof}\nOf course, ${\\rm exp}_p(t_0X(0))=\\gamma(t_0)$. According to the\nprevious discussion, the kernel of the differential of the\nexponential mapping at $t_0X(0)$ is identified with the space of\nJacobi fields along $\\gamma$ vanishing at $\\gamma(t_0)$. According\nto  Proposition~\\ref{jacmin} the only such Jacobi field is the\ntrivial one. Hence, the differential of ${\\rm exp}_p$ at $t_0X(0)$\nis an isomorphism, completing the proof.\n"
+            }
+          ],
+          "target_scope": "Same inj_M(p) defined by actual metric tangent ball diffeomorphism supremum equals tangent segment-domain-frontier distance and manifold cut-locus distance. Include complete-setting paragraph before this original book passage.",
+          "human_adjudicated": false,
+          "reference_ready": false
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__MorganTianLib__Ch01__InjectivityRadiusAgreement.lean",
+          "batch-04-source-followup/eligibility.json"
+        ],
+        "eligibility": "exclude_development_incomplete",
+        "reason": "Metric-ball and cut-time radius bridge is an uncompleted assembly/identification obligation; no false completed declaration established. Excluded by latest user instruction.",
+        "suggested_label": null,
+        "extraction_recommendation": "exclude_half_target_do_not_extract",
+        "completeness_evidence": [
+          "metricBookInjectivityRadius is the metric-ball diffeomorphism supremum; the two distance theorems refer to the cut-time injectivityRadius.",
+          "No assembled equality bridge between those target quantities in the selected joint roots. This establishes incomplete assembly, not a false written distance formula."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "assessment_history": {
+          "former_negative_assessments": [
+            "build/preparation/frenzymath/batch-03/injectivity-split-before/technical/agent-provisional-label.json"
+          ],
+          "status": "superseded_by_user_exclusion"
+        },
+        "source_scan_decision": "exclude",
+        "before_prediction": "exclude_missing_radius_assembly_bridge",
+        "after_prediction": "no_verified_repair_revision"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-euclidean-submanifold-proxy",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-euclidean-submanifold-proxy",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/SubmanifoldConnection.lean",
+          "pin_selection": "Latest commit at or before public Issue18 creation 2026-08-30T05:47:39Z, resolved via commits?until endpoint."
+        },
+        "roots": [
+          "MorganTianLib.euclideanSubmanifold_connection_and_geodesic"
+        ],
+        "independent_informal": {
+          "title": "Totally Geodesic / Totally Umbilic Submanifolds",
+          "authors": [
+            "A. Freire"
+          ],
+          "version": "Math568 Spring2012 handout2",
+          "url": "https://web.math.utk.edu/~freire/teaching/m568s12/m568s12handout2.pdf",
+          "locators": [
+            "p1 induced connection and second fundamental form"
+          ],
+          "status": "bound",
+          "original_source_correspondence_qualification": "Independent general ambient theorem; Euclidean ambient specialization explicitly identified, not presented as an exact do Carmo quote.",
+          "acquired_text_path": "batch-04-source-followup/materials/freire-submanifold.txt",
+          "acquired_text_sha256": "f0900199461898f01c093fec65576a1b53d208c80fd9f3b80232a3cbeed8e210",
+          "pdf_bytes_acquired": false
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__MorganTianLib__Ch01__SubmanifoldConnection.lean",
+          "batch-02/source-search.json",
+          "batch-03/blocked-source-investigations/fm-euclidean-submanifold-proxy.json",
+          "batch-04-source-followup/eligibility.json"
+        ],
+        "eligibility": "exclude_development_incomplete",
+        "reason": "Independent Gauss-formula/geodesic theorem now bound. Existing DCImmersedPatch is an incomplete abstract local model without actual embedding identification. Current evidence establishes missing development rather than a false complete theorem; exclude under latest user rule.",
+        "suggested_label": null,
+        "extraction_recommendation": "exclude_half_target_do_not_extract",
+        "completeness_evidence": [
+          "Root takes DCImmersedPatch on an Euclidean open set and tangent-field/projection data.",
+          "Its formula is meaningful for the supplied abstract tangent-distribution data, but an actual embedded submanifold and identification with its tangent bundle are not supplied.",
+          "The present evidence supports an incomplete local computational-model interface. It does not independently establish a false completed Gauss-formula statement; avoid treating the missing geometry bridge alone as an error."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "source_scan_decision": "exclude",
+        "before_prediction": "exclude_identified_patch_model_missing_actual_embedded_geometry_interface",
+        "after_prediction": "no_verified_repair_revision"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-rescaling-radius-object",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-rescaling-radius-object",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/MetricRescalingInjectivity.lean",
+          "pin_selection": "Latest commit at or before public Issue18 creation 2026-08-30T05:47:39Z, resolved via commits?until endpoint."
+        },
+        "roots": [
+          "MorganTianLib.metricRescalingLaws",
+          "MorganTianLib.rescaledMetric_intrinsicMetricBookInjectivityRadius"
+        ],
+        "independent_informal": {
+          "status": "blocked_independent_source",
+          "requested_original_source": "No exact independent original statement acquired; unresolved Lean root/path/revision must be fixed. Upstream review is not informal input.",
+          "search_evidence": "batch-02/source-search.json"
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__MorganTianLib__Ch01__MetricRescalingInjectivity.lean",
+          "batch-02/source-search.json",
+          "batch-03/blocked-source-investigations/fm-rescaling-radius-object.json",
+          "batch-04-source-followup/eligibility.json"
+        ],
+        "eligibility": "exclude_development_incomplete_or_review_reason_refuted",
+        "reason": "Canonical metric-book radius bridge already exists at this source pin, contradicting broad old no-bridge reason. Any remaining cut-time identification is missing development and excluded by user. No incorrect completed scaling formula demonstrated.",
+        "suggested_label": "boundary_or_review_reason_refuted",
+        "extraction_recommendation": "exclude_half_target_do_not_extract",
+        "completeness_evidence": [
+          "At 154ca3ec, canonicalMetricBookInjectivityRadius_eq explicitly identifies the canonical facade with metricBookInjectivityRadius and is proved by rfl.",
+          "The same source contains rescaledMetric_canonicalMetricBookInjectivityRadius and rescaledMetric_intrinsicMetricBookInjectivityRadius. Therefore the broad old claim that none of these objects have bridges is refuted.",
+          "Any remaining bridge to the cut-time injectivityRadius belongs to the same incomplete assembly as the injectivity family; no incorrect completed scaling formula has been established."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "withdrawn_review_reason": "All three radius facades are unconnected with no equality bridge.",
+        "source_scan_decision": "exclude",
+        "before_prediction": "broad_no_bridge_reason_refuted; remaining_cut_time_bridge_is_incomplete_development",
+        "after_prediction": "no_verified_repair_revision"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    },
+    {
+      "candidate_id": "FM-covering-extra-connectedness",
+      "decision": "retain",
+      "label_forecast": "boundary_or_misaligned_scope_pending_human",
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_record": {
+        "candidate_id": "FM-covering-extra-connectedness",
+        "source": {
+          "repository": "frenzymath/Poincare-Conjecture",
+          "before_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "after_commit": null,
+          "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1CutLocusRemaining.lean",
+          "pin_selection": "Latest commit at or before public Issue18 creation 2026-08-30T05:47:39Z, resolved via commits?until endpoint."
+        },
+        "roots": [
+          "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
+        ],
+        "independent_informal": {
+          "title": "Isometries, Local Isometries, Riemannian Coverings and Submersions, Killing Vector Fields",
+          "version": "CIS610 2018 chapter15 slides",
+          "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+          "context_url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf",
+          "locators": [
+            "Proposition15.7 p777 PDFpage10",
+            "Chapter7 p340 PDFpage9",
+            "Chapter7 p333 PDFpage2"
+          ],
+          "status": "bound",
+          "original_source_correspondence_qualification": "Independent academic statement of same theorem and verified non-connected-manifold convention; source nonemptiness explicitly qualified.",
+          "acquired_text_path": "batch-04-source-followup/materials/penn-covering.txt",
+          "acquired_text_sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d",
+          "pdf_bytes_acquired": false,
+          "nonemptiness_qualification": "Penn Proposition15.7 does not explicitly write source nonemptiness; its intended nonempty-source case is used here, because an empty source would otherwise refute surjectivity. Do not claim independent verification of a literal empty-source theorem. Disconnected nonempty examples still establish the broader intended domain than the selected Lean statement."
+        },
+        "source_evidence_paths": [
+          "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__MorganTianLib__Ch01__Chapter1CutLocusRemaining.lean",
+          "batch-02/source-search.json",
+          "batch-03/blocked-source-investigations/fm-covering-extra-connectedness.json",
+          "batch-04-source-followup/eligibility.json",
+          "batch-02/upstream/154ca3ec/formalized-sources__MorganTian__blueprint__src__chapters__Ch01_Preliminaries.tex",
+          "bishop-after/technical/upstream/formalized-sources__DoCarmo__DoCarmoLib__Riemannian__Metric__RiemannianDistance.lean"
+        ],
+        "eligibility": "eligible_completed_theorem_scope_review",
+        "reason": "Selected final theorem is marked leanok against a complete covering statement in blueprint and actually concludes surjective covering. Its source ConnectedSpace N restricts a completed theorem beyond the independently bound version; investigate as genuine full-statement scope mismatch.",
+        "suggested_label": "boundary_or_misaligned_scope_pending_human",
+        "extraction_recommendation": "retain_completed_statement_for_later_Lean_after_source_list_review",
+        "completeness_evidence": [
+          "Historical blueprint lem:local-isometry-covering states complete source and connected target imply surjective covering, annotates the exact root, and marks its proof leanok.",
+          "Exact root concludes Function.Surjective F and IsCoveringMap F, so this is an actual finished mathematical statement, not a missing assembly facade.",
+          "Original section variables require ConnectedSpace N and CompleteSpace N, while the target requires connectedness only for M. Independent Penn Proposition15.7 states the same full target; its Chapter7 explicitly allows disconnected manifolds."
+        ],
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "original_source_correspondence_qualification": "Same mathematical target may be bound to an independently authored primary academic text; no requirement for a particular textbook edition.",
+        "representation_caveat": "Do not treat ConnectedSpace N in isolation: the source additionally uses finite MetricSpace N plus gN.IsRiemannianDist, which equates edist with the infimum of C1-path lengths. Disconnected components have no joining paths and extended intrinsic distance infinity, so that representation already restricts disconnected sources. Two copies of R -> R illustrate omitted mathematical scope, not a Lean counterexample satisfying all remaining source hypotheses. Whether this finite-metric scope limitation is a boundary case or an alignment error must remain explicit.",
+        "read_only_external_dependency_locators": [
+          "/home/reed/workspace/code/MechAlignWork/dep/mathlib/Mathlib/Geometry/Manifold/Riemannian/Basic.lean:81",
+          "/home/reed/workspace/code/MechAlignWork/dep/mathlib/Mathlib/Geometry/Manifold/Riemannian/PathELength.lean:208"
+        ],
+        "source_scan_decision": "retain",
+        "before_prediction": "boundary_or_misaligned_completed_scope_restriction; finite_metric_representation_caveat",
+        "after_prediction": "no_verified_repair_revision"
+      },
+      "evidence_origin": "build/preparation/frenzymath/batch-04-source-followup/source-only-checklist.json"
+    }
+  ]
+}

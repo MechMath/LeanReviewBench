@@ -1,0 +1,206 @@
+{
+  "source_batch": "qinz1yang",
+  "records": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTWISE-before/informal.jsonl",
+      "informal_record_sha256": "4607903c13f344ba17c114852dc540b0e391d5c1666d189957539b0b494db708",
+      "input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511"
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-LIONS-before/informal.jsonl",
+      "informal_record_sha256": "3a5a18a65a650d9ccfb8925a83b0a05fa13921f15a0e2c9b69385bafea10e5ac",
+      "input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31"
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/informal.jsonl",
+      "informal_record_sha256": "9dad8627ec025ab6339d041bd229faa0a4b2d505ec26621f603dc0e4c9670b1a",
+      "input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62"
+    },
+    {
+      "project_id": "QDG-POINTWISE-after",
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTWISE-after/informal.jsonl",
+      "informal_record_sha256": "4607903c13f344ba17c114852dc540b0e391d5c1666d189957539b0b494db708",
+      "input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37"
+    },
+    {
+      "project_id": "QDG-LIONS-after",
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-LIONS-after/informal.jsonl",
+      "informal_record_sha256": "3a5a18a65a650d9ccfb8925a83b0a05fa13921f15a0e2c9b69385bafea10e5ac",
+      "input_sha256": "dd0426d334748a8590160760f384fcb7959adb75768c17cb46d41f9b98ae9f94"
+    },
+    {
+      "project_id": "QDG-SOBOLEV-after",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-SOBOLEV-after/informal.jsonl",
+      "informal_record_sha256": "9dad8627ec025ab6339d041bd229faa0a4b2d505ec26621f603dc0e4c9670b1a",
+      "input_sha256": "c9747fc2148beef07034b5389114ea82ca7587100490fe66b404e88d513f3c47"
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-before",
+      "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/informal.jsonl",
+      "informal_record_sha256": "125db361425a262a7724353d46b456f8b61883074e4bd623e7eb4d51fba2f139",
+      "input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f"
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-after",
+      "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/informal.jsonl",
+      "informal_record_sha256": "125db361425a262a7724353d46b456f8b61883074e4bd623e7eb4d51fba2f139",
+      "input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed"
+    },
+    {
+      "project_id": "QDG-PL-BALL-PAIR-before",
+      "candidate_id": "pl-ball-pair-cone",
+      "source_commit": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+      "roots": [
+        "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-before/informal.jsonl",
+      "informal_record_sha256": "94a76a8fe29255456087633cadf24335a476e5b7f491f0176db034cf74077d66",
+      "input_sha256": "01cfbfd96cc80ad2a5cb37fe2e8cf8d614ba1e50c7b102d6bb3ad4b3a5baab8b"
+    },
+    {
+      "project_id": "QDG-PL-BALL-PAIR-after",
+      "candidate_id": "pl-ball-pair-cone",
+      "source_commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+      "roots": [
+        "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-after/informal.jsonl",
+      "informal_record_sha256": "94a76a8fe29255456087633cadf24335a476e5b7f491f0176db034cf74077d66",
+      "input_sha256": "8c2ab5e1e1eae70d55e6efbd12cfa40225ec649c82e03dd6a2ad0001f2060777"
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+      "candidate_id": "parallel-transport-pairing",
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "roots": [
+        "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/informal.jsonl",
+      "informal_record_sha256": "ac96bdf33dbd9cbbb37a787e9f6ec10f1dcda6f2e9c234b02f29d3d488000ac7",
+      "input_sha256": "f048faf510a133b6d9a1f4b52649ff9d8196d901aa420a8c7b673156825713fe"
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+      "candidate_id": "parallel-transport-pairing",
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "roots": [
+        "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-AFTER/informal.jsonl",
+      "informal_record_sha256": "ac96bdf33dbd9cbbb37a787e9f6ec10f1dcda6f2e9c234b02f29d3d488000ac7",
+      "input_sha256": "c7b4095a4a481cbe79053faa7772e43d85620b9cfcf795129518fda4ce15f4ab"
+    },
+    {
+      "project_id": "QDG-COMPACT-ISOTOPY-BEFORE",
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "source_commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/informal.jsonl",
+      "informal_record_sha256": "84e054c473b82606e14a4a142fadbc7d9e7e02714cfba96a276cc3afd08f349e",
+      "input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e"
+    },
+    {
+      "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "source_commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/informal.jsonl",
+      "informal_record_sha256": "84e054c473b82606e14a4a142fadbc7d9e7e02714cfba96a276cc3afd08f349e",
+      "input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097"
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-before",
+      "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundleData",
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/informal.jsonl",
+      "informal_record_sha256": "6c68787bf5fdb7127bdb2a2b465852f424cacb4d06755911241fb6997254834d",
+      "input_sha256": "fe106b23b34e327d0444cc6cb0fe0a3acfa51b5d1e3ecb8bb51261e9664065b2"
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-after",
+      "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-after/informal.jsonl",
+      "informal_record_sha256": "eac2221f1586ac344896fd1809bcc5019142151972d541b189e8dc7edd80d181",
+      "input_sha256": "ce1a34659cb8346d9ede159a30092bd30c5e741d1b50dd08f09221a485a21bcd"
+    },
+    {
+      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "source_commit": "06066269ebe3ca88e155a093c548ba9c70a1a0aa",
+      "roots": [
+        "GC.LongTime.Ch12.PointedModelsConverge_S13"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-AFTER/informal.jsonl",
+      "informal_record_sha256": "da31223e31e4e3b7c1c76fdd89ee7118ab77791d6a4d7176238f8e4c529d6ddc",
+      "input_sha256": "ea706d9d6637cd8d0ec24a03a5f378be35cb1be0713fea7e2dcfcb6ae1d78c48"
+    },
+    {
+      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "source_commit": "16948d295b94a4e8783a4cccacfd324974ed22e3",
+      "roots": [
+        "GC.LongTime.Ch12.PointedModelsConverge_S13"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/informal.jsonl",
+      "informal_record_sha256": "da31223e31e4e3b7c1c76fdd89ee7118ab77791d6a4d7176238f8e4c529d6ddc",
+      "input_sha256": "b3cffc90569a2e1a0ac3feca56f841a7c8739246ee35d5e1cd1c22f4a6eaa005"
+    }
+  ]
+}

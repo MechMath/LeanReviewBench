@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "method": "Independent namespace elaboration of exact pinned source declarations and original per-declaration section variables; full types compared by Lean.Meta.isDefEq, nonproof computational values compared by isDefEq. Theorem proofs erased.",
+  "declarations": [
+    "snK",
+    "modelDensity",
+    "modelBallVolume",
+    "model_polar_volume_identity"
+  ],
+  "source_slice_receipt": "../source-slice.json",
+  "original_4_32_1_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "formal_sha256": "89ead4a86eace18c858725cea58924cb34b9dcaca817ba25d879d74f9e6d4f3e",
+  "results": [
+    {
+      "module": "SourceContext",
+      "returncode": 0
+    },
+    {
+      "module": "Preservation",
+      "returncode": 0
+    }
+  ],
+  "roots": [
+    "MorganTianLib.model_polar_volume_identity"
+  ],
+  "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+  "graph_sha256": "96cc9c484feee6895d63dcb9774fe960ba07eecb4babe1a50112af9eb756ea8a",
+  "informal_sha256": "91b2ce77cbb2a25237ff31a45453ff671dad8ec3cc2a38e884266657442a2e7b",
+  "original_receipt_locator": "build/preparation/frenzymath/batch-02/false-repair-before/technical/preservation/receipt.json",
+  "original_receipt_sha256": "a3b29a2ad0e5f340116a670d1b12948274676d332337b54ccafa00a130c54aca"
+}

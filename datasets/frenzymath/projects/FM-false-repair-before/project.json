@@ -1,0 +1,59 @@
+{
+  "id": "FM-false-repair-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.model_polar_volume_identity",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+    "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1VolumeRemaining.lean",
+    "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/bb91a091f0b968f8bbe8d861e025a88d82b161be/formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1VolumeRemaining.lean"
+  },
+  "group_id": "frenzymath:FM-model-volume-false-repair",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [
+    "FM-false-repair-after"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Pinned upstream Apache-2.0 copy retained at ../../licenses/LICENSE.upstream.",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled-extracted-migrated-source-preserved; independent-target-scope-review-pending",
+  "formal": {
+    "file_count": 1,
+    "sha256": "a672c71347981f43c4e5cdcadb8d4f380ace862ead2160b2e0c33fe6f40f4cee",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "909a56f91e3f1f77133fb67b298c5aeccafc069815ed2b9d6bfb3875ebe668b4",
+  "review_status": "excluded_partial_development",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

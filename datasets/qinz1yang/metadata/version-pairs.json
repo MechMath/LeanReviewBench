@@ -1,0 +1,97 @@
+{
+  "source_batch": "qinz1yang",
+  "pairs": [
+    {
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "before_id": "QDG-POINTWISE-before",
+      "after_id": "QDG-POINTWISE-after",
+      "group_id": "qinz1yang:ROOT-POINTWISE-DERIVATIVE-FREE",
+      "independent_informal_bytes_identical": true,
+      "after_label": null,
+      "note": "Same independent target retained; no automatic aligned repair label.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "before_id": "QDG-LIONS-before",
+      "after_id": "QDG-LIONS-after",
+      "group_id": "qinz1yang:ROOT-LIONS-MAGENES-PROXY",
+      "independent_informal_bytes_identical": true,
+      "after_label": "misaligned",
+      "note": "Same independent target retained; no automatic aligned repair label.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "before_id": "QDG-SOBOLEV-before",
+      "after_id": "QDG-SOBOLEV-after",
+      "group_id": "qinz1yang:ROOT-SOBOLEV-VACUITY",
+      "independent_informal_bytes_identical": true,
+      "before_label": "misaligned",
+      "after_label": null,
+      "review_status": "agent_preliminary_pending_human",
+      "technical_qualification": "After compiled/extracted actual module support closure; declaration slicing/full support preservation pending.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+      "before_id": "QDG-CHART-PICARD-before",
+      "after_id": "QDG-CHART-PICARD-after",
+      "group_id": "qinz1yang:ROOT-CHART-PICARD-CONVENTION",
+      "independent_informal_bytes_identical": true,
+      "before_label": null,
+      "after_label": null,
+      "review_status": "requires_human_chart_convention_scope_resolution",
+      "root_namespace_correction": "Original screening omitted ODE; independently read full source namespace is preserved.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "pl-ball-pair-cone",
+      "before_id": "QDG-PL-BALL-PAIR-before",
+      "after_id": "QDG-PL-BALL-PAIR-after",
+      "group_id": "qinz1yang:pl-ball-pair-cone",
+      "independent_informal_bytes_identical": true,
+      "before_label": "misaligned",
+      "after_label": null,
+      "review_status": "agent_preliminary_pending_human",
+      "scope": "General PL ball-pair versus literal cone and homeomorphic-cone models; after not automatically aligned.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "parallel-transport-pairing",
+      "before_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+      "after_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+      "group_id": "QDG-PARALLEL-TRANSPORT",
+      "independent_informal_bytes_identical": true,
+      "note": "Explicit historical pair; successor is not automatically aligned.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "before_id": "QDG-COMPACT-ISOTOPY-BEFORE",
+      "after_id": "QDG-COMPACT-ISOTOPY-AFTER",
+      "group_id": "QDG-COMPACT-ISOTOPY",
+      "independent_informal_bytes_identical": true,
+      "note": "Explicit historical pair; successor is not automatically aligned.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "before_id": "QDG-TENSOR-BUNDLE-before",
+      "after_id": "QDG-TENSOR-BUNDLE-after",
+      "group_id": "qinz1yang:TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "independent_informal_bytes_identical": false,
+      "note": "Explicit historical pair; successor is not automatically aligned.",
+      "independent_informal_target_identical": true
+    },
+    {
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "before_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
+      "after_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
+      "group_id": "QDG-POINTED-MODELS-CONVERGENCE",
+      "independent_informal_target_identical": true,
+      "independent_informal_bytes_identical": true,
+      "note": "Explicit historical pair; successor is not automatically aligned."
+    }
+  ]
+}

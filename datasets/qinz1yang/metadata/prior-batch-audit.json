@@ -1,0 +1,74 @@
+{
+  "source_batch": "qinz1yang",
+  "families": 3,
+  "versions": 6,
+  "records": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "not_applicable_zero_local_nonproof_definitions",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "not_applicable_zero_local_nonproof_definitions",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "QDG-POINTWISE-after",
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "preliminary_label": null,
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "QDG-LIONS-after",
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "input_sha256": "dd0426d334748a8590160760f384fcb7959adb75768c17cb46d41f9b98ae9f94",
+      "declaration_slice": true,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "preliminary_label": "misaligned",
+      "human_adjudicated": false
+    },
+    {
+      "project_id": "QDG-SOBOLEV-after",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "input_sha256": "c9747fc2148beef07034b5389114ea82ca7587100490fe66b404e88d513f3c47",
+      "declaration_slice": false,
+      "recorded_proofs_erased": true,
+      "migrated_preservation": "partial_root_and_selected_norm_expressions_only",
+      "nonproof_preservation": "partial_selected_norm_expressions; all_support_declarations_pending",
+      "preliminary_label": null,
+      "human_adjudicated": false
+    }
+  ],
+  "audit_scope": "Persisted source/input hashes and receipts checked; no new Lean run. Sobolev-after support preservation remains partial."
+}

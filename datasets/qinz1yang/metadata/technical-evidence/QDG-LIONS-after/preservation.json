@@ -1,0 +1,26 @@
+{
+  "status": "passed_in_migrated_environment",
+  "method": "Original source helper declaration blocks and original root signature reconstructed in SourceReference namespace; independent-context root full-type/proof equality probe and ten helper-type/value rfl probes compiled.",
+  "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+  "root": "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace",
+  "root_full_type_preservation": "passed_lean_defeq",
+  "nonproof_definition_preservation": "passed_lean_rfl_on_timeMeasure_timeL2_timeH1_init_deriv_toFun_and_four_instances",
+  "instance_names": [
+    "instNormedAddCommGroup",
+    "instNormedSpaceReal",
+    "instInnerProductSpaceReal",
+    "instCompleteSpace"
+  ],
+  "instance_values": "Original inferInstanceAs expressions retained; no stubs",
+  "formal_sha256": "c053248a04952979e3ca27659dc9f19b4048e15cce9103451b3971f68556448e",
+  "source_context_sha256": "f92bcb6feb946b2d67e7300ec6f51ab73451711b629e90bb653e4620b34c0032",
+  "probe_sha256": "ef7b6a59b459ad9598b5024587887893eb5d68435c28300c786261b122c162a9",
+  "probe_log_sha256": "a462d06bfcc768b4efafd8d3e6f10a3dcab72cba3ae9fae9cdb5b49490e687b4",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "source_file_sha256": "950d37adec6ae888d5607d2203f417bd412b1fe7c9c8ccbbaa637baabf4b079d",
+  "source_file_hash_note": "This field identifies complete archived source file bytes; exact selected signature and helper snippets separately retained in technical/source-slice.json.",
+  "original_receipt_locator": "build/preparation/qinz1yang/lions-after/technical/preservation/receipt.json",
+  "original_receipt_sha256": "2d5c000a3bcb63f23f2c3da98fa5d9f84d871241576ee579585aa3c5da31257f"
+}

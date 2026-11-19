@@ -1,0 +1,167 @@
+{
+  "schema": "source-isolated-review-audit-1",
+  "source_batch": "qinz1yang",
+  "reviewed_at_utc": "2026-11-19T11:44:33.581381+00:00",
+  "review_status": "agent_independent_audit",
+  "registered_release_inputs": false,
+  "semantic_gold_certification": false,
+  "binary_labels_changed": false,
+  "cases": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "snapshot": {
+        "input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511",
+        "formal_tree_sha256": "391b132b1d7f7d4686f9704b8f6bee803b9240fd15d8c0ea28611c01da81aff2",
+        "main_file_sha256": "56c755aa7f62779831820bce9f80f141a143f8597ac4981b4575fa73995281c8",
+        "informal_jsonl_sha256": "4607903c13f344ba17c114852dc540b0e391d5c1666d189957539b0b494db708",
+        "project_json_sha256": "4505515b3d4c1f9665878c832368eae46b826d92106383dc392d3afb67ac1e47",
+        "technical_record": {
+          "project_id": "QDG-POINTWISE-before",
+          "input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511",
+          "formal_source_sha256": "391b132b1d7f7d4686f9704b8f6bee803b9240fd15d8c0ea28611c01da81aff2",
+          "roots": [
+            "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+          ],
+          "compilation": "passed",
+          "extraction": "passed",
+          "graph_sha256": "af9ec5a0a6faa5f0ccaf424a6029323864bffd8dd6fb2ff1bf96c321b8349a21",
+          "nodes": 25,
+          "edges": 24,
+          "local_nodes": 1,
+          "lean_toolchain": "leanprover/lean4:v4.34.1",
+          "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+          "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+          "migrated_source_preservation": "passed",
+          "nonproof_definition_preservation": "not_applicable_zero_local_nonproof_definitions",
+          "original_environment_preservation": "not_checked",
+          "original_proofs_certified": false,
+          "technical_receipt": "build/preparation/qinz1yang/pointwise-before/validation/receipt.json",
+          "technical_receipt_sha256": "9cf860282e453abeb8d6f236592ff84af6ed0908440a4e25bbe2708f781fb28e",
+          "preservation_receipt": "build/preparation/qinz1yang/pointwise-before/preservation/receipt.json",
+          "preservation_receipt_sha256": "6a31e9cdf630fc7673d7b999cace3e90f098c775964aed8f71c753aa0ecdcf97",
+          "graph_path": "build/preparation/qinz1yang/pointwise-before/validation/graph.json"
+        }
+      },
+      "hash_bindings_match": true,
+      "label": "misaligned",
+      "human_and_gold_flags_honest": true
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "snapshot": {
+        "input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
+        "formal_tree_sha256": "95c0e2fc485e01d684eb014ea305d56746d781dba8503cc9903d5b0b7b6ed440",
+        "main_file_sha256": "05fe994837b28f8f18124a139d69274962bdfc8d2b77077fc3216763ae3317bf",
+        "informal_jsonl_sha256": "3a5a18a65a650d9ccfb8925a83b0a05fa13921f15a0e2c9b69385bafea10e5ac",
+        "project_json_sha256": "dfec7263d35b9a81c98fb41a62e6454335b427af483e4252260ef4e7ed48fbe3",
+        "technical_record": {
+          "project_id": "QDG-LIONS-before",
+          "input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
+          "formal_source_sha256": "95c0e2fc485e01d684eb014ea305d56746d781dba8503cc9903d5b0b7b6ed440",
+          "roots": [
+            "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+          ],
+          "compilation": "passed",
+          "extraction": "passed",
+          "graph_sha256": "42d02d86916f3a254125ce79c6c6403404893a5d94a389f62d8c72b3ab52d993",
+          "nodes": 40,
+          "edges": 39,
+          "local_nodes": 1,
+          "lean_toolchain": "leanprover/lean4:v4.34.1",
+          "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+          "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+          "migrated_source_preservation": "passed",
+          "nonproof_definition_preservation": "not_applicable_zero_local_nonproof_definitions",
+          "original_environment_preservation": "not_checked",
+          "original_proofs_certified": false,
+          "technical_receipt": "build/preparation/qinz1yang/lions-before/validation/receipt.json",
+          "technical_receipt_sha256": "a1d2db3e8b4f97b6760079f691dbb0708fc3d569286d23ca2ed2dbd94f4c0ef7",
+          "preservation_receipt": "build/preparation/qinz1yang/lions-before/preservation/receipt.json",
+          "preservation_receipt_sha256": "2820ef4c2cd9bde1e4b7208339832c39ac28f0a19d9a65191db841b8a2ec58b1",
+          "graph_path": "build/preparation/qinz1yang/lions-before/validation/graph.json"
+        }
+      },
+      "hash_bindings_match": true,
+      "label": "misaligned",
+      "human_and_gold_flags_honest": true
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "snapshot": {
+        "input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
+        "formal_tree_sha256": "f8f76aeefac9c2c6662ff9f429b33033c44216a5648d3627ae11f0d96d0238bb",
+        "main_file_sha256": "9fd85198c524081e62a6e5a90c1d94dad997f1262a6d98b439c419ce7d7b1fab",
+        "informal_jsonl_sha256": "9dad8627ec025ab6339d041bd229faa0a4b2d505ec26621f603dc0e4c9670b1a",
+        "project_json_sha256": "75fd5f991be799045c2ca355dbc2727739f22a0b353d4f27d265375476223b36",
+        "technical_record": {
+          "project_id": "QDG-SOBOLEV-before",
+          "input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
+          "formal_source_sha256": "f8f76aeefac9c2c6662ff9f429b33033c44216a5648d3627ae11f0d96d0238bb",
+          "roots": [
+            "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+          ],
+          "compilation": "passed",
+          "extraction": "passed",
+          "graph_sha256": "ce20d897fe2c77363f11da20315b26b5cb44d7d2d34a3692277b309fdba4bb6f",
+          "nodes": 64,
+          "edges": 131,
+          "local_nodes": 4,
+          "lean_toolchain": "leanprover/lean4:v4.34.1",
+          "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+          "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+          "migrated_source_preservation": "passed",
+          "nonproof_definition_preservation": "passed_in_migrated_environment",
+          "original_environment_preservation": "not_checked",
+          "original_proofs_certified": false,
+          "technical_receipt": "build/preparation/qinz1yang/sobolev-before/technical/receipt.json",
+          "technical_receipt_sha256": "820d1c60ee44e77bcb8ff45855f2d63829a0b57c237a309e6d76644f5de4a4c8",
+          "preservation_receipt": "build/preparation/qinz1yang/sobolev-before/technical/preservation/receipt.json",
+          "preservation_receipt_sha256": "b30545d6dbef2b4df9bb21024bf785a6e398896444699ddf2a99a9751fb8bd85",
+          "graph_path": "build/preparation/qinz1yang/sobolev-before/technical/graph.json"
+        }
+      },
+      "hash_bindings_match": true,
+      "label": "misaligned",
+      "human_and_gold_flags_honest": true
+    }
+  ],
+  "checks": {
+    "offline_batch_checker": "passed on snapshot",
+    "input_formal_informal_hash_bindings": "all matched on snapshot",
+    "human_gold_flags": "all false/null, provisional status retained",
+    "original_environment_preservation": "all not_checked, explicitly distinguished from migrated-context preservation",
+    "material_hashes": "Downloaded source bytes matched retained source hashes; only this batch material paths considered."
+  },
+  "limitations": [
+    "Audit records a snapshot. Changes to Main.lean, informal.jsonl or preservation receipts require rebinding and rerunning checks.",
+    "Compilation/extraction and migrated-context defeq probes do not certify original compiler elaboration or semantic alignment.",
+    "No labels or release registry were changed by this audit."
+  ],
+  "source_separation": "Targets, group IDs, materials and labels reviewed within this source batch independently.",
+  "assessment": "three preliminary misaligned labels supported within explicitly narrowed informal scopes; no human admission implied",
+  "semantic_reviews": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "assessment": "preliminary_misaligned_supported",
+      "reason": "Actual derivative linkage absent. Independent Hunter forward derivative assertion is preserved as selected source scope; difference between a.e. source and universal pointwise formal is disclosed. Standalone no-sorry counterexample distinguishes mathematical falsity from historical elaboration checks."
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "assessment": "preliminary_misaligned_supported",
+      "reason": "Formal hExists=>hExists does not state trace into interpolation space. Joudioux AppendixA target is independent and appropriately specialized m1,j0 with dense embedding retained."
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "assessment": "preliminary_misaligned_supported",
+      "reason": "Formal conclusion merely exists C>=0, so it does not express even independently sourced C0 representative/norm-bound component. Full Cm not claimed, norm-equivalence unresolved but irrelevant to missing bound."
+    }
+  ],
+  "pending_adjudication": [
+    "Human acceptance of source target scope for each candidate; no repaired after labels.",
+    "Pointwise: maintain forward-implication selected scope and avoid portraying Hunter a.e. theorem as an original everywhere endpoint theorem.",
+    "Lions annotation scope sentence still mentions old receipt fields not_checked although migrated_source_preservation now passed. These concern different receipt levels but wording should be clarified on next coordinator update.",
+    "Qinz historical source license scope remains pending; staging does not imply redistributable release admission."
+  ],
+  "snapshot_superseded_by_new_version_preparation": true,
+  "note_after_audit": "Additional after versions were prepared and source-context repairs were applied after this audit. This audit describes its original snapshot only; current hashes and scope states are in technical-validation.json, provisional-labels.jsonl and pending-scope-reviews.json. Re-run source-batch checker for current state."
+}

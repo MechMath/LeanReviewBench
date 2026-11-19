@@ -1,0 +1,100 @@
+{
+  "status": "passed_migrated_source_context_with_verified_support_reuse",
+  "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+  "roots": [
+    "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+  ],
+  "direct_new_declarations": [
+    "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+  ],
+  "direct_check": "Preservation.lean independently re-elaborates pinned source roots/defs with exact original section variables; Lean.Meta.isDefEq compares full types and nonproof definition values.",
+  "required_local_nonproof_constants": 19,
+  "coverage": [
+    {
+      "declaration": "MorganTianLib.RiemannianMetric",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.IsRiemannianDist",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.IsMinimizingUpTo",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.expMapGlobal",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "MorganTianLib.globalGeodesic",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.RiemannianMetric.metricInner",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Geodesic.chartReading",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Geodesic.IsGeodesic",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Geodesic.HasGeodesicEquationAt",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Geodesic.chartLocalCurve",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Geodesic.chartChristoffelContraction",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.chartChristoffel",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Geodesic.chartCoord",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Tensor.chartInvGramMatrix",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.partialDeriv",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.chartGramOnE",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Tensor.chartGramMatrix",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    },
+    {
+      "declaration": "Riemannian.Tensor.chartBasisVecFiber",
+      "method": "exact_previously_checked_support_and_samepin_raw_source_reverification"
+    }
+  ],
+  "unchecked_required_local_nonproof_constants": [],
+  "support_main_prefix_sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+  "support_source_reverification": "../samepin-support-reuse.json",
+  "support_qualification": "All actual source files supplying selected support constants re-fetched at154ca3ec and byte equal to checked source. Differing BG sources unused by these roots. Weak-only hessian/laplacian source is also unchanged wholefile at pin. Prior fulltype/value and nominal identity policy retained.",
+  "original_4_32_1_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "formal_sha256": "e3bfc6e36f8cdea5c38d3b97e1cea4ab27024e3adf016594e360ed1361617d9e",
+  "graph_sha256": "8c32bcb098c2db4f57794d46d380b0dd87e3b4b789d1f505251cf9fcb337c232",
+  "original_receipt_locator": "build/preparation/frenzymath/retained-lean/exp-local-before/technical/preservation/receipt.json",
+  "original_receipt_sha256": "8dd7fde8e186da8121f85fa64e8877e06a889bd8fa3c5c4cdd2e3661e360b25c"
+}

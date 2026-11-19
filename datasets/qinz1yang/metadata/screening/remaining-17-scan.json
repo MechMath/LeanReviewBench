@@ -1,0 +1,972 @@
+{
+  "schema": "source-only-remaining-screening-1",
+  "source_batch": "qinz1yang",
+  "reviewed_at": "2026-11-19",
+  "status": "source_only_scan_complete_lean_paused",
+  "selection_unit": "historical_candidate_family_not_individual_before_after_input",
+  "counts": {
+    "defer": 7,
+    "exclude": 2,
+    "retain": 1
+  },
+  "policy": {
+    "complete_boundary_cases_eligible": true,
+    "partial_development_excluded": true,
+    "proof_sorry_alone_excludes": false,
+    "forecasts_are_assigned_labels": false,
+    "after_is_automatically_positive": false
+  },
+  "records": [
+    {
+      "candidate_id": "per-direction-bianchi-false",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-commits/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "per-direction-bianchi-false",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "7cb75f723c39e930722f3e8571f7480eb137c543",
+          "after_commit": "c0e7f935976890785daf11c5fb59bfefd75e9ca5",
+          "files": [
+            "DifferentialGeometry/Geometry/Curvature/CovGradRoughLap/ParsevalSevenTermBochnerFold.lean"
+          ]
+        },
+        "roots": [
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Integral.Connection.threeTermPerB_eq_crossPairingSum",
+            "visibility": "private; Lean generated private name not resolved without running Lean",
+            "file": "DifferentialGeometry/Geometry/Curvature/CovGradRoughLap/ParsevalSevenTermBochnerFold.lean",
+            "line": 5716
+          }
+        ],
+        "decision": "defer_source",
+        "suggested_label": "boundary",
+        "prediction_confidence": "limited",
+        "independent_informal": {
+          "binding_status": "related_not_bound",
+          "title": "Lectures on the Ricci Flow",
+          "author": "Peter Topping",
+          "url": "https://warwick.ac.uk/fac/sci/maths/people/staff/peter_topping/rfnotes/topping_rf_mar06.pdf",
+          "material_path": "build/preparation/qinz1yang/batch-02-commits/materials/topping-2006.pdf",
+          "sha256": "1d0ad8a647a384451f70f6a35a06dac776db617ef4022970e21cbb58faf830dd",
+          "locator": "Section2.1, eq(2.1.9), printed27/PDF28",
+          "text": "Contracting the second Bianchi identity yields divergence of Ricci plus one half the differential of scalar curvature equal to zero.",
+          "scope": "This does not specify the project’s fixed-direction three-integral curvature/Hessian identity with arbitrary Parseval frame families.",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "source_completeness": {
+          "judgment": "written_complete_custom_analytic_assertion",
+          "evidence": [
+            "Before lines5716–5750 contain the complete per-b integral equality, including smooth Parseval family hypotheses.",
+            "Preceding source explicitly marks the core DEFERRED genuine-math content and describes a planned moving-frame derivation. This is an open proof of a concrete formula, not by itself an empty placeholder or proof that the statement is incomplete.",
+            "After replaces the per-direction claim with frame-summed-integrated claims and comments that no per-b precursor is available. Independent exact formula/counterexample is still required."
+          ]
+        },
+        "mathematical_reason": "The before assertion is per fixed frame index b, while the successor uses a full frame-summed Bianchi/IBP expression. Upstream reports frame-variance refutations, but those numerical results have not been independently reproduced and the ordinary contracted Bianchi identity is not an exact target for this custom integrated formula. Defer for independent derivation or matching text; do not label false from the patch commentary.",
+        "searches": [
+          "three term second Bianchi Parseval integral",
+          "threeTermPerB_eq_crossPairingSum exact-name search",
+          "Bochner second Bianchi covariant tensor formula notes PDF"
+        ],
+        "evidence_files": [
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/per-direction-bianchi-false/source/after.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/per-direction-bianchi-false/source/before.lean"
+        ],
+        "prepared_versions": [],
+        "lean_operations_performed": false,
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "independent_target_bound": false,
+        "status": "defer_source",
+        "decision_zh": "暂缓",
+        "source_inventory": [
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/per-direction-bianchi-false/source/after.lean",
+            "sha256": "22eb09f3eefd8c1aa2d0395309b4b3ce55593296d503f5f5b0de0d55528548d8",
+            "bytes": 396903
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/per-direction-bianchi-false/source/before.lean",
+            "sha256": "54e722d71474ce80a5cf09302d6e569eb8778e89d746a30f9bd6453c580788b3",
+            "bytes": 392168
+          }
+        ],
+        "source_urls": {
+          "before": "https://github.com/qinz1yang/differential-geometry/blob/7cb75f723c39e930722f3e8571f7480eb137c543/DifferentialGeometry/Geometry/Curvature/CovGradRoughLap/ParsevalSevenTermBochnerFold.lean",
+          "after": "https://github.com/qinz1yang/differential-geometry/blob/c0e7f935976890785daf11c5fb59bfefd75e9ca5/DifferentialGeometry/Geometry/Curvature/CovGradRoughLap/ParsevalSevenTermBochnerFold.lean"
+        }
+      }
+    },
+    {
+      "candidate_id": "rank-incoherent-operator-factorization",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-commits/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "rank-incoherent-operator-factorization",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "adc598d972ab96472ac3f052bc5d8302ed31fe76",
+          "after_commit": "dd4681ce1abaf52ba89d4f46a1a65b4d295f7b88",
+          "files": [
+            "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/CurvatureContractionLeibnizGridConstruction.lean",
+            "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/IteratedDiffOpProportionalBound.lean",
+            "DifferentialGeometry/Geometry/Connection/TensorNabla/OperatorFieldEvaluationLeibniz.lean",
+            "DifferentialGeometry/Geometry/Curvature/CovGradRoughLap/FrozenFramePureRCurvatureTower.lean"
+          ]
+        },
+        "roots": [
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Integral.Connection.op_perOrder_factorisation_continuous",
+            "file": "DifferentialGeometry/Geometry/Connection/TensorNabla/OperatorFieldEvaluationLeibniz.lean",
+            "line": 285
+          },
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Integral.Connection.exists_proportional_recCurvDiffOp_perOrderEnvelope_via_factorisation",
+            "file": "DifferentialGeometry/Geometry/Connection/TensorNabla/OperatorFieldEvaluationLeibniz.lean",
+            "line": 320
+          },
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Integral.Connection.exists_proportional_recCurvDiffOp_perOrderEnvelope",
+            "file": "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/IteratedDiffOpProportionalBound.lean",
+            "locator": "theorem of this name; source acquired"
+          }
+        ],
+        "decision": "defer_source",
+        "suggested_label": "boundary",
+        "prediction_confidence": "high_mathematical_obstruction_but_target_unbound",
+        "independent_informal": {
+          "binding_status": "related_not_bound",
+          "title": "Lectures on Differential Geometry I",
+          "author": "Chris Wendl",
+          "url": "https://www.mathematik.hu-berlin.de/~wendl/Winter2024/Diffgeo1/lecturenotes.pdf",
+          "locator": "Section21.3.3, eq(21.8)",
+          "text": "The induced connection on tensor products obeys the Leibniz rule, and is characterized by the tensor-product parallel transport.",
+          "scope": "This does not assert fibrewise factorization of an arbitrary rank-indexed recursive operator with merely order-zero linearity and locality. Exact independently stated factorization target not verified.",
+          "sha256": null,
+          "material_path": null
+        },
+        "source_completeness": {
+          "judgment": "complete_assertion_not_automatically_excluded",
+          "evidence": [
+            "IsOrderZeroCurvFactor before lines101–110 has complete linear and value-local fields for each r, without a relation across r.",
+            "The factorization theorem before lines285–299 has complete quantifiers, recurrence, hbase and fibrewise CLM/envelope conclusion.",
+            "Its proof is posited and the comments describe missing Hom-connection/smoothness support, but that proof status alone does not identify an intentionally empty interface.",
+            "After deletes the abstract theorem and documents the op(0,0)=0,op(0,1)=id counterexample; this upstream report was not used as independent informal text."
+          ]
+        },
+        "mathematical_reason": "The written order-zero fingerprint constrains each rank independently, while the recursion mixes adjacent ranks. A family with op(0,0)=0 and op(0,1)=id forces op(1,0)f=-df, so the claimed dependence only on f(x) fails at a zero of f with df(x)≠0. This is a concrete mathematical obstruction to a complete asserted theorem, not an argument from sorry. However the source-independent generalized factorization target matching this unusual abstract operator family has not been located; ordinary tensor Leibniz is only related evidence. Retain the mathematical finding but defer dataset extraction until a suitable independent target is bound.",
+        "searches": [
+          "covariant derivative Leibniz rule tensor fields lecture notes PDF",
+          "op_perOrder_factorisation_continuous exact-name search",
+          "Leibniz formula for covariant derivative vector bundle bounds"
+        ],
+        "evidence_files": [
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after-FrozenFramePureRCurvatureTower.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after-IteratedDiffOpProportionalBound.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after-OperatorFieldEvaluationLeibniz.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before-FrozenFramePureRCurvatureTower.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before-IteratedDiffOpProportionalBound.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before-OperatorFieldEvaluationLeibniz.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before.lean"
+        ],
+        "prepared_versions": [],
+        "lean_operations_performed": false,
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "counterexample_status": "Source-level mathematical derivation only; no Lean run and no independent full generalized-target text acquired.",
+        "independent_target_bound": false,
+        "status": "defer_source",
+        "decision_zh": "暂缓",
+        "source_inventory": [
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after-FrozenFramePureRCurvatureTower.lean",
+            "sha256": "f2886a5c1071262b51ef15c4f08652be4449b1affb581d27fefdc162f5af36cd",
+            "bytes": 97226
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after-IteratedDiffOpProportionalBound.lean",
+            "sha256": "17f855bcaf8b945e370fee93125c76fa427f884b3b486c4cce1f788b2f9bf2b5",
+            "bytes": 7568
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after-OperatorFieldEvaluationLeibniz.lean",
+            "sha256": "9bc835af94b6160591bf7e29ddf5a8ae3a2cda0466841d5e2f907114a0770ddd",
+            "bytes": 14749
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/after.lean",
+            "sha256": "cccf6933bb867ef7966b3569a8e197eb54c4bf18fd52b46ddae0edb440e93be7",
+            "bytes": 42171
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before-FrozenFramePureRCurvatureTower.lean",
+            "sha256": "a435f6cbaf3a2869fc4e19b4605acd848132d85033eb8b92ec89c65f470682a2",
+            "bytes": 95733
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before-IteratedDiffOpProportionalBound.lean",
+            "sha256": "aaaba7585816d7cc99da820291739aaee334c889ea4805467a8307ef5ce6d72e",
+            "bytes": 23785
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before-OperatorFieldEvaluationLeibniz.lean",
+            "sha256": "49ec07d1bc77ec3dcc347ed50525cc770f5398b8da25ce6eaca7b1584dc160f8",
+            "bytes": 24221
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/rank-incoherent-operator-factorization/source/before.lean",
+            "sha256": "1a5166e9973e759c397110567e85d6f5955b9c7c7a41c2151f9b49f95563f93d",
+            "bytes": 38197
+          }
+        ],
+        "source_urls": {
+          "before": "https://github.com/qinz1yang/differential-geometry/blob/adc598d972ab96472ac3f052bc5d8302ed31fe76/DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/CurvatureContractionLeibnizGridConstruction.lean",
+          "after": "https://github.com/qinz1yang/differential-geometry/blob/dd4681ce1abaf52ba89d4f46a1a65b4d295f7b88/DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/CurvatureContractionLeibnizGridConstruction.lean"
+        }
+      }
+    },
+    {
+      "candidate_id": "wrong-arm-zero-tame-subject",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-commits/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "wrong-arm-zero-tame-subject",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "9576e9f627318b3cf96fc48456ac8d513e1d0369",
+          "after_commit": "effcf3592dd67f9c526b0882bd043fa6b9a1dbe8",
+          "files": [
+            "DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmAppCc.lean",
+            "DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmCorrectionFieldTameEnvelope.lean"
+          ]
+        },
+        "roots": [
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.corrFieldDataSpec",
+            "file": "DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmAppCc.lean",
+            "line": 2799
+          },
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.exists_corrArm0Field_realizedFam_jetL2_tameEnvelope",
+            "file": "DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmCorrectionFieldTameEnvelope.lean",
+            "line": 394
+          }
+        ],
+        "decision": "exclude_partial_development",
+        "suggested_label": "boundary",
+        "prediction_confidence": "limited",
+        "independent_informal": {
+          "binding_status": "related_not_bound",
+          "title": "Lectures on the Ricci Flow",
+          "author": "Peter Topping",
+          "url": "https://warwick.ac.uk/fac/sci/maths/people/staff/peter_topping/rfnotes/topping_rf_mar06.pdf",
+          "material_path": "build/preparation/qinz1yang/batch-02-commits/materials/topping-2006.pdf",
+          "sha256": "1d0ad8a647a384451f70f6a35a06dac776db617ef4022970e21cbb58faf830dd",
+          "locator": "March9,2006, Proposition2.3.7 and eqs(2.3.6)–(2.3.10), printed30–31/PDF31–32",
+          "text": "The derivative of Ricci under a smooth metric variation h is expressed by the Lichnerowicz Laplacian and a Lie derivative involving the divergence of the trace-reversed variation. The Lichnerowicz operator includes explicit Ricci and Riemann curvature contractions.",
+          "scope": "Related primary target only: project-specific realized nonlinear metric paths, chosen coefficient families and all-order tame windows are not specified by this proposition.",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "source_completeness": {
+          "judgment": "explicitly_provisional_fork_target",
+          "evidence": [
+            "Before RicciThreeArmCorrectionFieldTameEnvelope lines384–393 explicitly calls this DEFERRED INPUT, fork-gated, says adjudication is a separate fork probe, and records sorry-first corr-region design.",
+            "The claimed i+2 window depends on unestablished cancellation between two pieces each with i+3 loss.",
+            "The full corrFieldDataSpec value is written, but its coefficient-family realization is the exact gated construction being designed; exclusion is based on this explicit status and unmatched target, not a sorry count."
+          ]
+        },
+        "mathematical_reason": "Before corrFieldDataSpec and the arm-zero primitive ask an i+2 tame window for the correction field alone. After changes the bounded subject to a corrected combination including +(3/2)RiemannCoeff−CurvCoeff. The all-order cancellation target was explicitly fork-gated and under adjudication, rather than a completed independently sourced theorem. Topping’s first variation does not specify this correction, constants, or Sobolev window. Exclude this intentionally provisional construction from this wave; keep evidence for future target acquisition.",
+        "searches": [
+          "linearized Ricci tame correction coefficient estimate",
+          "RicciThreeArmCorrectionFieldTameEnvelope exact-name search",
+          "Topping Proposition2.3.7 independently read"
+        ],
+        "evidence_files": [
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/after-RicciThreeArmCorrectionFieldTameEnvelope.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/after.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/before-RicciThreeArmCorrectionFieldTameEnvelope.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/before.lean"
+        ],
+        "prepared_versions": [],
+        "lean_operations_performed": false,
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "independent_target_bound": false,
+        "status": "exclude_partial_development",
+        "decision_zh": "排除",
+        "source_inventory": [
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/after-RicciThreeArmCorrectionFieldTameEnvelope.lean",
+            "sha256": "de8997202834b11742598b9591767708db0f9b69010fd9e9b7767451d1d6ce78",
+            "bytes": 24946
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/after.lean",
+            "sha256": "87bea866ae2f5efbde0119f50f9433d1651ee79d8ddcd2ff27814cb56e4f6ceb",
+            "bytes": 282998
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/before-RicciThreeArmCorrectionFieldTameEnvelope.lean",
+            "sha256": "af84dbdc4fa4a39159719167417851e6e0283f722011cae1ddc4f8708fc20917",
+            "bytes": 24000
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-arm-zero-tame-subject/source/before.lean",
+            "sha256": "818b435f69646c413f2d14a06d6e497e82a9cec64ae6bc0ce1ffb522a67b91e5",
+            "bytes": 282719
+          }
+        ],
+        "source_urls": {
+          "before": "https://github.com/qinz1yang/differential-geometry/blob/9576e9f627318b3cf96fc48456ac8d513e1d0369/DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmAppCc.lean",
+          "after": "https://github.com/qinz1yang/differential-geometry/blob/effcf3592dd67f9c526b0882bd043fa6b9a1dbe8/DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmAppCc.lean"
+        }
+      }
+    },
+    {
+      "candidate_id": "wrong-concrete-linearized-ricci-coefficient",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-commits/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "wrong-concrete-linearized-ricci-coefficient",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "c2867a06cb6744310e56e44b0a533c231569c7fd",
+          "after_commit": "441c1abf919959330c47601234e4944644bd89af",
+          "files": [
+            "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/RicciDeTurckRicciArm.lean"
+          ]
+        },
+        "roots": [
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.deriv_realizedDeTurckRicciChartSum_eq_riemann_appCc_pointwise",
+            "file": "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/RicciDeTurckRicciArm.lean",
+            "line": 3647
+          },
+          {
+            "version": "after",
+            "name": "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.deriv_realizedDeTurckRicciChartSum_eq_riemann_appCc_pointwise",
+            "file": "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/RicciDeTurckRicciArm.lean",
+            "locator": "replacement theorem with existential smooth coefficient families"
+          }
+        ],
+        "decision": "defer_source",
+        "suggested_label": "boundary",
+        "prediction_confidence": "limited",
+        "independent_informal": {
+          "binding_status": "related_not_bound",
+          "title": "Lectures on the Ricci Flow",
+          "author": "Peter Topping",
+          "url": "https://warwick.ac.uk/fac/sci/maths/people/staff/peter_topping/rfnotes/topping_rf_mar06.pdf",
+          "material_path": "build/preparation/qinz1yang/batch-02-commits/materials/topping-2006.pdf",
+          "sha256": "1d0ad8a647a384451f70f6a35a06dac776db617ef4022970e21cbb58faf830dd",
+          "locator": "March9,2006, Proposition2.3.7 and eqs(2.3.6)–(2.3.10), printed30–31/PDF31–32",
+          "text": "The derivative of Ricci under a smooth metric variation h is expressed by the Lichnerowicz Laplacian and a Lie derivative involving the divergence of the trace-reversed variation. The Lichnerowicz operator includes explicit Ricci and Riemann curvature contractions.",
+          "scope": "Related primary target only: project-specific realized nonlinear metric paths, chosen coefficient families and all-order tame windows are not specified by this proposition.",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "source_completeness": {
+          "judgment": "complete_assertion_coefficient_scope_unresolved",
+          "evidence": [
+            "Before lines3647–3671 contain a complete derivative equality with all metric/path/bound assumptions and specific computational coefficient terms.",
+            "Source has a surrounding unfinished coefficient-construction pipeline, but this fact alone does not prove the selected explicit equality was meant as a disposable placeholder.",
+            "The successor only changes the statement to existential coefficient families; neither sorry presence nor repair direction determines a label."
+          ]
+        },
+        "mathematical_reason": "Before assigns the path derivative specific symmAbsorbedOrder0RiemannCoeff and ricciArmOrder2Coeff and no order-one arm. After weakens this to existential coefficient fields. Topping’s Ricci first variation is relevant but does not identify these chosen fields, the nonlinear realized path or its background conventions; no independently verified coefficient comparison or counterexample yet establishes the precise mismatch. Complete assertion can remain a boundary candidate, but independent exact target binding is insufficient for retention now.",
+        "searches": [
+          "Ricci DeTurck linearization coefficient background",
+          "linearized Ricci tame correction coefficient estimate",
+          "Topping Proposition2.3.7 and Lichnerowicz curvature contractions independently read"
+        ],
+        "evidence_files": [
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-concrete-linearized-ricci-coefficient/source/after.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-concrete-linearized-ricci-coefficient/source/before.lean"
+        ],
+        "prepared_versions": [],
+        "lean_operations_performed": false,
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "independent_target_bound": false,
+        "status": "defer_source",
+        "decision_zh": "暂缓",
+        "source_inventory": [
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-concrete-linearized-ricci-coefficient/source/after.lean",
+            "sha256": "ddad5be5a8b64361c2857812a830b8c4311b77108435887d5664838be70d7d50",
+            "bytes": 267375
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/wrong-concrete-linearized-ricci-coefficient/source/before.lean",
+            "sha256": "6240e16c4d4881a4e30bc68cad888f150dd71137e0467ed2b25e5556d920ed59",
+            "bytes": 267882
+          }
+        ],
+        "source_urls": {
+          "before": "https://github.com/qinz1yang/differential-geometry/blob/c2867a06cb6744310e56e44b0a533c231569c7fd/DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/RicciDeTurckRicciArm.lean",
+          "after": "https://github.com/qinz1yang/differential-geometry/blob/441c1abf919959330c47601234e4944644bd89af/DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/RicciDeTurckRicciArm.lean"
+        }
+      }
+    },
+    {
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "boundary"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-commits/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "compact-vector-space-isotopy-vacuity",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+          "after_commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+          "files": [
+            "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean"
+          ]
+        },
+        "roots": [
+          {
+            "version": "before",
+            "name": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
+            "file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean",
+            "line": 142
+          },
+          {
+            "version": "after",
+            "name": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
+            "file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean",
+            "line": 233
+          },
+          {
+            "version": "after_new_stronger_root",
+            "name": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.exists_compact_isotopy_of_smooth_loop_family",
+            "file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean",
+            "line": 140
+          }
+        ],
+        "decision": "retain",
+        "suggested_label": "misaligned",
+        "prediction_confidence": "high_for_before_scope",
+        "independent_informal": {
+          "binding_status": "bound_specialization",
+          "title": "Manifolds",
+          "author": "Bruno Martelli",
+          "url": "https://people.dm.unipi.it/martelli/didattica/matematica/2020/Manifolds.pdf",
+          "material_path": "build/preparation/qinz1yang/batch-02-commits/materials/martelli-manifolds.pdf",
+          "sha256": "05496eb8347cb39347f08d348ac243664d19732575c55a69954530c55280d124",
+          "locator": "February5,2020 edition, Theorem5.3.3 and proof, printed120–121 / PDF126–127",
+          "text": "An isotopy of embeddings of a compact source manifold into a smooth target extends to an ambient isotopy of the target. The proof extends the velocity field from the compact traced image and makes it vanish outside a compact neighborhood. Compactness is required of the source, not of the ambient manifold.",
+          "scope": "Specialize the compact source to the circle and the target to a finite-dimensional real vector space. The Lean before theorem is a local-in-time conclusion, so bind that restriction of the general extension result, not every stronger uniform-support assertion of the new successor.",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "source_completeness": {
+          "judgment": "complete_theorem_scope_error",
+          "evidence": [
+            "Before lines137–142 enter ModelSpaceHeadline and explicitly introduce [CompactSpace E] [Nonempty E] [SigmaCompactSpace E].",
+            "Before lines142–162 provide the full local ambient-isotopy assertion and derive it from the velocity-extension theorem; no unfinished placeholder target is used to identify this binder mismatch.",
+            "After removes those ambient section assumptions and supplies exists_compact_isotopy_of_smooth_loop_family with joint forward/inverse smoothness and uniform compact support."
+          ]
+        },
+        "mathematical_reason": "Before imposes [CompactSpace E] on a finite-dimensional real normed vector space used as ambient model. Such a space is compact only in dimension zero; in that case an injective embedded circle is impossible. The hypotheses make the intended circle-isotopy theorem vacuous, rather than cover the independent theorem’s valid Euclidean ambient examples. After removes the ambient compactness binder and supplies an actual compactly supported isotopy construction. After is boundary pending source-scope and full definition audit, not automatically aligned.",
+        "searches": [
+          "site:math.ucr.edu isotopy extension compact smooth manifold unbounded",
+          "site:math.stanford.edu isotopy extension compact PDF",
+          "Existing acquired Martelli2020 Theorem5.3.3 and proof independently reread"
+        ],
+        "evidence_files": [
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/compact-vector-space-isotopy-vacuity/source/after.lean",
+          "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/compact-vector-space-isotopy-vacuity/source/before.lean"
+        ],
+        "prepared_versions": [],
+        "lean_operations_performed": false,
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "version_suggested_labels": {
+          "before": "misaligned",
+          "after": "boundary"
+        },
+        "independent_target_bound": true,
+        "status": "retain",
+        "decision_zh": "保留",
+        "source_inventory": [
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/compact-vector-space-isotopy-vacuity/source/after.lean",
+            "sha256": "4101c3b871586fde349df9c83072c2179adb715452ee85cd9bc7ee514f4ca237",
+            "bytes": 15419
+          },
+          {
+            "path": "/home/reed/workspace/code/MechAlignWork/LeanReviewBench-release/build/preparation/qinz1yang/remaining-17-commits/compact-vector-space-isotopy-vacuity/source/before.lean",
+            "sha256": "1091a485a46d0c2a30f8335238b54f6681d5052eb68cb51e4a349d0901fba237",
+            "bytes": 10144
+          }
+        ],
+        "source_urls": {
+          "before": "https://github.com/qinz1yang/differential-geometry/blob/1ea702a7b5a293b667973f91476dda907dbc30c2/DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean",
+          "after": "https://github.com/qinz1yang/differential-geometry/blob/01cae4c7e0ee66f079c18179b01a2295ad5604fd/DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean"
+        }
+      }
+    },
+    {
+      "candidate_id": "TS-PR-RAW-SECTOR",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "undetermined"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-prs/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "TS-PR-RAW-SECTOR",
+        "decision": "defer",
+        "reason": "The two before roots state complete substantive coefficient decompositions, but act on raw tensor perturbations while metric realization uses their symmetrization. This is a credible false-sector formulation lead; independently read metric perturbation sources require symmetric h, yet they do not supply these exact coefficient-family/uniform-jet estimates. Defer for an independent complete target or justified corollary; deletion does not count as a repaired positive.",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "85f37b7a25092765bb793fb4d9704a91e2783b5e",
+          "after_commit": "9dcee19f29562c1fdd8ba22d85e57b07b9655c18",
+          "file": "DifferentialGeometry/Analysis/Spectral/Intrinsic/DeTurck/SobolevNonlinearityExistence.lean",
+          "files": [
+            "DifferentialGeometry/Analysis/Spectral/Intrinsic/DeTurck/SobolevNonlinearityExistence.lean",
+            "DifferentialGeometry/Analysis/Spectral/Intrinsic/DeTurck/DeTurckRemainderPrincipalArmOpNorm.lean"
+          ],
+          "before_url": "https://github.com/qinz1yang/differential-geometry/tree/85f37b7a25092765bb793fb4d9704a91e2783b5e",
+          "after_url": "https://github.com/qinz1yang/differential-geometry/commit/9dcee19f29562c1fdd8ba22d85e57b07b9655c18"
+        },
+        "roots": [
+          "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.deTurckSmoothRemainderDiff_threeArm_coeffC0_jetL2_fibreWeighted_ballUniform",
+          "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.exists_deTurckSmoothRemainderDiff_sub_principalCometricArm_lowerArmAppCc_coeffJet"
+        ],
+        "completeness_evidence": [
+          "SobolevNonlinearityExistence before lines1584–1612 explicitly states a three-arm identity and all C0/jetL2 coefficient windows; neither result is a True shell.",
+          "DeTurckRemainderPrincipalArmOpNorm before lines332–365 explicitly states two lower-arm coefficients after subtraction of a principal-cometric arm and controls every coefficient derivative order.",
+          "Both full mathematical telescopes end in sorry, which is proof incompleteness and does not by itself disqualify them.",
+          "Pinned after patch deletes these roots and consumer paths. The inspected exact after SobolevNonlinearityExistence source no longer contains the three-arm root; no aligned after statement is invented."
+        ],
+        "independent_informal": null,
+        "source_binding_status": "not_bound_exact_candidate_target",
+        "independent_sources_consulted": [
+          {
+            "material_path": "build/preparation/qinz1yang/batch-02-prs/materials/yang-deturck.pdf",
+            "sha256": "f76a776cf08654812d55d8653f82f4027a2ea86c056a54eeb69ff1864d5933ec",
+            "url": "https://math.nyu.edu/~yangd/papers/deturck_trick.pdf",
+            "title": "Deane Yang, DeTurck’s trick for the prescribed Ricci equation",
+            "version": "23January2016, revised24November2023",
+            "locator": "p1 equations1–3",
+            "text": "Perturbing a Riemannian metric is formulated with a symmetric two-tensor h. The coordinate Ricci equation has second derivatives of h and lower-order terms.",
+            "scope_relation": "Establishes symmetric metric-perturbation sector, not the project-specific existential coefficient jet/fibre window bounds.",
+            "text_kind": "independent original source paraphrase",
+            "binding_status": "background_only_not_exact_candidate_target"
+          },
+          {
+            "material_path": "build/preparation/qinz1yang/batch-02-prs/materials/calegari-ricci.pdf",
+            "sha256": "3c0a708c3fcd4a2a35223698e13d39f715a155b7537f9d333bfaf67d63d1f90c",
+            "url": "https://math.uchicago.edu/~dannyc/courses/ricci_2019/ricci_flow.pdf",
+            "title": "Danny Calegari, Chapter7 Ricci Flow",
+            "version": "Author chapter dated8November2023, based on2019course",
+            "locator": "§3.4 printed/PDFpp22–23",
+            "text": "Ricci linearization has a rough-Laplacian principal term, derivative-of-divergence gauge terms, and lower-order curvature terms. Adding the DeTurck Lie derivative corrects the principal symbol.",
+            "scope_relation": "Gives intrinsic Ricci/DeTurck linearization structure, not the exact arm0 family-curvature roster, three-arm decomposition or uniform jet estimates.",
+            "text_kind": "independent original source paraphrase",
+            "binding_status": "background_only_not_exact_candidate_target"
+          }
+        ],
+        "suggested_label": {
+          "before": "misaligned",
+          "after": "undetermined"
+        },
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "assigned_label": null,
+        "prepared_versions": [],
+        "lean_operations": 0,
+        "evidence_files": [
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-after.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-before.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-commit.json",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root-resolution.json",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root1.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root2.lean",
+          "build/preparation/qinz1yang/remaining-17-prs/evidence/rawsector-three-arm-before.lean",
+          "build/preparation/qinz1yang/remaining-17-prs/evidence/rawsector-three-arm-after.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root1.lean"
+        ],
+        "after_status": "selected_roots_deleted_no_repaired_successor",
+        "true_error_vs_incomplete": "complete_statement_credible_mathematical_defect_independent_scope_unresolved",
+        "extraction_recommendation": "defer_independent_target",
+        "source_evidence_hashes": {
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-after.lean": "626a7e71038e0bab017aa2f3b5384820b004bb4dae0d1095c042fab6eb64db3b",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-before.lean": "98177a11a9ac727cc9583e236ee884af79e4c8597893ec64687a1813ab3f2c30",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-commit.json": "3c6737a0387fd6374061ef49c9cb7eccf125193bedb067ea24348d8875f22af3",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root-resolution.json": "5c86b59bda306cc58921281bf41a6c5f003de04300699a5f483358f1d10e0f3f",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root1.lean": "1c7b8825a558829a5d1fb3e89547237a24c411547685602c61478ee952831e94",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/rawsector-root2.lean": "df578994c8827f050c3af9dfc0311d8b0ce54a9fc31bdfd1d9e28620e0d4c868",
+          "build/preparation/qinz1yang/remaining-17-prs/evidence/rawsector-three-arm-before.lean": "515ea6591ce1fa48ee3bd7d9baab3384631e0e906fb23149ac19f14b1a768cb8",
+          "build/preparation/qinz1yang/remaining-17-prs/evidence/rawsector-three-arm-after.lean": "1d85f17d5a93a805b04def712f9d39d1a30d847fa0c097a73c50b26c2d47ab5c"
+        },
+        "suggested_label_qualification": {
+          "before": "misaligned_if_symmetric_sector_target_binding_accepted",
+          "after": "not_applicable_deleted"
+        },
+        "label_prediction_status": "conditional_source_screening_not_assigned_binary_label",
+        "independent_informal_status": "not_bound_exact_candidate_target"
+      }
+    },
+    {
+      "candidate_id": "TS-PR-MISSING-CURVATURE-ARM",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "boundary"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-prs/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "TS-PR-MISSING-CURVATURE-ARM",
+        "decision": "defer",
+        "reason": "Before writes the covariant derivative of a contracted raised-Koszul/sharp-flat product as a source term minus feedback. After adds an explicit extra flatArmCc true contraction. The independent Leibniz+contraction rule requires contributions from both varying factors, but deriving this exact three-term sharp-flat decomposition from the independent rule needs a checked semantic map of the helper definitions. Keep the concrete missing-term lead but defer exact target binding; not excluded merely because before proof is sorry.",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "c87d6ab4ceb0308dbb80a8a64e2795397fe272ef",
+          "after_commit": "3624d6a2380b0aaae686da2211e9752eb117e598",
+          "file": "DifferentialGeometry/Analysis/Spectral/Tensor/CovGrad/ConnectionDifferenceRiccatiJetTower.lean",
+          "before_url": "https://github.com/qinz1yang/differential-geometry/tree/c87d6ab4ceb0308dbb80a8a64e2795397fe272ef",
+          "after_url": "https://github.com/qinz1yang/differential-geometry/commit/3624d6a2380b0aaae686da2211e9752eb117e598"
+        },
+        "roots": [
+          "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.connDiffSection_covGrad_eq_clean_sub_connArmFeedback"
+        ],
+        "completeness_evidence": [
+          "Before private theorem lines284–293 is a fully typed equality for all metrics g0,g1, with explicit covGrad/appCcRS/raisedKoszul/sharpFlat/feedback objects.",
+          "The exact after theorem lines297 onward retains the equality and adds appCcRS(slotExtend raisedKoszul)(flatArmCc true).",
+          "Read after source proof invoking connDiffSection_eq_appCcRS_raisedKoszul_sharpFlatEndoCc, covGrad_appCcRS_eq and covGrad_sharpFlatEndoCc_eq_arms; this is discovery/semantic-mapping evidence, not independent informal prose.",
+          "Original name is private. The listed namespace-qualified source identifier is not a certified generated internal Lean declaration name; resolving that would require later Lean work, which is not run in this source-only scan."
+        ],
+        "independent_informal": null,
+        "source_binding_status": "not_bound_exact_candidate_target",
+        "independent_sources_consulted": [
+          {
+            "material_path": "build/preparation/qinz1yang/remaining-17-prs/materials/carroll-grnotes.pdf",
+            "sha256": "e4a2d25cf3b394fa61b0fd194baf1fe943d7c59df3c23f5c57d32dc207350bdd",
+            "url": "https://www.preposterousuniverse.com/wp-content/uploads/grnotes-three.pdf",
+            "title": "Sean M. Carroll, Lecture Notes on General Relativity, Chapter3 Curvature",
+            "version": "December1997 chapter, author original course notes associated with gr-qc/9712019",
+            "locator": "printedp55/PDFp1 Leibniz rule; printedp57/PDFp3 properties3–4 and eq3.8",
+            "text": "Covariant differentiation obeys the tensor-product Leibniz rule and commutes with contraction. In particular, differentiating the contraction of a covector and vector differentiates each factor and adds the resulting terms.",
+            "scope_relation": "Independent product-rule principle supports checking a missing derivative-of-factor term. Identification of the project’s raisedKoszul/sharpFlat/flatArm helpers with the complete source formula is not established by this principle alone.",
+            "text_kind": "independent original source paraphrase",
+            "binding_status": "background_only_not_exact_candidate_target"
+          }
+        ],
+        "suggested_label": {
+          "before": "misaligned",
+          "after": "boundary"
+        },
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "assigned_label": null,
+        "prepared_versions": [],
+        "lean_operations": 0,
+        "evidence_files": [
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-after.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-before.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-commit.json",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-root-resolution.json"
+        ],
+        "visibility": "private",
+        "source_name_resolution": "namespace-qualified source identifier; internal private generated name not queried",
+        "true_error_vs_incomplete": "complete_equality_missing_term_candidate_semantic_bridge_pending",
+        "extraction_recommendation": "defer_independent_target",
+        "source_evidence_hashes": {
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-after.lean": "2f78d20aef2a5bebb242860a46382bf8f57382b03b88737a1ec5e3aa20bcfef2",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-before.lean": "214c16cbca66f53f75815d3f69954e305650ded73b3f252bde0db6e348f95861",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-commit.json": "cd2f030b5057d0203eca285b6dda0143fe2d71ac4021a0975a62376518e62ef7",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/curvarm-root-resolution.json": "55f8ef3d6b885953d9a2460ee6c5453716550110adb03d452c6ab7af65d0af2c"
+        },
+        "suggested_label_qualification": {
+          "before": "misaligned_if_missing_product_factor_map_confirmed",
+          "after": "boundary"
+        },
+        "label_prediction_status": "conditional_source_screening_not_assigned_binary_label",
+        "independent_informal_status": "independent_Leibniz_contraction_principle_fixed_but_full_helper_semantic_bridge_unverified"
+      }
+    },
+    {
+      "candidate_id": "TS-PR-WRONG-CORRECTION-FIELD",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "boundary",
+        "after": "undetermined"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-prs/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "TS-PR-WRONG-CORRECTION-FIELD",
+        "decision": "defer",
+        "reason": "The old arm0 field is an actual family-Riemann coefficient and its selected theorem is a uniform bound on that field. A wrong attribution of this object to a Ricci remainder roster does not by itself show the standalone bound false. The independent Ricci linearization source gives only a broad lower-order curvature term, not this roster. After replaces the field by a different-rank five-slot scaffold whose computational arm1FiveSlotFib body is sorry. Defer the before semantic target and exclude that unfinished computational successor from extraction; do not infer a negative merely from the commit’s double-counting claim.",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "bd1f5b4d710bf49682bc4a8b68385ee3c75cbd6e",
+          "after_commit": "036c87e332e3678f558145624bebd3ab1ceeed6a",
+          "file": "DifferentialGeometry/Analysis/Parabolic/RicciLinearization/RicciThreeArmCorrectionFieldBoundCurvArm.lean",
+          "before_url": "https://github.com/qinz1yang/differential-geometry/tree/bd1f5b4d710bf49682bc4a8b68385ee3c75cbd6e",
+          "after_url": "https://github.com/qinz1yang/differential-geometry/commit/036c87e332e3678f558145624bebd3ab1ceeed6a"
+        },
+        "roots": [
+          "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.arm0BgRField",
+          "DifferentialGeometry.Analysis.Parabolic.TensorSpectral.exists_arm0BgRField_realizedFam_rfns_ballUniform"
+        ],
+        "completeness_evidence": [
+          "Before lines45–50 defines arm0BgRField as ricciArmOrder0RiemannCoeff along realizedFam, a concrete nonproof value.",
+          "Before lines53 onward states and supplies a full proof of a uniform fibre bound on that actual field; no sorry occurs in this inspected file.",
+          "The selected standalone theorem may be a valid estimate of the wrong intended object. Need an independently identified target roster or concrete consumer mismatch, not only a symbol rename/rank change.",
+          "After lines46–50 defines arm1FiveSlotFib by sorry at a nonproof ContinuousLinearMap type. This lacks the actual computational coefficient; it is not just an unproved proposition.",
+          "After old arm0 roots are removed and arm1 replacements have different names/types. They are not certified paired versions."
+        ],
+        "independent_informal": null,
+        "source_binding_status": "not_bound_exact_candidate_target",
+        "independent_sources_consulted": [
+          {
+            "material_path": "build/preparation/qinz1yang/batch-02-prs/materials/calegari-ricci.pdf",
+            "sha256": "3c0a708c3fcd4a2a35223698e13d39f715a155b7537f9d333bfaf67d63d1f90c",
+            "url": "https://math.uchicago.edu/~dannyc/courses/ricci_2019/ricci_flow.pdf",
+            "title": "Danny Calegari, Chapter7 Ricci Flow",
+            "version": "Author chapter dated8November2023, based on2019course",
+            "locator": "§3.4 printed/PDFpp22–23",
+            "text": "Ricci linearization has a rough-Laplacian principal term, derivative-of-divergence gauge terms, and lower-order curvature terms. Adding the DeTurck Lie derivative corrects the principal symbol.",
+            "scope_relation": "Gives intrinsic Ricci/DeTurck linearization structure, not the exact arm0 family-curvature roster, three-arm decomposition or uniform jet estimates.",
+            "text_kind": "independent original source paraphrase",
+            "binding_status": "background_only_not_exact_candidate_target"
+          }
+        ],
+        "suggested_label": {
+          "before": "boundary",
+          "after": "undetermined"
+        },
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "assigned_label": null,
+        "prepared_versions": [],
+        "lean_operations": 0,
+        "evidence_files": [
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-after.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-before.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-commit.json",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-root-resolution.json"
+        ],
+        "after_status": "old_roots_removed_replacements_are_incomplete_nonproof_scaffold",
+        "version_decisions": {
+          "before": "defer_independent_coefficient_roster_target",
+          "after": "exclude_partial_development"
+        },
+        "true_error_vs_incomplete": "before_complete_definition_wrong_role_unproven_after_incomplete_computation",
+        "extraction_recommendation": "defer_independent_target",
+        "source_evidence_hashes": {
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-after.lean": "78c5dc82931ad9562d4384e999adfe937940fde971762c90693ed7649ce03322",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-before.lean": "9886c42ede52910efc6aea84f85fdaeb750a341ac0041f581c89f569d98133d1",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-commit.json": "a270761ef80a3c50a3a75813530aeda6d7756fe9773f48e94e15a8ffba78e9a4",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/correction-root-resolution.json": "100edec23222087112d93d0047f314baa99ca02a22a60c3247cf5a648a0666fd"
+        },
+        "suggested_label_qualification": {
+          "before": "boundary",
+          "after": "undetermined_unfinished_computational_scaffold"
+        },
+        "label_prediction_status": "conditional_source_screening_not_assigned_binary_label",
+        "independent_informal_status": "not_bound_exact_candidate_target"
+      },
+      "version_eligibility": {
+        "before": "defer_independent_target",
+        "after": "exclude_unimplemented_nonproof_value"
+      }
+    },
+    {
+      "candidate_id": "tautological-raw-laplacian-bound",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "boundary",
+        "after": "undetermined"
+      },
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-prs/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "tautological-raw-laplacian-bound",
+        "decision": "defer",
+        "reason": "The full source proves a literal tautology: rawChartFrameDataSq is defined as the same squared raw-Laplacian norm, and C=1 closes the root. That is a complete true statement, not an incomplete placeholder. To make it a misalignment example requires an independent stronger target controlling that norm by genuine chart jets; such an exact intended estimate has not been located. Do not replace its target by a generic elliptic regularity theorem or call a weak-but-true helper false. Defer independent target identification.",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "9c01f29f019f176c94b29f5c052aa6f2bab68c44",
+          "after_commit": "b0006465331c167f73875885f09e7181867b8134",
+          "file": "DifferentialGeometry/Analysis/Elliptic/ConnectionLaplacian/RawConnLapPointwiseFiberBounds/RawTensorConnLapPerChartL2Bound.lean",
+          "before_url": "https://github.com/qinz1yang/differential-geometry/tree/9c01f29f019f176c94b29f5c052aa6f2bab68c44",
+          "after_url": "https://github.com/qinz1yang/differential-geometry/commit/b0006465331c167f73875885f09e7181867b8134"
+        },
+        "roots": [
+          "DifferentialGeometry.Integral.Connection.rawTensorConnLap_norm_sq_le_chart_data_on_pou_tsupport"
+        ],
+        "completeness_evidence": [
+          "Before lines90–93 computational rawChartFrameDataSq(g,r,s,T,b) is exactly norm(rawTensorConnLap(g,r,s,T,b)) squared.",
+          "Before lines103 onward selected theorem quantifies a nonnegative C and a PoU-support point, then bounds that norm by C times rawChartFrameDataSq.",
+          "Actual original proof selects C=1, unfolds to the same expression, normalizes and uses le_refl. The support assumption is unused in this reflexive inequality.",
+          "After removes the selected theorem, while rawChartFrameDataSq remains. No repaired quantitative after bound is established."
+        ],
+        "independent_informal": null,
+        "source_binding_status": "not_bound_exact_candidate_target",
+        "independent_sources_consulted": [
+          {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3886882/",
+            "title": "A. Singer and H.-T. Wu, Vector Diffusion Maps and the Connection Laplacian",
+            "locator": "§8 The Continuous Case: Heat Kernels",
+            "binding_status": "search_result_lead_only_not_acquired_exact_target",
+            "scope_relation": "Describes the actual connection Laplacian as second-order elliptic; does not state the selected local chart-jet bound. No target text inferred from this search result."
+          }
+        ],
+        "suggested_label": {
+          "before": "boundary",
+          "after": "undetermined"
+        },
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "assigned_label": null,
+        "prepared_versions": [],
+        "lean_operations": 0,
+        "evidence_files": [
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-after.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-before.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-commit.json",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-root-resolution.json"
+        ],
+        "after_status": "selected_root_deleted",
+        "true_error_vs_incomplete": "complete_true_tautology_target_correspondence_unresolved",
+        "extraction_recommendation": "defer_independent_target",
+        "source_evidence_hashes": {
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-after.lean": "4e7d9f106aa3f558a81eb516d945ddbd5884157ce6340a016184c94fed1fa329",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-before.lean": "8cd38eba661d777f3f26ead447d197d45c85669d7a9c02267ec30001b928b868",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-commit.json": "e8ac77682555d7baee45d66dd815d3b60d739bbdbe40c8b63498b463fc9a49b6",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/lapbound-root-resolution.json": "924f82aa311e38aba7134cfa8d1211d55ec204cd2bf684ec3b9725559179e19c"
+        },
+        "suggested_label_qualification": {
+          "before": "boundary_if_nontrivial_chart_estimate_intent_independently_established",
+          "after": "not_applicable_deleted"
+        },
+        "label_prediction_status": "conditional_source_screening_not_assigned_binary_label",
+        "independent_informal_status": "not_bound_exact_candidate_target"
+      }
+    },
+    {
+      "candidate_id": "true-chained-flow-placeholders",
+      "decision": "exclude",
+      "label_forecast": null,
+      "assigned_label": null,
+      "human_adjudicated": false,
+      "evidence_origin": "build/preparation/qinz1yang/remaining-17-prs/source-only-scan.json",
+      "evidence_record": {
+        "candidate_id": "true-chained-flow-placeholders",
+        "decision": "exclude",
+        "reason": "The three selected names are explicitly disclosed development shells with detailed types deferred, each concluding True and proved by trivial. They do not constitute completed formalizations of finite chart partition, joint C1 local flow or chart-junction continuity. Exclude these particular unfinished intermediate declarations instead of manufacturing negative benchmark examples; a separate substantive joint-flow theorem could be screened under a different candidate.",
+        "source": {
+          "repository": "qinz1yang/differential-geometry",
+          "before_commit": "13f1f84b945e7f902c78295c51fd484d1f359849",
+          "after_commit": "e7c8332baeea763d96b60950c4bab8baa33936e7",
+          "file": "DifferentialGeometry/Geometry/Riemannian/Exponential/ChainedFlowContinuity.lean",
+          "before_url": "https://github.com/qinz1yang/differential-geometry/tree/13f1f84b945e7f902c78295c51fd484d1f359849",
+          "after_url": "https://github.com/qinz1yang/differential-geometry/commit/e7c8332baeea763d96b60950c4bab8baa33936e7"
+        },
+        "roots": [
+          "DifferentialGeometry.Geometry.Riemannian.Exponential.bm_c_expMap_finite_chartCover",
+          "DifferentialGeometry.Geometry.Riemannian.Exponential.bm_c_expMap_perChart_jointFlow",
+          "DifferentialGeometry.Geometry.Riemannian.Exponential.bm_c_expMap_chartJunction_continuity"
+        ],
+        "completeness_evidence": [
+          "Before file introduction says detailed Lean types of intermediate joint-flow predicates are deferred to the proof phase.",
+          "Before lines135–143 calls finite_chartCover a True-shelled propositional shell, states detailed type deferred, and concludes True.",
+          "Before lines146–153 calls perChart_jointFlow detailed type deferred and concludes True.",
+          "Before lines155–164 calls chartJunction_continuity detailed type deferred and concludes True.",
+          "Exact after lines134–137 says these building blocks are developed inline rather than kept as separate placeholder declarations; selected three roots are removed."
+        ],
+        "independent_informal": null,
+        "source_binding_status": "not_bound_placeholder_has_no_completed_mathematical_statement",
+        "independent_sources_consulted": [
+          {
+            "material_path": "build/preparation/qinz1yang/batch-02-prs/materials/teschl-ode.pdf",
+            "sha256": "362433156525216abf596c17ce843204510e96d57afa4284a37c7aa5a9ffc36e",
+            "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+            "title": "Gerald Teschl, Ordinary Differential Equations and Dynamical Systems",
+            "version": "Author preliminary version of AMS GSM1402012; exact hash fixed",
+            "locator": "Thm2.10 printed46/PDF57; Thm6.1 printed189/PDF200",
+            "text": "A Ck generating field gives a local Ck flow; maximal integral curves form a local flow on an open domain. The proof covers a compact orbit segment with finitely many local flow neighborhoods and composes short-time flow maps.",
+            "scope_relation": "Genuine mathematical flow result is background for chart chaining, but does not turn explicitly True placeholder declarations into finished formalizations.",
+            "text_kind": "independent original source paraphrase",
+            "binding_status": "background_only_not_exact_candidate_target"
+          }
+        ],
+        "suggested_label": {
+          "before": "undetermined",
+          "after": "undetermined"
+        },
+        "human_adjudicated": false,
+        "reference_ready": false,
+        "gold_label": null,
+        "assigned_label": null,
+        "prepared_versions": [],
+        "lean_operations": 0,
+        "evidence_files": [
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-after.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-before.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-commit.json",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-metric.lean",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-root-resolution.json"
+        ],
+        "after_status": "explicit_placeholder_roots_removed_no_same_root_successor",
+        "true_error_vs_incomplete": "explicitly_incomplete_intermediate_types_not_meaningful_completed_statement",
+        "extraction_recommendation": "exclude_partial_development",
+        "source_evidence_hashes": {
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-after.lean": "cc2ecf59205682985cf4e46abacd89f3c9a24cbd285d4e791ead3a15b35d2286",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-before.lean": "fc00f81759990dacfe318fd73a9f57d34f494fb0fe94c3343dc195270992bb8c",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-commit.json": "244761b2c5573f6dd3a0e81345c73adfe285fd101846c8214342432a56762a27",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-metric.lean": "e7db69661f051795e30901db7e05dee6d7249e6cbd609897a52af05a11ce6b25",
+          "build/preparation/qinz1yang/batch-02-prs/evidence/placeholders-root-resolution.json": "28ad3aed11a6aae9f662c20f639c8ab82c2aa52d0c5b12662fc9c7ef45482335"
+        },
+        "suggested_label_qualification": {
+          "before": "undetermined_excluded_partial_development",
+          "after": "not_applicable_deleted"
+        },
+        "label_prediction_status": "conditional_source_screening_not_assigned_binary_label",
+        "independent_informal_status": "not_bound_exact_candidate_target"
+      }
+    }
+  ]
+}

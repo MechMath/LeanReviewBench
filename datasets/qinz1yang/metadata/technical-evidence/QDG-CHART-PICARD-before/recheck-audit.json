@@ -1,0 +1,13 @@
+{
+  "previous_receipt_path": "build/preparation/qinz1yang/batch-02-prs/chart-before/technical/preservation/receipt.json",
+  "previous_receipt_sha256": "650acb427de2f200c1a5cee5432ff387f8834ff86de03515bf8cf84ad13d0260",
+  "formal_sources_changed": false,
+  "probe_changed": false,
+  "all_compile_source_hashes_match": true,
+  "fresh_graph_hash_matches_compile_receipt": true,
+  "actual_preservation_rerun_returncode": 0,
+  "existing_compile_reused": "All formal-source bytes and existing standard compiler graph receipt match; no reason to recompile unchanged input.",
+  "staged_recorded_preservation_receipt_sha256": "650acb427de2f200c1a5cee5432ff387f8834ff86de03515bf8cf84ad13d0260",
+  "previous_receipt_matches_staged_record": true,
+  "mutation_type": "new_explicit_recheck_receipt_not_repair_of_changed_source"
+}

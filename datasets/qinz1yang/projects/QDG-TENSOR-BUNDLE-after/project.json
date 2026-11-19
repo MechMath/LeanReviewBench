@@ -1,0 +1,64 @@
+{
+  "id": "QDG-TENSOR-BUNDLE-after",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Tensor0SBundle.tensor0SBundle_topology",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Tensor0SBundle.tensor0SBundle_smooth",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+    "path": "DifferentialGeometry/Tensor/RSTensor/Defs.lean",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/73fa343211e33dc4d3bc295a6082b4f6866aebe9/DifferentialGeometry/Tensor/RSTensor/Defs.lean"
+  },
+  "group_id": "qinz1yang:TS-PR-TRIVIAL-TENSOR-BUNDLE",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [
+    "QDG-TENSOR-BUNDLE-before"
+  ],
+  "after_ids": [],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "joint",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Upstream historical source licensing requires review.",
+  "original_toolchain": "leanprover/lean4:v4.28.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "declaration-sliced-compiled-extracted-selected-closure-preserved-in-migrated-environment;rankone-scope-pending",
+  "formal": {
+    "file_count": 2,
+    "sha256": "0aaf58b53553b8d5f0de6be7ed63badc267056d571c83885235c757003b7e90d",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "ce1a34659cb8346d9ede159a30092bd30c5e741d1b50dd08f09221a485a21bcd",
+  "review_status": "requires_human_scope_resolution",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

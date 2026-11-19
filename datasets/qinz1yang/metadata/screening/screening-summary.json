@@ -1,0 +1,192 @@
+{
+  "schema": "source-only-screening-summary-1",
+  "source_batch": "qinz1yang",
+  "status": "all_37_remaining_families_screened_source_only",
+  "scope_note": "Covers this source portion of the 37 remaining historical candidate families, excluding the initial six families. No new registered inputs or assigned semantic labels.",
+  "reviewed_family_count": 22,
+  "counts": {
+    "retain": 6,
+    "defer": 12,
+    "exclude": 4
+  },
+  "scans": [
+    "priority-20-scan.json",
+    "remaining-17-scan.json"
+  ],
+  "records": [
+    {
+      "candidate_id": "pl-ball-pair-cone",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "boundary"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "parallel-transport-pairing",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "boundary (provisional negative direction)",
+        "after": "boundary"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "boundary (provisional negative direction)",
+        "after": "boundary"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "cap-orientation-sign",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "boundary-side-missing-closedness",
+      "decision": "exclude",
+      "label_forecast": null,
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "uninhabited-fundamental-class-frontier",
+      "decision": "exclude",
+      "label_forecast": null,
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "boundary",
+        "after": "boundary"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-MISSING-SYMMETRY",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "undetermined",
+        "after": "undetermined"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "boundary"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-FREE-FAMILY-PINS",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "undetermined",
+        "after": "undetermined"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-CONJUGATING-FLOW-PINS",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "undetermined",
+        "after": "undetermined"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-CONTINUITY-TO-SMOOTHNESS",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "undetermined",
+        "after": "undetermined"
+      },
+      "scan": "priority-20-scan.json"
+    },
+    {
+      "candidate_id": "per-direction-bianchi-false",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "rank-incoherent-operator-factorization",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "wrong-arm-zero-tame-subject",
+      "decision": "exclude",
+      "label_forecast": null,
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "wrong-concrete-linearized-ricci-coefficient",
+      "decision": "defer",
+      "label_forecast": "boundary",
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "decision": "retain",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "boundary"
+      },
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-RAW-SECTOR",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "undetermined"
+      },
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-MISSING-CURVATURE-ARM",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "misaligned",
+        "after": "boundary"
+      },
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "TS-PR-WRONG-CORRECTION-FIELD",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "boundary",
+        "after": "undetermined"
+      },
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "tautological-raw-laplacian-bound",
+      "decision": "defer",
+      "label_forecast": {
+        "before": "boundary",
+        "after": "undetermined"
+      },
+      "scan": "remaining-17-scan.json"
+    },
+    {
+      "candidate_id": "true-chained-flow-placeholders",
+      "decision": "exclude",
+      "label_forecast": null,
+      "scan": "remaining-17-scan.json"
+    }
+  ]
+}

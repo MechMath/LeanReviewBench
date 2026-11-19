@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "roots": [
+    "MorganTianLib.metricBookInjectivityRadius",
+    "MorganTianLib.injectivityRadius_eq_segmentDomainFrontierDistance",
+    "MorganTianLib.injectivityRadius_eq_cutLocusDistance"
+  ],
+  "original_proofs_certified": false,
+  "statement_preservation": "not_checked",
+  "nonproof_definition_preservation": "not_checked",
+  "compilation": "passed",
+  "extraction": "passed",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "graph_sha256": "a273796db3156a78e5fa2e997e4831886f686df37c1c837c889dbd538a09a7a9",
+  "nodes": 292,
+  "edges": 2375,
+  "local_nodes": 43,
+  "sources": {
+    "Main.lean": "2f2d9365de84b02ed0fd24e91cea4d49a5fcd935f40895474bee8694269fb472"
+  },
+  "original_receipt_locator": "build/preparation/frenzymath/batch-03/injectivity-split-before/technical/compile/receipt.json",
+  "original_receipt_sha256": "577fc52f5332680fc2939611b5b740b7b2cb45a9f134877a303b36b4824304a8"
+}

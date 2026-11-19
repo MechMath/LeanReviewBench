@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "method": "Lean.Meta.isDefEq of full constant types for six declarations and full reducible constants for four computational definitions against independently reconstructed pinned-source blocks in SourceReference namespace",
+  "migrated_source_vs_slice": "passed",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "original_4_32_1_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "source_context": "Exact selected signatures, computational definitions, and shared variable section from pinned source; Mathlib replaces original proof imports; theorem bodies erased to sorry in both modules",
+  "results": [
+    {
+      "module": "SourceReference",
+      "returncode": 0
+    },
+    {
+      "module": "Preservation",
+      "returncode": 0
+    }
+  ],
+  "sources": {
+    "SourceReference.lean": "76a67b04cb46929a326785cbda3afaf93f9fad5e7433f256045d9aa6fe141a8c",
+    "Preservation.lean": "31b777b09388d2ab71da922b1172aa749c1f58c6c8f867ef319f03ab62090f87",
+    "Main.lean": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7"
+  },
+  "original_receipt_locator": "build/preparation/frenzymath/bishop-before/technical/preservation/receipt.json",
+  "original_receipt_sha256": "5bed8a41a90e538a4abfc08b1189991df1ca5a97a867679a01a742ec1792fb0b"
+}

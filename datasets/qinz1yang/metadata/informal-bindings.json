@@ -1,0 +1,475 @@
+{
+  "schema": "independent-informal-bindings-1",
+  "repository": "qinz1yang/differential-geometry",
+  "checked_at": "2026-11-19",
+  "source_isolation": "No informal target or material shared with FrenzyMath.",
+  "records": [
+    {
+      "id": "ROOT-SOBOLEV-VACUITY",
+      "status": "bound",
+      "source_screening_record": "build/poincare-history/coordinator.json",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      ],
+      "before": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "after": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "independent_informal": {
+        "source_id": "behzadan-holst-theorem-9.15-C0",
+        "title": "Sobolev-Slobodeckij Spaces on Compact Manifolds, Revisited",
+        "author": "A. Behzadan and M. Holst",
+        "version": "Author-hosted 109-page PDF acquired 2026-11-19; immutable byte hash identifies exact revision",
+        "url": "https://ccom.ucsd.edu/~mholst/pubs/dist/BeHo18b.pdf",
+        "locator": "Theorem 9.15, printed p.86 (PDF p.86), proof also states L-infinity norm bound",
+        "text": "Let M be a compact smooth manifold of dimension n, and let E be a smooth finite-rank vector bundle over M with a fiber metric. If s is real, 1<p<infinity, and sp>n, then W^(s,p)(M,E) embeds continuously into L-infinity(M,E), and every section in that Sobolev space has a continuous representative.",
+        "qualifications": [
+          "C0 component only; not a quotation of a full Cm embedding theorem.",
+          "For tensor sections use their smooth finite-rank tensor bundle; p=2 and sufficiently high integer s are specializations.",
+          "Historical tensorPouSobolevHilbert graph-norm correspondence not certified."
+        ],
+        "material_path": "build/preparation/qinz1yang/materials/behzadan-holst.pdf",
+        "sha256": "b75333ba4ac2180dfe913343cf448e40fab01d6b728c2eecff566c23b7cc9a1d",
+        "text_kind": "paraphrase independently read from paper/book; no Lean or repair-message target synthesis",
+        "original_quote": null
+      },
+      "reason": "Independent vector-bundle C0 Sobolev embedding acquired. Selected scope is only C0 bound/continuous representative, not full Cm assertion; stronger Cm version remains needs_source. Equivalence of historical tensorPouHilbert norm with atlas Sobolev norm must be checked during context review.",
+      "human_adjudicated": false,
+      "reference_ready": false,
+      "binding_review_status": "candidate_binding_provisional"
+    },
+    {
+      "id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "status": "bound",
+      "source_screening_record": "build/poincare-history/coordinator.json",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "before": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "after": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "independent_informal": {
+        "source_id": "hunter-2014-theorem-6.35",
+        "title": "Notes on Partial Differential Equations",
+        "author": "John K. Hunter",
+        "version": "Revised 2014-06-18, downloaded 2026-11-19",
+        "url": "https://www.math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+        "locator": "Section 6.A.3, Theorem 6.35, printed p.203 (PDF p.209), equation (6.43)",
+        "material_path": "build/preparation/qinz1yang/materials/hunter-pde.pdf",
+        "sha256": "0dbade1806f7a1ea79cc444a0eecfe19e157b286c964f1f48f2d744c460c12dd",
+        "text_kind": "paraphrase of independently read theorem, not a Lean-derived target",
+        "text": "Let X be a Banach space and let f belong to L1(0,T;X). The function f has an integrable weak derivative g if and only if there is a constant c0 such that f(t)=c0+integral_0^t g(s) ds for almost every t. In this case the strong derivative exists almost everywhere and agrees with g.",
+        "qualifications": [
+          "The derivative g is the actual weak derivative of f, not an arbitrary unrelated function.",
+          "The source asserts almost-everywhere differentiability; no everywhere-at-zero upgrade is attributed to the source.",
+          "Continuous weak derivative yields pointwise differentiability by the fundamental theorem, but that corollary is not represented as an original quotation."
+        ],
+        "original_quote": null,
+        "selected_target_scope": "Only the forward implication: an integrable weak derivative g of f agrees with the strong derivative almost everywhere. The full if-and-only-if is source context, not the selected task."
+      },
+      "reason": "Candidate binding provisional: formal assertion is unconditional everywhere differentiability for arbitrary unrelated u and u-prime, while independent source requires actual weak derivative relation and asserts a.e. derivative agreement. No equivalence or source-neutral normalization of the two telescopes is claimed.",
+      "human_adjudicated": false,
+      "reference_ready": false,
+      "binding_review_status": "candidate_binding_provisional"
+    },
+    {
+      "id": "ROOT-LIONS-MAGENES-PROXY",
+      "status": "bound",
+      "source_screening_record": "build/poincare-history/coordinator.json",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "before": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "after": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "independent_informal": {
+        "source_id": "joudioux-1903.12591v1-A1-m1j0",
+        "title": "Hörmander’s method for the characteristic Cauchy problem and conformal scattering for a non linear wave equation",
+        "author": "Jérémie Joudioux",
+        "version": "arXiv:1903.12591v1, 29 March 2019",
+        "url": "https://arxiv.org/abs/1903.12591v1",
+        "download_url": "https://pure.mpg.de/rest/items/item_3038900_6/component/file_3038901/content",
+        "locator": "Appendix A, pp.20–21, Theorem A.1; m=1 and j=0",
+        "text": "Let X and Y be Hilbert spaces, with X continuously and densely embedded in Y. For a finite interval [a,b], if u belongs to L2([a,b];X) and its distributional time derivative belongs to L2([a,b];Y), then u has a bounded continuous representative taking values in the interpolation space [X,Y]_(1/2).",
+        "qualifications": [
+          "Specialization of independently printed m-th derivative trace theorem to m=1,j=0.",
+          "The embedding must be dense and continuous; an arbitrary continuous linear map is insufficient.",
+          "No graph-norm formula is invented or attributed to this theorem; continuous trace-space membership is the selected target.",
+          "This research paper reproduces classical Lions–Magenes, citing LM72 Chapter1 Theorems2.3,3.1; the original 1972 book was not downloaded."
+        ],
+        "material_path": "build/preparation/qinz1yang/materials/joudioux-scattering.pdf",
+        "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c",
+        "text_kind": "paraphrase independently read from paper/book; no Lean or repair-message target synthesis",
+        "original_quote": null
+      },
+      "reason": "Exact interpolation-space trace target independently read in Joudioux Appendix A.1 (m=1,j=0); old root only repeats hExists and mentions no interpolation space. After root is changed-scope H1(X) proxy, not automatically aligned.",
+      "human_adjudicated": false,
+      "reference_ready": false,
+      "binding_review_status": "candidate_binding_provisional"
+    },
+    {
+      "id": "ROOT-CHART-PICARD-CONVENTION",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/coordinator.json",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "before": "204ff35257a122939545b409dfdce0669961f5d7",
+      "after": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-RAW-SECTOR",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "deTurckSmoothRemainderDiff_threeArm_coeffC0_jetL2_fibreWeighted_ballUniform",
+        "exists_deTurckSmoothRemainderDiff_sub_principalCometricArm_lowerArmAppCc_coeffJet"
+      ],
+      "before": "85f37b7a25092765bb793fb4d9704a91e2783b5e",
+      "after": "9dcee19f29562c1fdd8ba22d85e57b07b9655c18",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-MISSING-SYMMETRY",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "exists_deTurckLieCovDerivArm_basepointBackground_refold_identity_data",
+        "exists_deTurckLieCovDerivArm_refold_identity_data",
+        "exists_deTurckLieCovDerivArm_curvatureRefold_data"
+      ],
+      "before": "18de239016f4b17c39ee3b44a99e245cf65a1b56",
+      "after": "7a0c4b7fb0d44b0cb5f132e589074a1930d18394",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-MISSING-CURVATURE-ARM",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "connDiffSection_covGrad_eq_clean_sub_connArmFeedback"
+      ],
+      "before": "c87d6ab4ceb0308dbb80a8a64e2795397fe272ef",
+      "after": "3624d6a2380b0aaae686da2211e9752eb117e598",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-WRONG-CORRECTION-FIELD",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "arm0BgRField",
+        "exists_arm0BgRField_realizedFam_rfns_ballUniform"
+      ],
+      "before": "bd1f5b4d710bf49682bc4a8b68385ee3c75cbd6e",
+      "after": "036c87e332e3678f558145624bebd3ab1ceeed6a",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundleData",
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "before": "8203ec4eb870072447e321394bd981777608ab6f",
+      "after": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-FREE-FAMILY-PINS",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "basepoint_motion_datum",
+        "total_eval_three_piece_chain_rule",
+        "flat_raw_variational_identity",
+        "flat_value_jet_identity"
+      ],
+      "before": "ea3348420cd011d7c6a5e7d70c56b7c58472e864",
+      "after": "67737e36fbc36f79759c3a614be149e5fb19c5f9",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-CONJUGATING-FLOW-PINS",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "conjugating_flow_flat_data",
+        "conjugating_flow_t0_continuity_data",
+        "conjugating_flow_orbit_pushforward_continuity_data"
+      ],
+      "before": "3deb71a66b17443c7c146e2ba6e9e0b46b7eb223",
+      "after": "43450ae3409fb2dc2986b1fe345f0fb8a5b75ae9",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "TS-PR-CONTINUITY-TO-SMOOTHNESS",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-prs.json",
+      "roots": [
+        "jointChartGramSmooth_of_spectralSmooth_timeContinuous",
+        "realizedFamily_flowDeriv"
+      ],
+      "before": "ade06a50a15b8b03146b591711a6ad0da53c6407",
+      "after": "79fbfb1bae7517153cca3031a6f8006ae84bb083",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "parallel-transport-pairing",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "ParallelTransport preservesInner / full qualified name to resolve"
+      ],
+      "before": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "after": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "pl-ball-pair-cone",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "IsPLBallPair"
+      ],
+      "before": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+      "after": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "vacuous-pointed-smooth-convergence",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "PointedSmoothConverges_S13; PointedModelsConverge_S13; ActualUnscathedParabolicLimit_S13"
+      ],
+      "before": "16948d295b94a4e8783a4cccacfd324974ed22e3",
+      "after": "06066269ebe3ca88e155a093c548ba9c70a1a0aa",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "cap-orientation-sign",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "CutCapTransitionData; SmoothCutCapTransition"
+      ],
+      "before": "067db38186a14a2a9bafb772b454544b861a3530",
+      "after": "8e37fa5ee49238509492d30ee5df781a137fb31f",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "boundary-side-missing-closedness",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "IsPLBoundarySide; IsPLBoundaryTubeProducer"
+      ],
+      "before": "199e3e63dbbc5b626a39ae22cd6864acd20a0afa",
+      "after": "2f327b6916c8e6fee4502facb6ae1e0e4e884cc1",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "uninhabited-fundamental-class-frontier",
+      "status": "needs_root",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "ClosedThreeManifoldFundamentalClassFrontier; PuncturedThreeManifoldTopHomologyVanishing"
+      ],
+      "before": "57e4706e9bb4e39c85a8ed19f894d2d0bb8f5ed6",
+      "after": "23b7943b9e411f36a15a1f34a4679edc68ebf6e7",
+      "independent_informal": {
+        "source_id": "hatcher-AT-theorem-3.26",
+        "title": "Algebraic Topology",
+        "author": "Allen Hatcher",
+        "version": "Author-hosted Chapter3 PDF, byte revision acquired 2026-11-19",
+        "url": "https://pi.math.cornell.edu/~hatcher/AT/ATch3.pdf",
+        "locator": "Section3.3, Theorem3.26 and ensuing fundamental-class paragraph, printed p.236 (PDF p.52)",
+        "text": "For a closed connected R-oriented n-manifold M, the map from H_n(M;R) to H_n(M,M minus {x};R) is an isomorphism for every x. A class mapping to local generators everywhere is a fundamental class. Such a class exists for a closed R-oriented manifold; conversely, existence forces compactness and an R-orientation.",
+        "qualifications": [
+          "Compactness/closedness is essential.",
+          "Root resolution and match to singular homology model pending; no extraction authorized for this row."
+        ],
+        "material_path": "build/preparation/qinz1yang/materials/hatcher-ATch3.pdf",
+        "sha256": "3fe35aae9c2bddc3720a86460e0d6bb6fd7dae3489f145f5475c3b4e71f6b793",
+        "text_kind": "paraphrase independently read from paper/book; no Lean or repair-message target synthesis",
+        "original_quote": null
+      },
+      "reason": "Independent fundamental-class target acquired; exact old Lean root namespace and frontier statement correspondence remain unresolved.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "per-direction-bianchi-false",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "threeTermPerB_eq_crossPairingSum"
+      ],
+      "before": "7cb75f723c39e930722f3e8571f7480eb137c543",
+      "after": "c0e7f935976890785daf11c5fb59bfefd75e9ca5",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "rank-incoherent-operator-factorization",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "op_perOrder_factorisation_continuous; exists_proportional_recCurvDiffOp_perOrderEnvelope"
+      ],
+      "before": "adc598d972ab96472ac3f052bc5d8302ed31fe76",
+      "after": "dd4681ce1abaf52ba89d4f46a1a65b4d295f7b88",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "wrong-arm-zero-tame-subject",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "corrFieldDataSpec; exists_corrArm0Field_realizedFam_jetL2_tameEnvelope"
+      ],
+      "before": "9576e9f627318b3cf96fc48456ac8d513e1d0369",
+      "after": "effcf3592dd67f9c526b0882bd043fa6b9a1dbe8",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "wrong-concrete-linearized-ricci-coefficient",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "deriv_realizedDeTurckRicciChartSum_eq_riemann_appCc_pointwise"
+      ],
+      "before": "c2867a06cb6744310e56e44b0a533c231569c7fd",
+      "after": "441c1abf919959330c47601234e4944644bd89af",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "compact-vector-space-isotopy-vacuity",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "exists_compact_isotopy_of_smooth_loop_family"
+      ],
+      "before": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+      "after": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "tautological-raw-laplacian-bound",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "rawTensorConnLap_norm_sq_le_chart_data_on_pou_tsupport"
+      ],
+      "before": "9c01f29f019f176c94b29f5c052aa6f2bab68c44",
+      "after": "b0006465331c167f73875885f09e7181867b8134",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    },
+    {
+      "id": "true-chained-flow-placeholders",
+      "status": "needs_source",
+      "source_screening_record": "build/poincare-history/ts-commits.json",
+      "roots": [
+        "bm_c_expMap_finite_chartCover; bm_c_expMap_perChart_jointFlow; bm_c_expMap_chartJunction_continuity"
+      ],
+      "before": "13f1f84b945e7f902c78295c51fd484d1f359849",
+      "after": "e7c8332baeea763d96b60950c4bab8baa33936e7",
+      "independent_informal": null,
+      "reason": "No exact independently sourced target text with matching scope has yet been verified; upstream patch/comments are not an informal target.",
+      "human_adjudicated": false,
+      "reference_ready": false
+    }
+  ],
+  "materials": [
+    {
+      "path": "build/preparation/qinz1yang/materials/hunter-pde.pdf",
+      "sha256": "0dbade1806f7a1ea79cc444a0eecfe19e157b286c964f1f48f2d744c460c12dd"
+    },
+    {
+      "path": "build/preparation/qinz1yang/materials/kelliher-sobolev.pdf",
+      "sha256": "ec27bd77f1cbf424865e6a539baf8e2f5535db757ec10de45d5c791f691a8e9b"
+    },
+    {
+      "path": "build/preparation/qinz1yang/materials/behzadan-holst.pdf",
+      "sha256": "b75333ba4ac2180dfe913343cf448e40fab01d6b728c2eecff566c23b7cc9a1d"
+    },
+    {
+      "path": "build/preparation/qinz1yang/materials/hatcher-ATch3.pdf",
+      "sha256": "3fe35aae9c2bddc3720a86460e0d6bb6fd7dae3489f145f5475c3b4e71f6b793"
+    },
+    {
+      "path": "build/preparation/qinz1yang/materials/joudioux-scattering.pdf",
+      "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c"
+    }
+  ],
+  "limitations": [
+    "25 candidate groups, not 25 gold cases.",
+    "Bound means independent text and source hash acquired; it does not assert original theorem generality matches every binder or certify extraction.",
+    "Pending sources do not authorize slicing or labels."
+  ],
+  "status_counts": {
+    "bound": 3,
+    "needs_source": 21,
+    "needs_root": 1
+  }
+}

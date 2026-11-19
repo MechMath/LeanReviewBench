@@ -1,0 +1,21 @@
+{
+  "previous_receipt_path": "build/preparation/qinz1yang/batch-02-commits/pl-ball-pair-cone/after/technical/preservation-receipt.json",
+  "previous_receipt_sha256": "8a5f3ad4914f1f8ae5dcc9ad0f3445527cdd771f5a5c55ed0cf9f039e0fbf4d0",
+  "formal_sources_changed": false,
+  "probe_changed": false,
+  "all_compile_source_hashes_match": true,
+  "fresh_graph_hash_matches_compile_receipt": true,
+  "actual_preservation_rerun_returncode": 0,
+  "existing_compile_reused": "All formal-source bytes and existing standard compiler graph receipt match; no reason to recompile unchanged input.",
+  "staged_recorded_preservation_receipt_sha256": "c1806f08c4db69d318583fba1b2b5ad4d76bdf8a221b2d6879805e6fec93f7ee",
+  "old_hash_reconstructed_exactly": true,
+  "reconstruction_method": "Remove exactly original_toolchain, nominal_structure_identity_policy, semantic_label_not_implied; json indent2 ensure_asciiTrue trailingnewline reproduces staged oldsha byte-for-byte.",
+  "mutated_fields": [
+    "original_toolchain",
+    "nominal_structure_identity_policy",
+    "semantic_label_not_implied"
+  ],
+  "mutation_source": "ts_commits confirmed its finalize-reviews.py later appended these three metadata fields. Source formal and independent probe were unchanged.",
+  "mutation_type": "metadata_only_not_formal_or_probe_mutation",
+  "old_reconstructed_sha256": "c1806f08c4db69d318583fba1b2b5ad4d76bdf8a221b2d6879805e6fec93f7ee"
+}

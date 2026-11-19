@@ -1,0 +1,61 @@
+{
+  "id": "FM-GEODESIC-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.IsGeodesicOn",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+    "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean",
+    "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/f5661a1a73a7104af9e65024edd8a569d49ba981/formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean"
+  },
+  "group_id": "frenzymath:FM-geodesic-continuity",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [
+    "FM-GEODESIC-after"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "47ea90600cfec765db725b655a15d184023f6f3f0cf7171996896770e7ac129f",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "technical_status": "compiled-extracted-migrated-source-preserved; semantic-scope-and-original-environment-review-pending",
+  "target_mode": "single",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Pinned upstream Apache-2.0 copy retained at ../../licenses/LICENSE.upstream.",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "input_sha256": "bbb6dc7265f2b0862c6bbfba5856f31f2985043ee854c9f0fe564e6b23d60ed4",
+  "source_materials_base": "build/preparation/frenzymath",
+  "source_materials_distributed": false,
+  "review_status": "requires_human_scope_resolution",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

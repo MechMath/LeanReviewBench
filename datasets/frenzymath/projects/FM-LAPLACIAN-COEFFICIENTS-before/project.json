@@ -1,0 +1,62 @@
+{
+  "id": "FM-LAPLACIAN-COEFFICIENTS-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.laplacianAt_eq_invGram_sum",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.laplacianAt_eq_chart_formula",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+    "file": "formalized-sources/MorganTian/MorganTianLib/Ch02/LaplacianCoord.lean",
+    "version_role": "before"
+  },
+  "group_id": "frenzymath-laplacian-coefficients-scope",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "joint",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "research_staging_source_license_review_pending",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled_extracted_migrated_source_checked_original_environment_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "c11233fef440928a7dbac4790dc2abbd373947f4c912ece610e537beac8b3649",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "b3460193d6b998ccf8093700cf8f80cb93da52fef9f4a5ae60eeec815953d81b",
+  "review_status": "agent_preliminary_pending_human",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

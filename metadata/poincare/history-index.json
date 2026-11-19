@@ -1,0 +1,98 @@
+{
+  "schema": "source-batch-navigation-1",
+  "checked_at": "2026-11-19",
+  "status": "navigation_only_not_a_combined_dataset",
+  "batches": [
+    {
+      "source_batch": "qinz1yang",
+      "index": "../../datasets/qinz1yang/metadata/screening/history-index.json"
+    },
+    {
+      "source_batch": "frenzymath",
+      "index": "../../datasets/frenzymath/metadata/screening/history-index.json"
+    }
+  ],
+  "separation_policy": "Each source batch is prepared independently with its own informal sources, packages, version/group links, extraction receipts and preliminary labels.",
+  "source_only_screening": {
+    "historical_families_reviewed": 37,
+    "counts": {
+      "retain": 10,
+      "defer": 15,
+      "exclude": 12
+    },
+    "latest_wave": {
+      "reviewed": 17,
+      "counts": {
+        "defer": 9,
+        "exclude": 4,
+        "retain": 4
+      }
+    },
+    "source_summaries": {
+      "qinz1yang": "qinz1yang/screening-summary.json",
+      "frenzymath": "frenzymath/screening-summary.json"
+    },
+    "lean_paused": true,
+    "assigned_labels": 0,
+    "scope": "Navigation totals only; source datasets and Informal bindings remain separate."
+  },
+  "retained_preparation": {
+    "source_batches": {
+      "qinz1yang": {
+        "processed_families": 6,
+        "fully_prepared_families": 5,
+        "historical_snapshots": 12,
+        "preliminary_label_counts": {
+          "pending_scope_review": 8,
+          "misaligned": 3,
+          "aligned": 1
+        },
+        "processing_record": "datasets/qinz1yang/metadata/retained-processing.json",
+        "deferred_plan": "datasets/qinz1yang/metadata/deferred-development-plan.jsonl"
+      },
+      "frenzymath": {
+        "processed_families": 4,
+        "fully_prepared_families": 4,
+        "historical_snapshots": 5,
+        "preliminary_label_counts": {
+          "misaligned": 4,
+          "aligned": 1
+        },
+        "processing_record": "datasets/frenzymath/metadata/retained-processing.json",
+        "deferred_plan": "datasets/frenzymath/metadata/deferred-development-plan.jsonl"
+      }
+    },
+    "processed_families": 10,
+    "fully_prepared_families": 9,
+    "partial_support_families": 1,
+    "historical_snapshots": 17,
+    "unique_input_contexts": 16,
+    "preliminary_label_counts": {
+      "pending_scope_review": 8,
+      "misaligned": 7,
+      "aligned": 2
+    },
+    "all_labels_require_human_review": true,
+    "new_registered_release_inputs": 0,
+    "note": "Two historical geodesic-completeness snapshots have identical packaged input digests; not two independent errors. Convergence snapshots remain partial support contexts."
+  },
+  "dataset_locations": {
+    "qinz1yang": "datasets/qinz1yang",
+    "frenzymath": "datasets/frenzymath"
+  },
+  "initial_batch": {
+    "families": 6,
+    "historical_versions": 12,
+    "strict_slice_versions_with_prior_preservation": 11,
+    "partial_support_versions": 1
+  },
+  "cumulative_retained": {
+    "families": 16,
+    "historical_versions": 29,
+    "unique_input_contexts": 28,
+    "excluded_development_artifacts": 5,
+    "human_review_complete": false,
+    "complete_declaration_slice_versions": 26,
+    "technical_followup_versions": 3
+  }
+}

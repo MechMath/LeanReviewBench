@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "method": "Independent pinned source bodies re-elaborated against same nominal structure identities and compared by Lean.Meta.isDefEq types and complete nonproof values.",
+  "source_signature_preservation": "passed",
+  "original_toolchain_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "formal_sha256": "57f34cb54df5aa37aaaab3c425d8bfec483af8270e8daa35f6abed8c637661f2",
+  "probe_sha256": "1c20dc372b89e6eb90f59379084fb13590341585169a1a60e75ee0a11c9f8082",
+  "original_receipt_locator": "build/preparation/qinz1yang/compact-isotopy-lean/before/technical/preservation-receipt.json",
+  "original_receipt_sha256": "b0528233afcf0f5c7fb93bbc577fd664cd7cc0b68b90f942f7222f79f1d05ad8"
+}

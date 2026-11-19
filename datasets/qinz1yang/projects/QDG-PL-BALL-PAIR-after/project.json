@@ -1,0 +1,60 @@
+{
+  "id": "QDG-PL-BALL-PAIR-after",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+    "path": "DifferentialGeometry/Topology/PiecewiseLinear/BallPair.lean",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/a9066ec63abb1b935e5bbe37df5277b1bf721115/DifferentialGeometry/Topology/PiecewiseLinear/BallPair.lean"
+  },
+  "group_id": "qinz1yang:pl-ball-pair-cone",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [
+    "QDG-PL-BALL-PAIR-before"
+  ],
+  "after_ids": [],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Upstream historical source licensing requires review.",
+  "original_toolchain": "leanprover/lean4:v4.33.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled-extracted-migrated-source-preserved; independent-general-ball-pair-scope-pending",
+  "formal": {
+    "file_count": 1,
+    "sha256": "711a049cb1b91dd98949c1aaf6ed198935957e55ca5d7666727dbd82d678b878",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "8c2ab5e1e1eae70d55e6efbd12cfa40225ec649c82e03dd6a2ad0001f2060777",
+  "toolchain_pin_evidence": "Independent GitHub file fetch at both source revisions; lean-toolchain blob a8afa7d1b02d96f0671eba854a8dc4b416beb473",
+  "review_status": "requires_human_scope_resolution",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

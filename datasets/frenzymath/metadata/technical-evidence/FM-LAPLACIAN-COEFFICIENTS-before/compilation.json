@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "roots": [
+    "MorganTianLib.laplacianAt_eq_invGram_sum",
+    "MorganTianLib.laplacianAt_eq_chart_formula"
+  ],
+  "original_proofs_certified": false,
+  "statement_preservation": "not_checked",
+  "nonproof_definition_preservation": "not_checked",
+  "compilation": "passed",
+  "extraction": "passed",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "graph_sha256": "d703a02dc0653b964268944464d0f7b099477b300d765cf065d12f8d665f020b",
+  "nodes": 315,
+  "edges": 2589,
+  "local_nodes": 59,
+  "sources": {
+    "Main.lean": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89"
+  },
+  "original_receipt_locator": "build/preparation/frenzymath/retained-lean/laplacian-before/technical/compile/receipt.json",
+  "original_receipt_sha256": "27a5c680161a041658bda280d5075a005a27ff28ea1ac688bb19a842f7b017a9"
+}

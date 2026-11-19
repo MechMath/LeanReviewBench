@@ -1,0 +1,477 @@
+{
+  "source_batch": "qinz1yang",
+  "review_status": "agent_preliminary_pending_human",
+  "records": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTWISE-before/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-POINTWISE-before/formal/Main.lean",
+      "input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511",
+      "formal_source_sha256": "391b132b1d7f7d4686f9704b8f6bee803b9240fd15d8c0ea28611c01da81aff2",
+      "informal_record_sha256": "4607903c13f344ba17c114852dc540b0e391d5c1666d189957539b0b494db708",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "not_applicable_zero_local_nonproof_definitions",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-POINTWISE-after"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-LIONS-before/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-LIONS-before/formal/Main.lean",
+      "input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
+      "formal_source_sha256": "95c0e2fc485e01d684eb014ea305d56746d781dba8503cc9903d5b0b7b6ed440",
+      "informal_record_sha256": "3a5a18a65a650d9ccfb8925a83b0a05fa13921f15a0e2c9b69385bafea10e5ac",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "not_applicable_zero_local_nonproof_definitions",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-LIONS-after"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/formal/Main.lean",
+      "input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
+      "formal_source_sha256": "f8f76aeefac9c2c6662ff9f429b33033c44216a5648d3627ae11f0d96d0238bb",
+      "informal_record_sha256": "9dad8627ec025ab6339d041bd229faa0a4b2d505ec26621f603dc0e4c9670b1a",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-SOBOLEV-after"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-POINTWISE-after",
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTWISE-after/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-POINTWISE-after/formal/Main.lean",
+      "input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37",
+      "formal_source_sha256": "353cb67902d9033a007c2464a27bc0202657d89ec9eb08e0228e8bcbb4f7cead",
+      "informal_record_sha256": "4607903c13f344ba17c114852dc540b0e391d5c1666d189957539b0b494db708",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-POINTWISE-before"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-LIONS-after",
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-LIONS-after/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-LIONS-after/formal/Main.lean",
+      "input_sha256": "dd0426d334748a8590160760f384fcb7959adb75768c17cb46d41f9b98ae9f94",
+      "formal_source_sha256": "4dbf3af373f176d4f095d9c48d0e4eef6108244f39c871400849be068d9fc7c7",
+      "informal_record_sha256": "3a5a18a65a650d9ccfb8925a83b0a05fa13921f15a0e2c9b69385bafea10e5ac",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-LIONS-before"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-SOBOLEV-after",
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-SOBOLEV-after/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-SOBOLEV-after/formal/Main.lean",
+      "input_sha256": "c9747fc2148beef07034b5389114ea82ca7587100490fe66b404e88d513f3c47",
+      "formal_source_sha256": "91151a810ec1013a9c9a849dbd45ad373ab7d4b1ffa7427e24ce955f88c616c7",
+      "informal_record_sha256": "9dad8627ec025ab6339d041bd229faa0a4b2d505ec26621f603dc0e4c9670b1a",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": false,
+      "proofs_erased": true,
+      "migration_preservation": "partial_root_and_selected_norm_expressions_only",
+      "nonproof_preservation": "partial_selected_norm_expressions; all_support_declarations_pending",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-SOBOLEV-before"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-before",
+      "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/formal/Main.lean",
+      "input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f",
+      "formal_source_sha256": "40a39f08b0f6e94736b6358288cf757fb98f6c0a27756b4aad889ab7a809f699",
+      "informal_record_sha256": "125db361425a262a7724353d46b456f8b61883074e4bd623e7eb4d51fba2f139",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed_full_root_type_in_migrated_environment",
+      "nonproof_preservation": "not_applicable_no_local_helper_values",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-CHART-PICARD-after"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-after",
+      "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/formal/Main.lean",
+      "input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed",
+      "formal_source_sha256": "8b27ff19d5fced11c7097b801e4ad35a7c8e88aa583449b05692db441d468b36",
+      "informal_record_sha256": "125db361425a262a7724353d46b456f8b61883074e4bd623e7eb4d51fba2f139",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed_full_root_type_in_migrated_environment",
+      "nonproof_preservation": "not_applicable_no_local_helper_values",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-CHART-PICARD-before"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-PL-BALL-PAIR-before",
+      "candidate_id": "pl-ball-pair-cone",
+      "source_commit": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+      "roots": [
+        "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-before/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-before/formal/Main.lean",
+      "input_sha256": "01cfbfd96cc80ad2a5cb37fe2e8cf8d614ba1e50c7b102d6bb3ad4b3a5baab8b",
+      "formal_source_sha256": "46a31348e46f143a79d9e43b8cefc370bab68f6e3e028c47e7a2ea8de04441d5",
+      "informal_record_sha256": "94a76a8fe29255456087633cadf24335a476e5b7f491f0176db034cf74077d66",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed_full_type_value_with_nominal_structure_identity_policy",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-PL-BALL-PAIR-after"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-PL-BALL-PAIR-after",
+      "candidate_id": "pl-ball-pair-cone",
+      "source_commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+      "roots": [
+        "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-after/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-after/formal/Main.lean",
+      "input_sha256": "8c2ab5e1e1eae70d55e6efbd12cfa40225ec649c82e03dd6a2ad0001f2060777",
+      "formal_source_sha256": "711a049cb1b91dd98949c1aaf6ed198935957e55ca5d7666727dbd82d678b878",
+      "informal_record_sha256": "94a76a8fe29255456087633cadf24335a476e5b7f491f0176db034cf74077d66",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed_full_type_value_with_nominal_structure_identity_policy",
+      "nonproof_preservation": "passed_in_migrated_environment",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-PL-BALL-PAIR-before"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+      "candidate_id": "parallel-transport-pairing",
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "roots": [
+        "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+      "input_sha256": "f048faf510a133b6d9a1f4b52649ff9d8196d901aa420a8c7b673156825713fe",
+      "formal_source_sha256": "043a15526765579fa14e6bf87cc9aadedcfd924bfa54997c71f70419306e31ac",
+      "informal_record_sha256": "ac96bdf33dbd9cbbb37a787e9f6ec10f1dcda6f2e9c234b02f29d3d488000ac7",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed_with_source_exact_nominal_SectionAlongCurve_identity",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-PARALLEL-TRANSPORT-AFTER"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+      "candidate_id": "parallel-transport-pairing",
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "roots": [
+        "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-AFTER/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-AFTER/formal/Main.lean",
+      "input_sha256": "c7b4095a4a481cbe79053faa7772e43d85620b9cfcf795129518fda4ce15f4ab",
+      "formal_source_sha256": "48b2358d1a143e6e31954e02ca6096c74e423b81da571c0abc4a79b0bcdc9197",
+      "informal_record_sha256": "ac96bdf33dbd9cbbb37a787e9f6ec10f1dcda6f2e9c234b02f29d3d488000ac7",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed_with_source_exact_nominal_SectionAlongCurve_identity",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-PARALLEL-TRANSPORT-BEFORE"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-COMPACT-ISOTOPY-BEFORE",
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "source_commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/formal/Main.lean",
+      "input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e",
+      "formal_source_sha256": "257e1c83c066dafd58680034c4e02689632e70ae6e4855ca0ae7b208a3412d7b",
+      "informal_record_sha256": "84e054c473b82606e14a4a142fadbc7d9e7e02714cfba96a276cc3afd08f349e",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-COMPACT-ISOTOPY-AFTER"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
+      "candidate_id": "compact-vector-space-isotopy-vacuity",
+      "source_commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/formal/Main.lean",
+      "input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097",
+      "formal_source_sha256": "7dfaaa6839c4bf31d4fb182f1beb451a6422aa4ebc3d2380e91f05aab123489d",
+      "informal_record_sha256": "84e054c473b82606e14a4a142fadbc7d9e7e02714cfba96a276cc3afd08f349e",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed",
+      "nonproof_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-COMPACT-ISOTOPY-BEFORE"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-before",
+      "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundleData",
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/formal/Main.lean",
+      "input_sha256": "fe106b23b34e327d0444cc6cb0fe0a3acfa51b5d1e3ecb8bb51261e9664065b2",
+      "formal_source_sha256": "c4e4f2fcf977e19a730900dc11a47f72f7073830d36fe932afc023052267ac56",
+      "informal_record_sha256": "6c68787bf5fdb7127bdb2a2b465852f424cacb4d06755911241fb6997254834d",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed_entire_selected_declaration_closure_in_migrated_environment",
+      "nonproof_preservation": "passed_all_selected_source_level_nonproof_values_and_data_fields",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-TENSOR-BUNDLE-after"
+        ]
+      }
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-after",
+      "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-after/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-after/formal/Main.lean",
+      "input_sha256": "ce1a34659cb8346d9ede159a30092bd30c5e741d1b50dd08f09221a485a21bcd",
+      "formal_source_sha256": "0aaf58b53553b8d5f0de6be7ed63badc267056d571c83885235c757003b7e90d",
+      "informal_record_sha256": "eac2221f1586ac344896fd1809bcc5019142151972d541b189e8dc7edd80d181",
+      "provisional_label": null,
+      "review_state": "requires_human_scope_resolution",
+      "declaration_slice": true,
+      "proofs_erased": true,
+      "migration_preservation": "passed_entire_selected_declaration_closure_in_migrated_environment",
+      "nonproof_preservation": "passed_all_selected_source_level_nonproof_values_and_data_fields",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-TENSOR-BUNDLE-before"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "source_commit": "06066269ebe3ca88e155a093c548ba9c70a1a0aa",
+      "roots": [
+        "GC.LongTime.Ch12.PointedModelsConverge_S13"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-AFTER/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-AFTER/formal/Main.lean",
+      "input_sha256": "ea706d9d6637cd8d0ec24a03a5f378be35cb1be0713fea7e2dcfcb6ae1d78c48",
+      "formal_source_sha256": "4b098b983c60f35f9cac298d8ba4cbb36e827579e8215a1efa8311dd7bfaa16f",
+      "informal_record_sha256": "da31223e31e4e3b7c1c76fdd89ee7118ab77791d6a4d7176238f8e4c529d6ddc",
+      "provisional_label": "aligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": false,
+      "proofs_erased": false,
+      "migration_preservation": "partial_independent_checks",
+      "nonproof_preservation": "partial_independent_checks",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [
+          "QDG-POINTED-MODELS-CONVERGENCE-BEFORE"
+        ],
+        "after_ids": []
+      }
+    },
+    {
+      "project_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
+      "candidate_id": "vacuous-pointed-smooth-convergence",
+      "source_commit": "16948d295b94a4e8783a4cccacfd324974ed22e3",
+      "roots": [
+        "GC.LongTime.Ch12.PointedModelsConverge_S13"
+      ],
+      "independent_informal": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/informal.jsonl",
+      "formal_context": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/formal/Main.lean",
+      "input_sha256": "b3cffc90569a2e1a0ac3feca56f841a7c8739246ee35d5e1cd1c22f4a6eaa005",
+      "formal_source_sha256": "9c6fdbdea13c74ab0a45e605830ddb3edf77f0304494b563d3a9cae84394f9e9",
+      "informal_record_sha256": "da31223e31e4e3b7c1c76fdd89ee7118ab77791d6a4d7176238f8e4c529d6ddc",
+      "provisional_label": "misaligned",
+      "review_state": "agent_preliminary_pending_human",
+      "declaration_slice": false,
+      "proofs_erased": false,
+      "migration_preservation": "partial_independent_checks",
+      "nonproof_preservation": "partial_independent_checks",
+      "original_environment_preservation": "not_checked",
+      "version_links": {
+        "before_ids": [],
+        "after_ids": [
+          "QDG-POINTED-MODELS-CONVERGENCE-AFTER"
+        ]
+      }
+    }
+  ]
+}

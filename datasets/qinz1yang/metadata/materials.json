@@ -1,0 +1,95 @@
+{
+  "source_batch": "qinz1yang",
+  "sources": [
+    {
+      "candidate_id": "ROOT-SOBOLEV-VACUITY",
+      "source": {
+        "source_id": "behzadan-holst-theorem-9.15-C0",
+        "title": "Sobolev-Slobodeckij Spaces on Compact Manifolds, Revisited",
+        "author": "A. Behzadan and M. Holst",
+        "version": "Author-hosted 109-page PDF acquired 2026-11-19; immutable byte hash identifies exact revision",
+        "url": "https://ccom.ucsd.edu/~mholst/pubs/dist/BeHo18b.pdf",
+        "locator": "Theorem 9.15, printed p.86 (PDF p.86), proof also states L-infinity norm bound",
+        "text": "Let M be a compact smooth manifold of dimension n, and let E be a smooth finite-rank vector bundle over M with a fiber metric. If s is real, 1<p<infinity, and sp>n, then W^(s,p)(M,E) embeds continuously into L-infinity(M,E), and every section in that Sobolev space has a continuous representative.",
+        "qualifications": [
+          "C0 component only; not a quotation of a full Cm embedding theorem.",
+          "For tensor sections use their smooth finite-rank tensor bundle; p=2 and sufficiently high integer s are specializations.",
+          "Historical tensorPouSobolevHilbert graph-norm correspondence not certified."
+        ],
+        "material_path": "build/preparation/qinz1yang/materials/behzadan-holst.pdf",
+        "sha256": "b75333ba4ac2180dfe913343cf448e40fab01d6b728c2eecff566c23b7cc9a1d",
+        "text_kind": "paraphrase independently read from paper/book; no Lean or repair-message target synthesis",
+        "original_quote": null
+      },
+      "availability": "full acquired PDF is an ignored local build artifact; URL/version/SHA pins are retained"
+    },
+    {
+      "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
+      "source": {
+        "source_id": "hunter-2014-theorem-6.35",
+        "title": "Notes on Partial Differential Equations",
+        "author": "John K. Hunter",
+        "version": "Revised 2014-06-18, downloaded 2026-11-19",
+        "url": "https://www.math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+        "locator": "Section 6.A.3, Theorem 6.35, printed p.203 (PDF p.209), equation (6.43)",
+        "material_path": "build/preparation/qinz1yang/materials/hunter-pde.pdf",
+        "sha256": "0dbade1806f7a1ea79cc444a0eecfe19e157b286c964f1f48f2d744c460c12dd",
+        "text_kind": "paraphrase of independently read theorem, not a Lean-derived target",
+        "text": "Let X be a Banach space and let f belong to L1(0,T;X). The function f has an integrable weak derivative g if and only if there is a constant c0 such that f(t)=c0+integral_0^t g(s) ds for almost every t. In this case the strong derivative exists almost everywhere and agrees with g.",
+        "qualifications": [
+          "The derivative g is the actual weak derivative of f, not an arbitrary unrelated function.",
+          "The source asserts almost-everywhere differentiability; no everywhere-at-zero upgrade is attributed to the source.",
+          "Continuous weak derivative yields pointwise differentiability by the fundamental theorem, but that corollary is not represented as an original quotation."
+        ],
+        "original_quote": null,
+        "selected_target_scope": "Only the forward implication: an integrable weak derivative g of f agrees with the strong derivative almost everywhere. The full if-and-only-if is source context, not the selected task."
+      },
+      "availability": "full acquired PDF is an ignored local build artifact; URL/version/SHA pins are retained"
+    },
+    {
+      "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+      "source": {
+        "source_id": "joudioux-1903.12591v1-A1-m1j0",
+        "title": "Hörmander’s method for the characteristic Cauchy problem and conformal scattering for a non linear wave equation",
+        "author": "Jérémie Joudioux",
+        "version": "arXiv:1903.12591v1, 29 March 2019",
+        "url": "https://arxiv.org/abs/1903.12591v1",
+        "download_url": "https://pure.mpg.de/rest/items/item_3038900_6/component/file_3038901/content",
+        "locator": "Appendix A, pp.20–21, Theorem A.1; m=1 and j=0",
+        "text": "Let X and Y be Hilbert spaces, with X continuously and densely embedded in Y. For a finite interval [a,b], if u belongs to L2([a,b];X) and its distributional time derivative belongs to L2([a,b];Y), then u has a bounded continuous representative taking values in the interpolation space [X,Y]_(1/2).",
+        "qualifications": [
+          "Specialization of independently printed m-th derivative trace theorem to m=1,j=0.",
+          "The embedding must be dense and continuous; an arbitrary continuous linear map is insufficient.",
+          "No graph-norm formula is invented or attributed to this theorem; continuous trace-space membership is the selected target.",
+          "This research paper reproduces classical Lions–Magenes, citing LM72 Chapter1 Theorems2.3,3.1; the original 1972 book was not downloaded."
+        ],
+        "material_path": "build/preparation/qinz1yang/materials/joudioux-scattering.pdf",
+        "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c",
+        "text_kind": "paraphrase independently read from paper/book; no Lean or repair-message target synthesis",
+        "original_quote": null
+      },
+      "availability": "full acquired PDF is an ignored local build artifact; URL/version/SHA pins are retained"
+    },
+    {
+      "candidate_id": "uninhabited-fundamental-class-frontier",
+      "source": {
+        "source_id": "hatcher-AT-theorem-3.26",
+        "title": "Algebraic Topology",
+        "author": "Allen Hatcher",
+        "version": "Author-hosted Chapter3 PDF, byte revision acquired 2026-11-19",
+        "url": "https://pi.math.cornell.edu/~hatcher/AT/ATch3.pdf",
+        "locator": "Section3.3, Theorem3.26 and ensuing fundamental-class paragraph, printed p.236 (PDF p.52)",
+        "text": "For a closed connected R-oriented n-manifold M, the map from H_n(M;R) to H_n(M,M minus {x};R) is an isomorphism for every x. A class mapping to local generators everywhere is a fundamental class. Such a class exists for a closed R-oriented manifold; conversely, existence forces compactness and an R-orientation.",
+        "qualifications": [
+          "Compactness/closedness is essential.",
+          "Root resolution and match to singular homology model pending; no extraction authorized for this row."
+        ],
+        "material_path": "build/preparation/qinz1yang/materials/hatcher-ATch3.pdf",
+        "sha256": "3fe35aae9c2bddc3720a86460e0d6bb6fd7dae3489f145f5475c3b4e71f6b793",
+        "text_kind": "paraphrase independently read from paper/book; no Lean or repair-message target synthesis",
+        "original_quote": null
+      },
+      "availability": "full acquired PDF is an ignored local build artifact; URL/version/SHA pins are retained"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "FM-model-proxy-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.modelBallVolume_eq",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+    "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovBall.lean",
+    "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/4dff1831c65f51855a70dc3c4ff03bea49a5619e/formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovBall.lean"
+  },
+  "group_id": "frenzymath:FM-model-volume-proxy",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [
+    "FM-model-proxy-after"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Pinned upstream Apache-2.0 copy retained at ../../licenses/LICENSE.upstream.",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled-extracted-migrated-source-preserved; independent-target-scope-review-pending",
+  "formal": {
+    "file_count": 1,
+    "sha256": "7e2ea00b71227b98651e85205176e69e52a330346adda0a19a06d3a4271457b8",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "a248f9cfbd6b80f2d8d889617dd1411cf37232b81594313b1840e89028e8ebb4",
+  "review_status": "excluded_partial_development",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

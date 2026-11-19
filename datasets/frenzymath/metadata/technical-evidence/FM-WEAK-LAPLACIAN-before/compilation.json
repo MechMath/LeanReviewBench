@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "roots": [
+    "MorganTianLib.WeakLaplacianLE"
+  ],
+  "original_proofs_certified": false,
+  "statement_preservation": "not_checked",
+  "nonproof_definition_preservation": "not_checked",
+  "compilation": "passed",
+  "extraction": "passed",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "graph_sha256": "3c5e13d3d83779a31ddb0802e616f348d83ecf4a42f0e4f8dfd4290a71afa3f8",
+  "nodes": 352,
+  "edges": 2750,
+  "local_nodes": 61,
+  "sources": {
+    "Main.lean": "f62415c54486ab9d5f81b0eccdac2f5196206d4750610ceb3d11484006244ea3"
+  },
+  "original_receipt_locator": "build/preparation/frenzymath/weak-laplacian-before/technical/slice-attempt/receipt.json",
+  "original_receipt_sha256": "f7c913c44147a24fef9335d644c74896efb7cd5ad98d388503df5e505fa13698"
+}

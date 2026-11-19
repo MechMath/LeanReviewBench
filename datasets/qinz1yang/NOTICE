@@ -1,0 +1,14 @@
+Research preparation artifacts from qinz1yang/differential-geometry.
+
+Exact historical repository revisions and file paths are recorded separately
+in each project.json. Selected statements and computational definitions retain
+their original ownership and source provenance. Local changes erase theorem
+proofs for statement-context inspection and migrate elaboration to Lean 4.34.1.
+
+The historical root tree at commit 3b43fea89fc8d4a42021cbd22d235960b81f6900
+contains no root LICENSE file. Historical redistribution/license scope remains
+unresolved and is explicitly recorded in metadata/licensing.json. No current
+license is retroactively asserted and no release admission is claimed.
+
+Independent informal references are source-specific acquired research materials;
+their URLs, versions, scopes and hashes remain separate from upstream Lean code.

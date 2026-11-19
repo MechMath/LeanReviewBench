@@ -1,0 +1,12 @@
+Research preparation artifacts from frenzymath/Poincare-Conjecture.
+
+Exact original repository revisions and file paths are recorded separately in
+each project.json and in the local acquisition/preservation receipts. The
+sources include MorganTianLib, DoCarmoLib and Shared declarations from their
+respective pinned revisions. Attribution belongs to their upstream authors;
+proof erasure and Lean 4.34.1 compatibility edits do not change ownership.
+
+The pinned upstream root Apache-2.0 license is retained in licenses/LICENSE.upstream.
+This staging directory is not a registered release dataset and does not certify
+original theorem proofs or human alignment judgments. Original independent book
+materials remain separate acquired research artifacts with version/hash locators.

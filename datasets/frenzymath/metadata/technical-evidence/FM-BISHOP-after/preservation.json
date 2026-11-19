@@ -1,0 +1,38 @@
+{
+  "status": "passed_migrated_source_context_with_nominal_identity_policy",
+  "source_commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "roots": [
+    "MorganTianLib.bishop_gromov_manifold_ratio",
+    "MorganTianLib.bishop_gromov_manifold_with_producers"
+  ],
+  "root_full_type_preservation": "passed",
+  "new_dependency_full_type_and_value_checks": 39,
+  "geodesic_shared_context_full_type_value_rfl": "passed",
+  "weak_prefix_reuse": "exact byte prefix matches independently checked migrated helper context; pinnedafter source wholefiles match except proof-only removals in measure source",
+  "required_local_nonproof_constants": 78,
+  "unchecked_required_local_nonproof_constants": [],
+  "coverage": "coverage.json",
+  "nominal_identity_source_checks": "nominal-source-equality.json",
+  "original_4_32_1_elaborated_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "formal_sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+  "graph_sha256": "7d9ac907e6ddf8e7d3521ed5dddaffcecfd08008fa9547a561f252b02d860f66",
+  "nodes": 570,
+  "edges": 6679,
+  "local_nodes": 134,
+  "evidence_files": {
+    "technical/preservation/receipt.json": "697f8118c48d3b0523e1adecd0bbe63a8595170dbed0b03c76c1d74a7d7341d8",
+    "technical/preservation/extra-receipt.json": "40b7bd4c9d044e34d42295951b41c6f3c66a6c5d4db2db488ac5d6ea286a5862",
+    "technical/preservation/geodesic-receipt.json": "920063f2952e4c2759c29bfcc77d467f65a299430350194d7e337f11e25dbfb8",
+    "technical/preservation/nominal-receipt.json": "0494ecc4b429e37903e9525878c67fc7265e4a240efc941d51d96aeb3a1cc0eb",
+    "technical/preservation/nominal-source-equality.json": "8e33ac37a630bb7d1c6a1d018201e7e800603d9b7faf3822b381652cae07909b",
+    "technical/preservation/coverage.json": "e54183d5082583da8a4c146bd89ad8d563467c95697c33148f60e9bca98ae452",
+    "technical/preservation/inherited-weak-receipt.json": "c67d0086c43bccc7911dad9b12aa6ded3cf118a46b81bed677972cd39d0208cd",
+    "technical/preservation/inherited-weak-context-repair.json": "f03e96a854b1706356c74ce302130cdbe40ed088155f6a7fc0771dac2dc410ae",
+    "technical/reuse-source-comparison.json": "3fb10cdfe9c97d17c7250efd0842bda770949fb782e6c7ae8c8f0a1cf1258691",
+    "technical/reuse-weak-prefix.json": "9c9bc0546ea4d66e10f3170904e0788e529ca84d1a8f86337f9a2ef0f4e639f9"
+  },
+  "original_receipt_locator": "build/preparation/frenzymath/bishop-after/technical/preservation/latest-receipt.json",
+  "original_receipt_sha256": "6302675c4daf9142c41bc5378cd7e2d06b552acd847901742d4e8c071a7ce813"
+}

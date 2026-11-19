@@ -1,0 +1,59 @@
+{
+  "id": "QDG-CHART-PICARD-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "204ff35257a122939545b409dfdce0669961f5d7",
+    "path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/204ff35257a122939545b409dfdce0669961f5d7/DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+  },
+  "group_id": "qinz1yang:ROOT-CHART-PICARD-CONVENTION",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [],
+  "after_ids": [
+    "QDG-CHART-PICARD-after"
+  ],
+  "status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "registered_release_input": false,
+  "licensing_status": "Historical source license scope unresolved; see metadata/licensing.json.",
+  "original_toolchain": "leanprover/lean4:v4.29.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "compiled-extracted-and-root-preserved; original-environment-and-chart-scope-review-pending",
+  "formal": {
+    "file_count": 1,
+    "sha256": "40a39f08b0f6e94736b6358288cf757fb98f6c0a27756b4aad889ab7a809f699",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f",
+  "review_status": "requires_human_scope_resolution",
+  "benchmark_extraction_eligible": false,
+  "dataset_registration": "awaiting_human_review"
+}

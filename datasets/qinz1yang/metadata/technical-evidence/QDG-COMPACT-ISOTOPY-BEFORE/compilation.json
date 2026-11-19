@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+  ],
+  "original_proofs_certified": false,
+  "statement_preservation": "not_checked",
+  "nonproof_definition_preservation": "not_checked",
+  "compilation": "passed",
+  "extraction": "passed",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "graph_sha256": "4e2d72afa74b2adaf53654d9aaea20253ae3ea39c8391b8a05d365235cd194bf",
+  "nodes": 114,
+  "edges": 229,
+  "local_nodes": 9,
+  "sources": {
+    "Main.lean": "57f34cb54df5aa37aaaab3c425d8bfec483af8270e8daa35f6abed8c637661f2"
+  },
+  "original_receipt_locator": "build/preparation/qinz1yang/compact-isotopy-lean/before/technical/validation/receipt.json",
+  "original_receipt_sha256": "b943917512d3554d724ff4408ab4cd471b30a0e6327d2bc4fba160800bfd3c67"
+}

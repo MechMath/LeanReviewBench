@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+  ],
+  "original_proofs_certified": false,
+  "statement_preservation": "not_checked",
+  "nonproof_definition_preservation": "not_checked",
+  "compilation": "passed",
+  "extraction": "passed",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "graph_sha256": "96a9c98d723d6ae0a70338701831c6c9377d244ae9cbf312c0d334e98398ff63",
+  "nodes": 90,
+  "edges": 89,
+  "local_nodes": 1,
+  "sources": {
+    "Main.lean": "637a8358564786a2bc240d9ea6291bf94ece7ef3bfe8f3e00c6fc7aaf15b6dfa"
+  },
+  "original_receipt_locator": "build/preparation/qinz1yang/batch-02-prs/chart-before/technical/receipt.json",
+  "original_receipt_sha256": "9e298d212834d63c00c3176d5534a5aeabdaf8c3fd908cf82031c99bc3f31071"
+}
