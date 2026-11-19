@@ -15,7 +15,9 @@ The qinz1yang and FrenzyMath batches remain separate sources with separate
 informal bindings. All 26 retained contexts meet the same native format and
 recorded context-check requirements as the original 171 inputs. Compact technical
 evidence is in `metadata/evidence/technical/`, without local build dependencies.
-Human review and historical-license readiness are independent merge gates.
+Human review and source-admission decisions are separate metadata states. A
+source-specific curator decision may admit an unresolved historical license
+evidence association with a notice, without claiming an established grant.
 
 ## Authoritative files
 

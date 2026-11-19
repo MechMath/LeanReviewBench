@@ -41,9 +41,11 @@ record has `human_adjudicated=true` and `review_status=human_reviewed`; unresolv
 rows stay preliminary. Keep the matching analysis verdicts, project statuses,
 provenance hashes and inventories synchronized using the update steps above.
 Do not change formal source or independent mathematical text merely to accept a
-label. Source-license resolution must have independently retained evidence.
+label. Source-license claims must have independently retained evidence. A curator
+may explicitly admit a specific evidence gap with a documented notice; that
+decision must not be recorded as a license grant or as resolved historical scope.
 
 Run the native checks and `check_release_candidate.py --require-reviewed` before
 merge. The gate checks native schema and hashes, complete technical contexts,
-human binary judgments and historical license scope. It does not promote
+human binary judgments and documented license/admission states. It does not promote
 `reference_ready` or `gold_label`, nor require restoring trial build directories.

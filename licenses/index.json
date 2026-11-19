@@ -815,7 +815,7 @@
           "commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9"
         }
       ],
-      "status": "partially-unresolved-historical-license-scope",
+      "status": "historical-license-evidence-incomplete-included-with-notice",
       "license_files": [
         {
           "file": "licenses/qinz1yang/LICENSE.upstream",
@@ -851,6 +851,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-POINTWISE-before",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -866,6 +874,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-LIONS-before",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -881,6 +897,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-SOBOLEV-before",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -896,6 +920,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-POINTWISE-after",
+            "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -911,6 +943,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-LIONS-after",
+            "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -926,6 +966,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "204ff35257a122939545b409dfdce0669961f5d7"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-CHART-PICARD-before",
+            "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -941,6 +989,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-CHART-PICARD-after",
+            "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -996,6 +1052,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+            "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -1011,6 +1075,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+            "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -1066,6 +1138,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "8203ec4eb870072447e321394bd981777608ab6f"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-TENSOR-BUNDLE-before",
+            "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         },
         {
@@ -1081,6 +1161,14 @@
           "history_evidence": {
             "file": "licenses/qinz1yang/HISTORY.json",
             "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-TENSOR-BUNDLE-after",
+            "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
           }
         }
       ],
@@ -1092,6 +1180,10 @@
         "file": "licenses/qinz1yang/AUTHORIZATION-REQUEST.json",
         "sha256": "445e44a3f87868646fd253f990163b3e2c7700e2b5d6882539182dcd52ea38e2",
         "status": "draft_not_sent"
+      },
+      "admission_decision": {
+        "file": "licenses/qinz1yang/ADMISSION.json",
+        "sha256": "f98eb6e3a68a1c732a896866c4d85d282275479128268702856d514b4d4821f6"
       }
     },
     "frenzymath": {

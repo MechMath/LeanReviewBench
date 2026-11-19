@@ -40,7 +40,7 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--require-reviewed', action='store_true',
-                        help='Also require human binary labels and resolved source licenses for new batches')
+                        help='Require human binary labels and documented license/admission states for new batches')
     args = parser.parse_args()
     config = json.loads((BASE / 'datasets/project-cases.json').read_text())
     check_scope(BASE, config)
@@ -54,7 +54,8 @@ def main():
     if args.require_reviewed:
         project_cases.require(readiness['merge_ready'],
                               f'Merge blocked: {readiness["human_review_pending"]} pending human reviews; '
-                              f'{readiness["license_scope_unresolved"]} unresolved historical licenses')
+                              f'{readiness["license_blocking"]} unaccepted licensing blockers; '
+                              f'{readiness["license_notices_accepted"]} accepted evidence-gap notices')
     print(f'PASS: {len(config["datasets"])} released batches; '
           f'{len(config.get("review_datasets", {}))} batches awaiting review')
 

@@ -89,7 +89,8 @@ def audit():
                 new_batch_totals={k: sum(r[k] for r in rows if r['dataset'] in NEW_BATCHES) for k in keys},
                 batches=rows, pending_review_batches={k: pending[k] for k in (
                     'inputs', 'unique_input_contexts', 'human_review_pending',
-                    'license_scope_unresolved', 'merge_ready')},
+                    'license_scope_unresolved', 'license_blocking',
+                    'license_notices_accepted', 'merge_ready')},
                 warnings=warnings, errors=errors + pending['format_errors'])
 
 

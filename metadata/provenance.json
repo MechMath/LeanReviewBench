@@ -14546,7 +14546,7 @@
     },
     "qinz1yang/QDG-POINTWISE-before.json": {
       "project": "datasets/qinz1yang/projects/QDG-POINTWISE-before/project.json",
-      "project_sha256": "44b78a671677d5e3b16523ddcc5925c4483086e9f268e3068366d7c6b3090478",
+      "project_sha256": "5ec6d6e075595023cbdfec396f68c9c919028db1165a2f9a9998e71791d7a867",
       "input_sha256": "7a893a6b8da10008af007acb15c46a13e3d546e064d34036aa23a2594ec1ecb5",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14555,7 +14555,7 @@
     },
     "qinz1yang/QDG-LIONS-before.json": {
       "project": "datasets/qinz1yang/projects/QDG-LIONS-before/project.json",
-      "project_sha256": "784abb9571ecf31e55cc5a774f3411acf20db540da3d5159997b5aa2d107b915",
+      "project_sha256": "a2b12d4d2fc7337cccde34934a54e074b9c6c909dc3a1d51e6c8f33e684d0f13",
       "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14564,7 +14564,7 @@
     },
     "qinz1yang/QDG-SOBOLEV-before.json": {
       "project": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/project.json",
-      "project_sha256": "722a68505ede36659c9a3737619213482fccbf9c950e74ccecfaf6dc82ad2b92",
+      "project_sha256": "7431c3338ed5e390097ad5339f4e8cf9cc7ad9aa63ac0b272b2a84a19bb13440",
       "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14573,7 +14573,7 @@
     },
     "qinz1yang/QDG-POINTWISE-after.json": {
       "project": "datasets/qinz1yang/projects/QDG-POINTWISE-after/project.json",
-      "project_sha256": "2c2986c9e6af5c5d45f7341b69777f6eb8561889284746e21d4633cdbe45514f",
+      "project_sha256": "5902016a3582e0c94bd83ce22f53b986d2abf8772d5858d0ce40756a0c27149b",
       "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14582,7 +14582,7 @@
     },
     "qinz1yang/QDG-LIONS-after.json": {
       "project": "datasets/qinz1yang/projects/QDG-LIONS-after/project.json",
-      "project_sha256": "ad623490b6b95521a3507c3ecf61ff1ac510ca1e0b9fd6393789e5c164c635db",
+      "project_sha256": "54b975937b8f74a333663b024d756130cc46e9a78512c92550702e2a416a3b2e",
       "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14591,7 +14591,7 @@
     },
     "qinz1yang/QDG-CHART-PICARD-before.json": {
       "project": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/project.json",
-      "project_sha256": "6831decf0280c9c3eb730ae0543eb4c78c85c68239a39ac7b09a21ffa8d4482c",
+      "project_sha256": "1eea604c7dfe56936bb5615f0cc066cd4d0eed1fe54ac71e8865039821b09b32",
       "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14600,7 +14600,7 @@
     },
     "qinz1yang/QDG-CHART-PICARD-after.json": {
       "project": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/project.json",
-      "project_sha256": "c09a5f924b2aa96783f2954f601405a9ec803855988bd8a87454808c1b38d05a",
+      "project_sha256": "4d08bb804f116089f0700ab4c9345856b361cc4249b851ea933acf7a6d492d89",
       "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14627,7 +14627,7 @@
     },
     "qinz1yang/QDG-PARALLEL-TRANSPORT-BEFORE.json": {
       "project": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/project.json",
-      "project_sha256": "40663ab07eba416b10a3b5fca7535fda5d3fbacf71d80a1ed0835294335c110e",
+      "project_sha256": "21365f8dda70c224ef74f0e4576fdca7b71cc299b8c7ccbcdffad3b18ecd5891",
       "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14636,7 +14636,7 @@
     },
     "qinz1yang/QDG-PARALLEL-TRANSPORT-AFTER.json": {
       "project": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-AFTER/project.json",
-      "project_sha256": "bfb4379b5b8e3501762da02377c94cc111f5998f79d97ed908dc43a75de7889a",
+      "project_sha256": "b30c6a6be493a320ebd4538aef4d424c4b066378cf559889171efdff72e582ae",
       "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14663,7 +14663,7 @@
     },
     "qinz1yang/QDG-TENSOR-BUNDLE-before.json": {
       "project": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/project.json",
-      "project_sha256": "78253d9ff3f9316d14038f51c026b96f58ad2760afd4820d8cc6d922e4dec1df",
+      "project_sha256": "776c9e112a751416dcef34f513c707d33bc1a3310f29113deeff0166ad1c6fe6",
       "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",
@@ -14672,7 +14672,7 @@
     },
     "qinz1yang/QDG-TENSOR-BUNDLE-after.json": {
       "project": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-after/project.json",
-      "project_sha256": "8496531097cc706ca83a67a932ba96294dd2f29863e14fd40a8d9bdae47725b3",
+      "project_sha256": "07b52ba1f8d355c3e0d2ef97f432756a34cdba595e9f79f4bf7dd425b63d40c5",
       "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
       "archived_preparation": {},
       "source_repository": "https://github.com/qinz1yang/differential-geometry",

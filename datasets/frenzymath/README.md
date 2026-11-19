@@ -29,7 +29,7 @@ Run from the repository root:
 ```sh
 python3 scripts/data/check_release_candidate.py
 python3 scripts/data/publication_readiness.py
-# Strict gate: requires completed human binary judgments AND resolved licenses.
+# Strict gate: requires human binary judgments and documented admission states.
 python3 scripts/data/check_release_candidate.py --require-reviewed
 ```
 

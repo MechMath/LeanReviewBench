@@ -8,9 +8,11 @@ The same native layout also contains **26 complete Poincare contexts awaiting
 human review**: 15 from qinz1yang and 11 from FrenzyMath. The native loader reads
 197 inputs in total. Three technically deferred contexts and five excluded
 artifacts are absent. Labels, evidence and validation use the standard metadata
-paths. Historical authorization scope remains unresolved for 11 new versions;
-`python3 scripts/data/check_release_candidate.py --require-reviewed` enforces
-human-review and source-license readiness before merge.
+paths. Historical grant-association evidence remains incomplete for 11 versions;
+they are included under an explicit curator decision with per-version notices.
+This does not establish a historical license grant.
+`python3 scripts/data/check_release_candidate.py --require-reviewed` still requires
+completed human alignment review and documented admission states.
 
 ```text
 datasets/

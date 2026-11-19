@@ -64,5 +64,7 @@
   "review_status": "agent_preliminary",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
-  "validation_reference": "metadata/validation.json"
+  "validation_reference": "metadata/validation.json",
+  "license_admission": "include_with_notice",
+  "license_review_note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
 }

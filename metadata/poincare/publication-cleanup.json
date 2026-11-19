@@ -96,6 +96,10 @@
   "merge_gate": "python3 scripts/data/check_release_candidate.py --require-reviewed",
   "remaining_blockers": {
     "human_alignment_reviews": 26,
-    "historical_license_scope": 11
+    "historical_license_scope": 0
+  },
+  "accepted_notices": {
+    "historical_license_association_incomplete": 11,
+    "decision": "licenses/qinz1yang/ADMISSION.json"
   }
 }

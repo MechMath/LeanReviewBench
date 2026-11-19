@@ -2,7 +2,8 @@
 """Check pending publication batches; --require-reviewed is a strict merge gate.
 
 Native schema, hashes, labels, provenance and recorded context checks are validated
-by check_release_candidate.py. This adds cleanup and human/licensing readiness.
+by check_release_candidate.py. This adds cleanup, human review and explicit
+curator admission decisions without converting those decisions into license grants.
 """
 import argparse
 from collections import defaultdict
@@ -23,6 +24,22 @@ def label_blockers(record):
     if record.get('label') not in ('aligned', 'misaligned'):
         reasons.append('binary_label_pending')
     return reasons
+
+
+def license_review(record):
+    if record.get('status') == 'license-copy-retained':
+        return [], []
+    admission = record.get('admission', {})
+    if (record.get('status') == 'historical-license-scope-unresolved' and
+            not record.get('known_explicit_restriction') and
+            admission.get('decision') == 'include_with_notice' and
+            admission.get('authority') == 'explicit_curator_instruction' and
+            admission.get('source_commit') == record.get('source_commit') and
+            admission.get('project_id') == record.get('project_id') and
+            admission.get('does_not_establish_a_license_grant') is True and
+            isinstance(admission.get('note'), str) and admission['note'].strip()):
+        return [], ['historical_license_evidence_incomplete_accepted_with_notice']
+    return ['historical_license_scope_unresolved'], []
 
 
 def audit(base=BASE):
@@ -62,10 +79,12 @@ def audit(base=BASE):
             if 'build/' in raw_informal or '/home/' in raw_informal or 'binding_review_status' in raw_informal:
                 errors.append(f'{batch}:{identity}: acquisition/review process leaked into informal input')
             blockers = label_blockers(labels.get(identity, {}))
-            if licenses.get(identity, {}).get('status') != 'license-copy-retained':
-                blockers.append('historical_license_scope_unresolved')
+            licensing = licenses.get(identity, {})
+            licensing_blockers, notices = license_review(licensing)
+            blockers.extend(licensing_blockers)
             rows.append(dict(dataset=batch, project_id=identity, input_sha256=meta['input_sha256'],
-                             blockers=blockers))
+                             blockers=blockers, license_status=licensing.get('status'),
+                             notices=notices))
             seen[meta['input_sha256']].append(meta)
         for digest, same in seen.items():
             if len(same) < 2:
@@ -79,7 +98,10 @@ def audit(base=BASE):
                 inputs=len(rows), unique_input_contexts=len({r['input_sha256'] for r in rows}),
                 format_errors=errors, merge_ready=not errors and all(not r['blockers'] for r in rows),
                 human_review_pending=sum('human_review_pending' in r['blockers'] for r in rows),
-                license_scope_unresolved=sum('historical_license_scope_unresolved' in r['blockers'] for r in rows),
+                license_scope_unresolved=sum(r['license_status'] == 'historical-license-scope-unresolved'
+                                             for r in rows),
+                license_blocking=sum('historical_license_scope_unresolved' in r['blockers'] for r in rows),
+                license_notices_accepted=sum(bool(r['notices']) for r in rows),
                 records=rows, duplicate_contexts=duplicates)
 
 

@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import patch
 import copy
 
-from scripts.data.publication_readiness import audit, label_blockers
+from scripts.data.publication_readiness import audit, label_blockers, license_review
 from scripts.data.publication_readiness import read as real_read
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,15 +18,18 @@ class PublicationReadinessTests(unittest.TestCase):
         self.assertEqual(result['format_errors'], [])
         self.assertEqual(result['human_review_pending'], 26)
         self.assertEqual(result['license_scope_unresolved'], 11)
+        self.assertEqual(result['license_notices_accepted'], 11)
+        self.assertEqual(result['license_blocking'], 0)
         self.assertFalse(result['merge_ready'])
 
-    def test_labels_alone_do_not_override_an_unresolved_license(self):
+    def test_completed_labels_allow_explicitly_accepted_evidence_notices(self):
         # Simulate completed binary human review without modifying any real data.
         with patch('scripts.data.publication_readiness.label_blockers', side_effect=lambda _: []):
             result = audit(ROOT)
         self.assertEqual(result['human_review_pending'], 0)
         self.assertEqual(result['license_scope_unresolved'], 11)
-        self.assertFalse(result['merge_ready'])
+        self.assertEqual(result['license_notices_accepted'], 11)
+        self.assertTrue(result['merge_ready'])
 
     def test_provisional_binary_label_is_not_human_review(self):
         self.assertEqual(label_blockers(dict(label='aligned', human_adjudicated=False,
@@ -38,21 +41,33 @@ class PublicationReadinessTests(unittest.TestCase):
         self.assertEqual(label_blockers(dict(label='aligned', human_adjudicated=True,
                                             review_status='human_reviewed')), [])
 
-    def test_both_resolved_gates_are_sufficient_for_readiness(self):
-        def resolved_license_read(path):
+    def test_unaccepted_license_gap_still_blocks_after_label_review(self):
+        def unaccepted_license_read(path):
             value = real_read(path)
             if path == ROOT / 'licenses/index.json':
                 value = copy.deepcopy(value)
                 for batch in value['review_datasets'].values():
                     for record in batch['projects']:
-                        record['status'] = 'license-copy-retained'
+                        record.pop('admission', None)
             return value
         # This is a gate regression, not a license or human-review assertion.
         with patch('scripts.data.publication_readiness.label_blockers', side_effect=lambda _: []), \
-                patch('scripts.data.publication_readiness.read', side_effect=resolved_license_read):
+                patch('scripts.data.publication_readiness.read', side_effect=unaccepted_license_read):
             result = audit(ROOT)
         self.assertEqual(result['format_errors'], [])
-        self.assertTrue(result['merge_ready'])
+        self.assertEqual(result['license_blocking'], 11)
+        self.assertFalse(result['merge_ready'])
+
+    def test_admission_is_source_specific_and_does_not_override_a_restriction(self):
+        index = real_read(ROOT / 'licenses/index.json')
+        record = copy.deepcopy(next(r for r in index['review_datasets']['qinz1yang']['projects']
+                                    if r.get('admission')))
+        self.assertFalse(license_review(record)[0])
+        record['known_explicit_restriction'] = True
+        self.assertTrue(license_review(record)[0])
+        record.pop('known_explicit_restriction')
+        record['admission']['source_commit'] = '0' * 40
+        self.assertTrue(license_review(record)[0])
 
     def test_deferred_and_excluded_sources_are_not_publication_inputs(self):
         removed = {'QDG-SOBOLEV-after', 'QDG-POINTED-MODELS-CONVERGENCE-BEFORE',

@@ -1,0 +1,57 @@
+{
+  "schema_version": "leanreviewbench-curator-admission-1",
+  "decision": "include_with_notice",
+  "authority": "explicit_curator_instruction",
+  "instruction": "那先放进去吧，因为是证书缺失而不是禁止，这里备注一下",
+  "scope": [
+    {
+      "project_id": "QDG-POINTWISE-before",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+    },
+    {
+      "project_id": "QDG-LIONS-before",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+    },
+    {
+      "project_id": "QDG-SOBOLEV-before",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+    },
+    {
+      "project_id": "QDG-POINTWISE-after",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+    },
+    {
+      "project_id": "QDG-LIONS-after",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-before",
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7"
+    },
+    {
+      "project_id": "QDG-CHART-PICARD-after",
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809"
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0"
+    },
+    {
+      "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57"
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-before",
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f"
+    },
+    {
+      "project_id": "QDG-TENSOR-BUNDLE-after",
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9"
+    }
+  ],
+  "reason": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant.",
+  "evidence_status": "historical_grant_association_incomplete",
+  "license_grant_established_by_this_record": false,
+  "effect": "The specifically listed evidence gaps are documented notices rather than merge blockers. Human alignment review remains required. Known prohibitions or unaccepted issues remain blockers.",
+  "history_evidence": "licenses/qinz1yang/HISTORY.json"
+}

@@ -29,8 +29,8 @@ Run from the repository root:
 ```sh
 python3 scripts/data/check_release_candidate.py
 python3 scripts/data/publication_readiness.py
-# Strict gate: requires completed human binary judgments AND resolved licenses.
+# Strict gate: requires human binary judgments and documented admission states.
 python3 scripts/data/check_release_candidate.py --require-reviewed
 ```
 
-Of these 15 versions, 4 have pinned Apache-2.0 license/notice copies; 11 have unresolved historical licensing scope. Human labels alone do not clear that merge blocker.
+Of these 15 versions, 4 have pinned Apache-2.0 license/notice copies. For 11 earlier versions, association with the later Apache grant remains incompletely documented; no explicit prohibition was found in the inspected evidence. They are included with notes under the explicit curator decision in root `licenses/qinz1yang/ADMISSION.json`. This is a data-admission decision, not proof of a copyright grant. The evidence gap remains visible but does not independently block this merge; human alignment review is still required.

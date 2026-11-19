@@ -34,6 +34,8 @@ python3 scripts/data/check_release_candidate.py --require-reviewed
 The default check validates the clean dataset and persistent receipt bindings;
 it does not rerun Lean or independently certify archived probes. The strict
 `--require-reviewed` gate additionally fails until every new input has a binary
-human-reviewed label and a resolved source-license record. Today that means
-26 human reviews and 11 historical-license scopes remain unresolved. These
-blockers are reported rather than bypassed by a schema exception.
+human-reviewed label and a documented license/admission state. The curator has
+explicitly included the 11 historical evidence gaps with source-specific notices;
+their unresolved factual status remains visible but is no longer an independent
+merge blocker. Unaccepted gaps or known explicit restrictions still block.
+The remaining current blocker is 26 pending human alignment reviews.

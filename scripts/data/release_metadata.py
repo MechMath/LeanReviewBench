@@ -60,12 +60,30 @@ def verify_licenses(base, config):
         rows = record['projects']
         if len(rows) != len(projects) or {r['project_id'] for r in rows} != set(projects):
             raise ValueError('Review license/project coverage differs')
+        admitted = {(r['project_id'], r['source_commit']) for r in rows if r.get('admission')}
+        if admitted:
+            binding = record.get('admission_decision', {})
+            decision_path = base / binding.get('file', '')
+            if (not decision_path.is_relative_to(base / 'licenses') or
+                    not decision_path.is_file() or
+                    sha(decision_path.read_bytes()) != binding.get('sha256')):
+                raise ValueError('Curator admission evidence missing or changed')
+            decision = json.loads(decision_path.read_text())
+            if (decision.get('authority') != 'explicit_curator_instruction' or
+                    decision.get('decision') != 'include_with_notice' or
+                    decision.get('license_grant_established_by_this_record') is not False or
+                    {(r['project_id'], r['source_commit']) for r in decision['scope']} != admitted):
+                raise ValueError('Curator admission scope or factual state differs')
         for row in rows:
             meta = projects[row['project_id']]
             if (row['source_commit'] != meta['source']['commit'] or
                     row['repository'] != meta['source']['repository'] or
                     row['status'] != meta['licensing_status']):
                 raise ValueError('Review license/source binding differs')
+            if row.get('admission') and (
+                    meta.get('license_admission') != row['admission']['decision'] or
+                    meta.get('license_review_note') != row['admission']['note']):
+                raise ValueError('Project/curator admission note differs')
             if row['status'] == 'license-copy-retained':
                 if not row['license_files']:
                     raise ValueError('Licensed input lacks retained copy')

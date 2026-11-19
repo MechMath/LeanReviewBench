@@ -58,5 +58,6 @@ its split/group, yielding 25 distinct contexts. Together with the original
 Labels, analysis, context-validation evidence, provenance and license records
 use the same root metadata locations as the existing batches. Run
 `python3 scripts/data/check_release_candidate.py --require-reviewed` for the
-strict merge gate: preliminary labels do not satisfy human review, and labels
-do not resolve a historical-license gap.
+strict merge gate: preliminary labels do not satisfy human review. The 11
+historical license-association gaps have an explicit source-specific inclusion
+decision with notices, while their factual evidence status remains incomplete.
