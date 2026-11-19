@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-LIONS-after",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-LIONS-after",
+  "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
+  "root": "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace",
+  "label": "misaligned",
+  "reason": "Against the unchanged independent Joudioux interpolation-space trace target, after quantifies only over timeH1 X T (an X-valued initial datum plus an X-valued L2 derivative) and concludes continuity and a Y-norm bound after an arbitrary continuous linear map. The classical target assumes only L2(X) values with Y-valued weak derivative and concludes continuity in [X,Y]1/2. The after has meaningful computational content but neither provides that interpolation-space conclusion nor covers the classical weaker domain. Therefore this after remains misaligned to the same selected target; no claim of logical falsity or of a negative verdict against a different H1-continuity target.",
+  "review_scope": "Same before Joudioux source, not a replacement target. Restricting source to H1(X) and weakening output to Y-continuity would create a different task and is not done.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Against the unchanged independent Joudioux interpolation-space trace target, after quantifies only over timeH1 X T (an X-valued initial datum plus an X-valued L2 derivative) and concludes continuity and a Y-norm bound after an arbitrary continuous linear map. The classical target assumes only L2(X) values with Y-valued weak derivative and concludes continuity in [X,Y]1/2. The after has meaningful computational content but neither provides that interpolation-space conclusion nor covers the classical weaker domain. Therefore this after remains misaligned to the same selected target; no claim of logical falsity or of a negative verdict against a different H1-continuity target.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/389a4fd195f3ee7600c9ed5424e6f1921bdc391e/DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://arxiv.org/abs/1903.12591v1",
+          "version": "arXiv:1903.12591v1, 29 March 2019",
+          "locator": "Appendix A, pp.20–21, Theorem A.1; m=1 and j=0",
+          "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c"
+        },
+        "scope": "Hilbert spaces with a continuous dense embedding, first distributional time derivative in the weaker space, and continuity into the real interpolation trace space."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "dd0426d334748a8590160760f384fcb7959adb75768c17cb46d41f9b98ae9f94",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "dd0426d334748a8590160760f384fcb7959adb75768c17cb46d41f9b98ae9f94"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

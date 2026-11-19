@@ -1,0 +1,63 @@
+{
+  "task_id": "frenzymath:FM-BISHOP-after",
+  "dataset": "frenzymath",
+  "project_id": "FM-BISHOP-after",
+  "input_sha256": "ca2c4139b6483a86a8b8a4d1293f1dde39d666c28dc8579423f3fd684076dd1e",
+  "root": "MorganTianLib.bishop_gromov_manifold_ratio",
+  "label": "misaligned",
+  "reason": "The two actual pinned blueprint roots now involve manifold Ricci and actual Riemannian volume, a substantive repair. However complete M and measurable Jacobian are assumed, Ricci is required on closedBall, and full packaged conclusion additionally assumes hric0, origin normalization and a producer whose small-radius-normalization field supplies the limiting assertion. Its limit conclusion is only k=0, while the independent theorem states the general model ratio limit. Thus joint target is still restricted relative to the original full theorem. These conditional Lean theorem statements are not alleged mathematically false.",
+  "review_scope": "Some stronger assumptions may be removable with further theorems; label concerns these exact roots against the bound complete original statement. Human review required.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "roots": [
+    "MorganTianLib.bishop_gromov_manifold_ratio",
+    "MorganTianLib.bishop_gromov_manifold_with_producers"
+  ],
+  "target_mode": "joint",
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The two actual pinned blueprint roots now involve manifold Ricci and actual Riemannian volume, a substantive repair. However complete M and measurable Jacobian are assumed, Ricci is required on closedBall, and full packaged conclusion additionally assumes hric0, origin normalization and a producer whose small-radius-normalization field supplies the limiting assertion. Its limit conclusion is only k=0, while the independent theorem states the general model ratio limit. Thus joint target is still restricted relative to the original full theorem. These conditional Lean theorem statements are not alleged mathematically false.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovManifold.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/b6173537bce076a7be5b5a6954e56ca25451b53a/formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovManifold.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Theorem 1.34, label BishopGromov, prelim.tex lines1008-1019",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Relative volume comparison for actual Riemannian metric balls with compact closure, the stated Ricci bound, radius range, ratio limit and nonnegative-Ricci corollary."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "8f490834e7b4e31346befecd9f6ae21dba4e4b059a6956445a9741d810ed72bd",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "8f490834e7b4e31346befecd9f6ae21dba4e4b059a6956445a9741d810ed72bd"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

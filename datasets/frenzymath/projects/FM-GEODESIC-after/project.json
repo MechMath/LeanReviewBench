@@ -42,20 +42,18 @@
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "technical_status": "compiled-extracted-migrated-source-preserved; semantic-scope-and-original-environment-review-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "target_mode": "single",
   "human_adjudicated": false,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Pinned upstream Apache-2.0 copy retained at ../../licenses/LICENSE.upstream.",
+  "licensing_status": "license-copy-retained",
   "original_toolchain": "leanprover/lean4:v4.32.1",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "input_sha256": "0e5695958ea4429643c0693e415fd88bd672515bd3b89331a803d9c59a206308",
-  "source_materials_base": "build/preparation/frenzymath",
-  "source_materials_distributed": false,
-  "review_status": "requires_human_scope_resolution",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/frenzymath.jsonl",
+  "candidate_id": "FM-geodesic-continuity",
+  "validation_reference": "metadata/validation.json"
 }

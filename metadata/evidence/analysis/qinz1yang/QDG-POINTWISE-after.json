@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-POINTWISE-after",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-POINTWISE-after",
+  "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
+  "root": "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat",
+  "label": "undetermined",
+  "reason": "The missing derivative linkage is repaired: toFun is the actual indefinite Bochner integral, deriv is the genuine L2 component, and hrep ties a continuous g to that component. This is a credible stronger-regularity pointwise FTC corollary. However the unchanged independent Hunter target is the general Banach-valued L1 weak-derivative forward implication with a.e. agreement, whereas after assumes Hilbert completeness, timeH1 and continuous derivative and concludes everywhere one-sided derivative. Whether this specialized corollary is acceptable as the same benchmark target requires explicit human scope review; source theorem equivalence is not claimed.",
+  "review_scope": "No automatic aligned label. Same Hunter target and a.e./everywhere qualifications retained; do not silently replace it with a new continuous-derivative theorem.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The missing derivative linkage is repaired: toFun is the actual indefinite Bochner integral, deriv is the genuine L2 component, and hrep ties a continuous g to that component. This is a credible stronger-regularity pointwise FTC corollary. However the unchanged independent Hunter target is the general Banach-valued L1 weak-derivative forward implication with a.e. agreement, whereas after assumes Hilbert completeness, timeH1 and continuous derivative and concludes everywhere one-sided derivative. Whether this specialized corollary is acceptable as the same benchmark target requires explicit human scope review; source theorem equivalence is not claimed.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "path": "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/389a4fd195f3ee7600c9ed5424e6f1921bdc391e/DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://www.math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+          "version": "Revised 2014-06-18, downloaded 2026-11-19",
+          "locator": "Section 6.A.3, Theorem 6.35, printed p.203 (PDF p.209), equation (6.43)",
+          "sha256": "0dbade1806f7a1ea79cc444a0eecfe19e157b286c964f1f48f2d744c460c12dd"
+        },
+        "scope": "Banach-valued functions with an integrable weak derivative on a finite interval; the source concludes almost-everywhere differentiability."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

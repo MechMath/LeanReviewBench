@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-PL-BALL-PAIR-after",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-PL-BALL-PAIR-after",
+  "input_sha256": "b96ed327184f9ac428b9246c7ef579a4c228d2a7c930a89fa08c2a0a62f147e8",
+  "root": "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair",
+  "label": "undetermined",
+  "reason": "Before requires literal cone sets; this is stronger than the independently defined ball-pair property, which is invariant under PL homeomorphisms. After allows a PL homeomorphic cone pair, addressing literal cone geometry, but independent general ball-pair definition may still be broader, so after is not automatically aligned.",
+  "review_scope": "Compare the general ball-pair definition and its invariance, not a claim that every proper ball pair is unknotted. Lean indices use ambient dimension m+1 and subball dimension k; after cone-model representability may still be narrower than all ball pairs and requires separate review.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Before requires literal cone sets; this is stronger than the independently defined ball-pair property, which is invariant under PL homeomorphisms. After allows a PL homeomorphic cone pair, addressing literal cone geometry, but independent general ball-pair definition may still be broader, so after is not automatically aligned.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+      "path": "DifferentialGeometry/Topology/PiecewiseLinear/BallPair.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/a9066ec63abb1b935e5bbe37df5277b1bf721115/DifferentialGeometry/Topology/PiecewiseLinear/BallPair.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/rsplx.pdf",
+          "locator": "1972 edition, Chapter4 opening definitions, printed p.50 / PDF p.58; stars and links immediately thereafter",
+          "sha256": "dd4ebd291635675895b0fc3e174b4283a1cc698ce24f5b3a59c5ed5e3a28f4ae",
+          "version": "Rourke–Sanderson 1972 edition, fixed acquired PDF bytes"
+        },
+        "scope": "General PL ball pairs; properness and unknottedness are separate qualifications."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "8c2ab5e1e1eae70d55e6efbd12cfa40225ec649c82e03dd6a2ad0001f2060777",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "8c2ab5e1e1eae70d55e6efbd12cfa40225ec649c82e03dd6a2ad0001f2060777"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

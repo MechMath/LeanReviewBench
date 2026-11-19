@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-CHART-PICARD-before",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-CHART-PICARD-before",
+  "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
+  "root": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz",
+  "label": "undetermined",
+  "reason": "Before assumes Lipschitz regularity of raw E-valued tangent representatives in one fixed alpha coordinate chart, but asserts a manifold derivative equation whose local derivative representation uses the moving target chart. The independent Euclidean Picard theorem does not by itself validate this representation change: the actual chart differential and target tangent trivialization relation must be checked. No independent counterexample or chart-compatibility proof has been completed, so this is not yet a binary misalignment verdict.",
+  "review_scope": "Teschl local existence component only; no uniqueness target, no independent theorem about the unverified raw-tangent-to-chart pushforward convention.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Before assumes Lipschitz regularity of raw E-valued tangent representatives in one fixed alpha coordinate chart, but asserts a manifold derivative equation whose local derivative representation uses the moving target chart. The independent Euclidean Picard theorem does not by itself validate this representation change: the actual chart differential and target tangent trivialization relation must be checked. No independent counterexample or chart-compatibility proof has been completed, so this is not yet a binary misalignment verdict.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/204ff35257a122939545b409dfdce0669961f5d7/DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+          "version": "Author preliminary edition, GSM140 AMS2012, exact downloaded bytes fixed by SHA256",
+          "locator": "Theorem2.2, printed p38/PDFp49; local-existence component, equation xdot=f(t,x), x(t0)=x0",
+          "sha256": "362433156525216abf596c17ce843204510e96d57afa4284a37c7aa5a9ffc36e"
+        },
+        "scope": "Local Euclidean initial-value existence and derivative equation under continuity and local Lipschitz hypotheses; uniqueness is outside the selected component."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-LIONS-after",
+  "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
+  "formal_sha256": "4dbf3af373f176d4f095d9c48d0e4eef6108244f39c871400849be068d9fc7c7",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "7cbae5a28274440189f6b019a22690a61e19d3d405ad4b3b910c9f5ef677248a",
+  "nodes": 266,
+  "edges": 1561,
+  "local_nodes": 48,
+  "compiled_sources": {
+    "Main.lean": "c053248a04952979e3ca27659dc9f19b4048e15cce9103451b3971f68556448e"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "passed_in_migrated_environment",
+  "source_preservation_method": "Original source helper declaration blocks and original root signature reconstructed in SourceReference namespace; independent-context root full-type/proof equality probe and ten helper-type/value rfl probes compiled.",
+  "preservation_status_recorded": "passed_in_migrated_environment",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-LIONS-after/preservation.json",
+  "archived_receipt_sha256": "387497bf344aef162fa92eb3c5d51805823116a9a98c6b6ef86aa57259ce3b88",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

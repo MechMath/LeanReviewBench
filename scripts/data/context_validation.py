@@ -17,7 +17,7 @@ def verify(base):
             document.get('external_libraries') != pins):
         raise ValueError('Context validation environment differs')
     projects = {(batch, path.parent.name): path.parent
-                for batch in config['datasets']
+                for batch in {**config['datasets'], **config.get('review_datasets', {})}
                 for path in (base / 'datasets' / batch / 'projects').glob('*/project.json')}
     seen = set()
     for row in document['records']:
@@ -40,6 +40,25 @@ def verify(base):
         if (meta.get('formal', {}).get('proofs_erased') is not True or
                 meta.get('formal', {}).get('declaration_slice') is not True):
             raise ValueError('Context packaging flags differ')
+        if row.get('evidence_path'):
+            from hashlib import sha256
+            evidence = base / row['evidence_path']
+            raw = evidence.read_bytes()
+            if sha256(raw).hexdigest() != row.get('evidence_sha256'):
+                raise ValueError('Technical evidence digest differs')
+            receipt = json.loads(raw)
+            if any(receipt[k] != row[k] for k in
+                   ('dataset', 'project_id', 'roots', 'input_sha256', 'formal_sha256')):
+                raise ValueError('Technical evidence binding differs')
+            if (receipt['lean_toolchain'] != document['lean_toolchain'] or
+                    {name: item['commit'] for name, item in receipt['external_libraries'].items()} != pins or
+                    receipt['exporter_sha256'] != document['exporter_sha256'] or
+                    receipt['graph_reader_sha256'] != document['graph_reader_sha256']):
+                raise ValueError('Technical evidence environment differs')
+            sources = {str(p.relative_to(directory / 'formal')): sha256(p.read_bytes()).hexdigest()
+                       for p in (directory / 'formal').rglob('*.lean')}
+            if receipt['compiled_sources'] != sources:
+                raise ValueError('Compiled source inventory differs')
     if seen != set(projects):
         raise ValueError('Context validation coverage differs')
     print(f'PASS: {len(seen)} input-bound context validation records; graphs generated on demand')

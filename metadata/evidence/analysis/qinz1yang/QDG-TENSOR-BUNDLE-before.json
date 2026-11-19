@@ -1,0 +1,56 @@
+{
+  "task_id": "qinz1yang:QDG-TENSOR-BUNDLE-before",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-TENSOR-BUNDLE-before",
+  "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
+  "root": "Tensor0SBundle.tensor0SBundleData",
+  "label": "undetermined",
+  "reason": "The computational successor branch always chooses constant-model-bundle structures and does not use the preceding-rank bundle or tangent chart transitions. The independently read cotangent definition requires the dual-Jacobian transition cocycle, so the rank-one geometric identification is suspect. However, the selected formal roots construct general bundles for every rank and assert abstract bundle classes rather than asserting the desired specific coordinate-transition identity. A rank-one target specialization and whether the construction is meant as intrinsic cotangent structure rather than an arbitrary auxiliary model bundle require human scope resolution; no binary label or original-compiler certification is manufactured. The prepared input is now a graph-driven declaration slice; all selected source-level nonproof values and complete source contexts have preservation checks in the migrated environment. This technical improvement does not settle rankone/generic target correspondence.",
+  "review_scope": "Independent original1996 author course notes are accepted source material, but only explicitly identify cotangent rankone. This input is not automatically a verified general tensor-bundle misalignment.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "roots": [
+    "Tensor0SBundle.tensor0SBundleData",
+    "Tensor0SBundle.tensor0SBundle_topology",
+    "Tensor0SBundle.tensor0SBundle_smooth"
+  ],
+  "target_mode": "joint",
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The computational successor branch always chooses constant-model-bundle structures and does not use the preceding-rank bundle or tangent chart transitions. The independently read cotangent definition requires the dual-Jacobian transition cocycle, so the rank-one geometric identification is suspect. However, the selected formal roots construct general bundles for every rank and assert abstract bundle classes rather than asserting the desired specific coordinate-transition identity. A rank-one target specialization and whether the construction is meant as intrinsic cotangent structure rather than an arbitrary auxiliary model bundle require human scope resolution; no binary label or original-compiler certification is manufactured. The prepared input is now a graph-driven declaration slice; all selected source-level nonproof values and complete source contexts have preservation checks in the migrated environment. This technical improvement does not settle rankone/generic target correspondence.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "path": "DifferentialGeometry/Tensor/RSTensor/Bundle.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/8203ec4eb870072447e321394bd981777608ab6f/DifferentialGeometry/Tensor/RSTensor/Bundle.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "MAT531 Topology/GeometryII, Week6, Section1 The Cotangent bundle of an m-manifold M",
+          "author": "Anthony Phillips, Stony Brook University; author-homepage course archive",
+          "url": "https://www.math.stonybrook.edu/~tony/archive/top2/week6.html",
+          "version": "Spring1996 author course notes; exact acquired HTML bytes fixed bySHA256",
+          "locator": "Week6 §1A–B, definition via transition functions and derivation from covectors",
+          "sha256": "2940825463e693ba16211cd08b8c8554b82e0cb52d1dcba5e2c1f091c99c2e58"
+        },
+        "scope": "Rank-one cotangent bundle with transition maps given by the inverse-transpose tangent coordinate transitions."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "f42eebef4e18d564da65cf1e84814596c92b711f85fefc0881f37452df31c8e1",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "fe106b23b34e327d0444cc6cb0fe0a3acfa51b5d1e3ecb8bb51261e9664065b2"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

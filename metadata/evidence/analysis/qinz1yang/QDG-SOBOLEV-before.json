@@ -1,0 +1,52 @@
+{
+  "task_id": "qinz1yang:QDG-SOBOLEV-before",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-SOBOLEV-before",
+  "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
+  "root": "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck",
+  "label": "misaligned",
+  "reason": "The independent vector-bundle Sobolev embedding theorem supplies a continuous representative and a bounded inclusion into L-infinity under a supercritical condition. The Lean root concludes only that a nonnegative real exists, with no section, inclusion, representative or norm inequality. Its full signature, including the actual implicit metric g, is discharged by C=0 without any Sobolev information. Therefore it does not state even the selected C0 component.",
+  "review_scope": "C0/L-infinity component only, not full Cm. Historical graph-norm/atlas-norm equivalence is not certified; no bound occurs in the formal conclusion regardless of that question.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The independent vector-bundle Sobolev embedding theorem supplies a continuous representative and a bounded inclusion into L-infinity under a supercritical condition. The Lean root concludes only that a nonnegative real exists, with no section, inclusion, representative or norm inequality. Its full signature, including the actual implicit metric g, is discharged by C=0 without any Sobolev information. Therefore it does not state even the selected C0 component.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "path": "DifferentialGeometry/PDE/RicciFlow/SobolevEmbedding.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/3b43fea89fc8d4a42021cbd22d235960b81f6900/DifferentialGeometry/PDE/RicciFlow/SobolevEmbedding.lean",
+      "support_path": "DifferentialGeometry/Metric/Basic.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://ccom.ucsd.edu/~mholst/pubs/dist/BeHo18b.pdf",
+          "version": "Author-hosted 109-page PDF acquired 2026-11-19; immutable byte hash identifies exact revision",
+          "locator": "Theorem 9.15, printed p.86 (PDF p.86), proof also states L-infinity norm bound",
+          "sha256": "b75333ba4ac2180dfe913343cf448e40fab01d6b728c2eecff566c23b7cc9a1d"
+        },
+        "scope": "The continuous-representative and L-infinity component of vector-bundle Sobolev embedding on a compact manifold; p=2 is a specialization."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

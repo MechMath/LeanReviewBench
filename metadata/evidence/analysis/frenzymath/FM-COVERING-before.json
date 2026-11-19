@@ -1,0 +1,52 @@
+{
+  "task_id": "frenzymath:FM-COVERING-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-COVERING-before",
+  "input_sha256": "5e5529813fc084bc692f67a3b9ec1559cf2043e1d2273f375f1f9f7f939c6afa",
+  "root": "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering",
+  "label": "misaligned",
+  "reason": "Full independent covering statement permits disconnected nonempty complete source; exact final root restricts source to ConnectedSpace N and finite MetricSpace N inducing g-distance. This is a completed but narrower scope. The finite intrinsic metric itself also restricts disconnected components, so do not claim that deleting ConnectedSpace alone repairs full scope or that two copies of R satisfy all remaining Lean hypotheses.",
+  "review_scope": "independent target full mathematical scope; exact source statement",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Full independent covering statement permits disconnected nonempty complete source; exact final root restricts source to ConnectedSpace N and finite MetricSpace N inducing g-distance. This is a completed but narrower scope. The finite intrinsic metric itself also restricts disconnected components, so do not claim that deleting ConnectedSpace alone repairs full scope or that two copies of R satisfy all remaining Lean hypotheses.",
+    "uncertainty": "Scope-based alignment judgment; conditional Lean proposition itself not alleged false.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1CutLocusRemaining.lean",
+      "version_role": "before"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "CIS610 Chapter15 Isometries, Local Isometries, Riemannian Coverings",
+          "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+          "locator": "Proposition15.7 printedp777/PDF10; Chapter7 printedp340/PDF9 explicitly permits disconnected manifolds",
+          "version": "2018 slides",
+          "sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d"
+        },
+        "scope": null
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

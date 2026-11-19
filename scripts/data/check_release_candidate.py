@@ -37,17 +37,24 @@ def check_scope(base, config):
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--require-reviewed', action='store_true',
+                        help='Also require human binary labels and resolved source licenses for new batches')
+    args = parser.parse_args()
     config = json.loads((BASE / 'datasets/project-cases.json').read_text())
     check_scope(BASE, config)
     project_cases.check(config)
     verify_labels(BASE)
     verify_contexts(BASE)
     verify(BASE)
-    import subprocess
-    import sys
-    for batch in config.get('review_datasets', {}):
-        subprocess.run([sys.executable, str(BASE / 'scripts/construction/review_batches/check_batch.py'),
-                        '--batch', batch], check=True)
+    from publication_readiness import audit
+    readiness = audit(BASE)
+    project_cases.require(not readiness['format_errors'], str(readiness['format_errors']))
+    if args.require_reviewed:
+        project_cases.require(readiness['merge_ready'],
+                              f'Merge blocked: {readiness["human_review_pending"]} pending human reviews; '
+                              f'{readiness["license_scope_unresolved"]} unresolved historical licenses')
     print(f'PASS: {len(config["datasets"])} released batches; '
           f'{len(config.get("review_datasets", {}))} batches awaiting review')
 

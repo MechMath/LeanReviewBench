@@ -81,11 +81,16 @@ def audit():
                              'reference_ready', 'evaluation_eligible', 'verified_review_reports')}))
     keys = ['inputs', 'labels', 'aligned', 'misaligned',
             'human_adjudicated', 'reference_ready', 'evaluation_eligible', 'verified_review_reports']
+    from publication_readiness import audit as pending_audit
+    pending = pending_audit(BASE)
     return dict(audited_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=BASE, text=True).strip(),
                 meaning='Current human-reviewed label and indexed-evidence coverage; evaluation-export readiness is tracked separately.',
                 totals={k: sum(r[k] for r in rows) for k in keys},
                 new_batch_totals={k: sum(r[k] for r in rows if r['dataset'] in NEW_BATCHES) for k in keys},
-                batches=rows, warnings=warnings, errors=errors)
+                batches=rows, pending_review_batches={k: pending[k] for k in (
+                    'inputs', 'unique_input_contexts', 'human_review_pending',
+                    'license_scope_unresolved', 'merge_ready')},
+                warnings=warnings, errors=errors + pending['format_errors'])
 
 
 if __name__ == '__main__':

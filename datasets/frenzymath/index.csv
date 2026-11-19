@@ -10,8 +10,3 @@ FM-GEODESIC-before,MorganTianLib.IsGeodesicOn,f5661a1a73a7104af9e65024edd8a569d4
 FM-LAPLACIAN-COEFFICIENTS-before,MorganTianLib.laplacianAt_eq_invGram_sum;MorganTianLib.laplacianAt_eq_chart_formula,154ca3eca804557d37043d660084093d1ee6d992,frenzymath-laplacian-coefficients-scope,,,undetermined
 FM-WEAK-LAPLACIAN-after,MorganTianLib.WeakLaplacianLE,6530802c544270722767513028e0045862daa575,frenzymath:FM-weak-laplacian-distance,FM-WEAK-LAPLACIAN-before,,undetermined
 FM-WEAK-LAPLACIAN-before,MorganTianLib.WeakLaplacianLE,bb91a091f0b968f8bbe8d861e025a88d82b161be,frenzymath:FM-weak-laplacian-distance,,FM-WEAK-LAPLACIAN-after,undetermined
-FM-false-repair-after,MorganTianLib.ModelVol;MorganTianLib.modelBallVolume_eq_modelVol;MorganTianLib.modelBallVolume_eq_modelVol_zero,6530802c544270722767513028e0045862daa575,frenzymath:FM-model-volume-false-repair,FM-false-repair-before,,undetermined
-FM-false-repair-before,MorganTianLib.model_polar_volume_identity,bb91a091f0b968f8bbe8d861e025a88d82b161be,frenzymath:FM-model-volume-false-repair,,FM-false-repair-after,undetermined
-FM-injectivity-split-before,MorganTianLib.metricBookInjectivityRadius;MorganTianLib.injectivityRadius_eq_segmentDomainFrontierDistance;MorganTianLib.injectivityRadius_eq_cutLocusDistance,154ca3eca804557d37043d660084093d1ee6d992,frenzymath:FM-injectivity-radius-split,,,undetermined
-FM-model-proxy-after,MorganTianLib.modelBallVolume_eq,b6173537bce076a7be5b5a6954e56ca25451b53a,frenzymath:FM-model-volume-proxy,FM-model-proxy-before,,undetermined
-FM-model-proxy-before,MorganTianLib.modelBallVolume_eq,4dff1831c65f51855a70dc3c4ff03bea49a5619e,frenzymath:FM-model-volume-proxy,,FM-model-proxy-after,undetermined

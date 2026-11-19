@@ -4,7 +4,6 @@
   "source_batch": "qinz1yang",
   "decision": "defer_all_three_versions",
   "timing_note": "Qualitative relative effort only; no fixed turnaround or probability estimate is justified by the current evidence.",
-  "historical_snapshots_preserved": 29,
   "active_prepared_snapshots": 26,
   "technical_deferred_snapshots": 3,
   "records": [
@@ -46,15 +45,12 @@
         "complete proof erasure without changing required computational values",
         "fresh compilation/extraction and complete migrated statement/non-proof preservation checks"
       ],
-      "evidence": [
-        "datasets/qinz1yang/metadata/technical-evidence/QDG-SOBOLEV-after/compilation.json",
-        "datasets/qinz1yang/metadata/technical-evidence/QDG-SOBOLEV-after/preservation.json"
-      ],
       "input_content_changed": false,
       "upstream_formalization_error_inferred_from_technical_failure": false,
       "human_adjudicated": false,
       "reference_ready": false,
-      "gold_label": null
+      "gold_label": null,
+      "evidence_archive_commit": "302692756d3d695e00138a1816652ae803d60703"
     },
     {
       "project_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
@@ -94,16 +90,12 @@
         "complete proof erasure without changing required computational values",
         "fresh compilation/extraction and complete migrated statement/non-proof preservation checks"
       ],
-      "evidence": [
-        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/compilation.json",
-        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-BEFORE/preservation.json",
-        "datasets/qinz1yang/metadata/retained-technical-followup.jsonl"
-      ],
       "input_content_changed": false,
       "upstream_formalization_error_inferred_from_technical_failure": false,
       "human_adjudicated": false,
       "reference_ready": false,
-      "gold_label": null
+      "gold_label": null,
+      "evidence_archive_commit": "302692756d3d695e00138a1816652ae803d60703"
     },
     {
       "project_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
@@ -143,16 +135,14 @@
         "complete proof erasure without changing required computational values",
         "fresh compilation/extraction and complete migrated statement/non-proof preservation checks"
       ],
-      "evidence": [
-        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-AFTER/compilation.json",
-        "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTED-MODELS-CONVERGENCE-AFTER/preservation.json",
-        "datasets/qinz1yang/metadata/retained-technical-followup.jsonl"
-      ],
       "input_content_changed": false,
       "upstream_formalization_error_inferred_from_technical_failure": false,
       "human_adjudicated": false,
       "reference_ready": false,
-      "gold_label": null
+      "gold_label": null,
+      "evidence_archive_commit": "302692756d3d695e00138a1816652ae803d60703"
     }
-  ]
+  ],
+  "scope": "Three excluded-from-publication technical follow-ups; packages are retained only in Git history.",
+  "historical_snapshots_preserved_in_archive": 29
 }

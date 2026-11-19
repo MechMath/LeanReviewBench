@@ -1,0 +1,58 @@
+{
+  "task_id": "frenzymath:FM-LAPLACIAN-COEFFICIENTS-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-LAPLACIAN-COEFFICIENTS-before",
+  "input_sha256": "17554ed26c30b911d28bbe6b902f4f819d25cf3b05a97be8357fc179e18f2893",
+  "root": "MorganTianLib.laplacianAt_eq_invGram_sum",
+  "label": "aligned",
+  "reason": "Complete selected formulas use a genuine smooth Riemannian metric and smooth f. The independent source gives divergence form of the same local Laplace–Beltrami operator; selected roots give inverse-Gram Hessian trace and equivalent Christoffel form. Old wrong-root/missing coefficient regularity complaint withdrawn. Human review must confirm this equivalent-formula correspondence; no geometric object is stubbed and no missing separate positivity theorem is treated as a false formula.",
+  "review_scope": "independent target full mathematical scope; exact source statement",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "roots": [
+    "MorganTianLib.laplacianAt_eq_invGram_sum",
+    "MorganTianLib.laplacianAt_eq_chart_formula"
+  ],
+  "target_mode": "joint",
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Complete selected formulas use a genuine smooth Riemannian metric and smooth f. The independent source gives divergence form of the same local Laplace–Beltrami operator; selected roots give inverse-Gram Hessian trace and equivalent Christoffel form. Old wrong-root/missing coefficient regularity complaint withdrawn. Human review must confirm this equivalent-formula correspondence; no geometric object is stubbed and no missing separate positivity theorem is treated as a false formula.",
+    "uncertainty": "Independent source states divergence form of the same smooth-metric Laplace–Beltrami operator; selected Hessian-trace/Christoffel form is the standard equivalent coordinate expression. This mathematical equivalence is sufficient for a preliminary aligned judgment, pending human confirmation of source mapping. Extra unassembled blueprint claims are not included in this formula target.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "file": "formalized-sources/MorganTian/MorganTianLib/Ch02/LaplacianCoord.lean",
+      "version_role": "before"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "url": "https://arxiv.org/src/math/0607607v2",
+          "version": "math/0607607v2 2007-03-21",
+          "locator": "prelim.tex803–847, local coordinate Laplace–Beltrami operator formula842–847",
+          "sha256": "7ef05ea8ae978d22577f805d4106891262f79e6ef901e71de8677cb10f25955a"
+        },
+        "scope": null
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "e4592d6d1a392d2959b50f96704a61a063d3e4b98cf19cc10e6e0de8500caa0f",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "b3460193d6b998ccf8093700cf8f80cb93da52fef9f4a5ae60eeec815953d81b"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

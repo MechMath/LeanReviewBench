@@ -9,7 +9,7 @@ python3 scripts/data/annotation_coverage.py
 python3 -m unittest discover -s tests -v
 ```
 
-The support check uses `metadata/support-inventory.json` and verifies the required docs/configuration/tool inventory, local documentation links and declared Python imports. The native checker verifies the 16 registered batches, source/resource digests, target/index bindings, human-reviewed labels, recorded context-check bindings, provenance, upstream evidence, licensing and the data manifest. The annotation audit checks label coverage and indexed analysis hashes; human review is separate from export readiness.
+The support check uses `metadata/support-inventory.json` and verifies the required docs/configuration/tool inventory, local documentation links and declared Python imports. The native checker verifies all 18 batches using the same native source/informal/index schema, plus label states, context checks, provenance, indexed evidence, licensing and the data manifest. The annotation audit checks label coverage and indexed analysis hashes; human review is separate from export readiness.
 
 The migrated upstream regression tests exercise formal-context filtering, model output validation, batch identity/resume, abstention/scoring, provider settings with mocked network responses, Lean dependency parsing and environment resolution. Additional release tests cover native input hashes, graph-free native input validation and explicit proof-erasure records that cannot claim certification of original theorem proofs. These tests use temporary fixtures and do not contact a model provider or run Lean compilation.
 
@@ -23,16 +23,17 @@ The current project-case collection has no frozen native model evaluation export
 
 Full historical source acquisition and construction records are archived using the pinned locators described in [DATA-FORMAT.md](DATA-FORMAT.md). They are not dependencies of ordinary benchmark checks.
 
-Batches awaiting review are checked by the native checker using their persistent
-input-bound receipts, without requiring ignored build directories:
+Batches awaiting review use the same native checker without ignored build dependencies:
 
 ```sh
-python3 scripts/construction/review_batches/check_batch.py --batch qinz1yang
-python3 scripts/construction/review_batches/check_batch.py --batch frenzymath
+python3 scripts/data/check_release_candidate.py
+python3 scripts/data/publication_readiness.py
+python3 scripts/data/check_release_candidate.py --require-reviewed
 ```
 
-Adding `--with-build-graphs` additionally verifies retained local graphs. The
-default result explicitly reports receipt-binding checks only. Partial contexts,
-unresolved labels and excluded development artifacts retain their separate JSON
-states; a successful integrity check does not promote them to complete contexts
-or human-reviewed data.
+The default check validates the clean dataset and persistent receipt bindings;
+it does not rerun Lean or independently certify archived probes. The strict
+`--require-reviewed` gate additionally fails until every new input has a binary
+human-reviewed label and a resolved source-license record. Today that means
+26 human reviews and 11 historical-license scopes remain unresolved. These
+blockers are reported rather than bypassed by a schema exception.

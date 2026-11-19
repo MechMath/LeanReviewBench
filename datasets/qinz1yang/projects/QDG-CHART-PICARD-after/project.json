@@ -41,19 +41,19 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Historical source license scope unresolved; see metadata/licensing.json.",
+  "licensing_status": "historical-license-scope-unresolved",
   "original_toolchain": "leanprover/lean4:v4.29.0",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "compiled-extracted-and-root-preserved; original-environment-and-chart-scope-review-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 1,
     "sha256": "8b27ff19d5fced11c7097b801e4ad35a7c8e88aa583449b05692db441d468b36",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed",
-  "review_status": "requires_human_scope_resolution",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
+  "validation_reference": "metadata/validation.json"
 }

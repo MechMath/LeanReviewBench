@@ -4,6 +4,14 @@ A benchmark for informal–formal statement alignment in real Lean projects.
 
 This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format documented in [the data contract](docs/DATA-FORMAT.md). All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
+The same native layout also contains **26 complete Poincare contexts awaiting
+human review**: 15 from qinz1yang and 11 from FrenzyMath. The native loader reads
+197 inputs in total. Three technically deferred contexts and five excluded
+artifacts are absent. Labels, evidence and validation use the standard metadata
+paths. Historical authorization scope remains unresolved for 11 new versions;
+`python3 scripts/data/check_release_candidate.py --require-reviewed` enforces
+human-review and source-license readiness before merge.
+
 ```text
 datasets/
   project-cases.json
@@ -49,7 +57,7 @@ python3 scripts/data/inspect_dataset.py validate
 python3 -m unittest discover -s tests -v
 ```
 
-The native checker validates registered scope, project indexes and input hashes, label bindings, recorded context checks, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command validates all 171 native Lean inputs without requiring graph files.
+The native checker validates registered scope, project indexes and input hashes, label bindings, recorded context checks, upstream evidence, provenance, licensing inventory and publication hashes. The convenience command validates all 197 native Lean inputs without requiring graph files.
 
 Open `datasets/<batch>/projects/<id>/formal/Main.lean` directly to read a source snapshot. No blob restoration step is required. To inspect native metadata and complete informal records:
 

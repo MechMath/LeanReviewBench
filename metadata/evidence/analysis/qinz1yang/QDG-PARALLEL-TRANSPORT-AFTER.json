@@ -1,0 +1,52 @@
+{
+  "task_id": "qinz1yang:QDG-PARALLEL-TRANSPORT-AFTER",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+  "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
+  "root": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product",
+  "label": "undetermined",
+  "reason": "The complete before root pairs raw chart-coordinate transport values with moving-fiber g.inner; a realized affine-atlas counterexample is proposed but tangent-coordinate convention review remains pending. After uses fixed-chart Gram pairing on a preconnected chart segment, repairing the pairing mismatch, but the shared global all-charts transport construction still needs semantic adjudication.",
+  "review_scope": "Independent Tumarkin2019 Exercise8.3 metric preservation correspondence; coordinate conventions and global transport construction remain human scope review.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The complete before root pairs raw chart-coordinate transport values with moving-fiber g.inner; a realized affine-atlas counterexample is proposed but tangent-coordinate convention review remains pending. After uses fixed-chart Gram pairing on a preconnected chart segment, repairing the pairing mismatch, but the shared global all-charts transport construction still needs semantic adjudication.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "root_file": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Riemannian Geometry IV, Solutions 8",
+          "author": "Pavel Tumarkin",
+          "url": "https://www.maths.dur.ac.uk/users/pavel.tumarkin/past/fall19/RG/RG8-sols.pdf",
+          "sha256": "1504f3ad5ff48caef13384dfac5918f490af1a43cf165bb116348ff0950257b4",
+          "locator": "Michaelmas 2019, Exercise8.3 and solution, printed p.4 / PDF p.4",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "scope": "Levi-Civita parallel transport and the Riemannian metric pairing of tangent vector fields along a smooth curve."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "c7b4095a4a481cbe79053faa7772e43d85620b9cfcf795129518fda4ce15f4ab",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "c7b4095a4a481cbe79053faa7772e43d85620b9cfcf795129518fda4ce15f4ab"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

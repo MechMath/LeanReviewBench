@@ -26,8 +26,11 @@ The SLT batch remains excluded; see [the release scope](../docs/DATA-FORMAT.md#t
 The released Lean files are authoritative. Graphs, archived graph variants and
 composition inputs are omitted; prior technical artifacts remain in Git history.
 
-The two Poincare source batches awaiting review keep provisional annotations,
-technical receipts, screening evidence and development plans in their own
-`datasets/qinz1yang/metadata/` and `datasets/frenzymath/metadata/` directories.
-The navigation/counting record is [poincare/history-index.json](poincare/history-index.json).
-Their preliminary labels are not included in the 171 human-reviewed labels above.
+The two added Poincare source batches use the same root label, analysis,
+validation and provenance paths as the original inputs. Their 26 annotation
+records are explicitly preliminary, with unresolved judgments marked
+`undetermined`. Compact context-check receipts are in `evidence/technical/`.
+Only deferred plans and archive locators remain in each batch's metadata.
+[Publication cleanup](poincare/publication-cleanup.json) records removed artifacts
+and the preparation commit. The strict merge gate reports pending human labels
+and historical-license scope separately.

@@ -26,7 +26,10 @@
   "packaged_compilation": "passed",
   "missing_modules": [],
   "external_imports": [
-    "Mathlib"
+    "Mathlib.Analysis.Calculus.ContDiff.Basic",
+    "Mathlib.Geometry.Manifold.Diffeomorph",
+    "Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions",
+    "Mathlib.Topology.Instances.AddCircle.Real"
   ],
   "external_boundaries": [
     "Mathlib",
@@ -40,19 +43,19 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "upstream_license_pending_attribution",
+  "licensing_status": "license-copy-retained",
   "original_toolchain": "leanprover/lean4:v4.35.0-rc3",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "compiled_extracted_migrated_source_preserved_original_environment_not_checked",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 1,
     "sha256": "7dfaaa6839c4bf31d4fb182f1beb451a6422aa4ebc3d2380e91f05aab123489d",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097",
-  "review_status": "requires_human_scope_resolution",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "compact-vector-space-isotopy-vacuity",
+  "validation_reference": "metadata/validation.json"
 }

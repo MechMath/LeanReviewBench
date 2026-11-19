@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
+  "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+  "formal_sha256": "7dfaaa6839c4bf31d4fb182f1beb451a6422aa4ebc3d2380e91f05aab123489d",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "a190d05de438b147ca22ae644bc273f7e43b4cddee81ebc72cfdc1e25e78419e",
+  "nodes": 112,
+  "edges": 227,
+  "local_nodes": 9,
+  "compiled_sources": {
+    "Main.lean": "54a7d06e0cc8c74795a67f285f11189597745d5bd9199d42e86dc044c748e40a"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "passed",
+  "source_preservation_method": "Independent pinned source bodies re-elaborated against same nominal structure identities and compared by Lean.Meta.isDefEq types and complete nonproof values.",
+  "preservation_status_recorded": "passed",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-COMPACT-ISOTOPY-AFTER/preservation.json",
+  "archived_receipt_sha256": "7807ce021d0b7a76239b61318d1713013218647be9e950606480e5efe7df770c",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

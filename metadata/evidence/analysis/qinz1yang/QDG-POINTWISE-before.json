@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-POINTWISE-before",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-POINTWISE-before",
+  "input_sha256": "7a893a6b8da10008af007acb15c46a13e3d546e064d34036aa23a2594ec1ecb5",
+  "root": "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat",
+  "label": "misaligned",
+  "reason": "The formal root asserts every arbitrary function u has derivative u-prime at every t in [0,T), without any hypothesis connecting u-prime to u or guaranteeing differentiability. Take X=R, T=1, u identically zero and u-prime identically one: t=0 belongs to [0,1), but the right derivative on Ici0 is zero rather than one. A separate Lean file proves this negation using only standard axioms and without importing the erroneous root. The independent Hunter source requires the actual integrable weak derivative and asserts its agreement with the strong derivative almost everywhere. The unlinked unconditional assertion does not encode that theorem.",
+  "review_scope": "Before root only. Source binding remains candidate_binding_provisional with a.e. versus everywhere qualification; no repaired successor judgment. Separate Lean 4.34.1 counterexample check establishes the root is false at t=0, but does not certify original Lean4.29 elaboration preservation.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The formal root asserts every arbitrary function u has derivative u-prime at every t in [0,T), without any hypothesis connecting u-prime to u or guaranteeing differentiability. Take X=R, T=1, u identically zero and u-prime identically one: t=0 belongs to [0,1), but the right derivative on Ici0 is zero rather than one. A separate Lean file proves this negation using only standard axioms and without importing the erroneous root. The independent Hunter source requires the actual integrable weak derivative and asserts its agreement with the strong derivative almost everywhere. The unlinked unconditional assertion does not encode that theorem.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "path": "DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/3b43fea89fc8d4a42021cbd22d235960b81f6900/DifferentialGeometry/PDE/RicciFlow/IntrinsicSpectral/PointwiseDeriv.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://www.math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+          "version": "Revised 2014-06-18, downloaded 2026-11-19",
+          "locator": "Section 6.A.3, Theorem 6.35, printed p.203 (PDF p.209), equation (6.43)",
+          "sha256": "0dbade1806f7a1ea79cc444a0eecfe19e157b286c964f1f48f2d744c460c12dd"
+        },
+        "scope": "Banach-valued functions with an integrable weak derivative on a finite interval; the source concludes almost-everywhere differentiability."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "05ea31072a25e40acce13a71c70c4a1a861c319582f16bf45e5ee9a30f3e8511"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

@@ -32,3 +32,18 @@ Changes to model-visible content require explicit task and reference bindings un
 The active source and documentation revisions are recorded in `metadata/release.json`. Historical `reports/...` provenance can be resolved with `scripts/data/provenance.py --path <original-path>`. Retained semantic evidence aliases are handled by `metadata/layout.json`; removed technical artifacts remain in Git history.
 
 The maintained artifacts are the released statement-only Lean contexts and each input's `CHANGES.md`. Full original projects can be located by repository/commit/root pins. Executable migration histories and complete upstream source archives are not required for benchmark use. Obsolete archive-restoration tools and their graph dependencies are omitted.
+
+## Completing the new source-batch reviews
+
+Annotate `metadata/labels/qinz1yang.jsonl` and `metadata/labels/frenzymath.jsonl`
+using the same binary label/reason/scope contract as existing batches. A completed
+record has `human_adjudicated=true` and `review_status=human_reviewed`; unresolved
+rows stay preliminary. Keep the matching analysis verdicts, project statuses,
+provenance hashes and inventories synchronized using the update steps above.
+Do not change formal source or independent mathematical text merely to accept a
+label. Source-license resolution must have independently retained evidence.
+
+Run the native checks and `check_release_candidate.py --require-reviewed` before
+merge. The gate checks native schema and hashes, complete technical contexts,
+human binary judgments and historical license scope. It does not promote
+`reference_ready` or `gold_label`, nor require restoring trial build directories.

@@ -14543,6 +14543,240 @@
         "packaged_receipt": "reports/stacks-admission/technical/STK-0B34/receipt.json",
         "packaged_receipt_sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
       }
+    },
+    "qinz1yang/QDG-POINTWISE-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-POINTWISE-before/project.json",
+      "project_sha256": "44b78a671677d5e3b16523ddcc5925c4483086e9f268e3068366d7c6b3090478",
+      "input_sha256": "7a893a6b8da10008af007acb15c46a13e3d546e064d34036aa23a2594ec1ecb5",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-LIONS-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-LIONS-before/project.json",
+      "project_sha256": "784abb9571ecf31e55cc5a774f3411acf20db540da3d5159997b5aa2d107b915",
+      "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-SOBOLEV-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/project.json",
+      "project_sha256": "722a68505ede36659c9a3737619213482fccbf9c950e74ccecfaf6dc82ad2b92",
+      "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-POINTWISE-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-POINTWISE-after/project.json",
+      "project_sha256": "2c2986c9e6af5c5d45f7341b69777f6eb8561889284746e21d4633cdbe45514f",
+      "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-LIONS-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-LIONS-after/project.json",
+      "project_sha256": "ad623490b6b95521a3507c3ecf61ff1ac510ca1e0b9fd6393789e5c164c635db",
+      "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-CHART-PICARD-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/project.json",
+      "project_sha256": "6831decf0280c9c3eb730ae0543eb4c78c85c68239a39ac7b09a21ffa8d4482c",
+      "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-CHART-PICARD-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/project.json",
+      "project_sha256": "c09a5f924b2aa96783f2954f601405a9ec803855988bd8a87454808c1b38d05a",
+      "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PL-BALL-PAIR-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-before/project.json",
+      "project_sha256": "1c563bb718c33c489f69047478f3c9bc0674263c89422dc0b3eaddd6ad5308ad",
+      "input_sha256": "58d54b49dfb0c0aa27e3806d9cb2aaee078dca65ac8195bbd1ffe13cbfdf07a6",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PL-BALL-PAIR-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-after/project.json",
+      "project_sha256": "d0e1bb5ea63947c0ef44a6cee8ea4ce6c4331906c8fcf38eed507a13c75ab64e",
+      "input_sha256": "b96ed327184f9ac428b9246c7ef579a4c228d2a7c930a89fa08c2a0a62f147e8",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PARALLEL-TRANSPORT-BEFORE.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/project.json",
+      "project_sha256": "40663ab07eba416b10a3b5fca7535fda5d3fbacf71d80a1ed0835294335c110e",
+      "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PARALLEL-TRANSPORT-AFTER.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-AFTER/project.json",
+      "project_sha256": "bfb4379b5b8e3501762da02377c94cc111f5998f79d97ed908dc43a75de7889a",
+      "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-COMPACT-ISOTOPY-BEFORE.json": {
+      "project": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/project.json",
+      "project_sha256": "c46d2b43db2d905a0793ad638ec11f8436a7408afb8c0292c18c2b2b6b5d698a",
+      "input_sha256": "8fbac7c9b20ff81bcabc3830a942db587082765262a0a9c9afb92b7766a7fd27",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-COMPACT-ISOTOPY-AFTER.json": {
+      "project": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/project.json",
+      "project_sha256": "d46c0e1fdbe054657781f6ad570deebc69d06bde3f010d9947cf01d6f61b34c2",
+      "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-TENSOR-BUNDLE-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/project.json",
+      "project_sha256": "78253d9ff3f9316d14038f51c026b96f58ad2760afd4820d8cc6d922e4dec1df",
+      "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-TENSOR-BUNDLE-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-after/project.json",
+      "project_sha256": "8496531097cc706ca83a67a932ba96294dd2f29863e14fd40a8d9bdae47725b3",
+      "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-BISHOP-before.json": {
+      "project": "datasets/frenzymath/projects/FM-BISHOP-before/project.json",
+      "project_sha256": "e5572072b62894d7fedecb22732ff830225190df2302683ba7383850f1ca7641",
+      "input_sha256": "cace9dbf5d8771f2d4807a4966076ae3caa125ba04f612d5f58273c95cad1e0d",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-before.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-before/project.json",
+      "project_sha256": "2fd57f8b2121c0dcffc76b38a5c161b87008bcc5b2ce7e816a96a256e0d3684b",
+      "input_sha256": "63c5010d962034986aef6e5470237192f1c102b65a7821d917db61ce7d2ddbe7",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-WEAK-LAPLACIAN-before.json": {
+      "project": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-before/project.json",
+      "project_sha256": "2686d073b366febf731de82c3883a730567ddd713139ae46afc5332523ca33d2",
+      "input_sha256": "7bc36674becfd755cb6a361c6cccfd6be3c5f6c0ea3ccddc262b048a239f9ad1",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-after.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-after/project.json",
+      "project_sha256": "ebb7f7d96ad0bf599dd1606cdc425b6c28774e019fc2ebb13fa7303af8de3700",
+      "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-WEAK-LAPLACIAN-after.json": {
+      "project": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/project.json",
+      "project_sha256": "caffa32c741b5c1371bc4dd1d45aac370f4ddc4b25aea604b40bf7d950aab2e2",
+      "input_sha256": "2eb1c988a9a67b3c04f0168303baf64efe2551b4ef95a674daf01717a2aad226",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "6530802c544270722767513028e0045862daa575",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-BISHOP-after.json": {
+      "project": "datasets/frenzymath/projects/FM-BISHOP-after/project.json",
+      "project_sha256": "23066f6d4664d072778ef346373b42ffe9273da3ed1778825de2770452386e2c",
+      "input_sha256": "ca2c4139b6483a86a8b8a4d1293f1dde39d666c28dc8579423f3fd684076dd1e",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-COVERING-before.json": {
+      "project": "datasets/frenzymath/projects/FM-COVERING-before/project.json",
+      "project_sha256": "b74967300868fcdb186c3545a4bd9f66c9e75c010cb9d5a756c62e6ee825412d",
+      "input_sha256": "5e5529813fc084bc692f67a3b9ec1559cf2043e1d2273f375f1f9f7f939c6afa",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-LAPLACIAN-COEFFICIENTS-before.json": {
+      "project": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/project.json",
+      "project_sha256": "e4713b9cf6fed4fe1ef4767bf7f3cdd8d77d6c481055c46132082b2075e8ce69",
+      "input_sha256": "17554ed26c30b911d28bbe6b902f4f819d25cf3b05a97be8357fc179e18f2893",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-EXP-LOCAL-before.json": {
+      "project": "datasets/frenzymath/projects/FM-EXP-LOCAL-before/project.json",
+      "project_sha256": "6b6d801c423d24d946646596f4a91a802b26ab67ae9f77b4c5d074b1e147f2c8",
+      "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-COMPLETENESS-before.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-COMPLETENESS-before/project.json",
+      "project_sha256": "89e36d40fb6f8f2713057df791ab5e1db4ba134530e7b4f4e4569021285112fd",
+      "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-COMPLETENESS-after.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-COMPLETENESS-after/project.json",
+      "project_sha256": "a85e5a805b4cacbd6e27fa3ac732b08256d7817799053841bf0d62434b86ca6e",
+      "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "e2d6a088ccaa45f6e5056a076616391ec2bee569",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
     }
   },
   "excluded_model_annotations": {

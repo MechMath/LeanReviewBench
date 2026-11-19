@@ -19,9 +19,7 @@
   "group_id": "qinz1yang:ROOT-SOBOLEV-VACUITY",
   "split_group": "qinz1yang/differential-geometry",
   "before_ids": [],
-  "after_ids": [
-    "QDG-SOBOLEV-after"
-  ],
+  "after_ids": [],
   "status": "undetermined",
   "compiled_lean434": true,
   "leantrace_extracted": true,
@@ -43,20 +41,18 @@
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "technical_status": "compiled-extracted-and-migrated-source-preserved; original-environment-preservation-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "target_mode": "single",
   "human_adjudicated": false,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Historical source revision has no root license file; redistribution/license scope requires review before admission.",
+  "licensing_status": "historical-license-scope-unresolved",
   "original_toolchain": "leanprover/lean4:v4.29.0",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
-  "source_materials_base": "build/preparation/qinz1yang",
-  "source_materials_distributed": false,
-  "review_status": "agent_preliminary_pending_human",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "ROOT-SOBOLEV-VACUITY",
+  "validation_reference": "metadata/validation.json"
 }

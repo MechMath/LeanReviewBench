@@ -1,0 +1,61 @@
+{
+  "task_id": "frenzymath:FM-WEAK-LAPLACIAN-after",
+  "dataset": "frenzymath",
+  "project_id": "FM-WEAK-LAPLACIAN-after",
+  "input_sha256": "2eb1c988a9a67b3c04f0168303baf64efe2551b4ef95a674daf01717a2aad226",
+  "root": "MorganTianLib.WeakLaplacianLE",
+  "label": "aligned",
+  "reason": "For the selected Riemannian weak-Laplacian interface, the added hg hypothesis installs g as the Riemannian metric inducing the ambient edist. Therefore LocallyLipschitz now uses the same Riemannian distance as the independently sourced Morgan-Tian convention. The body preserves the distributional test inequality against every nonnegative compactly supported smooth test function, with Laplacian and volume computed from g. This resolves the specifically selected ambient-distance mismatch.",
+  "review_scope": "Same independent Morgan-Tian materials and distance-function qualification as before. This is alignment of the weak inequality definition/interface under the source standing conventions, not a proof of the Calabi distance comparison and not a claim that the arbitrary-f/h generalization is literally the entire source theorem. Before/after label choice is independently reasoned, not inferred from repair direction; human scope review remains necessary.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.WeakLaplacianLE"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "For the selected Riemannian weak-Laplacian interface, the added hg hypothesis installs g as the Riemannian metric inducing the ambient edist. Therefore LocallyLipschitz now uses the same Riemannian distance as the independently sourced Morgan-Tian convention. The body preserves the distributional test inequality against every nonnegative compactly supported smooth test function, with Laplacian and volume computed from g. This resolves the specifically selected ambient-distance mismatch.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "6530802c544270722767513028e0045862daa575",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/6530802c544270722767513028e0045862daa575/formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Chapter1 metric-distance context and Remark1.29, prelim.tex selected line spans retained in binding record",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Weak distributional Laplacian inequality for the metric-distance function, with the source metric and testing conventions."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "e6e27861f49e29722f34f7782c530c00dfc11a1d9e050d035e037e28ca77608f",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "e6e27861f49e29722f34f7782c530c00dfc11a1d9e050d035e037e28ca77608f"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

@@ -1,0 +1,52 @@
+{
+  "task_id": "qinz1yang:QDG-COMPACT-ISOTOPY-BEFORE",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-COMPACT-ISOTOPY-BEFORE",
+  "input_sha256": "8fbac7c9b20ff81bcabc3830a942db587082765262a0a9c9afb92b7766a7fd27",
+  "root": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
+  "label": "misaligned",
+  "reason": "The model-space theorem imposes CompactSpace E on its real normed ambient vector space. Compact real normed vector spaces are zero-dimensional, and an injective circle loop cannot exist there, so the theorem does not cover the independent isotopy-extension target’s ordinary Euclidean ambient examples.",
+  "review_scope": "Martelli2020 Theorem5.3.3 specialized to a compact circle source and a real finite-dimensional ambient vector space; selected local theorem only.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The model-space theorem imposes CompactSpace E on its real normed ambient vector space. Compact real normed vector spaces are zero-dimensional, and an injective circle loop cannot exist there, so the theorem does not cover the independent isotopy-extension target’s ordinary Euclidean ambient examples.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+      "root_file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Manifolds",
+          "author": "Bruno Martelli",
+          "url": "https://people.dm.unipi.it/martelli/didattica/matematica/2020/Manifolds.pdf",
+          "sha256": "05496eb8347cb39347f08d348ac243664d19732575c55a69954530c55280d124",
+          "locator": "February5,2020 edition, Theorem5.3.3 and proof, printed120–121 / PDF126–127",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "scope": "Ambient extension of an isotopy of embeddings of a compact source manifold; specialize the source to a circle and the ambient manifold to a finite-dimensional real vector space."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

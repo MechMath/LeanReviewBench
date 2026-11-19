@@ -32,7 +32,11 @@
   "packaged_compilation": "passed",
   "missing_modules": [],
   "external_imports": [
-    "Mathlib"
+    "Mathlib",
+    "Mathlib.Data.Bundle",
+    "Mathlib.Geometry.Manifold.VectorBundle.Basic",
+    "Mathlib.Geometry.Manifold.VectorBundle.ContMDiffSection",
+    "Mathlib.Geometry.Manifold.VectorBundle.Tangent"
   ],
   "external_boundaries": [
     "Mathlib",
@@ -46,19 +50,19 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Upstream historical source licensing requires review.",
+  "licensing_status": "historical-license-scope-unresolved",
   "original_toolchain": "leanprover/lean4:v4.28.0",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "declaration-sliced-compiled-extracted-selected-closure-preserved-in-migrated-environment;rankone-scope-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 2,
     "sha256": "0aaf58b53553b8d5f0de6be7ed63badc267056d571c83885235c757003b7e90d",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "ce1a34659cb8346d9ede159a30092bd30c5e741d1b50dd08f09221a485a21bcd",
-  "review_status": "requires_human_scope_resolution",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+  "validation_reference": "metadata/validation.json"
 }

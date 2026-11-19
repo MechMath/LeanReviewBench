@@ -51,19 +51,19 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Upstream historical source licensing requires review.",
+  "licensing_status": "historical-license-scope-unresolved",
   "original_toolchain": "leanprover/lean4:v4.28.0",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "declaration-sliced-compiled-extracted-selected-closure-preserved-in-migrated-environment;rankone-scope-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 2,
     "sha256": "c4e4f2fcf977e19a730900dc11a47f72f7073830d36fe932afc023052267ac56",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "fe106b23b34e327d0444cc6cb0fe0a3acfa51b5d1e3ecb8bb51261e9664065b2",
-  "review_status": "requires_human_scope_resolution",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+  "validation_reference": "metadata/validation.json"
 }

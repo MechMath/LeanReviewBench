@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-LIONS-before",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-LIONS-before",
+  "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+  "root": "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace",
+  "label": "misaligned",
+  "reason": "The independent target asserts continuous trace into interpolation space [X,Y]_(1/2) for an X-valued L2 function whose actual distributional derivative lies in L2(Y), under dense continuous embedding X into Y. The formal statement instead assumes hExists and repeats precisely the same proposition as its conclusion. That proposition only bounds an X-valued vector norm by a multiple of itself; the quantified v never occurs in the bound. No time-dependent function, derivative relation, interpolation space, or trace-continuity assertion appears, and iota is merely any continuous linear map without density or injectivity. Thus the theorem is a tautological norm-bound proxy, not the selected Lions-Magenes trace theorem. This judgment concerns statement alignment, not logical falsity.",
+  "review_scope": "Before input only. Independent source is Joudioux AppendixA TheoremA.1 specialized to m1,j0, preserving dense continuous embedding. No claim that historical after is aligned; no original theorem proof certified. Statement/nonproof-definition preservation fields in technical receipt remain not_checked.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The independent target asserts continuous trace into interpolation space [X,Y]_(1/2) for an X-valued L2 function whose actual distributional derivative lies in L2(Y), under dense continuous embedding X into Y. The formal statement instead assumes hExists and repeats precisely the same proposition as its conclusion. That proposition only bounds an X-valued vector norm by a multiple of itself; the quantified v never occurs in the bound. No time-dependent function, derivative relation, interpolation space, or trace-continuity assertion appears, and iota is merely any continuous linear map without density or injectivity. Thus the theorem is a tautological norm-bound proxy, not the selected Lions-Magenes trace theorem. This judgment concerns statement alignment, not logical falsity.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/3b43fea89fc8d4a42021cbd22d235960b81f6900/DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://arxiv.org/abs/1903.12591v1",
+          "version": "arXiv:1903.12591v1, 29 March 2019",
+          "locator": "Appendix A, pp.20–21, Theorem A.1; m=1 and j=0",
+          "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c"
+        },
+        "scope": "Hilbert spaces with a continuous dense embedding, first distributional time derivative in the weaker space, and continuity into the real interpolation trace space."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

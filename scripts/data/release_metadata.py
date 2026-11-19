@@ -32,7 +32,10 @@ def verify_licenses(base, config):
         raise ValueError('Unsupported license index')
     if set(index['datasets']) != set(config['datasets']):
         raise ValueError('License index must cover exactly the candidate batches')
-    expected_dirs = set(index['datasets']) | set(index['additional_sources'])
+    review = index.get('review_datasets', {})
+    if set(review) != set(config.get('review_datasets', {})):
+        raise ValueError('Review batch license coverage differs')
+    expected_dirs = set(index['datasets']) | set(index['additional_sources']) | set(review)
     if {p.name for p in (base / 'licenses').iterdir() if p.is_dir()} != expected_dirs:
         raise ValueError('License directory scope differs from the license index')
     pending = []
@@ -51,7 +54,29 @@ def verify_licenses(base, config):
             pending.append(dataset)
         elif record['status'] != 'license-copy-retained' or not record['license_files']:
             raise ValueError('Missing explicit license-copy status: ' + dataset)
-    for record in [*index['datasets'].values(), *index['additional_sources'].values()]:
+    for batch, record in review.items():
+        projects = {p.parent.name: json.loads(p.read_text())
+                    for p in (base / 'datasets' / batch / 'projects').glob('*/project.json')}
+        rows = record['projects']
+        if len(rows) != len(projects) or {r['project_id'] for r in rows} != set(projects):
+            raise ValueError('Review license/project coverage differs')
+        for row in rows:
+            meta = projects[row['project_id']]
+            if (row['source_commit'] != meta['source']['commit'] or
+                    row['repository'] != meta['source']['repository'] or
+                    row['status'] != meta['licensing_status']):
+                raise ValueError('Review license/source binding differs')
+            if row['status'] == 'license-copy-retained':
+                if not row['license_files']:
+                    raise ValueError('Licensed input lacks retained copy')
+            elif row['status'] != 'historical-license-scope-unresolved':
+                raise ValueError('Unsupported pending license state')
+        for item in record.get('notice_files', []):
+            notice = base / item['file']
+            if not notice.is_relative_to(base / 'licenses') or sha(notice.read_bytes()) != item['sha256']:
+                raise ValueError('Pinned upstream notice differs')
+    for record in [*index['datasets'].values(), *index['additional_sources'].values(),
+                   *review.values()]:
         for item in record['license_files']:
             path = Path(item['file'])
             if path.is_absolute() or '..' in path.parts or not path.parts or path.parts[0] != 'licenses':
@@ -82,6 +107,9 @@ def verify(base):
     verify_licenses(base, config)
     expected = {p.relative_to(base).as_posix() for dataset in config['datasets']
                 for p in (base / 'datasets' / dataset / 'projects').glob('*/project.json')}
+    expected.update(p.relative_to(base).as_posix()
+                    for dataset in config.get('review_datasets', {})
+                    for p in (base / 'datasets' / dataset / 'projects').glob('*/project.json'))
     bound = set()
     for key, binding in provenance['projects'].items():
         path = base / binding['project']

@@ -1,0 +1,51 @@
+{
+  "task_id": "qinz1yang:QDG-CHART-PICARD-after",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-CHART-PICARD-after",
+  "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
+  "root": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz",
+  "label": "undetermined",
+  "reason": "After explicitly asserts a Euclidean local IVP with derivative f(t,y)=X(t,chart_alpha_inverse(I_inverse(y))), the same field used in its Lipschitz premise, fixing the advertised mismatch between two formal representations. The original complete after proof itself compiles in4.34.1 without sorry. Against the unchanged Teschl local-existence component this is a plausible aligned specialization, but the pair changes manifold-valued output to coordinate-valued output; whether this is the intended complete target is held for human scope review rather than assigning an automatic positive.",
+  "review_scope": "Teschl local existence component only; no uniqueness target, no independent theorem about the unverified raw-tangent-to-chart pushforward convention.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "After explicitly asserts a Euclidean local IVP with derivative f(t,y)=X(t,chart_alpha_inverse(I_inverse(y))), the same field used in its Lipschitz premise, fixing the advertised mismatch between two formal representations. The original complete after proof itself compiles in4.34.1 without sorry. Against the unchanged Teschl local-existence component this is a plausible aligned specialization, but the pair changes manifold-valued output to coordinate-valued output; whether this is the intended complete target is held for human scope review rather than assigning an automatic positive.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "path": "DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/1f75c3061dbd68596ecb2720aa3525563e2af809/DifferentialGeometry/PDE/RicciFlow/ODE/TimeDependentFlow/ChartLocalPicard.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+          "version": "Author preliminary edition, GSM140 AMS2012, exact downloaded bytes fixed by SHA256",
+          "locator": "Theorem2.2, printed p38/PDFp49; local-existence component, equation xdot=f(t,x), x(t0)=x0",
+          "sha256": "362433156525216abf596c17ce843204510e96d57afa4284a37c7aa5a9ffc36e"
+        },
+        "scope": "Local Euclidean initial-value existence and derivative equation under continuity and local Lipschitz hypotheses; uniqueness is outside the selected component."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

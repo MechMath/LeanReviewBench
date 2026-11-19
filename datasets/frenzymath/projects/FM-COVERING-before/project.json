@@ -39,19 +39,19 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "research_staging_source_license_review_pending",
+  "licensing_status": "license-copy-retained",
   "original_toolchain": "leanprover/lean4:v4.32.1",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "compiled_extracted_migrated_source_checked_original_environment_unchecked",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 1,
     "sha256": "573d8d09678f8dfd7769b51a308d6a809312999a4c9e4dc9452c0574f265cbde",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b",
-  "review_status": "agent_preliminary_pending_human",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "5e5529813fc084bc692f67a3b9ec1559cf2043e1d2273f375f1f9f7f939c6afa",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/frenzymath.jsonl",
+  "candidate_id": "FM-covering-extra-connectedness",
+  "validation_reference": "metadata/validation.json"
 }

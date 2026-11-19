@@ -1,0 +1,55 @@
+{
+  "task_id": "qinz1yang:QDG-TENSOR-BUNDLE-after",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-TENSOR-BUNDLE-after",
+  "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
+  "root": "Tensor0SBundle.tensor0SBundle_topology",
+  "label": "undetermined",
+  "reason": "The after surviving topology root uses the actual continuous-multilinear vector-prebundle induced from tangent trivializations; its chart transition precomposes covariant slots with the inverse tangent change. This directly addresses the former constant-product construction and is consistent with the independently sourced rank-one dual-Jacobian definition. Nonetheless the selected generic all-rank bundle classes are broader than the explicitly rank-one source target, and full support-context preservation is only partial. The group includes a removed data-constructor root, for which no successor is fabricated. A binary aligned label is held for human scope review. The prepared input is now a graph-driven declaration slice; all selected source-level nonproof values and complete source contexts have preservation checks in the migrated environment. This technical improvement does not settle rankone/generic target correspondence.",
+  "review_scope": "Same independent intrinsic cotangent rankone transition definition; formal generic all-rank roots require human mapping. Before constant model successor vs after tangent-induced multilinear structure. Removed Data root has no after successor; after extracted only surviving topology/smooth roots. No automatic positive.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "roots": [
+    "Tensor0SBundle.tensor0SBundle_topology",
+    "Tensor0SBundle.tensor0SBundle_smooth"
+  ],
+  "target_mode": "joint",
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The after surviving topology root uses the actual continuous-multilinear vector-prebundle induced from tangent trivializations; its chart transition precomposes covariant slots with the inverse tangent change. This directly addresses the former constant-product construction and is consistent with the independently sourced rank-one dual-Jacobian definition. Nonetheless the selected generic all-rank bundle classes are broader than the explicitly rank-one source target, and full support-context preservation is only partial. The group includes a removed data-constructor root, for which no successor is fabricated. A binary aligned label is held for human scope review. The prepared input is now a graph-driven declaration slice; all selected source-level nonproof values and complete source contexts have preservation checks in the migrated environment. This technical improvement does not settle rankone/generic target correspondence.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "path": "DifferentialGeometry/Tensor/RSTensor/Defs.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/73fa343211e33dc4d3bc295a6082b4f6866aebe9/DifferentialGeometry/Tensor/RSTensor/Defs.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "MAT531 Topology/GeometryII, Week6, Section1 The Cotangent bundle of an m-manifold M",
+          "author": "Anthony Phillips, Stony Brook University; author-homepage course archive",
+          "url": "https://www.math.stonybrook.edu/~tony/archive/top2/week6.html",
+          "version": "Spring1996 author course notes; exact acquired HTML bytes fixed bySHA256",
+          "locator": "Week6 §1A–B, definition via transition functions and derivation from covectors",
+          "sha256": "2940825463e693ba16211cd08b8c8554b82e0cb52d1dcba5e2c1f091c99c2e58"
+        },
+        "scope": "Rank-one cotangent bundle with transition maps given by the inverse-transpose tangent coordinate transitions."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "fa9b4b476c554ff569fe0549afe96d5198652112883c4c65a658aa8706da8efe",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "ce1a34659cb8346d9ede159a30092bd30c5e741d1b50dd08f09221a485a21bcd"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

@@ -1,0 +1,52 @@
+{
+  "task_id": "qinz1yang:QDG-COMPACT-ISOTOPY-AFTER",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
+  "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+  "root": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
+  "label": "undetermined",
+  "reason": "The same local ambient-isotopy theorem now has no ambient compactness assumption and matches the local restriction of isotopy extension in broad form. Exact circle parametrization, immersion and smooth-superwindow qualifications remain for human scope review; the successor is not automatically assigned aligned.",
+  "review_scope": "Martelli2020 Theorem5.3.3 specialized to a compact circle source and a real finite-dimensional ambient vector space; selected local theorem only.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The same local ambient-isotopy theorem now has no ambient compactness assumption and matches the local restriction of isotopy extension in broad form. Exact circle parametrization, immersion and smooth-superwindow qualifications remain for human scope review; the successor is not automatically assigned aligned.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+      "root_file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Manifolds",
+          "author": "Bruno Martelli",
+          "url": "https://people.dm.unipi.it/martelli/didattica/matematica/2020/Manifolds.pdf",
+          "sha256": "05496eb8347cb39347f08d348ac243664d19732575c55a69954530c55280d124",
+          "locator": "February5,2020 edition, Theorem5.3.3 and proof, printed120–121 / PDF126–127",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "scope": "Ambient extension of an isotopy of embeddings of a compact source manifold; specialize the source to a circle and the ambient manifold to a finite-dimensional real vector space."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

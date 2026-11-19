@@ -1,0 +1,56 @@
+{
+  "task_id": "frenzymath:FM-EXP-LOCAL-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-EXP-LOCAL-before",
+  "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+  "root": "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing",
+  "label": "misaligned",
+  "reason": "Selected final local-diffeomorphism theorem additionally assumes v≠0 and0<t0<1, omitting constant minimizing geodesics and t0=0. Original corollary is read within curve domain[0,1], with completeness inherited from preceding paragraph. Completeness complaint withdrawn; exact scope omission is a boundary for human review, not a false proposition claim.",
+  "review_scope": "independent target full mathematical scope; exact source statement",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Selected final local-diffeomorphism theorem additionally assumes v≠0 and0<t0<1, omitting constant minimizing geodesics and t0=0. Original corollary is read within curve domain[0,1], with completeness inherited from preceding paragraph. Completeness complaint withdrawn; exact scope omission is a boundary for human review, not a false proposition claim.",
+    "uncertainty": "Scope-based alignment judgment; conditional Lean proposition itself not alleged false.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/ExpMinimizingLocalDiffeo.lean",
+      "version_role": "before"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "url": "https://arxiv.org/src/math/0607607v2",
+          "version": "math/0607607v2 2007-03-21",
+          "locator": "prelim.tex695–759, corollary star742–749 and preceding complete-M paragraph726ff",
+          "sha256": "98e4fc060d2f7abd5d9e29a09cac2007a19b1f96c02fc7e558efb23d51fa1982"
+        },
+        "scope": null
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "f7f5a74a46e1cf42d38a2b55ad4e9f47c718d86698b2bb4d4f2580b993345dc8",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "f7f5a74a46e1cf42d38a2b55ad4e9f47c718d86698b2bb4d4f2580b993345dc8"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

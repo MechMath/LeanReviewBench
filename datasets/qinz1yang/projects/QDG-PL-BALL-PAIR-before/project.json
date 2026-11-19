@@ -27,7 +27,9 @@
   "packaged_compilation": "passed",
   "missing_modules": [],
   "external_imports": [
-    "Mathlib"
+    "Mathlib.Analysis.Convex.SimplicialComplex.Basic",
+    "Mathlib.Analysis.Convex.StdSimplex",
+    "Mathlib.Analysis.Normed.Module.FiniteDimension"
   ],
   "external_boundaries": [
     "Mathlib",
@@ -41,20 +43,20 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Upstream historical source licensing requires review.",
+  "licensing_status": "license-copy-retained",
   "original_toolchain": "leanprover/lean4:v4.33.1",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "compiled-extracted-migrated-source-preserved; independent-general-ball-pair-scope-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 1,
     "sha256": "46a31348e46f143a79d9e43b8cefc370bab68f6e3e028c47e7a2ea8de04441d5",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "01cfbfd96cc80ad2a5cb37fe2e8cf8d614ba1e50c7b102d6bb3ad4b3a5baab8b",
+  "input_sha256": "58d54b49dfb0c0aa27e3806d9cb2aaee078dca65ac8195bbd1ffe13cbfdf07a6",
   "toolchain_pin_evidence": "Independent GitHub file fetch at both source revisions; lean-toolchain blob a8afa7d1b02d96f0671eba854a8dc4b416beb473",
-  "review_status": "agent_preliminary_pending_human",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "pl-ball-pair-cone",
+  "validation_reference": "metadata/validation.json"
 }

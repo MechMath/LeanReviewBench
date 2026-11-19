@@ -88,7 +88,7 @@ def write_index(dataset):
 def check(config):
     total = links = 0
     counts = {}
-    for dataset in config['datasets']:
+    for dataset in {**config['datasets'], **config.get('review_datasets', {})}:
         directory = BASE / 'datasets' / dataset
         require(not (directory / 'tasks.jsonl').exists(), f'{dataset}: unexpected task package')
         metas = {p.parent.name: read(p) for p in projects(dataset)}
@@ -157,7 +157,7 @@ def main():
     if args.action == 'check':
         check(config)
     else:
-        for dataset in config['datasets']:
+        for dataset in {**config['datasets'], **config.get('review_datasets', {})}:
             write_index(dataset)
 
 

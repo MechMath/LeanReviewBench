@@ -1,0 +1,63 @@
+{
+  "task_id": "frenzymath:FM-BISHOP-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-BISHOP-before",
+  "input_sha256": "cace9dbf5d8771f2d4807a4966076ae3caa125ba04f612d5f58273c95cad1e0d",
+  "root": "MorganTianLib.bishop_gromov_ball",
+  "label": "misaligned",
+  "reason": "The independent Bishop–Gromov theorem concerns a Riemannian manifold, Ricci lower bound on a ball with compact closure, actual manifold/model ball volume ratios, limit one at zero and the nonnegative-Ricci corollary. These two roots instead concern arbitrary measurable nonnegative densities on a normed vector space and assume raywise ratio monotonicity directly; neither root links the density integral to Riemannian ball volume or derives the geometric monotonicity from Ricci curvature, and neither states the zero-radius limit.",
+  "review_scope": "Judgment is against the full independently sourced Morgan–Tian v2 Theorem1.34. The two selected roots are valid abstract integration lemmas and may align with a narrower independently sourced integration target; that is a different task. This does not question the original theorem proofs or the complete Poincare proof.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "roots": [
+    "MorganTianLib.bishop_gromov_ball",
+    "MorganTianLib.bishop_gromov_ball_ratio"
+  ],
+  "target_mode": "joint",
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The independent Bishop–Gromov theorem concerns a Riemannian manifold, Ricci lower bound on a ball with compact closure, actual manifold/model ball volume ratios, limit one at zero and the nonnegative-Ricci corollary. These two roots instead concern arbitrary measurable nonnegative densities on a normed vector space and assume raywise ratio monotonicity directly; neither root links the density integral to Riemannian ball volume or derives the geometric monotonicity from Ricci curvature, and neither states the zero-radius limit.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovBall.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/4dff1831c65f51855a70dc3c4ff03bea49a5619e/formalized-sources/MorganTian/MorganTianLib/Ch01/BishopGromovBall.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Theorem 1.34, label BishopGromov, prelim.tex lines1008-1019",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Relative volume comparison for actual Riemannian metric balls with compact closure, the stated Ricci bound, radius range, ratio limit and nonnegative-Ricci corollary."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "3a462f27ec64619a1316088251df942088d58b579dd5b1b0b0f0282361688f2a",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "3a462f27ec64619a1316088251df942088d58b579dd5b1b0b0f0282361688f2a"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

@@ -46,9 +46,17 @@ python3 scripts/data/project_case_stats.py --json
 The evaluation protocol is tracked in
 [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
 
-Two further batches occupy the same dataset layout and await human review:
-[qinz1yang](qinz1yang/README.md) and [FrenzyMath](frenzymath/README.md).
-Together they store 16 historical candidate families and 29 historical snapshots:
-26 prepared snapshots and three technically deferred support contexts. One historical pair has
-identical input content. Five additional artifacts are explicitly excluded as
-partial development. These counts do not change the 171 human-reviewed inputs.
+Two further batches use the same native dataset layout and await human review:
+[qinz1yang](qinz1yang/README.md) (15 inputs) and
+[FrenzyMath](frenzymath/README.md) (11 inputs). All 26 are complete declaration
+contexts; three technically deferred contexts and five excluded development
+artifacts have been removed. Their plans and pinned Git archive locators remain
+in batch metadata. One historical pair has identical input content and shares
+its split/group, yielding 25 distinct contexts. Together with the original
+171 human-reviewed inputs, the native loader reads 197 retained inputs.
+
+Labels, analysis, context-validation evidence, provenance and license records
+use the same root metadata locations as the existing batches. Run
+`python3 scripts/data/check_release_candidate.py --require-reviewed` for the
+strict merge gate: preliminary labels do not satisfy human review, and labels
+do not resolve a historical-license gap.

@@ -1,0 +1,61 @@
+{
+  "task_id": "frenzymath:FM-WEAK-LAPLACIAN-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-WEAK-LAPLACIAN-before",
+  "input_sha256": "7bc36674becfd755cb6a361c6cccfd6be3c5f6c0ea3ccddc262b048a239f9ad1",
+  "root": "MorganTianLib.WeakLaplacianLE",
+  "label": "misaligned",
+  "reason": "The independently acquired Morgan–Tian context defines distance from the Riemannian metric g and then uses its distance function in the weak Laplacian discussion. The selected definition uses LocallyLipschitz in the existing ambient MetricSpace M while separately using g for Laplacian and volume, without equating that ambient distance to the g-distance. Two distances can induce the same topology while changing local Lipschitzness (on R compare |x-y| and |x^3-y^3|, with f(x)=x near zero).",
+  "review_scope": "Provisional mismatch is limited to the metric used by the Lipschitz regularity condition in the claimed Riemannian weak-Laplacian interface. Source Remark1.29 specifically discusses f=d_g(p,·); this generalized Lean definition and the broader arbitrary-f/h interface require human scope review. The test-integral expression is not alleged algebraically false.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.WeakLaplacianLE"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The independently acquired Morgan–Tian context defines distance from the Riemannian metric g and then uses its distance function in the weak Laplacian discussion. The selected definition uses LocallyLipschitz in the existing ambient MetricSpace M while separately using g for Laplacian and volume, without equating that ambient distance to the g-distance. Two distances can induce the same topology while changing local Lipschitzness (on R compare |x-y| and |x^3-y^3|, with f(x)=x near zero).",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/bb91a091f0b968f8bbe8d861e025a88d82b161be/formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Chapter1 metric-distance context and Remark1.29, prelim.tex selected line spans retained in binding record",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Weak distributional Laplacian inequality for the metric-distance function, with the source metric and testing conventions."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "ec82ffbcef27f4b9caba532adc28dd06b9182a79f95756b8cbd045fc509c9143",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "ec82ffbcef27f4b9caba532adc28dd06b9182a79f95756b8cbd045fc509c9143"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

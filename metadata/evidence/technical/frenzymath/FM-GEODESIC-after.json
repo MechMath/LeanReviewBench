@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "frenzymath",
+  "project_id": "FM-GEODESIC-after",
+  "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
+  "formal_sha256": "adc11766dc07dd75f7627965b0ffb60d02d1456c0b232075b93b82397828bbf8",
+  "roots": [
+    "MorganTianLib.IsGeodesicCurveOn"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "61b7704e384dadddda47823ec72d8568726c165a1b5030c68ec88815ab981ea3",
+  "nodes": 192,
+  "edges": 908,
+  "local_nodes": 23,
+  "compiled_sources": {
+    "Main.lean": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "passed_in_migrated_environment",
+  "source_preservation_method": "Actual after revision source blocks byte-verified before reuse; independent namespaced migrated context retains source Module.Finite binder and rfl equality probes compare full types and computational values for all14 selected closure declarations.",
+  "preservation_status_recorded": "passed",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/frenzymath/metadata/technical-evidence/FM-GEODESIC-after/preservation.json",
+  "archived_receipt_sha256": "ff26fa35a19b6b11ee38ea7afc17f3bada64d3cd9a00802071658f88c23629df",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

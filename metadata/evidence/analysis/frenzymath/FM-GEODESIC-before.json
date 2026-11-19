@@ -1,0 +1,61 @@
+{
+  "task_id": "frenzymath:FM-GEODESIC-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-GEODESIC-before",
+  "input_sha256": "63c5010d962034986aef6e5470237192f1c102b65a7821d917db61ce7d2ddbe7",
+  "root": "MorganTianLib.IsGeodesicOn",
+  "label": "undetermined",
+  "reason": "The independently sourced sentence defines which smooth curves on an open interval are geodesics. Its opening smooth-curve clause can be the domain of discourse, rather than a smoothness conjunct demanded of a predicate on arbitrary functions. The packaged root is an equation-only predicate on arbitrary real-parameter curves and arbitrary sets. Its HasGeodesicEquationAt includes first and second chart derivatives and the Christoffel ODE, but does not separately require the manifold-valued curve to remain in its centered chart source locally. Therefore omission of a literal smoothness binder is not sufficient by itself to conclude mismatch against the source evaluated on smooth interval-domain curves. Conversely, if this task expects the entire definition as a classifier on arbitrary curves, the equation-only root appears broader than the target, and one must check whether chart junk extension permits discontinuous examples. Current material does not settle the evaluation-domain decision or furnish a checked separating example.",
+  "review_scope": "Selected root(s) against the independently bound mathematical target; correspondence requires human review.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.IsGeodesicOn"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The independently sourced sentence defines which smooth curves on an open interval are geodesics. Its opening smooth-curve clause can be the domain of discourse, rather than a smoothness conjunct demanded of a predicate on arbitrary functions. The packaged root is an equation-only predicate on arbitrary real-parameter curves and arbitrary sets. Its HasGeodesicEquationAt includes first and second chart derivatives and the Christoffel ODE, but does not separately require the manifold-valued curve to remain in its centered chart source locally. Therefore omission of a literal smoothness binder is not sufficient by itself to conclude mismatch against the source evaluated on smooth interval-domain curves. Conversely, if this task expects the entire definition as a classifier on arbitrary curves, the equation-only root appears broader than the target, and one must check whether chart junk extension permits discontinuous examples. Current material does not settle the evaluation-domain decision or furnish a checked separating example.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/f5661a1a73a7104af9e65024edd8a569d49ba981/formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Geodesic definition, prelim.tex lines461-466",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Geodesics as smooth curves on an open interval with vanishing covariant acceleration."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "bbb6dc7265f2b0862c6bbfba5856f31f2985043ee854c9f0fe564e6b23d60ed4",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "bbb6dc7265f2b0862c6bbfba5856f31f2985043ee854c9f0fe564e6b23d60ed4"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

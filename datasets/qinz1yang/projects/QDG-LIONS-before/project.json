@@ -42,20 +42,18 @@
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "technical_status": "compiled-extracted-and-migrated-source-preserved; original-environment-preservation-pending",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "target_mode": "single",
   "human_adjudicated": false,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "Historical source revision has no root license file; redistribution/license scope requires review before admission.",
+  "licensing_status": "historical-license-scope-unresolved",
   "original_toolchain": "leanprover/lean4:v4.29.0",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
-  "source_materials_base": "build/preparation/qinz1yang",
-  "source_materials_distributed": false,
-  "review_status": "agent_preliminary_pending_human",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+  "validation_reference": "metadata/validation.json"
 }

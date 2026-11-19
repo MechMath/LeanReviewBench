@@ -34,7 +34,7 @@ Their source repository, commit and selected roots are recorded in each
    source evidence when the mathematical content is unchanged. Keep these
    annotations outside model-visible inputs.
 
-All 171 current contexts have recorded compilation and fresh extraction results in
+All 197 retained contexts have recorded compilation and fresh extraction results in
 `metadata/validation.json`. Graph files are not part of the release. Required non-Lean resources remain beside their Lean
 users; Mathlib and Cslib remain pinned external libraries. EconCSLib belongs to
 the historical AppliedModelingLib sources and is vendored only where required

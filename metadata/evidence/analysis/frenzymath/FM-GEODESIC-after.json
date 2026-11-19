@@ -1,0 +1,61 @@
+{
+  "task_id": "frenzymath:FM-GEODESIC-after",
+  "dataset": "frenzymath",
+  "project_id": "FM-GEODESIC-after",
+  "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
+  "root": "MorganTianLib.IsGeodesicCurveOn",
+  "label": "undetermined",
+  "reason": "Same independently sourced smooth-curve definition as before; the added ContinuousOn conjunct does not by itself settle full-classifier versus smooth-domain interpretation. No automatic repaired-successor aligned label assigned.",
+  "review_scope": "Selected root(s) against the independently bound mathematical target; correspondence requires human review.",
+  "review_status": "agent_preliminary",
+  "human_adjudicated": false,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.IsGeodesicCurveOn"
+  ],
+  "analysis_status": "retained_label_reason_only",
+  "analysis": null,
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Same independently sourced smooth-curve definition as before; the added ContinuousOn conjunct does not by itself settle full-classifier versus smooth-domain interpretation. No automatic repaired-successor aligned label assigned.",
+    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/f8f0ddb9eade496cbf4974a8f508227da4b461ec/formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Geodesic definition, prelim.tex lines461-466",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Geodesics as smooth curves on an open interval with vanishing covariant acceleration."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "0e5695958ea4429643c0693e415fd88bd672515bd3b89331a803d9c59a206308",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "0e5695958ea4429643c0693e415fd88bd672515bd3b89331a803d9c59a206308"
+    }
+  },
+  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+}

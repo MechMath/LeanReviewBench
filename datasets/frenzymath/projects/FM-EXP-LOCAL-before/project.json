@@ -39,19 +39,19 @@
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
-  "registered_release_input": false,
-  "licensing_status": "research_staging_source_license_review_pending",
+  "licensing_status": "license-copy-retained",
   "original_toolchain": "leanprover/lean4:v4.32.1",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
-  "technical_status": "compiled_extracted_migrated_source_checked_original_environment_unchecked",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "formal": {
     "file_count": 1,
     "sha256": "4e2d0406e51e47f523afc3de6bdda073cc1456d49e5f9bbfac115262d84032c0",
     "declaration_slice": true,
     "proofs_erased": true
   },
-  "input_sha256": "f7f5a74a46e1cf42d38a2b55ad4e9f47c718d86698b2bb4d4f2580b993345dc8",
-  "review_status": "agent_preliminary_pending_human",
-  "benchmark_extraction_eligible": false,
-  "dataset_registration": "awaiting_human_review"
+  "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+  "review_status": "agent_preliminary",
+  "alignment_reference": "metadata/labels/frenzymath.jsonl",
+  "candidate_id": "FM-exp-local-diffeo-restriction",
+  "validation_reference": "metadata/validation.json"
 }

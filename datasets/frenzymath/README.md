@@ -1,37 +1,36 @@
-# FrenzyMath/Poincare-Conjecture
+# frenzymath
 
-7 families, 11 retained historical snapshots; all 11 have declaration-slice and migrated-preservation records. Five other artifacts are explicitly excluded as unfinished development.
+11 complete Lean 4.34.1 statement contexts use the native
+`paperlean-project-case-1` layout. Their binary alignment judgments await human
+review; provisional judgments do not imply approval or reference readiness.
+The source repositories and informal sources remain separate between batches.
 
-These inputs await human review. Their directory is the normal dataset layout;
-review, exclusion and technical states are recorded in JSON. They are listed in
-`review_datasets` in the shared registry. None is a human-adjudicated or gold input.
-Original-toolchain elaboration remains unchecked; recorded preservation concerns
-migrated statement contexts and computational definitions, not original proofs.
-Historical source-license qualifications remain explicit in project metadata.
+- [Native index](index.csv); sources, targets, version links and review states
+  are recorded in each `projects/<id>/project.json`.
+- Labels: `metadata/labels/frenzymath.jsonl` at the repository root.
+- Analysis: `metadata/evidence/analysis/frenzymath/` at the repository root.
+- Compilation, extraction and migrated preservation: root `metadata/validation.json`;
+  compact input-bound evidence: `metadata/evidence/technical/frenzymath/`.
+- Source provenance: root `metadata/provenance.json`; exact license/notice
+  associations: root `licenses/index.json`.
+- [Deferred development plan](metadata/deferred-development-plan.jsonl) and
+  [archived preparation locators](metadata/archive.json).
 
-- [Index](index.json) and [version links](metadata/version-pairs.json).
-- [Current review snapshot](metadata/current-review-snapshot.json).
-- [Prior six-family batch audit](metadata/prior-batch-audit.json).
-- [Latest retained-family processing](metadata/retained-processing.json).
-- [Deferred development plan](metadata/deferred-development-plan.jsonl).
-- [Screening summary](metadata/screening/screening-summary.json).
-- [Technical validation](metadata/technical-validation.json) and compact receipts
-  under `metadata/technical-evidence/`.
+Original-toolchain elaboration is not certified. Migrated expression comparisons
+retain their documented nominal-identity and exact-source-reuse qualifications.
+No original theorem proof or human alignment verdict is certified by compilation.
 
-Provisional binary judgments are in `metadata/provisional-labels.jsonl`; unresolved
-scope judgments are in `metadata/pending-scope-reviews.json`. Keep these and repair
-clues outside model-visible inputs. Before/after does not determine the label.
-Related snapshots share their source split group. FrenzyMath's geodesic-completeness
-pair has identical mathematical inputs at two revisions and must be deduplicated
-before evaluation.
+Deferred or excluded contexts are absent from this dataset. Full graphs, source
+acquisition caches and trial contexts are available only through the archived
+preparation revision, not as dependencies of normal validation.
 
-Full graphs, compiler logs and independent acquired PDFs remain optional local
-build artifacts. Persistent receipts retain their original hashes and locators.
-A default check verifies committed inputs and receipts; it does not rerun Lean or
-require those build artifacts.
+Run from the repository root:
 
 ```sh
-python3 scripts/construction/review_batches/check_batch.py --batch frenzymath
-# Optional: also check locally retained extraction graphs.
-python3 scripts/construction/review_batches/check_batch.py --batch frenzymath --with-build-graphs
+python3 scripts/data/check_release_candidate.py
+python3 scripts/data/publication_readiness.py
+# Strict gate: requires completed human binary judgments AND resolved licenses.
+python3 scripts/data/check_release_candidate.py --require-reviewed
 ```
+
+All 11 versions have the same pinned Apache-2.0 license copy. The geodesic-completeness pair has identical input content and one shared split/group: retain the historical revisions, but count once for independent errors or evaluation contexts.

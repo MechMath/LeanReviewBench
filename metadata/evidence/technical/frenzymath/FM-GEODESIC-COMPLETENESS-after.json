@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "frenzymath",
+  "project_id": "FM-GEODESIC-COMPLETENESS-after",
+  "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+  "formal_sha256": "1b70fcf242adadba590834859657b5da81409a5ef4c84c9900786ea43846b270",
+  "roots": [
+    "MorganTianLib.not_isConjugatePointAt_of_minimizing"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "613d014bbb1b272be309dbac370b895b8525a5a9ccc8ac12f83446f8bd24dbbd",
+  "nodes": 335,
+  "edges": 2225,
+  "local_nodes": 58,
+  "compiled_sources": {
+    "Main.lean": "d3e8552ce71da6365ad547aa9645518dfb54417a540bce89229a6c2e5d1e7edc"
+  },
+  "statement_preservation_recorded": "passed_with_verified_support_and_nominal_identity_policy",
+  "nonproof_preservation_recorded": "passed_migrated_source_context",
+  "source_preservation_method": "See archived full receipt for the source/context comparison and nominal-identity qualifications.",
+  "preservation_status_recorded": "passed_migrated_source_context_with_nominal_identity_and_verified_support_reuse",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/frenzymath/metadata/technical-evidence/FM-GEODESIC-COMPLETENESS-after/preservation.json",
+  "archived_receipt_sha256": "6c87ad873b71e8910130762ac41e0f5059ad14d828142fdf87d7cfe81f4959d1",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}
