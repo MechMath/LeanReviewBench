@@ -9,7 +9,7 @@ outside model-visible task exports.
 | `labels/` | Human-reviewed binary verdicts, concise English reasons, scope, and input bindings |
 | [evidence/upstream/](evidence/upstream/README.md) | Original upstream claims with exact source/input associations; not scoring labels |
 | [evidence/analysis/](evidence/analysis/README.md) | Current judgment evidence grouped by source batch and input |
-| [taxonomy/](taxonomy/README.md) | Current five-category standard and classifications for the original 90 negative inputs |
+| [taxonomy/](taxonomy/README.md) | Current five-category standard and classifications for all 111 negative inputs |
 | `validation.json` | Input-bound compilation, extraction and preservation results; graphs are generated on demand |
 | `provenance.json` | Source project bindings and archive locators |
 | `materials/` | Independent-source acquisition locators and byte hashes |

@@ -1,17 +1,11 @@
 # Misalignment taxonomy and annotations
 
 The [current five-category standard](standard.md) and diagnostic annotations are
-kept together here. The **90 misaligned inputs from the original 171 human-reviewed records** have one to three
-category labels. These remain provisional classifications of retained semantic
-judgments, not human-adjudicated category labels or a new binary evaluation task.
-The underlying binary judgments are human reviewed; the category-assignment
-review state is separate.
-
-The Poincare batches are outside these 90 classifications. Their alignment
-labels and analysis are retained in the standard metadata paths. Twenty-one
-Poincare misaligned verdicts and five aligned verdicts are human confirmed; the
-taxonomy assignments for those twenty-one negative cases remain pending. FM-COVERING-before now has a written zero-dimensional scope witness; category
-assignment remains pending alongside the other Poincare negatives.
+kept together here. The **111 misaligned inputs across all 18 source batches** have one to three
+category labels, including all 21 Poincare negatives. These remain provisional
+classifications of retained semantic judgments, not human-adjudicated category
+labels or a new binary evaluation task. The underlying binary judgments are
+human reviewed; category-assignment review is separate.
 
 | File | Purpose |
 | --- | --- |
@@ -24,13 +18,13 @@ assignment remains pending alongside the other Poincare negatives.
 
 | Category | Inputs containing label | Primary inputs |
 | --- | ---: | ---: |
-| O | 15 | 13 |
-| A | 38 | 31 |
+| O | 22 | 20 |
+| A | 49 | 42 |
 | Q | 8 | 5 |
 | F | 30 | 28 |
-| P | 20 | 13 |
+| P | 26 | 16 |
 
-There are 70 single-label, 19 two-label, and 1 three-label inputs.
+There are 88 single-label, 22 two-label, and 1 three-label inputs.
 Counts use versioned inputs, not independent mathematical errors. Multi-label
 counts overlap. They describe this selected benchmark, not natural error rates.
 The first label retains the primary discrepancy identified by the review; do not
@@ -38,8 +32,8 @@ infer severity from label order.
 
 ## Scope and provenance
 
-The collection combines 70 existing classifications and 20 classifications added
-on November 17, 2026 from retained review evidence. All classification input hashes
+The collection retains 90 existing classifications and adds 21 Poincare
+classifications on November 20, 2026 from current input-bound review evidence. All classification input hashes
 match the current release. The closed-certificate specialization case
 `formalslt:flagship-scalar-reflexive` is updated from Q to A to follow the current
 explicit applicability boundary rule. No input or binary alignment label changes.
