@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根结论把概率空间及可测性要求丢掉，所用历史 IsUniform 在零测度上对任意子群都成立；结合距离定义，整个见证条件退化。不是仅凭少写两个类型类判负，而是输出见证规格没有表达原文的概率均匀变量。",
+  "retained_reason": "The root conclusion drops the probability-space and measurability requirements, and the historical IsUniform used here holds for any subgroup under the zero measure. Together with the distance definition, this degenerates the entire witness condition. The negative label is not based merely on two omitted typeclasses: the output witness specification fails to express the source's probabilistic uniform variable.",
   "review_scope": "The bound probability-space and measurable-uniform-witness specification over finite F_2 vector spaces."
 }

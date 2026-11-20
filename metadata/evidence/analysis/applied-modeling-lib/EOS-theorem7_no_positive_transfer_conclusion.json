@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
   "task_id": "aml:EOS-theorem7_no_positive_transfer_conclusion",
-  "input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+  "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
   "label": "misaligned",
   "reason": "The abstract outcome is not bound to the GSP equilibrium and VCG payment objects required by the target. The comparison is restricted to the same slot assignment and no-positive-transfer class.",
   "review_status": "human_reviewed",
@@ -31,6 +31,6 @@
   "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "完整 Theorem 7（作者稿 Theorem 1）涉及 GSP 均衡 B*、VCG 支付及稳定结果比较；根由 ComparisonPaymentCertificate 得到抽象 outcome，只在相同 slotOf、无正转移类内比较，未绑定 GSP 均衡。",
-  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
+  "retained_reason": "The full Theorem 7 (Theorem 1 in the author manuscript) concerns the GSP equilibrium B*, VCG payments and comparisons among stable outcomes. The root obtains an abstract outcome from ComparisonPaymentCertificate and compares only outcomes with the same slotOf and no positive transfers, without binding the result to a GSP equilibrium.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
 }

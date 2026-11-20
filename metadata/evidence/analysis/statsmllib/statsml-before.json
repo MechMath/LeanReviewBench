@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "已发表 ITP 2026 论文 §§2–4 给出概率模型、绝对值经验/期望 Rademacher 复杂度、uniform deviation 与尾界；StatsML 官方网站 2026-07-31 固定提交在完整公式前明确可分、第一可数及参数逐点连续，并在公式后直接命名 before 根。此目标早于 issue77/PR78，故无需从 formal 反译补齐函数类范围。before 根逐项覆盖该目标，复杂度定义保留绝对值，系数 2 与指数分母 2b² 一致；formal 还允许 n=0，不影响其覆盖源文 n≥1 范围。",
+  "retained_reason": "Sections 2–4 of the published ITP 2026 paper specify the probability model, absolute-value empirical and expected Rademacher complexity, uniform deviation, and tail bound. The StatsML official website at the pinned 2026-07-31 commit explicitly requires separability, first countability, and pointwise continuity in the parameter before the complete formula, and directly names the before root after it. This target predates issue77/PR78, so there is no need to reconstruct the function-class scope by translating back from the formal statement. The before root covers this target component by component; the complexity definition retains the absolute value, and the coefficient 2 and exponent denominator 2b² agree. The formal statement also permits n=0, which does not affect its coverage of the source range n≥1.",
   "review_scope": "The specified separable, first-countable parameter space with pointwise-continuous evaluations and positive sample size."
 }

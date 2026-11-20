@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "展开HasPrimeInInterval后为存在自然素数p且x<p≤x+x/(5000log²x)。阈值相同，而x+x/(5000log²x)=x(1+1/(5000log²x))，与文字一致。",
+  "retained_reason": "Unfolding HasPrimeInInterval gives the existence of a natural prime p with x<p≤x+x/(5000log²x). The threshold is the same, and x+x/(5000log²x)=x(1+1/(5000log²x)), matching the text.",
   "review_scope": "The bound explicit prime-existence interval and its stated threshold."
 }

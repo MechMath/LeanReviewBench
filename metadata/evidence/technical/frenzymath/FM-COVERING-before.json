@@ -2,7 +2,7 @@
   "schema_version": "leanreviewbench-technical-evidence-1",
   "dataset": "frenzymath",
   "project_id": "FM-COVERING-before",
-  "input_sha256": "5e5529813fc084bc692f67a3b9ec1559cf2043e1d2273f375f1f9f7f939c6afa",
+  "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
   "formal_sha256": "573d8d09678f8dfd7769b51a308d6a809312999a4c9e4dc9452c0574f265cbde",
   "roots": [
     "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
@@ -37,5 +37,18 @@
   "archived_receipt": "datasets/frenzymath/metadata/technical-evidence/FM-COVERING-before/preservation.json",
   "archived_receipt_sha256": "d8e83f4a44bf0384087e7ae5b599124c753cf6bc4f17727a27a80ed928d72018",
   "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
-  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "informal_rebinding": {
+    "date": "2026-11-20",
+    "kind": "informal_only_source_correction",
+    "informal_sha256": "27b3ca07c00535080004ae5a631510637bf2e0afa6d4f7b0bd84bbdfa7206431",
+    "formal_sources_unchanged": true,
+    "checks_reused": [
+      "compilation",
+      "extraction",
+      "statement_preservation",
+      "nonproof_definition_preservation"
+    ],
+    "basis": "All retained Lean source bytes, roots, formal inventory and toolchain pins are unchanged. Existing technical receipts concern those Lean sources and are retained without a fresh compilation. The corrected informal interpretation and user alignment decision are not certified by these technical checks."
+  }
 }

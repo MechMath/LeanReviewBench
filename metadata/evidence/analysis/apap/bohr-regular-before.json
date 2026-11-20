@@ -33,15 +33,15 @@
     "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "rank 统计口径与原文不同：formal 统计有限宽度字符，原文统计宽度小于 2 的字符，导致正则性定义不等价；此外，κ 的检查范围写成了 d/100，而非原文预期的 1/(100d)。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标注misaligned然后下一题; confirms the preceding rank and kappa-range mismatch explanation for apap:bohr-regular-before.",
+    "reason": "The rank counts differ: the formalization counts characters with finite width, while the source counts characters with width less than 2, making the regularity definitions inequivalent. In addition, the range of κ is written as d/100 rather than the intended source value 1/(100d).",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned and then move to the next case; confirms the preceding rank and kappa-range mismatch explanation for apap:bohr-regular-before.",
     "reviewer": "Codex",
     "reviewer_type": "model",
     "review_status": "model_rechecked_misaligned_user_confirmed",
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 before 输入。原文 1/100d 按现有 scope 的预期分母 100*d 解释。",
+    "review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this before input. The source expression 1/100d is interpreted with denominator 100*d, as intended by the existing scope.",
     "evidence_locations": {
       "informal": "datasets/apap/projects/bohr-regular-before/informal.jsonl:1",
       "finite_width_frequencies": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean:25",
@@ -69,7 +69,7 @@
       "source_upper_bound_at_jump": "8/5",
       "formal_regular": true,
       "source_regular": false,
-      "argument": "平凡字符始终不限制集合。0≤κ<3/500 时膨胀集为 {0}，大小比为 1，满足 formal 上界。3/500≤κ≤1/50 时膨胀集为整个 Z/2，大小比为 2，而 formal 上界 1+200κ 至少为 11/5。整个检查区间内收缩集均为 {0}，下界 1-200κ≤1，故 formal regular。原文在 κ=3/500 时只允许上界 8/5，大小比 2 违反该界。"
+      "argument": "The trivial character never restricts the set. For 0≤κ<3/500, the dilated set is {0}, with size ratio 1, satisfying the formal upper bound. For 3/500≤κ≤1/50, the dilated set is all of Z/2, with size ratio 2, while the formal upper bound 1+200κ is at least 11/5. Throughout the checked interval, the contracted set is {0}, and the lower bound 1-200κ≤1 holds, so the set is formally regular. At κ=3/500, the source permits only an upper bound of 8/5, violated by size ratio 2."
     },
     "verification": {
       "exact_rational_checks": "passed",
@@ -77,17 +77,17 @@
       "fresh_lean_build": false
     },
     "limitations": [
-      "这是陈述/定义的语义错配，不声称形式化自身的定义逻辑矛盾。",
-      "使用正的 source rank=1；该例不依赖 d=0 或原文 1/100d 的排版歧义。",
-      "用户确认已记录；仍沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+      "This is a semantic mismatch between statements or definitions, not a claim that the formal definition is internally inconsistent.",
+      "The source rank is positive, d=1; the example does not depend on d=0 or the typographical ambiguity in the source expression 1/100d.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
     ],
     "additional_formula_mismatch": {
       "formal": "kappa <= d / 100",
       "source_intended": "|kappa| <= 1 / (100*d)",
       "source_typography": "1/100d",
-      "scope_note": "分母按当前冻结 scope 的预期解释。rank 区分例中 source d=1，两种排版解释均给出 1/100；rank 判负依据不依赖此歧义。"
+      "scope_note": "The denominator is interpreted as intended by the currently frozen scope. In the example separating the rank definitions, source d=1, so both typographical interpretations give 1/100; the negative rank judgment does not depend on this ambiguity."
     }
   },
-  "retained_reason": "rank 统计口径与原文不同：formal 统计有限宽度字符，原文统计宽度小于 2 的字符，导致正则性定义不等价；此外，κ 的检查范围写成了 d/100，而非原文预期的 1/(100d)。",
-  "retained_review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 before 输入。原文 1/100d 按现有 scope 的预期分母 100*d 解释。"
+  "retained_reason": "The rank counts differ: the formalization counts characters with finite width, while the source counts characters with width less than 2, making the regularity definitions inequivalent. In addition, the range of κ is written as d/100 rather than the intended source value 1/(100d).",
+  "retained_review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this before input. The source expression 1/100d is interpreted with denominator 100*d, as intended by the existing scope."
 }

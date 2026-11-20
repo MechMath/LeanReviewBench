@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "当前文字将N(σ,T)的密度界与另一条RvM误差式拼接，含未绑定的b1,b2,b3，固定T≥2。formal结构实际量化T≥T0、σ∈σ_range，只有c1(σ)T^p(σ)(logT)^q(σ)+c2(σ)(logT)^2一条界，未表达拼入的约束。",
+  "retained_reason": "The current text splices a density bound for N(σ,T) together with another RvM error formula, contains unbound b1,b2,b3, and fixes T≥2. The formal structure actually quantifies over T≥T0 and σ∈σ_range and contains only the bound c1(σ)T^p(σ)(logT)^q(σ)+c2(σ)(logT)^2; it does not express the spliced-in constraints.",
   "review_scope": "The literal bound source text, retaining its malformed combination of density and counting-error constraints; no corrected target is substituted."
 }

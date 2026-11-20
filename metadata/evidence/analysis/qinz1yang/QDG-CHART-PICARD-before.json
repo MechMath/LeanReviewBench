@@ -4,23 +4,150 @@
   "project_id": "QDG-CHART-PICARD-before",
   "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
   "root": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz",
-  "label": "undetermined",
-  "reason": "Before assumes Lipschitz regularity of raw E-valued tangent representatives in one fixed alpha coordinate chart, but asserts a manifold derivative equation whose local derivative representation uses the moving target chart. The independent Euclidean Picard theorem does not by itself validate this representation change: the actual chart differential and target tangent trivialization relation must be checked. No independent counterexample or chart-compatibility proof has been completed, so this is not yet a binary misalignment verdict.",
-  "review_scope": "Teschl local existence component only; no uniqueness target, no independent theorem about the unverified raw-tangent-to-chart pushforward convention.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "misaligned",
+  "reason": "The continuity and Lipschitz premises concern raw E-valued representatives of X, but the manifold derivative conclusion requires their pushforward into the fixed chart, tangentCoordChange I q alpha q (X t q). The omitted transition derivative is substantive: on a smooth circle, choose the preferred local chart as psi where psi(q) <= 0 and -psi where psi(q) > 0. The raw field X = 1 satisfies both premises, while the claimed curve from psi(alpha) = 0 would satisfy y'(0+) = 1 and y'(t) = -1 whenever y(t) > 0, which is impossible. Thus the hypotheses do not express continuity and local Lipschitz regularity of the vector field in the asserted ODE.",
+  "review_scope": "Teschl Theorem 2.2, local existence and derivative equation only; uniqueness is expressly outside the bound scope.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "Inspect the exact pinned mathlib definitions of tangent representations, preferred charts and manifold derivatives; compare the resulting coordinate equation with the library integral-curve conversion lemma; independently check a compact-circle countermodel against every hypothesis and the one-sided time conclusion.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/informal.jsonl",
+      "sha256": "23b7d151d602dd89be7aa299b840a11b7de09f7b9f905e1c359438ac803dc777",
+      "id": "main",
+      "source": {
+        "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+        "version": "Author preliminary edition, GSM140 AMS2012, exact downloaded bytes fixed by SHA256",
+        "locator": "Theorem2.2, printed p38/PDFp49; local-existence component, equation xdot=f(t,x), x(t0)=x0",
+        "sha256": "362433156525216abf596c17ce843204510e96d57afa4284a37c7aa5a9ffc36e"
+      },
+      "bound_scope": "Local Euclidean initial-value existence and derivative equation under continuity and local Lipschitz hypotheses; uniqueness is outside the selected component."
+    },
+    "first_pass": "At Main.lean:17 the uncurry expression is an ordinary E-valued map, not a section into TangentBundle. At lines 18-22 the Lipschitz field is F_raw(t,y) = X(t,q), q = (extChartAt I alpha).symm y. In contrast, the manifold derivative in lines 27-28 becomes y'(t) = tangentCoordChange I q alpha q (X t q) in the fixed alpha chart. The type-level identification TangentSpace I q = E does not apply this transition derivative. The same factor occurs explicitly in mathlib's IsMIntegralCurveOn.hasDerivWithinAt.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/formal/Main.lean",
+        "sha256": "637a8358564786a2bc240d9ea6291bf94ece7ef3bfe8f3e00c6fc7aaf15b6dfa",
+        "line_start": 14,
+        "line_end": 29,
+        "anchor": "theorem time_dependent_vf_chart_local_picard_with_lipschitz",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      }
+    ],
+    "second_pass": "ChartedSpace only requires each preferred chart to contain its indexing point and belong to the atlas. IsManifold requires smooth transitions between fixed atlas charts, not continuity of the chartAt selection as its index varies. Consequently smoothness of the atlas does not make q -> tangentCoordChange I q alpha q continuous. The circle countermodel below satisfies compactness, finite-dimensionality, absence of boundary, Hausdorffness and sigma compactness; it also satisfies the global raw continuity and uniform Lipschitz assumptions. The contradiction uses only the curve through alpha and the right derivative at zero, so neither shrinking U or T nor interpreting the result as one-sided removes it. Missing uniqueness and the compact-manifold presentation are not used as independent grounds for this verdict.",
+    "unresolved_questions": [],
+    "verification_limits": "The verdict is supported by source-definition inspection and an explicit mathematical countermodel, not a Lean-certified counterexample. No full upstream proof was rebuilt. Proof-erasure sorries are not misalignment evidence. The user has confirmed the binary verdict; export readiness remains unchanged.",
+    "counterexample": {
+      "status": "mathematical_counterexample_not_lean_certified",
+      "setup": "Take M to be the smooth circle, E = H = R, and I the identity model. Choose a smooth coordinate psi: W -> (-epsilon, epsilon) with psi(alpha)=0. Use a smooth atlas containing psi and its reflection -psi, together with charts covering the rest of the circle. For q in W choose chartAt q = psi if psi(q) <= 0 and chartAt q = -psi if psi(q) > 0; outside W choose any containing atlas chart. This is an admissible ChartedSpace and smooth manifold: both local charts have source W and their transition is reflection. The definition does not require the preferred-chart choice to vary continuously.",
+      "premises": "Let X t q be the real number 1 in the implementation synonym TangentSpace I q. Its raw E-valued uncurried map is constant, so _hCont holds. The function in _hLip is also constant 1, even at points outside the chart target where the total inverse has unspecified values. Thus L=1, K=0 and r=1 satisfy _hLip. The circle has all the stated compactness, separation, finite-dimensional and boundaryless properties; none constrains the preferred-chart selection.",
+      "conclusion_contradiction": "Suppose the conclusion holds and set gamma(t)=phi(t,alpha). Since alpha is in U, gamma(0)=alpha and the required manifold derivative holds for every 0 <= t < T. Its continuity at zero keeps gamma in W for sufficiently small nonnegative times. Put y=psi composed with gamma. At t=0 the preferred target chart is psi, so y(0)=0 and y'(0+)=1. Hence y(t)>0 for all sufficiently small positive t. At each such time the preferred target chart is -psi, so the manifold equation gives (-y)'(t)=1, or y'(t)=-1. For any sufficiently small s>0, the mean value theorem on [0,s] then gives y(s)=-s, contradicting y(s)>0. Therefore not even the asserted curve through alpha exists.",
+      "interpretation": "The raw constant field is not a continuous section of the genuine tangent bundle. A correct Picard hypothesis on the fixed-chart pushforward would exclude it. The missing transition derivative admits exactly this bad input."
+    },
+    "library_evidence": [
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
+        "sha256": "b4eefdd19a4e3e6c50a368c7c08f02212e6c989272809657df29dfed1c3f8009",
+        "line_start": 1020,
+        "line_end": 1062,
+        "anchor": "def TangentSpace",
+        "relevance": "The tangent fiber is a type synonym for E; the raw identification does not apply a chart pushforward.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/IsManifold/Basic.lean#L1020"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/ChartedSpace.lean",
+        "sha256": "4f779df4628958734dc12d4deee5843a1ecdeed6319ee73d52b90eada28a787d",
+        "line_start": 131,
+        "line_end": 147,
+        "anchor": "class ChartedSpace",
+        "relevance": "Preferred charts need only contain their indexing points and belong to the atlas.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/ChartedSpace.lean#L131"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
+        "sha256": "b4eefdd19a4e3e6c50a368c7c08f02212e6c989272809657df29dfed1c3f8009",
+        "line_start": 779,
+        "line_end": 783,
+        "anchor": "class IsManifold",
+        "relevance": "Smoothness extends HasGroupoid; it adds no regularity of the preferred-chart choice.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/IsManifold/Basic.lean#L779"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/HasGroupoid.lean",
+        "sha256": "233b21dae9be347dc04a399531ce3383e208e6211abb4b810791df3129d1baba",
+        "line_start": 32,
+        "line_end": 38,
+        "anchor": "class HasGroupoid",
+        "relevance": "Smoothness is a compatibility condition on pairs of fixed atlas charts.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/HasGroupoid.lean#L32"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/MFDeriv/Defs.lean",
+        "sha256": "82f900dcbb902404263aabf69d2366e47d80dbaf5c27c69114ee002f10fc7abc",
+        "line_start": 298,
+        "line_end": 303,
+        "anchor": "def HasMFDerivWithinAt",
+        "relevance": "The derivative uses writtenInExtChartAt and includes continuity of the curve.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/MFDeriv/Defs.lean#L298"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.lean",
+        "sha256": "4f55ec4b0606fbbe5db30af3740932b380cdbf5512dafa6c70a23073ce497456",
+        "line_start": 795,
+        "line_end": 799,
+        "anchor": "def writtenInExtChartAt",
+        "relevance": "The target chart is selected at the actual image point f x.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.lean#L795"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/IntegralCurve/Basic.lean",
+        "sha256": "568bb44836266e25c91bdef8a3b8f88068fb9d0de17a631f1f530f60caa877b0",
+        "line_start": 167,
+        "line_end": 185,
+        "anchor": "lemma IsMIntegralCurveOn.hasDerivWithinAt",
+        "relevance": "The fixed-chart derivative contains tangentCoordChange I (gamma t) (gamma t0) (gamma t).",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/IntegralCurve/Basic.lean#L167"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Geometry/Manifold/IsManifold/InteriorBoundary.lean",
+        "sha256": "08fb4174ac8bfe3b99f7ba1a9542621b0fe20c63fb9e7035cfddca7464ede23b",
+        "line_start": 164,
+        "line_end": 179,
+        "anchor": "class _root_.BoundarylessManifold",
+        "relevance": "The identity model guarantees the boundaryless condition independently of chart selection.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Geometry/Manifold/IsManifold/InteriorBoundary.lean#L164"
+      }
+    ]
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "Before assumes Lipschitz regularity of raw E-valued tangent representatives in one fixed alpha coordinate chart, but asserts a manifold derivative equation whose local derivative representation uses the moving target chart. The independent Euclidean Picard theorem does not by itself validate this representation change: the actual chart differential and target tangent trivialization relation must be checked. No independent counterexample or chart-compatibility proof has been completed, so this is not yet a binary misalignment verdict.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The continuity and Lipschitz premises concern raw E-valued representatives of X, but the manifold derivative conclusion requires their pushforward into the fixed chart, tangentCoordChange I q alpha q (X t q). The omitted transition derivative is substantive: on a smooth circle, choose the preferred local chart as psi where psi(q) <= 0 and -psi where psi(q) > 0. The raw field X = 1 satisfies both premises, while the claimed curve from psi(alpha) = 0 would satisfy y'(0+) = 1 and y'(t) = -1 whenever y(t) > 0, which is impossible. Thus the hypotheses do not express continuity and local Lipschitz regularity of the vector field in the asserted ODE.",
+    "uncertainty": "The user confirmed the misaligned verdict. The compact-circle countermodel is a mathematical argument, not a Lean-certified counterexample.",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "204ff35257a122939545b409dfdce0669961f5d7",
@@ -45,7 +172,13 @@
       "previous_input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "809ac8003a687f41c4ec69305a3edd37adb60bc65f23b2d02d4a7e27ab7f269f"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned",
+      "basis": "The user accepted the detailed coordinate-transition review and explicitly instructed marking this before case as misaligned."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The current definition-level review, pinned library evidence and explicit mathematical counterexample are retained in analysis. The counterexample is not claimed to be Lean-certified."
 }

@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "当前文字定义就是截至x的Λ(n)/n之和；formal用Ioc 1 floor(x)。n=1项Λ(1)=0，去掉它不改值，取整恰好编码整数n≤x。此判定不将其替换成另一篇论文的半权prime-power计数。",
+  "retained_reason": "The current text defines the sum of Λ(n)/n up to x; the formal statement uses Ioc 1 floor(x). Since Λ(1)=0, omitting n=1 does not change the value, and the floor precisely encodes integer n≤x. This judgment does not replace the definition with the half-weight prime-power count from another paper.",
   "review_scope": "The bound Lambda(n)/n sum, retaining its own counting-function convention."
 }

@@ -46,6 +46,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根定理与 informal 的概率模型、假设及越界结论一致。展开可达定义后，混合过程恰为以 [lam0,lam1] 上归一化均匀先验积分的 exp(lambda*S_n - n*sigma2*lambda^2/(2*(1-b*lambda/3)))；根结论是存在 n>0 达到至少 1/delta 的事件概率不超过 delta。",
+  "retained_reason": "The root's probability model, hypotheses and crossing conclusion match the informal statement. Unfolding the reachable definitions gives exactly the integral of exp(lambda*S_n - n*sigma2*lambda^2/(2*(1-b*lambda/3))) under the normalized uniform prior on [lam0,lam1]. The root bounds by delta the probability that some n>0 reaches at least 1/delta.",
   "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }

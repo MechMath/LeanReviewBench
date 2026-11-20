@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "LOS02CombinatorialAuctions-after",
   "task_id": "aml:LOS02CombinatorialAuctions-after",
-  "input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+  "input_sha256": "b3533aec99775a951bd83110bfe1de84b6ce822d88d2ae088b894325b04343e5",
   "label": "aligned",
   "reason": "The density ordering, fixed tie-breaking, greedy allocation, critical payments, and truthfulness against joint value-and-bundle deviations match the source mechanism.",
   "review_status": "human_reviewed",
@@ -23,6 +23,6 @@
   "review_scope": "Section 10 for single-minded bidders with nonempty desired bundles and nonnegative values.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "展开后的机制按value/|desired|降序并以固定bidder顺序一致破同分，贪心接受无冲突bundle；赢家付款为首个仅因该赢家被拒的后继bid的单位价乘本人bundle大小，无该bid或落选付款0。utility使用真实single-minded valuation减payment；truthfulness允许改变value与desired，并量化任意其余报告。与原§10机制及truthfulness一致；非空bundle/非负value就是所选single-minded域。before/after接口移动不改变这些定义。",
+  "retained_reason": "The unfolded mechanism orders bids by decreasing value/|desired|, breaks ties consistently by a fixed bidder order, and greedily accepts nonconflicting bundles. A winner pays the unit price of the first later bid rejected solely because of that winner, multiplied by the winner's bundle size; if no such bid exists, or the bidder loses, payment is 0. Utility is the true single-minded valuation minus payment. Truthfulness permits changes to both value and desired and quantifies arbitrary other reports. This matches the mechanism and truthfulness claim in Section 10; nonempty bundles and nonnegative values define the selected single-minded domain. Moving the before/after interfaces does not change these definitions.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

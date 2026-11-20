@@ -16,11 +16,11 @@ class PublicationReadinessTests(unittest.TestCase):
         self.assertEqual(result['inputs'], 26)
         self.assertEqual(result['unique_input_contexts'], 25)
         self.assertEqual(result['format_errors'], [])
-        self.assertEqual(result['human_review_pending'], 26)
+        self.assertEqual(result['human_review_pending'], 0)
         self.assertEqual(result['license_scope_unresolved'], 11)
         self.assertEqual(result['license_notices_accepted'], 11)
         self.assertEqual(result['license_blocking'], 0)
-        self.assertFalse(result['merge_ready'])
+        self.assertTrue(result['merge_ready'])
 
     def test_completed_labels_allow_explicitly_accepted_evidence_notices(self):
         # Simulate completed binary human review without modifying any real data.

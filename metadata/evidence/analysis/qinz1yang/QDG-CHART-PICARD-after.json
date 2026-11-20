@@ -4,23 +4,86 @@
   "project_id": "QDG-CHART-PICARD-after",
   "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
   "root": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz",
-  "label": "undetermined",
-  "reason": "After explicitly asserts a Euclidean local IVP with derivative f(t,y)=X(t,chart_alpha_inverse(I_inverse(y))), the same field used in its Lipschitz premise, fixing the advertised mismatch between two formal representations. The original complete after proof itself compiles in4.34.1 without sorry. Against the unchanged Teschl local-existence component this is a plausible aligned specialization, but the pair changes manifold-valued output to coordinate-valued output; whether this is the intended complete target is held for human scope review rather than assigning an automatic positive.",
-  "review_scope": "Teschl local existence component only; no uniqueness target, no independent theorem about the unverified raw-tangent-to-chart pushforward convention.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "aligned",
+  "reason": "With F(t,y) = X(t,(chartAt H alpha).symm(I.symm y)), the Lipschitz premise and HasDerivWithinAt conclusion use exactly the same E-valued field. Time continuity and the uniform spatial Lipschitz bound yield a bounded cylinder and a common positive existence interval for a smaller ball of initial states, matching the selected Euclidean Picard existence component. The compact-manifold presentation does not restrict local Euclidean field germs: a spatial and temporal cutoff embeds any such germ into one chart of a compact sphere. Time translation and reversal recover general initial times and both sides. Intrinsic manifold flow and uniqueness are not the bound target.",
+  "review_scope": "Teschl Theorem 2.2, local existence and derivative equation only; uniqueness is expressly outside the bound scope.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "Expand the root into an E-valued initial-value problem, check each hypothesis against the pinned mathlib Picard theorem, then separately audit source scope using local extension, time translation and reversal. Re-test the before counterexample against the revised conclusion.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/informal.jsonl",
+      "sha256": "23b7d151d602dd89be7aa299b840a11b7de09f7b9f905e1c359438ac803dc777",
+      "id": "main",
+      "source": {
+        "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf",
+        "version": "Author preliminary edition, GSM140 AMS2012, exact downloaded bytes fixed by SHA256",
+        "locator": "Theorem2.2, printed p38/PDFp49; local-existence component, equation xdot=f(t,x), x(t0)=x0",
+        "sha256": "362433156525216abf596c17ce843204510e96d57afa4284a37c7aa5a9ffc36e"
+      },
+      "bound_scope": "Local Euclidean initial-value existence and derivative equation under continuity and local Lipschitz hypotheses; uniqueness is outside the selected component."
+    },
+    "first_pass": "Define q(y)=(chartAt H alpha).symm(I.symm y), c=I((chartAt H alpha) alpha), and F(t,y)=(X t (q y):E). Lines 18-22 assert uniform K-Lipschitz regularity of F(t,.) on ball(c,r) for t in [0,L]. Lines 25-30 assert flow(y,0)=y and the ordinary E-valued derivative flow(y,.)'=F(t,flow(y,t)) on [0,T]. There is no manifold derivative in this conclusion, so no tangent-coordinate transition is omitted. For each fixed y, hCont implies continuity of F(.,y) by composing with t -> (t,q(y)); continuity of q itself is not needed.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/formal/Main.lean",
+        "sha256": "6fcabe4ef8a4f76f11a8323d7bc109884ee96bb4095db7f42e08f21dba4321fa",
+        "line_start": 14,
+        "line_end": 31,
+        "anchor": "theorem time_dependent_vf_chart_local_picard_with_lipschitz",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      }
+    ],
+    "second_pass": "The root is a valid local Euclidean existence theorem, not an intrinsic-flow theorem. Its uniform nearby-initial-state formulation follows by choosing a smaller initial ball inside the Lipschitz ball. An open ball in the premise and a closed ball in the conclusion are compatible because their radii may shrink. T>0 prevents endpoint differentiability from being vacuous. The within-interval derivative is appropriate at the endpoints and becomes the usual derivative in the interior. The source explicitly includes a forward interval version, and its selected scope excludes uniqueness. The detailed localization argument below resolves the earlier concern about the compact ambient presentation without silently replacing the bound target.",
+    "unresolved_questions": [],
+    "verification_limits": "This is a statement-semantic review with a mathematical existence and localization argument. The exact pinned mathlib declarations were inspected; no new Lean proof or compact-realization certificate was compiled. The author-hosted PDF was re-read at Theorem 2.2; its downloaded bytes were not newly checked against the retained source hash. The user has confirmed the aligned verdict; export readiness is unchanged.",
+    "existence_argument": {
+      "status": "mathematical_derivation_from_pinned_library_theorem_not_new_lean_certificate",
+      "parameters": "From hLip take L>0, K>=0, r>0. Let a=r/2 and r0=r/4. The real-valued function t -> norm(F(t,c)) is continuous on the compact interval [0,L], so choose C>=0 bounding it there. Set B=C+K*a and T=min(L,(a-r0)/(B+1)); then T>0 and B*T<=a-r0.",
+      "picard_hypotheses": "The closed ball of radius a is inside the original open ball of radius r. The Lipschitz estimate gives norm(F(t,y))<=C+K*a=B on [0,T] times that closed ball. For fixed y, time continuity follows directly from hCont. These are precisely IsPicardLindelof with initial time 0, center c, domain radius a, initial radius r0, norm bound B and Lipschitz constant K. Finite-dimensional real normed spaces are complete. Apply IsPicardLindelof.exists_forall_mem_closedBall_eq_forall_mem_Icc_hasDerivWithinAt to obtain exactly the stated flow. Compactness and smoothness of M are not needed in this derivation once F and these hypotheses are available."
+    },
+    "scope_reconciliation": {
+      "general_local_field": "For a source-admissible f on an open subset of R times R^n and an initial point (t0,x0), choose nested compact time-state cylinders inside that open set. Choose a continuous (or smooth) cutoff equal to 1 on the smaller cylinder with compact support in the larger one. Multiplying f by it and extending by zero gives a globally continuous field g(t,y) with compact support, agreeing with f(t0+t,y) near (0,x0). Uniform spatial Lipschitz regularity on a still smaller cylinder is inherited from f because the cutoff is identically 1 there.",
+      "compact_realization": "For n>=1 use S^n with a stereographic chart chi:S^n minus {p}->R^n, choose alpha=chi.symm(x0), and select chartAt alpha=chi. Define the raw E-valued tangent representative X(t,q)=g(t,chi(q)) for q != p and X(t,p)=0. Compact spatial support makes this jointly continuous at p as well as elsewhere. With I the identity model, the fixed-chart field in the root is exactly g. All compact, Hausdorff, sigma-compact and boundaryless manifold assumptions hold. The zero-dimensional case is trivial. Thus every source-admissible finite-dimensional local field can be represented, even though an arbitrary global Euclidean field need not admit this global compact presentation.",
+      "time_and_domain": "The root yields a forward solution from x0. Its continuity at zero allows shrinking the interval so that it stays where the cutoff equals 1 and therefore solves the original equation. Applying the same construction to -f(t0-t,y) yields a backward solution. Glue at t0: the two one-sided derivatives both equal f(t0,x0), giving the derivative there. Continuity of f then makes the derivative continuous locally. No uniqueness premise is needed for this existence-only gluing. Teschl Theorem 2.2 also explicitly states a forward-interval existence component.",
+      "before_counterexample": "For the raw field X=1 in the before counterexample, the after field is F=1 and flow(y,t)=y+t satisfies the revised equation. Pulling this curve back does not in general give an intrinsic integral curve of X, but the selected informal target is expressly Euclidean and the after conclusion does not assert that intrinsic property."
+    },
+    "library_evidence": [
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Analysis/ODE/PicardLindelof.lean",
+        "sha256": "4b14c4f9eb935e5b28648a43466dd43c9629e3c4f57850e50701cabe16ec6576",
+        "line_start": 73,
+        "line_end": 90,
+        "anchor": "structure IsPicardLindelof",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Analysis/ODE/PicardLindelof.lean#L73"
+      },
+      {
+        "library": "mathlib",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "file": "Mathlib/Analysis/ODE/ExistUnique.lean",
+        "sha256": "1292496cc956302be52e934fd23c72ac414d82963177ebcac88faff4f6cec0a0",
+        "line_start": 123,
+        "line_end": 130,
+        "anchor": "theorem exists_forall_mem_closedBall_eq_forall_mem_Icc_hasDerivWithinAt",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Analysis/ODE/ExistUnique.lean#L123"
+      }
+    ]
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "After explicitly asserts a Euclidean local IVP with derivative f(t,y)=X(t,chart_alpha_inverse(I_inverse(y))), the same field used in its Lipschitz premise, fixing the advertised mismatch between two formal representations. The original complete after proof itself compiles in4.34.1 without sorry. Against the unchanged Teschl local-existence component this is a plausible aligned specialization, but the pair changes manifold-valued output to coordinate-valued output; whether this is the intended complete target is held for human scope review rather than assigning an automatic positive.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "With F(t,y) = X(t,(chartAt H alpha).symm(I.symm y)), the Lipschitz premise and HasDerivWithinAt conclusion use exactly the same E-valued field. Time continuity and the uniform spatial Lipschitz bound yield a bounded cylinder and a common positive existence interval for a smaller ball of initial states, matching the selected Euclidean Picard existence component. The compact-manifold presentation does not restrict local Euclidean field germs: a spatial and temporal cutoff embeds any such germ into one chart of a compact sphere. Time translation and reversal recover general initial times and both sides. Intrinsic manifold flow and uniqueness are not the bound target.",
+    "uncertainty": "No unresolved semantic discrepancy remains within the bound Euclidean existence-only scope. The user has confirmed the aligned verdict.",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
@@ -45,7 +108,12 @@
       "previous_input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "8dfcd106acc216ef6d1892384074a5bbdab518866746e26f405bc02c6d8b34ed"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "aligned"
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The current review retains the exact field comparison, an explicit Picard parameter construction, and the local extension argument connecting the compact presentation to arbitrary source-admissible Euclidean field germs."
 }

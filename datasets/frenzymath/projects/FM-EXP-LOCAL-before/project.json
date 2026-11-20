@@ -19,7 +19,7 @@
   "split_group": "frenzymath/Poincare-Conjecture",
   "before_ids": [],
   "after_ids": [],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -35,7 +35,7 @@
   ],
   "target_mode": "single",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -50,7 +50,7 @@
     "proofs_erased": true
   },
   "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/frenzymath.jsonl",
   "candidate_id": "FM-exp-local-diffeo-restriction",
   "validation_reference": "metadata/validation.json"

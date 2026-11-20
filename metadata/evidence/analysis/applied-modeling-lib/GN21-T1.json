@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GN21-T1",
   "task_id": "aml:GN21-T1",
-  "input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+  "input_sha256": "1b20efc37e37da955c1c924335ccdfb6c5c5689633eb17061a1a5ad537ad7c5f",
   "label": "aligned",
   "reason": "The positive-payoff assumption, threshold policy, renewal-reward expression, and optimization over all measurable policies match the nondegenerate source branch.",
   "review_status": "human_reviewed",
@@ -23,6 +23,6 @@
   "review_scope": "Appendix C.2, restricted to the positive-payoff single-state model with finite integrable trip times and payoffs.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "沿用既有case明确限定的正收益、有限可积单状态域，将informal定位到Appendix C.2的非退化分支，而非声称覆盖整个Theorem1。C.2原文独立明确先假设F({τ:w(τ)>0})>0，并将其余零收益情况分开说为trivial；所以正收益限制有原文支撑。有限概率μ、非负可测w且支付与τ可积时，正质量正支付集合等价于formal总支付>0。λ>0对应Poisson率；thresholdRatePolicy逐正τ定义τ∈σ iff c≤wτ/τ，方向和非严格边界与原文一致；singleStateMeasurableOptimal量化全部可行可测策略；renewal reward精确为λ∫σw/(1+λ∫στ)。未用作者注释替代独立原文。若另将target改成完整Theorem1，则本root漏掉w≡0分支：例如μ为[1,2]均匀分布、λ=1、w=0满足原模型且c=0的accept-all最优，但root正总支付假设不成立。这是覆盖差，不是当前已冻结非退化target的负例。",
+  "retained_reason": "Retain the existing case's explicit restriction to positive rewards and the finite, integrable single-state domain, binding the informal statement to the nondegenerate branch of Appendix C.2 rather than claiming coverage of all of Theorem 1. The source C.2 independently assumes F({τ:w(τ)>0})>0 and treats the remaining zero-reward cases separately as trivial, so the positive-reward restriction is supported by the source. For a finite probability measure μ, nonnegative measurable w, and integrable payments and τ, a positive-mass set of positive payments is equivalent to the formal condition that total payment is positive. The condition λ>0 represents the Poisson rate. thresholdRatePolicy defines τ∈σ iff c≤wτ/τ for each positive τ, matching the source's direction and non-strict boundary. singleStateMeasurableOptimal quantifies all feasible measurable policies, and the renewal reward is exactly λ∫σw/(1+λ∫στ). Author comments were not substituted for the independent source. If the target were changed to all of Theorem 1, this root would omit w≡0: for example, uniform μ on [1,2], λ=1 and w=0 satisfy the original model, and accept-all with c=0 is optimal, but the root's positive-total-payment hypothesis fails. That is a coverage gap for the full theorem, not a negative example for the currently frozen nondegenerate target.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

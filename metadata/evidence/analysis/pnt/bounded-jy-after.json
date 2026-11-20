@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "当前文字阈值23，formal B=1.801；乘回正因子x/log x后log指数1.801−1=0.801，其余常数、实数3/5及1/5指数、Li定义一致。",
+  "retained_reason": "The current text has threshold 23, and the formal B=1.801. Multiplying back by the positive factor x/log x gives logarithmic exponent 1.801−1=0.801; the other constants, real exponents 3/5 and 1/5, and the definition of Li agree.",
   "review_scope": "The bound explicit prime-counting estimate on x>=23."
 }

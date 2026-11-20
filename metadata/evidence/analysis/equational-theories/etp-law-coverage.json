@@ -33,8 +33,8 @@
     "input_sha256": "c085f0df5c319dc029da2ac1c5da3e79ae4bf2aa728fb302b1d213d0103c4a65",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "按本题选定的枚举覆盖性目标，formal 对每条两侧二元运算总次数≤4 的律给出定律表中语义等价的条目。forks 对应原文 order，iff 量化所有 magma；根不要求输入已规范化，Nat 仅编码变量名。编号唯一性、最小性及完整蕴含图不在本题范围内。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为aligned; confirms aligned for equational-theories:etp-law-coverage after reviewing operation-count scope, semantic-equivalence coverage, internal canonicalization, and the selected endpoint limitations.",
+    "reason": "For the selected enumeration-coverage target, the formalization supplies a semantically equivalent law-table entry for every equation with at most four binary-operation occurrences across both sides. forks corresponds to the source's order, and iff quantifies all magmas. The root does not require canonicalized input; Nat encodes only variable names. Uniqueness of numbering, minimality and the complete implication graph are outside this scope.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for equational-theories:etp-law-coverage after reviewing operation-count scope, semantic-equivalence coverage, internal canonicalization, and the selected endpoint limitations.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 scope 明确选定的定律枚举覆盖性：每条二元运算总次数不超过 4 的 magma 等式律，都与项目定律表中的条目语义等价；不把编号唯一性、列表最小性或完整蕴含图作为本题端点。",
+    "review_scope": "The law-enumeration coverage explicitly selected by the frozen scope: every magma equation with at most four total binary-operation occurrences is semantically equivalent to an entry in the project's law table. Uniqueness of numbering, list minimality and the complete implication graph are not targets of this case.",
     "evidence_locations": {
       "informal_and_selected_scope": {
         "path": "datasets/equational-theories/projects/etp-law-coverage/informal.jsonl",
@@ -106,12 +106,12 @@
       }
     },
     "semantic_argument": [
-      "原文 order 为 magma 二元运算出现次数。FreeMagma.forks 对叶节点记 0、对二叉运算节点记左右计数之和加 1；Law.MagmaLaw.forks 再将等式左右两侧相加。因此 l.forks≤4 与目标阶数限制一致。",
-      "根对任意 l:Law.MagmaLaw Nat 给出 ∃i:Nat, laws[i].iff l。iff 展开为对所有 G:Type 和 Magma G，两个全称等式律的满足关系等价，与目标的语义覆盖性一致。",
-      "laws 的构造逐一引用 Law1 至 Law4694。RArray.get 按分支最终返回已有叶节点；索引没有显式上界也不会产生表外的额外定律。本次不声称根显式证明了 i<4694。",
-      "辅助 laws_complete 对规范化律给出表中相等条目；根先调用 exists_canonical 获取语义等价且运算次数不增加的规范化律，再使用辅助覆盖结果，所以根没有额外的 IsCanonical 输入前提。",
-      "MagmaLaw Nat 中的 Nat 是变量名称编码，不是模型载体。每个等式语法树只出现有限多个变量，可重命名为自然数编号；语义仍量化一般 magma。",
-      "当前冻结 scope 仅要求定律枚举覆盖性。原段落中编号及整个蕴含图的背景描述，不被扩展为此根必须同时证明的唯一性、最小性或图分类结果。"
+      "The source's order counts occurrences of the magma binary operation. FreeMagma.forks assigns 0 to a leaf and the sum of the child counts plus 1 to a binary-operation node. Law.MagmaLaw.forks adds the counts on the equation's two sides. Thus l.forks≤4 matches the target's order bound.",
+      "For arbitrary l:Law.MagmaLaw Nat, the root gives ∃i:Nat, laws[i].iff l. Unfolding iff says that for every G:Type and Magma G, satisfaction of the two universal equational laws is equivalent, matching semantic coverage in the target.",
+      "The construction of laws references Law1 through Law4694. RArray.get follows branches and ultimately returns an existing leaf, so an index without an explicit upper bound does not produce extra laws outside the table. This review does not claim that the root explicitly proves i<4694.",
+      "The helper laws_complete supplies an equal table entry for a canonical law. The root first calls exists_canonical to obtain a semantically equivalent canonical law with no greater operation count, then applies the helper's coverage result. It therefore has no additional IsCanonical input premise.",
+      "Nat in MagmaLaw Nat encodes variable names, not the model carrier. Every equation syntax tree contains finitely many variables, which can be renamed by natural-number indices; the semantics still quantifies general magmas.",
+      "The currently frozen scope requires only law-enumeration coverage. Background descriptions of numbering and the whole implication graph are not expanded into additional uniqueness, minimality or graph-classification conclusions that this root must prove."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -121,13 +121,13 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "本次为陈述与关键定义的语义核对，未重新编译项目或重新运行完整的 4694 条律枚举计算。",
-      "aligned 判断限定于已绑定的覆盖性目标，不声称根同时证明编号唯一性、列表最小性或完整蕴含图。",
-      "不将该标签传播到同一证明家族中的其他输入。",
-      "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "This review checks the semantics of the statement and key definitions, without recompiling the project or rerunning the full enumeration of 4694 laws.",
+      "The aligned judgment is limited to the bound coverage target. It does not claim that the root also proves uniqueness of numbering, list minimality or the complete implication graph.",
+      "This label is not propagated to other inputs in the same proof family.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines this positive label with the existing compilation/extraction status.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "按本题选定的枚举覆盖性目标，formal 对每条两侧二元运算总次数≤4 的律给出定律表中语义等价的条目。forks 对应原文 order，iff 量化所有 magma；根不要求输入已规范化，Nat 仅编码变量名。编号唯一性、最小性及完整蕴含图不在本题范围内。",
-  "retained_review_scope": "当前冻结 scope 明确选定的定律枚举覆盖性：每条二元运算总次数不超过 4 的 magma 等式律，都与项目定律表中的条目语义等价；不把编号唯一性、列表最小性或完整蕴含图作为本题端点。"
+  "retained_reason": "For the selected enumeration-coverage target, the formalization supplies a semantically equivalent law-table entry for every equation with at most four binary-operation occurrences across both sides. forks corresponds to the source's order, and iff quantifies all magmas. The root does not require canonicalized input; Nat encodes only variable names. Uniqueness of numbering, minimality and the complete implication graph are outside this scope.",
+  "retained_review_scope": "The law-enumeration coverage explicitly selected by the frozen scope: every magma equation with at most four total binary-operation occurrences is semantically equivalent to an entry in the project's law table. Uniqueness of numbering, list minimality and the complete implication graph are not targets of this case."
 }

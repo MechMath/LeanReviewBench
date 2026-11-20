@@ -33,8 +33,8 @@
     "input_sha256": "062db02a9203343df616b5b80adbbaecda38e1cd8dea755e1a598a618343cce7",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文要求安全性成立于有限整环；before 根声明仅要求 CommSemiring、Fintype、DecidableEq 和 SampleableType，连 IsDomain 也未要求，容许有零因子的 Z/4Z 等结构。适用范围超出原文，判 misaligned；此处区分前提范围，不声称已构造违反安全性概率界的协议反例。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 那是不是该标为misaligned,如果你觉得对的话为我标一下; authorizes misaligned for arklib:sumcheck-full-rbr-before conditional on model agreement, which the model confirms based on the missing integral-domain premise.",
+    "reason": "The source requires security over finite integral domains. The before root requires only CommSemiring, Fintype, DecidableEq and SampleableType, without even IsDomain, allowing structures with zero divisors such as Z/4Z. Its applicability exceeds the source scope, so it is labeled misaligned. This distinguishes premise domains; it does not claim a protocol counterexample violating the security probability bound.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Should this be marked misaligned? If you agree, please mark it; authorizes misaligned for arklib:sumcheck-full-rbr-before conditional on model agreement, which the model confirms based on the missing integral-domain premise.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 Sumcheck blueprint 的有限整环参数约定及 before 根声明的完整类型前提；本次仅依据已核实的代数适用范围差异。",
+    "review_scope": "The finite integral-domain parameter convention in the currently frozen Sumcheck blueprint and the complete type premises of the before root. This review relies only on the verified difference in algebraic applicability.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/sumcheck-full-rbr-before/informal.jsonl",
@@ -81,11 +81,11 @@
       }
     },
     "semantic_argument": [
-      "原文要求 R 为 ring，且安全性要求 finite and an integral domain；这排除了有非零零因子的结构。",
-      "before 根声明处于 CommSemiring R、DecidableEq R、SampleableType R 环境，仅再要求 Fintype R；没有 IsDomain R 或等价的非零乘法消去、无零因子前提。",
-      "Z/4Z 是非平凡有限交换环，因此也是交换半环，具有可判定相等且可均匀采样，满足 formal 的这些结构条件。",
-      "在 Z/4Z 中 2≠0 而 2*2=0，故它不是整环，不在原文要求的参数域内。",
-      "此例表明 formal 的适用范围严格超出原文。按仓库 Applicability mismatch 标准判负；用户在模型同意后明确授权写入 misaligned。"
+      "The source requires R to be a ring and, for security, finite and an integral domain. This excludes structures with nonzero zero divisors.",
+      "The before root is in a CommSemiring R, DecidableEq R and SampleableType R environment and adds only Fintype R. It has no IsDomain R assumption or equivalent nonzero multiplicative-cancellation or no-zero-divisors premise.",
+      "Z/4Z is a nontrivial finite commutative ring and therefore a commutative semiring, with decidable equality and uniform sampling. It satisfies these formal structural conditions.",
+      "In Z/4Z, 2≠0 but 2*2=0, so it is not an integral domain and lies outside the source's required parameter domain.",
+      "This example shows that formal applicability strictly exceeds the source scope. The negative label follows the repository's Applicability mismatch criterion; the user explicitly authorized misaligned after the model agreed."
     ],
     "scope_witness": {
       "structure": "Z/4Z",
@@ -107,13 +107,13 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "本次理由是原文与 formal 的前提范围不同；不把结构区分例描述为已验证的 d/|R| 安全性反例。",
-      "其他 before 单轮实现差异及知识状态函数差异未纳入本次用户确认的判负依据。",
-      "不以 before 名称、证明中的 sorry 或编译状态作为标签依据。",
-      "formal、informal、输入哈希与技术状态均保持原样；不传播标签到下一题。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "The reason is the difference between the source and formal premise domains. The separating algebraic structure is not described as a verified counterexample to d/|R| security.",
+      "Other differences in the before single-round implementation and knowledge-state function are outside the reasons for this user-confirmed negative label.",
+      "The label is not based on the before name, sorry in the proof or compilation status.",
+      "The formal and informal inputs, input hash and technical status are unchanged; the label is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "原文要求安全性成立于有限整环；before 根声明仅要求 CommSemiring、Fintype、DecidableEq 和 SampleableType，连 IsDomain 也未要求，容许有零因子的 Z/4Z 等结构。适用范围超出原文，判 misaligned；此处区分前提范围，不声称已构造违反安全性概率界的协议反例。",
-  "retained_review_scope": "当前冻结 Sumcheck blueprint 的有限整环参数约定及 before 根声明的完整类型前提；本次仅依据已核实的代数适用范围差异。"
+  "retained_reason": "The source requires security over finite integral domains. The before root requires only CommSemiring, Fintype, DecidableEq and SampleableType, without even IsDomain, allowing structures with zero divisors such as Z/4Z. Its applicability exceeds the source scope, so it is labeled misaligned. This distinguishes premise domains; it does not claim a protocol counterexample violating the security probability bound.",
+  "retained_review_scope": "The finite integral-domain parameter convention in the currently frozen Sumcheck blueprint and the complete type premises of the before root. This review relies only on the verified difference in algebraic applicability."
 }

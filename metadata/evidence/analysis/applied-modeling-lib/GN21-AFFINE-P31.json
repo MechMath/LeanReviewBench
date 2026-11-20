@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GN21-AFFINE-P31",
   "task_id": "aml:GN21-AFFINE-P31",
-  "input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+  "input_sha256": "3598b5a4c73d2110cc9edb7cf05d946528e033a50df105dffe6f8fc2bd5f4145",
   "label": "aligned",
   "reason": "The affine reward formula, parameter range, and comparison with every feasible measurable policy match. The model assumptions express standard finite-probability properties.",
   "review_status": "human_reviewed",
@@ -23,6 +23,6 @@
   "review_scope": "Appendix C.3, Proposition 3.1 in the finite-integral single-state renewal-reward model.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "配对原AppendixC.3 Proposition3.1在既定有限renewal-reward单状态域。λ>0、0≤a≤m/λ与原句完全相同（并蕴含m≥0）；μ归一化和有限性对应trip概率分布。Assumptions其余字段为正τ积分非负、子集时间≤总时间、零正τ积分⇒零质量，属于该概率模型的标准性质，没有直接假设IC。formal仿射收益为λ(m∫στ+aμσ)/(1+λ∫στ)，正是原式积分w=mτ+a的展开；IC量化所有σ⊆(0,∞)且可测，并比较其收益≤accept-all，不仅比较某有限策略族。原文C.3在同一有限T=∫τdF模型推导。formal允许原子μ是有效推广，不妨碍其覆盖源连续分布域；此标签仍不声称扩展到没有有限期望的模型。",
+  "retained_reason": "Paired with the original Appendix C.3, Proposition 3.1, within the established finite renewal-reward single-state domain. The conditions λ>0 and 0≤a≤m/λ exactly match the source sentence and imply m≥0; normalization and finiteness of μ correspond to the trip probability distribution. The remaining Assumptions fields state nonnegativity of the integral of positive τ, subset time bounded by total time, and zero positive-τ integral implying zero mass. These are standard properties of this probability model, not direct assumptions of IC. The formal affine reward is λ(m∫στ+aμσ)/(1+λ∫στ), exactly the source formula after integrating w=mτ+a. IC quantifies all measurable σ⊆(0,∞) and compares their rewards with accept-all, rather than comparing only a finite policy family. Appendix C.3 derives its result in the same finite-T=∫τdF model. Allowing atomic μ is a valid extension that still covers the source's continuous-distribution domain; this label does not extend to models without finite expectations.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

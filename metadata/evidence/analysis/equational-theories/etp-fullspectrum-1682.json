@@ -33,8 +33,8 @@
     "input_sha256": "0f1d16d5c1648cb48c15316abcfdf4db2f03914eccd467e50ad027abf5238708",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "EqFullSpectrum 要求每个 n 的 Fin n 上存在满足等式 1682 的 magma，等式括号与模型存在量词对应原文。额外 n=0 分支可由空类型上的运算及全称等式无条件补出；证明对 n>2 给出分段运算，对 n=2 使用模 2 加法，对 n≤1 使用投影，覆盖所有大小。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 请为我标为aligned; confirms aligned for equational-theories:etp-fullspectrum-1682 after reviewing the equation, all-size model quantification, the harmless empty-carrier branch, and the piecewise construction with small-size cases.",
+    "reason": "EqFullSpectrum requires a magma on Fin n satisfying equation 1682 for every n, with the equation's parentheses and model-existence quantifiers matching the source. The extra n=0 branch follows unconditionally from an operation on the empty type and the universal equation. The proof gives a piecewise operation for n>2, addition modulo 2 for n=2, and a projection for n≤1, covering all sizes.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, please mark it aligned; confirms aligned for equational-theories:etp-fullspectrum-1682 after reviewing the equation, all-size model quantification, the harmless empty-carrier branch, and the piecewise construction with small-size cases.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前独立 spectrum.tex 中明确选定的等式 1682 的所有正整数大小模型构造；不包含整段的 3074 条律分类、对偶律或分类完备性结论。",
+    "review_scope": "The explicitly selected construction of models of equation 1682 at every positive integer size in the current independent spectrum.tex; the paragraph's classification of 3074 laws, dual laws and classification completeness are excluded.",
     "evidence_locations": {
       "informal_and_selected_scope": {
         "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal.jsonl",
@@ -101,12 +101,12 @@
       }
     },
     "semantic_argument": [
-      "HasFullSpectrum [1682] 展开为 ∀n:ℕ,∃M:Magma(Fin n),Equation1682 (Fin n) M。Fin n 恰有 n 个元素；任意 n 元有限模型的运算可经双射搬到 Fin n，保持等式成立性。",
-      "Equation1682 为 ∀x,y, x=(y◇x)◇((x◇x)◇y)，等式变量、重复次数及括号与本题绑定的原文目标一致。",
-      "原文讨论正整数大小，formal 另包括 n=0。Magma 仅要求一个二元运算，空类型上此运算存在且唯一；全称等式自动成立。因此零大小分支可无条件补出，不增加实质要求，两个版本等价。",
-      "n>2 时证明给出按输入值、大小关系及奇偶性分支的显式运算，各分支返回常数、输入或输入加减 1，并证明结果仍属于 Fin n。这对应原文所述分段线性模型。",
-      "n=2 时使用 (x+y) mod 2；等式右边在模 2 加法下为 (y+x)+((x+x)+y)=x。n≤1 时使用投影运算，覆盖空集与单元素情形。",
-      "本次严格使用已冻结的单个全大小模型构造端点；没有将整段的分类统计、对偶律或分类完备性要求附加到此根声明。"
+      "HasFullSpectrum [1682] unfolds to ∀n:ℕ,∃M:Magma(Fin n),Equation1682 (Fin n) M. Fin n has exactly n elements. The operation of any finite n-element model can be transported to Fin n along a bijection, preserving the equation.",
+      "Equation1682 is ∀x,y, x=(y◇x)◇((x◇x)◇y). Its variables, occurrence multiplicities and parentheses match the source target bound to this case.",
+      "The source discusses positive integer sizes, while the formal statement also includes n=0. Magma requires only a binary operation, which exists uniquely on the empty type, and the universal equation holds automatically. The zero-size branch therefore follows unconditionally and adds no substantive requirement, so the two versions are equivalent.",
+      "For n>2, the proof supplies an explicit operation branching on input values, comparisons and parity. Each branch returns a constant, an input, or an input plus or minus 1, with a proof that the result remains in Fin n. This corresponds to the source's piecewise-linear model.",
+      "For n=2, the operation is (x+y) mod 2, under which the equation's right side becomes (y+x)+((x+x)+y)=x. For n≤1, a projection operation handles the empty and singleton cases.",
+      "This review strictly uses the frozen target of constructing models of one equation at every size. It does not add the paragraph's classification statistics, dual laws or classification-completeness requirements to this root."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -115,13 +115,13 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "本次为定义、陈述及显式构造的语义核对，未新建 Lean 等价证明或重新编译项目。",
-      "零大小分支的等价解释依赖当前 Magma 没有非空公理、Equation1682 是全称等式。",
-      "不扩展标签到整段分类结论或下一题 Eq1729.not_817。",
-      "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "This review checks the semantics of the definitions, statement and explicit construction, without adding a Lean equivalence proof or recompiling the project.",
+      "The equivalence interpretation of the zero-size branch relies on the current Magma having no nonemptiness axiom and Equation1682 being a universal equation.",
+      "The label is not extended to the paragraph's full classification claims or the next case, Eq1729.not_817.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines this positive label with the existing compilation/extraction status.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "EqFullSpectrum 要求每个 n 的 Fin n 上存在满足等式 1682 的 magma，等式括号与模型存在量词对应原文。额外 n=0 分支可由空类型上的运算及全称等式无条件补出；证明对 n>2 给出分段运算，对 n=2 使用模 2 加法，对 n≤1 使用投影，覆盖所有大小。",
-  "retained_review_scope": "当前独立 spectrum.tex 中明确选定的等式 1682 的所有正整数大小模型构造；不包含整段的 3074 条律分类、对偶律或分类完备性结论。"
+  "retained_reason": "EqFullSpectrum requires a magma on Fin n satisfying equation 1682 for every n, with the equation's parentheses and model-existence quantifiers matching the source. The extra n=0 branch follows unconditionally from an operation on the empty type and the universal equation. The proof gives a piecewise operation for n>2, addition modulo 2 for n=2, and a projection for n≤1, covering all sizes.",
+  "retained_review_scope": "The explicitly selected construction of models of equation 1682 at every positive integer size in the current independent spectrum.tex; the paragraph's classification of 3074 laws, dual laws and classification completeness are excluded."
 }

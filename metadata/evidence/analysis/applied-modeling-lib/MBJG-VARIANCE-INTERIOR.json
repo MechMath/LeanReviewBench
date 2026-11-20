@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "MBJG-VARIANCE-INTERIOR",
   "task_id": "aml:MBJG-VARIANCE-INTERIOR",
-  "input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+  "input_sha256": "c327690925e2b2324f55eb52dfd8a64e669e6a4afd7e243da9a66e63e1088dd3",
   "label": "aligned",
   "reason": "The posterior-mean variance formula and strict decrease in eta match under the specified positivity and interior-parameter conditions.",
   "review_status": "human_reviewed",
@@ -23,6 +23,6 @@
   "review_scope": "The corrected interior variance statement with 0<q<1 and finite positive time and shape parameters; endpoint claims are excluded.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "按此前冻结的interior修正版分量比较：原模型的posterior-mean variance为t*q*(1-q)/(ηα+ηβ+t)^2，与paper_variance完全一致。root取0<q<1、正t与shape总量、非负且严格增加的η，所得strict decrease正是此公式在该域的比较。α、β仅通过其正和进入variance；允许实数t是该公式的解析推广，包含原离散正时间。此判定不把原文闭区间端点处错误的strict声称当作形式化负例，亦不宣称完整未修正Theorem3.1等价。",
+  "retained_reason": "Compare within the previously frozen corrected interior component. The original model's posterior-mean variance is t*q*(1-q)/(ηα+ηβ+t)^2, exactly paper_variance. The root assumes 0<q<1, positive t and total shape, and nonnegative, strictly increasing η; its strict decrease is precisely the comparison of this formula on that domain. Only the positive sum of α and β enters the variance. Allowing real t is an analytic extension of the formula that includes the source's discrete positive times. This judgment does not use the source's erroneous strict claim at closed-interval endpoints as a counterexample to the formalization, nor claim equivalence to the full uncorrected Theorem 3.1.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

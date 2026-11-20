@@ -21,7 +21,7 @@
   "after_ids": [
     "QDG-CHART-PICARD-after"
   ],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -37,7 +37,7 @@
   ],
   "target_mode": "single",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -52,7 +52,7 @@
     "proofs_erased": true
   },
   "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "ROOT-CHART-PICARD-CONVENTION",
   "validation_reference": "metadata/validation.json",

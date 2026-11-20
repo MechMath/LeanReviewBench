@@ -5,10 +5,10 @@
   "input_sha256": "cace9dbf5d8771f2d4807a4966076ae3caa125ba04f612d5f58273c95cad1e0d",
   "root": "MorganTianLib.bishop_gromov_ball",
   "label": "misaligned",
-  "reason": "The independent Bishop–Gromov theorem concerns a Riemannian manifold, Ricci lower bound on a ball with compact closure, actual manifold/model ball volume ratios, limit one at zero and the nonnegative-Ricci corollary. These two roots instead concern arbitrary measurable nonnegative densities on a normed vector space and assume raywise ratio monotonicity directly; neither root links the density integral to Riemannian ball volume or derives the geometric monotonicity from Ricci curvature, and neither states the zero-radius limit.",
-  "review_scope": "Judgment is against the full independently sourced Morgan–Tian v2 Theorem1.34. The two selected roots are valid abstract integration lemmas and may align with a narrower independently sourced integration target; that is a different task. This does not question the original theorem proofs or the complete Poincare proof.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The selected roots prove monotonicity of weighted norm-ball integrals for an arbitrary nonnegative measurable density, assuming radial density-ratio monotonicity. They provide neither an identification with Riemannian metric-ball volumes nor a derivation from the source Ricci lower bound. They also omit the required small-radius limit of 1. On the Euclidean plane, k = 0 and the smooth positive density rho = 2 satisfy every formal premise and both conclusions, while the volume ratio is constantly 2. The roots can be valid integration lemmas, but they do not state the full Bishop-Gromov theorem bound to this case.",
+  "review_scope": "Morgan-Tian Theorem 1.34 in its full bound scope: actual metric-ball volume ratios, Ricci hypothesis, limit one, and the nonnegative-Ricci corollary.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "roots": [
@@ -17,12 +17,133 @@
   ],
   "target_mode": "joint",
   "schema_version": "leanreviewbench-analysis-evidence-1",
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-BISHOP-before/informal.jsonl",
+      "sha256": "2ef1d00416dbc6e003ca9d06dbbbc5a679f9c92849fc040afcd86d1a6c6e37c6",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "version": "arXiv:math/0607607v2",
+        "version_date": "2007-03-21",
+        "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+        "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+        "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+        "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+        "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+        "locator": "Theorem 1.34, label BishopGromov, prelim.tex lines1008-1019",
+        "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+      },
+      "bound_scope": "Relative volume comparison for actual Riemannian metric balls with compact closure, the stated Ricci bound, radius range, ratio limit and nonnegative-Ricci corollary."
+    },
+    "first_pass": "The selected roots prove monotonicity of weighted norm-ball integrals for an arbitrary nonnegative measurable density, assuming radial density-ratio monotonicity. They provide neither an identification with Riemannian metric-ball volumes nor a derivation from the source Ricci lower bound. They also omit the required small-radius limit of 1. On the Euclidean plane, k = 0 and the smooth positive density rho = 2 satisfy every formal premise and both conclusions, while the volume ratio is constantly 2. The roots can be valid integration lemmas, but they do not state the full Bishop-Gromov theorem bound to this case.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 30,
+        "line_end": 46,
+        "anchor": "theorem bishop_gromov_ball {ρ : E → ℝ} (hρmeas : Measurable ρ) (hρ : ∀ x, 0 ≤ ρ x)",
+        "declaration": "MorganTianLib.bishop_gromov_ball"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 39,
+        "line_end": 46,
+        "anchor": "theorem bishop_gromov_ball_ratio {ρ : E → ℝ} (hρmeas : Measurable ρ) (hρ : ∀ x, 0 ≤ ρ x)",
+        "declaration": "MorganTianLib.bishop_gromov_ball_ratio"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 20,
+        "line_end": 23,
+        "anchor": "def expBallVolume"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 13,
+        "line_end": 14,
+        "anchor": "noncomputable def snK"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 16,
+        "line_end": 18,
+        "anchor": "variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [MeasurableSpace E]"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 23,
+        "line_end": 25,
+        "anchor": "def modelBallVolume"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-before/formal/Main.lean",
+        "sha256": "b7bef50cb37e1202534995beea1677da933a0186fc90d3aaca2c50a0f0584ee7",
+        "line_start": 27,
+        "line_end": 28,
+        "anchor": "def polarBallDensity"
+      }
+    ],
+    "second_pass": "Both selected roots were reviewed jointly. The first is a cross-multiplied comparison of weighted norm-ball integrals, and the second is monotonicity of their quotient. They may be useful, mathematically valid integration lemmas; the pointwise radial monotonicity premise is not literally the same proposition as the integral monotonicity conclusion. However, no selected declaration supplies a Riemannian manifold, a Ricci lower bound, an exponential-map/Jacobian identification, or the small-radius normalization. The strictly positive smooth density rho=2 on the Euclidean plane with k=0 satisfies every premise, makes both selected conclusions hold, and gives volume ratio exactly 2 for every positive radius. Thus even the source normalization cannot be recovered from these formal inputs. The k=0 specialization does yield an abstract weighted-volume-over-r^n monotonicity statement, but without the omitted geometric identification and curvature-to-density step it does not give the source nonnegative-Ricci corollary for actual metric balls.",
+    "unresolved_questions": [],
+    "verification_limits": "The joint-root mismatch and the constant-density calculation were checked mathematically against all retained definitions. No new Lean witness or equivalence theorem was compiled. Proof-erasure sorries are not used as evidence. The user explicitly confirmed the misaligned verdict and requested the corresponding English reason. Mathematical inputs, review scope and export-readiness flags are unchanged.",
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "The user confirmed FM-WEAK-LAPLACIAN-after as aligned, requested no further reason writing for that confirmation, and asked for the next case.",
+      "recommended_label": "misaligned",
+      "adjudication": "The user explicitly confirmed this case as misaligned on 2026-11-20. The record is now human_reviewed with human_adjudicated=true.",
+      "reason_handling": "The user requested the corresponding English explanation. The concise reason now records the missing geometric volume and Ricci bindings, the omitted small-radius normalization, and the positive constant-density witness.",
+      "source_check": {
+        "url": "https://arxiv.org/pdf/math/0607607v2",
+        "locator": "Theorem 1.34, printed page 49 / PDF page 52.",
+        "bound_components": [
+          "Riemannian metric balls B_g(p,r) with B_g(p,R) of compact closure.",
+          "Ricci >= -(n-1)k on B_g(p,R), for k>=0.",
+          "Comparison with balls in the simply connected complete space form of curvature -k.",
+          "Nonincreasing relative volume for 0<r<R.",
+          "Limit 1 as r decreases to zero.",
+          "The nonnegative-Ricci volume-over-r^n corollary."
+        ]
+      }
+    },
+    "root_comparison": {
+      "objects": "expBallVolume is the lower integral of ofReal(rho) over the norm ball ball(0,r) in a finite-dimensional normed vector space E. It has no manifold, Riemannian tensor, chosen basepoint on a manifold, exponential map, cut-domain condition, or asserted equality to Riemannian metric-ball volume. A suggestive definition name does not provide that missing identification.",
+      "premises": "hanti assumes for every unit omega that t -> t^(n-1)*rho(t*omega)/snK(k,t)^(n-1) is nonincreasing on (0,R). This is a radial density-ratio hypothesis. No Ricci curvature appears in either selected root or its 46-line declaration context, so the source curvature-to-density argument is not part of these selected statements.",
+      "first_root": "bishop_gromov_ball asserts expBallVolume(r2)*modelBallVolume(r1) <= expBallVolume(r1)*modelBallVolume(r2) for 0<r1<=r2<R. This is the cross-product form of the weighted-volume comparison.",
+      "second_root": "bishop_gromov_ball_ratio asserts AntitoneOn of expBallVolume/modelBallVolume on (0,R). It does not add a limit statement or any geometric bridge to the first root.",
+      "normalization": "Neither root imposes rho(0)=1 or an equivalent local normalization, nor states a Tendsto-to-1 conclusion. The positive smooth density witness below rules out recovering that conclusion from the stated premises.",
+      "nonnegative_ricci_corollary": "At k=0, modelBallVolume is the model norm-ball Haar volume, proportional to r^n. Thus the abstract density analogue of the final monotonicity corollary is available. The missing issue is its application to actual Riemannian volumes under Ricci>=0, not a missing elementary algebraic rewrite.",
+      "review_boundary": "The bound informal scope explicitly selects the full geometric theorem. Reinterpreting it as only the integration step would change the task. The verdict does not assert that the integration lemmas themselves are false."
+    },
+    "normalization_witness": {
+      "status": "Mathematical separating example for the omitted normalization and geometric binding; not a counterexample to either selected integration lemma, and not a Lean-kernel-certified construction.",
+      "parameters": "Take E=R^2 with the Euclidean norm, mu=ordinary Lebesgue area, k=0, R=1, and rho(x)=2 for every x.",
+      "premise_check": "E is nontrivial and finite-dimensional with its Borel structure, mu is an additive Haar measure, and rho is measurable and strictly positive. For 0<t<1, n=2 and snK(0,t)=t, so polarBallDensity(rho,omega,t)/snK(0,t)^(n-1)=(2*t)/t=2 for every unit omega. The hanti premise holds because the function is constant.",
+      "numerator": "For each 0<r<1, expBallVolume(mu,rho,r)=2*pi*r^2.",
+      "denominator": "For k=0 and n=2, the integrand in modelBallVolume is 1 at every nonzero x. Its value at x=0 is 0 because Lean division is total, but that singleton has Lebesgue measure zero. Therefore modelBallVolume(mu,0,r)=pi*r^2, finite and strictly positive.",
+      "both_root_conclusions": "The first root holds with equality: both sides are 2*pi^2*r1^2*r2^2. The second root holds because the quotient is constantly 2.",
+      "missing_source_conclusion": "The quotient tends to 2, not 1, as r decreases to zero. This establishes that the full source normalization is not forced by the retained premises or conclusions.",
+      "normalization_robustness": "Rescaling the common Haar measure by a positive constant scales numerator and denominator equally and leaves the ratio 2. The witness uses a finite, smooth, everywhere positive density and finite positive denominators, so it does not rely on zero density, infinite integrals, division by zero in the final quotient, or an empty radius interval."
+    }
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The independent Bishop–Gromov theorem concerns a Riemannian manifold, Ricci lower bound on a ball with compact closure, actual manifold/model ball volume ratios, limit one at zero and the nonnegative-Ricci corollary. These two roots instead concern arbitrary measurable nonnegative densities on a normed vector space and assume raywise ratio monotonicity directly; neither root links the density integral to Riemannian ball volume or derives the geometric monotonicity from Ricci curvature, and neither states the zero-radius limit.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The selected roots prove monotonicity of weighted norm-ball integrals for an arbitrary nonnegative measurable density, assuming radial density-ratio monotonicity. They provide neither an identification with Riemannian metric-ball volumes nor a derivation from the source Ricci lower bound. They also omit the required small-radius limit of 1. On the Euclidean plane, k = 0 and the smooth positive density rho = 2 satisfy every formal premise and both conclusions, while the volume ratio is constantly 2. The roots can be valid integration lemmas, but they do not state the full Bishop-Gromov theorem bound to this case.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
@@ -57,7 +178,14 @@
       "previous_input_sha256": "3a462f27ec64619a1316088251df942088d58b579dd5b1b0b0f0282361688f2a",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "3a462f27ec64619a1316088251df942088d58b579dd5b1b0b0f0282361688f2a"
+    },
+    "followup_recommendation": "Accepted by explicit user confirmation: misaligned for the full Bishop-Gromov theorem bound to this case. The detailed review retains the valid integration-lemma interpretation and a positive smooth density satisfying all formal premises with ratio limit 2.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned",
+      "reason_recording": "The user explicitly requested the corresponding English explanation."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The misaligned verdict is human confirmed and the corresponding English reason is recorded. The detailed review covers both selected roots, the missing geometric and curvature bindings, and a constant-density witness for the omitted small-radius normalization."
 }

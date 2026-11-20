@@ -5,22 +5,61 @@
   "input_sha256": "8fbac7c9b20ff81bcabc3830a942db587082765262a0a9c9afb92b7766a7fd27",
   "root": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
   "label": "misaligned",
-  "reason": "The model-space theorem imposes CompactSpace E on its real normed ambient vector space. Compact real normed vector spaces are zero-dimensional, and an injective circle loop cannot exist there, so the theorem does not cover the independent isotopy-extension target’s ordinary Euclidean ambient examples.",
-  "review_scope": "Martelli2020 Theorem5.3.3 specialized to a compact circle source and a real finite-dimensional ambient vector space; selected local theorem only.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The root requires CompactSpace E for its real normed ambient vector space. Such a vector space is trivial, so it admits no injective circle embedding on the nonempty time window. The source requires compactness of the embedded source manifold and allows ordinary noncompact Euclidean ambient spaces. Thus the formal hypotheses exclude the intended nontrivial applications.",
+  "review_scope": "The bound isotopy-extension target specialized to a circle source and a finite-dimensional real ambient vector space.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/informal.jsonl",
+      "sha256": "0e4768e51399dc61baa00a3d2c962e6c25229ec9c807fa0f16f8779785d3866f",
+      "id": "main",
+      "source": {
+        "title": "Manifolds",
+        "author": "Bruno Martelli",
+        "url": "https://people.dm.unipi.it/martelli/didattica/matematica/2020/Manifolds.pdf",
+        "sha256": "05496eb8347cb39347f08d348ac243664d19732575c55a69954530c55280d124",
+        "locator": "February5,2020 edition, Theorem5.3.3 and proof, printed120–121 / PDF126–127",
+        "text_kind": "independently_read_paraphrase"
+      },
+      "bound_scope": "Ambient extension of an isotopy of embeddings of a compact source manifold; specialize the source to a circle and the ambient manifold to a finite-dimensional real vector space."
+    },
+    "first_pass": "The root requires CompactSpace E for its real normed ambient vector space. Such a vector space is trivial, so it admits no injective circle embedding on the nonempty time window. The source requires compactness of the embedded source manifold and allows ordinary noncompact Euclidean ambient spaces. Thus the formal hypotheses exclude the intended nontrivial applications.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/formal/Main.lean",
+        "sha256": "57f34cb54df5aa37aaaab3c425d8bfec483af8270e8daa35f6abed8c637661f2",
+        "line_start": 77,
+        "line_end": 90,
+        "anchor": "theorem rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow {α β : ℝ}",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/formal/Main.lean",
+        "sha256": "57f34cb54df5aa37aaaab3c425d8bfec483af8270e8daa35f6abed8c637661f2",
+        "line_start": 75,
+        "line_end": 77,
+        "anchor": "variable [CompactSpace E]"
+      }
+    ],
+    "second_pass": "The problem is stronger than an unnecessary compactness assumption: together with the circle-injectivity hypothesis it makes the intended domain empty. The source circle is compact already; moving that condition to the ambient vector space is not an equivalent reformulation.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The model-space theorem imposes CompactSpace E on its real normed ambient vector space. Compact real normed vector spaces are zero-dimensional, and an injective circle loop cannot exist there, so the theorem does not cover the independent isotopy-extension target’s ordinary Euclidean ambient examples.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The root requires CompactSpace E for its real normed ambient vector space. Such a vector space is trivial, so it admits no injective circle embedding on the nonempty time window. The source requires compactness of the embedded source manifold and allows ordinary noncompact Euclidean ambient spaces. Thus the formal hypotheses exclude the intended nontrivial applications.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
@@ -46,7 +85,16 @@
       "previous_input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "0a875234b46142694381987cbd0f7df1e352ba1fde259bc70edcccd35b0f4a7e"
-    }
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

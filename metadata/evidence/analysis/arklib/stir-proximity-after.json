@@ -33,8 +33,8 @@
     "input_sha256": "5dfcd375a2b7c01a07b2cef15b1db122e6d7e53c8f5fd7a06132e4e9f0749156",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "同一个均匀随机 r 的幂组合、相对距离事件、两段误差公式及严格概率阈值均与原文对应；结论保留共享子集的 ∃S∀i∃u 顺序及大小界。在原文含 1/ρ 的有定义参数域中，0<degree 明确了正码率要求，formal 的码率亦化为 degree/|L|。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为aligned; confirms aligned for arklib:stir-proximity-after after reviewing uniform sampling, power coefficients, the piecewise error threshold, the shared subset, and the positive-degree domain clarification.",
+    "reason": "The power combination using one uniformly sampled r, the relative-distance event, the two-branch error formula and the strict probability threshold all correspond to the source. The conclusion retains the shared-subset order ∃S∀i∃u and its size bound. On the domain where the source's 1/ρ formula is defined, 0<degree makes the positive-rate requirement explicit, and the formal code rate also simplifies to degree/|L|.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for arklib:stir-proximity-after after reviewing uniform sampling, power coefficients, the piecewise error threshold, the shared subset, and the positive-degree domain clarification.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 blueprint thm:proximity_gap 与 STIR.proximity_gap；按原文公式有定义的正次数、非空求值域解释。",
+    "review_scope": "The currently frozen blueprint thm:proximity_gap and STIR.proximity_gap, interpreted on positive degrees and a nonempty evaluation domain where the source formulas are defined.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/stir-proximity-after/informal.jsonl",
@@ -106,13 +106,13 @@
       }
     },
     "semantic_argument": [
-      "SampleableType 的类型类字段要求采样分布为 uniformOn Set.univ，因此 $ᵗ F 对有限域均匀取样。formal 只抽取一个 r，并以 r^j 作为 f_j 的系数，与原文幂组合相同。",
-      "code φ degree 由 degreeLT 多项式在注入求值点上的取值得到，表示次数小于 degree 的 Reed–Solomon 码。δᵣ 是归一化汉明距离到码的下确界，在非空有限码上与原文最小相对距离一致。",
-      "一般 formal 码率为 min(degree,|L|)/|L|。若 degree≥|L|，码率为 1，条件 0<δ<1-sqrt(rate) 不可能成立。因此有效参数下 degree<|L|，码率简化为原文 degree/|L|。",
-      "Bstar 是平方根。proximityError 两个分支的边界 δ≤(1-ρ)/2 与 δ<1-sqrt(ρ)，以及 m-1、degree、degree²、常数 2 和 20、七次幂均与原文对应。概率前提保留严格 >，距离事件保留 ≤δ。",
-      "在非空函数族及原文有效参数范围，NNReal 减法中有关 1-ρ、1-sqrt(ρ)-δ 的量非负，截断减法不改变上述公式；m=0 的结论为对空函数族的一致性，可取整个求值域。",
-      "结论为 ∃S，|S|≥(1-δ)|L|，且 ∀i∃u_i∈C，∀x∈S，f_i(x)=u_i(x)。S 在 i 之前选定，保留所有函数共享同一大子集、各自可选不同码字的要求。",
-      "0<degree 显式排除原文含 1/ρ 公式无定义的零码率情形；Nonempty ι 同样排除 degree/|L| 的零分母。此判断采用原文有定义的参数域，不将 Lean 除零总化视为 informal 的附加数学约定。"
+      "The SampleableType class requires the sampling distribution to be uniformOn Set.univ, so $ᵗ F samples uniformly from the finite field. The formal statement samples only one r and uses r^j as the coefficient of f_j, matching the source's power combination.",
+      "code φ degree consists of evaluations of degreeLT polynomials at injectively indexed evaluation points, representing a Reed–Solomon code of degree less than degree. δᵣ is the infimum of normalized Hamming distances to the code, agreeing with the source's minimum relative distance for a nonempty finite code.",
+      "The general formal code rate is min(degree,|L|)/|L|. If degree≥|L|, the rate is 1, making 0<δ<1-sqrt(rate) impossible. Thus valid parameters satisfy degree<|L|, and the rate simplifies to the source's degree/|L|.",
+      "Bstar is the square root. The proximityError branch conditions δ≤(1-ρ)/2 and δ<1-sqrt(ρ), along with m-1, degree, degree², constants 2 and 20, and the seventh power, all match the source. The probability premise retains strict > and the distance event retains ≤δ.",
+      "For a nonempty function family and valid source parameters, the quantities involving 1-ρ and 1-sqrt(ρ)-δ in NNReal subtraction are nonnegative, so truncated subtraction does not change these formulas. When m=0, the conclusion is consistency of an empty function family, witnessed by the entire evaluation domain.",
+      "The conclusion is ∃S with |S|≥(1-δ)|L| and ∀i∃u_i∈C, ∀x∈S, f_i(x)=u_i(x). Choosing S before i retains the requirement that all functions share one large subset while allowing each its own codeword.",
+      "The premise 0<degree explicitly excludes the zero-rate case where the source's 1/ρ formula is undefined. Nonempty ι similarly excludes a zero denominator in degree/|L|. This judgment uses the source's defined parameter domain and does not impose Lean's totalized division by zero as an additional informal mathematical convention."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -120,13 +120,13 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "判断针对当前独立 blueprint 原文，不声称重新获取或核对了未保留的历史论文 PDF 版本。",
-      "正次数解释是本次对齐判断的明确参数约定；不声称当前陈述覆盖 degree=0 的总化扩展。",
-      "本次为定义与陈述的语义核对，没有新增 Lean 证明或重新运行 Lean 编译。",
-      "formal、informal、输入哈希与技术状态均保持原样；不传播标签到 before 输入。",
-      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+      "The judgment concerns the current independent blueprint source and does not claim to retrieve or recheck an unretained historical paper PDF version.",
+      "The positive-degree interpretation is an explicit parameter convention of this alignment judgment; it does not claim coverage of a totalized degree=0 extension.",
+      "This review checks the semantics of definitions and statements; it adds no Lean proof and does not rerun Lean compilation.",
+      "The formal and informal inputs, input hash and technical status are unchanged; the label is not propagated to the before input.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "同一个均匀随机 r 的幂组合、相对距离事件、两段误差公式及严格概率阈值均与原文对应；结论保留共享子集的 ∃S∀i∃u 顺序及大小界。在原文含 1/ρ 的有定义参数域中，0<degree 明确了正码率要求，formal 的码率亦化为 degree/|L|。",
-  "retained_review_scope": "当前冻结 blueprint thm:proximity_gap 与 STIR.proximity_gap；按原文公式有定义的正次数、非空求值域解释。"
+  "retained_reason": "The power combination using one uniformly sampled r, the relative-distance event, the two-branch error formula and the strict probability threshold all correspond to the source. The conclusion retains the shared-subset order ∃S∀i∃u and its size bound. On the domain where the source's 1/ρ formula is defined, 0<degree makes the positive-rate requirement explicit, and the formal code rate also simplifies to degree/|L|.",
+  "retained_review_scope": "The currently frozen blueprint thm:proximity_gap and STIR.proximity_gap, interpreted on positive degrees and a nonempty evaluation domain where the source formulas are defined."
 }

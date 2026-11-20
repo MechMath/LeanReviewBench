@@ -1,8 +1,10 @@
 # qinz1yang
 
 15 complete Lean 4.34.1 statement contexts use the native
-`paperlean-project-case-1` layout. Their binary alignment judgments await human
-review; provisional judgments do not imply approval or reference readiness.
+`paperlean-project-case-1` layout. All 15 judgments are human confirmed
+(two aligned and thirteen misaligned), including ten accepted by explicit user
+batch confirmation. Individual verdicts are recorded in the root label and
+analysis files. Reference readiness remains separate.
 The source repositories and informal sources remain separate between batches.
 
 - [Native index](index.csv); sources, targets, version links and review states
@@ -33,4 +35,4 @@ python3 scripts/data/publication_readiness.py
 python3 scripts/data/check_release_candidate.py --require-reviewed
 ```
 
-Of these 15 versions, 4 have pinned Apache-2.0 license/notice copies. For 11 earlier versions, association with the later Apache grant remains incompletely documented; no explicit prohibition was found in the inspected evidence. They are included with notes under the explicit curator decision in root `licenses/qinz1yang/ADMISSION.json`. This is a data-admission decision, not proof of a copyright grant. The evidence gap remains visible but does not independently block this merge; human alignment review is still required.
+Of these 15 versions, 4 have pinned Apache-2.0 license/notice copies. For 11 earlier versions, association with the later Apache grant remains incompletely documented; no explicit prohibition was found in the inspected evidence. They are included with notes under the explicit curator decision in root `licenses/qinz1yang/ADMISSION.json`. This is a data-admission decision, not proof of a copyright grant. The evidence gap remains visible but does not independently block this merge; all 15 current binary alignment labels have been accepted by the user.

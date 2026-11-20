@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "文字p_n≤10^11下的严格下界与formal相同；formal对n=0的总化扩展只多出2>0的真边界实例，不限制正整数下的原文；n=1时log1=log0=0、下界−1，也成立。",
+  "retained_reason": "The text's strict lower bound under p_n≤10^11 matches the formal statement. The formal totalization at n=0 adds only the true boundary instance 2>0 and does not restrict the source statement on positive integers. At n=1, log1=log0=0 and the lower bound is −1, which also holds.",
   "review_scope": "The bound strict lower estimate for the nth prime under p_n<=10^11."
 }

@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "文字边界是1−(log|t|)/R且t>3，formal是1−1/(R log t)且t≥3。并非同一区域定义：例如R=1,t=e²，前者σ≥−1、后者σ≥1/2。",
+  "retained_reason": "The text's boundary is 1−(log|t|)/R with t>3, whereas the formal boundary is 1−1/(R log t) with t≥3. These define different regions: for example, at R=1,t=e², the former requires σ≥−1 and the latter σ≥1/2.",
   "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

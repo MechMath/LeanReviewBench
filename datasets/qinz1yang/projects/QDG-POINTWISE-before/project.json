@@ -21,7 +21,7 @@
   "after_ids": [
     "QDG-POINTWISE-after"
   ],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -44,7 +44,7 @@
   },
   "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
   "target_mode": "single",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -52,7 +52,7 @@
   "original_toolchain": "leanprover/lean4:v4.29.0",
   "lean_toolchain": "leanprover/lean4:v4.34.1",
   "input_sha256": "7a893a6b8da10008af007acb15c46a13e3d546e064d34036aa23a2594ec1ecb5",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "ROOT-POINTWISE-DERIVATIVE-FREE",
   "validation_reference": "metadata/validation.json",

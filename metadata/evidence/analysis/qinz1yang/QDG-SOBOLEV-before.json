@@ -5,22 +5,52 @@
   "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
   "root": "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck",
   "label": "misaligned",
-  "reason": "The independent vector-bundle Sobolev embedding theorem supplies a continuous representative and a bounded inclusion into L-infinity under a supercritical condition. The Lean root concludes only that a nonnegative real exists, with no section, inclusion, representative or norm inequality. Its full signature, including the actual implicit metric g, is discharged by C=0 without any Sobolev information. Therefore it does not state even the selected C0 component.",
-  "review_scope": "C0/L-infinity component only, not full Cm. Historical graph-norm/atlas-norm equivalence is not certified; no bound occurs in the formal conclusion regardless of that question.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The entire conclusion is that a nonnegative real constant exists. It mentions no section, inclusion, continuous representative, or norm estimate, and is satisfied by C = 0 independently of the Sobolev data. It therefore does not state even the selected C0/L-infinity component of Sobolev embedding.",
+  "review_scope": "The continuous-representative and bounded L-infinity inclusion component of the bound vector-bundle Sobolev theorem, allowing the stated p = 2 specialization.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/informal.jsonl",
+      "sha256": "f5daa2d759c85b521339626800dff4d4b7f8d4d7c133a909591164f48243fef8",
+      "id": "main",
+      "source": {
+        "url": "https://ccom.ucsd.edu/~mholst/pubs/dist/BeHo18b.pdf",
+        "version": "Author-hosted 109-page PDF acquired 2026-11-19; immutable byte hash identifies exact revision",
+        "locator": "Theorem 9.15, printed p.86 (PDF p.86), proof also states L-infinity norm bound",
+        "sha256": "b75333ba4ac2180dfe913343cf448e40fab01d6b728c2eecff566c23b7cc9a1d"
+      },
+      "bound_scope": "The continuous-representative and L-infinity component of vector-bundle Sobolev embedding on a compact manifold; p=2 is a specialization."
+    },
+    "first_pass": "The entire conclusion is that a nonnegative real constant exists. It mentions no section, inclusion, continuous representative, or norm estimate, and is satisfied by C = 0 independently of the Sobolev data. It therefore does not state even the selected C0/L-infinity component of Sobolev embedding.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/formal/Main.lean",
+        "sha256": "9fd85198c524081e62a6e5a90c1d94dad997f1262a6d98b439c419ce7d7b1fab",
+        "line_start": 24,
+        "line_end": 30,
+        "anchor": "theorem tensorPouSobolevHilbert_embedding_Ck",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      }
+    ],
+    "second_pass": "The supercritical inequality in the hypotheses is present, but no asserted property depends on it. Questions about graph norms versus atlas norms cannot repair an absent embedding conclusion.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The independent vector-bundle Sobolev embedding theorem supplies a continuous representative and a bounded inclusion into L-infinity under a supercritical condition. The Lean root concludes only that a nonnegative real exists, with no section, inclusion, representative or norm inequality. Its full signature, including the actual implicit metric g, is discharged by C=0 without any Sobolev information. Therefore it does not state even the selected C0 component.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The entire conclusion is that a nonnegative real constant exists. It mentions no section, inclusion, continuous representative, or norm estimate, and is satisfied by C = 0 independently of the Sobolev data. It therefore does not state even the selected C0/L-infinity component of Sobolev embedding.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
@@ -46,7 +76,16 @@
       "previous_input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "406ab7b684d351b089ffe9ccb1f8871bd384a83c02af71b020e716709f3fcd62"
-    }
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

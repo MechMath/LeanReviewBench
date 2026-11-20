@@ -33,8 +33,8 @@
     "input_sha256": "b1e6aaeb52beaa55772427a231566c0570df0f94b493af7c45b46a8d85ad1443",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "FreyPackage 结构的整数、非零、素数指数下界、费马方程、同余和互素条件与独立定义对应；只存 gcd(a,b)=1 与两两互素在方程及 p>0 下等价，另两对已有具体引理。主定理与绑定原文均以某个 Frey package 的存在性为结论。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 为我标为aligned; confirms aligned for imperial-flt:flt-c02 after detailed inspection of FreyPackage fields, equivalence of the coprimality conditions, and the scope distinction between existence of a package and a same-exponent package.",
+    "reason": "The integer, nonzero, prime-exponent lower-bound, Fermat-equation, congruence, and coprimality conditions in FreyPackage match the independent definition. Storing only gcd(a,b)=1 is equivalent to pairwise coprimality under the equation and p>0, with concrete lemmas for the other two pairs. Both the main theorem and the bound source conclude the existence of some Frey package.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Mark it aligned; confirms aligned for imperial-flt:flt-c02 after detailed inspection of FreyPackage fields, equivalence of the coprimality conditions, and the scope distinction between existence of a package and a same-exponent package.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -43,7 +43,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前绑定的独立原文 lemma：素数 p≥5 上费马大定理失败蕴含存在一个 Frey package；重点展开 FreyPackage 的真实结构字段，并明确保留同一指数结论未写入类型的限制。",
+    "review_scope": "The currently bound independent source lemma states that failure of Fermat's Last Theorem at a prime p≥5 implies the existence of a Frey package. The review focuses on the actual structure fields of FreyPackage and explicitly retains the limitation that the same-exponent conclusion is not encoded in the type.",
     "detailed_review": {
       "path": "reports/frey-package-recheck-2026-11-16/review.json",
       "sha256": "5347417891e4a41fbc19b2efc195e50725c69bc163e2c87727295ba2ff7410ba"
@@ -127,11 +127,11 @@
     },
     "field_correspondence": [
       {
-        "informal": "三个非零整数",
+        "informal": "Three nonzero integers",
         "formal": "a b c : ℤ; ha0 : a ≠ 0; hb0 : b ≠ 0; hc0 : c ≠ 0"
       },
       {
-        "informal": "素数 p≥5",
+        "informal": "A prime p≥5",
         "formal": "p : ℕ; pp : Nat.Prime p; hp5 : 5 ≤ p"
       },
       {
@@ -139,7 +139,7 @@
         "formal": "hFLT : a ^ p + b ^ p = c ^ p"
       },
       {
-        "informal": "两两互素",
+        "informal": "Pairwise coprime",
         "formal": "hgcdab : gcd a b = 1; hgcdac and hgcdbc are proved consequences"
       },
       {
@@ -152,13 +152,13 @@
       }
     ],
     "semantic_argument": [
-      "FreyPackage 是完整的 structure，构造器要求每个数据字段及其性质证明；不是由一个数据 sorry 返回的占位对象。",
-      "在 p>0 和 a^p+b^p=c^p 下，若素数同时整除 a、c，则它整除 b^p 从而整除 b，与 gcd(a,b)=1 矛盾；b、c 同理。因此只存一对互素没有扩大 admissible packages。源码 gcdab_eq_gcdac、hgcdac、hgcdbc 给出相应证明。",
-      "ZMod 字段是整数同余的表达，支持负整数，符合原文对 a,b,c 为整数的规定；没有擅自要求三者为正。",
-      "FermatLastTheoremFor p 是非零自然数上不存在该指数方程解；formal 先取得自然数反例，再转成整数，除去公因子、调整偶数位置和整体符号，最后实际构造 FreyPackage。",
-      "Nonempty FreyPackage 表达某个满足全部字段约束的结构存在，与绑定 lemma 的 there exists a Frey package 对应。",
-      "声明中的 FreyPackage 不以输入 p 为参数，结论也没有 ∃P, P.p=p。因此声明没有表达保留指数的更强结论。实际证明最后用输入 p 构造结构，但这一事实不等于公开声明保证了 P.p=p。当前原文结论未明确附加这个端点，故不将它作为本题判负依据；原文证明 prose 的 given p 构造被保留为范围说明。",
-      "两种提取图均未出现 galoisRep，且保留本地定义值没有数据 sorry；本题不存在上一题自然伽罗瓦表示未绑定的同一问题。"
+      "FreyPackage is a complete structure whose constructor requires each data field and proofs of its properties; it is not a placeholder object returned by a data sorry.",
+      "Under p>0 and a^p+b^p=c^p, if a prime divides both a and c, it divides b^p and hence b, contradicting gcd(a,b)=1; the same argument applies to b and c. Thus storing just one coprime pair does not enlarge the admissible packages. The source lemmas gcdab_eq_gcdac, hgcdac, and hgcdbc provide the corresponding proofs.",
+      "The ZMod fields express integer congruences and support negative integers, matching the source requirement that a,b,c are integers; they do not impose an unwarranted positivity requirement on all three.",
+      "FermatLastTheoremFor p states that the equation at that exponent has no solution in nonzero natural numbers. The formal proof first obtains a natural-number counterexample, converts it to integers, removes common factors, adjusts the position of the even term and the overall sign, and finally constructs an actual FreyPackage.",
+      "Nonempty FreyPackage expresses the existence of a structure satisfying every field constraint, matching the bound lemma's assertion that there exists a Frey package.",
+      "FreyPackage in the declaration is not parameterized by the input p, and the conclusion does not state ∃P, P.p=p. The declaration therefore does not express the stronger conclusion that the exponent is preserved. The actual proof ultimately constructs the structure using the input p, but this does not mean that the public declaration guarantees P.p=p. The current source conclusion does not explicitly add this endpoint, so it is not used as a basis for a negative label here; the construction for a given p in the source proof prose is retained as a scope note.",
+      "Neither extracted graph contains galoisRep, and the retained local definition values contain no data sorry. This case does not have the previous case's missing binding to the natural Galois representation."
     ],
     "verification": {
       "structure_and_root_match_retained_original": true,
@@ -172,14 +172,14 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "建议针对当前绑定的存在性 lemma；若另行要求指定输入指数 p 的 package，需将结论加强为 ∃ P : FreyPackage, P.p = p 后重新评估。",
-      "本次检查源码、构造器与现有提取图，未重新编译工程或新增 Lean 等价证明。",
-      "Mathlib 的 FLT 和 ZMod 释义辅助读取自本地缓存；未重新认证整个外部 checkout。",
-      "本次按用户确认保存 aligned，保留原文、formal、输入哈希、目标及技术状态；不传播标签到下一题。",
-      "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "The recommendation concerns the currently bound existence lemma. If a package with the specified input exponent p is required separately, the conclusion must be strengthened to ∃ P : FreyPackage, P.p = p and reassessed.",
+      "This review inspected the source, constructor, and existing extracted graphs; it did not recompile the project or add a Lean equivalence proof.",
+      "The interpretations of Mathlib's FLT and ZMod were read from a local cache as supporting material; the entire external checkout was not recertified.",
+      "This update saves aligned as confirmed by the user, retaining the source text, formal input, input hash, targets, and technical status; it does not propagate the label to the next case.",
+      "ready reflects the positive label together with existing compilation and extraction results; it does not imply recompilation or completion of a new equivalence proof in this review.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "FreyPackage 结构的整数、非零、素数指数下界、费马方程、同余和互素条件与独立定义对应；只存 gcd(a,b)=1 与两两互素在方程及 p>0 下等价，另两对已有具体引理。主定理与绑定原文均以某个 Frey package 的存在性为结论。",
-  "retained_review_scope": "当前绑定的独立原文 lemma：素数 p≥5 上费马大定理失败蕴含存在一个 Frey package；重点展开 FreyPackage 的真实结构字段，并明确保留同一指数结论未写入类型的限制。"
+  "retained_reason": "The integer, nonzero, prime-exponent lower-bound, Fermat-equation, congruence, and coprimality conditions in FreyPackage match the independent definition. Storing only gcd(a,b)=1 is equivalent to pairwise coprimality under the equation and p>0, with concrete lemmas for the other two pairs. Both the main theorem and the bound source conclude the existence of some Frey package.",
+  "retained_review_scope": "The currently bound independent source lemma states that failure of Fermat's Last Theorem at a prime p≥5 implies the existence of a Frey package. The review focuses on the actual structure fields of FreyPackage and explicitly retains the limitation that the same-exponent conclusion is not encoded in the type."
 }

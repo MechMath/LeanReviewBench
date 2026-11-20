@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "formal量化x≥23而文字x≥2；且Eπ=|π−Li|/(x/log x)，B=0.801展开为未归一化log指数−0.199，文字要求+0.801。缺失1的指数不是同一数量界。",
+  "retained_reason": "The formal statement quantifies over x≥23 while the text specifies x≥2. Moreover, Eπ=|π−Li|/(x/log x), so B=0.801 unfolds to an unnormalized logarithmic exponent of −0.199, whereas the text requires +0.801. This missing 1 in the exponent gives a different quantitative bound.",
   "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

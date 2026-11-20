@@ -46,6 +46,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根命题与 informal 的概率空间、滤过、增量及可预测方差代理假设一致；展开可达定义后，混合过程恰为所述均匀先验下的 Bernstein 指数积分，结论恰为所有正整数时间越过 1/δ 的概率至多 δ。",
+  "retained_reason": "The root's probability space, filtration, increments and predictable variance-proxy hypotheses match the informal statement. Unfolding the reachable definitions gives exactly the stated Bernstein exponential integral under a uniform prior. The conclusion is exactly that the probability of crossing 1/δ at any positive integer time is at most δ.",
   "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }

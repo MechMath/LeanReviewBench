@@ -4,11 +4,11 @@
   "project_id": "QDG-TENSOR-BUNDLE-before",
   "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
   "root": "Tensor0SBundle.tensor0SBundleData",
-  "label": "undetermined",
-  "reason": "The computational successor branch always chooses constant-model-bundle structures and does not use the preceding-rank bundle or tangent chart transitions. The independently read cotangent definition requires the dual-Jacobian transition cocycle, so the rank-one geometric identification is suspect. However, the selected formal roots construct general bundles for every rank and assert abstract bundle classes rather than asserting the desired specific coordinate-transition identity. A rank-one target specialization and whether the construction is meant as intrinsic cotangent structure rather than an arbitrary auxiliary model bundle require human scope resolution; no binary label or original-compiler certification is manufactured. The prepared input is now a graph-driven declaration slice; all selected source-level nonproof values and complete source contexts have preservation checks in the migrated environment. This technical improvement does not settle rankone/generic target correspondence.",
-  "review_scope": "Independent original1996 author course notes are accepted source material, but only explicitly identify cotangent rankone. This input is not automatically a verified general tensor-bundle misalignment.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "misaligned",
+  "reason": "At rank one, the successor branch of tensor0SBundleData installs the topology and bundle structures of the constant model bundle. It does not use tangent transition maps or the preceding-rank bundle. The bound target explicitly specifies the intrinsic cotangent bundle with inverse-transpose tangent transitions, so a product-bundle construction on the same fiber types is not the designated bundle.",
+  "review_scope": "The explicitly bound rank-one real cotangent specialization of the joint bundle-construction roots.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "roots": [
@@ -18,12 +18,74 @@
   ],
   "target_mode": "joint",
   "schema_version": "leanreviewbench-analysis-evidence-1",
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/informal.jsonl",
+      "sha256": "a0b3de3220a62a18499a7a6df36926c04bea21e65ea2a8c772cb889965db785a",
+      "id": "main",
+      "source": {
+        "title": "MAT531 Topology/GeometryII, Week6, Section1 The Cotangent bundle of an m-manifold M",
+        "author": "Anthony Phillips, Stony Brook University; author-homepage course archive",
+        "url": "https://www.math.stonybrook.edu/~tony/archive/top2/week6.html",
+        "version": "Spring1996 author course notes; exact acquired HTML bytes fixed bySHA256",
+        "locator": "Week6 §1A–B, definition via transition functions and derivation from covectors",
+        "sha256": "2940825463e693ba16211cd08b8c8554b82e0cb52d1dcba5e2c1f091c99c2e58"
+      },
+      "bound_scope": "Rank-one cotangent bundle with transition maps given by the inverse-transpose tangent coordinate transitions."
+    },
+    "first_pass": "At rank one, the successor branch of tensor0SBundleData installs the topology and bundle structures of the constant model bundle. It does not use tangent transition maps or the preceding-rank bundle. The bound target explicitly specifies the intrinsic cotangent bundle with inverse-transpose tangent transitions, so a product-bundle construction on the same fiber types is not the designated bundle.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/formal/Main.lean",
+        "sha256": "f436d87f991539038f8255e8305f6c2ef17d46b0d39e2918e2fead7eb7950f37",
+        "line_start": 67,
+        "line_end": 101,
+        "anchor": "noncomputable def tensor0SBundleData : (s : ℕ) →",
+        "declaration": "Tensor0SBundle.tensor0SBundleData"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/formal/Main.lean",
+        "sha256": "f436d87f991539038f8255e8305f6c2ef17d46b0d39e2918e2fead7eb7950f37",
+        "line_start": 92,
+        "line_end": 106,
+        "anchor": "def tensor0SBundle_topology (s : ℕ) :",
+        "declaration": "Tensor0SBundle.tensor0SBundle_topology"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/formal/Main.lean",
+        "sha256": "f436d87f991539038f8255e8305f6c2ef17d46b0d39e2918e2fead7eb7950f37",
+        "line_start": 99,
+        "line_end": 106,
+        "anchor": "noncomputable instance tensor0SBundle_smooth (s : ℕ) :",
+        "declaration": "Tensor0SBundle.tensor0SBundle_smooth"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/formal/Main.lean",
+        "sha256": "f436d87f991539038f8255e8305f6c2ef17d46b0d39e2918e2fead7eb7950f37",
+        "line_start": 70,
+        "line_end": 88,
+        "anchor": "  | s + 1 => by"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/formal/dep/Defs.lean",
+        "sha256": "18464dfa3336e719c3e7b46e3f5c76077bd50f35627f989b431cffdb490fc7b8",
+        "line_start": 25,
+        "line_end": 27,
+        "anchor": "def Tensor0SSpace"
+      }
+    ],
+    "second_pass": "Having the correct pointwise covector type is insufficient: Lean tangent fibers share a model type while the total-space topology encodes the gluing. The executable successor branch, rather than its induction docstring, selects the constant bundle. For example, this cannot give the intrinsic cotangent bundle of a nontrivial-tangent-bundle manifold. Generic higher ranks do not remove the rank-one mismatch.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The computational successor branch always chooses constant-model-bundle structures and does not use the preceding-rank bundle or tangent chart transitions. The independently read cotangent definition requires the dual-Jacobian transition cocycle, so the rank-one geometric identification is suspect. However, the selected formal roots construct general bundles for every rank and assert abstract bundle classes rather than asserting the desired specific coordinate-transition identity. A rank-one target specialization and whether the construction is meant as intrinsic cotangent structure rather than an arbitrary auxiliary model bundle require human scope resolution; no binary label or original-compiler certification is manufactured. The prepared input is now a graph-driven declaration slice; all selected source-level nonproof values and complete source contexts have preservation checks in the migrated environment. This technical improvement does not settle rankone/generic target correspondence.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "At rank one, the successor branch of tensor0SBundleData installs the topology and bundle structures of the constant model bundle. It does not use tangent transition maps or the preceding-rank bundle. The bound target explicitly specifies the intrinsic cotangent bundle with inverse-transpose tangent transitions, so a product-bundle construction on the same fiber types is not the designated bundle.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "8203ec4eb870072447e321394bd981777608ab6f",
@@ -50,7 +112,16 @@
       "previous_input_sha256": "f42eebef4e18d564da65cf1e84814596c92b711f85fefc0881f37452df31c8e1",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "fe106b23b34e327d0444cc6cb0fe0a3acfa51b5d1e3ecb8bb51261e9664065b2"
-    }
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

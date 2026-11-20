@@ -28,8 +28,11 @@ composition inputs are omitted; prior technical artifacts remain in Git history.
 
 The two added Poincare source batches use the same root label, analysis,
 validation and provenance paths as the original inputs. Their 26 annotation
-records are explicitly preliminary, with unresolved judgments marked
-`undetermined`. Compact context-check receipts are in `evidence/technical/`.
+records are all human confirmed (five aligned and twenty-one misaligned),
+including sixteen accepted by explicit user batch confirmation. The covering
+case records an explicit user verdict after correction of its informal source
+interpretation, with the agent assessment retained separately. Compact
+context-check receipts are in `evidence/technical/`.
 Only deferred plans and archive locators remain in each batch's metadata.
 [Publication cleanup](poincare/publication-cleanup.json) records removed artifacts
 and the preparation commit. The strict merge gate reports pending human labels

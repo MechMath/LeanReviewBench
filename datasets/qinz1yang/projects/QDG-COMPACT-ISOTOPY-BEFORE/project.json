@@ -20,7 +20,7 @@
   "after_ids": [
     "QDG-COMPACT-ISOTOPY-AFTER"
   ],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -39,7 +39,7 @@
   ],
   "target_mode": "single",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -54,7 +54,7 @@
     "proofs_erased": true
   },
   "input_sha256": "8fbac7c9b20ff81bcabc3830a942db587082765262a0a9c9afb92b7766a7fd27",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "compact-vector-space-isotopy-vacuity",
   "validation_reference": "metadata/validation.json"

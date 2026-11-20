@@ -20,7 +20,7 @@
     "QDG-PARALLEL-TRANSPORT-BEFORE"
   ],
   "after_ids": [],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -61,7 +61,7 @@
   ],
   "target_mode": "single",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -76,7 +76,7 @@
     "proofs_erased": true
   },
   "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "parallel-transport-pairing",
   "validation_reference": "metadata/validation.json",

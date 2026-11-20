@@ -33,6 +33,6 @@
   "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "绑定原文是存在一个与半径无关的常数控制所有半径；Lean 将常数放在 r 之后，变成 ∀r≥0,∃C 的逐点界。",
+  "retained_reason": "The bound source asserts the existence of a radius-independent constant controlling all radii. Lean places the constant after r, turning this into a pointwise bound ∀r≥0,∃C.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

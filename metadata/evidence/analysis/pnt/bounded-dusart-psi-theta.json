@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "当前文字恰好是x≥121下两个严格下界的合取；formal的ψ、θ、sqrt以及0.9999和4/(log x)^3项逐项对应。",
+  "retained_reason": "The current text is exactly the conjunction of two strict lower bounds for x≥121; the formal ψ, θ, sqrt, and the 0.9999 and 4/(log x)^3 terms correspond individually.",
   "review_scope": "The conjunction of the two bound lower estimates for psi and theta on x>=121."
 }

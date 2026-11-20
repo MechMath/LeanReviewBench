@@ -33,8 +33,8 @@
     "input_sha256": "66e220c62b628b2d22836be33f160662204c7d4cffbc9d4a93bff627a61668ab",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文将攻击者限制为概率多项式时间（PPT），formal 的 tSdhAssumption 却量化所有该 Lean 类型的函数。无资源限制的函数可从 SRS 中的 g₂^τ 恢复 τ，并以概率 1 赢得 t-SDH 实验，使 error<1 时的困难性前提不成立，偏离原文的计算困难性假设。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 请为我标为misaligned; confirms misaligned for arklib:kzg-binding-before after inspecting its unrestricted tSdhAssumption and the paper PPT requirement.",
+    "reason": "The paper restricts adversaries to probabilistic polynomial time (PPT), but the formal tSdhAssumption quantifies all functions of the relevant Lean type. An unrestricted function can recover τ from g₂^τ in the SRS and win the t-SDH experiment with probability 1, making the hardness premise false when error<1 and departing from the paper's computational-hardness assumption.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Please mark it misaligned; confirms misaligned for arklib:kzg-binding-before after inspecting its unrestricted tSdhAssumption and the paper PPT requirement.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 KZG 求值绑定声明及论文的 PPT 攻击者上下文；仅 kzg-binding-before 输入。",
+    "review_scope": "The currently frozen KZG evaluation-binding statement and the paper's PPT-adversary context; only the kzg-binding-before input.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/kzg-binding-before/informal.jsonl",
@@ -81,16 +81,16 @@
       }
     },
     "semantic_argument": [
-      "论文 §2 将攻击者限制为相对于安全参数的 PPT 算法；当前 tSdhAssumption 对 tSdhAdversary 类型的全部函数量化，没有资源或模型类别约束。",
-      "根假设 pairing(g₁,g₂)≠0 蕴含 g₂≠1；在素数阶群中非单位 g₂ 生成该群，τ↦g₂^τ 在 ZMod p 上单射。",
-      "SRS 的第二个 verifier 群元素包含 g₂^τ。不受计算资源限制的 Lean 函数可通过该指数映射的逆函数恢复 τ。",
-      "该攻击者输出 (c,h)=(1-τ,g₁)。由于 τ+c=1≠0，且 g₁^(1/(τ+c))=g₁，tSdhCondition 对每个采样的 τ 都成立，成功概率为 1。",
-      "因此 error<1 时 formal 的困难性假设无实例。error≥1 时概率上界没有非平凡的安全内容。这不是论文所使用的 PPT 困难性条件。"
+      "Section 2 restricts adversaries to algorithms that are PPT in the security parameter. The current tSdhAssumption quantifies all functions of type tSdhAdversary, without a resource bound or model-class restriction.",
+      "The root premise pairing(g₁,g₂)≠0 implies g₂≠1. In a prime-order group, nonidentity g₂ generates the group, so τ↦g₂^τ is injective on ZMod p.",
+      "The second verifier-group element in the SRS contains g₂^τ. A Lean function with no computational-resource restriction can recover τ using the inverse of this exponentiation map.",
+      "The adversary outputs (c,h)=(1-τ,g₁). Since τ+c=1≠0 and g₁^(1/(τ+c))=g₁, tSdhCondition holds for every sampled τ, giving success probability 1.",
+      "Thus the formal hardness assumption has no instance when error<1. When error≥1, the probability bound has no nontrivial security content. This is not the PPT hardness condition used in the paper."
     ],
     "corroboration": {
       "declaration": "Groups.not_tSdhAssumption_univ",
       "location": "corroborating_after_lemma",
-      "role": "同一 before/after 对中 after 源码给出 unrestricted-class 假设在 error<1 时不成立的 Lean 证明；本次仅阅读及核对定义，未重新编译。"
+      "role": "The after source in the same before/after pair contains a Lean proof that the unrestricted-class assumption fails when error<1. This review only read the proof and checked the definitions; it did not recompile them."
     },
     "verification": {
       "source_binding_checked": true,
@@ -98,12 +98,12 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "判负依据为困难性前提的攻击者范围错配，不声称带该前提的 Lean 蕴含定理自身为假。",
-      "无界逆函数不是 PPT 攻击，不据此声称破解论文的密码学假设。",
-      "本次决定不修改已标为 aligned 的 kzg-binding-after，也不传播到不带困难性假设的 reduction 根。",
-      "保留现有 provisional 标签约定及 evaluation_eligible=false，不自动升级为人类金标。"
+      "The negative label concerns the adversary-class mismatch in the hardness premise; it does not claim that the Lean implication theorem with that premise is false.",
+      "An unbounded inverse function is not a PPT attack; it does not establish a break of the paper's cryptographic assumption.",
+      "This decision does not change the aligned label for kzg-binding-after or propagate to reduction roots without a hardness assumption.",
+      "Retain the existing provisional-label convention and evaluation_eligible=false, without automatically promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "原文将攻击者限制为概率多项式时间（PPT），formal 的 tSdhAssumption 却量化所有该 Lean 类型的函数。无资源限制的函数可从 SRS 中的 g₂^τ 恢复 τ，并以概率 1 赢得 t-SDH 实验，使 error<1 时的困难性前提不成立，偏离原文的计算困难性假设。",
-  "retained_review_scope": "当前冻结 KZG 求值绑定声明及论文的 PPT 攻击者上下文；仅 kzg-binding-before 输入。"
+  "retained_reason": "The paper restricts adversaries to probabilistic polynomial time (PPT), but the formal tSdhAssumption quantifies all functions of the relevant Lean type. An unrestricted function can recover τ from g₂^τ in the SRS and win the t-SDH experiment with probability 1, making the hardness premise false when error<1 and departing from the paper's computational-hardness assumption.",
+  "retained_review_scope": "The currently frozen KZG evaluation-binding statement and the paper's PPT-adversary context; only the kzg-binding-before input."
 }

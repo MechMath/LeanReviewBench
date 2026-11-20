@@ -97,12 +97,17 @@
       "roots": [
         "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
       ],
-      "input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+      "input_sha256": "e077e51367cf9af4c1246adccaaebf9694fdf26d8bda8e930998eb5f20ef7ad2",
       "formal_sha256": "98d0672f08ffe33f2b587dc444b35a715f2687d8eb1c9321f1df25544094c773",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -110,12 +115,17 @@
       "roots": [
         "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
       ],
-      "input_sha256": "47183187af11d4d13e5e7407e029f368f2bc78f24516a4931ddef79c1daf32b1",
+      "input_sha256": "f28946fd59bc9941eeae852299577418fdc5aec986618f1eb4fb2bcf3cd0fccd",
       "formal_sha256": "59063a689583f3537f9bc0f5c5beb8b1142a7399a63bc8cc863c387627588778",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "47183187af11d4d13e5e7407e029f368f2bc78f24516a4931ddef79c1daf32b1",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -123,12 +133,17 @@
       "roots": [
         "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
       ],
-      "input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+      "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
       "formal_sha256": "4d44862ae336b20b386f0ca84f37483b3991ddec0a57c35e0eb59c278a0c2788",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -136,12 +151,17 @@
       "roots": [
         "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
       ],
-      "input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+      "input_sha256": "e501f21a465e34e30eb9b2e39d7de8444d4d20e9c84a191fa61687139872741e",
       "formal_sha256": "410d7a608c5416e9c2b5f40b03ac0fc34c82ff7cbc3cc7615178f3ca77d628b3",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -149,12 +169,17 @@
       "roots": [
         "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
       ],
-      "input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+      "input_sha256": "94d69f4e0905f6052df12ff57378ac072b4d569d2e0d646a0e87d918dca5f9aa",
       "formal_sha256": "3bad6a2480cc4332cf6ec23f421ef65489af89839aaec9e9a5702a7ed8d8c1ca",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -162,12 +187,17 @@
       "roots": [
         "GHW01DigitalGoods.PaperInterface.theorem9_1_bid_independent_lower_bound"
       ],
-      "input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+      "input_sha256": "53012956eb9b18f8591858bb029627e294a046df994ea553299ddd528d23523b",
       "formal_sha256": "af50e386c903536f56ae86f64f6f753a70dbadb3703181171570e80a7da07041",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -175,12 +205,17 @@
       "roots": [
         "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound"
       ],
-      "input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
+      "input_sha256": "a996b035a665a79564c4d2556bacc4d057d18f7b053af55d68b3c8a479ce2379",
       "formal_sha256": "8234ac632e4e7081b6b4482f4d0b9d5dee5e728ffb1705768e4bf0721c47cb00",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -188,12 +223,17 @@
       "roots": [
         "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographicSpec"
       ],
-      "input_sha256": "d38104dc76629d73b397ba7e88ba2b64be46b3aa3cfbe7809d6ea671739cd16b",
+      "input_sha256": "a1325841ebebe4843ef957287140c4f860ebda48603dc6c26e54814e3286dd2c",
       "formal_sha256": "2cbb6e615fb96f75b16fe0c71ccd45c98bf738e05e8016466554b4f3d3586149",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "d38104dc76629d73b397ba7e88ba2b64be46b3aa3cfbe7809d6ea671739cd16b",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -201,12 +241,17 @@
       "roots": [
         "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographic"
       ],
-      "input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+      "input_sha256": "b77a8f3d573a904e4d7f47b34282ab66c52a442b138a9e0cddcf899a0f13d8d5",
       "formal_sha256": "732bae2a44a0a0e1656c481751b548a256de8c41a63a533a3b714526ece5153f",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -214,12 +259,17 @@
       "roots": [
         "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
       ],
-      "input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+      "input_sha256": "3598b5a4c73d2110cc9edb7cf05d946528e033a50df105dffe6f8fc2bd5f4145",
       "formal_sha256": "c0bf5b01fa7cfe7d12ba02e7e2b387fcad42fd2fd758b8f59fe6cfcd7d9a3a69",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -227,12 +277,17 @@
       "roots": [
         "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields"
       ],
-      "input_sha256": "55beff8f9378e77fa64f86b4024bcd12155f6d774e4dec5fbe95121571c92a11",
+      "input_sha256": "7253a07ed7a6a0e0d3dae26266bcfaa80e6613c69a009900354a7f6d0e9bf24c",
       "formal_sha256": "242a7741ea2bf8bb8b7af03673e0aee4dfe4e5cb9aeb956629f83dd88b2d54d2",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "55beff8f9378e77fa64f86b4024bcd12155f6d774e4dec5fbe95121571c92a11",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -240,12 +295,17 @@
       "roots": [
         "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_final_sign"
       ],
-      "input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+      "input_sha256": "5cb428b5db3d0ef57b1431979df02d8357b0d98154bfefff7ab063c5b823592b",
       "formal_sha256": "f8655c45df6d66ace41a967d172070faaa62370e2a95caa68d66853c22b547c5",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -253,12 +313,17 @@
       "roots": [
         "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_interval_final_sign"
       ],
-      "input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+      "input_sha256": "c8a2309a8b56c0ae88474a3c6131df533826240479baf1e2c83b0dfeb7718641",
       "formal_sha256": "702ec4e09159340a00694af6c4fb0a674d70256c796d75d16ec8f49e40969ae6",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -266,12 +331,17 @@
       "roots": [
         "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign"
       ],
-      "input_sha256": "291967b4618e8d0c1927e2ae54eb10cecb3edce0dbe046d69d20d6bd63c9fbe4",
+      "input_sha256": "4459f49a61bb59f5810778d3e5007654cae5c0bd6de185e90ff2a811bb27c4f4",
       "formal_sha256": "066e39eff49b8a2d82aa230e1fa7055220c64077518746f476fee270c0269585",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "291967b4618e8d0c1927e2ae54eb10cecb3edce0dbe046d69d20d6bd63c9fbe4",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -279,12 +349,17 @@
       "roots": [
         "GN21DriverSurgePricing.PaperInterface.theorem1_single_state_threshold_best_response"
       ],
-      "input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+      "input_sha256": "1b20efc37e37da955c1c924335ccdfb6c5c5689633eb17061a1a5ad537ad7c5f",
       "formal_sha256": "4c53d0905f09a8f046f5f7cd2ae34f04a6beedab3a7e6e11863d8784bdcb8c99",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -318,12 +393,17 @@
       "roots": [
         "LG21TestOptionalPolicies.paper_interface_proposition4_2_not_law_latent_skill_fair_of_gaussian_mean_gap"
       ],
-      "input_sha256": "16007ac2377130870ed5820e7598b58ef568d029d70e83ce9be5ea6e4382c467",
+      "input_sha256": "6e5ff666e47e1c94713aa4fdec8c86776f0ca43fedcabb1e8a865add41651670",
       "formal_sha256": "1fe3fa1799c97b07fcfb4e1a028b81012732f59e1b7f504bebfe3e463c5445d1",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "16007ac2377130870ed5820e7598b58ef568d029d70e83ce9be5ea6e4382c467",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -331,12 +411,17 @@
       "roots": [
         "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
       ],
-      "input_sha256": "a126460ba1c5dd2346d25bc7768030724f69060bd58b8b3528f79861ce7215d4",
+      "input_sha256": "30cf15828b1384f8b1c7571642bac2118dbaac67d689ab119cd321b789420f66",
       "formal_sha256": "e70803b286f5be5301cc8c5097db66154f90eec5f03fb200041d5f7266b8c1ef",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "a126460ba1c5dd2346d25bc7768030724f69060bd58b8b3528f79861ce7215d4",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -344,12 +429,17 @@
       "roots": [
         "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_source_witness_of_base_crossings"
       ],
-      "input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+      "input_sha256": "0b580a56c0c748442aa091e1b3f36f6a40104f87c411cbf749a583c333eee806",
       "formal_sha256": "6fb4b37d94f4a399a8179194a5e5f654420edc3bedf68d5f7533818523bd7fbe",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -357,12 +447,17 @@
       "roots": [
         "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_threshold_equilibrium_exists_of_crossing"
       ],
-      "input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+      "input_sha256": "5fd748261352f38e1c2bfc226231cf9a6e32df773b4fd2fd580286ae2d3dc010",
       "formal_sha256": "016d90bd54eb39f32634b52a030161a6b64e117db464709298c0e6355e9413a9",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -370,12 +465,17 @@
       "roots": [
         "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings"
       ],
-      "input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+      "input_sha256": "2270f9b71c79a2707fcb0475a06d85a8a83eff29414f2485f267ab008ba9d72d",
       "formal_sha256": "67eefeaf60d2a4dc50fda8f573e45f16a5b2e919aca77fbe8388a1114bcf99ef",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -383,12 +483,17 @@
       "roots": [
         "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing"
       ],
-      "input_sha256": "68b8e27bb1dc5c264f504f3e5d3770ba5d913100653ccca9ba67b36d74c93822",
+      "input_sha256": "5ce209c7ef24f511741f9e70e8b5ba020907d7711a2b8004e2107d8f832bf7e0",
       "formal_sha256": "4beac45ac1dab2d4ce293967cf1e435aecd8a11eab15d8c0f3a5edb7217428ca",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "68b8e27bb1dc5c264f504f3e5d3770ba5d913100653ccca9ba67b36d74c93822",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -396,12 +501,17 @@
       "roots": [
         "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
       ],
-      "input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+      "input_sha256": "cf211fdc0480bf483ba954b243896796cf0f80a63593462c3826f48bb39a2024",
       "formal_sha256": "2f4fbaecfe646b5f55e409b8564d6f1eae2c7ad5727a6a71a54d419d2861b006",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -409,12 +519,17 @@
       "roots": [
         "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
       ],
-      "input_sha256": "0b3fcaa6b94ede3ba0954e1d97fb9626f4fcce9e7b91fdf228047ce40ca9c8d0",
+      "input_sha256": "76f0203a05040787a9b81b435857d4cdaa0024cfead95abda20fbe043dc3e2ab",
       "formal_sha256": "d3c86e0acd3018496f04311095832fb4dae8e9cf445a973ddfcfd780cddbf32e",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0b3fcaa6b94ede3ba0954e1d97fb9626f4fcce9e7b91fdf228047ce40ca9c8d0",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -422,12 +537,17 @@
       "roots": [
         "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
       ],
-      "input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+      "input_sha256": "b3533aec99775a951bd83110bfe1de84b6ce822d88d2ae088b894325b04343e5",
       "formal_sha256": "b1dc746cf2a7c84d9b2e3e33d2fcb48b9a2f02e5bc6f5f9576d83e8b8930bae5",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -435,12 +555,17 @@
       "roots": [
         "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
       ],
-      "input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+      "input_sha256": "4bc28af73841e571377ea005562a0c79d499905002fbb3999a66681288248fd3",
       "formal_sha256": "81fa9a725db98245a6f17fed58f1522eed3583b5bc2389a4191c0adb89afec0f",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -448,12 +573,17 @@
       "roots": [
         "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
       ],
-      "input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+      "input_sha256": "c327690925e2b2324f55eb52dfd8a64e669e6a4afd7e243da9a66e63e1088dd3",
       "formal_sha256": "2feabe088731baec148ccb48458bb3d72cb560bc37a9307ae9ad8b24b3989353",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -461,12 +591,17 @@
       "roots": [
         "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
       ],
-      "input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+      "input_sha256": "911a8bb9ea57c21000ec9854355dd286869694adbd93e78f01979db32b56e4ac",
       "formal_sha256": "8cde014fc6d2b88cf70b6243cdbe7279a69d04961e82cf69dbe4ca0ed976693e",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "applied-modeling-lib",
@@ -474,12 +609,17 @@
       "roots": [
         "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
       ],
-      "input_sha256": "24e1e843df770864b7a6ae4ec715f20ccb9bb82e55b5e17693848d5beee80bdf",
+      "input_sha256": "06e661fb59de3799035e72b4f567d83f10c01a5c52efd914b287e38fcebea9dc",
       "formal_sha256": "c77d5e4e941ee8b6d4b2b4903f98e4257f8c6ed7d5a020dd9375816ecda44af9",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "24e1e843df770864b7a6ae4ec715f20ccb9bb82e55b5e17693848d5beee80bdf",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "arklib",
@@ -838,12 +978,17 @@
       "roots": [
         "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
       ],
-      "input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+      "input_sha256": "071fd526f215cd554197f1983f2a0722d2ef2f4cb8d741f6efc4c0ce38c340d3",
       "formal_sha256": "94e6f214e187cc554c3ffa30de1a2bbc7f217902380eb213d8f74a7d7e0e72e8",
       "compilation": "passed",
       "extraction": "passed",
       "statement_preservation": "passed",
-      "nonproof_definition_preservation": "passed"
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
     },
     {
       "dataset": "equational-theories",
@@ -2606,7 +2751,7 @@
       "roots": [
         "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
       ],
-      "input_sha256": "5e5529813fc084bc692f67a3b9ec1559cf2043e1d2273f375f1f9f7f939c6afa",
+      "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
       "formal_sha256": "573d8d09678f8dfd7769b51a308d6a809312999a4c9e4dc9452c0574f265cbde",
       "compilation": "passed",
       "extraction": "passed",
@@ -2614,8 +2759,8 @@
       "nonproof_definition_preservation": "passed",
       "original_environment_preservation": "not_checked",
       "evidence_path": "metadata/evidence/technical/frenzymath/FM-COVERING-before.json",
-      "evidence_sha256": "780709101c6f5ad4c7aaa48b013e5af010f7d1023b51ac575e79323fb5c3b772",
-      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+      "evidence_sha256": "527c4a5d9baafcf9d76cf0499313942b9dd17c3ef83a4beec2ce92f49cbc0c25",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable. Rebound after an informal-only source correction with unchanged Lean bytes and roots; existing technical results are reused, not newly executed."
     },
     {
       "dataset": "frenzymath",

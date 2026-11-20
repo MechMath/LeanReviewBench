@@ -5,10 +5,10 @@
   "input_sha256": "ca2c4139b6483a86a8b8a4d1293f1dde39d666c28dc8579423f3fd684076dd1e",
   "root": "MorganTianLib.bishop_gromov_manifold_ratio",
   "label": "misaligned",
-  "reason": "The two actual pinned blueprint roots now involve manifold Ricci and actual Riemannian volume, a substantive repair. However complete M and measurable Jacobian are assumed, Ricci is required on closedBall, and full packaged conclusion additionally assumes hric0, origin normalization and a producer whose small-radius-normalization field supplies the limiting assertion. Its limit conclusion is only k=0, while the independent theorem states the general model ratio limit. Thus joint target is still restricted relative to the original full theorem. These conditional Lean theorem statements are not alleged mathematically false.",
-  "review_scope": "Some stronger assumptions may be removable with further theorems; label concerns these exact roots against the bound complete original statement. Human review required.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The joint roots strengthen the source hypotheses: both require a globally complete manifold, and the root containing a limit also assumes nonnegative Ricci curvature. Its limit follows directly from hprod.small_radius_normalization after rewriting hCnorm, so this part of the source conclusion is supplied as an input. The stated limit uses the flat model k = 0; the other root supplies monotonicity but no limit. Thus the pair does not establish the full Bishop-Gromov theorem under its stated local Ricci lower-bound hypotheses.",
+  "review_scope": "The same full Morgan-Tian Theorem 1.34 target and both selected manifold roots.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "roots": [
@@ -17,12 +17,140 @@
   ],
   "target_mode": "joint",
   "schema_version": "leanreviewbench-analysis-evidence-1",
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-BISHOP-after/informal.jsonl",
+      "sha256": "9cdae9516c33b5e23a00cc8eac128f5f83b3fe40e4475a52dd016cf750de41aa",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "version": "arXiv:math/0607607v2",
+        "version_date": "2007-03-21",
+        "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+        "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+        "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+        "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+        "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+        "locator": "Theorem 1.34, label BishopGromov, prelim.tex lines1008-1019",
+        "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+      },
+      "bound_scope": "Relative volume comparison for actual Riemannian metric balls with compact closure, the stated Ricci bound, radius range, ratio limit and nonnegative-Ricci corollary."
+    },
+    "first_pass": "The joint roots strengthen the source hypotheses: both require a globally complete manifold, and the root containing a limit also assumes nonnegative Ricci curvature. Its limit follows directly from hprod.small_radius_normalization after rewriting hCnorm, so this part of the source conclusion is supplied as an input. The stated limit uses the flat model k = 0; the other root supplies monotonicity but no limit. Thus the pair does not establish the full Bishop-Gromov theorem under its stated local Ricci lower-bound hypotheses.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-after/formal/Main.lean",
+        "sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+        "line_start": 1386,
+        "line_end": 1400,
+        "anchor": "theorem bishop_gromov_manifold_ratio",
+        "declaration": "MorganTianLib.bishop_gromov_manifold_ratio"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-after/formal/Main.lean",
+        "sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+        "line_start": 1460,
+        "line_end": 1487,
+        "anchor": "theorem bishop_gromov_manifold_with_producers",
+        "declaration": "MorganTianLib.bishop_gromov_manifold_with_producers"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-after/formal/Main.lean",
+        "sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+        "line_start": 1431,
+        "line_end": 1445,
+        "anchor": "structure BishopGromovManifoldProducers"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-after/formal/Main.lean",
+        "sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+        "line_start": 1415,
+        "line_end": 1416,
+        "anchor": "def gpHaarOriginDensity"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-BISHOP-after/formal/Main.lean",
+        "sha256": "97fbc4989b0088a2c9e706bc571baf5994480de8ef5f7df6cad12dc03e4a9500",
+        "line_start": 896,
+        "line_end": 898,
+        "anchor": "def IsRiemannianDist"
+      }
+    ],
+    "second_pass": "The review considers the two roots jointly and grants the intended geometric interpretation of their volume and curvature constructions for the decisive comparison. The first root does not assume nonnegative Ricci, but it has no limit conclusion. The second root requires hric0 for its whole conjunction, including the limit, rather than only for the nonnegative-Ricci corollary. Its limit is precisely the producer field after the hCnorm rewrite. The flat-model limit can in principle be transferred to general k using model-volume asymptotics; the verdict does not treat the denominator difference alone as an irreparable mismatch. Likewise, measurability, the Levi-Civita property, connectedness reductions, dimension conventions, and closed-ball versus open-ball bounds are not used as independent decisive defects. The global completeness restriction and the producer-dependent, nonnegative-Ricci-only limit coverage already fail the full source scope. These may be useful conditional lemmas; the whole theorem is not claimed to be tautological or false.",
+    "unresolved_questions": [],
+    "verification_limits": "The source theorem, selected signatures and decisive definitions were inspected, and a whitespace-normalized textual comparison verified that the producer limit becomes exactly the second root limit after replacing the origin-density expression using hCnorm. The open-disk and hyperbolic examples are mathematical applicability checks, not compiled Lean countermodels. No fresh Lean proof, volume-normalization equivalence, or full upstream proof was certified. Proof-erasure sorries are not misalignment evidence. Mathematical inputs and export-readiness flags are unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection.",
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "The user asked for the next record to be labeled after confirming FM-BISHOP-before.",
+      "record": "frenzymath:FM-BISHOP-after",
+      "recommended_label": "misaligned",
+      "adjudication": "The user accepted the existing misaligned label through explicit batch confirmation on 2026-11-20. The record is now human_reviewed with human_adjudicated=true; the reason and scope are preserved.",
+      "source_check": {
+        "url": "https://arxiv.org/pdf/math/0607607v2#page=52",
+        "locator": "Theorem 1.34, printed page 49 / PDF page 52.",
+        "finding": "The source assumes compact closure of B(p,R) and a local Ricci lower bound, without global completeness or a prior normalization-limit hypothesis. Nonnegative Ricci is required only for the final volume-over-r^n corollary."
+      }
+    },
+    "root_comparison": [
+      {
+        "root": "MorganTianLib.bishop_gromov_manifold_ratio",
+        "source_components_retained": "Metric balls, a metric-distance compatibility proof, the Ricci lower bound, and monotonicity for 0 < r < R.",
+        "remaining_gap": "Requires global completeness and auxiliary premises; concludes no small-radius limit."
+      },
+      {
+        "root": "MorganTianLib.bishop_gromov_manifold_with_producers",
+        "source_components_retained": "Conjoins model-ratio monotonicity, a flat-model limit of 1, and volume-over-r^n monotonicity.",
+        "remaining_gap": "Requires global completeness, nonnegative Ricci for the entire conjunction, hCnorm, and a producer already carrying the limit up to hCnorm."
+      }
+    ],
+    "producer_projection": {
+      "field": "BishopGromovManifoldProducers.small_radius_normalization",
+      "premise": "Tendsto (fun r => V(r) / V_model(0,r)) (nhdsWithin 0 (Ioi 0)) (nhds C)",
+      "identifications": {
+        "V(r)": "riemannianMeasure (I := I) g (gpHaar (I := I) g p) (Metric.ball p r)",
+        "V_model(0,r)": "modelBallVolume (volume : Measure 𝔼) 0 r, where 𝔼 = EuclideanSpace ℝ (Fin (Module.finrank ℝ E))",
+        "C": "gpHaarOriginDensity (I := I) g p"
+      },
+      "additional_premise": "hCnorm : C = 1",
+      "conclusion": "The second conjunct is the same Tendsto statement with C replaced by 1.",
+      "check": "Exact textual match after substituting the parenthesized origin-density expression by 1 and removing whitespace.",
+      "interpretation": "This diagnoses a source conclusion assumed through a record field. It does not say that either monotonicity conclusion is itself assumed."
+    },
+    "applicability_witnesses": [
+      {
+        "name": "Incomplete flat open disk with a relatively compact ball",
+        "setup": "M = {x in R^2 : ||x|| < 1}, with its ordinary Euclidean Riemannian metric; p = 0, R = 1/2, k = 0.",
+        "source_hypotheses": "The closure in M of B(p,1/2) is the closed Euclidean disk of radius 1/2, compact and contained in M. Ricci curvature vanishes. The intrinsic distance is Euclidean because the disk is convex.",
+        "formal_exclusion": "M is not complete: (1 - 1/m, 0), m >= 2, is Cauchy with its Euclidean limit outside M. Both selected roots require CompleteSpace M.",
+        "scope": "Exhibits a valid source instance excluded by both selected signatures; not a counterexample to the conditional Lean conclusions."
+      },
+      {
+        "name": "Negative-curvature case excluded from the packaged limit",
+        "setup": "The complete hyperbolic plane of sectional curvature -1; k = 1 and any finite positive R.",
+        "source_hypotheses": "In dimension 2, Ric(v,v) = -g(v,v), so the source lower bound holds with equality. Metric balls have compact closure.",
+        "formal_exclusion": "For any nonzero v, hric0 would require 0 <= -g(v,v), which fails. The first root can supply only monotonicity; the root containing the limit cannot be applied under these source hypotheses.",
+        "scope": "A mathematical check that hric0 is stronger than the source lower bound; no full Lean instantiation is claimed."
+      }
+    ],
+    "alternative_interpretations": [
+      "As conditional lemmas for a globally complete manifold with supplied analytic producers, the declarations can be useful. The bound informal record explicitly covers the full local theorem, not only that conditional scope.",
+      "Flat and curved model denominators have the same small-radius leading term; a transfer lemma could address that denominator difference. It would not remove the existing producer premise or make global completeness follow from the local source assumptions.",
+      "The code now binds the ambient distance to g through IsRiemannianDist. The arbitrary-density objection from FM-BISHOP-before must not simply be copied to this case.",
+      "This review does not assert a fully normalized canonical-volume identification for the gpHaar-based construction. The decisive hypothesis and output discrepancies do not depend on resolving that additional issue."
+    ]
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The two actual pinned blueprint roots now involve manifold Ricci and actual Riemannian volume, a substantive repair. However complete M and measurable Jacobian are assumed, Ricci is required on closedBall, and full packaged conclusion additionally assumes hric0, origin normalization and a producer whose small-radius-normalization field supplies the limiting assertion. Its limit conclusion is only k=0, while the independent theorem states the general model ratio limit. Thus joint target is still restricted relative to the original full theorem. These conditional Lean theorem statements are not alleged mathematically false.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The joint roots strengthen the source hypotheses: both require a globally complete manifold, and the root containing a limit also assumes nonnegative Ricci curvature. Its limit follows directly from hprod.small_radius_normalization after rewriting hCnorm, so this part of the source conclusion is supplied as an input. The stated limit uses the flat model k = 0; the other root supplies monotonicity but no limit. Thus the pair does not establish the full Bishop-Gromov theorem under its stated local Ricci lower-bound hypotheses.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
@@ -57,7 +185,16 @@
       "previous_input_sha256": "8f490834e7b4e31346befecd9f6ae21dba4e4b059a6956445a9741d810ed72bd",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "8f490834e7b4e31346befecd9f6ae21dba4e4b059a6956445a9741d810ed72bd"
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

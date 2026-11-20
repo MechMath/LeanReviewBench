@@ -28,6 +28,6 @@
   "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "形式结论是存在一个 applicant-optimal stable matching；绑定的原文婚姻特例要求给定 deferred-acceptance 程序产出的匹配具有此最优性。根没有算法输出绑定。",
+  "retained_reason": "The formal conclusion is the existence of an applicant-optimal stable matching. The bound marriage special case in the source requires optimality of the matching produced by the specified deferred-acceptance procedure. The root does not bind the result to that algorithm's output.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

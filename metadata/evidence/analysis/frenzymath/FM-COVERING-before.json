@@ -2,25 +2,162 @@
   "task_id": "frenzymath:FM-COVERING-before",
   "dataset": "frenzymath",
   "project_id": "FM-COVERING-before",
-  "input_sha256": "5e5529813fc084bc692f67a3b9ec1559cf2043e1d2273f375f1f9f7f939c6afa",
+  "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
   "root": "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering",
   "label": "misaligned",
-  "reason": "Full independent covering statement permits disconnected nonempty complete source; exact final root restricts source to ConnectedSpace N and finite MetricSpace N inducing g-distance. This is a completed but narrower scope. The finite intrinsic metric itself also restricts disconnected components, so do not claim that deleting ConnectedSpace alone repairs full scope or that two copies of R satisfy all remaining Lean hypotheses.",
-  "review_scope": "independent target full mathematical scope; exact source statement",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "Recorded as misaligned by explicit user adjudication after correcting the informal statement to the lecture series' connected-source completeness convention. The former disconnected-source objection no longer applies: the corrected target and the selected root both require a connected complete source. No independent semantic mismatch has been established for the corrected statement; this label records the user's decision rather than a newly verified discrepancy.",
+  "review_scope": "Proposition 15.7 with the lecture series completeness convention: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "Review the corrected source transcription against the selected root and retain the distinction between the agent semantic assessment and the explicit user label decision.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-COVERING-before/informal.jsonl",
+      "sha256": "27b3ca07c00535080004ae5a631510637bf2e0afa6d4f7b0bd84bbdfa7206431",
+      "id": "main",
+      "source": {
+        "title": "CIS610 Chapter15 Isometries, Local Isometries, Riemannian Coverings",
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+        "locator": "Chapter 15, Proposition 15.7, printed page 777 / PDF page 11 (one-based).",
+        "version": "2018 slides",
+        "sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d",
+        "context_sources": [
+          {
+            "title": "CIS610 Chapter 13: Geodesics on Riemannian Manifolds",
+            "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl13.pdf",
+            "version": "2018 slides",
+            "locator": "Theorem 13.16, printed page 661 / PDF page 35, and the completeness convention on printed page 662 / PDF page 36 (one-based).",
+            "context": "Completeness is completeness of the induced Riemannian metric, and a complete Riemannian manifold is understood to be connected."
+          },
+          {
+            "title": "CIS610 Chapter 7: Manifolds, Tangent Spaces, Cotangent Spaces, Submanifolds",
+            "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf",
+            "version": "2018 slides",
+            "locator": "Printed page 333 / PDF page 3 (one-based).",
+            "context": "Manifolds are Hausdorff and second-countable."
+          },
+          {
+            "title": "CIS610 Chapter 15: Isometries, Local Isometries, Riemannian Coverings",
+            "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+            "version": "2018 slides",
+            "locator": "Definition 15.1, printed page 774 / PDF page 8 (one-based).",
+            "context": "A Riemannian covering is a smooth covering map that is a local isometry."
+          }
+        ]
+      },
+      "bound_scope": "Proposition 15.7 with the lecture series completeness convention: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering."
+    },
+    "first_pass": "The corrected target assumes a connected nonempty source, completeness of its induced Riemannian distance, a connected nonempty target, and a local isometry. The selected root has ConnectedSpace N and CompleteSpace N for its source, ConnectedSpace M' for its target, hgN tying the source ambient distance to its Riemannian distance, and hF expressing a smooth local diffeomorphism that preserves the metric. Its conclusion supplies surjectivity and IsCoveringMap.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 1525,
+        "line_end": 1538,
+        "anchor": "theorem IsLocalIsometry.surjectiveCovering",
+        "declaration": "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 1510,
+        "line_end": 1520,
+        "anchor": "def IsLocalIsometry"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 1502,
+        "line_end": 1506,
+        "anchor": "def DCPreservesMetric"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 889,
+        "line_end": 898,
+        "anchor": "def IsRiemannianDist"
+      }
+    ],
+    "second_pass": "The completeness convention on Chapter 13 printed page 662 supports the source-connectedness hypothesis. The Chapter 7 convention allowing general manifolds to be disconnected does not override that specialized usage. The source connectedness objection is therefore withdrawn for the corrected target. Since hF already supplies the smooth local-isometry structure, the topological covering conclusion combines with it in the expected way. This review has not established a separate semantic mismatch with the corrected theorem. The user nevertheless explicitly directed the corrected case to be labeled misaligned, and that label is recorded as a human override rather than supported by an invented mathematical objection.",
+    "unresolved_questions": [],
+    "verification_limits": "Only the informal mathematical statement, scope and source-context metadata were corrected. The selected Lean declaration and every formal source byte are unchanged. Existing compilation, extraction and migrated-source preservation records are reused on that byte-identity basis; no new Lean compilation or proof certification is claimed. The human-selected misaligned label is not backed by an independently established mismatch with the corrected target. Export-readiness flags remain false/null.",
+    "source_context_review": {
+      "chapter_15": {
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf#page=11",
+        "locator": "Proposition 15.7, printed page 777, PDF page 11 (zero-based page index 10).",
+        "finding": "With the Chapter 13 completeness convention made explicit, the proposition concerns a connected complete source and a connected target; this is now the bound informal statement."
+      },
+      "chapter_7": {
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf#page=10",
+        "locator": "Printed page 340, PDF page 10 (zero-based page index 9).",
+        "finding": "General manifolds need not be connected; all components must have the same dimension. This does not by itself determine the specialized convention for complete Riemannian manifolds."
+      },
+      "chapter_13": {
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl13.pdf#page=36",
+        "locator": "Printed page 662, PDF page 36 (zero-based page index 35), immediately after Theorem 13.16 on printed page 661.",
+        "short_quote": "it is understood that M is connected",
+        "finding": "The text adopts connectedness as part of its usage of complete Riemannian manifold. The user authorized correcting the bound target to this convention."
+      },
+      "locator_note": "Source locators in the corrected informal record and this review now use one-based PDF page numbers."
+    },
+    "distance_scope_check": {
+      "dependency_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "definitions": [
+        {
+          "path": "Mathlib/Geometry/Manifold/Riemannian/Basic.lean",
+          "line": 81,
+          "declaration": "IsRiemannianManifold",
+          "meaning": "Requires ambient edist x y = riemannianEDist I x y."
+        },
+        {
+          "path": "Mathlib/Geometry/Manifold/Riemannian/PathELength.lean",
+          "line": 208,
+          "declaration": "riemannianEDist",
+          "meaning": "Infimum over C1 paths and their lengths."
+        },
+        {
+          "path": "Mathlib/Topology/Connected/Basic.lean",
+          "line": 705,
+          "declaration": "ConnectedSpace",
+          "meaning": "Preconnected and nonempty."
+        },
+        {
+          "path": "Mathlib/Topology/Covering/Basic.lean",
+          "line": 288,
+          "declaration": "IsCoveringMap",
+          "meaning": "Every target point has an evenly covered neighborhood."
+        }
+      ],
+      "argument": "Between different path components there is no path, so the intrinsic extended distance is infinity. In a MetricSpace every ambient edist is finite. Thus a nonempty source satisfying MetricSpace and IsRiemannianDist is already path connected, even if the explicit ConnectedSpace parameter is removed.",
+      "consequence": "The corrected target uses a connected source and the induced Riemannian distance. The finite-distance compatibility condition is appropriate to that target and is not used as misalignment evidence."
+    },
+    "alternative_interpretations": [
+      "The disconnected-source formulation is a broader mathematical theorem, but it is no longer the selected informal target. The two-copy example does not witness a mismatch with the corrected target.",
+      "The current user label and the agent semantic assessment differ: the label is misaligned by explicit direction, while no independent mismatch has been established after source correction."
+    ],
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "The user explicitly requested correction of the informal statement and a misaligned label.",
+      "recorded_label": "misaligned",
+      "agent_assessment": "No independent semantic mismatch established for the corrected target.",
+      "adjudication": "The case is human_reviewed with human_adjudicated=true by explicit user direction after the informal source correction.",
+      "reason_handling": "The English reason identifies the user override and withdraws the invalid disconnected-source rationale."
+    }
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "Full independent covering statement permits disconnected nonempty complete source; exact final root restricts source to ConnectedSpace N and finite MetricSpace N inducing g-distance. This is a completed but narrower scope. The finite intrinsic metric itself also restricts disconnected components, so do not claim that deleting ConnectedSpace alone repairs full scope or that two copies of R satisfy all remaining Lean hypotheses.",
-    "uncertainty": "Scope-based alignment judgment; conditional Lean proposition itself not alleged false.",
+    "agent_assessment": "The source-scope conflict is resolved by the corrected connected-source statement. The former connectedness objection no longer applies; no independent semantic mismatch has been established.",
+    "uncertainty": "No independent mathematical justification for the user-selected misaligned label has been established for the corrected target; this limitation is retained explicitly.",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "154ca3eca804557d37043d660084093d1ee6d992",
@@ -33,11 +170,34 @@
         "source": {
           "title": "CIS610 Chapter15 Isometries, Local Isometries, Riemannian Coverings",
           "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
-          "locator": "Proposition15.7 printedp777/PDF10; Chapter7 printedp340/PDF9 explicitly permits disconnected manifolds",
+          "locator": "Chapter 15, Proposition 15.7, printed page 777 / PDF page 11 (one-based).",
           "version": "2018 slides",
-          "sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d"
+          "sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d",
+          "context_sources": [
+            {
+              "title": "CIS610 Chapter 13: Geodesics on Riemannian Manifolds",
+              "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl13.pdf",
+              "version": "2018 slides",
+              "locator": "Theorem 13.16, printed page 661 / PDF page 35, and the completeness convention on printed page 662 / PDF page 36 (one-based).",
+              "context": "Completeness is completeness of the induced Riemannian metric, and a complete Riemannian manifold is understood to be connected."
+            },
+            {
+              "title": "CIS610 Chapter 7: Manifolds, Tangent Spaces, Cotangent Spaces, Submanifolds",
+              "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf",
+              "version": "2018 slides",
+              "locator": "Printed page 333 / PDF page 3 (one-based).",
+              "context": "Manifolds are Hausdorff and second-countable."
+            },
+            {
+              "title": "CIS610 Chapter 15: Isometries, Local Isometries, Riemannian Coverings",
+              "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+              "version": "2018 slides",
+              "locator": "Definition 15.1, printed page 774 / PDF page 8 (one-based).",
+              "context": "A Riemannian covering is a smooth covering map that is a local isometry."
+            }
+          ]
         },
-        "scope": null
+        "scope": "Proposition 15.7 with the lecture series completeness convention: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering."
       }
     ],
     "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
@@ -46,7 +206,23 @@
       "previous_input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b"
+    },
+    "followup_recommendation": "Apply the explicit user misaligned verdict to the corrected input, retaining the disagreement with the agent semantic assessment and the absence of an independent mismatch rationale.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned",
+      "review_mode": "user_override_after_informal_source_correction",
+      "reason_recording": "The user requested a corrected problem statement and the misaligned label. The English reason records this directive and does not reuse the withdrawn connectedness objection."
+    },
+    "informal_source_correction": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_instruction",
+      "change": "Make source connectedness and Riemannian metric completeness explicit, remove the unsupported disconnected-source interpretation and its review-specific example, and correct one-based PDF locators.",
+      "formal_source_unchanged": true,
+      "formal_source_sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+      "source_context": "Chapter 13, printed page 662 / PDF page 36; Chapter 15, Proposition 15.7, printed page 777 / PDF page 11."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The corrected source-bound input, supporting definitions and explicit user misaligned adjudication are retained. The former disconnected-source rationale is withdrawn, and the absence of a newly established semantic mismatch is disclosed. This record is human confirmed, with export readiness unchanged."
 }

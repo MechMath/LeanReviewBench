@@ -37,8 +37,8 @@
     "input_sha256": "489383a7867c353ac7dcda513c9a27f99d071898fa4b68e52e28ba2b94312ad4",
     "review_date": "2026-11-09",
     "label": "misaligned",
-    "reason": "原文只对全局 Lipschitz 且支撑于球内的函数要求消去估计；formal 只要求球内 iLipENorm 有限与 Function.support⊆B，扩大测试函数类并收紧消去假设。固定 a=4、X=ℝ（Lebesgue 测度）、Θ={0,id} 与 d_B(0,id)=2^18R 时，全部 compatible 条件及原文消去估计成立，但 φ=1_(-1,1) 违反 formal 估计：2sin(1)>√2>32/(1+2^18)^(1/4)。取 K=0 可满足核条件与 T_* 的 L² 有界性。判定针对相同辅助结构下的主命题假设，不宣称主结论为假或排除重新选择 d_B 的重编码；尚未做 Lean 机器认证。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-09: 好 为我将标签改成misaligned; scope confirmed: 一起改 (CAR-CTRL-02 and CAR-CTRL-03).",
+    "reason": "The source requires the cancellation estimate only for globally Lipschitz functions supported in a ball. The formalization requires only finite iLipENorm within the ball and Function.support⊆B, enlarging the test-function class and strengthening the cancellation premise. Fix a=4, X=ℝ with Lebesgue measure, Θ={0,id}, and d_B(0,id)=2^18R. All compatibility conditions and the source cancellation estimate hold, but φ=1_(-1,1) violates the formal estimate: 2sin(1)>√2>32/(1+2^18)^(1/4). Choosing K=0 satisfies the kernel conditions and L² boundedness of T_*. The judgment concerns the main statement's premises with the same auxiliary structure. It neither claims that the main conclusion is false nor excludes re-encoding by choosing d_B again. No Lean certification has been performed.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-09 (translated from Chinese): Okay, change the labels to misaligned; scope confirmed: change both together (CAR-CTRL-02 and CAR-CTRL-03).",
     "reviewer": "Codex",
     "reviewer_type": "model",
     "human_adjudicated": false,
@@ -96,6 +96,6 @@
       "The input texts and formal sources are unchanged; this is a provisional label update, not a gold-label adjudication."
     ]
   },
-  "retained_reason": "原文只对全局 Lipschitz 且支撑于球内的函数要求消去估计；formal 只要求球内 iLipENorm 有限与 Function.support⊆B，扩大测试函数类并收紧消去假设。固定 a=4、X=ℝ（Lebesgue 测度）、Θ={0,id} 与 d_B(0,id)=2^18R 时，全部 compatible 条件及原文消去估计成立，但 φ=1_(-1,1) 违反 formal 估计：2sin(1)>√2>32/(1+2^18)^(1/4)。取 K=0 可满足核条件与 T_* 的 L² 有界性。判定针对相同辅助结构下的主命题假设，不宣称主结论为假或排除重新选择 d_B 的重编码；尚未做 Lean 机器认证。",
+  "retained_reason": "The source requires the cancellation estimate only for globally Lipschitz functions supported in a ball. The formalization requires only finite iLipENorm within the ball and Function.support⊆B, enlarging the test-function class and strengthening the cancellation premise. Fix a=4, X=ℝ with Lebesgue measure, Θ={0,id}, and d_B(0,id)=2^18R. All compatibility conditions and the source cancellation estimate hold, but φ=1_(-1,1) violates the formal estimate: 2sin(1)>√2>32/(1+2^18)^(1/4). Choosing K=0 satisfies the kernel conditions and L² boundedness of T_*. The judgment concerns the main statement's premises with the same auxiliary structure. It neither claims that the main conclusion is false nor excludes re-encoding by choosing d_B again. No Lean certification has been performed.",
   "retained_review_scope": "Compare the complete paper statement with the same parameter a, phase family and chosen local distances d_B. The construction distinguishes the cancellative hypotheses for this fixed auxiliary structure; it does not rule out a separate equivalence proof that reselects the auxiliary distances."
 }

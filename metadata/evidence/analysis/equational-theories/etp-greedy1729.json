@@ -33,8 +33,8 @@
     "input_sha256": "99e78a223d32421d861b5da9b5570cf09b80b660989b70a948522a8ba131e40f",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "原文与 formal 均要求存在同一个 magma 满足等式 1729 且不满足等式 817；独立编号表中的变量与括号对应，否定作用于整个全称等式律。根声明没有额外前提，扩张与链覆盖条件在证明内处理；空 magma 会满足 817，不能充当见证。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好为我标成aligned; confirms aligned for equational-theories:etp-greedy1729 after reviewing the shared magma witness, equation definitions, negation scope, and absence of extra root premises.",
+    "reason": "Both the source and formal statement require one magma satisfying equation 1729 and not satisfying equation 817. The variables and parentheses match the independent equation table, and negation applies to the entire universally quantified law. The root has no extra premises; extension and chain-coverage conditions are handled within the proof. An empty magma satisfies 817 and cannot serve as a witness.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for equational-theories:etp-greedy1729 after reviewing the shared magma witness, equation definitions, negation scope, and absence of extra root premises.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前独立 blueprint 的 1729 does not imply 817 定理及独立论文编号表，与 Eq1729.not_817 的同一 magma 存在性陈述；核对根证明对贪心链及扩张条件的内部调用。",
+    "review_scope": "The current independent blueprint theorem that 1729 does not imply 817 and the independent paper's equation table, compared with the same-magma existence statement Eq1729.not_817. The review checks the root proof's internal use of greedy-chain and extension conditions.",
     "evidence_locations": {
       "informal_and_scope": {
         "path": "datasets/equational-theories/projects/etp-greedy1729/informal.jsonl",
@@ -106,11 +106,11 @@
       }
     },
     "semantic_argument": [
-      "根结论为 ∃G:Type,∃M:Magma G, Equation1729 G ∧ ¬Equation817 G。两个性质使用同一载体及同一运算，与存在一个反模型的原文一致。",
-      "Equation1729 是 ∀x,y, x=(y◇y)◇((y◇x)◇y)；Equation817 是 ∀x, x=x◇((x◇x)◇(x◇x))。两者均与独立论文编号表逐项对应。",
-      "否定位于 Equation817 之外，即否定其对所有元素成立；在通常经典语义下等价于存在至少一个元素违反该等式，而非要求每个元素都违反它。",
-      "Magma 仅要求二元运算，根声明没有加入有限性、结合律等限制。尽管类型本身允许为空，空类型会真空满足 Equation817，因此无法满足根结论的否定部分，不能成为虚假存在性见证。",
-      "原文从初始部分解出发，反复扩张并取链的极限。根证明使用 TrivialPartialSolution、exists_greedy_chain 及 use_chain，并调用 enlarge_L₀、enlarge_S、enlarge_op 对应扩张义务；所需条件在证明内部提供，没有作为根声明的附加前提。"
+      "The root concludes ∃G:Type,∃M:Magma G, Equation1729 G ∧ ¬Equation817 G. Both properties use the same carrier and operation, matching the source's existence of one countermodel.",
+      "Equation1729 is ∀x,y, x=(y◇y)◇((y◇x)◇y); Equation817 is ∀x, x=x◇((x◇x)◇(x◇x)). Both match the independent paper's equation table term by term.",
+      "Negation is outside Equation817, denying that it holds for every element. Under ordinary classical semantics this means at least one element violates the equation, not that every element must violate it.",
+      "Magma requires only a binary operation, and the root adds no finiteness, associativity or similar restriction. Although the carrier type may be empty, an empty type vacuously satisfies Equation817 and cannot satisfy the negated part of the conclusion, so it cannot provide a spurious existence witness.",
+      "The source starts with an initial partial solution, repeatedly extends it and takes the limit of a chain. The root proof uses TrivialPartialSolution, exists_greedy_chain and use_chain, and calls enlarge_L₀, enlarge_S and enlarge_op for the extension obligations. The necessary conditions are supplied inside the proof rather than added as root premises."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -120,13 +120,13 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "本次为陈述、等式定义和关键构造接口的语义核对，未重新编译项目或独立重证整个贪心扩张闭包。",
-      "不要求存在有限反模型：绑定原文只要求一般 magma，未提出有限性。",
-      "不以编译状态、定理名称或历史审计建议代替本次语义核对。",
-      "formal、informal、输入哈希及技术状态保持原样；ready 状态结合本次正向标注和已有编译提取状态，不传播标签到下一题。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "This review checks the semantics of the statement, equation definitions and key construction interfaces. It does not recompile the project or independently reprove the entire greedy-extension dependency closure.",
+      "A finite countermodel is not required: the bound source asks only for a general magma and imposes no finiteness condition.",
+      "Compilation status, theorem names and historical audit recommendations are not substitutes for this semantic review.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines this positive label with the existing compilation/extraction status and is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "原文与 formal 均要求存在同一个 magma 满足等式 1729 且不满足等式 817；独立编号表中的变量与括号对应，否定作用于整个全称等式律。根声明没有额外前提，扩张与链覆盖条件在证明内处理；空 magma 会满足 817，不能充当见证。",
-  "retained_review_scope": "当前独立 blueprint 的 1729 does not imply 817 定理及独立论文编号表，与 Eq1729.not_817 的同一 magma 存在性陈述；核对根证明对贪心链及扩张条件的内部调用。"
+  "retained_reason": "Both the source and formal statement require one magma satisfying equation 1729 and not satisfying equation 817. The variables and parentheses match the independent equation table, and negation applies to the entire universally quantified law. The root has no extra premises; extension and chain-coverage conditions are handled within the proof. An empty magma satisfies 817 and cannot serve as a witness.",
+  "retained_review_scope": "The current independent blueprint theorem that 1729 does not imply 817 and the independent paper's equation table, compared with the same-magma existence statement Eq1729.not_817. The review checks the root proof's internal use of greedy-chain and extension conditions."
 }

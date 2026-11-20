@@ -39,12 +39,15 @@ Project `status` is historical workflow metadata: `ready` commonly corresponds t
 ## Review states and model-visible boundary
 
 The original 171 labels record `human_adjudicated=true` and
-`review_status=human_reviewed`. The added 26 records remain
-`human_adjudicated=false`, `review_status=agent_preliminary` until reviewed. Their reasons and review scopes are concise
-English annotations. Process fields, dialogue excerpts, previous states, and
-per-record evidence paths/hashes are excluded from labels. Evidence associations
-are indexed in `metadata/evidence/analysis/index.json`. Formal export readiness
-remains separate: `reference_ready=false` and `gold_label=null` are unchanged.
+`review_status=human_reviewed`. All 26 added records have also been confirmed
+by the user, including sixteen accepted in a batch, and have the same human-review
+state. Explicit user verdicts that differ from the agent assessment are disclosed
+in the reason and analysis evidence; human review does not certify a Lean proof. Individual verdicts are authoritative in the label records. Their
+reasons and review scopes are concise English annotations. Process fields,
+dialogue excerpts, previous states, and per-record evidence paths/hashes are
+excluded from labels. Evidence associations are indexed in
+`metadata/evidence/analysis/index.json`. Formal export readiness remains
+separate: `reference_ready=false` and `gold_label=null` are unchanged.
 
 A task loader must construct the mathematical input from the selected informal target, formal roots and dependency context. Keep label reasons, review reports, before/after repair clues and reference metadata outside model-visible input. Do not copy the whole project metadata tree into a scoring prompt. Model output is `aligned` or `misaligned`; a negative decision requires a mathematical reason and declaration evidence.
 

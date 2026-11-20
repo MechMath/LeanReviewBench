@@ -98,9 +98,9 @@ class PublicationTests(unittest.TestCase):
         data=Dataset(ROOT);labels=[r for path in (ROOT/'metadata/labels').glob('*.jsonl') for r in records(path)]
         reviewed = [r for r in labels if r['human_adjudicated']]
         self.assertEqual(len(labels),197)
-        self.assertEqual(len(reviewed),171)
-        self.assertEqual(sum(r['label']=='aligned' for r in reviewed),81)
-        self.assertEqual(sum(r['label']=='misaligned' for r in reviewed),90)
+        self.assertEqual(len(reviewed),197)
+        self.assertEqual(sum(r['label']=='aligned' for r in reviewed),86)
+        self.assertEqual(sum(r['label']=='misaligned' for r in reviewed),111)
         self.assertTrue(all(r['reference_ready'] is False for r in labels))
         self.assertNotIn('stat-learning-theory:slt-master',data.ids())
         self.assertNotIn('stacks:STK-0B34-left',data.ids())

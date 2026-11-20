@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "formal 的实数 log/division 在零分母处把不同点质量的 KL 变为 0，令零值判据错误识别相同分布；原文按无穷处理该输入，故定义与谓词不对应。",
+  "retained_reason": "The formal real-valued log and division make KL between distinct point masses equal to 0 at a zero denominator, causing the zero-value criterion to misidentify the distributions as equal. The source assigns infinity to this input, so the definitions and predicates do not correspond.",
   "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

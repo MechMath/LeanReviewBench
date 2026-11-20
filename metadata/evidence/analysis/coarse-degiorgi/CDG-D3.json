@@ -33,6 +33,6 @@
   "review_scope": "The complete bound Theorem D, including infinite-exponent endpoints.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "固定配对的完整 Theorem D 包含 ∞ 端点；Lean 以实数 p,q>1 及有限指数公式建模，未表达 ∞ 端点分支。",
+  "retained_reason": "The full paired Theorem D includes the ∞ endpoints. Lean models p,q>1 as real numbers with finite-exponent formulas and does not express the ∞ endpoint branches.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

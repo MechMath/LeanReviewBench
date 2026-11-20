@@ -1174,7 +1174,7 @@
       ],
       "history_evidence": {
         "file": "licenses/qinz1yang/HISTORY.json",
-        "sha256": "c6aa0886a8d51922abbd2b30eb0966a5e39b33ce386af5dc0fc676a7d61bf827"
+        "sha256": "ddbdea32abeabb284d463b826187c7f6f4e9d5149b728f4a4558a20f3b0e6ecf"
       },
       "authorization_request": {
         "file": "licenses/qinz1yang/AUTHORIZATION-REQUEST.json",
@@ -1183,7 +1183,7 @@
       },
       "admission_decision": {
         "file": "licenses/qinz1yang/ADMISSION.json",
-        "sha256": "f98eb6e3a68a1c732a896866c4d85d282275479128268702856d514b4d4821f6"
+        "sha256": "2bc9c0d266d35152eb2b6a95e56cf14c30d0a4f41aa2aff4860bea2849a07164"
       }
     },
     "frenzymath": {

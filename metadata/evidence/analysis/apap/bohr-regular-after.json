@@ -33,15 +33,15 @@
     "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "形式化将 rank 定义为有限宽度字符数，原文则统计宽度小于 2 的字符。该差异改变正则性的检查范围及误差界；存在 formal 判为 regular、原文判为非 regular 的输入。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标注misaligned; confirms the preceding rank-mismatch explanation for apap:bohr-regular-after only.",
+    "reason": "The formalization defines rank as the number of characters with finite width, whereas the source counts characters with width less than 2. This changes both the range over which regularity is checked and the error bound; some inputs are regular formally but not regular under the source definition.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms the preceding rank-mismatch explanation for apap:bohr-regular-after only.",
     "reviewer": "Codex",
     "reviewer_type": "model",
     "review_status": "model_rechecked_misaligned_user_confirmed",
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 after 输入。",
+    "review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this after input.",
     "evidence_locations": {
       "informal": "datasets/apap/projects/bohr-regular-after/informal.jsonl:1",
       "finite_width_frequencies": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean:25",
@@ -69,7 +69,7 @@
       "source_upper_bound_at_jump": "8/5",
       "formal_regular": true,
       "source_regular": false,
-      "argument": "平凡字符始终不限制集合；符号字符在非零元素处的距离为 2。0≤κ≤1/200 时，膨胀和收缩的集合均为 {0}，formal 两个不等式成立。κ=3/500 时膨胀集变为整个 Z/2，大小比 2 超过原文的上界 8/5。"
+      "argument": "The trivial character never restricts the set; the sign character has distance 2 at the nonzero element. For 0≤κ≤1/200, both the dilated and contracted sets are {0}, so both formal inequalities hold. At κ=3/500, the dilated set becomes all of Z/2, and its size ratio 2 exceeds the source upper bound 8/5."
     },
     "verification": {
       "exact_rational_checks": "passed",
@@ -77,11 +77,11 @@
       "fresh_lean_build": false
     },
     "limitations": [
-      "这是陈述/定义的语义错配，不声称形式化自身的定义逻辑矛盾。",
-      "使用正的 source rank=1；该例不依赖 d=0 或原文 1/100d 的排版歧义。",
-      "用户确认已记录；仍沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+      "This is a semantic mismatch between statements or definitions, not a claim that the formal definition is internally inconsistent.",
+      "The source rank is positive, d=1; the example does not depend on d=0 or the typographical ambiguity in the source expression 1/100d.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
     ]
   },
-  "retained_reason": "形式化将 rank 定义为有限宽度字符数，原文则统计宽度小于 2 的字符。该差异改变正则性的检查范围及误差界；存在 formal 判为 regular、原文判为非 regular 的输入。",
-  "retained_review_scope": "当前冻结 informal 中的 Bohr 集与正则性定义，对应根 BohrSet.IsRegular；仅本 after 输入。"
+  "retained_reason": "The formalization defines rank as the number of characters with finite width, whereas the source counts characters with width less than 2. This changes both the range over which regularity is checked and the error bound; some inputs are regular formally but not regular under the source definition.",
+  "retained_review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this after input."
 }

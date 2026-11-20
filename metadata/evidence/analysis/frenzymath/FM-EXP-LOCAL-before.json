@@ -5,22 +5,57 @@
   "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
   "root": "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing",
   "label": "misaligned",
-  "reason": "Selected final local-diffeomorphism theorem additionally assumes v≠0 and0<t0<1, omitting constant minimizing geodesics and t0=0. Original corollary is read within curve domain[0,1], with completeness inherited from preceding paragraph. Completeness complaint withdrawn; exact scope omission is a boundary for human review, not a false proposition claim.",
-  "review_scope": "independent target full mathematical scope; exact source statement",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The root additionally requires a nonzero initial vector v and 0 < t0 < 1. The bound corollary includes the start time t0 = 0 and constant minimizing geodesics. Its preceding paragraph already assumes completeness, so completeness is not the discrepancy; the exact selected theorem omits these valid boundary cases.",
+  "review_scope": "Morgan-Tian Corollary star on the local exponential-map conclusion along a minimizing segment, with completeness inherited from the supplied preceding paragraph.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-EXP-LOCAL-before/informal.jsonl",
+      "sha256": "cf5ba65879fc66f98a4238402dc7a86c74b9b69132849f0d6e03f0583fbccd6e",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "url": "https://arxiv.org/src/math/0607607v2",
+        "version": "math/0607607v2 2007-03-21",
+        "locator": "prelim.tex695–759, corollary star742–749 and preceding complete-M paragraph726ff",
+        "sha256": "98e4fc060d2f7abd5d9e29a09cac2007a19b1f96c02fc7e558efb23d51fa1982"
+      },
+      "bound_scope": null
+    },
+    "first_pass": "The root additionally requires a nonzero initial vector v and 0 < t0 < 1. The bound corollary includes the start time t0 = 0 and constant minimizing geodesics. Its preceding paragraph already assumes completeness, so completeness is not the discrepancy; the exact selected theorem omits these valid boundary cases.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-EXP-LOCAL-before/formal/Main.lean",
+        "sha256": "e3bfc6e36f8cdea5c38d3b97e1cea4ab27024e3adf016594e360ed1361617d9e",
+        "line_start": 1503,
+        "line_end": 1516,
+        "anchor": "theorem expMapGlobal_localDiffeo_of_minimizing",
+        "declaration": "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+      }
+    ],
+    "second_pass": "At the zero vector the exponential map has identity differential, so the omitted case is mathematically legitimate. The fact that it can be proved separately does not put it in the selected root. The negative verdict does not allege that the conditional statement is false.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "Selected final local-diffeomorphism theorem additionally assumes v≠0 and0<t0<1, omitting constant minimizing geodesics and t0=0. Original corollary is read within curve domain[0,1], with completeness inherited from preceding paragraph. Completeness complaint withdrawn; exact scope omission is a boundary for human review, not a false proposition claim.",
-    "uncertainty": "Scope-based alignment judgment; conditional Lean proposition itself not alleged false.",
+    "agent_assessment": "The root additionally requires a nonzero initial vector v and 0 < t0 < 1. The bound corollary includes the start time t0 = 0 and constant minimizing geodesics. Its preceding paragraph already assumes completeness, so completeness is not the discrepancy; the exact selected theorem omits these valid boundary cases.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "154ca3eca804557d37043d660084093d1ee6d992",
@@ -50,7 +85,16 @@
       "previous_input_sha256": "f7f5a74a46e1cf42d38a2b55ad4e9f47c718d86698b2bb4d4f2580b993345dc8",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "f7f5a74a46e1cf42d38a2b55ad4e9f47c718d86698b2bb4d4f2580b993345dc8"
-    }
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

@@ -24,7 +24,7 @@
   "split_group": "frenzymath/Poincare-Conjecture",
   "before_ids": [],
   "after_ids": [],
-  "status": "undetermined",
+  "status": "ready",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -40,7 +40,7 @@
   ],
   "target_mode": "joint",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -55,7 +55,7 @@
     "proofs_erased": true
   },
   "input_sha256": "17554ed26c30b911d28bbe6b902f4f819d25cf3b05a97be8357fc179e18f2893",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/frenzymath.jsonl",
   "candidate_id": "FM-laplacian-coefficients-scope",
   "validation_reference": "metadata/validation.json"

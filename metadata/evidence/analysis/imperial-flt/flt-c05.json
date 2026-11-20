@@ -33,8 +33,8 @@
     "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "Dfx 展开为有限阿代尔张量积的单位群，incl₁ 为 d↦d⊗1 的单位群嵌入；DoubleCoset.Quotient 的关系是 y=h*x*u，左侧取 Dˣ 的像，右侧取 U。根仅要求 U 为开放子群，Finite 正是双陪集空间有限；背景数域、有限维和中心除代数条件来自原文上下文。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为aligned; confirms aligned for imperial-flt:flt-c05 after checking finite adeles, the diagonal units embedding, double-coset relation y=h*x*u, the open-subgroup premise, and the finite quotient conclusion.",
+    "reason": "Dfx unfolds to the unit group of the finite-adelic tensor product, and incl₁ is the unit-group embedding d↦d⊗1. The DoubleCoset.Quotient relation is y=h*x*u, with the image of Dˣ on the left and U on the right. The root only requires U to be an open subgroup, and Finite states precisely that the double-coset space is finite. The background assumptions of a number field and a finite-dimensional central division algebra come from the source context.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for imperial-flt:flt-c05 after checking finite adeles, the diagonal units embedding, double-coset relation y=h*x*u, the open-subgroup premise, and the finite quotient conclusion.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -43,7 +43,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "独立 blueprint 在数域上的有限维中心除代数上下文中，对任意开放子群 U 的有限阿代尔单位群双陪集空间有限性；核对对象、左右作用、开放条件与有限性结论。",
+    "review_scope": "The independent blueprint states finiteness of the double-coset space of finite-adelic units for any open subgroup U, in the context of a finite-dimensional central division algebra over a number field. The review checks the objects, left and right actions, openness assumption, and finiteness conclusion.",
     "detailed_review": {
       "path": "reports/finite-double-coset-recheck-2026-11-16/review.json",
       "sha256": "f460a0b0b1bfb554f03991b6defa8340c2d3df7312e0014de7014de2549632e6"
@@ -158,14 +158,14 @@
       }
     ],
     "semantic_argument": [
-      "原文将 𝔸_K^∞ 明确定义为有限阿代尔；formal 的 Df=D⊗[K]FiniteAdeleRing (𝓞 K) K，Dfx=(Df K D)ˣ，与该对象一致，没有误用无限阿代尔或全阿代尔的 Haar 核。",
-      "incl₁ 使用 Units.map Algebra.TensorProduct.includeLeftRingHom；Set.range (incl₁ K D) 是实际嵌入后的 Dˣ 子群。函数名之外的数据定义已经给出具体映射。",
-      "固定 Mathlib 中 doubleCoset x H U=H*{x}*U，Quotient 是按双陪集相等取商；当 H、U 为子群时 rel_iff 给出 y=h*x*u。formal 两个参数的顺序对应 Dˣ\\G/U。",
-      "U 的类型是 Subgroup (Dfx K D)，唯一额外参数是 IsOpen (U:Set(Dfx K D))；没有要求 U 紧致、正规或先验有限指数。",
-      "开放性使用有限阿代尔模拓扑所诱导的单位群拓扑，根依赖图确认这些实际实例；不是任意另选的拓扑。",
-      "K 是数域、D 是有限维中心除 K-代数，与原文前文上下文对应；DivisionRing 自动给出原文要求的单性。",
-      "Finite (DoubleCoset.Quotient ...) 断言等价类总数有限，与原文结论一致，不额外要求算法枚举、指定基数或商群结构。",
-      "证明内部从已证明的单陪集商紧致性提取有限子覆盖，与原文证明方向对应；这一中间紧致性不是调用根定理时需要额外提供的前提。"
+      "The source explicitly defines 𝔸_K^∞ as the finite adeles. In the formal statement, Df=D⊗[K]FiniteAdeleRing (𝓞 K) K and Dfx=(Df K D)ˣ match this object; neither the infinite adeles nor the Haar kernel of the full adeles is substituted.",
+      "incl₁ uses Units.map Algebra.TensorProduct.includeLeftRingHom, and Set.range (incl₁ K D) is the actual embedded Dˣ subgroup. The data definition specifies the concrete map beyond merely giving it a name.",
+      "In the pinned Mathlib version, doubleCoset x H U=H*{x}*U, and Quotient identifies equal double cosets. For subgroups H and U, rel_iff gives y=h*x*u. The order of the two formal parameters matches Dˣ\\G/U.",
+      "U has type Subgroup (Dfx K D), and the only additional parameter is IsOpen (U:Set(Dfx K D)); U is not required to be compact, normal, or of finite index a priori.",
+      "Openness uses the unit-group topology induced by the finite-adelic module topology. The root's dependency graph confirms these actual instances; no arbitrary alternative topology is used.",
+      "K is a number field and D is a finite-dimensional central division K-algebra, matching the preceding source context; DivisionRing automatically supplies the simplicity required by the source.",
+      "Finite (DoubleCoset.Quotient ...) asserts that the total number of equivalence classes is finite, matching the source conclusion without additionally requiring algorithmic enumeration, a specified cardinality, or a quotient-group structure.",
+      "The proof internally extracts a finite subcover from the previously proved compactness of the single-coset quotient, matching the source's proof strategy; this intermediate compactness is not an extra premise required when invoking the root theorem."
     ],
     "verification": {
       "source_and_input_hash_checked": true,
@@ -186,12 +186,12 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "本次核对陈述、依赖定义和现有提取图，没有重新编译或独立重证紧致性与有限覆盖论证。",
-      "本次按用户确认保存 aligned，保留原文、formal、输入哈希、目标及技术状态；不传播标签到下一题。",
-      "ready 结合正向标签与已有编译提取结果，不代表本次重新编译或完成新的等价证明。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "This review checked the statement, dependency definitions, and existing extracted graphs; it did not recompile or independently reprove the compactness and finite-cover arguments.",
+      "This update saves aligned as confirmed by the user, retaining the source text, formal input, input hash, targets, and technical status; it does not propagate the label to the next case.",
+      "ready reflects the positive label together with existing compilation and extraction results; it does not imply recompilation or completion of a new equivalence proof in this review.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "Dfx 展开为有限阿代尔张量积的单位群，incl₁ 为 d↦d⊗1 的单位群嵌入；DoubleCoset.Quotient 的关系是 y=h*x*u，左侧取 Dˣ 的像，右侧取 U。根仅要求 U 为开放子群，Finite 正是双陪集空间有限；背景数域、有限维和中心除代数条件来自原文上下文。",
-  "retained_review_scope": "独立 blueprint 在数域上的有限维中心除代数上下文中，对任意开放子群 U 的有限阿代尔单位群双陪集空间有限性；核对对象、左右作用、开放条件与有限性结论。"
+  "retained_reason": "Dfx unfolds to the unit group of the finite-adelic tensor product, and incl₁ is the unit-group embedding d↦d⊗1. The DoubleCoset.Quotient relation is y=h*x*u, with the image of Dˣ on the left and U on the right. The root only requires U to be an open subgroup, and Finite states precisely that the double-coset space is finite. The background assumptions of a number field and a finite-dimensional central division algebra come from the source context.",
+  "retained_review_scope": "The independent blueprint states finiteness of the double-coset space of finite-adelic units for any open subgroup U, in the context of a finite-dimensional central division algebra over a number field. The review checks the objects, left and right actions, openness assumption, and finiteness conclusion."
 }

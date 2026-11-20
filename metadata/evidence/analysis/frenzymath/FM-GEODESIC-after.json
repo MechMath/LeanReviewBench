@@ -4,23 +4,193 @@
   "project_id": "FM-GEODESIC-after",
   "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
   "root": "MorganTianLib.IsGeodesicCurveOn",
-  "label": "undetermined",
-  "reason": "Same independently sourced smooth-curve definition as before; the added ContinuousOn conjunct does not by itself settle full-classifier versus smooth-domain interpretation. No automatic repaired-successor aligned label assigned.",
-  "review_scope": "Selected root(s) against the independently bound mathematical target; correspondence requires human review.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "aligned",
+  "reason": "On an open time interval, ContinuousOn ensures that the curve locally remains in each centered chart. The explicit derivative clauses give the standard coordinate geodesic equation for the smooth Riemannian metric. Written as a first-order equation for position and velocity, this is a smooth ODE, so every admitted curve is automatically smooth. Conversely, every smooth geodesic satisfies these conditions. Thus the predicate matches the source definition on its ordinary smooth-manifold and open-interval domain.",
+  "review_scope": "Morgan-Tian Definition 1.17 on open time intervals in ordinary smooth Riemannian manifolds without boundary. Curve smoothness follows from the predicate itself. The user-confirmed alignment does not assert equivalence on arbitrary non-open time sets or at boundary/corner points admitted by the generalized signature.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "MorganTianLib.IsGeodesicCurveOn"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-GEODESIC-after/informal.jsonl",
+      "sha256": "69efc2fe4bc81a70bba903365a99ea7d5ea11cfd54cbe7382ac514b02c7a863b",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "version": "arXiv:math/0607607v2",
+        "version_date": "2007-03-21",
+        "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+        "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+        "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+        "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+        "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+        "locator": "Geodesic definition, prelim.tex lines461-466",
+        "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+      },
+      "bound_scope": "Geodesics as smooth curves on an open interval with vanishing covariant acceleration."
+    },
+    "first_pass": "The selected root unfolds to ContinuousOn gamma s and the pointwise chart geodesic equation. The explicit continuity condition excludes the discontinuous-curve countermodel for the before version. The chart velocity is obtained by differentiating gamma in the fixed chart centered at gamma(t), so the Christoffel contraction receives components in the same chart used for the metric matrix.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 186,
+        "line_end": 192,
+        "anchor": "abbrev IsGeodesicCurveOn (g : Riemannian.RiemannianMetric I M) (γ : ℝ → M)",
+        "declaration": "MorganTianLib.IsGeodesicCurveOn"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 144,
+        "line_end": 153,
+        "anchor": "def HasGeodesicEquationAt"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 162,
+        "line_end": 165,
+        "anchor": "def IsGeodesicOn"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 174,
+        "line_end": 176,
+        "anchor": "def IsGeodesicCurveOn"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 25,
+        "line_end": 27,
+        "anchor": "def chartBasisVecFiber"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 90,
+        "line_end": 96,
+        "anchor": "def chartChristoffel"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-after/formal/Main.lean",
+        "sha256": "b182fb6369aedcc23e715405003f414745d10375eb794ba8ebc298b6bcae1c92",
+        "line_start": 117,
+        "line_end": 123,
+        "anchor": "def chartChristoffelContraction"
+      }
+    ],
+    "second_pass": "The remaining regularity concern is resolved mathematically on the bound open-interval, ordinary smooth-manifold domain. After continuity supplies local chart containment, smooth transition maps transfer the pointwise first and second derivative data to one fixed chart. In that chart the Christoffel formula is the Levi-Civita formula, and z=(u,u') satisfies a smooth first-order ODE. Differentiability makes z continuous; if z is C^k, then z'=F(z) is C^k and z is C^(k+1). Induction yields C-infinity regularity. The converse follows by writing any smooth intrinsic geodesic in a local chart. A nonlinear-coordinate sanity check confirms the required transformation. The recommendation is aligned within that source domain; it is not a claim about every arbitrary time set or every model-with-corners input admitted by the generalized Lean signature.",
+    "unresolved_questions": [],
+    "verification_limits": "The source-domain equivalence is a mathematical argument supported by pinned definitions and regularity lemmas; no new Lean theorem proving that equivalence was compiled. The user confirmed aligned on the stated source domain. The broader arbitrary-set and boundary/corner signature is not certified by this review. No mathematical input or export-readiness flag was changed.",
+    "equivalence_argument": {
+      "status": "Mathematical equivalence argument checked against source and pinned definitions; not a newly Lean-compiled equivalence theorem.",
+      "comparison_domain": "An open interval J and an ordinary smooth Riemannian manifold without boundary. A total map gamma:R->M represents its restriction to J; no smoothness or continuity of gamma outside J is needed.",
+      "continuity_and_containment": "At t in J, ContinuousOn gamma J implies ContinuousAt gamma t because J is open. The source of the chart at gamma(t) is an open neighborhood of gamma(t), so gamma stays in that source on a smaller open interval around t. Total chart values outside their sources cannot affect any of the local derivatives there.",
+      "fixed_chart_derivatives": "Fix a chart c on a small interval K around t. At each q in K, the predicate supplies first derivative data for v_q=c_q composed with gamma, differentiability of v_q on a neighborhood of q, and a derivative of deriv(v_q) at q. On a smaller neighborhood, c composed with gamma = (c composed with c_q^{-1}) composed with v_q. Smooth transition maps and the chain/product rules transfer these data to u=c composed with gamma, giving u' and a derivative of u' at every q in K. The eventual HasDerivAt clause justifies the derivative identity on a neighborhood before differentiating it.",
+      "metric_and_equation": "chartBasisVecFiber uses the inverse tangent trivialization of the fixed chart, so chartGramMatrix is the metric in that chart's coordinate basis. The positive-definite metric makes the matrix invertible. Its entries, their directional derivatives and inverse matrix are smooth locally. The retained chartChristoffel formula is the Levi-Civita formula in this same basis. Under smooth coordinate changes it yields u''=-Gamma(u)(u',u'). No derivative of the preferred-chart selection as a function of its center is needed.",
+      "regularity_bootstrap": "Let z=(u,u') and F(x,v)=(v,-Gamma(x)(v,v)). Then z is differentiable throughout K and z'=F(z), with F smooth on the local coordinate domain times E. Hence z is continuous. For each finite k, z in C^k implies F composed with z in C^k, and the derivative criterion implies z in C^(k+1). Starting at C^0 gives all finite orders and thus smoothness. Composing u with the smooth inverse chart gives smoothness of gamma locally at every t in J.",
+      "reverse_implication": "A smooth geodesic gamma on J is continuous there, remains locally in each centered chart, has both derivatives and the eventual differentiability required by HasGeodesicEquationAt, and has zero coordinate covariant acceleration. Thus it satisfies IsGeodesicCurveOn.",
+      "total_function_extension": "Every derivative at t in the open interval depends only on a germ inside J, so using total real-indexed functions does not impose regularity on an arbitrary extension beyond J.",
+      "scope_limit": "The argument uses open time neighborhoods and ordinary open Euclidean chart images. It does not establish equivalence on arbitrary closed/discrete time sets or at boundary/corner points. The formal signature does not itself enforce these source-domain qualifications."
+    },
+    "adversarial_checks": [
+      {
+        "question": "Does the before-version jump counterexample survive?",
+        "result": "No. Its gamma is discontinuous at the interior time 0, so ContinuousOn gamma (-1,1) is false."
+      },
+      {
+        "question": "Can totalized deriv silently use zero for a nonexistent derivative?",
+        "result": "No on the checked domain. HasDerivAt clauses explicitly require the first derivative, nearby differentiability, and the derivative of the derivative."
+      },
+      {
+        "question": "Does the missing explicit smoothness conjunct leave a C^2 but non-smooth solution?",
+        "result": "No on the checked domain. The smooth first-order ODE bootstrap forces all derivative orders; merely observing that the root has no ContMDiffOn conjunct would not justify a negative label."
+      },
+      {
+        "question": "Are coordinate velocities mixed with raw tangent components as in the parallel-transport cases?",
+        "result": "No. In a one-dimensional Euclidean example with chart y=exp(x), the coordinate metric is 1/y^2 and Gamma=-1/y. For the intrinsic straight geodesic x(t)=t, y''=exp(t) and Gamma(y)(y')^2=-exp(t), so the terms cancel. If Module.finBasis is b rather than 1, Gram=b^2/y^2, the single Christoffel coefficient is -b/y, and conversion through basis coordinates still gives the contraction -(y')^2/y."
+      }
+    ],
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "User approved FM-GEODESIC-before as misaligned and requested review of the next case.",
+      "recommended_label": "aligned",
+      "recommendation_scope": "The bound source domain of open time intervals in ordinary smooth Riemannian manifolds; smoothness of the curve follows from the predicate itself.",
+      "adjudication": "The user explicitly confirmed aligned on 2026-11-20 after reviewing the open-interval and ordinary smooth-manifold scope qualification.",
+      "proposed_reason": "On an open time interval, ContinuousOn ensures that the curve locally remains in each centered chart. The explicit derivative clauses give the standard coordinate geodesic equation for the smooth Riemannian metric. Written as a first-order equation for position and velocity, this is a smooth ODE, so every admitted curve is automatically smooth. Conversely, every smooth geodesic satisfies these conditions. Thus the predicate matches the source definition on its ordinary smooth-manifold and open-interval domain.",
+      "source_check": {
+        "url": "https://arxiv.org/pdf/math/0607607v2",
+        "locator": "Definition 1.17, printed page 41 / PDF page 44; the coordinate equation follows immediately, and printed page 42 / PDF page 45 states the ODE regularity conclusion."
+      }
+    },
+    "pinned_library_evidence": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "files": [
+        {
+          "file": "Mathlib/Topology/ContinuousOn.lean",
+          "sha256": "b2145ee5c7fae03717fa3666c3f8abf3674f510c7081abe678e66c652ae83ab1",
+          "line_start": 343,
+          "line_end": 349,
+          "relevance": "Continuity on an open set implies continuity at each point."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/VectorBundle/Tangent.lean",
+          "sha256": "5a64bbc66cbe7cd3dcf1ac448cfeb4ef9b8d5c616241ff771fd1b8b88d80b9e7",
+          "line_start": 274,
+          "line_end": 282,
+          "relevance": "Inverse tangent trivializations implement the coordinate-basis conversion."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/VectorBundle/Riemannian.lean",
+          "sha256": "044b397c80cc85430415afd4f976195943dd0015170cd0388d445dc09098c979",
+          "line_start": 244,
+          "line_end": 252,
+          "relevance": "The metric is smooth and positive definite, not an arbitrary coefficient field."
+        },
+        {
+          "file": "Mathlib/Analysis/Calculus/ContDiff/Deriv.lean",
+          "sha256": "3033d2b35bcfdad1ab06168dee62c8587215de8fa049caa85e5445c54d4fb98c",
+          "line_start": 51,
+          "line_end": 63,
+          "relevance": "Smoothness can be bootstrapped from smoothness of the derivative on an open domain."
+        },
+        {
+          "file": "Mathlib/Analysis/ODE/PicardLindelof.lean",
+          "sha256": "4b14c4f9eb935e5b28648a43466dd43c9629e3c4f57850e50701cabe16ec6576",
+          "line_start": 559,
+          "line_end": 565,
+          "relevance": "The pinned library independently contains regularity of solutions to smooth ODEs."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.lean",
+          "sha256": "4f55ec4b0606fbbe5db30af3740932b380cdbf5512dafa6c70a23073ce497456",
+          "line_start": 548,
+          "line_end": 561,
+          "relevance": "Open Euclidean chart images are available under the boundaryless condition; this explains the scope limit."
+        }
+      ]
+    }
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "Same independently sourced smooth-curve definition as before; the added ContinuousOn conjunct does not by itself settle full-classifier versus smooth-domain interpretation. No automatic repaired-successor aligned label assigned.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "On an open time interval, ContinuousOn ensures that the curve locally remains in each centered chart. The explicit derivative clauses give the standard coordinate geodesic equation for the smooth Riemannian metric. Written as a first-order equation for position and velocity, this is a smooth ODE, so every admitted curve is automatically smooth. Conversely, every smooth geodesic satisfies these conditions. Thus the predicate matches the source definition on its ordinary smooth-manifold and open-interval domain.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
@@ -55,7 +225,15 @@
       "previous_input_sha256": "0e5695958ea4429643c0693e415fd88bd672515bd3b89331a803d9c59a206308",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "0e5695958ea4429643c0693e415fd88bd672515bd3b89331a803d9c59a206308"
+    },
+    "followup_recommendation": "The user accepted aligned within the explicitly reviewed source domain; the equivalence argument and scope limits remain in analysis.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "aligned",
+      "scope": "Open time intervals and ordinary smooth Riemannian manifolds without boundary, as explained in the preceding review.",
+      "reason_recording": "The corresponding English equivalence explanation is retained."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The user-confirmed aligned verdict, English reason, source-domain qualifications, two-direction mathematical equivalence, regularity bootstrap, nonlinear-coordinate check and pinned library evidence are retained. Human confirmation is recorded in curator_notes.human_adjudication."
 }

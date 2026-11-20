@@ -33,8 +33,8 @@
     "input_sha256": "705f126485e3cfdd29cf0b1fe27bbe574295f85d12849b7f406a49326ad1cb10",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "Facts G [1491] [65] 展开为同一 magma 满足 Equation1491 且不满足 Equation65，独立 blueprint 中 Obelix/Asterix 的定义与 formal 等式对应。根无附加前提；initial.closure 给出具体模型，closure_prop 证明 1491，并以 x=0、y=-x₁ 见证 65 失败。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 为我标为aligned; selects aligned for equational-theories:etp-obelix after viewing the original corollary, both equation definitions, the Facts expansion, and the concrete construction.",
+    "reason": "Facts G [1491] [65] unfolds to one magma satisfying Equation1491 and not satisfying Equation65. The independent blueprint's Obelix/Asterix definitions match the formal equations. The root has no extra premises: initial.closure supplies a concrete model, closure_prop proves 1491, and x=0, y=-x₁ witness failure of 65.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Mark it aligned; selects aligned for equational-theories:etp-obelix after viewing the original corollary, both equation definitions, the Facts expansion, and the concrete construction.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "独立 blueprint 的 Obelix 非 Asterix 存在性推论及等式 1491/65 定义，与 Obelix.PartialSolution.Equation1491_facts；保留部分解扩张和 closure 构造的原始输入。",
+    "review_scope": "The independent blueprint's existence corollary for an Obelix magma that is not Asterix, and its definitions of equations 1491 and 65, compared with Obelix.PartialSolution.Equation1491_facts. The original inputs for partial-solution extension and the closure construction are retained.",
     "evidence_locations": {
       "informal_and_scope": {
         "path": "datasets/equational-theories/projects/etp-obelix/informal.jsonl",
@@ -111,12 +111,12 @@
       }
     },
     "semantic_argument": [
-      "原文要求存在一个 Obelix magma 而不是 Asterix；同一独立 blueprint 将两者分别定义为满足等式 1491 和 65。",
-      "Facts 的 elaborator 对第一列表生成正向 Equation 谓词，对第二列表生成其否定，并以合取连接。因此根结论正是 ∃G,∃M:Magma G,Equation1491 G∧¬Equation65 G，见证载体与运算共同绑定。",
-      "Equation1491 为 ∀x,y, x=(y◇x)◇(y◇(y◇x))；Equation65 为 ∀x,y, x=y◇(x◇(y◇x))。它们与独立定义中的变量及括号一致，否定 65 是至少存在一对输入违反该律。",
-      "根不要求调用者提供部分解或扩张假设。它实例化具体 initial.closure；closure_prop initial 给出 1491，且在 0、-x₁ 处利用保留的初始函数值反驳 65。",
-      "原文初始部分函数包含 (0,0)、(x₁,x₂)、(x₂-x₁,x₃)、(x₁+x₃,x₄)；formal initial 的有限定义域与函数值匹配这些条目，再通过 closure 延伸为完整运算。",
-      "空载体自动满足两个全称等式，因此不能满足 ¬Equation65；它不会使存在性结论真空成立。"
+      "The source requires an Obelix magma that is not Asterix. The same independent blueprint defines these respectively by satisfaction of equations 1491 and 65.",
+      "The Facts elaborator generates positive Equation predicates for the first list and their negations for the second, joining them by conjunction. Thus the root concludes exactly ∃G,∃M:Magma G,Equation1491 G∧¬Equation65 G, binding the same witness carrier and operation.",
+      "Equation1491 is ∀x,y, x=(y◇x)◇(y◇(y◇x)); Equation65 is ∀x,y, x=y◇(x◇(y◇x)). Their variables and parentheses match the independent definitions. Negating 65 means at least one input pair violates that law.",
+      "The root does not require the caller to supply a partial solution or extension hypothesis. It instantiates the concrete initial.closure; closure_prop initial supplies 1491, and the retained initial function values at 0 and -x₁ refute 65.",
+      "The source initial partial function contains (0,0), (x₁,x₂), (x₂-x₁,x₃) and (x₁+x₃,x₄). The finite domain and values of formal initial match these entries and are then extended by closure to a total operation.",
+      "An empty carrier automatically satisfies both universal equations and therefore cannot satisfy ¬Equation65. It does not make the existence conclusion vacuous."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -126,12 +126,12 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "本次为陈述、宏定义和关键构造的语义核对，未重新编译项目或独立重证整个部分解扩张过程。",
-      "不要求有限反模型；根和绑定原文允许一般 magma，并保留原始无限模型构造。",
-      "formal、informal、输入哈希及技术状态保持原样；ready 状态结合正向标签与已有编译提取状态，不传播标签到下一题。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "This review checks the semantics of the statement, macro definitions and key construction, without recompiling the project or independently reproving the full partial-solution extension process.",
+      "No finite countermodel is required. Both the root and bound source permit general magmas and retain the original infinite-model construction.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines the positive label with the existing compilation/extraction status and is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "Facts G [1491] [65] 展开为同一 magma 满足 Equation1491 且不满足 Equation65，独立 blueprint 中 Obelix/Asterix 的定义与 formal 等式对应。根无附加前提；initial.closure 给出具体模型，closure_prop 证明 1491，并以 x=0、y=-x₁ 见证 65 失败。",
-  "retained_review_scope": "独立 blueprint 的 Obelix 非 Asterix 存在性推论及等式 1491/65 定义，与 Obelix.PartialSolution.Equation1491_facts；保留部分解扩张和 closure 构造的原始输入。"
+  "retained_reason": "Facts G [1491] [65] unfolds to one magma satisfying Equation1491 and not satisfying Equation65. The independent blueprint's Obelix/Asterix definitions match the formal equations. The root has no extra premises: initial.closure supplies a concrete model, closure_prop proves 1491, and x=0, y=-x₁ witness failure of 65.",
+  "retained_review_scope": "The independent blueprint's existence corollary for an Obelix magma that is not Asterix, and its definitions of equations 1491 and 65, compared with Obelix.PartialSolution.Equation1491_facts. The original inputs for partial-solution extension and the closure construction are retained."
 }

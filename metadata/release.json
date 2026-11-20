@@ -51,5 +51,5 @@
     "frenzymath": 11
   },
   "total_retained_inputs": 197,
-  "review_status": "171 human-reviewed inputs plus 26 technically complete inputs pending human review; pending historical source-license scope is recorded separately."
+  "review_status": "171 original human-reviewed inputs plus 26 technically complete Poincare inputs: all 26 Poincare judgments are human confirmed (five aligned, twenty-one misaligned), including sixteen accepted by explicit user batch confirmation. FM-COVERING-before records an explicit user misaligned verdict after correction of its informal source interpretation; the lack of an independently established mismatch is disclosed in its reason and evidence. Individual verdicts are recorded in metadata/labels; historical source-license scope is recorded separately."
 }

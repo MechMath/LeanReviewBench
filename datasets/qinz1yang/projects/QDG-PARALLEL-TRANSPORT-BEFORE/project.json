@@ -20,7 +20,7 @@
   "after_ids": [
     "QDG-PARALLEL-TRANSPORT-AFTER"
   ],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -61,7 +61,7 @@
   ],
   "target_mode": "single",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -76,7 +76,7 @@
     "proofs_erased": true
   },
   "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "parallel-transport-pairing",
   "validation_reference": "metadata/validation.json",

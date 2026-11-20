@@ -4,23 +4,62 @@
   "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
   "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
   "root": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
-  "label": "undetermined",
-  "reason": "The same local ambient-isotopy theorem now has no ambient compactness assumption and matches the local restriction of isotopy extension in broad form. Exact circle parametrization, immersion and smooth-superwindow qualifications remain for human scope review; the successor is not automatically assigned aligned.",
-  "review_scope": "Martelli2020 Theorem5.3.3 specialized to a compact circle source and a real finite-dimensional ambient vector space; selected local theorem only.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "misaligned",
+  "reason": "The formal conclusion provides an ambient extension only on J = [a,b] intersect (t0-epsilon,t0+epsilon), with no requirement that J cover [a,b]. Although Phi is typed as a real-indexed family of diffeomorphisms, both joint smoothness and Phi_t(gamma_t0(z)) = gamma_t(z) are asserted only on J. The bound target requires an ambient isotopy extending the entire given isotopy; its scope permits a circle source and a finite-dimensional real ambient space, but no restriction to a local time window. A further gluing or continuation theorem is needed to obtain that conclusion. The local extension lemma can be valid while failing to state the full target.",
+  "review_scope": "Martelli Theorem 5.3.3 and its full-interval isotopy-extension construction, with the explicitly allowed circle source and finite-dimensional real ambient-space specialization.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "Compare the exact selected conclusion with the bound informal scope and Martelli Theorem 5.3.3; check the time quantifiers, the joint smoothness domain, and an admissible local witness that fails to extend the given isotopy over the full interval.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/informal.jsonl",
+      "sha256": "0e4768e51399dc61baa00a3d2c962e6c25229ec9c807fa0f16f8779785d3866f",
+      "id": "main",
+      "source": {
+        "title": "Manifolds",
+        "author": "Bruno Martelli",
+        "url": "https://people.dm.unipi.it/martelli/didattica/matematica/2020/Manifolds.pdf",
+        "sha256": "05496eb8347cb39347f08d348ac243664d19732575c55a69954530c55280d124",
+        "locator": "February5,2020 edition, Theorem5.3.3 and proof, printed120–121 / PDF126–127",
+        "text_kind": "independently_read_paraphrase"
+      },
+      "bound_scope": "Ambient extension of an isotopy of embeddings of a compact source manifold; specialize the source to a circle and the ambient manifold to a finite-dimensional real vector space."
+    },
+    "first_pass": "The formal conclusion provides an ambient extension only on J = [a,b] intersect (t0-epsilon,t0+epsilon), with no requirement that J cover [a,b]. Although Phi is typed as a real-indexed family of diffeomorphisms, both joint smoothness and Phi_t(gamma_t0(z)) = gamma_t(z) are asserted only on J. The bound target requires an ambient isotopy extending the entire given isotopy; its scope permits a circle source and a finite-dimensional real ambient space, but no restriction to a local time window. A further gluing or continuation theorem is needed to obtain that conclusion. The local extension lemma can be valid while failing to state the full target.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/formal/Main.lean",
+        "sha256": "54a7d06e0cc8c74795a67f285f11189597745d5bd9199d42e86dc044c748e40a",
+        "line_start": 75,
+        "line_end": 88,
+        "anchor": "theorem rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow {α β : ℝ}",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      }
+    ],
+    "second_pass": "The type Phi : R -> Diffeomorph E E only makes each time slice a diffeomorphism; it imposes no smooth dependence on time outside J. Choosing a different local Phi for each t0 does not itself supply a single compatible smooth family over [a,b]. A separate gluing or flow-extension argument may construct the full extension, but the selected root does not state that construction or its global conclusion. The current informal.scope authorizes only the circle and Euclidean specializations, not a local-in-time target. The larger input superwindow [alpha,beta] does not enlarge the output domain J. Removal of CompactSpace E resolves the earlier ambient-compactness defect; this verdict concerns the remaining conclusion-coverage mismatch.",
+    "unresolved_questions": [],
+    "verification_limits": "This is a source-and-statement coverage review. The witness illustration is a mathematical argument, not a Lean-certified counterexample, and no claim is made that the local existence statement is false. No new Lean proof was compiled. The user confirmed the misaligned verdict; reference readiness remains unchanged.",
+    "witness_coverage_example": {
+      "status": "mathematical_illustration_of_output_coverage_not_counterexample_to_existence",
+      "setup": "Take E = R^2, a=0, b=1, alpha=-1, beta=2, t0=0, and gamma_t(z)=c(z)+t*e1 for the standard smoothly embedded circle c.",
+      "witness": "Choose epsilon=1/10. Define Phi_t(x)=x+t*e1 when abs(t)<1/10 and Phi_t(x)=x otherwise. Each Phi_t is a diffeomorphism, Phi_0 is the identity, and the evaluation map is jointly smooth on E times J=[0,1/10). The required extension equation holds on J.",
+      "missing_property": "At t=1, Phi_1 is the identity, so Phi_1(gamma_0(z)) is not gamma_1(z). The family is also not smooth in time at the edge of the local window, which the formal conclusion does not constrain.",
+      "limitation": "The translating circle does admit a full ambient isotopy. This example only shows that a witness satisfying the selected local conclusion need not satisfy the full target; it does not refute the local existence lemma."
+    }
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The same local ambient-isotopy theorem now has no ambient compactness assumption and matches the local restriction of isotopy extension in broad form. Exact circle parametrization, immersion and smooth-superwindow qualifications remain for human scope review; the successor is not automatically assigned aligned.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The formal conclusion provides an ambient extension only on J = [a,b] intersect (t0-epsilon,t0+epsilon), with no requirement that J cover [a,b]. Although Phi is typed as a real-indexed family of diffeomorphisms, both joint smoothness and Phi_t(gamma_t0(z)) = gamma_t(z) are asserted only on J. The bound target requires an ambient isotopy extending the entire given isotopy; its scope permits a circle source and a finite-dimensional real ambient space, but no restriction to a local time window. A further gluing or continuation theorem is needed to obtain that conclusion. The local extension lemma can be valid while failing to state the full target.",
+    "uncertainty": "The user confirmed that the local-time conclusion is misaligned with the bound full-isotopy target. No unresolved scope question remains for this verdict.",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
@@ -46,7 +85,13 @@
       "previous_input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "e7b791f213d80c5712490ed4fdd657c4db0a2764fc94d51ae77f03ba7c1db097"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned",
+      "reason_recording": "The user explicitly requested the corresponding English explanation."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The current English reason, full-interval review scope, declaration evidence, and a mathematical illustration of the missing output coverage are retained in analysis; the user-confirmed verdict is recorded in curator_notes.human_adjudication."
 }

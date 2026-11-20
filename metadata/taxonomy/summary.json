@@ -3,7 +3,7 @@
   "date": "2026-11-17",
   "taxonomy": "metadata/taxonomy/standard.md",
   "taxonomy_sha256": "beb7d62b6c0fc123f29cab4456a33e0e776f5e619a8dda5fa4808b362bc3dac8",
-  "cases_sha256": "fd0a694ae0589f18b37445697edb5ea9c9809caca1c64b4c2f94d17c8102ea34",
+  "cases_sha256": "55338b681754d881584fd31c3f0a5a316aab890424689c038c1d39ffa21df8eb",
   "case_count": 90,
   "current_misaligned_inputs": 90,
   "unclassified": 0,

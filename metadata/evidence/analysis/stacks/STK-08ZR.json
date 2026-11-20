@@ -38,8 +38,8 @@
     "input_sha256": "1802138dc19941847787cb61f9be3882153694f76895f9f72fa0f3f27cae05d7",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文要求 Hausdorff/T2Space，formal 仅要求严格更弱的 R1Space，扩大适用范围；两点不可分拓扑满足 R1 而非 Hausdorff。两端局部紧致性概念对应，formal 是正确推广，但按绑定原文的适用条件一致性判为 misaligned（A）。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我判为misaligned 谢谢; confirms misaligned for stacks:STK-08ZR because the bound Hausdorff premise is replaced by the strictly weaker R1Space premise, broadening applicability under the repository statement-alignment criterion.",
+    "reason": "The source requires Hausdorff/T2Space, whereas the formal statement requires only the strictly weaker R1Space, broadening applicability; the indiscrete two-point topology is R1 but not Hausdorff. The notions of local compactness on both sides correspond. The formal statement is a valid generalization, but it is labeled misaligned (A) under the criterion of matching applicability conditions to the bound source.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned, thank you; confirms misaligned for stacks:STK-08ZR because the bound Hausdorff premise is replaced by the strictly weaker R1Space premise, broadening applicability under the repository statement-alignment criterion.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -48,7 +48,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "按绑定的 Hausdorff 原文与实际 R1Space 根声明比较适用范围；不以可取 Hausdorff 特例代替实际根，不将正确推广称为假定理。",
+    "review_scope": "Applicability is compared between the bound Hausdorff source and the actual R1Space root declaration. The actual root is not replaced by its Hausdorff specialization, and a valid generalization is not called a false theorem.",
     "detailed_review": {
       "path": "reports/stacks-08zr-recheck-2026-11-16/review.json",
       "sha256": "b9937c0bd935e8d5092537cb296cfef8d90ba6be893a17023f7d0b21cb96036e"
@@ -169,11 +169,11 @@
       "machine_checked_distinguishing_example": false
     },
     "limitations": [
-      "两点拓扑例子为直接数学论证，未新增 Lean 机器验证；本次未重新编译。",
-      "用户确认更新为 misaligned；旧 undetermined 标签、原文、formal、输入哈希和技术状态保留。",
-      "标签保持暂定，human_adjudicated=false、reference_ready=false、evaluation_eligible=false，不升级为人类金标。"
+      "The two-point topology example is a direct mathematical argument, with no new machine verification in Lean; this review did not recompile.",
+      "The user confirmed the update to misaligned; the old undetermined label, source text, formal input, input hash, and technical status are retained.",
+      "The label remains provisional, with human_adjudicated=false, reference_ready=false, and evaluation_eligible=false; it is not promoted to a human gold label."
     ]
   },
-  "retained_reason": "原文要求 Hausdorff/T2Space，formal 仅要求严格更弱的 R1Space，扩大适用范围；两点不可分拓扑满足 R1 而非 Hausdorff。两端局部紧致性概念对应，formal 是正确推广，但按绑定原文的适用条件一致性判为 misaligned（A）。",
-  "retained_review_scope": "按绑定的 Hausdorff 原文与实际 R1Space 根声明比较适用范围；不以可取 Hausdorff 特例代替实际根，不将正确推广称为假定理。"
+  "retained_reason": "The source requires Hausdorff/T2Space, whereas the formal statement requires only the strictly weaker R1Space, broadening applicability; the indiscrete two-point topology is R1 but not Hausdorff. The notions of local compactness on both sides correspond. The formal statement is a valid generalization, but it is labeled misaligned (A) under the criterion of matching applicability conditions to the bound source.",
+  "retained_review_scope": "Applicability is compared between the bound Hausdorff source and the actual R1Space root declaration. The actual root is not replaced by its Hausdorff specialization, and a valid generalization is not called a false theorem."
 }

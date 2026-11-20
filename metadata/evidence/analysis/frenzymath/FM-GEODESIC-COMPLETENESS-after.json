@@ -5,22 +5,57 @@
   "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
   "root": "MorganTianLib.not_isConjugatePointAt_of_minimizing",
   "label": "misaligned",
-  "reason": "The independently bound original minimizing-geodesic proposition assumes a minimizing segment, with no global completeness; its paragraph precedes the later complete-M exponential-map discussion. The exact final source root additionally requires CompleteSpace M. Thus noncomplete manifolds possessing such minimizing segments are excluded by the written theorem, a genuine full-statement scope restriction. The PR30 after head still retains this hypothesis in the final root and required variation-data statement; no repaired-positive inference. Conditional Lean theorem itself is not alleged false.",
-  "review_scope": "interior nonconjugacy of minimizing geodesics under original mathematical hypotheses",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The selected nonconjugacy theorem requires CompleteSpace M. The bound minimizing-geodesic proposition precedes the later completeness assumption in the source and needs no global completeness. Noncomplete manifolds can contain minimizing segments, so the formal domain is strictly narrower. Both retained versions have the same input content and the same extra hypothesis.",
+  "review_scope": "Interior nonconjugacy for a minimizing geodesic segment under the original local hypotheses of Morgan-Tian Proposition jacmin.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "MorganTianLib.not_isConjugatePointAt_of_minimizing"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-GEODESIC-COMPLETENESS-after/informal.jsonl",
+      "sha256": "546df0293a872848aa1af7ea170ca15ae2a3d74ca93166412b57a722e040bf75",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "version": "arXiv math/0607607v2 2007-03-21",
+        "url": "https://arxiv.org/src/math/0607607v2",
+        "locator": "prelim.tex541–633: initial-point Jacobi definition and Proposition jacmin620–628; complete-M assumption only later726ff",
+        "sha256": "25afd1eaf33912cc27ad7dfca0906a62af19962e51617bc20dbb362e66a846a0"
+      },
+      "bound_scope": null
+    },
+    "first_pass": "The selected nonconjugacy theorem requires CompleteSpace M. The bound minimizing-geodesic proposition precedes the later completeness assumption in the source and needs no global completeness. Noncomplete manifolds can contain minimizing segments, so the formal domain is strictly narrower. Both retained versions have the same input content and the same extra hypothesis.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-COMPLETENESS-after/formal/Main.lean",
+        "sha256": "d3e8552ce71da6365ad547aa9645518dfb54417a540bce89229a6c2e5d1e7edc",
+        "line_start": 1610,
+        "line_end": 1619,
+        "anchor": "theorem not_isConjugatePointAt_of_minimizing [CompleteSpace M]",
+        "declaration": "MorganTianLib.not_isConjugatePointAt_of_minimizing"
+      }
+    ],
+    "second_pass": "An open Euclidean ball with a straight minimizing segment lying strictly inside it satisfies the geometric target without being complete. The segment can extend beyond both endpoints inside the ball, so the superinterval requirement does not eliminate this example. The two versions are one independent mathematical case.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The independently bound original minimizing-geodesic proposition assumes a minimizing segment, with no global completeness; its paragraph precedes the later complete-M exponential-map discussion. The exact final source root additionally requires CompleteSpace M. Thus noncomplete manifolds possessing such minimizing segments are excluded by the written theorem, a genuine full-statement scope restriction. The PR30 after head still retains this hypothesis in the final root and required variation-data statement; no repaired-positive inference. Conditional Lean theorem itself is not alleged false.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The selected nonconjugacy theorem requires CompleteSpace M. The bound minimizing-geodesic proposition precedes the later completeness assumption in the source and needs no global completeness. Noncomplete manifolds can contain minimizing segments, so the formal domain is strictly narrower. Both retained versions have the same input content and the same extra hypothesis.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "e2d6a088ccaa45f6e5056a076616391ec2bee569",
@@ -51,7 +86,16 @@
       "previous_input_sha256": "27c662eedaa4ba4fda89732688de93349751787510f15a9f7e7c15d5f25985d9",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "27c662eedaa4ba4fda89732688de93349751787510f15a9f7e7c15d5f25985d9"
-    }
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

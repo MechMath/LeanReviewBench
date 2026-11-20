@@ -2,7 +2,7 @@
   "schema_version": "leanreviewbench-curator-admission-1",
   "decision": "include_with_notice",
   "authority": "explicit_curator_instruction",
-  "instruction": "那先放进去吧，因为是证书缺失而不是禁止，这里备注一下",
+  "instruction": "Include it for now, since the issue is missing documentation rather than a prohibition; add a note here.",
   "scope": [
     {
       "project_id": "QDG-POINTWISE-before",
@@ -53,5 +53,11 @@
   "evidence_status": "historical_grant_association_incomplete",
   "license_grant_established_by_this_record": false,
   "effect": "The specifically listed evidence gaps are documented notices rather than merge blockers. Human alignment review remains required. Known prohibitions or unaccepted issues remain blockers.",
-  "history_evidence": "licenses/qinz1yang/HISTORY.json"
+  "history_evidence": "licenses/qinz1yang/HISTORY.json",
+  "instruction_translation": {
+    "original_language": "Chinese",
+    "translation_language": "English",
+    "date": "2026-11-20",
+    "note": "The instruction above is an English translation of the recorded curator instruction; the admission decision and its scope are unchanged."
+  }
 }

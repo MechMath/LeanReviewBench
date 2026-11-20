@@ -38,8 +38,8 @@
     "input_sha256": "5ca02153328f26b7c71939c62eb66de531b4a1b9f313a61ea1aab4451adbbb96",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文 Sheffer 刻画未限定非空，且同一 blueprint 明确允许空 magma；空载体真空满足 Equation345169，却无法提供 BooleanAlgebra 的顶、底元素。formal 的逆向构造额外要求 Inhabited G，排除了这一情况。按独立原文判定，元数据摘要补写的 nonempty 不视为原文已有前提。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 请为我标成misaligned谢谢; confirms misaligned for equational-theories:etp-sheffer after reviewing the empty-magma boundary and the additional Inhabited premise in the formal converse.",
+    "reason": "The source's Sheffer characterization does not impose nonemptiness, and the same blueprint explicitly permits empty magmas. An empty carrier vacuously satisfies Equation345169 but cannot provide the top and bottom elements of a BooleanAlgebra. The formal converse construction additionally requires Inhabited G, excluding this case. Under the independent source criterion, nonempty added by the metadata summary is not treated as an existing source premise.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, please mark it misaligned, thank you; confirms misaligned for equational-theories:etp-sheffer after reviewing the empty-magma boundary and the additional Inhabited premise in the formal converse.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -47,7 +47,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "独立 blueprint 的 Sheffer 等式刻画与两个 formal 根，重点核对原文允许空 magma 的约定和逆向构造的 Inhabited 前提；不以元数据摘要补写的非空范围替代原文。最短性及其他四个公理的等价性不在目标内。",
+    "review_scope": "The independent blueprint's Sheffer-equation characterization and the two formal roots, focusing on the source convention allowing empty magmas and the converse construction's Inhabited premise. The nonempty scope added in the metadata summary does not replace the source. Minimality and equivalence with the other four axioms are outside the target.",
     "evidence_locations": {
       "informal_and_scope": {
         "path": "datasets/equational-theories/projects/etp-sheffer/informal.jsonl",
@@ -106,12 +106,12 @@
       }
     },
     "semantic_argument": [
-      "独立原文定理称 Equation345169 刻画布尔代数上的 Sheffer stroke，逆向证明也未添加非空限制。同一 blueprint 对 Equation2 明确提及 empty and singleton magmas，因而不能无依据地假定文中 magma 一律非空。",
-      "空类型具有唯一的二元运算，且对所有 x、y、z 的等式 Equation345169 真空成立。BooleanAlgebra 则需要顶和底常量，因此无法在空类型上构造。该空载体分析区分了未限制的原文刻画与 formal 的非空刻画。",
-      "Equation345169_is_Boolean 和它调用的 Equation345169_is_Sheffer 都显式要求 Inhabited G；后者实际使用 default 构造 ShefferAlgebra。非空前提并非可省略的纯表示细节。",
-      "正向根 Sheffer_Equation345169 从 BooleanAlgebra 的 NAND 运算推出等式，与原文正向内容对应；本次判负依据集中于逆向范围。两个 formal 根和原始输入均保持绑定。",
-      "冻结元数据的 scoped_target_summary 已写入 nonempty，但 scope 同时保留 Empty-domain convention still requires human review。本次用户确认按独立原文范围裁定，未修改摘要来掩盖此差异。",
-      "核对诱导运算发现 ShefferAlgebra 的 sup=(a◇b)′、inf=a′◇b′，原运算相对其返回的序为 NOR；取对偶布尔代数可得到 NAND。此序约定不作为本次用户确认的独立判负依据。"
+      "The independent source theorem says Equation345169 characterizes the Sheffer stroke on Boolean algebras, and its converse proof adds no nonempty restriction. The same blueprint explicitly mentions empty and singleton magmas for Equation2, so one cannot assume without evidence that every magma in the text is nonempty.",
+      "An empty type has a unique binary operation, and Equation345169, universally quantified over x, y and z, holds vacuously. A BooleanAlgebra requires top and bottom constants and cannot be constructed on an empty type. This distinguishes the unrestricted source characterization from the formal nonempty characterization.",
+      "Equation345169_is_Boolean and the Equation345169_is_Sheffer it invokes both explicitly require Inhabited G. The latter actually uses default to construct ShefferAlgebra. Nonemptiness is not a dispensable representation detail.",
+      "The forward root Sheffer_Equation345169 derives the equation from the NAND operation of a BooleanAlgebra, matching the source's forward direction. This negative label concerns the converse scope. Both formal roots and the original input remain bound.",
+      "The frozen metadata's scoped_target_summary already says nonempty, but its scope also retains Empty-domain convention still requires human review. The user confirmed adjudication against the independent source scope; the summary was not changed to hide the difference.",
+      "Checking the induced operations shows that ShefferAlgebra has sup=(a◇b)′ and inf=a′◇b′, so the original operation is NOR relative to the returned order. Passing to the dual Boolean algebra gives NAND. This order convention is not an independent basis for the user-confirmed negative label."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -121,13 +121,13 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "判定针对独立原文未限制载体的范围；若将目标另行明确限定为非空 magma，空载体差异将消失。",
-      "空载体论证用于说明范围差异，不声称反驳带 Inhabited 前提的 Lean 构造。",
-      "未重新编译项目或独立重证 Sheffer 公理推导；本次记录语义核对及用户明确确认。",
-      "保留 formal、informal、输入哈希、两条目标和技术状态；不传播标签到下一题。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "The judgment concerns the independent source's unrestricted carrier scope. If the target were explicitly restricted to nonempty magmas, the empty-carrier difference would disappear.",
+      "The empty-carrier argument demonstrates a scope difference; it does not refute the Lean construction with its Inhabited premise.",
+      "The project was not recompiled and the Sheffer-axiom derivation was not independently reproved. This record documents the semantic review and explicit user confirmation.",
+      "Retain the formal and informal inputs, input hash, both targets and technical status; do not propagate the label to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "原文 Sheffer 刻画未限定非空，且同一 blueprint 明确允许空 magma；空载体真空满足 Equation345169，却无法提供 BooleanAlgebra 的顶、底元素。formal 的逆向构造额外要求 Inhabited G，排除了这一情况。按独立原文判定，元数据摘要补写的 nonempty 不视为原文已有前提。",
-  "retained_review_scope": "独立 blueprint 的 Sheffer 等式刻画与两个 formal 根，重点核对原文允许空 magma 的约定和逆向构造的 Inhabited 前提；不以元数据摘要补写的非空范围替代原文。最短性及其他四个公理的等价性不在目标内。"
+  "retained_reason": "The source's Sheffer characterization does not impose nonemptiness, and the same blueprint explicitly permits empty magmas. An empty carrier vacuously satisfies Equation345169 but cannot provide the top and bottom elements of a BooleanAlgebra. The formal converse construction additionally requires Inhabited G, excluding this case. Under the independent source criterion, nonempty added by the metadata summary is not treated as an existing source premise.",
+  "retained_review_scope": "The independent blueprint's Sheffer-equation characterization and the two formal roots, focusing on the source convention allowing empty magmas and the converse construction's Inhabited premise. The nonempty scope added in the metadata summary does not replace the source. Minimality and equivalence with the other four axioms are outside the target."
 }

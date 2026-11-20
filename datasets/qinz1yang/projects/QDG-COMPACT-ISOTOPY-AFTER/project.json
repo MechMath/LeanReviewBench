@@ -20,7 +20,7 @@
     "QDG-COMPACT-ISOTOPY-BEFORE"
   ],
   "after_ids": [],
-  "status": "undetermined",
+  "status": "misaligned",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",
@@ -39,7 +39,7 @@
   ],
   "target_mode": "single",
   "changes": "CHANGES.md",
-  "human_adjudicated": false,
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "evaluation_eligible": false,
@@ -54,7 +54,7 @@
     "proofs_erased": true
   },
   "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
-  "review_status": "agent_preliminary",
+  "review_status": "human_reviewed",
   "alignment_reference": "metadata/labels/qinz1yang.jsonl",
   "candidate_id": "compact-vector-space-isotopy-vacuity",
   "validation_reference": "metadata/validation.json"

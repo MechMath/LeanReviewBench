@@ -1,8 +1,12 @@
 # frenzymath
 
 11 complete Lean 4.34.1 statement contexts use the native
-`paperlean-project-case-1` layout. Their binary alignment judgments await human
-review; provisional judgments do not imply approval or reference readiness.
+`paperlean-project-case-1` layout. All 11 judgments are human confirmed
+(three aligned and eight misaligned), including six accepted by explicit user
+batch confirmation. FM-COVERING-before records an explicit user misaligned
+verdict after source-text correction; the withdrawn rationale and the agent
+assessment are disclosed in its evidence.
+Review state is separate from reference readiness.
 The source repositories and informal sources remain separate between batches.
 
 - [Native index](index.csv); sources, targets, version links and review states

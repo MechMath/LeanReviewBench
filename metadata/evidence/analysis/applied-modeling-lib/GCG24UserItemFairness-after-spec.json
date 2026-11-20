@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GCG24UserItemFairness-after-spec",
   "task_id": "aml:GCG24UserItemFairness-after-spec",
-  "input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+  "input_sha256": "e501f21a465e34e30eb9b2e39d7de8444d4d20e9c84a191fa61687139872741e",
   "label": "misaligned",
   "reason": "Unnormalized integer user counts are equated to proportions alpha and 1-alpha; the missing normalization makes the premises inconsistent.",
   "review_status": "human_reviewed",
@@ -37,14 +37,14 @@
     "input_sha256": "3b545d9df92b22c4a446e376b015fd381da88dca4e321fedfa11bdb1a0ae5640",
     "review_date": "2026-11-09",
     "label": "misaligned",
-    "reason": "约化模型 canonicalReduction 使用用户人数 typeCard 作为权重，而 twoTypeReducedModel 使用比例 α、1−α；主规格的 hred 要求两者结构严格相等，取第 0 类权重即得 (typeCard S.types 0 : ℝ)=α，与 0<α<1 矛盾，导致全部前提不可满足。判负依据是人数与比例之间缺失归一化，不使用仅陈述前半区间的旧理由。相关原始定义片段已在 Lean 4.12.0-rc1 独立证明 hred 不可能成立，无 sorryAx；此验证不等于完整快照编译认证。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-09: 好 请为我改一下标注谢谢; follows the review recommending misaligned for GCG24UserItemFairness-after-spec.",
+    "reason": "The reduced model canonicalReduction uses the user count typeCard as its weight, whereas twoTypeReducedModel uses proportions α and 1−α. The main specification's hred requires these structures to be exactly equal. Comparing the weight of type 0 gives (typeCard S.types 0 : ℝ)=α, contradicting 0<α<1 and making the premises jointly unsatisfiable. The negative label is based on the missing normalization from counts to proportions, not the earlier argument about stating only the first half of the interval. The relevant original definitions were independently used in Lean 4.12.0-rc1 to prove that hred is impossible, without sorryAx; this does not certify compilation of the full snapshot.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-09 (translated from Chinese): Okay, please update the annotation, thank you; follows the review recommending misaligned for GCG24UserItemFairness-after-spec.",
     "reviewer": "Codex",
     "reviewer_type": "model",
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。",
+    "review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement.",
     "informal_source": {
       "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/cf836efd32fd53493e02d26670f04d46-Paper-Conference.pdf",
       "locator": "Theorem 3, printed p6; model and theorem repeated Appendix D, printed p27",
@@ -121,6 +121,6 @@
       "User authorization changes the provisional model label; it does not convert the record into a human gold label."
     ]
   },
-  "retained_reason": "约化模型 canonicalReduction 使用用户人数 typeCard 作为权重，而 twoTypeReducedModel 使用比例 α、1−α；主规格的 hred 要求两者结构严格相等，取第 0 类权重即得 (typeCard S.types 0 : ℝ)=α，与 0<α<1 矛盾，导致全部前提不可满足。判负依据是人数与比例之间缺失归一化，不使用仅陈述前半区间的旧理由。相关原始定义片段已在 Lean 4.12.0-rc1 独立证明 hred 不可能成立，无 sorryAx；此验证不等于完整快照编译认证。",
-  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
+  "retained_reason": "The reduced model canonicalReduction uses the user count typeCard as its weight, whereas twoTypeReducedModel uses proportions α and 1−α. The main specification's hred requires these structures to be exactly equal. Comparing the weight of type 0 gives (typeCard S.types 0 : ℝ)=α, contradicting 0<α<1 and making the premises jointly unsatisfiable. The negative label is based on the missing normalization from counts to proportions, not the earlier argument about stating only the first half of the interval. The relevant original definitions were independently used in Lean 4.12.0-rc1 to prove that hred is impossible, without sorryAx; this does not certify compilation of the full snapshot.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
 }

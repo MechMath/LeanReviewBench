@@ -33,8 +33,8 @@
     "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文的 ARSDH 假设限定电路规模，before 的 arsdhAssumption 却量化所有该类型的 Lean 函数。无资源限制的函数可恢复 τ，选取 n+1 个避开 τ 的点并构造 ARSDH 解，以概率 1 成功，使 error<1 时的困难性前提无法成立；此外，formal 未表达原文的具体归约电路开销。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为misaligned; confirms misaligned for arklib:kzg-function-binding-before after reviewing the unrestricted-adversary hardness assumption and the missing circuit-size guarantee.",
+    "reason": "The source ARSDH assumption bounds circuit size, but the before arsdhAssumption quantifies every Lean function of that type. An unrestricted function can recover τ, choose n+1 points avoiding τ, and construct an ARSDH solution that succeeds with probability 1, making the hardness premise impossible when error<1. The formalization also omits the source's concrete reduction-circuit overhead.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms misaligned for arklib:kzg-function-binding-before after reviewing the unrestricted-adversary hardness assumption and the missing circuit-size guarantee.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路的 ARSDH 困难性假设与具体归约规模开销；仅本 before 输入。",
+    "review_scope": "The currently frozen cached transcription of CGKY25 Lemma 9.1, including the ARSDH hardness assumption for bounded-size circuits and the concrete reduction-size overhead; only this before input.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/kzg-function-binding-before/informal.jsonl",
@@ -116,20 +116,20 @@
       }
     },
     "semantic_argument": [
-      "原文对规模受限的 ARSDH 电路施加成功概率上界；before 的 arsdhAssumption 对 arsdhAdversary 类型的所有函数量化，没有任何计算资源或攻击者类限制。",
-      "根中的 pairing(g1,g2)≠0 蕴含 g2≠1。在素数阶群中，非单位 g2 的指数映射 τ↦g2^τ 单射。SRS 公开 g2^τ，无资源限制的函数可取该映射的逆恢复 τ。",
-      "根前提 p≥n+2 保证域中除去 τ 后仍有至少 n+1 个点。攻击者选取大小为 n+1、避开 τ 的集合 S，因而 Z_S(τ)=∏_{s∈S}(τ-s)≠0。",
-      "输出 (S,h1,h2)=(S,g1,g1^(1/Z_S(τ)))，由 hg1:g1≠1 满足全部 arsdhCondition 条件。对每个采样的 τ 均成功，故 ARSDH 成功概率为 1。",
-      "因此 arsdhError<1 时，before 的困难性前提无法成立；error≥1 时只给出平凡概率界。这偏离原文针对受限电路的计算困难性假设。",
-      "原文还明确要求 t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)²。formal 的根和相关攻击者、归约定义没有表达该电路规模保证。",
-      "函数绑定成功事件的结构与原文对应，且双方均为概率不等式；本次不使用前面 evaluation-binding reduction 的概率等式问题判负。"
+      "The source bounds the success probability of size-bounded ARSDH circuits. The before arsdhAssumption quantifies all functions of type arsdhAdversary, without any computational-resource or adversary-class restriction.",
+      "The root condition pairing(g1,g2)≠0 implies g2≠1. In a prime-order group, exponentiation τ↦g2^τ by a nonidentity g2 is injective. The SRS publishes g2^τ, so an unrestricted function can recover τ by inverting this map.",
+      "The root premise p≥n+2 ensures that at least n+1 field elements remain after excluding τ. The adversary chooses a set S of size n+1 avoiding τ, so Z_S(τ)=∏_{s∈S}(τ-s)≠0.",
+      "Output (S,h1,h2)=(S,g1,g1^(1/Z_S(τ))). Together with hg1:g1≠1, this satisfies every arsdhCondition requirement. It succeeds for every sampled τ, giving ARSDH success probability 1.",
+      "Thus the before hardness premise cannot hold when arsdhError<1; when error≥1 it gives only a trivial probability bound. This differs from the source's computational-hardness assumption for bounded-size circuits.",
+      "The source also explicitly requires t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)². The formal root and related adversary and reduction definitions do not express this circuit-size guarantee.",
+      "The structure of the function-binding success event corresponds to the source, and both statements use probability inequalities. The probability-equality issue from the preceding evaluation-binding reductions is not used here."
     ],
     "parameter_cross_check": {
       "formal_message_space": "Fin (n + 1) → ZMod p",
-      "degree_interpretation": "n+1 个系数，对应次数至多 n",
+      "degree_interpretation": "n+1 coefficients, corresponding to degree at most n",
       "arsdh_cardinality": "S.card = n + 1",
-      "paper_correspondence": "就次数和集合大小约定而言，应对应 n=D。",
-      "scope_note_correction": "现有 scope 中 Lean degree<n 并建议 n=D+1 的说明与实际源码不符；不修改冻结输入，也不以此说明制造 off-by-one 判负理由。"
+      "paper_correspondence": "Under the degree and set-cardinality conventions, the correspondence should be n=D.",
+      "scope_note_correction": "The existing scope's description of Lean degree<n and its suggested n=D+1 correspondence do not match the actual source code. The frozen input is not changed, and this description is not used to manufacture an off-by-one objection."
     },
     "verification": {
       "source_binding_checked": true,
@@ -137,19 +137,19 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "当前来源是带日期的论文缓存转写，未获得原 PDF 的精确修订号及字节哈希；本决定针对当前绑定文本。",
-      "无界逆函数不代表规模受限的攻击电路；不声称破解原文密码学假设。",
-      "判负针对困难性前提范围及结论覆盖，不声称带该前提的 Lean 条件定理自身为假。",
-      "缺少电路规模形式化不意味着实际归约必然超预算；此处没有证明实际复杂度下界。",
-      "随机实验、辅助输入分布及其他前提不作为额外判负依据，不修改其他输入的标签。",
-      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+      "The current source is a dated cached paper transcription; the exact original PDF revision and byte hash were not obtained. This decision concerns the currently bound text.",
+      "The unbounded inverse function is not a size-bounded attack circuit; this is not a claim that the source's cryptographic assumption has been broken.",
+      "The negative label concerns the scope of the hardness premise and the coverage of the conclusion; it does not claim that the Lean conditional theorem with that premise is false.",
+      "The absence of a circuit-size formalization does not imply that the actual reduction necessarily exceeds its budget; no lower bound on actual complexity is proved here.",
+      "Randomized experiments, auxiliary-input distributions and other premises are not additional reasons for a negative label; no other input's label is changed.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ],
     "corroboration": {
       "declaration": "Groups.not_arsdhAssumption_univ",
       "location": "corroborating_after_lemma",
-      "role": "对应 after 的源码给出非单位生成元、p≥D+2、error<1 时 unrestricted-class ARSDH 假设不成立的 Lean 证明；本次已阅读并与 before 的实验定义核对，未重新编译。"
+      "role": "The corresponding after source contains a Lean proof that the unrestricted-class ARSDH assumption fails for a nonidentity generator, p≥D+2 and error<1. This review read it and checked it against the before experiment definition, without recompiling."
     }
   },
-  "retained_reason": "原文的 ARSDH 假设限定电路规模，before 的 arsdhAssumption 却量化所有该类型的 Lean 函数。无资源限制的函数可恢复 τ，选取 n+1 个避开 τ 的点并构造 ARSDH 解，以概率 1 成功，使 error<1 时的困难性前提无法成立；此外，formal 未表达原文的具体归约电路开销。",
-  "retained_review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路的 ARSDH 困难性假设与具体归约规模开销；仅本 before 输入。"
+  "retained_reason": "The source ARSDH assumption bounds circuit size, but the before arsdhAssumption quantifies every Lean function of that type. An unrestricted function can recover τ, choose n+1 points avoiding τ, and construct an ARSDH solution that succeeds with probability 1, making the hardness premise impossible when error<1. The formalization also omits the source's concrete reduction-circuit overhead.",
+  "retained_review_scope": "The currently frozen cached transcription of CGKY25 Lemma 9.1, including the ARSDH hardness assumption for bounded-size circuits and the concrete reduction-size overhead; only this before input."
 }

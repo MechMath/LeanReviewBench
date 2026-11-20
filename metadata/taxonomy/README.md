@@ -1,11 +1,18 @@
 # Misalignment taxonomy and annotations
 
 The [current five-category standard](standard.md) and diagnostic annotations are
-kept together here. All **90 currently misaligned inputs** have one to three
+kept together here. The **90 misaligned inputs from the original 171 human-reviewed records** have one to three
 category labels. These remain provisional classifications of retained semantic
 judgments, not human-adjudicated category labels or a new binary evaluation task.
 The underlying binary judgments are human reviewed; the category-assignment
 review state is separate.
+
+The Poincare batches are outside these 90 classifications. Their alignment
+labels and analysis are retained in the standard metadata paths. Twenty-one
+Poincare misaligned verdicts and five aligned verdicts are human confirmed; the
+taxonomy assignments for those twenty-one negative cases remain pending. The
+FM-COVERING-before label is an explicit user verdict without an independently
+established mismatch after source-text correction; no category is inferred for it.
 
 | File | Purpose |
 | --- | --- |

@@ -28,6 +28,6 @@
   "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根新增 Summable f，其中 f 的索引是整个欧氏空间，不是离散格点；论文允许非零 Schwartz 辅助函数，没有此全空间计数可和假设。",
+  "retained_reason": "The root adds Summable f, where f is indexed by the entire Euclidean space rather than discrete lattice points. The paper permits nonzero Schwartz auxiliary functions and imposes no such summability assumption with respect to counting on the whole space.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

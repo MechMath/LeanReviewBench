@@ -5,22 +5,259 @@
   "input_sha256": "2eb1c988a9a67b3c04f0168303baf64efe2551b4ef95a674daf01717a2aad226",
   "root": "MorganTianLib.WeakLaplacianLE",
   "label": "aligned",
-  "reason": "For the selected Riemannian weak-Laplacian interface, the added hg hypothesis installs g as the Riemannian metric inducing the ambient edist. Therefore LocallyLipschitz now uses the same Riemannian distance as the independently sourced Morgan-Tian convention. The body preserves the distributional test inequality against every nonnegative compactly supported smooth test function, with Laplacian and volume computed from g. This resolves the specifically selected ambient-distance mismatch.",
-  "review_scope": "Same independent Morgan-Tian materials and distance-function qualification as before. This is alignment of the weak inequality definition/interface under the source standing conventions, not a proof of the Calabi distance comparison and not a claim that the arbitrary-f/h generalization is literally the entire source theorem. Before/after label choice is independently reasoned, not inferred from repair direction; human scope review remains necessary.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "reason": "The explicit g.IsRiemannianDist argument installs the tangent inner products from g and requires the ambient distance to equal the corresponding intrinsic path distance, so LocallyLipschitz has the source meaning. The predicate uses the Laplace-Beltrami operator and volume from the same g and tests every nonnegative compactly supported smooth function with the source inequality direction. Local regularity ensures that both test integrals exist, and a positive change in Haar normalization scales both sides equally. Specializing f to d_g(p,.) and h to (n-1)/f recovers the bound weak-inequality definition; the root does not purport to prove the Calabi comparison theorem.",
+  "review_scope": "The weak distributional inequality interface in the bound Morgan-Tian remark under its distance and testing conventions; not an assertion of the Calabi comparison theorem.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "MorganTianLib.WeakLaplacianLE"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/informal.jsonl",
+      "sha256": "f93d41e94759c510cff2198ed88b09d83213bdc4e6873327babadd7cce430412",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "version": "arXiv:math/0607607v2",
+        "version_date": "2007-03-21",
+        "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+        "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+        "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+        "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+        "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+        "locator": "Chapter1 metric-distance context and Remark1.29, prelim.tex selected line spans retained in binding record",
+        "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+      },
+      "bound_scope": "Weak distributional Laplacian inequality for the metric-distance function, with the source metric and testing conventions."
+    },
+    "first_pass": "The explicit g.IsRiemannianDist argument installs the tangent inner products from g and requires the ambient distance to equal the corresponding intrinsic path distance, so LocallyLipschitz has the source meaning. The predicate uses the Laplace-Beltrami operator and volume from the same g and tests every nonnegative compactly supported smooth function with the source inequality direction. Local regularity ensures that both test integrals exist, and a positive change in Haar normalization scales both sides equally. Specializing f to d_g(p,.) and h to (n-1)/f recovers the bound weak-inequality definition; the root does not purport to prove the Calabi comparison theorem.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 761,
+        "line_end": 777,
+        "anchor": "def WeakLaplacianLE (mu : Measure E) [mu.IsAddHaarMeasure]",
+        "declaration": "MorganTianLib.WeakLaplacianLE"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 710,
+        "line_end": 713,
+        "anchor": "def IsRiemannianDist"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 342,
+        "line_end": 346,
+        "anchor": "noncomputable def metricRiesz"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 358,
+        "line_end": 365,
+        "anchor": "noncomputable def RiemannianMetric.koszulRHSraw"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 391,
+        "line_end": 395,
+        "anchor": "noncomputable def RiemannianMetric.koszulCovec"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 407,
+        "line_end": 410,
+        "anchor": "noncomputable def RiemannianMetric.koszulDualSection"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 439,
+        "line_end": 444,
+        "anchor": "noncomputable def RiemannianMetric.leviCivitaCovField"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 543,
+        "line_end": 545,
+        "anchor": "noncomputable def extendVector"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 557,
+        "line_end": 559,
+        "anchor": "def hessian"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 572,
+        "line_end": 574,
+        "anchor": "noncomputable def hessianAt"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 587,
+        "line_end": 592,
+        "anchor": "noncomputable def laplacianAt"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 607,
+        "line_end": 608,
+        "anchor": "def chartVolumeDensity"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 623,
+        "line_end": 626,
+        "anchor": "def chartMeasure"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 679,
+        "line_end": 680,
+        "anchor": "def chartPiece"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/formal/Main.lean",
+        "sha256": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1",
+        "line_start": 697,
+        "line_end": 700,
+        "anchor": "def riemannianMeasure"
+      }
+    ],
+    "second_pass": "The distance hypothesis was unfolded through RiemannianBundle, IsRiemannianManifold.out, and riemannianEDist: it binds the ambient distance to path lengths computed with the metric g, not merely to an unspecified compatible topology. Its proof argument is required by the declaration type even though the body does not inspect that proof. The previous cubic-pullback metric therefore cannot satisfy the new argument. The retained Koszul construction has the correct argument order for the Levi-Civita connection; TensorialAt.mkHom evaluates differentiable extensions rather than requiring arbitrary nonsmooth sections to obey the Koszul formula. The Hessian trace uses a g-orthonormal basis. The volume construction glues compatible sqrt(det g) chart densities over a disjoint countable cover; arbitrary fixed model basis and Haar normalization contribute only a common positive scalar. The local regularity hypotheses ensure integrability of both compact-test integrands, so the statement does not exploit totalized integrals. The source specialization is a definition of a weak bound, not the Ricci-to-Calabi implication.",
+    "unresolved_questions": [],
+    "verification_limits": "This is a semantic review of the retained computational definitions, mathematical constructions and pinned library contracts. No new Lean equivalence theorem or upstream proof was compiled. Proof-erasure sorries are not counted as misalignment. The aligned verdict is now human confirmed; mathematical inputs and export-readiness flags are unchanged.",
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "The user requested the next case after the before-version weak-Laplacian review.",
+      "recommended_label": "aligned",
+      "adjudication": "The user explicitly confirmed aligned on 2026-11-20 and requested no further reason writing. The existing reason and review scope are preserved verbatim. No human confirmation of the before version is inferred.",
+      "source_check": {
+        "url": "https://arxiv.org/pdf/math/0607607v2",
+        "metric_convention": "Definition 1.1 and following paragraph, printed page 35 / PDF page 38.",
+        "weak_definition": "Remark 1.29, printed page 48 / PDF page 51.",
+        "selected_scope": "The distributional testing definition specialized to the metric-distance function and (n-1)/f, rather than a proof of Exercise 1.28."
+      }
+    },
+    "definition_comparison": {
+      "distance_binding": "IsRiemannianDist first installs RiemannianBundle using g.toRiemannianMetric, then requires IsRiemannianManifold. The latter has out(x,y): edist x y = riemannianEDist I x y. riemannianEDist is the infimum of C1 path lengths measured with the installed tangent norms. The scoped RiemannianBundle instances construct those norms and inner products from g. TangentSpace does not automatically inherit the model-space norm instance, preventing an unintended metric substitution.",
+      "unused_proof_argument": "hg is an explicit argument of WeakLaplacianLE with type g.IsRiemannianDist. The predicate body need not use its proof term: callers must still supply the proposition, so the distance restriction is effective.",
+      "before_counterexample": "For Euclidean g and rho induced by F(x,y)=(x^3,y), rho((0,0),(epsilon,0))=epsilon^3 while the g-induced distance is epsilon. For example epsilon=1/2 gives 1/8 versus 1/2. Therefore that ambient metric cannot admit hg. With the ordinary Euclidean distance, the distance function in the earlier example is 1-Lipschitz as required.",
+      "laplacian": "The raw Koszul formula for arguments X,Y evaluates 2*g(nabla_Y X,sigma). leviCivitaCovField A B intentionally passes B,A, yielding nabla_A B. metricRiesz divides the Koszul covector by 2. hessian computes X(Y(f))-(nabla_X Y)(f), and laplacianAt takes its trace in the g-orthonormal basis installed locally. Thus the tested operator has the source Laplace-Beltrami sign and metric.",
+      "extension_choice": "TensorialAt imposes its linearity laws only on differentiable sections, and mkHom evaluates a differentiable extension of a fiber vector. The smooth extensions chosen by extendVector enter a tensorial Hessian expression, so their values at the point determine the result. These choices do not replace the intended connection or Hessian by arbitrary data.",
+      "volume": "chartBasisVecFiber gives the fixed-chart coordinate basis, chartGramMatrix is its g matrix, and chartVolumeDensity is sqrt(det Gram). chartMeasure pushes that density forward from the chart target. chartPiece disjointifies a countable chart cover; summing the restricted compatible chart measures counts each point once. The resulting measure is the Riemannian volume up to a fixed positive constant determined by the model Haar measure and fixed basis normalization.",
+      "test_functions": "The root quantifies universally over phi:M->R, then requires 0<=phi pointwise, HasCompactSupport phi, and ContMDiff infinity. It asserts integral f*Delta_g(phi) <= integral h*phi, both with the same g-volume. There is no sign reversal, missing class of nonnegative tests, or replacement of universal testing by a selected test.",
+      "integrability": "LocallyLipschitz f implies continuity. For a smooth compactly supported phi, Delta_g(phi) is smooth and vanishes outside tsupport(phi), so f*Delta_g(phi) is continuous with compact support and is integrable against the locally finite g-volume. LocallyIntegrable h together with continuity and compact support of phi makes h*phi integrable. Thus both Bochner integrals have their ordinary meaning.",
+      "haar_normalization": "IsAddHaarMeasure includes finiteness on compact sets, translation invariance and positivity on nonempty open sets, excluding zero or infinite normalization. On the finite-dimensional real model space, Haar measures differ by a finite positive scalar. Changing that scalar multiplies the volume and both test integrals by the same factor and preserves local integrability and the inequality.",
+      "source_specialization": "Taking f=d_g(p,.) and h=(n-1)/f gives the bound source weak-definition formula. The Lipschitz requirement is satisfied by the distance triangle inequality. The generic f/h arguments package that definition; no Ricci hypothesis is needed to define the proposition. A theorem deducing that proposition from Ricci>=0 would be a separate target."
+    },
+    "pinned_library_evidence": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "files": [
+        {
+          "file": "Mathlib/Geometry/Manifold/Riemannian/Basic.lean",
+          "sha256": "94e9bfda33e58dfe16187cface8a3702076460ed8e8515d07b5634ed22d21e0e",
+          "line_start": 71,
+          "line_end": 82,
+          "relevance": "The distance equality required by IsRiemannianManifold."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/Riemannian/PathELength.lean",
+          "sha256": "a3ebf392ebb7510a4a9458eb5943d64bb8269c39d65224745e59c60089e8625b",
+          "line_start": 205,
+          "line_end": 209,
+          "relevance": "Intrinsic distance is defined through lengths of C1 paths."
+        },
+        {
+          "file": "Mathlib/Topology/VectorBundle/Riemannian.lean",
+          "sha256": "0843d63047ded5737ec11933b101f258748f6efa8a31c4934893d044ff44b2e5",
+          "line_start": 397,
+          "line_end": 464,
+          "relevance": "RiemannianBundle installs tangent norms and inner products from g."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
+          "sha256": "b4eefdd19a4e3e6c50a368c7c08f02212e6c989272809657df29dfed1c3f8009",
+          "line_start": 1028,
+          "line_end": 1044,
+          "relevance": "TangentSpace does not simply inherit a model-space norm instance."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/VectorBundle/Tensoriality.lean",
+          "sha256": "b0a8d6853c83f66ef3280a48c34ed87cb27d4d151eefb3637a00d9312f9e5532",
+          "line_start": 68,
+          "line_end": 72,
+          "relevance": "Tensoriality is required only for differentiable sections."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/VectorBundle/Tensoriality.lean",
+          "sha256": "b0a8d6853c83f66ef3280a48c34ed87cb27d4d151eefb3637a00d9312f9e5532",
+          "line_start": 184,
+          "line_end": 216,
+          "relevance": "mkHom evaluates differentiable fiber extensions and agrees on point values."
+        },
+        {
+          "file": "Mathlib/Topology/EMetricSpace/Lipschitz.lean",
+          "sha256": "25611eec76f2a5a9312506507c5064bdd826fde11c578658393f17cdac9a0cd6",
+          "line_start": 364,
+          "line_end": 370,
+          "relevance": "Local Lipschitz regularity implies continuity."
+        },
+        {
+          "file": "Mathlib/MeasureTheory/Function/LocallyIntegrable.lean",
+          "sha256": "b64a5dcc099b916bcf213f441092873475fb326bac913e03890c2f268d56540b",
+          "line_start": 446,
+          "line_end": 452,
+          "relevance": "A locally integrable function times a continuous compactly supported function is integrable."
+        },
+        {
+          "file": "Mathlib/MeasureTheory/Function/LocallyIntegrable.lean",
+          "sha256": "b64a5dcc099b916bcf213f441092873475fb326bac913e03890c2f268d56540b",
+          "line_start": 621,
+          "line_end": 625,
+          "relevance": "Continuous compactly supported functions are integrable for locally finite volume."
+        },
+        {
+          "file": "Mathlib/MeasureTheory/Group/Measure.lean",
+          "sha256": "cba62e69e14aafd9e79c41c3209cc75828e5bd7e3bcf46e5af7d8281e43696bd",
+          "line_start": 766,
+          "line_end": 774,
+          "relevance": "The Haar hypothesis requires local finiteness and positivity, excluding zero measure."
+        }
+      ]
+    }
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "For the selected Riemannian weak-Laplacian interface, the added hg hypothesis installs g as the Riemannian metric inducing the ambient edist. Therefore LocallyLipschitz now uses the same Riemannian distance as the independently sourced Morgan-Tian convention. The body preserves the distributional test inequality against every nonnegative compactly supported smooth test function, with Laplacian and volume computed from g. This resolves the specifically selected ambient-distance mismatch.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The explicit g.IsRiemannianDist argument installs the tangent inner products from g and requires the ambient distance to equal the corresponding intrinsic path distance, so LocallyLipschitz has the source meaning. The predicate uses the Laplace-Beltrami operator and volume from the same g and tests every nonnegative compactly supported smooth function with the source inequality direction. Local regularity ensures that both test integrals exist, and a positive change in Haar normalization scales both sides equally. Specializing f to d_g(p,.) and h to (n-1)/f recovers the bound weak-inequality definition; the root does not purport to prove the Calabi comparison theorem.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/frenzymath/Poincare-Conjecture",
       "commit": "6530802c544270722767513028e0045862daa575",
@@ -55,7 +292,14 @@
       "previous_input_sha256": "e6e27861f49e29722f34f7782c530c00dfc11a1d9e050d035e037e28ca77608f",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "e6e27861f49e29722f34f7782c530c00dfc11a1d9e050d035e037e28ca77608f"
+    },
+    "followup_recommendation": "The user accepted aligned after the distance, operator, measure, testing and integrability review.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "aligned",
+      "reason_recording": "The user requested no further reason writing; the pre-existing reason and scope were preserved verbatim."
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained English reason and detailed follow-up review are unchanged in mathematical substance. The user-confirmed aligned verdict is recorded in curator_notes.human_adjudication; no new reason was written on confirmation."
 }

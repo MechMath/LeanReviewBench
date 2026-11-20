@@ -495,51 +495,87 @@
       },
       {
         "tool": "github_search_issues",
-        "query": "许可",
+        "query": "license",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_prs",
-        "query": "许可",
+        "query": "license",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_commits",
-        "query": "许可",
+        "query": "license",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_issues",
-        "query": "授权",
+        "query": "authorization",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_prs",
-        "query": "授权",
+        "query": "authorization",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_commits",
-        "query": "授权",
+        "query": "authorization",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 2,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_issues",
@@ -575,19 +611,31 @@
       },
       {
         "tool": "github_search_issues",
-        "query": "历史 in:title,body,comments",
+        "query": "history in:title,body,comments",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_issues",
-        "query": "授权 in:title,body,comments",
+        "query": "authorization in:title,body,comments",
         "repository": "qinz1yang/differential-geometry",
         "returned_count": 0,
         "truncation": "no visible cap hit; returned_count is not API total and GitHub indexing/default reachable branch coverage is not exhaustive historical coverage",
-        "error": null
+        "error": null,
+        "query_translation": {
+          "original_language": "Chinese",
+          "translation_language": "English",
+          "date": "2026-11-20",
+          "note": "The displayed query is an English translation. Counts and errors record the original Chinese query; this English query was not rerun."
+        }
       },
       {
         "tool": "github_search_prs",

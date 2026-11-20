@@ -4,23 +4,67 @@
   "project_id": "QDG-POINTWISE-after",
   "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
   "root": "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat",
-  "label": "undetermined",
-  "reason": "The missing derivative linkage is repaired: toFun is the actual indefinite Bochner integral, deriv is the genuine L2 component, and hrep ties a continuous g to that component. This is a credible stronger-regularity pointwise FTC corollary. However the unchanged independent Hunter target is the general Banach-valued L1 weak-derivative forward implication with a.e. agreement, whereas after assumes Hilbert completeness, timeH1 and continuous derivative and concludes everywhere one-sided derivative. Whether this specialized corollary is acceptable as the same benchmark target requires explicit human scope review; source theorem equivalence is not claimed.",
-  "review_scope": "No automatic aligned label. Same Hunter target and a.e./everywhere qualifications retained; do not silently replace it with a new continuous-derivative theorem.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "misaligned",
+  "reason": "The root applies to a Hilbert-valued timeH1 element reconstructed from an initial value and an L2 derivative, and additionally requires a continuous representative g of that derivative. The bound source covers Banach-valued L1 functions with an integrable weak derivative, without continuity of that derivative. The formal pointwise fundamental-theorem-of-calculus corollary therefore excludes source-admissible functions and does not express the general weak-derivative characterization.",
+  "review_scope": "The unchanged Hunter target and its stated Banach/L1 scope; no replacement by a continuous-derivative corollary.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-POINTWISE-after/informal.jsonl",
+      "sha256": "43c99052265bccf54e4c80ebcec0e4c114f5c56fe3dd5d0aac18ac12df7fad85",
+      "id": "main",
+      "source": {
+        "url": "https://www.math.ucdavis.edu/~hunter/pdes/pde_notes.pdf",
+        "version": "Revised 2014-06-18, downloaded 2026-11-19",
+        "locator": "Section 6.A.3, Theorem 6.35, printed p.203 (PDF p.209), equation (6.43)",
+        "sha256": "0dbade1806f7a1ea79cc444a0eecfe19e157b286c964f1f48f2d744c460c12dd"
+      },
+      "bound_scope": "Banach-valued functions with an integrable weak derivative on a finite interval; the source concludes almost-everywhere differentiability."
+    },
+    "first_pass": "The root applies to a Hilbert-valued timeH1 element reconstructed from an initial value and an L2 derivative, and additionally requires a continuous representative g of that derivative. The bound source covers Banach-valued L1 functions with an integrable weak derivative, without continuity of that derivative. The formal pointwise fundamental-theorem-of-calculus corollary therefore excludes source-admissible functions and does not express the general weak-derivative characterization.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-POINTWISE-after/formal/Main.lean",
+        "sha256": "c1d91008cd8b949ff2dfe5badd5c8fa7661579ddd02c4bc4d4d36d27a6e9b77f",
+        "line_start": 50,
+        "line_end": 60,
+        "anchor": "theorem maxreg_l2deriv_to_pointwise_hasderivwithinat",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-POINTWISE-after/formal/Main.lean",
+        "sha256": "c1d91008cd8b949ff2dfe5badd5c8fa7661579ddd02c4bc4d4d36d27a6e9b77f",
+        "line_start": 17,
+        "line_end": 20,
+        "anchor": "def timeH1"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-POINTWISE-after/formal/Main.lean",
+        "sha256": "c1d91008cd8b949ff2dfe5badd5c8fa7661579ddd02c4bc4d4d36d27a6e9b77f",
+        "line_start": 41,
+        "line_end": 43,
+        "anchor": "def toFun"
+      }
+    ],
+    "second_pass": "The repair genuinely links u.toFun to u.deriv and is not alleged false. Even in X = R, the source admits f(t) = |t - 1/2| on (0,1), whose weak derivative is a step function with no continuous almost-everywhere equal representative. Hence the additional continuity assumption is substantive, not a different presentation of the same domain.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The missing derivative linkage is repaired: toFun is the actual indefinite Bochner integral, deriv is the genuine L2 component, and hrep ties a continuous g to that component. This is a credible stronger-regularity pointwise FTC corollary. However the unchanged independent Hunter target is the general Banach-valued L1 weak-derivative forward implication with a.e. agreement, whereas after assumes Hilbert completeness, timeH1 and continuous derivative and concludes everywhere one-sided derivative. Whether this specialized corollary is acceptable as the same benchmark target requires explicit human scope review; source theorem equivalence is not claimed.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The root applies to a Hilbert-valued timeH1 element reconstructed from an initial value and an L2 derivative, and additionally requires a continuous representative g of that derivative. The bound source covers Banach-valued L1 functions with an integrable weak derivative, without continuity of that derivative. The formal pointwise fundamental-theorem-of-calculus corollary therefore excludes source-admissible functions and does not express the general weak-derivative characterization.",
+    "uncertainty": "",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
@@ -45,7 +89,16 @@
       "previous_input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "640d4bc4ce4b626f177e2f2629fa4942d8de8732ba2a335610becbc8f4a4fd37"
-    }
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
 }

@@ -4,23 +4,83 @@
   "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
   "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
   "root": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product",
-  "label": "undetermined",
-  "reason": "The complete before root pairs raw chart-coordinate transport values with moving-fiber g.inner; a realized affine-atlas counterexample is proposed but tangent-coordinate convention review remains pending. After uses fixed-chart Gram pairing on a preconnected chart segment, repairing the pairing mismatch, but the shared global all-charts transport construction still needs semantic adjudication.",
-  "review_scope": "Independent Tumarkin2019 Exercise8.3 metric preservation correspondence; coordinate conventions and global transport construction remain human scope review.",
-  "review_status": "agent_preliminary",
-  "human_adjudicated": false,
+  "label": "misaligned",
+  "reason": "The root pairs the chosen transport values directly using the moving-fiber metric. Its shared transport constructor chooses one E-valued function required to satisfy the chart parallel equations in every chart without an explicit change of its components. This raises a substantive coordinate-compatibility concern, but a separating example realized with the actual Lean tangent trivializations has not been checked.",
+  "review_scope": "The bound metric-preservation statement for intrinsic Levi-Civita parallel transport, including its coordinate realization.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
   "reference_ready": false,
   "gold_label": null,
   "schema_version": "leanreviewbench-analysis-evidence-1",
   "roots": [
     "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
   ],
-  "analysis_status": "retained_label_reason_only",
-  "analysis": null,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/informal.jsonl",
+      "sha256": "601ea596fa1b1202b92d616032de22e3715c6e7896c1a838f45c5669b133565b",
+      "id": "main",
+      "source": {
+        "title": "Riemannian Geometry IV, Solutions 8",
+        "author": "Pavel Tumarkin",
+        "url": "https://www.maths.dur.ac.uk/users/pavel.tumarkin/past/fall19/RG/RG8-sols.pdf",
+        "sha256": "1504f3ad5ff48caef13384dfac5918f490af1a43cf165bb116348ff0950257b4",
+        "locator": "Michaelmas 2019, Exercise8.3 and solution, printed p.4 / PDF p.4",
+        "text_kind": "independently_read_paraphrase"
+      },
+      "bound_scope": "Levi-Civita parallel transport and the Riemannian metric pairing of tangent vector fields along a smooth curve."
+    },
+    "first_pass": "The root pairs the chosen transport values directly using the moving-fiber metric. Its shared transport constructor chooses one E-valued function required to satisfy the chart parallel equations in every chart without an explicit change of its components. This raises a substantive coordinate-compatibility concern, but a separating example realized with the actual Lean tangent trivializations has not been checked.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 286,
+        "line_end": 295,
+        "anchor": "theorem parallelTransport_preserves_inner_product",
+        "declaration": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 71,
+        "line_end": 75,
+        "anchor": "def chartBasisVecFiber"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 210,
+        "line_end": 216,
+        "anchor": "def IsCovDerivAlongChart"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 254,
+        "line_end": 262,
+        "anchor": "theorem parallel_global_extension"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 272,
+        "line_end": 276,
+        "anchor": "noncomputable def parallelTransport"
+      }
+    ],
+    "second_pass": "In ordinary coordinates on the Euclidean line, the charts x and y = exp(x) give V-prime = 0 and V-prime = V along x(t) = t if the same scalar component is incorrectly used in both. This motivates a countermodel, but it has not been realized and checked against chartAt, chartBasisVecFiber, and the smooth metric instance of the supplied context. No formal refutation or proof of equivalence is claimed. The subsequent definition-level review resolved the coordinate objection mathematically, and the user confirmed the misaligned verdict. No new written reason is added in this annotation step.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. The user has confirmed the binary verdict; export readiness is unchanged."
+  },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The complete before root pairs raw chart-coordinate transport values with moving-fiber g.inner; a realized affine-atlas counterexample is proposed but tangent-coordinate convention review remains pending. After uses fixed-chart Gram pairing on a preconnected chart segment, repairing the pairing mismatch, but the shared global all-charts transport construction still needs semantic adjudication.",
-    "uncertainty": "Human review of mathematical target correspondence remains pending.",
+    "agent_assessment": "The root pairs the chosen transport values directly using the moving-fiber metric. Its shared transport constructor chooses one E-valued function required to satisfy the chart parallel equations in every chart without an explicit change of its components. This raises a substantive coordinate-compatibility concern, but a separating example realized with the actual Lean tangent trivializations has not been checked.",
+    "uncertainty": "The user confirmed misaligned after the definition-level coordinate review. A Lean-certified counterexample has not been produced.",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
@@ -46,7 +106,13 @@
       "previous_input_sha256": "f048faf510a133b6d9a1f4b52649ff9d8196d901aa420a8c7b673156825713fe",
       "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
       "archived_input_sha256": "f048faf510a133b6d9a1f4b52649ff9d8196d901aa420a8c7b673156825713fe"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned",
+      "reason_rewrite_deferred": true
     }
   },
-  "analysis_availability": "Preliminary judgment reason and source-binding summary retained locally; full historical screening is available through the pinned preparation archive."
+  "analysis_availability": "The preliminary written reason and review are retained; the later user-confirmed verdict is recorded in curator_notes.human_adjudication. A rewrite of the reason is deferred at the user's request."
 }
