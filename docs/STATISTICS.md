@@ -1,10 +1,12 @@
 # Registered project-case batch statistics
 
 Generated from `datasets/project-cases.json`, registered project metadata and
-`metadata/evidence/upstream/`. The tables below cover all registered batches.
+`metadata/evidence/upstream/`. The tables below cover the original-release partition.
 
-Main contains **171 versioned inputs**
+The original-release partition contains **171 versioned inputs**
 in **171 project directories**.
+
+Overall: 197 retained versions across 18 batches, with 86 aligned and 111 misaligned labels. The two added batches are human reviewed and are outside the original-release tables below.
 
 Reproduce: `python3 scripts/data/project_case_stats.py > docs/STATISTICS.md`.
 Machine-readable output: `python3 scripts/data/project_case_stats.py --json`.

@@ -1,7 +1,7 @@
 # Released project inputs
 
-The dataset contains **171 inputs across 16 batches**, with 81 aligned and
-90 misaligned human judgments. The registry is
+The dataset contains **197 inputs across 18 batches**, with 86 aligned and
+111 misaligned human judgments. The registry is
 [project-cases.json](project-cases.json); see [statistics](../docs/STATISTICS.md)
 for per-batch counts and counting conventions.
 
@@ -27,7 +27,7 @@ version relationships, pinned environment, file inventory and input hashes.
 
 The Lean files retain the roots' declaration contexts and the notation,
 instances and other support needed to elaborate them. Proof bodies are replaced
-with `sorry`; non-proof definition values are preserved. All 171 contexts have
+with `sorry`; non-proof definition values are preserved. All 197 contexts have
 recorded compilation and graph-extraction checks in `metadata/validation.json`. These checks validate the
 statement contexts and do not certify the original proofs.
 
@@ -46,7 +46,7 @@ python3 scripts/data/project_case_stats.py --json
 The evaluation protocol is tracked in
 [issue #1](https://github.com/MechMath/LeanReviewBench/issues/1).
 
-Two further batches use the same native dataset layout and await human review:
+The two added, human-reviewed batches use the same native dataset layout:
 [qinz1yang](qinz1yang/README.md) (15 inputs) and
 [FrenzyMath](frenzymath/README.md) (11 inputs). All 26 are complete declaration
 contexts; three technically deferred contexts and five excluded development

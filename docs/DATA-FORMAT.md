@@ -2,9 +2,10 @@
 
 The native dataset schema is `paperlean-project-case-1`. It is not a frozen scoring export. A retained input is one project snapshot; a multi-root snapshot remains one input and one label record. Related versions share group/split identities and reciprocal version links. Root counts and input counts must be reported separately.
 
-Datasets awaiting human review use the same `datasets/<batch>/projects/` layout.
+Separately admitted source batches use the same `datasets/<batch>/projects/` layout.
 They are listed in `review_datasets` in the registry; `datasets` lists the
-human-reviewed release batches. Both use the authoritative native label,
+original-release batches. Both partitions are now fully human reviewed; the
+partition names are retained for inventory compatibility. Both use the authoritative native label,
 analysis, validation and provenance paths below. Per-batch `metadata/` retains
 only deferred development plans and archive locators. Unresolved judgments are
 `undetermined` with `human_adjudicated=false`; they are not assigned binary labels.

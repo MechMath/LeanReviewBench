@@ -10,9 +10,8 @@ review state is separate.
 The Poincare batches are outside these 90 classifications. Their alignment
 labels and analysis are retained in the standard metadata paths. Twenty-one
 Poincare misaligned verdicts and five aligned verdicts are human confirmed; the
-taxonomy assignments for those twenty-one negative cases remain pending. The
-FM-COVERING-before label is an explicit user verdict without an independently
-established mismatch after source-text correction; no category is inferred for it.
+taxonomy assignments for those twenty-one negative cases remain pending. FM-COVERING-before now has a written zero-dimensional scope witness; category
+assignment remains pending alongside the other Poincare negatives.
 
 | File | Purpose |
 | --- | --- |

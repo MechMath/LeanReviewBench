@@ -4,8 +4,9 @@
 `paperlean-project-case-1` layout. All 11 judgments are human confirmed
 (three aligned and eight misaligned), including six accepted by explicit user
 batch confirmation. FM-COVERING-before records an explicit user misaligned
-verdict after source-text correction; the withdrawn rationale and the agent
-assessment are disclosed in its evidence.
+verdict after source-text correction. Its final written reason identifies the
+positive-dimension hypothesis, which omits the zero-dimensional cases allowed by
+the bound target; the old disconnected-source objection remains withdrawn.
 Review state is separate from reference readiness.
 The source repositories and informal sources remain separate between batches.
 

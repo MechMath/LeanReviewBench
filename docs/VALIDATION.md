@@ -23,7 +23,8 @@ The current project-case collection has no frozen native model evaluation export
 
 Full historical source acquisition and construction records are archived using the pinned locators described in [DATA-FORMAT.md](DATA-FORMAT.md). They are not dependencies of ordinary benchmark checks.
 
-Batches awaiting review use the same native checker without ignored build dependencies:
+The two separately admitted batches are fully human reviewed and use the same
+native checker without ignored build dependencies:
 
 ```sh
 python3 scripts/data/check_release_candidate.py

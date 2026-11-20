@@ -5,7 +5,7 @@
   "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
   "root": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product",
   "label": "misaligned",
-  "reason": "The root pairs the chosen transport values directly using the moving-fiber metric. Its shared transport constructor chooses one E-valued function required to satisfy the chart parallel equations in every chart without an explicit change of its components. This raises a substantive coordinate-compatibility concern, but a separating example realized with the actual Lean tangent trivializations has not been checked.",
+  "reason": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
   "review_scope": "The bound metric-preservation statement for intrinsic Levi-Civita parallel transport, including its coordinate realization.",
   "review_status": "human_reviewed",
   "human_adjudicated": true,
@@ -34,7 +34,7 @@
       },
       "bound_scope": "Levi-Civita parallel transport and the Riemannian metric pairing of tangent vector fields along a smooth curve."
     },
-    "first_pass": "The root pairs the chosen transport values directly using the moving-fiber metric. Its shared transport constructor chooses one E-valued function required to satisfy the chart parallel equations in every chart without an explicit change of its components. This raises a substantive coordinate-compatibility concern, but a separating example realized with the actual Lean tangent trivializations has not been checked.",
+    "first_pass": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
     "formal_evidence": [
       {
         "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
@@ -73,14 +73,14 @@
         "anchor": "noncomputable def parallelTransport"
       }
     ],
-    "second_pass": "In ordinary coordinates on the Euclidean line, the charts x and y = exp(x) give V-prime = 0 and V-prime = V along x(t) = t if the same scalar component is incorrectly used in both. This motivates a countermodel, but it has not been realized and checked against chartAt, chartBasisVecFiber, and the smooth metric instance of the supplied context. No formal refutation or proof of equivalence is claimed. The subsequent definition-level review resolved the coordinate objection mathematically, and the user confirmed the misaligned verdict. No new written reason is added in this annotation step.",
+    "second_pass": "This is a definition-level coordinate calculation. A valid smooth atlas on the real line can select the global identity chart at one base point and the exponential chart (range (0,infinity)) at another; both chart sources contain the curve segment. chartBasisVecFiber uses the inverse tangent trivialization, so in the exponential chart its basis vector is (1/y) times the x basis vector, giving exactly the Gram coefficient y^(-2). parallel_global_extension quantifies over every selected chart, including these two, while passing the same V. The initial value 1 forces both derivative 0 and derivative 1 at time zero. This establishes the coordinate mismatch mathematically; no Lean-certified atlas instance is claimed.",
     "unresolved_questions": [],
-    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. The user has confirmed the binary verdict; export readiness is unchanged."
+    "verification_limits": "Definition-level mathematical review; no new Lean compilation, original-proof certification or Lean-certified countermodel. Existing formal bytes and technical checks are unchanged. Human misaligned adjudication and export readiness are unchanged."
   },
   "upstream_evidence": [],
   "curator_notes": {
-    "agent_assessment": "The root pairs the chosen transport values directly using the moving-fiber metric. Its shared transport constructor chooses one E-valued function required to satisfy the chart parallel equations in every chart without an explicit change of its components. This raises a substantive coordinate-compatibility concern, but a separating example realized with the actual Lean tangent trivializations has not been checked.",
-    "uncertainty": "The user confirmed misaligned after the definition-level coordinate review. A Lean-certified counterexample has not been produced.",
+    "agent_assessment": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
+    "uncertainty": "The argument has not been formalized as a Lean countermodel.",
     "source": {
       "repository": "https://github.com/qinz1yang/differential-geometry",
       "commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
@@ -110,9 +110,13 @@
     "human_adjudication": {
       "date": "2026-11-20",
       "authority": "explicit_user_confirmation",
-      "label": "misaligned",
-      "reason_rewrite_deferred": true
+      "label": "misaligned"
+    },
+    "reason_followup": {
+      "date": "2026-11-20",
+      "reason": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
+      "method": "Recheck current bound scope and selected computational definitions."
     }
   },
-  "analysis_availability": "The preliminary written reason and review are retained; the later user-confirmed verdict is recorded in curator_notes.human_adjudication. A rewrite of the reason is deferred at the user's request."
+  "analysis_availability": "Final written mathematical reason and definition-level scope/coordinate check retained; human-confirmed misaligned verdict unchanged."
 }

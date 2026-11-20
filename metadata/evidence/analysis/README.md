@@ -27,10 +27,11 @@ including sixteen accepted by explicit user batch confirmation. Their retained
 reviews compare the source and formal statements, check alternative
 interpretations, and retain declaration locations.
 All 26 Poincare records now have human-selected binary judgments. The
-FM-COVERING-before record explicitly distinguishes the user misaligned verdict
-from the agent assessment after its informal source correction: the former
-connectedness rationale no longer applies, and no independent mismatch has been
-established. Material scope qualifications remain in the evidence.
+FM-COVERING-before record retains the corrected connected-source convention and
+now gives a zero-dimensional scope witness for the extra positive-dimension
+hypothesis. Both parallel-transport records include the final chart-transition
+calculation; their reason rewrites are complete. Material scope qualifications
+remain in the evidence.
 Mathematical separating examples are distinguished from Lean-certified counterexamples.
 
 The concise English reasons and scopes match the label records;

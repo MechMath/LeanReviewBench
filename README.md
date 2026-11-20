@@ -2,10 +2,9 @@
 
 A benchmark for informal–formal statement alignment in real Lean projects.
 
-This local publication preview retains **171 versioned inputs across 16 registered batches**, with **81 aligned and 90 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format documented in [the data contract](docs/DATA-FORMAT.md). All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
+This local publication preview retains **197 versioned inputs across 18 batches**, with **86 aligned and 111 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format documented in [the data contract](docs/DATA-FORMAT.md). All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
-The same native layout also contains **26 complete Poincare contexts awaiting
-human review**: 15 from qinz1yang and 11 from FrenzyMath. The native loader reads
+The same native layout also contains **26 complete, human-reviewed Poincare contexts**: 15 from qinz1yang and 11 from FrenzyMath. The native loader reads
 197 inputs in total. Three technically deferred contexts and five excluded
 artifacts are absent. Labels, evidence and validation use the standard metadata
 paths. Historical grant-association evidence remains incomplete for 11 versions;
@@ -45,7 +44,7 @@ scripts/
 licenses/
 ```
 
-Each package retains its informal target, root bindings, version/group links, a statement-only Lean context and a concise `CHANGES.md`. The context contains the required declarations and elaboration support; theorem proofs are replaced by `sorry`, while computational definitions are preserved. All 171 contexts have been compiled and freshly extracted with Lean 4.34.1. Input hashes and evidence bindings follow these current files; the 81 aligned and 90 misaligned verdicts are unchanged. Labels and review evidence remain outside model-visible exports.
+Each package retains its informal target, root bindings, version/group links, a statement-only Lean context and a concise `CHANGES.md`. The context contains the required declarations and elaboration support; theorem proofs are replaced by `sorry`, while computational definitions are preserved. All 197 contexts have been compiled and freshly extracted with Lean 4.34.1. Input hashes and evidence bindings follow these current files; the original 81 aligned and 90 misaligned verdicts are unchanged. Labels and review evidence remain outside model-visible exports.
 
 ## Validate and inspect
 
@@ -105,4 +104,4 @@ See [environment configuration](docs/ENVIRONMENT.md), [validation](docs/VALIDATI
 
 Code follows [LICENSE](LICENSE); upstream sources retain their own [license records](licenses/index.json) and [NOTICE](NOTICE). This is not a blanket relicensing of source material. The historical AppliedModelingLib license-copy gap remains recorded.
 
-All 171 labels have `human_adjudicated=true` and `review_status=human_reviewed`. Their separate evaluation-export state remains `reference_ready=false` and `gold_label=null`. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.
+All 197 labels have `human_adjudicated=true` and `review_status=human_reviewed`. Their separate evaluation-export state remains `reference_ready=false` and `gold_label=null`. Two KZG function-binding inputs still lack a verified exact original PDF revision/hash. See [DATA-FORMAT.md](docs/DATA-FORMAT.md) for these qualifications.

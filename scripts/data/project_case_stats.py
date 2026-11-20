@@ -40,7 +40,12 @@ def collect():
     labels = Counter(json.loads(line)['label']
                      for path in (BASE / 'metadata/labels').glob('*.jsonl')
                      for line in path.read_text().splitlines())
+    added_inputs = sum(1 for batch in config.get('review_datasets', {})
+                       for _ in (BASE / 'datasets' / batch / 'projects').glob('*/project.json'))
     return dict(batches=batches, totals=totals, scoring_labels=0,
+                total_retained_inputs=totals['inputs'] + added_inputs,
+                total_retained_batches=len(config['datasets']) + len(config.get('review_datasets', {})),
+                human_reviewed_labels=dict(labels),
                 provisional_labels=dict(labels),
                 total_task_snapshots=totals['inputs'],
                 total_project_directories=totals['inputs'])
@@ -49,9 +54,10 @@ def collect():
 def markdown(data):
     lines = ['# Registered project-case batch statistics', '',
         'Generated from `datasets/project-cases.json`, registered project metadata and',
-        '`metadata/evidence/upstream/`. The tables below cover all registered batches.', '',
-        f"Main contains **{data['total_task_snapshots']} versioned inputs**",
+        '`metadata/evidence/upstream/`. The tables below cover the original-release partition.', '',
+        f"The original-release partition contains **{data['total_task_snapshots']} versioned inputs**",
         f"in **{data['total_project_directories']} project directories**.", '',
+        f"Overall: {data['total_retained_inputs']} retained versions across {data['total_retained_batches']} batches, with {data['human_reviewed_labels'].get('aligned', 0)} aligned and {data['human_reviewed_labels'].get('misaligned', 0)} misaligned labels. The two added batches are human reviewed and are outside the original-release tables below.", '',
         'Reproduce: `python3 scripts/data/project_case_stats.py > docs/STATISTICS.md`.',
         'Machine-readable output: `python3 scripts/data/project_case_stats.py --json`.', '',
         '`Roots` counts distinct declaration names within each repository; renamed',

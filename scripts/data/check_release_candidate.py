@@ -57,7 +57,7 @@ def main():
                               f'{readiness["license_blocking"]} unaccepted licensing blockers; '
                               f'{readiness["license_notices_accepted"]} accepted evidence-gap notices')
     print(f'PASS: {len(config["datasets"])} released batches; '
-          f'{len(config.get("review_datasets", {}))} batches awaiting review')
+          f'{len(config.get("review_datasets", {}))} separately admitted batches; human review pending: {readiness["human_review_pending"]}')
 
 
 if __name__ == '__main__':
