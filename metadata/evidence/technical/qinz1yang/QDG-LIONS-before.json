@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-LIONS-before",
+  "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+  "formal_sha256": "95c0e2fc485e01d684eb014ea305d56746d781dba8503cc9903d5b0b7b6ed440",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "42d02d86916f3a254125ce79c6c6403404893a5d94a389f62d8c72b3ab52d993",
+  "nodes": 40,
+  "edges": 39,
+  "local_nodes": 1,
+  "compiled_sources": {
+    "Main.lean": "05fe994837b28f8f18124a139d69274962bdfc8d2b77077fc3216763ae3317bf"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "not_applicable_zero_local_nonproof_definitions",
+  "source_preservation_method": "Proof-irrelevance equality probe typechecks equality between theorem with exact original signature/proof and sliced proof-erased theorem, enforcing full type definitional equality in Lean4.34.1.",
+  "preservation_status_recorded": "passed",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-LIONS-before/preservation.json",
+  "archived_receipt_sha256": "d2492bd762de97e24ec6f60a8ccc988220bf90836d6bc343580924734af45c0e",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

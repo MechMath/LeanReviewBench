@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "在目标指定的有限 F₂ 向量空间范围，根输出概率空间、可测均匀变量和两项完全相同的 6d 上界；历史 IsUniform 加这些条件确实等于通常均匀分布，refPackage 也不增加输入限制。",
+  "retained_reason": "Within the target's specified scope of finite F₂-vector spaces, the root provides a probability space, a measurable uniform variable, and the two identical 6d bounds. The historical IsUniform together with these conditions does coincide with the usual uniform distribution, and refPackage adds no input restriction.",
   "review_scope": "The bound entropic statement over finite vector spaces over F_2."
 }

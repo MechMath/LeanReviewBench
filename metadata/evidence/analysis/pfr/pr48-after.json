@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "原文前提为 (X,Z) 与 Y 独立，formal 前提为 (X,Y) 与 Z 独立；它们不是同一命题，也不能通过变量改名同时保持原不等式中的减项。",
+  "retained_reason": "The source assumes that (X,Z) is independent of Y, while the formal statement assumes that (X,Y) is independent of Z. These are different propositions, and variable renaming cannot identify them while preserving the subtraction terms in the original inequality.",
   "review_scope": "The bound entropy inequality with the original random-variable roles and independence premise."
 }

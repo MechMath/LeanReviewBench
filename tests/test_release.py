@@ -93,12 +93,14 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(obj['totals']['inputs'],171)
         self.assertEqual(obj['totals']['reference_ready'],0)
     def test_all_native_inputs_valid_without_graphs(self):
-        self.assertEqual(Dataset(ROOT).validate(),dict(inputs=171))
+        self.assertEqual(Dataset(ROOT).validate(),dict(inputs=197))
     def test_binary_labels_and_joint_roots(self):
         data=Dataset(ROOT);labels=[r for path in (ROOT/'metadata/labels').glob('*.jsonl') for r in records(path)]
-        self.assertEqual(len(labels),171)
-        self.assertEqual(sum(r['label']=='aligned' for r in labels),81)
-        self.assertEqual(sum(r['label']=='misaligned' for r in labels),90)
+        reviewed = [r for r in labels if r['human_adjudicated']]
+        self.assertEqual(len(labels),197)
+        self.assertEqual(len(reviewed),197)
+        self.assertEqual(sum(r['label']=='aligned' for r in reviewed),86)
+        self.assertEqual(sum(r['label']=='misaligned' for r in reviewed),111)
         self.assertTrue(all(r['reference_ready'] is False for r in labels))
         self.assertNotIn('stat-learning-theory:slt-master',data.ids())
         self.assertNotIn('stacks:STK-0B34-left',data.ids())

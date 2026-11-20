@@ -33,8 +33,8 @@
     "input_sha256": "be87550de5f51bc92e311462ecdeff82ba3f4bec38519b244c4839425389baed",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "当前 informal 明确要求受限电路的安全性及具体归约开销 t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)²。formal 仅给出抽象攻击者类上的概率界，并把 reduction(adversary)∈Adv 作为前提，没有证明源电路规模限制能够推出该归约开销及目标类成员资格。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好为我标成misaligned; confirms misaligned for arklib:kzg-function-binding-after after reviewing the omitted circuit-size guarantee and the assumed reduction membership hAdv.",
+    "reason": "The current informal statement explicitly requires security for bounded-size circuits and the concrete reduction overhead t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)². The formalization gives only a probability bound over an abstract adversary class and assumes reduction(adversary)∈Adv, without proving that the source circuit-size restriction implies this overhead and membership in the target class.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms misaligned for arklib:kzg-function-binding-after after reviewing the omitted circuit-size guarantee and the assumed reduction membership hAdv.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路量化及明确的归约规模开销；仅本 after 输入。",
+    "review_scope": "The currently frozen cached transcription of CGKY25 Lemma 9.1, including quantification over bounded-size circuits and the explicit reduction-size overhead; only this after input.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/kzg-function-binding-after/informal.jsonl",
@@ -101,18 +101,18 @@
       }
     },
     "semantic_argument": [
-      "绑定的 informal 对每个安全参数、次数上界 D、查询数 L 和源电路规模 t_FC 陈述安全性，并明确保留 t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)²。",
-      "formal 的 functionBindingCondition 对应所有 opening 被接受且不存在单一允许消息解释全部查询回答；本题 informal 与 formal 都使用概率上界，不沿用前两题概率等式的判负依据。",
-      "after 的 arsdhAssumption 只量化指定集合 Adv 中的攻击者。根对具体 adversary 给出概率界，但要求 hAdv : reduction ... adversary ∈ Adv。",
-      "Adv 可以选为目标规模受限的攻击者类，但仍须证明：源攻击者满足 t_FC 限制时，归约属于 t_ARSDH 预算类，且预算符合原文具体公式。当前根和相关攻击者/归约定义没有表达或建立该资源桥接。",
-      "因此，此条件概率界没有完整覆盖绑定原文的具体电路开销保证；判断并非仅因符号 t_FC/t_ARSDH 未出现，而是相应性质被留在调用者必须提供的成员资格前提之外。"
+      "The bound informal statement asserts security for every security parameter, degree bound D, query count L and source circuit size t_FC, explicitly retaining t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)².",
+      "The formal functionBindingCondition corresponds to acceptance of every opening with no single allowed message explaining all query responses. Both the informal and formal statements in this case use probability upper bounds; the probability-equality objection from the preceding two cases does not apply.",
+      "The after arsdhAssumption quantifies only adversaries in the specified set Adv. The root gives a probability bound for a concrete adversary but requires hAdv : reduction ... adversary ∈ Adv.",
+      "Adv can be chosen as the adversary class bounded by the target size, but one must still prove that a source adversary satisfying the t_FC bound reduces to an adversary within the t_ARSDH budget and that this budget satisfies the source's concrete formula. The current root and related adversary/reduction definitions neither express nor establish this resource connection.",
+      "Thus this conditional probability bound does not fully cover the concrete circuit-overhead guarantee in the bound source. The judgment is not based merely on the absence of the symbols t_FC and t_ARSDH, but on leaving the corresponding property outside the result, behind a membership premise that the caller must supply."
     ],
     "parameter_cross_check": {
       "formal_message_space": "Fin (n + 1) → ZMod p",
-      "degree_interpretation": "n+1 个系数，对应次数至多 n",
+      "degree_interpretation": "n+1 coefficients, corresponding to degree at most n",
       "arsdh_cardinality": "S.card = n + 1",
-      "paper_correspondence": "就次数和集合大小约定而言，应对应 n=D。",
-      "scope_note_correction": "现有 scope 中 Lean degree<n 并建议 n=D+1 的说明与实际源码不符；不修改冻结输入，也不以此说明制造 off-by-one 判负理由。"
+      "paper_correspondence": "Under the degree and set-cardinality conventions, the correspondence should be n=D.",
+      "scope_note_correction": "The existing scope's description of Lean degree<n and its suggested n=D+1 correspondence do not match the actual source code. The frozen input is not changed, and this description is not used to manufacture an off-by-one objection."
     },
     "verification": {
       "source_binding_checked": true,
@@ -120,13 +120,13 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "当前来源是带日期的论文缓存转写，未获得原 PDF 的精确修订号及字节哈希；此决定针对现有绑定文本，不声称完成了原 PDF 的重新核验。",
-      "不声称抽象概率定理为假，也不声称实际归约必然超出电路预算；判负依据是要求的资源性质没有形式化。",
-      "指定 Adv 修复了对所有 Lean 函数一概施加困难性假设的问题；本次不使用 unrestricted-class 真空性作为 after 的判负依据。",
-      "随机实验对应、辅助输入分布及其他前提没有作为本次额外判负理由；不将本标签传播到其他输入。",
-      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+      "The current source is a dated cached transcription of the paper; the exact original PDF revision and byte hash were not obtained. This decision concerns the existing bound text and does not claim a fresh verification of the original PDF.",
+      "This does not claim that the abstract probability theorem is false or that the actual reduction necessarily exceeds the circuit budget. The negative label concerns the absence of the required resource property from the formalization.",
+      "Specifying Adv repairs the problem of imposing a hardness assumption on all Lean functions. Unrestricted-class vacuity is not used here as a reason to label the after version negatively.",
+      "Randomized-experiment correspondence, the auxiliary-input distribution and other premises are not additional reasons for the negative label in this review; the label is not propagated to other inputs.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "当前 informal 明确要求受限电路的安全性及具体归约开销 t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)²。formal 仅给出抽象攻击者类上的概率界，并把 reduction(adversary)∈Adv 作为前提，没有证明源电路规模限制能够推出该归约开销及目标类成员资格。",
-  "retained_review_scope": "当前冻结的 CGKY25 Lemma 9.1 论文缓存转写，包括受限电路量化及明确的归约规模开销；仅本 after 输入。"
+  "retained_reason": "The current informal statement explicitly requires security for bounded-size circuits and the concrete reduction overhead t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)². The formalization gives only a probability bound over an abstract adversary class and assumes reduction(adversary)∈Adv, without proving that the source circuit-size restriction implies this overhead and membership in the target class.",
+  "retained_review_scope": "The currently frozen cached transcription of CGKY25 Lemma 9.1, including quantification over bounded-size circuits and the explicit reduction-size overhead; only this after input."
 }

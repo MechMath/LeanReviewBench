@@ -1,0 +1,57 @@
+{
+  "id": "FM-EXP-LOCAL-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+    "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/ExpMinimizingLocalDiffeo.lean",
+    "version_role": "before"
+  },
+  "group_id": "frenzymath-exp-local-diffeo-restriction",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "license-copy-retained",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "4e2d0406e51e47f523afc3de6bdda073cc1456d49e5f9bbfac115262d84032c0",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/frenzymath.jsonl",
+  "candidate_id": "FM-exp-local-diffeo-restriction",
+  "validation_reference": "metadata/validation.json"
+}

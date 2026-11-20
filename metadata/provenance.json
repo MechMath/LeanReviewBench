@@ -10,8 +10,8 @@
   "projects": {
     "applied-modeling-lib/EOS-lemma5_locally_envy_free_stable.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-lemma5_locally_envy_free_stable/project.json",
-      "project_sha256": "871f41b48bc6fb3c5cc2e67bbfac9f8c1767818c49eb0bbed004fcadf1d19da5",
-      "input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+      "project_sha256": "24a3619d4b825601efeb05ae27c19e2707a4ffeb83b289158c5734389d88940b",
+      "input_sha256": "e077e51367cf9af4c1246adccaaebf9694fdf26d8bda8e930998eb5f20ef7ad2",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -22,12 +22,21 @@
         "review": null
       },
       "pre_review_project_sha256": "925ffbf115f3cb15588d8c9bbf24f6e9ff48a04e9792975ba00c9fa1bf75819d",
-      "pre_review_input_sha256": "ab9d6cb4d93be3fb282cc479df0bd4001ea91d43102d7084f6a2b8faf11a3000"
+      "pre_review_input_sha256": "ab9d6cb4d93be3fb282cc479df0bd4001ea91d43102d7084f6a2b8faf11a3000",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+        "previous_informal_sha256": "e2104d81e5eb234116f33de5683631c8264144b4bd1599503db5a22808af8268",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/EOS-lemma6_stable_assignment_slot_envy_free.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-lemma6_stable_assignment_slot_envy_free/project.json",
-      "project_sha256": "20f646a1f756ee70ba88aafb8a733f1fc1553d9814922a6f553628d1772591ba",
-      "input_sha256": "47183187af11d4d13e5e7407e029f368f2bc78f24516a4931ddef79c1daf32b1",
+      "project_sha256": "bfefe0d14ceeeceba609671d95e1b95ebd4e87ea64f7648e58f999d66b29d418",
+      "input_sha256": "f28946fd59bc9941eeae852299577418fdc5aec986618f1eb4fb2bcf3cd0fccd",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -38,12 +47,21 @@
         "review": null
       },
       "pre_review_project_sha256": "bb0819a1ba3132dd151c27d67adb0d24392f518b4ed3104157566a3f7a5f1416",
-      "pre_review_input_sha256": "f6269b8701bf85e777a6486c0a4cd490d702d22b53c3496722c8686b86f171fd"
+      "pre_review_input_sha256": "f6269b8701bf85e777a6486c0a4cd490d702d22b53c3496722c8686b86f171fd",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "47183187af11d4d13e5e7407e029f368f2bc78f24516a4931ddef79c1daf32b1",
+        "previous_informal_sha256": "66547102a20c2c5a945dda828a5587c3c577a6671b990629e0903ed8d1a340e0",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/EOS-theorem7_no_positive_transfer_conclusion.json": {
       "project": "datasets/applied-modeling-lib/projects/EOS-theorem7_no_positive_transfer_conclusion/project.json",
-      "project_sha256": "0e39cd049889c397715727387498e338f4913cd8c6add2643b4d43178431d9b5",
-      "input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+      "project_sha256": "2add50fe4b104d9246d2dd194b770349044818e0b6ac2879e928c5901a08da55",
+      "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -54,12 +72,21 @@
         "review": null
       },
       "pre_review_project_sha256": "b76596f0d627faa4c15fd16786134dc52959c563bd62c68357b5ef4fc5e123d4",
-      "pre_review_input_sha256": "77e4ac31ad7b1d7e534b8e0c4515ea7371e52b4bb117af519b09856b11191162"
+      "pre_review_input_sha256": "77e4ac31ad7b1d7e534b8e0c4515ea7371e52b4bb117af519b09856b11191162",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+        "previous_informal_sha256": "3e3520362931c3693447bad730719e2c192d5137207c6d7d9900423bc19f225d",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GCG24UserItemFairness-after-spec.json": {
       "project": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-after-spec/project.json",
-      "project_sha256": "42dfad723f4c70b6cc423603539f15ce3d55f57f09de1c0c39bdb01323e6be4d",
-      "input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+      "project_sha256": "ee356e4d7b17fe9c99d8c3eff421588f5a319872a50a18db38c73ac27c115c64",
+      "input_sha256": "e501f21a465e34e30eb9b2e39d7de8444d4d20e9c84a191fa61687139872741e",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -70,12 +97,21 @@
         "review": null
       },
       "pre_review_project_sha256": "efe7abae782d265401c8f26d2b56fc1fd9e24d18993b4278cb198e0bee9d703d",
-      "pre_review_input_sha256": "341ad97a33fa1e58c59270bf16026b9452be28f4bfd624cfab02dcb20bbaf63f"
+      "pre_review_input_sha256": "341ad97a33fa1e58c59270bf16026b9452be28f4bfd624cfab02dcb20bbaf63f",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+        "previous_informal_sha256": "64b86ce36b99228af93008c06eed8c3f464d0f84d36d7b8debba2a4aa87d82b8",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GCG24UserItemFairness-before.json": {
       "project": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/project.json",
-      "project_sha256": "48c9aae4b6962b69d4b0d68ac3a07c179a2cf3d609597fdf445e5f8bd50d6854",
-      "input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+      "project_sha256": "5704f27302d7661f9d6b09c9d042fdc6b8afd9a01cff9a9f66ab53b607628ce3",
+      "input_sha256": "94d69f4e0905f6052df12ff57378ac072b4d569d2e0d646a0e87d918dca5f9aa",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -86,12 +122,21 @@
         "review": null
       },
       "pre_review_project_sha256": "3624dec925604b4ffa3523bef4dcf124fee9e6a6726910c7510871519250923e",
-      "pre_review_input_sha256": "23a4bc2f3f1658bf8af4cfcc1f7f20fff588ec722d2b63119e95662eb1813f94"
+      "pre_review_input_sha256": "23a4bc2f3f1658bf8af4cfcc1f7f20fff588ec722d2b63119e95662eb1813f94",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+        "previous_informal_sha256": "8e3a6ec58efa22236c2f07aae32636a6018b21d9081ce1b7cd4c2f58102e3396",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GHW-theorem9_1_bid_independent_lower_bound.json": {
       "project": "datasets/applied-modeling-lib/projects/GHW-theorem9_1_bid_independent_lower_bound/project.json",
-      "project_sha256": "9855266227a6721cb6ef84207bc28cc509b4059eb957dae4dd0e1d2cc9355cfc",
-      "input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+      "project_sha256": "e4e2a03a711781ecbf750b2116a7b100270a9ea5cd8685a60474a841fc887d69",
+      "input_sha256": "53012956eb9b18f8591858bb029627e294a046df994ea553299ddd528d23523b",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -108,12 +153,21 @@
         }
       },
       "pre_review_project_sha256": "75c07ed6a952f3f694f5a8f02183dfa253e9c220a2b3e934a8d700578599e5d4",
-      "pre_review_input_sha256": "c92c79b649e5620a2674986484a8d466ff2686023dda2abf3ae5e68dbf16d776"
+      "pre_review_input_sha256": "c92c79b649e5620a2674986484a8d466ff2686023dda2abf3ae5e68dbf16d776",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+        "previous_informal_sha256": "b314de05d26393d1d7282af777b8ee7295f0b6302e25b5c6291046ea46e90a81",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GHW-theorem9_3_deterministic_truthful_lower_bound.json": {
       "project": "datasets/applied-modeling-lib/projects/GHW-theorem9_3_deterministic_truthful_lower_bound/project.json",
-      "project_sha256": "749f1a8281399ec75fe2e4b849f3521a255da0a9dc9d51a165067896d603f40c",
-      "input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
+      "project_sha256": "82f8be04aaff45b2ece19f48b64aec54780a1b72203e3740b60b262559b22266",
+      "input_sha256": "a996b035a665a79564c4d2556bacc4d057d18f7b053af55d68b3c8a479ce2379",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -130,12 +184,21 @@
         }
       },
       "pre_review_project_sha256": "737a8d26cea0a3f2a22ec69c96e74c4ffde3d8112805933c3640944c4419e89b",
-      "pre_review_input_sha256": "8b1e165ae61936509212eac938e5335e0c602a69ec0fc878e68a794fa396b9d2"
+      "pre_review_input_sha256": "8b1e165ae61936509212eac938e5335e0c602a69ec0fc878e68a794fa396b9d2",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
+        "previous_informal_sha256": "4227c038ef653b447f5dd888d1a223f6172f3d7d9d4ad675cad8f00b6fc29f8e",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GJ19OptimalBinaryRatingSystems-after-spec.json": {
       "project": "datasets/applied-modeling-lib/projects/GJ19OptimalBinaryRatingSystems-after-spec/project.json",
-      "project_sha256": "79baa3871fb92b289eabbb50f5c2ca2789bc64fe3879313e4de75a8f4424facc",
-      "input_sha256": "d38104dc76629d73b397ba7e88ba2b64be46b3aa3cfbe7809d6ea671739cd16b",
+      "project_sha256": "d57c503d9560abaacb29fbb293c176d906634c68b07f28763293764440a7da16",
+      "input_sha256": "a1325841ebebe4843ef957287140c4f860ebda48603dc6c26e54814e3286dd2c",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -152,12 +215,21 @@
         }
       },
       "pre_review_project_sha256": "7e500fb996f65c4950182b2b678e36dd6e7d4f65fc4a7c1335885ddf203e38b1",
-      "pre_review_input_sha256": "5cf372ee5b4088d02c5b485d3e296fcee0fe903ce8145f7f9a6a564882b81267"
+      "pre_review_input_sha256": "5cf372ee5b4088d02c5b485d3e296fcee0fe903ce8145f7f9a6a564882b81267",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "d38104dc76629d73b397ba7e88ba2b64be46b3aa3cfbe7809d6ea671739cd16b",
+        "previous_informal_sha256": "4a58c6f2f1962b0164470fd50833546cc4c7a4934ad228e648df383e7816f824",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GJ19OptimalBinaryRatingSystems-before.json": {
       "project": "datasets/applied-modeling-lib/projects/GJ19OptimalBinaryRatingSystems-before/project.json",
-      "project_sha256": "17d9d2dd153fc8d38825f0b3d27959127ec68f551f2bc685eab02591f6a0b572",
-      "input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+      "project_sha256": "47ed039635f28e490653cd9ff4a806501f6e3ae5e215faa7caa5064a0d7a4b62",
+      "input_sha256": "b77a8f3d573a904e4d7f47b34282ab66c52a442b138a9e0cddcf899a0f13d8d5",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -174,12 +246,21 @@
         }
       },
       "pre_review_project_sha256": "613c1f434e6f8f37268c74ca2d696998652c03f8c35087fd375cb57f7a6f808a",
-      "pre_review_input_sha256": "80dfbfffafc13bbe594f7c239f65ae740737ae1d6d2ca0a1d60d20731d2db653"
+      "pre_review_input_sha256": "80dfbfffafc13bbe594f7c239f65ae740737ae1d6d2ca0a1d60d20731d2db653",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+        "previous_informal_sha256": "80201b461db754246b1f77f134b22eb5c3eb60299260c4f9122142c66909c9bb",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GN21-AFFINE-P31.json": {
       "project": "datasets/applied-modeling-lib/projects/GN21-AFFINE-P31/project.json",
-      "project_sha256": "c8938e0a8dc1d783b2a35b5a4e1ca9330c0e6d384b3de413274b1b1fbc3941a0",
-      "input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+      "project_sha256": "5800a5af3cdac7753484841f9ca608d843a9dfc80d9568f4ef427c94ae6d048a",
+      "input_sha256": "3598b5a4c73d2110cc9edb7cf05d946528e033a50df105dffe6f8fc2bd5f4145",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -196,12 +277,21 @@
         }
       },
       "pre_review_project_sha256": "f0572e78a62fc215ecdddc9ead1681f80e7f3b3cd3ce06e5d41235bc01a650ec",
-      "pre_review_input_sha256": "5eb01243a9aa023992ea812e142925a3ab24bdf0989f8224fef0c741a904b32d"
+      "pre_review_input_sha256": "5eb01243a9aa023992ea812e142925a3ab24bdf0989f8224fef0c741a904b32d",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+        "previous_informal_sha256": "c18a8254e526c35a006fd46426314a69a30060349fb1cbe2a613fa8f1c0fe3e4",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GN21-CROSS.json": {
       "project": "datasets/applied-modeling-lib/projects/GN21-CROSS/project.json",
-      "project_sha256": "8749705b9ba20c7e5fac87a956038c5723e7cc50e54ca55829e42302d79dbd09",
-      "input_sha256": "55beff8f9378e77fa64f86b4024bcd12155f6d774e4dec5fbe95121571c92a11",
+      "project_sha256": "a2bcf05267fab855be6a8e9b5ffadab37e43b76b67f10cf37fe5becb5c6c92bc",
+      "input_sha256": "7253a07ed7a6a0e0d3dae26266bcfaa80e6613c69a009900354a7f6d0e9bf24c",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -218,12 +308,21 @@
         }
       },
       "pre_review_project_sha256": "eb24eb28d25f9b6b7668c1bd967c61b9fc1212f9fd063ae58184c5c885a646c4",
-      "pre_review_input_sha256": "bc5b414c6abb933c84c29710ebaac5664cd89837543ed45e60166711ba749a7c"
+      "pre_review_input_sha256": "bc5b414c6abb933c84c29710ebaac5664cd89837543ed45e60166711ba749a7c",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "55beff8f9378e77fa64f86b4024bcd12155f6d774e4dec5fbe95121571c92a11",
+        "previous_informal_sha256": "fde045ad7c48153e0249b1c7b1a0b1a1fd07b9246a9ed8ff5461301af1302c78",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GN21-SMALL-final_sign.json": {
       "project": "datasets/applied-modeling-lib/projects/GN21-SMALL-final_sign/project.json",
-      "project_sha256": "4fae82f713cfa78084bd1ace86083c88b0d04c8ac10c24735838d9d1032af7ab",
-      "input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+      "project_sha256": "ce87a09a2bec7c8afe03d7ed849a2e79ab5a209a7936a186a5e329ac867e5253",
+      "input_sha256": "5cb428b5db3d0ef57b1431979df02d8357b0d98154bfefff7ab063c5b823592b",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -240,12 +339,21 @@
         }
       },
       "pre_review_project_sha256": "1b9ee522f6f8835010ee38bbe17c7558d4c96f71586ddef4898d36676c5b78aa",
-      "pre_review_input_sha256": "0777a46ed3b273844db65710c110153189e962c1dadbd9a3a2921203a3bbdaba"
+      "pre_review_input_sha256": "0777a46ed3b273844db65710c110153189e962c1dadbd9a3a2921203a3bbdaba",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+        "previous_informal_sha256": "f0b512725fee1d83a2468c37498970c2a2f4735a78b399b5bc107325325632f7",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GN21-SMALL-interval_final_sign.json": {
       "project": "datasets/applied-modeling-lib/projects/GN21-SMALL-interval_final_sign/project.json",
-      "project_sha256": "4da2b83ff6698412f45b9618b0aa96e27e491e97f309c305bbca9c1beaccc2e6",
-      "input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+      "project_sha256": "0b4c0dd5622f1dca78a2fbe6525113e290fc1049bf406d62003cbbb869afb7e2",
+      "input_sha256": "c8a2309a8b56c0ae88474a3c6131df533826240479baf1e2c83b0dfeb7718641",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -262,12 +370,21 @@
         }
       },
       "pre_review_project_sha256": "1a60e05bc5c9d71e6db0f2f78d29c489cf46b8c6aee140ebc8e6d9793c183723",
-      "pre_review_input_sha256": "fc1f0ee7124d033b3a2d48eecf8c35e35ffe44b4047962b5cf8e0ec3f45dba0c"
+      "pre_review_input_sha256": "fc1f0ee7124d033b3a2d48eecf8c35e35ffe44b4047962b5cf8e0ec3f45dba0c",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+        "previous_informal_sha256": "de56cc23ab9fedba5f713f74e9a3b0568c7c3a1e3bf0642c6dc40412408bb88f",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GN21-SMALL-mass_affine_interval_final_sign.json": {
       "project": "datasets/applied-modeling-lib/projects/GN21-SMALL-mass_affine_interval_final_sign/project.json",
-      "project_sha256": "9669dbd341787171508da7c2e9cd5cef364678890f24cafb894b064b7e8b780c",
-      "input_sha256": "291967b4618e8d0c1927e2ae54eb10cecb3edce0dbe046d69d20d6bd63c9fbe4",
+      "project_sha256": "f3c0373b27057e6a71bbbb000571fe6770ee94aab2b0dbefd538f871a56dccad",
+      "input_sha256": "4459f49a61bb59f5810778d3e5007654cae5c0bd6de185e90ff2a811bb27c4f4",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -284,12 +401,21 @@
         }
       },
       "pre_review_project_sha256": "d9fade4a4279c48a653391d841b764e9c75f3271229d55ae5834144f5e2f8554",
-      "pre_review_input_sha256": "1a3ff4b90d325f00259714f59d1c674fb1d6dddfd254f01ac1321b0a9b64e4c5"
+      "pre_review_input_sha256": "1a3ff4b90d325f00259714f59d1c674fb1d6dddfd254f01ac1321b0a9b64e4c5",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "291967b4618e8d0c1927e2ae54eb10cecb3edce0dbe046d69d20d6bd63c9fbe4",
+        "previous_informal_sha256": "0bd1532cf4b84d14bdce22ac23e56004f46c13414620ccd87a8c20c4df8ef9ee",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GN21-T1.json": {
       "project": "datasets/applied-modeling-lib/projects/GN21-T1/project.json",
-      "project_sha256": "7f933daa23b3762cd9a601f03e2c404af841cc00cde390a3d78db1c8c6cd34c1",
-      "input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+      "project_sha256": "2e74a292bceefe7afbc1b0c679e556dd46f6813bf6043bb789c7493fdd124e46",
+      "input_sha256": "1b20efc37e37da955c1c924335ccdfb6c5c5689633eb17061a1a5ad537ad7c5f",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -306,7 +432,16 @@
         }
       },
       "pre_review_project_sha256": "0dac89a44eff99b87403d53cd3cbd741cddf6a4550a9445c886054d567921821",
-      "pre_review_input_sha256": "4d6755735c17fad6a79a90a18169fb589089a748f194c96b3ba941907728e6f3"
+      "pre_review_input_sha256": "4d6755735c17fad6a79a90a18169fb589089a748f194c96b3ba941907728e6f3",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+        "previous_informal_sha256": "d1202c61bd747cfd4a99444e3184393838543a73624bd39037daf5531f226f72",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/GS62-T2-after.json": {
       "project": "datasets/applied-modeling-lib/projects/GS62-T2-after/project.json",
@@ -354,8 +489,8 @@
     },
     "applied-modeling-lib/LG21-GAUSSIAN-P42.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-GAUSSIAN-P42/project.json",
-      "project_sha256": "eade634370a9e7d7c8f6af57f4d7e7573c55cfd7b8cb5f523cd5a4b8f215cea7",
-      "input_sha256": "16007ac2377130870ed5820e7598b58ef568d029d70e83ce9be5ea6e4382c467",
+      "project_sha256": "b2452dac4ed813e68c4abcde5e8c1b3354186bf7afc4c69eeb34608d19c1a88f",
+      "input_sha256": "6e5ff666e47e1c94713aa4fdec8c86776f0ca43fedcabb1e8a865add41651670",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -372,12 +507,21 @@
         }
       },
       "pre_review_project_sha256": "0e6dd7cec8535e64a2db863eedc5619b2ca577501a021040eaf7817459f3c700",
-      "pre_review_input_sha256": "d8d7b0f7ab108b9962b64524ccb7954e64d90649b16e4339795609cc5ed3c5a6"
+      "pre_review_input_sha256": "d8d7b0f7ab108b9962b64524ccb7954e64d90649b16e4339795609cc5ed3c5a6",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "16007ac2377130870ed5820e7598b58ef568d029d70e83ce9be5ea6e4382c467",
+        "previous_informal_sha256": "88c8f08d266ce796eccfc0ad4f17024e513c4d97349ed054d4eaa15ff45cd8db",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LG21-T31-HIST.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-T31-HIST/project.json",
-      "project_sha256": "3d2dffe4b67faa3a88fc8fc81b0569287235f429d3972f744fa0057437c6f71b",
-      "input_sha256": "a126460ba1c5dd2346d25bc7768030724f69060bd58b8b3528f79861ce7215d4",
+      "project_sha256": "43167860b3f6f73f5d74e24b7a29bf2e90a2485c295f2aa7185a7d800cd0cfa6",
+      "input_sha256": "30cf15828b1384f8b1c7571642bac2118dbaac67d689ab119cd321b789420f66",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -388,12 +532,21 @@
         "review": null
       },
       "pre_review_project_sha256": "78806092dda9eb794f79d1ab058d2ee9e290634f7a0152d5d4d3d393ae28e2d9",
-      "pre_review_input_sha256": "d68e0a3f83a6c7fcc74e3a0fc74ef3123d52b84d3f0fd81b349705fc5075453f"
+      "pre_review_input_sha256": "d68e0a3f83a6c7fcc74e3a0fc74ef3123d52b84d3f0fd81b349705fc5075453f",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "a126460ba1c5dd2346d25bc7768030724f69060bd58b8b3528f79861ce7215d4",
+        "previous_informal_sha256": "31d8d3c90d94043b6d686eb67107c67e0d9136954658038da81f1acb02e75558",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LG21-optional_reporting-source_witness_of_base_crossings.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-optional_reporting-source_witness_of_base_crossings/project.json",
-      "project_sha256": "e321661448d69ab1463e79f6768d26e0db93fb109244f8a9d28c9c267f07885f",
-      "input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+      "project_sha256": "74d01020b743889b592d3ffbbcfd2c4907a7b1267870366ac0eac9a3d618d550",
+      "input_sha256": "0b580a56c0c748442aa091e1b3f36f6a40104f87c411cbf749a583c333eee806",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -410,12 +563,21 @@
         }
       },
       "pre_review_project_sha256": "ca8075a37fc11a7dec0d74328764a663876d2ca22db9b31aff9f75850a52fbba",
-      "pre_review_input_sha256": "1429aa4340ecd456169108b60108f4953928506a254b40a922dbd04e6fb992c3"
+      "pre_review_input_sha256": "1429aa4340ecd456169108b60108f4953928506a254b40a922dbd04e6fb992c3",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+        "previous_informal_sha256": "55fdd629d191910a8b0d456471a16fd166fc9616d139fdfd393a5123bfeba867",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LG21-optional_reporting-threshold_equilibrium_exists_of_crossing.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-optional_reporting-threshold_equilibrium_exists_of_crossing/project.json",
-      "project_sha256": "273b79a5627cdf8390dc50e7b8a191aaef3e8f46172a8e2ed93f918849e0d823",
-      "input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+      "project_sha256": "803143971c7fa926ccc40d98f3c3e2e0b3716a6c8b1da64dbadae70544d3e8e3",
+      "input_sha256": "5fd748261352f38e1c2bfc226231cf9a6e32df773b4fd2fd580286ae2d3dc010",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -432,12 +594,21 @@
         }
       },
       "pre_review_project_sha256": "2e271da3c5f80276f6d9f63549392dbf73d92b3cc6d59741bc3c1b16371196bb",
-      "pre_review_input_sha256": "09bba905bce350b26c194446c880d3b926733b5a222a77d1642bea0ce01a114e"
+      "pre_review_input_sha256": "09bba905bce350b26c194446c880d3b926733b5a222a77d1642bea0ce01a114e",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+        "previous_informal_sha256": "337e003839f303cf0007c0cb7a467a094405cbe151f87b000154b7985995aad8",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LG21-report_required-source_witness_of_base_crossings.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-report_required-source_witness_of_base_crossings/project.json",
-      "project_sha256": "6537560603a3ff7ab3d766dd52ac145c3d60d22cc471ae35a2ad94a9c684576d",
-      "input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+      "project_sha256": "459320ab95cd936f35244e83b61edceb2ad54b001231d83d48ffe4006a5825d6",
+      "input_sha256": "2270f9b71c79a2707fcb0475a06d85a8a83eff29414f2485f267ab008ba9d72d",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -454,12 +625,21 @@
         }
       },
       "pre_review_project_sha256": "17c224a828f1ede3cb9d4ca711f304edf0b1b1828a947a57308bfa1582c5fda3",
-      "pre_review_input_sha256": "9e1bfa2105896f6912ff72227dd161c978417c7f69df003e63aae9f276907313"
+      "pre_review_input_sha256": "9e1bfa2105896f6912ff72227dd161c978417c7f69df003e63aae9f276907313",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+        "previous_informal_sha256": "3d07a73c950d630fcbcf0534cc060d02bbd7d8443c08154583453ce8e03e706d",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LG21-report_required-threshold_equilibrium_exists_of_crossing.json": {
       "project": "datasets/applied-modeling-lib/projects/LG21-report_required-threshold_equilibrium_exists_of_crossing/project.json",
-      "project_sha256": "99ccce32dd4627f1d184d10cd40b4a56ad7a661e9b6decd123d4a9bb46765949",
-      "input_sha256": "68b8e27bb1dc5c264f504f3e5d3770ba5d913100653ccca9ba67b36d74c93822",
+      "project_sha256": "be4a6ff9167bb74ee7a32d7c40fa9b22c6947090971dc7b5285407f3cd92baa8",
+      "input_sha256": "5ce209c7ef24f511741f9e70e8b5ba020907d7711a2b8004e2107d8f832bf7e0",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -476,12 +656,21 @@
         }
       },
       "pre_review_project_sha256": "fe168c9b278bbb8e9a05eb11582c3e69a877cca1879fe07fdf2bc4287c62bc37",
-      "pre_review_input_sha256": "75d8e885108d6f3814a0155da42a8930541b26de864c335063a8e8ef729042b0"
+      "pre_review_input_sha256": "75d8e885108d6f3814a0155da42a8930541b26de864c335063a8e8ef729042b0",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "68b8e27bb1dc5c264f504f3e5d3770ba5d913100653ccca9ba67b36d74c93822",
+        "previous_informal_sha256": "dab1ac476894f6b5b6e27f0a16c7a17cb26196f48e364dc5c212f7276bba36e9",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LMMS04FairDivision-after.json": {
       "project": "datasets/applied-modeling-lib/projects/LMMS04FairDivision-after/project.json",
-      "project_sha256": "5ab4748620c230681cfeccc733067f38ff6c2604fe236fbe89ce81f14a8e995e",
-      "input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+      "project_sha256": "e1313b7bc251557af6665aa7b76fa0cbcc274b851573ca50c00794c333cee0e5",
+      "input_sha256": "cf211fdc0480bf483ba954b243896796cf0f80a63593462c3826f48bb39a2024",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -498,12 +687,21 @@
         }
       },
       "pre_review_project_sha256": "d3b015818c5862f564033c4a4de2162676e4cf4d9a28b8fa8e122c9013f7b3ae",
-      "pre_review_input_sha256": "40a3c2dec06f1d02dc67a8cd438131def5d439f15891f2769d907bb55a976d48"
+      "pre_review_input_sha256": "40a3c2dec06f1d02dc67a8cd438131def5d439f15891f2769d907bb55a976d48",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+        "previous_informal_sha256": "bdf4395de2ad44ac9f4e736fbdcd3a7535488cd23b63a140192b431c774c0f83",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LMMS04FairDivision-before.json": {
       "project": "datasets/applied-modeling-lib/projects/LMMS04FairDivision-before/project.json",
-      "project_sha256": "2f825e9ac980491baf23ea77b67acc9cf9b8cecf7d50e570182966e42a0ea9f9",
-      "input_sha256": "0b3fcaa6b94ede3ba0954e1d97fb9626f4fcce9e7b91fdf228047ce40ca9c8d0",
+      "project_sha256": "0c97aa8f03c1c3ed21fece94ee4c4ced721b15362db8d10fc2dd9cd03acf3443",
+      "input_sha256": "76f0203a05040787a9b81b435857d4cdaa0024cfead95abda20fbe043dc3e2ab",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -520,12 +718,21 @@
         }
       },
       "pre_review_project_sha256": "0ca5cd5fe49b7906330ffb57e5844ac24770e713118a6fe5b7385550de5a0d9e",
-      "pre_review_input_sha256": "d459a8e68c9368de882d4f620a0b4547d7f652f7d9967563ae8182eb4bc7d4ad"
+      "pre_review_input_sha256": "d459a8e68c9368de882d4f620a0b4547d7f652f7d9967563ae8182eb4bc7d4ad",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "0b3fcaa6b94ede3ba0954e1d97fb9626f4fcce9e7b91fdf228047ce40ca9c8d0",
+        "previous_informal_sha256": "bdf4395de2ad44ac9f4e736fbdcd3a7535488cd23b63a140192b431c774c0f83",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LOS02CombinatorialAuctions-after.json": {
       "project": "datasets/applied-modeling-lib/projects/LOS02CombinatorialAuctions-after/project.json",
-      "project_sha256": "e191f73993c7a4844db725967d357e89dc3b6a1036f1a3c914a03807c2b41329",
-      "input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+      "project_sha256": "83455d46cf636f12509fd01893b4e51088d4f0271caf0b118125f7810304de00",
+      "input_sha256": "b3533aec99775a951bd83110bfe1de84b6ce822d88d2ae088b894325b04343e5",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -542,12 +749,21 @@
         }
       },
       "pre_review_project_sha256": "d3d0dc25504003ba94b3994d3c0c4153f8ba1e017643e5ae61ce30d326a4a4ac",
-      "pre_review_input_sha256": "f6aa8fec8613fc45a0c249a8e604a09d47da55de66d32847506a337783082106"
+      "pre_review_input_sha256": "f6aa8fec8613fc45a0c249a8e604a09d47da55de66d32847506a337783082106",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+        "previous_informal_sha256": "54a03e108821c4173971bf458f7e2c2195088fd044c3e17571ada8771470a585",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/LOS02CombinatorialAuctions-before.json": {
       "project": "datasets/applied-modeling-lib/projects/LOS02CombinatorialAuctions-before/project.json",
-      "project_sha256": "10d787a391ca0912247fa7751febf295839d326e61ec48c3ccb2e1748c10526c",
-      "input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+      "project_sha256": "d9eae689b785b11d00f8ea505574d9a4e9fd219aa7b102bfa54965ba3ee773a2",
+      "input_sha256": "4bc28af73841e571377ea005562a0c79d499905002fbb3999a66681288248fd3",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -564,12 +780,21 @@
         }
       },
       "pre_review_project_sha256": "1e639221a82aa12b2d42206120e9e8f4d6248f430cce306e41e4239eeb64ed5f",
-      "pre_review_input_sha256": "b3749f8a36c0b2c11fa25d02d9ed6e598f054264fed2f69df4508bf76fcf6aee"
+      "pre_review_input_sha256": "b3749f8a36c0b2c11fa25d02d9ed6e598f054264fed2f69df4508bf76fcf6aee",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+        "previous_informal_sha256": "54a03e108821c4173971bf458f7e2c2195088fd044c3e17571ada8771470a585",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/MBJG-VARIANCE-INTERIOR.json": {
       "project": "datasets/applied-modeling-lib/projects/MBJG-VARIANCE-INTERIOR/project.json",
-      "project_sha256": "3b59930af2004cffdfb6badc18f32895ca938bbd394c4fe2bb5d67334ce4d4d8",
-      "input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+      "project_sha256": "82cc3e77e3992e4a00736d713891c528d6c3d8136480624bab3332be8fbb0f54",
+      "input_sha256": "c327690925e2b2324f55eb52dfd8a64e669e6a4afd7e243da9a66e63e1088dd3",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -586,12 +811,21 @@
         }
       },
       "pre_review_project_sha256": "317c0fe89bcfadc4ee7d6e0307624b99747ac11a8a0530a92d9055495df0ba67",
-      "pre_review_input_sha256": "a1eef88c96a3896fc1e882fff3d61b340f97d9bb58fe086d2e18fb9f3d2da4e5"
+      "pre_review_input_sha256": "a1eef88c96a3896fc1e882fff3d61b340f97d9bb58fe086d2e18fb9f3d2da4e5",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+        "previous_informal_sha256": "349519c5a7e09ee6553e5f24e612ec4eaa4fcb381db2da9041f2ac0d1af49335",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/PRPKG-P4-after.json": {
       "project": "datasets/applied-modeling-lib/projects/PRPKG-P4-after/project.json",
-      "project_sha256": "44eda64c5ff77c5ed6ffe4900c7dc7e4d0dcaba55f6e784e1eb12e4dcc3b7282",
-      "input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+      "project_sha256": "ed4504b06eb971f7dbbe2877738980e29e9993af5965a60675a7907066479496",
+      "input_sha256": "911a8bb9ea57c21000ec9854355dd286869694adbd93e78f01979db32b56e4ac",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -608,12 +842,21 @@
         }
       },
       "pre_review_project_sha256": "00d278c64bfa55b0afe156142e18640f523757385397ddfe2d25d44769eed222",
-      "pre_review_input_sha256": "ebc097e69367dcd184ae3731cc2ca19c0c4f48e93a7d8f585b7d79c692ed3e96"
+      "pre_review_input_sha256": "ebc097e69367dcd184ae3731cc2ca19c0c4f48e93a7d8f585b7d79c692ed3e96",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+        "previous_informal_sha256": "e81bc3ef8ae74231fd1c0a2e1ed916019488ae14d548a0cc2e2b8b8ea9630db3",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "applied-modeling-lib/PRPKG-P4-before.json": {
       "project": "datasets/applied-modeling-lib/projects/PRPKG-P4-before/project.json",
-      "project_sha256": "5c4a6378334206d9cbb50294ff3dbd04ddc1e33bad1c45bd374da26c089a7077",
-      "input_sha256": "24e1e843df770864b7a6ae4ec715f20ccb9bb82e55b5e17693848d5beee80bdf",
+      "project_sha256": "3e228cd38f6a785c3e64a6409a1cf738efa889c3ce9f291f4785a23dc53d82b8",
+      "input_sha256": "06e661fb59de3799035e72b4f567d83f10c01a5c52efd914b287e38fcebea9dc",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -630,7 +873,16 @@
         }
       },
       "pre_review_project_sha256": "404d65e60b5e0f249b925f047217df03bc71b5986fc8e19042235a5376fe447a",
-      "pre_review_input_sha256": "aa659617c1d3914a8b9d166b3f454433cfc91a83b9f566a9a68c7986def01547"
+      "pre_review_input_sha256": "aa659617c1d3914a8b9d166b3f454433cfc91a83b9f566a9a68c7986def01547",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "24e1e843df770864b7a6ae4ec715f20ccb9bb82e55b5e17693848d5beee80bdf",
+        "previous_informal_sha256": "e81bc3ef8ae74231fd1c0a2e1ed916019488ae14d548a0cc2e2b8b8ea9630db3",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "carleson/CAR-01-after.json": {
       "project": "datasets/carleson/projects/CAR-01-after/project.json",
@@ -920,8 +1172,8 @@
     },
     "coarse-degiorgi/CDG-L94.json": {
       "project": "datasets/coarse-degiorgi/projects/CDG-L94/project.json",
-      "project_sha256": "0ec1d838adedec080cb1c8137fcc21453f81a06b96676f6c6a291bd0120e95f3",
-      "input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+      "project_sha256": "b18cedad942d05ea24d2f5744f3afdfa5f94ff154f5caead0176e511135a16af",
+      "input_sha256": "071fd526f215cd554197f1983f2a0722d2ef2f4cb8d741f6efc4c0ce38c340d3",
       "archived_preparation": {
         "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
         "catalog": {
@@ -932,7 +1184,16 @@
         "review": null
       },
       "pre_review_project_sha256": "6867a5c852d77c09075a61e0b9a12f9b00f745f7f003522e8e4b0eaf9ee34280",
-      "pre_review_input_sha256": "678a10ce56a02427adc74cf89f84ad333575aeb6b93d4129795ff4414cca83b7"
+      "pre_review_input_sha256": "678a10ce56a02427adc74cf89f84ad333575aeb6b93d4129795ff4414cca83b7",
+      "informal_translation": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "original_language": "Chinese",
+        "translation_language": "English",
+        "previous_input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+        "previous_informal_sha256": "0d2c324b1de1faa18afbf9523981a3a33dbc0ca60a11d1dc96d6be197f2ca833",
+        "description": "Translate Chinese informal text, scope notes, and source locators into English, preserving mathematical content, review scope, labels, and target roots. Pinned Lean source is unchanged."
+      }
     },
     "sphere-packing/SP-A-CUTOFF-FIXED.json": {
       "project": "datasets/sphere-packing/projects/SP-A-CUTOFF-FIXED/project.json",
@@ -14543,6 +14804,245 @@
         "packaged_receipt": "reports/stacks-admission/technical/STK-0B34/receipt.json",
         "packaged_receipt_sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
       }
+    },
+    "qinz1yang/QDG-POINTWISE-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-POINTWISE-before/project.json",
+      "project_sha256": "ec654f25af986537bea72474ad6940e5fdcce455fed06d144fcb386259137a37",
+      "input_sha256": "7a893a6b8da10008af007acb15c46a13e3d546e064d34036aa23a2594ec1ecb5",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-LIONS-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-LIONS-before/project.json",
+      "project_sha256": "8e3b279d01ecbd43b5860d79f7a9050be72b2e6e1f15705ff91f78966988a20a",
+      "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-SOBOLEV-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-SOBOLEV-before/project.json",
+      "project_sha256": "0e81870a3a04a7e4b966f4a5f739734bbe26f516f6f8ebc6d09025c02f9ef1b3",
+      "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-POINTWISE-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-POINTWISE-after/project.json",
+      "project_sha256": "897960f6732ba1d8766136eee132400fc39577c702e7f4e9c6e4b95b9b44c8c0",
+      "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-LIONS-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-LIONS-after/project.json",
+      "project_sha256": "461676893a3a91637a761764aeb656b3f3febea8e0b412db9ab2bd91499d60f3",
+      "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-CHART-PICARD-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-CHART-PICARD-before/project.json",
+      "project_sha256": "4fa5eca130acef889688bf3445f261f4346ac87012b4400fe41a083642ce2c0e",
+      "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-CHART-PICARD-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-CHART-PICARD-after/project.json",
+      "project_sha256": "c10675c86df8f230f29170dd6042a0a44ac74a7854789826f705c5e809fb62d3",
+      "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PL-BALL-PAIR-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-before/project.json",
+      "project_sha256": "a12a763ee7a9b494b7c0e1cee854410287cfc789b0a0a0e7c1871400119e3083",
+      "input_sha256": "58d54b49dfb0c0aa27e3806d9cb2aaee078dca65ac8195bbd1ffe13cbfdf07a6",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PL-BALL-PAIR-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PL-BALL-PAIR-after/project.json",
+      "project_sha256": "5c5f7f3079221dd29acdf481af9a46d9551362c0f64adf4a23253475821ac0b5",
+      "input_sha256": "b96ed327184f9ac428b9246c7ef579a4c228d2a7c930a89fa08c2a0a62f147e8",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PARALLEL-TRANSPORT-BEFORE.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/project.json",
+      "project_sha256": "715da24ff16604c502b476c918c2c6ecd5fa376673d27330b6cebf843148c7ac",
+      "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-PARALLEL-TRANSPORT-AFTER.json": {
+      "project": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-AFTER/project.json",
+      "project_sha256": "93d3d07c10ad410cb481434890a25939b1366b4f0e027e8e881e69c2e88244e3",
+      "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-COMPACT-ISOTOPY-BEFORE.json": {
+      "project": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-BEFORE/project.json",
+      "project_sha256": "b53a9ad45704c34ec909d85500760ca6df4b6a71252c854e9e1158fe21e52f58",
+      "input_sha256": "8fbac7c9b20ff81bcabc3830a942db587082765262a0a9c9afb92b7766a7fd27",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-COMPACT-ISOTOPY-AFTER.json": {
+      "project": "datasets/qinz1yang/projects/QDG-COMPACT-ISOTOPY-AFTER/project.json",
+      "project_sha256": "77514ae7243df455546add12993a46aa259145842c06c88edd672d44f0e21380",
+      "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-TENSOR-BUNDLE-before.json": {
+      "project": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-before/project.json",
+      "project_sha256": "2aa0fd8dec95452a5294ef37212547a18f277fe0d3308844543e9f915060db5a",
+      "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "qinz1yang/QDG-TENSOR-BUNDLE-after.json": {
+      "project": "datasets/qinz1yang/projects/QDG-TENSOR-BUNDLE-after/project.json",
+      "project_sha256": "43f5d61368b8ee84deaf12bad0205ff6686628c1b6c32aca20a5382550608ef9",
+      "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-BISHOP-before.json": {
+      "project": "datasets/frenzymath/projects/FM-BISHOP-before/project.json",
+      "project_sha256": "2893b37719768b06891227dbeddd449fa07a5584d54da90357a91919bd733ade",
+      "input_sha256": "cace9dbf5d8771f2d4807a4966076ae3caa125ba04f612d5f58273c95cad1e0d",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-before.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-before/project.json",
+      "project_sha256": "583d5bd020ed1cc148165b447dfb2e40363d5d52f1afd8d72d54d8ab63b65ce2",
+      "input_sha256": "63c5010d962034986aef6e5470237192f1c102b65a7821d917db61ce7d2ddbe7",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-WEAK-LAPLACIAN-before.json": {
+      "project": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-before/project.json",
+      "project_sha256": "d5652ad117b863b2a252e44391848f39054c4a3dc11f4c51f9d0c89bb6ce6f67",
+      "input_sha256": "7bc36674becfd755cb6a361c6cccfd6be3c5f6c0ea3ccddc262b048a239f9ad1",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-after.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-after/project.json",
+      "project_sha256": "3bcf5444b0e07dbc41f22a961d6e797b884002dce4fa03bd56c352119905908f",
+      "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-WEAK-LAPLACIAN-after.json": {
+      "project": "datasets/frenzymath/projects/FM-WEAK-LAPLACIAN-after/project.json",
+      "project_sha256": "12033eebfb84265ed945be16876253098966586a89753a62b687c119c96b7162",
+      "input_sha256": "2eb1c988a9a67b3c04f0168303baf64efe2551b4ef95a674daf01717a2aad226",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "6530802c544270722767513028e0045862daa575",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-BISHOP-after.json": {
+      "project": "datasets/frenzymath/projects/FM-BISHOP-after/project.json",
+      "project_sha256": "3c46617c3ac11ffe5d4a0ec8e32c853d87f935484fa69feb8d1ea930f71f37db",
+      "input_sha256": "ca2c4139b6483a86a8b8a4d1293f1dde39d666c28dc8579423f3fd684076dd1e",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-COVERING-before.json": {
+      "project": "datasets/frenzymath/projects/FM-COVERING-before/project.json",
+      "project_sha256": "fd0bc0b3463c532ae2d70f9c23f998cbfbbf33ecc07f0f1209b883c7716fa832",
+      "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703",
+      "informal_source_correction": {
+        "date": "2026-11-20",
+        "authority": "explicit_user_instruction",
+        "description": "Correct the informal source interpretation to the cited connected-source completeness convention. Pinned Lean source is unchanged."
+      }
+    },
+    "frenzymath/FM-LAPLACIAN-COEFFICIENTS-before.json": {
+      "project": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/project.json",
+      "project_sha256": "a8ad0ea80a74827093ebef53d212a0ea6348427028aa05db856780f89430314e",
+      "input_sha256": "17554ed26c30b911d28bbe6b902f4f819d25cf3b05a97be8357fc179e18f2893",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-EXP-LOCAL-before.json": {
+      "project": "datasets/frenzymath/projects/FM-EXP-LOCAL-before/project.json",
+      "project_sha256": "19f9598995bc428d092ecb84e2b240e980113bc193a607a498af2b1957bef82e",
+      "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-COMPLETENESS-before.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-COMPLETENESS-before/project.json",
+      "project_sha256": "b76f5e4494d99276db4eb4ccef631e4205a4c10ceafa1862bab1850bfd9ea0c3",
+      "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
+    },
+    "frenzymath/FM-GEODESIC-COMPLETENESS-after.json": {
+      "project": "datasets/frenzymath/projects/FM-GEODESIC-COMPLETENESS-after/project.json",
+      "project_sha256": "83e868c7090562c2cba90727e2a19141f25628d9b9888951bb23e01f133a103a",
+      "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+      "archived_preparation": {},
+      "source_repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_commit": "e2d6a088ccaa45f6e5056a076616391ec2bee569",
+      "preparation_evidence_commit": "302692756d3d695e00138a1816652ae803d60703"
     }
   },
   "excluded_model_annotations": {

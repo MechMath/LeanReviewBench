@@ -227,7 +227,7 @@
     "graph": null,
     "review": null
   },
-  "input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+  "input_sha256": "071fd526f215cd554197f1983f2a0722d2ef2f4cb8d741f6efc4c0ce38c340d3",
   "included_dependency": {
     "repository": "https://github.com/scottnarmstrong/CoarseGraining",
     "commit": "310d1a6bab3ba2d398cdaffec32f3c9d4b5a24be",

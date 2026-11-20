@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "frenzymath",
+  "project_id": "FM-EXP-LOCAL-before",
+  "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+  "formal_sha256": "4e2d0406e51e47f523afc3de6bdda073cc1456d49e5f9bbfac115262d84032c0",
+  "roots": [
+    "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "8c32bcb098c2db4f57794d46d380b0dd87e3b4b789d1f505251cf9fcb337c232",
+  "nodes": 257,
+  "edges": 1475,
+  "local_nodes": 32,
+  "compiled_sources": {
+    "Main.lean": "e3bfc6e36f8cdea5c38d3b97e1cea4ab27024e3adf016594e360ed1361617d9e"
+  },
+  "statement_preservation_recorded": "passed_with_verified_support_and_nominal_identity_policy",
+  "nonproof_preservation_recorded": "passed_migrated_source_context",
+  "source_preservation_method": "Preservation.lean independently re-elaborates pinned source roots/defs with exact original section variables; Lean.Meta.isDefEq compares full types and nonproof definition values.",
+  "preservation_status_recorded": "passed_migrated_source_context_with_verified_support_reuse",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/frenzymath/metadata/technical-evidence/FM-EXP-LOCAL-before/preservation.json",
+  "archived_receipt_sha256": "02e5594a77bbd298448968652752a1b56eb057e6d53fd8e78c78c3cae1e29d38",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

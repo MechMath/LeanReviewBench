@@ -33,8 +33,8 @@
     "input_sha256": "545c0e0b9578c2967a56401f6057466057cfe0c7ba5ce4a873027c1ce6a7581a",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "ParamConditions 要求 |L₀|≤d₀，使初始 RS 码率为 1，与非负 δ₀<1-sqrt(ρ₀)=0 矛盾。formal 还将误差作为任意输入却在结论要求其上界，把 err(...,t+s) 写成 err(...,t)+s、折叠参数 k 换成重复次数 t，并以 j≠0 跳过首轮。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好为我标为misaligned; confirms misaligned for arklib:stir-rbr-withdrawn-before after reviewing the inconsistent rate/distance premises, error quantification, and formula/index mismatches.",
+    "reason": "ParamConditions requires |L₀|≤d₀, making the initial RS code rate 1 and contradicting nonnegative δ₀<1-sqrt(ρ₀)=0. The formalization also takes errors as arbitrary inputs but requires upper bounds on them in the conclusion, writes err(...,t)+s instead of err(...,t+s), replaces folding parameter k with repetition count t, and skips the first round via j≠0.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms misaligned for arklib:stir-rbr-withdrawn-before after reviewing the inconsistent rate/distance premises, error quantification, and formula/index mismatches.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 blueprint lemma:rnd_by_rnd_soundness 与 StirIOP.stir_rbr_soundness；核对包含 ParamConditions 的完整前提及误差结论。",
+    "review_scope": "The currently frozen blueprint lemma:rnd_by_rnd_soundness and StirIOP.stir_rbr_soundness; the review includes the full premises involving ParamConditions and the error conclusions.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/stir-rbr-withdrawn-before/informal.jsonl",
@@ -111,13 +111,13 @@
       }
     },
     "semantic_argument": [
-      "ParamConditions.h_smooth_le 对第 0 轮要求 |ι₀|≤degree(0)。空前缀乘积为 1，因此 degree(0)=P.deg。",
-      "评价域非空，RS 码率公式为 min(P.deg,|ι₀|)/|ι₀|；由上一不等式其值为 1。Bstar(1)=sqrt(1)=1。",
-      "hδ₀ 要求 Dist.δ 0<1-Bstar(rate)=0，而 Dist.δ 0 的类型为 ℝ≥0。这些 formal 前提互相矛盾、没有实例，偏离原文要求正距离且码率低于 1 的有效参数域。",
-      "原文要求存在具有受控各轮误差的协议。formal 将 ε_fold、ε_out、ε_shift、ε_fin 放在存在协议之前作为任意输入，却又在结论中断言输入误差满足各项上界，没有相应输入限制。",
-      "shift 误差原文第二项为 err*(d_i,ρ_i,δ_i,t_{i-1}+s)，formal 实际解析为 proximityError(...,t_{i-1})+s；加法被移到误差函数之外。",
-      "原文初始 folding 误差及 shift 的末项以 k_0/k_i 为误差函数最后参数；formal 对应处使用 P.repeatParam，即 t_0/t_i，未要求两类参数相同。",
-      "formal 以 j:Fin M 对应论文 i=j+1，又要求 j.val≠0，因此排除了论文 i=1 的误差界。"
+      "ParamConditions.h_smooth_le requires |ι₀|≤degree(0) in round 0. The empty prefix product is 1, so degree(0)=P.deg.",
+      "The evaluation domain is nonempty, and the RS code rate is min(P.deg,|ι₀|)/|ι₀|. The preceding inequality makes it 1, and Bstar(1)=sqrt(1)=1.",
+      "The premise hδ₀ requires Dist.δ 0<1-Bstar(rate)=0, but Dist.δ 0 has type ℝ≥0. These formal premises are contradictory and have no instance, unlike the source's valid parameter domain with positive distance and code rate below 1.",
+      "The source requires the existence of a protocol with controlled errors in each round. The formalization takes ε_fold, ε_out, ε_shift and ε_fin as arbitrary inputs before the existential protocol, then asserts upper bounds on those input errors in the conclusion without corresponding input restrictions.",
+      "The second source term in the shift error is err*(d_i,ρ_i,δ_i,t_{i-1}+s). The formal expression parses as proximityError(...,t_{i-1})+s, moving the addition outside the error function.",
+      "The source uses k_0/k_i as the final argument of the error function in the initial folding error and the last shift-error term. The formal expressions instead use P.repeatParam, namely t_0/t_i, without requiring these two parameter families to agree.",
+      "The formal j:Fin M corresponds to the paper's i=j+1, but the additional condition j.val≠0 excludes the paper's i=1 error bound."
     ],
     "premise_contradiction": {
       "facts": [
@@ -129,7 +129,7 @@
         "Dist.δ 0<1-sqrt(1)=0"
       ],
       "conclusion": "No assignment satisfies all the formal premises.",
-      "role": "假设范围错配的证据，不是对带全部前提的 Lean 蕴含定理构造反例。"
+      "role": "Evidence of a mismatch in the scope of the assumptions, not a counterexample to the Lean implication theorem with all its premises."
     },
     "verification": {
       "source_binding_checked": true,
@@ -137,13 +137,13 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "由于完整前提已矛盾，不能把任意选过大的 ε_fold 描述为满足全部 formal 前提的反例；本次将量词问题作为陈述差异记录。",
-      "不声称此 Lean 条件定理为假；它可以因前提矛盾而成立。未新建或编译 Lean 矛盾证明。",
-      "判负不依赖 withdrawn 名称或证明中的 sorry，也不将未列出的其他安全性质差异作为依据。",
-      "formal、informal、输入哈希与技术状态均保持原样；不传播标签到下一项 Sumcheck。",
-      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+      "Because the full premises are already contradictory, arbitrarily choosing an oversized ε_fold cannot be described as a counterexample satisfying every formal premise. The quantifier issue is recorded here as a statement difference.",
+      "This does not claim that the Lean conditional theorem is false; it may hold because its premises are contradictory. No new Lean proof of the contradiction was created or compiled.",
+      "The negative label does not rely on withdrawn in the name or sorry in the proof, nor on other unlisted differences in security properties.",
+      "The formal and informal inputs, input hash and technical status are unchanged; the label is not propagated to the next Sumcheck case.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "ParamConditions 要求 |L₀|≤d₀，使初始 RS 码率为 1，与非负 δ₀<1-sqrt(ρ₀)=0 矛盾。formal 还将误差作为任意输入却在结论要求其上界，把 err(...,t+s) 写成 err(...,t)+s、折叠参数 k 换成重复次数 t，并以 j≠0 跳过首轮。",
-  "retained_review_scope": "当前冻结 blueprint lemma:rnd_by_rnd_soundness 与 StirIOP.stir_rbr_soundness；核对包含 ParamConditions 的完整前提及误差结论。"
+  "retained_reason": "ParamConditions requires |L₀|≤d₀, making the initial RS code rate 1 and contradicting nonnegative δ₀<1-sqrt(ρ₀)=0. The formalization also takes errors as arbitrary inputs but requires upper bounds on them in the conclusion, writes err(...,t)+s instead of err(...,t+s), replaces folding parameter k with repetition count t, and skips the first round via j≠0.",
+  "retained_review_scope": "The currently frozen blueprint lemma:rnd_by_rnd_soundness and StirIOP.stir_rbr_soundness; the review includes the full premises involving ParamConditions and the error conclusions."
 }

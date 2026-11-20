@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "frenzymath",
+  "project_id": "FM-GEODESIC-before",
+  "input_sha256": "63c5010d962034986aef6e5470237192f1c102b65a7821d917db61ce7d2ddbe7",
+  "formal_sha256": "47ea90600cfec765db725b655a15d184023f6f3f0cf7171996896770e7ac129f",
+  "roots": [
+    "MorganTianLib.IsGeodesicOn"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "a100fa5a74d4386a65582f7388521672efab5d7ef15867a0566d1c711cf0b5b4",
+  "nodes": 190,
+  "edges": 860,
+  "local_nodes": 22,
+  "compiled_sources": {
+    "Main.lean": "d3c92bef9f588bda97d11905086bc524e6992c2911c30706efeb8a68028e71df"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "passed_in_migrated_environment",
+  "source_preservation_method": "All 13 exact source definition fragments retained; original duplicate Module.Finite binder on Morgan section retained in SourceContext; Lean rfl equality probes enforce complete type and computational value definitional equality; graph local nonproof closure exactly matches 13 declarations.",
+  "preservation_status_recorded": "passed",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/frenzymath/metadata/technical-evidence/FM-GEODESIC-before/preservation.json",
+  "archived_receipt_sha256": "155a8baa1bdfd6f43ae917c506c03ed2c32a75b8d4cde04479eaf19bc785e6cc",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

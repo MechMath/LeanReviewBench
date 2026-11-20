@@ -1,0 +1,61 @@
+{
+  "id": "QDG-LIONS-after",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+    "path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/389a4fd195f3ee7600c9ed5424e6f1921bdc391e/DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+  },
+  "group_id": "qinz1yang:ROOT-LIONS-MAGENES-PROXY",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [
+    "QDG-LIONS-before"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "4dbf3af373f176d4f095d9c48d0e4eef6108244f39c871400849be068d9fc7c7",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "target_mode": "single",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "historical-license-scope-unresolved",
+  "original_toolchain": "leanprover/lean4:v4.29.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "ROOT-LIONS-MAGENES-PROXY",
+  "validation_reference": "metadata/validation.json",
+  "license_admission": "include_with_notice",
+  "license_review_note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+}

@@ -1,0 +1,208 @@
+{
+  "task_id": "frenzymath:FM-GEODESIC-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-GEODESIC-before",
+  "input_sha256": "63c5010d962034986aef6e5470237192f1c102b65a7821d917db61ce7d2ddbe7",
+  "root": "MorganTianLib.IsGeodesicOn",
+  "label": "misaligned",
+  "reason": "The predicate checks only the geodesic equation for total coordinate functions and imposes no continuity or local chart-source containment on the underlying curve. On the real line with a valid atlas of restricted translation charts extended by zero outside their sources, a curve jumping from 0 to 1 has identically zero chartLocalCurve at every time. Zero velocity and acceleration satisfy all derivative conditions and the Christoffel equation, although the curve is discontinuous on an open interval and is not a smooth geodesic. As a complete geodesic definition, the predicate therefore accepts objects excluded by the source.",
+  "review_scope": "Morgan-Tian Definition 1.17, interpreted as the complete predicate for smooth geodesics on an open interval; smoothness is not supplied as an unrecorded external precondition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.IsGeodesicOn"
+  ],
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-GEODESIC-before/informal.jsonl",
+      "sha256": "e1d8c2e4d163016bc4b4ee2f3321a3f209389ba028c6c98767ed93989a96aff3",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "version": "arXiv:math/0607607v2",
+        "version_date": "2007-03-21",
+        "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+        "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+        "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+        "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+        "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+        "locator": "Geodesic definition, prelim.tex lines461-466",
+        "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+      },
+      "bound_scope": "Geodesics as smooth curves on an open interval with vanishing covariant acceleration."
+    },
+    "first_pass": "The predicate checks only the geodesic equation for total coordinate functions and imposes no continuity or local chart-source containment on the underlying curve. On the real line with a valid atlas of restricted translation charts extended by zero outside their sources, a curve jumping from 0 to 1 has identically zero chartLocalCurve at every time. Zero velocity and acceleration satisfy all derivative conditions and the Christoffel equation, although the curve is discontinuous on an open interval and is not a smooth geodesic. As a complete geodesic definition, the predicate therefore accepts objects excluded by the source.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-before/formal/Main.lean",
+        "sha256": "d3c92bef9f588bda97d11905086bc524e6992c2911c30706efeb8a68028e71df",
+        "line_start": 174,
+        "line_end": 180,
+        "anchor": "abbrev IsGeodesicOn (g : Riemannian.RiemannianMetric I M) (γ : ℝ → M)",
+        "declaration": "MorganTianLib.IsGeodesicOn"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-before/formal/Main.lean",
+        "sha256": "d3c92bef9f588bda97d11905086bc524e6992c2911c30706efeb8a68028e71df",
+        "line_start": 144,
+        "line_end": 153,
+        "anchor": "def HasGeodesicEquationAt"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-before/formal/Main.lean",
+        "sha256": "d3c92bef9f588bda97d11905086bc524e6992c2911c30706efeb8a68028e71df",
+        "line_start": 162,
+        "line_end": 165,
+        "anchor": "def IsGeodesicOn"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-before/formal/Main.lean",
+        "sha256": "d3c92bef9f588bda97d11905086bc524e6992c2911c30706efeb8a68028e71df",
+        "line_start": 117,
+        "line_end": 123,
+        "anchor": "def chartChristoffelContraction"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-GEODESIC-before/formal/Main.lean",
+        "sha256": "d3c92bef9f588bda97d11905086bc524e6992c2911c30706efeb8a68028e71df",
+        "line_start": 133,
+        "line_end": 134,
+        "anchor": "def chartLocalCurve"
+      }
+    ],
+    "second_pass": "The explicit smooth-atlas countermodel establishes that the chart equation does not imply continuity, even on an open interval in the ordinary connected, boundaryless real line. The derivative checks apply to constant coordinate functions and the Christoffel contraction vanishes for zero velocity, without needing a Christoffel computation. On curves independently assumed smooth the usual coordinate equation is correct, but the user confirmed the complete-predicate interpretation and the misaligned verdict after reviewing this distinction.",
+    "unresolved_questions": [],
+    "verification_limits": "The countermodel is a mathematical derivation from the retained computational definitions and pinned mathlib structure contracts; it has not been compiled as a Lean counterexample. The human-confirmed verdict concerns the complete geodesic predicate. No mathematical input or export-readiness flag was changed.",
+    "counterexample": {
+      "status": "Mathematical countermodel checked against the retained definitions and pinned mathlib structures; not a Lean-kernel-certified construction.",
+      "ambient_space": "E = H = M = real numbers with their ordinary topology; identity model with corners; a custom preferred atlas of restricted translation charts; the ordinary Euclidean Riemannian metric. The manifold is connected, Hausdorff, finite-dimensional and boundaryless.",
+      "atlas": "For each p in R, let U_p = (p-1/4,p+1/4) and V = (-1/4,1/4). The chart c_p has source U_p, target V, total forward function c_p(x) = x-p when x is in U_p and 0 otherwise, and total inverse c_p^{-1}(y) = p+y. Choose c_p as chartAt p and take all c_p as the atlas.",
+      "atlas_validity": "Restricted to U_p and V these maps are inverse homeomorphisms. Their values outside the source are unconstrained by PartialEquiv and PartialHomeomorph. On every chart overlap the transition c_q composed with c_p^{-1} is the translation y -> y+p-q, hence smooth. These charts therefore give the ordinary smooth structure. Preferred coordinate derivatives equal 1 locally, so the Euclidean metric is a smooth positive-definite bundle metric satisfying the formal hypotheses.",
+      "curve": "Take s = (-1,1) and define gamma(t) = 0 for t <= 0 and gamma(t) = 1 for t > 0, as a total map R -> M. It is discontinuous at the interior time 0.",
+      "coordinate_calculation": "c_0(0) = c_0(1) = c_1(0) = c_1(1) = 0. Therefore, for every fixed t, chartLocalCurve gamma t, namely u -> c_{gamma(t)}(gamma(u)), is identically zero on all of R.",
+      "formal_predicate": "At every t choose v = a = 0. Both HasDerivAt conditions hold for constant functions, and the eventual HasDerivAt condition holds everywhere. chartChristoffelContraction g (gamma(t)) 0 0 y = 0 directly from chartCoord(i,0)=0 and its bilinear summation formula, independently of the numerical Christoffel values. Thus HasGeodesicEquationAt holds at every t and IsGeodesicOn g gamma (-1,1) is true.",
+      "separation": "The curve is not continuous, hence not a smooth geodesic in the source definition. Coordinate regularity cannot recover manifold regularity without local source containment: near t=0 the curve jumps outside the chart at gamma(0), whose arbitrary total extension hides the jump.",
+      "scope_limit": "This separates the complete classifier on arbitrary curves, not its restriction to curves already assumed smooth. The interval is open and the failure occurs at an interior point, so no endpoint convention is involved."
+    },
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "User requested automatic analysis of the next unresolved case.",
+      "recommended_label": "misaligned",
+      "recommendation_scope": "The selected root is interpreted as the complete geodesic predicate on its actual arguments; this is consistent with the repository treatment of omitted defining regularity clauses.",
+      "proposed_reason": "The selected predicate checks only the geodesic equation for the total coordinate functions and imposes no continuity or local chart-source containment on the underlying curve. On the real line with a valid atlas of restricted translation charts extended by zero outside their sources, a curve jumping from 0 to 1 has identically zero chartLocalCurve at every time. Taking velocity and acceleration zero satisfies every derivative condition and the Christoffel equation, although the curve is discontinuous on an open interval and therefore is not a smooth geodesic. As a complete geodesic definition, the predicate accepts objects excluded by the source. This counterexample does not apply if smoothness is imposed externally as an input precondition.",
+      "adjudication": "The user explicitly confirmed misaligned on 2026-11-20 after being shown the complete-predicate versus external-smoothness-precondition distinction.",
+      "independent_source_check": {
+        "url": "https://arxiv.org/pdf/math/0607607v2",
+        "locator": "Definition 1.17, printed page 41 / PDF page 44; coordinate equation immediately below; printed page 42 discusses smoothness from ODE theory."
+      },
+      "boundary_rule": "metadata/taxonomy/standard.md, boundary rule 5: omitted defining smoothness requirements are property mismatches; this does not by itself settle whether smoothness is instead an external precondition."
+    },
+    "pinned_library_evidence": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "files": [
+        {
+          "file": "Mathlib/Logic/Equiv/PartialEquiv.lean",
+          "sha256": "5d6ef72295d18519927bc97c6fef1519a5107600edcdf09c7fb655f6592bf820",
+          "line_start": 112,
+          "line_end": 133,
+          "relevance": "Total forward values outside source are irrelevant to the partial equivalence."
+        },
+        {
+          "file": "Mathlib/Topology/PartialHomeomorph/Defs.lean",
+          "sha256": "030d05682c72992ba3a70e04e32e1f55119dd6e8c3aef7ef3a12a20f6421bc5c",
+          "line_start": 53,
+          "line_end": 57,
+          "relevance": "Continuity is required only on source and target."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/ChartedSpace.lean",
+          "sha256": "4f779df4628958734dc12d4deee5843a1ecdeed6319ee73d52b90eada28a787d",
+          "line_start": 141,
+          "line_end": 148,
+          "relevance": "A preferred chart must contain its center; no global injectivity of its total function is required."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/HasGroupoid.lean",
+          "sha256": "233b21dae9be347dc04a399531ce3383e208e6211abb4b810791df3129d1baba",
+          "line_start": 34,
+          "line_end": 37,
+          "relevance": "Smoothness compatibility is imposed on chart transitions on their partial domains."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
+          "sha256": "b4eefdd19a4e3e6c50a368c7c08f02212e6c989272809657df29dfed1c3f8009",
+          "line_start": 779,
+          "line_end": 783,
+          "relevance": "IsManifold requires the smooth chart groupoid compatibility."
+        },
+        {
+          "file": "Mathlib/Geometry/Manifold/VectorBundle/Riemannian.lean",
+          "sha256": "044b397c80cc85430415afd4f976195943dd0015170cd0388d445dc09098c979",
+          "line_start": 244,
+          "line_end": 252,
+          "relevance": "Actual smooth positive-definite bundle metric requirements."
+        }
+      ]
+    }
+  },
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The predicate checks only the geodesic equation for total coordinate functions and imposes no continuity or local chart-source containment on the underlying curve. On the real line with a valid atlas of restricted translation charts extended by zero outside their sources, a curve jumping from 0 to 1 has identically zero chartLocalCurve at every time. Zero velocity and acceleration satisfy all derivative conditions and the Christoffel equation, although the curve is discontinuous on an open interval and is not a smooth geodesic. As a complete geodesic definition, the predicate therefore accepts objects excluded by the source.",
+    "uncertainty": "",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+      "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/f5661a1a73a7104af9e65024edd8a569d49ba981/formalized-sources/MorganTian/MorganTianLib/Ch01/Geodesics.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "version": "arXiv:math/0607607v2",
+          "version_date": "2007-03-21",
+          "pdf_url": "https://arxiv.org/pdf/math/0607607v2",
+          "tex_source_url": "https://arxiv.org/src/math/0607607v2",
+          "pdf_sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8",
+          "archive_sha256": "571e3e2e3a00387437d4f1da09daf7ced753532fa3f903c2bf6fdef10b5ad1f5",
+          "tex_sha256": "fb0ad5adf3e725bc618354986101be8da63c49cb5e47855d090843a7c752839d",
+          "locator": "Geodesic definition, prelim.tex lines461-466",
+          "sha256": "267c8382302f4c73f544a12bd61152a1f45039394ebb1b6fc57083b5375ba1b8"
+        },
+        "scope": "Geodesics as smooth curves on an open interval with vanishing covariant acceleration."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "bbb6dc7265f2b0862c6bbfba5856f31f2985043ee854c9f0fe564e6b23d60ed4",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "bbb6dc7265f2b0862c6bbfba5856f31f2985043ee854c9f0fe564e6b23d60ed4"
+    },
+    "followup_recommendation": "The user accepted misaligned under the complete-predicate interpretation; the countermodel and its source-domain qualification remain in analysis.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned",
+      "scope": "The user accepted the verdict after review of the complete-predicate interpretation and the external-precondition alternative.",
+      "reason_recording": "Corresponding English explanation recorded consistently with the ongoing review."
+    }
+  },
+  "analysis_availability": "The current English reason, user-confirmed complete-predicate scope, pinned declaration evidence and mathematical discontinuous-curve countermodel are retained in analysis; human confirmation is recorded in curator_notes.human_adjudication."
+}

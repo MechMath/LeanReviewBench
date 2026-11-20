@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "允许显式的k次根参数化时对应：对m,n>0及k≥1，x↦x^k是{x|m:x^k|m}到m的完全k次幂除数的双射，并保持乘积。因此formal根除数的分解/乘法单射，经该双射就是文字的幂除数命题。k=0时文字的完全0次幂只有1，分解与单射直接成立；formal覆盖更强的普通互素除数结论。",
+  "retained_reason": "The statements correspond when explicit kth-root parameterization is allowed: for m,n>0 and k≥1, x↦x^k is a product-preserving bijection from {x|m:x^k|m} to the perfect kth-power divisors of m. Thus the formal factorization or injectivity of multiplication for root divisors becomes the text's power-divisor proposition through this bijection. At k=0, the only perfect zeroth power in the text is 1, so factorization and injectivity hold directly; the formal statement covers the stronger ordinary coprime-divisor conclusion.",
   "review_scope": "The bound perfect-power divisor statement, allowing the explicit kth-root parametrization."
 }

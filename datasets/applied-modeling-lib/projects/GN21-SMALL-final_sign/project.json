@@ -79,7 +79,7 @@
       "sha256": "d8d40973d913167fc9be6d85a55b8d4f3dcd069509ff8e4abe05a82522d1f73f"
     }
   },
-  "input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+  "input_sha256": "5cb428b5db3d0ef57b1431979df02d8357b0d98154bfefff7ab063c5b823592b",
   "external_boundaries": [
     "Mathlib",
     "Lean",

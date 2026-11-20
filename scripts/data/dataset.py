@@ -25,7 +25,7 @@ class Dataset:
         self.config=json.loads((self.root/'datasets/project-cases.json').read_text())
         if self.config['schema_version']!='paperlean-project-cases-1':raise ValueError('Unknown project-case configuration')
         self._projects={}
-        for batch in self.config['datasets']:
+        for batch in {**self.config['datasets'], **self.config.get('review_datasets', {})}:
             for path in sorted((self.root/'datasets'/batch/'projects').glob('*/project.json')):
                 self._projects[batch+':'+path.parent.name]=path.parent
     def __len__(self):return len(self._projects)

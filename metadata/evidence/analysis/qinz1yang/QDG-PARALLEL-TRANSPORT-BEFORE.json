@@ -1,0 +1,122 @@
+{
+  "task_id": "qinz1yang:QDG-PARALLEL-TRANSPORT-BEFORE",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+  "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
+  "root": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product",
+  "label": "misaligned",
+  "reason": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
+  "review_scope": "The bound metric-preservation statement for intrinsic Levi-Civita parallel transport, including its coordinate realization.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+  ],
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/informal.jsonl",
+      "sha256": "601ea596fa1b1202b92d616032de22e3715c6e7896c1a838f45c5669b133565b",
+      "id": "main",
+      "source": {
+        "title": "Riemannian Geometry IV, Solutions 8",
+        "author": "Pavel Tumarkin",
+        "url": "https://www.maths.dur.ac.uk/users/pavel.tumarkin/past/fall19/RG/RG8-sols.pdf",
+        "sha256": "1504f3ad5ff48caef13384dfac5918f490af1a43cf165bb116348ff0950257b4",
+        "locator": "Michaelmas 2019, Exercise8.3 and solution, printed p.4 / PDF p.4",
+        "text_kind": "independently_read_paraphrase"
+      },
+      "bound_scope": "Levi-Civita parallel transport and the Riemannian metric pairing of tangent vector fields along a smooth curve."
+    },
+    "first_pass": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 286,
+        "line_end": 295,
+        "anchor": "theorem parallelTransport_preserves_inner_product",
+        "declaration": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 71,
+        "line_end": 75,
+        "anchor": "def chartBasisVecFiber"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 210,
+        "line_end": 216,
+        "anchor": "def IsCovDerivAlongChart"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 254,
+        "line_end": 262,
+        "anchor": "theorem parallel_global_extension"
+      },
+      {
+        "file": "datasets/qinz1yang/projects/QDG-PARALLEL-TRANSPORT-BEFORE/formal/Main.lean",
+        "sha256": "74546dec157751bba4d95692fc2b3fd2f61becf09106f59066371e570a03add8",
+        "line_start": 272,
+        "line_end": 276,
+        "anchor": "noncomputable def parallelTransport"
+      }
+    ],
+    "second_pass": "This is a definition-level coordinate calculation. A valid smooth atlas on the real line can select the global identity chart at one base point and the exponential chart (range (0,infinity)) at another; both chart sources contain the curve segment. chartBasisVecFiber uses the inverse tangent trivialization, so in the exponential chart its basis vector is (1/y) times the x basis vector, giving exactly the Gram coefficient y^(-2). parallel_global_extension quantifies over every selected chart, including these two, while passing the same V. The initial value 1 forces both derivative 0 and derivative 1 at time zero. This establishes the coordinate mismatch mathematically; no Lean-certified atlas instance is claimed.",
+    "unresolved_questions": [],
+    "verification_limits": "Definition-level mathematical review; no new Lean compilation, original-proof certification or Lean-certified countermodel. Existing formal bytes and technical checks are unchanged. Human misaligned adjudication and export readiness are unchanged."
+  },
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
+    "uncertainty": "The argument has not been formalized as a Lean countermodel.",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+      "root_file": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Riemannian Geometry IV, Solutions 8",
+          "author": "Pavel Tumarkin",
+          "url": "https://www.maths.dur.ac.uk/users/pavel.tumarkin/past/fall19/RG/RG8-sols.pdf",
+          "sha256": "1504f3ad5ff48caef13384dfac5918f490af1a43cf165bb116348ff0950257b4",
+          "locator": "Michaelmas 2019, Exercise8.3 and solution, printed p.4 / PDF p.4",
+          "text_kind": "independently_read_paraphrase"
+        },
+        "scope": "Levi-Civita parallel transport and the Riemannian metric pairing of tangent vector fields along a smooth curve."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "f048faf510a133b6d9a1f4b52649ff9d8196d901aa420a8c7b673156825713fe",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "f048faf510a133b6d9a1f4b52649ff9d8196d901aa420a8c7b673156825713fe"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "misaligned"
+    },
+    "reason_followup": {
+      "date": "2026-11-20",
+      "reason": "The shared parallelTransport constructor chooses a single E-valued function V and requires its unchanged components to solve IsParallelChart in every chart. Intrinsic parallel transport instead transforms components by the derivative of each chart transition. On the Euclidean line, use overlapping selected charts x and y = exp(x), and the curve x(t) = t near zero. In the x chart the metric coefficient is 1 and the parallel equation is V′ = 0. In the y chart the coefficient is y^(-2), Christoffel symbol is -1/y and y′ = y, giving V′ = V. With initial component 1 these conditions are incompatible. The same intrinsic vector has y-component exp(t), not its unchanged x-component 1. Thus the chosen object is not an intrinsic parallel field. The BEFORE root pairs these unchanged components directly as moving-fiber tangent values, which does not supply the missing coordinate transformation.",
+      "method": "Recheck current bound scope and selected computational definitions."
+    }
+  },
+  "analysis_availability": "Final written mathematical reason and definition-level scope/coordinate check retained; human-confirmed misaligned verdict unchanged."
+}

@@ -43,7 +43,7 @@
     "graph": null,
     "review": null
   },
-  "input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+  "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
   "external_boundaries": [
     "Mathlib",
     "Lean",

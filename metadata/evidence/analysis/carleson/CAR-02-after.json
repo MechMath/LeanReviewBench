@@ -28,6 +28,6 @@
   "review_scope": "The complete bound theorem with its project-defined cancellation and phase assumptions.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "蓝图假设对所有 phase θ 的算子范数控制；Lean 的 hT 只对隐式单个 θ 成立，却推出不含该 θ 的 linearizedCarleson 结论，量词范围不匹配。",
+  "retained_reason": "The blueprint assumes operator-norm control for every phase θ. Lean's hT applies only to one implicit θ, yet concludes a linearizedCarleson statement that does not depend on that θ, creating a quantifier-scope mismatch.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

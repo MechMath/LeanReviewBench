@@ -41,6 +41,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "在显式新绑定下，主公式、绝对值、x/log x归一化、offset Li、四实参数和∀x≥x₀全部对应。 此标签针对明确补入的后续上游定义及其全实域运算约定；不是恢复冻结版本的原始主注释。",
+  "retained_reason": "Under the explicit new binding, the main formula, absolute value, x/log x normalization, offset Li, four real parameters, and ∀x≥x₀ all correspond. This label concerns the explicitly added later upstream definition and its operation conventions on the full real domain; it does not restore the original main comment from the frozen version.",
   "review_scope": "The explicitly bound Vinogradov predicate and its totalized operations on real arguments."
 }

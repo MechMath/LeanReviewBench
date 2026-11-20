@@ -42,8 +42,8 @@
     "input_sha256": "75cc022daa974df4a467aee23eef6b2789990566cf776045d7e50681ed79e81c",
     "review_date": "2026-11-09",
     "label": "misaligned",
-    "reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，实质放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 全部兼容性与消去性条件的连续相位族，取零核后其余前提也成立；原文消去性与兼容性对同一相位族给出互相矛盾的距离界，即使重新选择辅助距离也无法满足。此判定针对主命题适用条件，不宣称 formal 结论为假；不以尚未闭合的 toReal 问题作为判负依据。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-09: 好 那为我将标签改成misaligned",
+    "reason": "iLipNorm replaces the source's Lipschitz seminorm on a ball with the seminorm on the entire space, substantially weakening the main theorem's cancellative premise. On ℚ₂ with a=4, one can construct a continuous phase family satisfying all formal compatibility and cancellation conditions, and choosing the zero kernel satisfies the remaining premises. The source's cancellation and compatibility requirements give contradictory distance bounds for this same phase family, even if the auxiliary distance is chosen again. The judgment concerns applicability of the main statement, not falsity of its formal conclusion; the unresolved toReal issue is not used as a reason for the negative label.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-09 (translated from Chinese): Okay, change the label to misaligned.",
     "reviewer": "Codex",
     "reviewer_type": "model",
     "human_adjudicated": false,
@@ -116,6 +116,6 @@
       "User confirmation authorizes the label update; the existing provisional-review fields do not become formal human-gold certification."
     ]
   },
-  "retained_reason": "iLipNorm 将原文球内 Lipschitz 半范数替换为全空间半范数，实质放宽主定理的消去性前提。在 ℚ₂、a=4 上可构造满足 formal 全部兼容性与消去性条件的连续相位族，取零核后其余前提也成立；原文消去性与兼容性对同一相位族给出互相矛盾的距离界，即使重新选择辅助距离也无法满足。此判定针对主命题适用条件，不宣称 formal 结论为假；不以尚未闭合的 toReal 问题作为判负依据。",
-  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
+  "retained_reason": "iLipNorm replaces the source's Lipschitz seminorm on a ball with the seminorm on the entire space, substantially weakening the main theorem's cancellative premise. On ℚ₂ with a=4, one can construct a continuous phase family satisfying all formal compatibility and cancellation conditions, and choosing the zero kernel satisfies the remaining premises. The source's cancellation and compatibility requirements give contradictory distance bounds for this same phase family, even if the auxiliary distance is chosen again. The judgment concerns applicability of the main statement, not falsity of its formal conclusion; the unresolved toReal issue is not used as a reason for the negative label.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
 }

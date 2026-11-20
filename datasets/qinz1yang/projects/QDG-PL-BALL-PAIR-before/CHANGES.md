@@ -1,0 +1,1 @@
+Preserved original namespace, section assumptions, ten mathematical helper declarations and complete selected definition. Omitted imports used only by later theorem proofs. Original IsConeBase nominal structure retained exactly. No mathematical compatibility edit. Fresh extraction required. Original toolchain elaboration is not certified.

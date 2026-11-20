@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "T≥2时log(T/(2πe))=log(T/(2π))−1，formal绝对值内展开正是当前文字的−7/8版本；三个误差系数与范围均相同。按scope使用保留的N定义（0<Imρ<T并按重数），不替换成其他文章的计数端点约定。",
+  "retained_reason": "For T≥2, log(T/(2πe))=log(T/(2π))−1, and expanding the expression inside the formal absolute value gives exactly the current text's −7/8 version. The three error coefficients and the domain agree. Under the review scope, the retained definition of N is used (0<Imρ<T, counted with multiplicity), without substituting the counting-endpoint convention of another article.",
   "review_scope": "The bound counting-error estimate using the retained multiplicity count with 0<Im(rho)<T."
 }

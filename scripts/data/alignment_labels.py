@@ -10,6 +10,8 @@ LABEL_FIELDS = {
 
 
 def verify(base):
+    config = json.loads((base / 'datasets/project-cases.json').read_text())
+    pending_batches = set(config.get('review_datasets', {}))
     seen = set()
     for path in sorted((base / 'metadata/labels').glob('*.jsonl')):
         for line in path.read_text().splitlines():
@@ -33,12 +35,22 @@ def verify(base):
                     raise ValueError('Incomplete joint label binding: ' + identity)
             if record['label'] not in ('aligned', 'misaligned', 'undetermined'):
                 raise ValueError('Invalid alignment label')
-            if record.get('human_adjudicated') is not True or record.get('review_status') != 'human_reviewed':
+            reviewed = record.get('human_adjudicated') is True
+            if dataset in pending_batches and (
+                    project.get('human_adjudicated') != reviewed or
+                    project.get('review_status') != record.get('review_status')):
+                raise ValueError('Project/label review state differs: ' + identity)
+            if reviewed:
+                if record.get('review_status') != 'human_reviewed' or record['label'] == 'undetermined':
+                    raise ValueError('Human-reviewed labels require a binary judgment')
+            elif dataset not in pending_batches or record.get('review_status') != 'agent_preliminary':
                 raise ValueError('Release labels must record completed human review')
             if record.get('reference_ready') is not False or record.get('gold_label') is not None:
                 raise ValueError('Human review must not silently change export/reference readiness')
-            if record['label'] != 'aligned' and project['status'] != record['label']:
+            if reviewed and record['label'] != 'aligned' and project['status'] != record['label']:
                 raise ValueError('Project status differs from review label: ' + identity)
+            if not reviewed and project['status'] != 'undetermined':
+                raise ValueError('Provisional judgment promoted to project status: ' + identity)
             if project.get('alignment_reference') != str(path.relative_to(base)):
                 raise ValueError('Missing project label locator: ' + identity)
     for path in (base / 'datasets').glob('*/projects/*/project.json'):
@@ -46,6 +58,7 @@ def verify(base):
         if project.get('alignment_reference') or project.get('status') == 'misaligned':
             if (path.parents[2].name, project['id']) not in seen:
                 raise ValueError('Project has no review label: ' + project['id'])
-    print(f'PASS: {len(seen)} human-reviewed labels bound to current inputs')
+    print(f'PASS: {len(seen)} label records bound to current inputs; '
+          'pending batches retain explicit review states')
     from analysis_evidence import verify as verify_analysis
     verify_analysis(base)

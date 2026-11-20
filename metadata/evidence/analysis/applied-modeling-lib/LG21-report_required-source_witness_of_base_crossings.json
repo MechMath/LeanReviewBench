@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "LG21-report_required-source_witness_of_base_crossings",
   "task_id": "aml:LG21-report_required-source_witness_of_base_crossings",
-  "input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+  "input_sha256": "2270f9b71c79a2707fcb0475a06d85a8a83eff29414f2485f267ab008ba9d72d",
   "label": "misaligned",
   "reason": "The constructed source witness is not bound to the actual equilibria. The full unfairness conclusion is absent as a separate required result.",
   "review_status": "human_reviewed",
@@ -31,6 +31,6 @@
   "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根从各 base 的交叉条件构造 ∃W；未将该见证绑定到所有实际均衡，也未给出 Theorem 3.1 的完整不公平结论。",
-  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
+  "retained_reason": "The root constructs ∃W from a crossing condition at each base, without binding the witness to all actual equilibria or supplying the full unfairness conclusion of Theorem 3.1.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
 }

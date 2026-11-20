@@ -33,8 +33,8 @@
     "input_sha256": "67b7134fb649809dc6818fa1e1791b21e6a908b464034e773581c7e245630acd",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "对 4694 条等式律的所有有序对，formal 根据固定证书返回蕴含或反驳证据，并同时断言检查通过及对应数学结论。lawOf 正确绑定定律列表，implies 量化一般 magma，正负事实表携带证明或模型证据，与原文选定的 end_to_end1 覆盖和正确性目标一致。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标注aligned; confirms aligned for equational-theories:etp-endtoend after reviewing all-pairs coverage, checked implication/refutation witnesses, concrete certificate bindings, and the general-magma scope.",
+    "reason": "For every ordered pair among the 4694 equational laws, the formalization uses a fixed certificate to return implication or refutation evidence, asserting both successful checking and the corresponding mathematical conclusion. lawOf correctly binds the law list, implies quantifies general magmas, and the positive and negative fact tables carry proofs or model evidence. This matches the selected source target of coverage and correctness for end_to_end1.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for equational-theories:etp-endtoend after reviewing all-pairs coverage, checked implication/refutation witnesses, concrete certificate bindings, and the general-magma scope.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前独立论文 foundations.tex 所描述的 EndToEnd.end_to_end1：4694 条律之间的所有有序对，由项目证书给出检查通过的推导或模型反驳，并建立一般 magma 的对应蕴含或非蕴含；工程统计与有限 magma 图不作为本题端点。",
+    "review_scope": "EndToEnd.end_to_end1 as described in the current independent paper source foundations.tex: for every ordered pair among 4694 laws, project certificates provide checked derivations or model refutations, establishing the corresponding implication or non-implication for general magmas. Engineering statistics and the finite-magma graph are outside this target.",
     "evidence_locations": {
       "informal_and_selected_scope": {
         "path": "datasets/equational-theories/projects/etp-endtoend/informal.jsonl",
@@ -116,12 +116,12 @@
       }
     },
     "semantic_argument": [
-      "根声明全称量化 n,m:Nat 并限制 n,m<4694，覆盖所选 4694 条律的所有有序对。lawOf i=laws.get i，laws 的构造将 0 起始索引 i 对应到 Law(i+1)。",
-      "resolveImplication 的返回类型为 Implication ⊕ Refutation，根结论逐分支要求相应 checker=true，同时要求 (lawOf n).implies(lawOf m) 或其否定，包含证据可检查性和数学正确性。",
-      "PosFact.proof 是对应蕴含的证明；checkImplication 检查索引链逐步连接。NegFact.h 给出一个 magma 同时满足 satisfies 列表并违反 refutes 列表，checkRefutation 将该模型通过两条已检查的蕴含链连接到目标 n,m。",
-      "implies 的定义为 ∀G:Type [Magma G], satisfies G l₁ → satisfies G l₂，没有有限性或代数公理的额外限制，与原文 general magmas 范围一致。",
-      "根声明使用具体定义的 cert、pos、neg，而非假设调用者另行提供完整证书。cert_valid 是项目内部定理，根结论没有证书有效性的未绑定前提。",
-      "独立原文及冻结 scope 明确将有限 magma 图排除在该端点之外。原段落的工程统计描述项目背景；本次标注评价选定的全有序对决策及其正确性陈述。"
+      "The root universally quantifies n,m:Nat with n,m<4694, covering every ordered pair among the selected 4694 laws. lawOf i=laws.get i, and the construction of laws maps zero-based index i to Law(i+1).",
+      "resolveImplication returns Implication ⊕ Refutation. In each branch, the root requires the corresponding checker=true together with (lawOf n).implies(lawOf m) or its negation, covering both checkable evidence and mathematical correctness.",
+      "PosFact.proof proves the corresponding implication; checkImplication checks that each step of the indexed chain connects. NegFact.h supplies a magma satisfying every law in satisfies and violating every law in refutes. checkRefutation connects that model to target n,m through two checked implication chains.",
+      "implies is defined as ∀G:Type [Magma G], satisfies G l₁ → satisfies G l₂, with no additional finiteness or algebraic-axiom restriction, matching the source's scope of general magmas.",
+      "The root uses concretely defined cert, pos and neg rather than assuming the caller supplies a complete certificate. cert_valid is an internal project theorem; the root has no unbound certificate-validity premise.",
+      "The independent source and frozen scope explicitly exclude the finite-magma graph from this target. The paragraph's engineering statistics describe project background; this label evaluates the selected all-ordered-pairs decision and correctness statement."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -130,13 +130,13 @@
       "new_lean_equivalence_proof": false
     },
     "limitations": [
-      "本次是对冻结原文、根陈述及关键定义的语义核对，未重新编译 752 模块闭包或重新运行整个证书计算。",
-      "不将 aligned 解释为证明了原文背景统计数字与当前生成表的条目数相等；本题绑定的端点是 end_to_end1 的覆盖和正确性。",
-      "不扩展到有限 magma 图、论文所有工程或分类结论，也不传播标签到下一题。",
-      "formal、informal、输入哈希和技术状态均保持原样；项目状态由 undetermined 改为 ready 仅反映本次正向标注及已有编译提取状态。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "This review checks the semantics of the frozen source, root statement and key definitions; it does not recompile the 752-module closure or rerun the complete certificate computation.",
+      "The aligned label does not establish that the background statistics in the source equal the entry counts in the current generated tables. The bound target is the coverage and correctness of end_to_end1.",
+      "The judgment does not extend to the finite-magma graph or every engineering or classification claim in the paper, and is not propagated to the next case.",
+      "The formal and informal inputs, input hash and technical status are unchanged. Changing project status from undetermined to ready reflects only this positive label and the existing compilation/extraction status.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "对 4694 条等式律的所有有序对，formal 根据固定证书返回蕴含或反驳证据，并同时断言检查通过及对应数学结论。lawOf 正确绑定定律列表，implies 量化一般 magma，正负事实表携带证明或模型证据，与原文选定的 end_to_end1 覆盖和正确性目标一致。",
-  "retained_review_scope": "当前独立论文 foundations.tex 所描述的 EndToEnd.end_to_end1：4694 条律之间的所有有序对，由项目证书给出检查通过的推导或模型反驳，并建立一般 magma 的对应蕴含或非蕴含；工程统计与有限 magma 图不作为本题端点。"
+  "retained_reason": "For every ordered pair among the 4694 equational laws, the formalization uses a fixed certificate to return implication or refutation evidence, asserting both successful checking and the corresponding mathematical conclusion. lawOf correctly binds the law list, implies quantifies general magmas, and the positive and negative fact tables carry proofs or model evidence. This matches the selected source target of coverage and correctness for end_to_end1.",
+  "retained_review_scope": "EndToEnd.end_to_end1 as described in the current independent paper source foundations.tex: for every ordered pair among 4694 laws, project certificates provide checked derivations or model refutations, establishing the corresponding implication or non-implication for general magmas. Engineering statistics and the finite-magma graph are outside this target."
 }

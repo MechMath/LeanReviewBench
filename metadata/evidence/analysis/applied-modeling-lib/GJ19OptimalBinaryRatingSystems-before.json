@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "GJ19OptimalBinaryRatingSystems-before",
   "task_id": "aml:GJ19OptimalBinaryRatingSystems-before",
-  "input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+  "input_sha256": "b77a8f3d573a904e4d7f47b34282ab66c52a442b138a9e0cddcf899a0f13d8d5",
   "label": "misaligned",
   "reason": "The arbitrary limitingValue objective is not bound to the finite-partition objective. Uniqueness of the entire infinite cut sequence distinguishes irrelevant tails beyond the finite partition.",
   "review_status": "human_reviewed",
@@ -28,6 +28,6 @@
   "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根假设任意 limitingValue 的最优点及整个 cut : ℕ→ℝ 的唯一性；论文的有限分割目标既未绑定到该任意函数，也不区分有限端点之后的尾部。",
+  "retained_reason": "The root assumes an optimum for an arbitrary limitingValue and uniqueness of the entire cut : ℕ→ℝ. The paper's finite-partition objective is neither bound to that arbitrary function nor sensitive to the tail beyond the finite endpoints.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

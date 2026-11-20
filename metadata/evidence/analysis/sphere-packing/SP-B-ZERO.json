@@ -33,6 +33,6 @@
   "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "目标引用的 b 定义中，最后的 i→i∞ 积分系数是 +2；论文定义式 (52) 是 −2。其余路径方向和 ψ 对应后，此差异改变被讨论的函数。",
+  "retained_reason": "In the definition of b referenced by the target, the coefficient of the final i→i∞ integral is +2, whereas the paper's definition (52) has −2. With the other path orientations and ψ matched, this difference changes the function under discussion.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

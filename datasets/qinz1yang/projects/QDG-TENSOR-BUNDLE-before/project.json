@@ -1,0 +1,71 @@
+{
+  "id": "QDG-TENSOR-BUNDLE-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Tensor0SBundle.tensor0SBundleData",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Tensor0SBundle.tensor0SBundle_topology",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Tensor0SBundle.tensor0SBundle_smooth",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "8203ec4eb870072447e321394bd981777608ab6f",
+    "path": "DifferentialGeometry/Tensor/RSTensor/Bundle.lean",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/8203ec4eb870072447e321394bd981777608ab6f/DifferentialGeometry/Tensor/RSTensor/Bundle.lean"
+  },
+  "group_id": "qinz1yang:TS-PR-TRIVIAL-TENSOR-BUNDLE",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [],
+  "after_ids": [
+    "QDG-TENSOR-BUNDLE-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "joint",
+  "changes": "CHANGES.md",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "historical-license-scope-unresolved",
+  "original_toolchain": "leanprover/lean4:v4.28.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "formal": {
+    "file_count": 2,
+    "sha256": "c4e4f2fcf977e19a730900dc11a47f72f7073830d36fe932afc023052267ac56",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "TS-PR-TRIVIAL-TENSOR-BUNDLE",
+  "validation_reference": "metadata/validation.json",
+  "license_admission": "include_with_notice",
+  "license_review_note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+}

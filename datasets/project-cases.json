@@ -50,5 +50,9 @@
       ],
       "purpose": "Optional compatible exporter bundle; required only when re-extracting contexts"
     }
+  },
+  "review_datasets": {
+    "qinz1yang": "qinz1yang/differential-geometry",
+    "frenzymath": "frenzymath/Poincare-Conjecture"
   }
 }

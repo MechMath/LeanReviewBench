@@ -1,34 +1,34 @@
 {
   "schema_version": "paperlean-taxonomy-summary-1",
-  "date": "2026-11-17",
+  "date": "2026-11-20",
   "taxonomy": "metadata/taxonomy/standard.md",
   "taxonomy_sha256": "beb7d62b6c0fc123f29cab4456a33e0e776f5e619a8dda5fa4808b362bc3dac8",
-  "cases_sha256": "fd0a694ae0589f18b37445697edb5ea9c9809caca1c64b4c2f94d17c8102ea34",
-  "case_count": 90,
-  "current_misaligned_inputs": 90,
+  "cases_sha256": "4e03c333e1fc77bb2a637e48d5e77f97e71fe7c802c89e6e581399843557e34c",
+  "case_count": 111,
+  "current_misaligned_inputs": 111,
   "unclassified": 0,
   "category_case_counts": {
-    "A": 38,
+    "A": 49,
     "F": 30,
-    "O": 15,
-    "P": 20,
+    "O": 22,
+    "P": 26,
     "Q": 8
   },
   "primary_category_counts": {
-    "A": 31,
+    "A": 42,
     "F": 28,
-    "O": 13,
-    "P": 13,
+    "O": 20,
+    "P": 16,
     "Q": 5
   },
   "label_count_distribution": {
-    "1": 70,
-    "2": 19,
+    "1": 88,
+    "2": 22,
     "3": 1
   },
   "all_input_hashes_match": true,
   "human_adjudicated": false,
   "reference_ready": false,
   "counting_unit": "Versioned misaligned inputs; categories overlap and linked versions are not independent mathematical errors.",
-  "migration": "All 90 diagnostic classifications are retained; input bindings follow the statement-only Lean contexts. Binary labels and classifications are unchanged."
+  "migration": "Retained all 90 existing diagnostic classifications and added 21 Poincare classifications using the same five-category standard. Binary verdicts and mathematical inputs are unchanged; category adjudication remains pending."
 }

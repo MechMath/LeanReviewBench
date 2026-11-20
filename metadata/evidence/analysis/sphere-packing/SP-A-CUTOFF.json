@@ -33,6 +33,6 @@
   "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根声称 a(0)=−8640i/π，但实际六个 Schwartz 积分构件均经 ofDecayOn(a:=1) 乘平滑 cutoff；原点 cutoff 为 0，因此包装后的 a(0)=0。",
+  "retained_reason": "The root claims a(0)=−8640i/π, but all six actual Schwartz integral components are multiplied by a smooth cutoff through ofDecayOn(a:=1). The cutoff is 0 at the origin, so the wrapped function has a(0)=0.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

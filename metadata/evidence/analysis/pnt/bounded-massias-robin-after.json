@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "与自己的冻结版本逐项一致：nth_prime′ n=Nat.nth Prime(n−1)对应从1开始的p_n；n和p_n上的阈值、严格/非严格不等号、自然对数项及常数均按当前文字保留。不同版本之间的阈值变化不构成各自配对的不一致。",
+  "retained_reason": "Each component matches its own frozen version: nth_prime′ n=Nat.nth Prime(n−1) represents p_n indexed from 1; the thresholds on n and p_n, strict and non-strict inequalities, natural logarithm terms, and constants all retain the current text. Threshold changes between versions do not constitute mismatches within each pair.",
   "review_scope": "The selected source version of the explicit nth-prime bound, with its own thresholds and constants."
 }

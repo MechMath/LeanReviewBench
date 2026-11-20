@@ -33,8 +33,8 @@
     "input_sha256": "6a2ef493106f36c966998348a6522678edb31f73126af9d553291ebf617f67e2",
     "review_date": "2026-11-16",
     "label": "aligned",
-    "reason": "用户在查看完整 informal、formal 及详细复核后指定标为 aligned。求值绑定成功事件及代数归约的对应已核对；此前关于随机实验翻译、PPT 攻击者类和归约保持性的待确认事项保留在复核记录中。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 请为我标为aligned谢谢; selects aligned for arklib:kzg-binding-after after reading the informal/formal text and the prior undetermined model recommendation.",
+    "reason": "The user selected aligned after examining the complete informal and formal texts and the detailed review. The evaluation-binding success event and algebraic reduction were checked for correspondence. Earlier unresolved issues concerning randomized-experiment translation, the PPT adversary class and preservation under reduction remain in the review record.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Please mark it aligned, thank you; selects aligned for arklib:kzg-binding-after after reading the informal/formal text and the prior undetermined model recommendation.",
     "decision_author": "user",
     "user_rationale": null,
     "reviewer": "Codex",
@@ -44,23 +44,23 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "用户对当前冻结 informal 与选定根 KZG.CommitmentScheme.binding 的标签决定；本次未修改目标范围或输入。",
+    "review_scope": "The user's label decision for the currently frozen informal input and selected root KZG.CommitmentScheme.binding; this update did not change the target scope or input.",
     "prior_model_review": {
       "path": "reports/kzg-binding-after-recheck-2026-11-16/review.json",
       "sha256": "73ec650eeba5bda8e1e59707481992f80e4be7f4044f4f205b460658cc23c58c",
       "recommendation": "undetermined",
-      "reason_zh": "求值绑定成功事件和代数归约对应，但当前缓存采样不直接保持论文中同一随机攻击程序的成功概率。已构造并枚举具体 KZG 实验差异；同时该例可通过一次抽取完整随机带恢复分布，因此不能据此排除合理的等价编码。完整 PPT 攻击者类、归约保持性和实验翻译仍需论证。",
+      "reason_zh": "The evaluation-binding success event and algebraic reduction correspond, but the current cached sampling does not directly preserve the success probability of the same randomized attack program in the paper. A concrete difference between KZG experiments was constructed and enumerated. However, drawing the entire random tape in one call can restore the distribution in this example, so it does not rule out a reasonable equivalent encoding. The full PPT adversary class, preservation under reduction and experiment translation still require justification.",
       "confirmed_matches": [
-        "同一承诺、同一查询、两个不同响应且两次接受的成功事件与论文 Evaluation Binding 对应。",
-        "mapBindingInstanceToTsdh 返回 (-query, (proof1/proof2)^(1/(resp2-resp1)))，对应论文附录 C.1 的提取公式。",
-        "抽象 Adv 避免旧版将所有 Lean 函数纳入计算困难性假设的直接问题；不能沿用旧版 unrestricted-class 反例判定本 after。",
-        "原文 §2 明确允许扩展到 type-2/type-3 配对，所以两个 source group 本身不作为判负依据。"
+        "The success event consisting of the same commitment, the same query, two different responses and acceptance of both openings corresponds to the paper's Evaluation Binding.",
+        "mapBindingInstanceToTsdh returns (-query, (proof1/proof2)^(1/(resp2-resp1))), corresponding to the extraction formula in Appendix C.1 of the paper.",
+        "The abstract Adv avoids the old version's direct inclusion of all Lean functions in the computational-hardness assumption. The old unrestricted-class counterexample cannot be reused to label this after version.",
+        "Section 2 explicitly permits extensions to type-2/type-3 pairings, so the use of two source groups is not itself a reason for a negative label."
       ],
       "unresolved_items": [
-        "论文全局量化 PPT 攻击者并使用安全参数与 negligible 函数；根声明给出指定 Adv、指定误差上的条件概率界，并将归约属于 Adv 作为 hAdv 输入。",
-        "HardnessAssumptions 模块文档及 PR1417 明确把 group-model 类与归约保持性留为独立任务。",
-        "当前 binding 使用 randomOracle；unifSpec 的索引决定抽样范围，同一索引第二次查询复用缓存答案。连续两次 Fin 2 抽样因此得到相同的比特。",
-        "当前绑定 informal 没有 scope 字段，长摘录混合多个安全属性并在构造推导中截断；本核对选取与根名称对应的求值绑定部分，完整目标范围仍需裁决。"
+        "The paper globally quantifies PPT adversaries and uses a security parameter and negligible functions. The root gives a conditional probability bound for a specified Adv and error, taking membership of the reduction in Adv as the input hAdv.",
+        "The HardnessAssumptions module documentation and PR1417 explicitly leave group-model classes and preservation under reduction as separate tasks.",
+        "The current binding definition uses randomOracle. The unifSpec index determines the sampling range, and a second query at the same index reuses the cached answer. Two consecutive Fin 2 samples therefore return the same bit.",
+        "The currently bound informal record has no scope field; its long excerpt mixes several security properties and ends partway through the construction derivation. This check selects evaluation binding, matching the root name; the full target scope still requires adjudication."
       ]
     },
     "evidence_locations": {
@@ -140,18 +140,18 @@
         "sha256": "9f50f532a1cdc708a1327294f6be1a9ad24a1e4999dab994bbf5c0fdba214d39"
       }
     },
-    "decision_note": "采用用户指定的 aligned；保留模型此前的 undetermined 建议及其证据，不将用户决定描述为已完成新的等价证明。用户未另述详细判断理由。",
-    "status_semantics": "按仓库约定，已编译提取且标为 aligned 的项目使用 status=ready；原状态记为 historical_status=undetermined，technical_status 和 evaluation_eligible=false 保持原值。",
+    "decision_note": "Adopt the user-selected aligned label while retaining the model's earlier undetermined recommendation and evidence. The user decision is not described as a newly completed equivalence proof. The user supplied no additional detailed rationale.",
+    "status_semantics": "Under the repository convention, compiled and extracted projects labeled aligned use status=ready. The original state is recorded as historical_status=undetermined; technical_status and evaluation_eligible=false retain their existing values.",
     "verification": {
       "source_binding_checked": true,
       "lean_equivalence_proof": false,
       "fresh_lean_build": false
     },
     "limitations": [
-      "本次标签更新不修改此前精确枚举结果、来源记录或模型复核结论。",
-      "沿用现有 provisional 标签约定，不自动升级为完成独立评审及裁决的人类金标。"
+      "This label update does not alter the earlier exact enumeration results, source records or model review conclusions.",
+      "Retain the existing provisional-label convention, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
     ]
   },
-  "retained_reason": "用户在查看完整 informal、formal 及详细复核后指定标为 aligned。求值绑定成功事件及代数归约的对应已核对；此前关于随机实验翻译、PPT 攻击者类和归约保持性的待确认事项保留在复核记录中。",
-  "retained_review_scope": "用户对当前冻结 informal 与选定根 KZG.CommitmentScheme.binding 的标签决定；本次未修改目标范围或输入。"
+  "retained_reason": "The user selected aligned after examining the complete informal and formal texts and the detailed review. The evaluation-binding success event and algebraic reduction were checked for correspondence. Earlier unresolved issues concerning randomized-experiment translation, the PPT adversary class and preservation under reduction remain in the review record.",
+  "retained_review_scope": "The user's label decision for the currently frozen informal input and selected root KZG.CommitmentScheme.binding; this update did not change the target scope or input."
 }

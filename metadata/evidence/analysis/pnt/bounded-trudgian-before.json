@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "文字是以主值li为中心、带(log x)^(−3/4)的点态界；formal以从2积分的Li为中心，且自然数1/4=0，使归一化后的界缺少(log x)^(1/4)。尾界量词本身可利用ε单调性处理，不能消除这两处量和函数差异。",
+  "retained_reason": "The text gives a pointwise bound centered at the principal-value li, with factor (log x)^(−3/4). The formal statement is centered at Li integrated from 2, and natural-number division gives 1/4=0, leaving the normalized bound without the factor (log x)^(1/4). The tail-bound quantifier itself can be handled by monotonicity in ε, but that does not remove these two differences in quantities and functions.",
   "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

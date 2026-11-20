@@ -1,0 +1,12 @@
+Sources: qinz1yang/differential-geometry. Exact source revisions and selected
+files are recorded in project.json and metadata/provenance.json. Original
+ownership remains with the upstream authors. Statement contexts erase proofs
+and include Lean 4.34.1 compatibility edits as recorded in CHANGES.md.
+Pinned Apache-2.0 and NOTICE copies for the four covered versions are retained
+under ../../licenses/qinz1yang/. The other eleven historical versions have
+unresolved authorization scope; no later license is retroactively asserted.
+Per-version coverage is recorded in ../../licenses/index.json.
+The curator has instructed inclusion of those eleven versions with an explicit
+evidence-gap note, recorded in ../../licenses/qinz1yang/ADMISSION.json. This
+admission decision does not establish or fabricate a historical license grant.
+Independent informal sources retain their own bibliographic attribution.

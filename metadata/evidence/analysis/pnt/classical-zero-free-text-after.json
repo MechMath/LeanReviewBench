@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "文字与formal都在t≥3上要求σ≥1−1/(R log|t|)时ζ(σ+it)≠0；由于t≥3，|t|=t，公式和含端点条件一致。",
+  "retained_reason": "Both the text and the formal statement require ζ(σ+it)≠0 for t≥3 and σ≥1−1/(R log|t|). Since t≥3 implies |t|=t, the formulas and endpoint conditions agree.",
   "review_scope": "The bound zero-free-region definition, including t=3."
 }

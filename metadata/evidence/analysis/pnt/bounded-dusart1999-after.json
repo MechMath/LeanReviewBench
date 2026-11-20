@@ -41,6 +41,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "按数学命题对齐标准，以正文明确的条件 n≥39017 与结论 p_n≤n(log n+loglog n−0.9484) 为规范命题；i.e. 括注是重复解释而非另添约束。杜萨尔本人1998博士论文 Théorème 1.8 独立且精确确认同一端点与结论，因此可有依据地把括注 p_n>467473 认定为非规范解释笔误。formal 与该主命题一致。此 aligned 不表示整段文字无笔误：p_39017=467473，括注严格 > 确实错误，已显式登记。",
+  "retained_reason": "Under the mathematical statement-alignment criterion, the explicit main-text condition n≥39017 and conclusion p_n≤n(log n+loglog n−0.9484) form the normative proposition; the parenthetical i.e. is a redundant explanation rather than an additional constraint. Théorème 1.8 in Dusart's own 1998 doctoral thesis independently confirms exactly the same endpoint and conclusion, providing evidence that the parenthetical p_n>467473 is a non-normative explanatory typo. The formal statement matches the main proposition. This aligned label does not claim that the entire passage is typo-free: p_39017=467473, so the strict > in the parenthesis is indeed wrong and has been explicitly recorded.",
   "review_scope": "The primary nth-prime inequality; the independently confirmed threshold takes precedence over the erroneous explanatory parenthesis."
 }

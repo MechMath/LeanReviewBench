@@ -33,8 +33,8 @@
     "input_sha256": "624cddb03bf99d6bc4a2aa781987751b5cf6baf9c5a89b49c7340dc88f95e4da",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文要求足够大的域（Ω 下界），formal 的 hF 却给出域大小上界。M、proofLen、qNumtoInput、qNumtoProofstr 是外部输入，未绑定到存在协议 π 的实际资源；复杂度常数在输入参数之后存在量化，缺少原文渐近界要求的统一性。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为misaligned，谢谢; confirms misaligned for arklib:stir-main-withdrawn-before after reviewing the reversed field-size bound, unbound protocol resource parameters, and nonuniform asymptotic constants.",
+    "reason": "The source requires a sufficiently large field, expressed by an Ω lower bound, whereas the formal hF gives an upper bound on field size. M, proofLen, qNumtoInput and qNumtoProofstr are external inputs unbound to the actual resources of the existential protocol π. Complexity constants are existentially quantified after the input parameters, lacking the uniformity required by the source's asymptotic bounds.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned, thank you; confirms misaligned for arklib:stir-main-withdrawn-before after reviewing the reversed field-size bound, unbound protocol resource parameters, and nonuniform asymptotic constants.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -42,7 +42,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "当前冻结 blueprint STIR Main Theorem（thm:stir）与 StirIOP.stir_main 的陈述对齐；仅本输入。",
+    "review_scope": "Statement alignment between the currently frozen blueprint STIR Main Theorem (thm:stir) and StirIOP.stir_main; only this input.",
     "evidence_locations": {
       "informal": {
         "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal.jsonl",
@@ -101,11 +101,11 @@
       }
     },
     "semantic_argument": [
-      "原文 |F|=Ω(λ·2^λ·d²·N²/log(1/ρ)) 是域大小的渐近下界，表示域须足够大。formal 的 hF 使用 Fintype.card F ≤ ...，把适用条件改为上界。",
-      "原文要求存在一个协议，并将轮数、证明长度及查询次数作为该协议的资源性质。formal 的 M 来自外层变量声明，proofLen、qNumtoInput、qNumtoProofstr 是根之前的隐式自然数输入；没有等式或定义将它们关联到存在的 π、vPSpec 或 n。",
-      "已展开 IsSecureWithGap，其字段只有完备性和逐轮知识健全性；它没有将上述外部资源参数绑定到 π 的机制。资源参数的不等式因而不能表达所构造协议的实际复杂度界。",
-      "复杂度常数 ∃c>0 与 ∃c_k 在 secpar、degree、域、资源数等输入之后量化；c_k 虽是 k 的函数，其选择本身仍可依赖当前其他输入。这缺少原文 O/O_k 界所要求的相应统一性。",
-      "例如 degree>1 且 k≥4 时，log(degree)/log(k)>0。对每个固定 degree、k、M 可选择足够大的 c，使 M≤c·log(degree)/log(k) 成立；逐实例存在这样的常数并不能推出随 degree 变化的统一对数轮数界。"
+      "The source condition |F|=Ω(λ·2^λ·d²·N²/log(1/ρ)) is an asymptotic lower bound requiring a sufficiently large field. The formal hF uses Fintype.card F ≤ ..., changing the applicability condition to an upper bound.",
+      "The source requires the existence of a protocol and treats rounds, proof length and query counts as properties of that protocol. The formal M comes from an outer variable declaration, while proofLen, qNumtoInput and qNumtoProofstr are implicit natural-number inputs preceding the root. No equation or definition relates them to the existential π, vPSpec or n.",
+      "Unfolding IsSecureWithGap shows only completeness and round-by-round knowledge soundness fields. It contains no mechanism binding the external resource parameters to π. Consequently, inequalities on those parameters do not express actual complexity bounds for the constructed protocol.",
+      "The complexity constants ∃c>0 and ∃c_k are quantified after secpar, degree, the field, resource counts and other inputs. Although c_k is a function of k, its choice can still depend on the other current inputs. This lacks the corresponding uniformity required by the source's O/O_k bounds.",
+      "For example, if degree>1 and k≥4, then log(degree)/log(k)>0. For each fixed degree, k and M, one can choose c large enough that M≤c·log(degree)/log(k). Such an instance-dependent constant does not imply a uniform logarithmic round bound as degree varies."
     ],
     "verification": {
       "source_binding_checked": true,
@@ -113,13 +113,13 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "判负依据为当前原文与 formal 陈述的上述差异；不以项目名 withdrawn 或证明中的 sorry 作为语义判负证据。",
-      "本次不声称完成了协议构造、实际运行复杂度分析或 Lean 反例认证。",
-      "未将域大小表达式中的其他幂次问题、缺失端点限制、挑战量词的附加作用域问题作为本次用户确认标签的独立依据。",
-      "formal、informal、输入哈希与技术状态均保持原样；不传播标签到相邻 STIR 输入。",
-      "保留 provisional 标签约定、human_adjudicated=false 及 evaluation_eligible=false，不升级为人类金标。"
+      "The negative label is based on these differences between the current source and formal statements, not on withdrawn in the project name or sorry in the proof.",
+      "This review does not claim to complete the protocol construction, analyze actual runtime complexity or certify a Lean counterexample.",
+      "Other issues involving powers in the field-size expression, missing endpoint restrictions and the additional scope of challenge quantifiers are not independent bases for this user-confirmed label.",
+      "The formal and informal inputs, input hash and technical status are unchanged; the label is not propagated to neighboring STIR inputs.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "原文要求足够大的域（Ω 下界），formal 的 hF 却给出域大小上界。M、proofLen、qNumtoInput、qNumtoProofstr 是外部输入，未绑定到存在协议 π 的实际资源；复杂度常数在输入参数之后存在量化，缺少原文渐近界要求的统一性。",
-  "retained_review_scope": "当前冻结 blueprint STIR Main Theorem（thm:stir）与 StirIOP.stir_main 的陈述对齐；仅本输入。"
+  "retained_reason": "The source requires a sufficiently large field, expressed by an Ω lower bound, whereas the formal hF gives an upper bound on field size. M, proofLen, qNumtoInput and qNumtoProofstr are external inputs unbound to the actual resources of the existential protocol π. Complexity constants are existentially quantified after the input parameters, lacking the uniformity required by the source's asymptotic bounds.",
+  "retained_review_scope": "Statement alignment between the currently frozen blueprint STIR Main Theorem (thm:stir) and StirIOP.stir_main; only this input."
 }

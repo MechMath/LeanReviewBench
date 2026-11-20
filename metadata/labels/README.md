@@ -3,15 +3,35 @@
 The release contains 171 human-reviewed labels across 16 batches: 81 aligned and
 90 misaligned. Each `<batch>.jsonl` contains only the current annotation result.
 
+The two additional Poincare batches contain 26 human-confirmed judgments
+(five aligned and twenty-one misaligned), including sixteen accepted by explicit
+user batch confirmation. Across all inputs, 197 labels are human reviewed
+(86 aligned and 111 misaligned). Individual verdicts and confirmation records
+are retained in the label and analysis files. FM-COVERING-before records an
+explicit user misaligned verdict after source-text correction; its former
+connectedness rationale is withdrawn, as disclosed in the reason and evidence.
+The November 20, 2026 Poincare review records:
+
+| Batch | aligned | misaligned | undetermined |
+| --- | ---: | ---: | ---: |
+| qinz1yang | 2 | 13 | 0 |
+| frenzymath | 3 | 8 | 0 |
+| Total | 5 | 21 | 0 |
+
+Every added record has an English reason and scope. Unresolved records also have
+specific English adjudication questions in their analysis evidence. A confident
+agent binary judgment remains `agent_preliminary` with `human_adjudicated=false`;
+it does not promote the project's workflow status or constitute human approval.
+
 | Fields | Meaning |
 | --- | --- |
 | `task_id`, `dataset`, `project_id` | Input identity |
 | `input_sha256` | Binding to the frozen mathematical input |
 | `root`, or `roots` and `target_mode` | Selected declaration scope |
-| `label` | Binary alignment verdict |
+| `label` | `aligned` or `misaligned`; unresolved pending records use `undetermined` |
 | `reason` | Concise English mathematical explanation |
 | `review_scope` | Concise English statement of the target and relevant restrictions |
-| `review_status`, `human_adjudicated` | `human_reviewed` and `true` for all current labels |
+| `review_status`, `human_adjudicated` | `human_reviewed` / `true` for all 197 adjudicated records; no current records remain pending |
 | `reference_ready`, `gold_label` | Formal evaluation-export readiness, still `false` and `null` |
 
 Completed human review is recorded independently from readiness of a separately
@@ -21,8 +41,9 @@ remains empty rather than receiving an invented justification.
 
 [The analysis index](../evidence/analysis/index.json) associates input identities
 and hashes with evidence files and their digests. Evidence paths and hashes are
-not duplicated in label records. Full reasoning and original wording remain in
-[analysis evidence](../evidence/analysis/README.md); earlier label states and
+not duplicated in label records. Full reasoning is retained in English in
+[analysis evidence](../evidence/analysis/README.md), with the original wording in
+Git history; earlier label states and
 restoration logs do not belong in JSONL annotation results. Superseded versions
 are managed by Git. Restoration and status-change logs are omitted from the current release; Git
 history retains those process records.

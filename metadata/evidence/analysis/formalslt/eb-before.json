@@ -46,6 +46,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根定理要求 StronglyAdapted ℱ X，即每个 X_k 在 ℱ_k 可测；informal 只要求 X_k 在 ℱ_(k+1) 可测。结合可积及 E[X_k|ℱ_k]=0，formal 的假设迫使所有 X_k=0 几乎处处，排除了 informal 所允许的非平凡鞅差。因此模型范围实质缩窄，尽管混合过程和概率界公式一致。",
+  "retained_reason": "The root requires StronglyAdapted ℱ X, so each X_k is measurable with respect to ℱ_k, while the informal statement requires only ℱ_(k+1)-measurability. Together with integrability and E[X_k|ℱ_k]=0, the formal premises force every X_k=0 almost everywhere, excluding the nontrivial martingale differences allowed by the informal statement. Thus the model scope is materially narrowed even though the mixture process and probability-bound formulas agree.",
   "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }

@@ -1,0 +1,1 @@
+Source-exact CurveMap, loop circle, freeLoop, derivative and immersion definitions preserved. Retained actual theorem binders including ambient CompactSpace E before; proof erased. All proof-only flow/velocity constructions omitted from statement closure. Original source environment not certified.

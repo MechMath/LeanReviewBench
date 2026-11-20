@@ -33,8 +33,8 @@
     "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
     "review_date": "2026-11-16",
     "label": "misaligned",
-    "reason": "原文指定自然伽罗瓦作用在 Frey 曲线 p-扭点上的表示；formal 的 galoisRep 整体为数据 sorry，类型仅指定群、标量域与扭点载体，没有绑定到自然作用。源码和显式提取值确认这一缺口，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。",
-    "decision_source": "Explicit user instruction in this conversation, 2026-11-16: 好 为我标为misaligned; confirms misaligned for imperial-flt:flt-c01 after detailed review of the missing natural-action binding in the data-valued galoisRep definition and clarification that def ... := sorry is legal placeholder syntax.",
+    "reason": "The source specifies the natural Galois action on the Frey curve's p-torsion. The formal galoisRep is entirely a data-valued sorry; its type specifies only the group, scalar field and torsion carrier, without binding the representation to the natural action. The source code and explicit extracted value confirm this gap, supporting an object-mismatch label. The proof placeholder in knownin1980s is not itself a reason for the negative label.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms misaligned for imperial-flt:flt-c01 after detailed review of the missing natural-action binding in the data-valued galoisRep definition and clarification that def ... := sorry is legal placeholder syntax.",
     "decision_author": "user",
     "reviewer": "Codex",
     "reviewer_type": "model",
@@ -46,7 +46,7 @@
     "human_adjudicated": false,
     "reference_ready": false,
     "gold_label": null,
-    "review_scope": "独立 blueprint 的 Mazur 不可约性陈述及其自然伽罗瓦表示定义，与 FreyPackage.mazur 及实际依赖定义；区分数据对象未绑定与证明未完成，保留已核对的 Frey package 条件、曲线坐标变换和不可约性谓词对应。",
+    "review_scope": "The independent blueprint's Mazur irreducibility statement and definition of its natural Galois representation, compared with FreyPackage.mazur and its actual dependency definitions. Distinguish an unbound data object from an unfinished proof, while retaining the checked correspondences for the Frey-package conditions, curve coordinate transformation and irreducibility predicate.",
     "detailed_review": {
       "path": "reports/mazur-recheck-2026-11-16/review.json",
       "sha256": "3c94029fe96ec007d7a8f2676b0799f3614c7b028d8e8e19f785ee1dcee983e1"
@@ -150,18 +150,18 @@
       }
     },
     "confirmed_matches": [
-      "FreyPackage 包含非零整数、p 为素数且至少 5、Fermat 方程及同余条件；hgcdac、hgcdbc 从 hgcdab 和方程推出另外两对互素。",
-      "formal 曲线为原文曲线经 X=4x、Y=8y+4x 的有理可逆坐标变换。精确有理多项式展开得到 y²+xy=x³+(b^p-a^p-1)x²/4-a^p*b^p*x/16，与 formal 系数一致。",
-      "nTorsion 定义为点群的乘 n 核；返回表示使用代数闭包上的该载体和 ZMod p。",
-      "GaloisRep.IsIrreducible 委托给 Representation.IsIrreducible；本地 Mathlib 副本将其定义为子表示格的 IsSimpleOrder，与原文的不可约性含义对应。此项不作为判负依据。"
+      "FreyPackage contains nonzero integers, a prime p at least 5, the Fermat equation and congruence conditions. hgcdac and hgcdbc derive the other two coprimality conditions from hgcdab and the equation.",
+      "The formal curve is obtained from the source curve by the rational invertible coordinate transformation X=4x, Y=8y+4x. Exact rational polynomial expansion gives y²+xy=x³+(b^p-a^p-1)x²/4-a^p*b^p*x/16, matching the formal coefficients.",
+      "nTorsion is defined as the kernel of multiplication by n on the point group. The returned representation uses this carrier over the algebraic closure and scalars ZMod p.",
+      "GaloisRep.IsIrreducible delegates to Representation.IsIrreducible; the local Mathlib copy defines this as IsSimpleOrder on the lattice of subrepresentations, matching the source meaning of irreducibility. This is not a basis for a negative label."
     ],
     "semantic_argument": [
-      "原文先通过域自同构作用于点的坐标，再限制到 p-扭点，指定自然表示；类型相同不足以保证该对象相同。",
-      "GaloisRep K k M 定义为绝对伽罗瓦群到 Module.End k M 的连续幺半群同态，并没有要求其作用等于坐标上的自然作用。",
-      "源文件已有 galoisRepresentationSmul 给出点映射，但 galoisRep 的整个数据值由 sorry 提供。注释称预期只缺连续性证明，实际源码和提取值并未保留底层作用。",
-      "二维空间上的平凡作用也属于同类表示类型，且其一维子空间稳定。这说明返回类型本身不能刻画原文指定的表示；不声称 sorry 实际选择了平凡表示，也不把这一类型示例当作 FreyPackage 实例或 Mazur 定理反例。",
-      "knownin1980s 用于定理证明，本身不构成陈述不对齐。判负针对出现在定理陈述中的数据对象定义缺少指定作用。",
-      "由待定转为判负的依据是确认缺口存在于完整保留的正式定义，而非审查材料缺页，并按仓库 taxonomy O 的缺少指定对象绑定规则分类。若采用仅比较声明意图、允许未定义数据常量的宽松标准，结论可能不同；当前审查要求实际 Formal 依赖含义。"
+      "The source specifies the natural representation by first letting field automorphisms act on point coordinates and then restricting to p-torsion. Having the same type does not establish identity of the objects.",
+      "GaloisRep K k M is defined as a continuous monoid homomorphism from the absolute Galois group to Module.End k M, without requiring its action to equal the natural coordinate action.",
+      "The source already contains galoisRepresentationSmul, which specifies a map on points, but the entire data value of galoisRep is supplied by sorry. Although the comment says that only the continuity proof is intended to be missing, neither the actual source nor the extracted value retains the underlying action.",
+      "The trivial action on a two-dimensional space also has this representation type, and its one-dimensional subspaces are invariant. This shows that the return type alone cannot characterize the representation specified by the source. It does not claim that sorry actually selects the trivial representation, nor treat this type-level example as a FreyPackage instance or a counterexample to Mazur's theorem.",
+      "knownin1980s is used in the theorem proof and does not itself constitute statement misalignment. The negative label concerns the missing specified action in the definition of a data object occurring in the theorem statement.",
+      "The change from undetermined to misaligned follows from confirming that the gap is in the fully retained formal definition, rather than in missing review materials, and classifying it under repository taxonomy O for a missing binding to the specified object. A looser standard that compares only declared intent and permits undefined data constants could yield a different result; the current review requires the actual meaning of the Formal dependencies."
     ],
     "verification": {
       "non_proof_data_node": true,
@@ -174,14 +174,14 @@
       "new_lean_counterexample_proof": false
     },
     "limitations": [
-      "判负依据为关键数据对象缺少指定作用绑定，不因合法的 sorry 语法、证明占位、编译状态或项目使用公理而自动判负。",
-      "不声称 sorry 选择了平凡表示，也不声称构造出 FreyPackage 或 Mazur 定理的数学反例。",
-      "保留此前待定建议、历史初审与详细复核记录；本次用户确认采用详细复核后的 misaligned。",
-      "核心依据来自冻结的本地源码和显式提取值；未重新编译工程或证明新的 Lean 反例。",
-      "formal、informal、输入哈希、目标及技术状态保持原样；不传播标签到下一题。",
-      "保持 provisional、human_adjudicated=false、evaluation_eligible=false，不升级为人类金标。"
+      "The negative label is based on a key data object's missing binding to the specified action. Legal sorry syntax, proof placeholders, compilation status, or the project's use of axioms do not automatically warrant a negative label.",
+      "No claim is made that sorry selects the trivial representation, or that a FreyPackage or a mathematical counterexample to Mazur's theorem has been constructed.",
+      "The earlier undetermined recommendation, historical initial review, and detailed follow-up review are retained; the user has now confirmed the misaligned label from the detailed review.",
+      "The core evidence comes from frozen local source and explicitly extracted values; the project was not recompiled and no new Lean counterexample was proved.",
+      "The formal and informal inputs, input hash, targets, and technical status remain unchanged; the label is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
     ]
   },
-  "retained_reason": "原文指定自然伽罗瓦作用在 Frey 曲线 p-扭点上的表示；formal 的 galoisRep 整体为数据 sorry，类型仅指定群、标量域与扭点载体，没有绑定到自然作用。源码和显式提取值确认这一缺口，按对象不对齐判负；knownin1980s 的证明占位本身不作为判负依据。",
-  "retained_review_scope": "独立 blueprint 的 Mazur 不可约性陈述及其自然伽罗瓦表示定义，与 FreyPackage.mazur 及实际依赖定义；区分数据对象未绑定与证明未完成，保留已核对的 Frey package 条件、曲线坐标变换和不可约性谓词对应。"
+  "retained_reason": "The source specifies the natural Galois action on the Frey curve's p-torsion. The formal galoisRep is entirely a data-valued sorry; its type specifies only the group, scalar field and torsion carrier, without binding the representation to the natural action. The source code and explicit extracted value confirm this gap, supporting an object-mismatch label. The proof placeholder in knownin1980s is not itself a reason for the negative label.",
+  "retained_review_scope": "The independent blueprint's Mazur irreducibility statement and definition of its natural Galois representation, compared with FreyPackage.mazur and its actual dependency definitions. Distinguish an unbound data object from an unfinished proof, while retaining the checked correspondences for the Frey-package conditions, curve coordinate transformation and irreducibility predicate."
 }

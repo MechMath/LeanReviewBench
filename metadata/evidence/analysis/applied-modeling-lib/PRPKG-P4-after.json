@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "PRPKG-P4-after",
   "task_id": "aml:PRPKG-P4-after",
-  "input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+  "input_sha256": "911a8bb9ea57c21000ec9854355dd286869694adbd93e78f01979db32b56e4ac",
   "label": "misaligned",
   "reason": "Continuity of the radial probability kernel is an additional substantive premise absent from the bound full proposition.",
   "review_status": "human_reviewed",
@@ -31,6 +31,6 @@
   "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "Proposition 4 的径向非恒定概率核未要求连续；Lean 把 Continuous p 作为前提，缩小了适用域。 提交审查补充：上游 verdict 为 matches_approved_corrected_target，coverage_status 为 corrected_source_statement，且 archival_equivalence_claimed=false；因此该标签确认的是含连续性等条件的修订目标，不能直接转为当前论文原文配对的 aligned。",
-  "retained_review_scope": "按用户于 2026-11-05 确认的完整论文命题口径审查；不以条件性证明步骤替代完整命题。"
+  "retained_reason": "Proposition 4 does not require its radial, nonconstant probability kernel to be continuous. Lean adds Continuous p as a premise, narrowing applicability. Submission-review supplement: the upstream verdict is matches_approved_corrected_target, coverage_status is corrected_source_statement, and archival_equivalence_claimed=false. Thus that label confirms a corrected target including continuity and other conditions; it cannot be directly converted to aligned for the current pairing with the original paper statement.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
 }

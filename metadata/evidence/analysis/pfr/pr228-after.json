@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "after 的概率乘积测度和支持筛选在有限群范围内正确实现目标下确界；但定义只接受有限 G，而冻结目标允许一般加法群和无限支持 X、T。完整输入范围仍缺失。",
+  "retained_reason": "The after version's probability product measure and support filtering correctly implement the target infimum for finite groups. However, the definition accepts only finite G, whereas the frozen target permits general additive groups and X,T with infinite support. The full input scope is still missing.",
   "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

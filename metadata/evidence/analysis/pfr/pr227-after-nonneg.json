@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "after 修复了有限域 KL 的支持条件，但根仍只量化有限 G；原文完整范围没有有限值或有限支持约定，包含真实的无限支持概率输入。因输入域缩窄而不满足冻结完整目标。",
+  "retained_reason": "The after version fixes the support condition for KL on finite domains, but the root still quantifies only over finite G. The source's full scope has no finite-range or finite-support convention and includes genuine probability inputs with infinite support. The narrowed input domain therefore fails to satisfy the frozen full target.",
   "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

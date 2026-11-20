@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "frenzymath",
+  "project_id": "FM-WEAK-LAPLACIAN-after",
+  "input_sha256": "2eb1c988a9a67b3c04f0168303baf64efe2551b4ef95a674daf01717a2aad226",
+  "formal_sha256": "63b4bfc1511146a854308e2cf5e434ce33e88bc45ffb89e5d59eb7d4a3f79a74",
+  "roots": [
+    "MorganTianLib.WeakLaplacianLE"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "631cd2efaa351d518c392784c1faf02c5c57ab4c39535150af557fc8326f7b33",
+  "nodes": 358,
+  "edges": 2853,
+  "local_nodes": 64,
+  "compiled_sources": {
+    "Main.lean": "6aafda33dfe086ce30b4ccb42025c6be11843d3d7260d2bc40c48f9fbb9dbcf1"
+  },
+  "statement_preservation_recorded": "passed_with_explicit_nominal_structure_identity_policy",
+  "nonproof_preservation_recorded": "passed_35_computational_checks_plus_nominal_structure_policy",
+  "source_preservation_method": "All 34 before helper complete type/value comparisons and 6 proofhelper type probes rerun against after.Main; new distance helper independently re-elaborated from exact pinned source body and original source variable commands then fulltype/value defeq checked. After root original complete declaration+context independently re-elaborated and checked. Nominal structures shared identities with exact retained source fragments.",
+  "preservation_status_recorded": "passed_migrated_source_context_with_nominal_identity_policy",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/frenzymath/metadata/technical-evidence/FM-WEAK-LAPLACIAN-after/preservation.json",
+  "archived_receipt_sha256": "384e1d692791146a75ad11da667b72d0aa85f8ec7f97a0819162de86bf2f87e8",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

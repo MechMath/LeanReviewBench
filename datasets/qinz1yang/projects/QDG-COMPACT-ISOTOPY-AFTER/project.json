@@ -1,0 +1,61 @@
+{
+  "id": "QDG-COMPACT-ISOTOPY-AFTER",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+    "root_file": "DifferentialGeometry/Geometry/Flow/RicciFlow/Extinction/CurveShortening/BoundaryIsotopySuperwindow.lean"
+  },
+  "group_id": "QDG-COMPACT-ISOTOPY",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [
+    "QDG-COMPACT-ISOTOPY-BEFORE"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.ContDiff.Basic",
+    "Mathlib.Geometry.Manifold.Diffeomorph",
+    "Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions",
+    "Mathlib.Topology.Instances.AddCircle.Real"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "license-copy-retained",
+  "original_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "7dfaaa6839c4bf31d4fb182f1beb451a6422aa4ebc3d2380e91f05aab123489d",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "compact-vector-space-isotopy-vacuity",
+  "validation_reference": "metadata/validation.json"
+}

@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "formal 的下确界允许非概率输出并沿用零分母总化 KL；在完全有限标准目标中已得到与原文不同的数值，因此不是仅凭候选集合写法不同判负。",
+  "retained_reason": "The formal infimum allows nonprobability outputs and retains KL with totalized division at a zero denominator. It already yields a different value from the source on a fully finite standard target, so the negative label is not based merely on a syntactic difference in the candidate set.",
   "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
 }

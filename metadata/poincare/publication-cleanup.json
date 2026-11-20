@@ -1,0 +1,105 @@
+{
+  "schema": "poincare-publication-cleanup-1",
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "removed": {
+    "qinz1yang": [
+      {
+        "project_id": "QDG-SOBOLEV-after",
+        "candidate_id": "ROOT-SOBOLEV-VACUITY",
+        "reason": "technical_preparation_deferred",
+        "archive_project": "datasets/qinz1yang/projects/QDG-SOBOLEV-after",
+        "input_sha256": "c9747fc2148beef07034b5389114ea82ca7587100490fe66b404e88d513f3c47"
+      },
+      {
+        "project_id": "QDG-POINTED-MODELS-CONVERGENCE-AFTER",
+        "candidate_id": "vacuous-pointed-smooth-convergence",
+        "reason": "technical_preparation_deferred",
+        "archive_project": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-AFTER",
+        "input_sha256": "ea706d9d6637cd8d0ec24a03a5f378be35cb1be0713fea7e2dcfcb6ae1d78c48"
+      },
+      {
+        "project_id": "QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
+        "candidate_id": "vacuous-pointed-smooth-convergence",
+        "reason": "technical_preparation_deferred",
+        "archive_project": "datasets/qinz1yang/projects/QDG-POINTED-MODELS-CONVERGENCE-BEFORE",
+        "input_sha256": "b3cffc90569a2e1a0ac3feca56f841a7c8739246ee35d5e1cd1c22f4a6eaa005"
+      }
+    ],
+    "frenzymath": [
+      {
+        "project_id": "FM-model-proxy-before",
+        "candidate_id": "FM-model-volume-proxy",
+        "reason": "excluded_partial_development",
+        "archive_project": "datasets/frenzymath/projects/FM-model-proxy-before",
+        "input_sha256": "a248f9cfbd6b80f2d8d889617dd1411cf37232b81594313b1840e89028e8ebb4"
+      },
+      {
+        "project_id": "FM-model-proxy-after",
+        "candidate_id": "FM-model-volume-proxy",
+        "reason": "excluded_partial_development",
+        "archive_project": "datasets/frenzymath/projects/FM-model-proxy-after",
+        "input_sha256": "fba607f13edc61f179e2ddb6b2324ebf198114b29fe8567708c83b61e9f50c07"
+      },
+      {
+        "project_id": "FM-false-repair-before",
+        "candidate_id": "FM-model-volume-false-repair",
+        "reason": "excluded_partial_development",
+        "archive_project": "datasets/frenzymath/projects/FM-false-repair-before",
+        "input_sha256": "909a56f91e3f1f77133fb67b298c5aeccafc069815ed2b9d6bfb3875ebe668b4"
+      },
+      {
+        "project_id": "FM-false-repair-after",
+        "candidate_id": "FM-model-volume-false-repair",
+        "reason": "excluded_partial_development",
+        "archive_project": "datasets/frenzymath/projects/FM-false-repair-after",
+        "input_sha256": "d46fa2609537da940078afa00cb5075d5e7aecf96c44b54fc06a1b589e3690e7"
+      },
+      {
+        "project_id": "FM-injectivity-split-before",
+        "candidate_id": "FM-injectivity-radius-split",
+        "reason": "excluded_partial_development",
+        "archive_project": "datasets/frenzymath/projects/FM-injectivity-split-before",
+        "input_sha256": "3323f5cfe1cfb826e6c2bc2a33ce0139a73ff492e338af7847d32cfa07b7cc60"
+      }
+    ]
+  },
+  "retained": {
+    "qinz1yang": {
+      "snapshots": 15,
+      "label_states": {
+        "misaligned": 6,
+        "undetermined": 9
+      }
+    },
+    "frenzymath": {
+      "snapshots": 11,
+      "label_states": {
+        "misaligned": 7,
+        "undetermined": 2,
+        "aligned": 2
+      }
+    }
+  },
+  "retained_publication_inputs": 26,
+  "unique_input_contexts": 25,
+  "removed_technical_deferred_inputs": 3,
+  "removed_excluded_development_artifacts": 5,
+  "formal_sources_changed": false,
+  "informal_metadata_normalized": true,
+  "changes": [
+    "Removed the three deferred packages and five excluded development artifacts from datasets.",
+    "Removed intermediate screening payloads, duplicated review queues/snapshots/manifests and one-off construction utilities.",
+    "Placed labels, analysis, technical evidence, validation, provenance and licenses in the native locations.",
+    "Added missing joint informal markers, corrected external-import inventories and rebound input/metadata hashes.",
+    "Removed local acquisition paths and repair/review hints from informal contexts without changing independently sourced mathematical text."
+  ],
+  "merge_gate": "python3 scripts/data/check_release_candidate.py --require-reviewed",
+  "remaining_blockers": {
+    "human_alignment_reviews": 26,
+    "historical_license_scope": 0
+  },
+  "accepted_notices": {
+    "historical_license_association_incomplete": 11,
+    "decision": "licenses/qinz1yang/ADMISSION.json"
+  }
+}

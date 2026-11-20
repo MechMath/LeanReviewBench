@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "已绑定作者论文式(4.17)的独立定义。formal 的积分对数次数、log(kT)与log T、整分子除法括号及a₂常数均存在差异；after仅修正T的分数幂，其他差异仍在。详见逐项公式对照及数值区分。",
+  "retained_reason": "The independent definition in equation (4.17) of the author's paper has been bound. The formal statement differs in the logarithmic power in the integral, log(kT) versus log T, the parentheses dividing the entire numerator, and the a₂ constant. The after version fixes only the fractional power of T; the other differences remain. See the component-by-component formula comparison and numerical distinction.",
   "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
 }

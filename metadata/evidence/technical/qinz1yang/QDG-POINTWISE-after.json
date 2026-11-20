@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-POINTWISE-after",
+  "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
+  "formal_sha256": "353cb67902d9033a007c2464a27bc0202657d89ec9eb08e0228e8bcbb4f7cead",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "ba1c8bbe7d586e3dab699b6bef21ac2807c4c6f42d7afc62745a873400dde063",
+  "nodes": 113,
+  "edges": 291,
+  "local_nodes": 9,
+  "compiled_sources": {
+    "Main.lean": "c1d91008cd8b949ff2dfe5badd5c8fa7661579ddd02c4bc4d4d36d27a6e9b77f"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "passed_in_migrated_environment",
+  "source_preservation_method": "Original source helper declaration blocks and original root signature reconstructed in SourceReference namespace; independent-context root full-type/proof equality probe and ten helper-type/value rfl probes compiled.",
+  "preservation_status_recorded": "passed_in_migrated_environment",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-POINTWISE-after/preservation.json",
+  "archived_receipt_sha256": "c8ed177e792c9984a48cd4f97da7fdf5f51df717e20ea383639535939b5a4d96",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

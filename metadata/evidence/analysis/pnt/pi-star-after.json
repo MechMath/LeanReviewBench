@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "对当前文字Σ_{k≥1} π(x^(1/k))/k，formal多出的k=0项因实数除零总化为0；其余项逐项相同。π使用floor与primeCounting，编码≤x；正x下k足够大时x^(1/k)<2，和只有有限非零项。",
+  "retained_reason": "For the current text Σ_{k≥1} π(x^(1/k))/k, the extra k=0 term in the formal statement is 0 because real division by zero is totalized; every other term agrees. π uses floor and primeCounting to encode ≤x. For positive x and sufficiently large k, x^(1/k)<2, so the sum has only finitely many nonzero terms.",
   "review_scope": "The bound sum of pi(x^(1/k))/k over positive k, with the specified totalized real operations."
 }

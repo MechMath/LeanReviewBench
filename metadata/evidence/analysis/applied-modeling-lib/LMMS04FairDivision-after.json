@@ -3,7 +3,7 @@
   "dataset": "applied-modeling-lib",
   "project_id": "LMMS04FairDivision-after",
   "task_id": "aml:LMMS04FairDivision-after",
-  "input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+  "input_sha256": "cf211fdc0480bf483ba954b243896796cf0f80a63593462c3826f48bb39a2024",
   "label": "aligned",
   "reason": "The allocation covers each input item exactly once and bounds every pairwise positive envy by the marginal-value bound alpha, matching the source correctness guarantee.",
   "review_status": "human_reviewed",
@@ -23,6 +23,6 @@
   "review_scope": "The fair-division correctness component for finite monotone valuations; computational running-time guarantees are excluded.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "在冻结的正确性分量范围内一致：有限单调bundle valuation、全局单物品marginal上界α，输出恰好分配无重复输入清单的全部物品，任意两人正部羡慕≤α。graph展开了allocation覆盖/唯一owner与max(0,差值)，无隐藏的结论同义假设。算法按物品fold并选择保羡慕界且有unenvied owner的重分配；其非计算选择不在此处冒称原论文运行时保证。before/after仅接口移动，语义相同。",
+  "retained_reason": "The statements agree within the frozen correctness-component scope: finite monotone bundle valuations with a global single-item marginal bound α; the output allocates exactly all items in a duplicate-free input list; and the positive part of envy between any two agents is at most α. The graph expands allocation coverage, unique ownership and max(0,difference), with no hidden premise synonymous with the conclusion. The algorithm folds over items and selects a reallocation that preserves the envy bound and has an unenvied owner. Its noncomputable selection is not claimed here to provide the original paper's runtime guarantee. The before and after versions differ only by an interface move and have the same semantics.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

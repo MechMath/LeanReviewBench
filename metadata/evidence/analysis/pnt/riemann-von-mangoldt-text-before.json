@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "即使善意补齐文字缺失的左绝对值符号，文字误差内为N(T)−T/(2π)log(T/(2πe))+7/8；formal展开后末项是−7/8，相差7/4。",
+  "retained_reason": "Even if the missing left absolute-value symbol in the text is supplied charitably, its error expression is N(T)−T/(2π)log(T/(2πe))+7/8; expanding the formal expression gives a final term of −7/8, a difference of 7/4.",
   "review_scope": "The bound error formula after granting the evident missing absolute-value delimiter; the retained counting-function convention is unchanged."
 }

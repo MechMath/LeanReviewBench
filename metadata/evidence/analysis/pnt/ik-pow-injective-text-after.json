@@ -36,6 +36,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "文字明确使用a|m且a^k|m、b|n且b^k|n的筛选域；formal的divisors.filter/product及乘法image或InjOn逐项对应，coprime前提和自然数参数一致。",
+  "retained_reason": "The text explicitly uses the filtered domains a|m with a^k|m and b|n with b^k|n. The formal divisors.filter/product and multiplication image or InjOn correspond component by component, with the same coprimality premise and natural-number parameters.",
   "review_scope": "The bound statement on divisors a of m and b of n satisfying a^k divides m and b^k divides n."
 }

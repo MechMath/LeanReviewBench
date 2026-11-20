@@ -33,6 +33,6 @@
   "review_scope": "The quantitative formula in the bound Lemma 4.1.",
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "左端 auxAverage m k 实际使用边长 3^(1−k) 的后代单元，相当于论文 P_(k−1)；右端仍在第 k 层 triangulationIn 求和，层级不匹配。",
+  "retained_reason": "The left-hand auxAverage m k actually uses descendant cells of side length 3^(1−k), corresponding to the paper's P_(k−1). The right-hand side still sums over level-k triangulationIn, creating a level mismatch.",
   "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
 }

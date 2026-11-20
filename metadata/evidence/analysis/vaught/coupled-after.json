@@ -47,6 +47,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "informal要求所有模型无额外条件地满足R1；formal额外要求HasCoupledGatedPinnedExtensions α。新上游反例证明该条件对每个α>1均为假，因此formal在这些阶段只能空洞成立，不能表达所选的无条件R1目标。已核对相关定义与冻结快照一致；不声称R1本身被反驳。",
+  "retained_reason": "The informal statement requires every model to satisfy R1 without additional assumptions; the formal statement additionally requires HasCoupledGatedPinnedExtensions α. A new upstream counterexample proves this condition false for every α>1, so the formal statement can only hold vacuously at those stages and cannot express the selected unconditional R1 target. The relevant definitions have been checked against the frozen snapshot; no claim is made that R1 itself has been refuted.",
   "retained_review_scope": "Frozen independent roadmap completion criterion; not the conditional theorem docstring. Author disclosures are evidence, not exclusion grounds."
 }

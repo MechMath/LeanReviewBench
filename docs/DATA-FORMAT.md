@@ -2,6 +2,24 @@
 
 The native dataset schema is `paperlean-project-case-1`. It is not a frozen scoring export. A retained input is one project snapshot; a multi-root snapshot remains one input and one label record. Related versions share group/split identities and reciprocal version links. Root counts and input counts must be reported separately.
 
+Separately admitted source batches use the same `datasets/<batch>/projects/` layout.
+They are listed in `review_datasets` in the registry; `datasets` lists the
+original-release batches. Both partitions are now fully human reviewed; the
+partition names are retained for inventory compatibility. Both use the authoritative native label,
+analysis, validation and provenance paths below. Per-batch `metadata/` retains
+only deferred development plans and archive locators. Unresolved judgments are
+`undetermined` with `human_adjudicated=false`; they are not assigned binary labels.
+Excluded or technically deferred contexts are absent from publication datasets;
+the plans retain their source pins and preparation revision.
+
+The qinz1yang and FrenzyMath batches remain separate sources with separate
+informal bindings. All 26 retained contexts meet the same native format and
+recorded context-check requirements as the original 171 inputs. Compact technical
+evidence is in `metadata/evidence/technical/`, without local build dependencies.
+Human review and source-admission decisions are separate metadata states. A
+source-specific curator decision may admit an unresolved historical license
+evidence association with a notice, without claiming an established grant.
+
 ## Authoritative files
 
 | File | Contract |
@@ -13,7 +31,7 @@ The native dataset schema is `paperlean-project-case-1`. It is not a frozen scor
 | `CHANGES.md` | Concise per-input Lean migration changes and statement-context packaging notes |
 | `metadata/validation.json` | Input-bound results of context compilation, extraction and preservation checks; no graph data |
 | `datasets/<batch>/index.csv` | Generated from project metadata. Exact columns: `id,root,commit,group_id,before_ids,after_ids,status`. The root column joins all selected declaration names with semicolons; authoritative root metadata remains in `targets` |
-| `metadata/labels/<batch>.jsonl` | One input-bound label record per registered project: dataset, project ID, root, `aligned`/`misaligned` label, concise English reason and scope, input hash, and current human-review state. `undetermined` is accepted by legacy validation but none remains in the audited latest research snapshot |
+| `metadata/labels/<batch>.jsonl` | One input-bound label record per registered project: dataset, project ID, root, `aligned`/`misaligned` label, concise English reason and scope, input hash, and current human-review state. `undetermined` is permitted for pending records, with an explicit non-human-reviewed state |
 | `metadata/evidence/analysis/<batch>/<id>.json` | Input-bound judgment evidence and available detailed reasoning, hashed by the analysis index. The outer `roots` array covers every selected target; coverage status distinguishes detailed reviews, reason-only records, and missing reasons |
 | `metadata/provenance.json`, `metadata/manifest.json`, `licenses/index.json` | Project provenance, current byte inventory and source-license attribution. Regenerate after accepted metadata changes |
 
@@ -21,12 +39,16 @@ Project `status` is historical workflow metadata: `ready` commonly corresponds t
 
 ## Review states and model-visible boundary
 
-All 171 current labels record `human_adjudicated=true` and
-`review_status=human_reviewed`. Their reasons and review scopes are concise
-English annotations. Process fields, dialogue excerpts, previous states, and
-per-record evidence paths/hashes are excluded from labels. Evidence associations
-are indexed in `metadata/evidence/analysis/index.json`. Formal export readiness
-remains separate: `reference_ready=false` and `gold_label=null` are unchanged.
+The original 171 labels record `human_adjudicated=true` and
+`review_status=human_reviewed`. All 26 added records have also been confirmed
+by the user, including sixteen accepted in a batch, and have the same human-review
+state. Explicit user verdicts that differ from the agent assessment are disclosed
+in the reason and analysis evidence; human review does not certify a Lean proof. Individual verdicts are authoritative in the label records. Their
+reasons and review scopes are concise English annotations. Process fields,
+dialogue excerpts, previous states, and per-record evidence paths/hashes are
+excluded from labels. Evidence associations are indexed in
+`metadata/evidence/analysis/index.json`. Formal export readiness remains
+separate: `reference_ready=false` and `gold_label=null` are unchanged.
 
 A task loader must construct the mathematical input from the selected informal target, formal roots and dependency context. Keep label reasons, review reports, before/after repair clues and reference metadata outside model-visible input. Do not copy the whole project metadata tree into a scoring prompt. Model output is `aligned` or `misaligned`; a negative decision requires a mathematical reason and declaration evidence.
 
@@ -51,7 +73,7 @@ licenses/              Source attribution and license copies
 ```
 
 `metadata/validation.json` records successful compilation, extraction and statement/
-non-proof-definition preservation checks for all 171 current inputs. Each record
+non-proof-definition preservation checks for all 197 retained inputs. Each record
 is bound to its input digest, formal-source digest and ordered roots; shared Lean,
 Mathlib/Cslib pins and exporter hashes are recorded once. It explicitly records
 proof erasure without certification of original proofs. Offline validation checks
@@ -69,7 +91,7 @@ may contain documentation and require filtering before model use.
 
 ## Technical states and limits
 
-All 171 released statement contexts compile with Lean 4.34.1 and support fresh dependency extraction from their Lean files. Each `formal` inventory records `declaration_slice=true` and `proofs_erased=true`. The retained declarations preserve root types and necessary computational definitions; theorem/lemma proofs and proof-valued declaration bodies are replaced by `sorry`. Proof-valued tactic blocks inside data definitions are erased while computational tactic blocks remain. Source-level notation, aliases, instances and compiler support may be required in addition to the mathematical graph closure. Compilation of these contexts does not establish proof completeness or semantic alignment.
+All 197 retained statement contexts have recorded Lean 4.34.1 compilation and fresh dependency extraction. The added 26 records explicitly retain the limitation that original-toolchain elaboration was not checked. Each `formal` inventory records `declaration_slice=true` and `proofs_erased=true`. The retained declarations preserve root types and necessary computational definitions; theorem/lemma proofs and proof-valued declaration bodies are replaced by `sorry`. Proof-valued tactic blocks inside data definitions are erased while computational tactic blocks remain. Source-level notation, aliases, instances and compiler support may be required in addition to the mathematical graph closure. Compilation of these contexts does not establish proof completeness or semantic alignment.
 
 Three sphere-packing aligned records have empty reasons; the coverage audit reports them without inventing justifications. Two KZG function-binding inputs lack a verified exact original PDF revision/hash. The AppliedModelingLib historical license-copy gap is recorded in `licenses/index.json`.
 

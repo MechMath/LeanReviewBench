@@ -46,6 +46,6 @@
   "human_review_required": true,
   "analysis_status": "retained_label_reason_only",
   "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
-  "retained_reason": "根命题要求 StronglyAdapted ℱ X，即每个 X_k 对同一时刻 ℱ_k 强可测；informal 只要求对 ℱ_(k+1) 可测。结合可积性与 E[X_k|ℱ_k]=0，formal 的假设实际迫使每个 X_k=0 几乎处处，因此把一般非平凡鞅差序列缩成零增量模型。结论和混合定义虽然吻合，模型范围有实质差异。",
+  "retained_reason": "The root requires StronglyAdapted ℱ X, meaning each X_k is strongly measurable with respect to ℱ_k at the same time, while the informal statement requires only ℱ_(k+1)-measurability. Combined with integrability and E[X_k|ℱ_k]=0, this forces every X_k=0 almost everywhere, reducing general nontrivial martingale-difference sequences to a zero-increment model. The conclusion and mixture definition match, but the model scope differs materially.",
   "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
 }
