@@ -99,8 +99,8 @@ class PublicationTests(unittest.TestCase):
         reviewed = [r for r in labels if r['human_adjudicated']]
         self.assertEqual(len(labels),197)
         self.assertEqual(len(reviewed),197)
-        self.assertEqual(sum(r['label']=='aligned' for r in reviewed),86)
-        self.assertEqual(sum(r['label']=='misaligned' for r in reviewed),111)
+        self.assertEqual(sum(r['label']=='aligned' for r in reviewed),87)
+        self.assertEqual(sum(r['label']=='misaligned' for r in reviewed),110)
         self.assertTrue(all(r['reference_ready'] is False for r in labels))
         self.assertNotIn('stat-learning-theory:slt-master',data.ids())
         self.assertNotIn('stacks:STK-0B34-left',data.ids())

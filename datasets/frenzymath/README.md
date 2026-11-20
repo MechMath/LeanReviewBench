@@ -2,11 +2,12 @@
 
 11 complete Lean 4.34.1 statement contexts use the native
 `paperlean-project-case-1` layout. All 11 judgments are human confirmed
-(three aligned and eight misaligned), including six accepted by explicit user
-batch confirmation. FM-COVERING-before records an explicit user misaligned
-verdict after source-text correction. Its final written reason identifies the
-positive-dimension hypothesis, which omits the zero-dimensional cases allowed by
-the bound target; the old disconnected-source objection remains withdrawn.
+(four aligned and seven misaligned), including six accepted by explicit user
+batch confirmation. FM-COVERING-before is aligned under the adjudicated
+positive-dimensional manifold convention of Chapter 7 Definition 7.3.
+Its review retains the zero-dimensional alternative, under which the formal
+positive-dimension hypothesis would restrict applicability. The informal text
+and Lean source are unchanged; the disconnected-source objection remains withdrawn.
 Review state is separate from reference readiness.
 The source repositories and informal sources remain separate between batches.
 

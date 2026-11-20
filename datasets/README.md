@@ -1,7 +1,7 @@
 # Released project inputs
 
-The dataset contains **197 inputs across 18 batches**, with 86 aligned and
-111 misaligned human judgments. The registry is
+The dataset contains **197 inputs across 18 batches**, with 87 aligned and
+110 misaligned human judgments. The registry is
 [project-cases.json](project-cases.json); see [statistics](../docs/STATISTICS.md)
 for per-batch counts and counting conventions.
 

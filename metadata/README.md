@@ -1,7 +1,7 @@
 # Benchmark metadata
 
-The release contains 197 versioned inputs across 18 batches, with 86 aligned and
-111 misaligned human-reviewed labels. Metadata are curator-facing and must remain
+The release contains 197 versioned inputs across 18 batches, with 87 aligned and
+110 misaligned human-reviewed labels. Metadata are curator-facing and must remain
 outside model-visible task exports.
 
 | Path | Purpose |
@@ -9,7 +9,7 @@ outside model-visible task exports.
 | `labels/` | Human-reviewed binary verdicts, concise English reasons, scope, and input bindings |
 | [evidence/upstream/](evidence/upstream/README.md) | Original upstream claims with exact source/input associations; not scoring labels |
 | [evidence/analysis/](evidence/analysis/README.md) | Current judgment evidence grouped by source batch and input |
-| [taxonomy/](taxonomy/README.md) | Current five-category standard and classifications for all 111 negative inputs |
+| [taxonomy/](taxonomy/README.md) | Current five-category standard and classifications for all 110 negative inputs |
 | `validation.json` | Input-bound compilation, extraction and preservation results; graphs are generated on demand |
 | `provenance.json` | Source project bindings and archive locators |
 | `materials/` | Independent-source acquisition locators and byte hashes |
@@ -28,10 +28,10 @@ composition inputs are omitted; prior technical artifacts remain in Git history.
 
 The two added Poincare source batches use the same root label, analysis,
 validation and provenance paths as the original inputs. Their 26 annotation
-records are all human confirmed (five aligned and twenty-one misaligned),
+records are all human confirmed (six aligned and twenty misaligned),
 including sixteen accepted by explicit user batch confirmation. The covering
-case records an explicit user verdict after correction of its informal source
-interpretation, with the agent assessment retained separately. Compact
+case is aligned under the explicitly recorded positive-dimensional source
+interpretation, with the zero-dimensional alternative retained in its review. Compact
 context-check receipts are in `evidence/technical/`.
 Only deferred plans and archive locators remain in each batch's metadata.
 [Publication cleanup](poincare/publication-cleanup.json) records removed artifacts

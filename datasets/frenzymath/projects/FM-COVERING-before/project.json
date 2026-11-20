@@ -19,7 +19,7 @@
   "split_group": "frenzymath/Poincare-Conjecture",
   "before_ids": [],
   "after_ids": [],
-  "status": "misaligned",
+  "status": "ready",
   "compiled_lean434": true,
   "leantrace_extracted": true,
   "packaged_compilation": "passed",

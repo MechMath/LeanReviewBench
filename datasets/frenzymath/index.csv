@@ -1,7 +1,7 @@
 id,root,commit,group_id,before_ids,after_ids,status
 FM-BISHOP-after,MorganTianLib.bishop_gromov_manifold_ratio;MorganTianLib.bishop_gromov_manifold_with_producers,b6173537bce076a7be5b5a6954e56ca25451b53a,frenzymath:FM-bishop-gromov-abstract,FM-BISHOP-before,,misaligned
 FM-BISHOP-before,MorganTianLib.bishop_gromov_ball;MorganTianLib.bishop_gromov_ball_ratio,4dff1831c65f51855a70dc3c4ff03bea49a5619e,frenzymath:FM-bishop-gromov-abstract,,FM-BISHOP-after,misaligned
-FM-COVERING-before,MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering,154ca3eca804557d37043d660084093d1ee6d992,frenzymath-covering-extra-connectedness,,,misaligned
+FM-COVERING-before,MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering,154ca3eca804557d37043d660084093d1ee6d992,frenzymath-covering-extra-connectedness,,,ready
 FM-EXP-LOCAL-before,MorganTianLib.expMapGlobal_localDiffeo_of_minimizing,154ca3eca804557d37043d660084093d1ee6d992,frenzymath-exp-local-diffeo-restriction,,,misaligned
 FM-GEODESIC-COMPLETENESS-after,MorganTianLib.not_isConjugatePointAt_of_minimizing,e2d6a088ccaa45f6e5056a076616391ec2bee569,frenzymath-geodesic-extra-completeness,FM-GEODESIC-COMPLETENESS-before,,misaligned
 FM-GEODESIC-COMPLETENESS-before,MorganTianLib.not_isConjugatePointAt_of_minimizing,bb91a091f0b968f8bbe8d861e025a88d82b161be,frenzymath-geodesic-extra-completeness,,FM-GEODESIC-COMPLETENESS-after,misaligned

@@ -3,26 +3,26 @@
   "date": "2026-11-20",
   "taxonomy": "metadata/taxonomy/standard.md",
   "taxonomy_sha256": "beb7d62b6c0fc123f29cab4456a33e0e776f5e619a8dda5fa4808b362bc3dac8",
-  "cases_sha256": "4e03c333e1fc77bb2a637e48d5e77f97e71fe7c802c89e6e581399843557e34c",
-  "case_count": 111,
-  "current_misaligned_inputs": 111,
+  "cases_sha256": "04090a1f2d5bee743b45375ccf2d6b05f537f7700714ed91fafed884e26960d7",
+  "case_count": 110,
+  "current_misaligned_inputs": 110,
   "unclassified": 0,
   "category_case_counts": {
-    "A": 49,
+    "A": 48,
     "F": 30,
     "O": 22,
     "P": 26,
     "Q": 8
   },
   "primary_category_counts": {
-    "A": 42,
+    "A": 41,
     "F": 28,
     "O": 20,
     "P": 16,
     "Q": 5
   },
   "label_count_distribution": {
-    "1": 88,
+    "1": 87,
     "2": 22,
     "3": 1
   },
@@ -30,5 +30,5 @@
   "human_adjudicated": false,
   "reference_ready": false,
   "counting_unit": "Versioned misaligned inputs; categories overlap and linked versions are not independent mathematical errors.",
-  "migration": "Retained all 90 existing diagnostic classifications and added 21 Poincare classifications using the same five-category standard. Binary verdicts and mathematical inputs are unchanged; category adjudication remains pending."
+  "migration": "Retain the 90 original and 20 current Poincare negative classifications. FM-COVERING-before was removed after the user-confirmed aligned judgment under the recorded positive-dimensional source interpretation. Mathematical input bytes are unchanged; category adjudication remains pending."
 }

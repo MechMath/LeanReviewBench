@@ -2,7 +2,7 @@
 
 A benchmark for informal–formal statement alignment in real Lean projects.
 
-This local publication preview retains **197 versioned inputs across 18 batches**, with **86 aligned and 111 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format documented in [the data contract](docs/DATA-FORMAT.md). All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
+This local publication preview retains **197 versioned inputs across 18 batches**, with **87 aligned and 110 misaligned human-reviewed labels**. It uses the original **`paperlean-project-case-1`** format documented in [the data contract](docs/DATA-FORMAT.md). All data are ordinary Git-tracked files; no archive extraction, download service or research checkout is needed to inspect or validate them.
 
 The same native layout also contains **26 complete, human-reviewed Poincare contexts**: 15 from qinz1yang and 11 from FrenzyMath. The native loader reads
 197 inputs in total. Three technically deferred contexts and five excluded

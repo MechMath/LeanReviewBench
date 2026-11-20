@@ -51,10 +51,10 @@
     "frenzymath": 11
   },
   "total_retained_inputs": 197,
-  "review_status": "All 197 retained inputs are human reviewed: 86 aligned and 111 misaligned. The original-release and added-batch inventory partitions are retained for compatibility; neither added batch awaits human review. Historical license scope remains separate.",
+  "review_status": "All 197 retained inputs are human reviewed: 87 aligned and 110 misaligned. FM-COVERING-before is aligned under its explicitly adjudicated positive-dimensional source interpretation; the zero-dimensional alternative is retained in its review. The original-release and added-batch inventory partitions are retained for compatibility; neither added batch awaits human review. Historical license scope remains separate.",
   "total_retained_labels": {
-    "aligned": 86,
-    "misaligned": 111
+    "aligned": 87,
+    "misaligned": 110
   },
   "human_review_pending": 0
 }

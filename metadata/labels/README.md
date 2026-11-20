@@ -4,19 +4,20 @@ The release contains 171 human-reviewed labels across 16 batches: 81 aligned and
 90 misaligned. Each `<batch>.jsonl` contains only the current annotation result.
 
 The two additional Poincare batches contain 26 human-confirmed judgments
-(five aligned and twenty-one misaligned), including sixteen accepted by explicit
+(six aligned and twenty misaligned), including sixteen accepted by explicit
 user batch confirmation. Across all inputs, 197 labels are human reviewed
-(86 aligned and 111 misaligned). Individual verdicts and confirmation records
-are retained in the label and analysis files. FM-COVERING-before records an
-explicit user misaligned verdict after source-text correction; its former
-connectedness rationale is withdrawn, as disclosed in the reason and evidence.
+(87 aligned and 110 misaligned). Individual verdicts and confirmation records
+are retained in the label and analysis files. FM-COVERING-before is aligned under
+the explicitly adjudicated positive-dimensional source convention. The broader
+zero-dimensional interpretation and its different applicability judgment remain
+documented in the review; the former connectedness rationale is withdrawn.
 The November 20, 2026 Poincare review records:
 
 | Batch | aligned | misaligned | undetermined |
 | --- | ---: | ---: | ---: |
 | qinz1yang | 2 | 13 | 0 |
-| frenzymath | 3 | 8 | 0 |
-| Total | 5 | 21 | 0 |
+| frenzymath | 4 | 7 | 0 |
+| Total | 6 | 20 | 0 |
 
 Every added record has an English reason and scope. Unresolved records also have
 specific English adjudication questions in their analysis evidence. A confident

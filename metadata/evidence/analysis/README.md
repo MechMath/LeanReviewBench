@@ -22,14 +22,16 @@ Historical paths inside retained analysis are source locators, not a promise
 that every referenced artifact is available locally.
 
 The original 171 binary judgments are human reviewed. All 26 Poincare
-judgments are also human confirmed (five aligned and twenty-one misaligned),
+judgments are also human confirmed (six aligned and twenty misaligned),
 including sixteen accepted by explicit user batch confirmation. Their retained
 reviews compare the source and formal statements, check alternative
 interpretations, and retain declaration locations.
 All 26 Poincare records now have human-selected binary judgments. The
-FM-COVERING-before record retains the corrected connected-source convention and
-now gives a zero-dimensional scope witness for the extra positive-dimension
-hypothesis. Both parallel-transport records include the final chart-transition
+FM-COVERING-before record is aligned under the explicitly adjudicated
+positive-dimensional source convention and retains the corrected connected-source
+convention. It also documents why the singleton identity would be an applicability
+witness if the target were instead interpreted to include dimension zero.
+Both parallel-transport records include the final chart-transition
 calculation; their reason rewrites are complete. Material scope qualifications
 remain in the evidence.
 Mathematical separating examples are distinguished from Lean-certified counterexamples.
