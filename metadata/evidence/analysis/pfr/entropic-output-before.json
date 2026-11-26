@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "entropic-output-before",
+  "task_id": "pfr:entropic-output-before",
+  "input_sha256": "2c18a1b94856428270be697438b9cf7c63bf403cedd239c2c589aa87b9205496",
+  "label": "misaligned",
+  "reason": "The output witness lacks probability-space and measurability requirements, allowing the uniformity specification to degenerate on zero measure.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "entropic_PFR_conjecture'"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-301"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root conclusion drops the probability-space and measurability requirements, and the historical IsUniform used here holds for any subgroup under the zero measure. Together with the distance definition, this degenerates the entire witness condition. The negative label is not based merely on two omitted typeclasses: the output witness specification fails to express the source's probabilistic uniform variable.",
+  "review_scope": "The bound probability-space and measurable-uniform-witness specification over finite F_2 vector spaces."
+}

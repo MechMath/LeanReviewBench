@@ -1,0 +1,85 @@
+{
+  "id": "MBJG-VARIANCE-INTERIOR",
+  "schema_version": "paperlean-project-case-1",
+  "title": "MBJG25ProducerFairness",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "2476b3ff09cca173477757dfe87b31c5884608ee",
+    "path": "papers/MBJG25ProducerFairness/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/2476b3ff09cca173477757dfe87b31c5884608ee/papers/MBJG25ProducerFairness/PaperInterface.lean",
+    "declaration": "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior",
+    "sha256": "90cf8b1fe13f0f4c54a32147567b321f7711569f1162506d0d39c2b9767bd112",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/2476b3ff09cca173477757dfe87b31c5884608ee",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/1d216475e5cf693c16b3bdffb77f7d82215566e6"
+    ],
+    "module": "MBJG25ProducerFairness.PaperInterface"
+  },
+  "group_id": "aml:MBJG-VARIANCE-INTERIOR",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+    "Mathlib.Data.Fin.Basic",
+    "Mathlib.Data.Finset.Powerset",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.EquivFin",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/2476b3f-MBJG25ProducerFairness/MBJG-VARIANCE-INTERIOR/graph.json",
+      "sha256": "08e91fe908fa61cbf737d26974b55dcbd72490b9b7ff4b21068e56b3c0d17f0f"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "sha256": "ad159a2b5842df9895a0bae159503cf125ff0e8de1d9e10feb0fc16d6c3e07c8"
+    }
+  },
+  "input_sha256": "c327690925e2b2324f55eb52dfd8a64e669e6a4afd7e243da9a66e63e1088dd3",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "2feabe088731baec148ccb48458bb3d72cb560bc37a9307ae9ad8b24b3989353",
+    "effective_root_sha256": "fc00365ca4995cb8c8eb5343cda9dbb324bc7efe635a9287fa63f2be6bef6aec",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "pi-star-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT pi-star-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "pi_star",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "pi_star",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+  },
+  "group_id": "pnt-pi_star",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "pi-star-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.NumberTheory.Chebyshev"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "fa1bd4e0ac75d7cfe5cc0e22f173d611306b301ca315679156ba2550432d77ee",
+    "effective_root_sha256": "1cf0bea047c9c065e2370d312a0552689b09413e627d8593b8fd28717eff59f9",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction/repaired/pi-star-after/20261105T051056293981Z/receipt.json",
+    "receipt_sha256": "ed5d2dfe1541f34f4352b7adab01dc7481d5a4e5cdfec9adb636492b25cf32cc",
+    "packaged_receipt": "reports/pnt-extraction/repaired/pi-star-after/20261105T051056293981Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "03abba0d84bc96afeaec4acae91e52dc4da7af8b2cd2cb80d1e88690feaa7945",
+    "formal_snapshot_id": "pi-star-after",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0",
+        "ref": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+        "text": "$\\pi^*(x) = \\sum_{k \\geq 1} \\pi(x^{1/k}) / k$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "4e1725dfed6c8a6d9422a870fde9f2bd42116fdd97c640ac5952ea63a795131d",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

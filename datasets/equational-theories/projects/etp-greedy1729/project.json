@@ -1,0 +1,174 @@
+{
+  "id": "etp-greedy1729",
+  "schema_version": "paperlean-project-case-1",
+  "title": "ETP-GREEDY1729 staged control",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Eq1729.not_817",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/equational_theories",
+    "commit": "8b87204d5b201e1cf6c69b8dcabb0558109bee00",
+    "path": "equational_theories/ManuallyProved/Equation1729.lean",
+    "module": "equational_theories.ManuallyProved.Equation1729",
+    "declarations": [
+      "Eq1729.not_817"
+    ],
+    "sha256": "a4ed5e9a46af653e5403313e648f68744b9294502d5536c99500e805baabbffa",
+    "declaration": "Eq1729.not_817"
+  },
+  "group_id": "greedy1729-construction",
+  "split_group": "teorth/equational_theories",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "label": "undetermined",
+  "historical_status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "technical_status": "statement-context-compiled-and-extracted",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "external_imports": [
+    "Init.Classical",
+    "Init.Prelude",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.DirectSum.Basic",
+    "Mathlib.Algebra.Module.LinearMap.Defs",
+    "Mathlib.Algebra.Ring.NonZeroDivisors",
+    "Mathlib.Data.Countable.Defs",
+    "Mathlib.Data.DFinsupp.Encodable",
+    "Mathlib.Data.Finset.Union",
+    "Mathlib.Data.Fintype.Basic",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Countable",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.ZMod.Defs",
+    "Mathlib.GroupTheory.FreeGroup.Basic",
+    "Mathlib.GroupTheory.FreeGroup.CyclicallyReduced",
+    "Mathlib.Logic.Embedding.Basic",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Logic.Equiv.Defs",
+    "Mathlib.Order.Preorder.Chain",
+    "Mathlib.Order.WithBot",
+    "Mathlib.RepresentationTheory.Basic",
+    "Mathlib.Tactic"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_role": "control",
+  "evaluation_eligible": false,
+  "changes": "CHANGES.md",
+  "original_source_archive": "original-source.tar.gz",
+  "compatibility_patch": "compatibility.patch",
+  "source_packet": "source-packet.json",
+  "gold_label": null,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "formal": {
+    "file_count": 15,
+    "sha256": "6d6c45444f07fff0301f62693cba9c1ae6f6dac968cce4d090d95d591fc91257",
+    "effective_root_sha256": "1942734dcaf36b68a734bc2cd974083bad07c03edee2880b5ae3f78da8b60a15",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "resources": {},
+  "compatibility": {
+    "changed_files": [
+      "equational_theories/Equations/Command.lean",
+      "equational_theories/FreeMagma.lean",
+      "equational_theories/FreshGenerator.lean",
+      "equational_theories/Homomorphisms.lean",
+      "equational_theories/MagmaLaw.lean",
+      "equational_theories/ManuallyProved/Equation1729/ExtensionTheorem.lean",
+      "equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean",
+      "equational_theories/ManuallyProved/Equation1729/SmallMagma.lean"
+    ],
+    "patch_sha256": "d10c4c9244b174e77c6d6c1a796b243fc4c9f77dd66db822d6e0692989993bb9",
+    "added_sorry": false,
+    "added_axioms": false,
+    "target_weakened": false
+  },
+  "preparation": {
+    "compilation": "technical/compile.json",
+    "graph_modes": {
+      "default": {
+        "status": "passed",
+        "nodes": 10,
+        "edges": 18,
+        "raw_graph": "context/default/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      },
+      "explicit": {
+        "status": "passed",
+        "nodes": 10,
+        "edges": 18,
+        "raw_graph": "context/explicit/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      }
+    },
+    "original_archive_sha256": "0412eb4617ae4215705958f2796f283998471f6851224bd0fb0adccc140b9315",
+    "source_packet_sha256": "6dca8ecd7d8c7de4588f7e4ab65925999cc871c8693deb031287bd51e9a5f151"
+  },
+  "input_sha256": "1e99cf462ffc2731c2fb4a1d037b9bb389dccf74ef3d17666ee7669cff224892",
+  "original_external_imports": [
+    "Init.Classical",
+    "Init.Prelude",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Algebra.DirectSum.Basic",
+    "Mathlib.Algebra.Module.LinearMap.Defs",
+    "Mathlib.Algebra.Ring.NonZeroDivisors",
+    "Mathlib.Data.Countable.Defs",
+    "Mathlib.Data.DFinsupp.Encodable",
+    "Mathlib.Data.Finset.Union",
+    "Mathlib.Data.Fintype.Basic",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Countable",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.ZMod.Defs",
+    "Mathlib.GroupTheory.FreeGroup.Basic",
+    "Mathlib.GroupTheory.FreeGroup.CyclicallyReduced",
+    "Mathlib.Logic.Embedding.Basic",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Logic.Equiv.Defs",
+    "Mathlib.Order.Preorder.Chain",
+    "Mathlib.Order.WithBot",
+    "Mathlib.RepresentationTheory.Basic",
+    "Mathlib.Tactic"
+  ],
+  "human_adjudicated": false,
+  "source_family": "greedy1729-construction",
+  "material_complete": true,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "technical_receipt": "technical/relocated-receipt.json",
+  "alignment_reference": "metadata/labels/equational-theories.jsonl"
+}

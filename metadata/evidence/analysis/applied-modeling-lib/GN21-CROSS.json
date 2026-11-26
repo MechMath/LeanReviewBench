@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-CROSS",
+  "task_id": "aml:GN21-CROSS",
+  "input_sha256": "7253a07ed7a6a0e0d3dae26266bcfaa80e6613c69a009900354a7f6d0e9bf24c",
+  "label": "misaligned",
+  "reason": "The premise C < rho < 1 restricts the result to one parameter branch of the full theorem.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root fixes C < ρ < 1 in its premises and covers only one parameter branch of Theorem 3; the full paper statement also includes another branch.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

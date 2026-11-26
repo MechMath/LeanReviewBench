@@ -1,0 +1,122 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-fullspectrum-1482",
+  "task_id": "equational-theories:etp-fullspectrum-1482",
+  "input_sha256": "e745da2362b591371d8160842f168436fc2554f0138491ff078e3c2a520accf5",
+  "label": "aligned",
+  "reason": "The quantifiers and equation syntax specify a model of law 1482 at every positive finite size. The additional size-zero case follows vacuously on the empty carrier.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FullSpectrum.full_spectrum_Equation1482"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-fullspectrum-1482.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The construction of models of law 1482 at all positive integer sizes; the broader law classification is excluded.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-fullspectrum-1482",
+    "root": "FullSpectrum.full_spectrum_Equation1482",
+    "input_sha256": "9ac50a67eefde62663e5170b2fb1970a24e4ab1f79e8caac36ae909807e412ac",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "EqFullSpectrum asserts that for every n there exists a magma on Fin n satisfying equation 1482, corresponding to the source's existence of models of every positive integer size. The extra n=0 branch follows unconditionally from the binary operation on an empty type and vacuous universal equations. The equation's parentheses match, and the proof constructs an operation that is constant on most inputs as described in the source, handling small sizes separately.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Please mark it aligned; confirms aligned for equational-theories:etp-fullspectrum-1482 after reviewing the positive-size model requirement, the harmless empty-carrier branch, equation syntax, and the mostly-constant construction.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The explicitly selected construction of models of equation 1482 at every positive integer size in the current independent spectrum.tex; the paragraph's classification of 3074 laws, dual laws and classification completeness are excluded.",
+    "evidence_locations": {
+      "informal_and_selected_scope": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal.jsonl",
+        "line": 1,
+        "sha256": "b21198fcabad91f204203ca4e348a296cbe12a777491b60bccd76069a1b22f58"
+      },
+      "positive_size_spectrum": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "line": 3,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "source_model_construction": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "line": 20,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "source_all_sizes_claim": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/informal-source/paper/spectrum.tex",
+        "line": 22,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "spectrum_definition_and_notation": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 25,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "root_and_constructed_operation": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 127,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "small_size_branch": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 158,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "equation_1482": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/Equations/Eqns1000_1999.lean",
+        "line": 488,
+        "sha256": "44155045d2091d0ca3478ad596c4c3cd3abb5408260e2b3684db598310a1612b"
+      },
+      "universal_equation_elaboration": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/Equations/Command.lean",
+        "line": 106,
+        "sha256": "09edfbeb822f086d8b360879cec45fa58f7a75814aac4304b648bb7f18cf5e00"
+      },
+      "magma_definition": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1482/formal/dep/equational_theories/Magma.lean",
+        "line": 10,
+        "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+      }
+    },
+    "semantic_argument": [
+      "HasFullSpectrum [1482] unfolds to EqFullSpectrum Equation1482, namely ∀n:ℕ,∃M:Magma(Fin n),Equation1482 (Fin n) M. Fin n has exactly n elements. The operation of any finite n-element model can be transported to Fin n along a bijection, preserving the equation.",
+      "Equation1482 is defined as ∀x,y, x=(y◇x)◇(x◇(y◇y)). Its variables, occurrence multiplicities and parentheses match the informal equation selected for this case.",
+      "The formal statement quantifies all natural n, while the source discusses positive integer sizes. For n=0, Magma requires only a binary operation Fin 0→Fin 0→Fin 0, which exists uniquely. The universal equation holds because there are no x,y. Thus this extra branch can be added unconditionally, and the all-natural-number version is equivalent to the positive-integer version.",
+      "For n>1, the proof explicitly defines an operation returning x when y=1 and x>1, 0 when x=y=1, y when x=1 and y>1, and 1 otherwise. This matches the source's construction with most table entries constant.",
+      "For n≤1, the proof uses the projection operation fun x y=>x, covering empty and singleton types without omitting the nonempty n=1 model.",
+      "The frozen target scope explicitly selects only the model construction for equation 1482 at each finite size. The TODO about completeness of the 7+32-law classification in FullSpectrum is outside this case's alignment target."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "equation_and_construction_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checks the semantics of the definitions, statement and explicit construction, without adding a Lean equivalence proof or recompiling the project.",
+      "The harmlessness of n=0 relies on the current Magma having only a binary-operation field and no nonemptiness axiom, and on Equation1482 being a universal equation.",
+      "The label is not extended to the classification of 3074 laws, classification completeness or the next case, equation 1682.",
+      "The formal and informal inputs, input hash and technical status are unchanged. Project status is changed to ready to reflect this positive label and the existing compilation/extraction status.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "EqFullSpectrum asserts that for every n there exists a magma on Fin n satisfying equation 1482, corresponding to the source's existence of models of every positive integer size. The extra n=0 branch follows unconditionally from the binary operation on an empty type and vacuous universal equations. The equation's parentheses match, and the proof constructs an operation that is constant on most inputs as described in the source, handling small sizes separately.",
+  "retained_review_scope": "The explicitly selected construction of models of equation 1482 at every positive integer size in the current independent spectrum.tex; the paragraph's classification of 3074 laws, dual laws and classification completeness are excluded."
+}

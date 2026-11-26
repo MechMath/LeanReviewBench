@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr293-before",
+  "task_id": "pfr:pr293-before",
+  "input_sha256": "ca1c5722283a937ca572d96a0a7d9c67b0f7c6f0c4dfcc7597b5ff525fe87b79",
+  "label": "aligned",
+  "reason": "The formal constants 144 and 122 imply the source bounds with 172 and 146 because density is at most 1 and K is at least 1.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "approx_hom_pfr'"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-293"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Formal constants 144/122 imply the older weaker 172/146 bound since density<=1 and the assumptions force K>=1. The newer target matches the constants; use the own-version finite elementary-2-group scope.",
+  "review_scope": "The bound earlier-version estimate over a finite elementary abelian 2-group."
+}

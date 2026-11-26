@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "reparametrization-after",
+  "task_id": "sphere-eversion:reparametrization-after",
+  "input_sha256": "f49456a3411f317cc860bc9d4952d264e1eb0381e9b5949687529f67430eb847",
+  "label": "aligned",
+  "reason": "The root gives the required average g(x). Its equivariant real-equivalence witness descends to a circle equivalence, with separate supporting lemmas for the remaining properties.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "smooth_surrounding_family.reparametrize_average"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "For the selected own-version average clause, the root asserts precisely that the reparametrized loop has average g(x). Its concrete witness is an equivariant real equivalence, hence descends to a circle equivalence. Existing smoothness and zero lemmas for the same witness are separate supporting declarations; a checked bridge derives the combined existence bundle. This is a scoped average-clause control, not a claim that the single root alone expresses the full lemma.",
+  "review_scope": "The selected average clause of the reparametrization lemma, rather than the complete lemma in a single root."
+}

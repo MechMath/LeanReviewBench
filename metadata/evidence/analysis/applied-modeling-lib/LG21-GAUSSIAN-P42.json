@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-GAUSSIAN-P42",
+  "task_id": "aml:LG21-GAUSSIAN-P42",
+  "input_sha256": "6e5ff666e47e1c94713aa4fdec8c86776f0ca43fedcabb1e8a865add41651670",
+  "label": "misaligned",
+  "reason": "The specified Gaussian conditional output laws and distinct means are assumed rather than derived from the access/Bayesian model.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "LG21TestOptionalPolicies.paper_interface_proposition4_2_not_law_latent_skill_fair_of_gaussian_mean_gap"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Lean assumes that the conditional output laws already equal the specified Gaussian laws with strictly different means, and then concludes unfairness. The original Proposition 4.2 derives both these distributions and unfairness from observation access and the Bayesian policy; the root omits the connection from that model to the output laws.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

@@ -1,0 +1,62 @@
+{
+  "id": "QDG-PL-BALL-PAIR-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+    "path": "DifferentialGeometry/Topology/PiecewiseLinear/BallPair.lean",
+    "url": "https://github.com/qinz1yang/differential-geometry/blob/70a5b86201494e379d1e2314695d4500adb3f7ff/DifferentialGeometry/Topology/PiecewiseLinear/BallPair.lean"
+  },
+  "group_id": "qinz1yang:pl-ball-pair-cone",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [],
+  "after_ids": [
+    "QDG-PL-BALL-PAIR-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.Convex.SimplicialComplex.Basic",
+    "Mathlib.Analysis.Convex.StdSimplex",
+    "Mathlib.Analysis.Normed.Module.FiniteDimension"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "license-copy-retained",
+  "original_toolchain": "leanprover/lean4:v4.33.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "46a31348e46f143a79d9e43b8cefc370bab68f6e3e028c47e7a2ea8de04441d5",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "58d54b49dfb0c0aa27e3806d9cb2aaee078dca65ac8195bbd1ffe13cbfdf07a6",
+  "toolchain_pin_evidence": "Independent GitHub file fetch at both source revisions; lean-toolchain blob a8afa7d1b02d96f0671eba854a8dc4b416beb473",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "pl-ball-pair-cone",
+  "validation_reference": "metadata/validation.json"
+}

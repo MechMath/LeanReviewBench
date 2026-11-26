@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-jy-before",
+  "task_id": "pnt:bounded-jy-before",
+  "input_sha256": "1760ae0c0e228cba8c10e23c31f61966dac6f870333a12e3813c96d7bf8c5ad4",
+  "label": "misaligned",
+  "reason": "Expanding the normalized error yields log exponent -0.199 instead of +0.801. The formal threshold is x>=23 rather than x>=2.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "JY.theorem_1_4"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1673"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The formal statement quantifies over x≥23 while the text specifies x≥2. Moreover, Eπ=|π−Li|/(x/log x), so B=0.801 unfolds to an unnormalized logarithmic exponent of −0.199, whereas the text requires +0.801. This missing 1 in the exponent gives a different quantitative bound.",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
+}

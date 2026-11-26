@@ -1,0 +1,73 @@
+{
+  "id": "classical-zero-free-text-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT classical-zero-free-text-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "riemannZeta.classicalZeroFree",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "declaration": "riemannZeta.classicalZeroFree",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+  },
+  "group_id": "pnt-riemannZeta.classicalZeroFree",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "classical-zero-free-text-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "bda4b2fdba488396324ada6ecf5aa34a1a2741a06c0f146d7c52f7c01fe83389",
+    "effective_root_sha256": "77396e421d5ef4b7186578215964c026272d1fd18b570adcf0c1833eeda86cc4",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/receipt.json",
+    "receipt_sha256": "66f0f52382eb29f2d30b1cf221eee92b5a59bccb0cfcfac64a78b384883776c8",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/classical-zero-free/20261105T052151003806Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "89c86df6f7b63dd55b8eaddb6f8b09d281d6b6c3a11371505cb7da23f3055695",
+    "formal_snapshot_id": "classical-zero-free",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "We say that one has a classical zero-free region with parameter $R$ if $zeta(s)$ has no zeroes\n    in the region $Re(s) \\geq 1 - 1 / R * \\log |\\Im s|$ for $\\Im(s) > 3$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'riemannZeta.classicalZeroFree' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'riemannZeta.classicalZeroFree' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "a90f3e5f0b4614bddbbb10f8724851a311cfc6cf367f6ca30975662cbd48e874",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

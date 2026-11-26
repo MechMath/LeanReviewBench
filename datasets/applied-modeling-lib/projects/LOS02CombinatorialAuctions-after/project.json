@@ -1,0 +1,98 @@
+{
+  "id": "LOS02CombinatorialAuctions-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "LOS02CombinatorialAuctions",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "3523dfea9e3d6e6fa54db3594fe2b3140a31f18d",
+    "path": "papers/LOS02CombinatorialAuctions/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d/papers/LOS02CombinatorialAuctions/PaperInterface.lean",
+    "declaration": "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful",
+    "sha256": "009c91e9b0598a4f467f377eeddc6af48648db2238b62456eb79e9d171745102",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/cf500b748ac63dbff55faf97d989d4935c8eff50",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e9f7579ce3c4ddaffff0648ea5a265cbff57de10",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d"
+    ],
+    "module": "LOS02CombinatorialAuctions.PaperInterface"
+  },
+  "group_id": "aml:LOS02CombinatorialAuctions-before",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [
+    "LOS02CombinatorialAuctions-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Cslib.Foundations.Data.RelatesInSteps",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+    "Mathlib.Combinatorics.SimpleGraph.Finite",
+    "Mathlib.Data.Finset.Basic",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Finset.Sort",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.EquivFin",
+    "Mathlib.Data.Fintype.Pi",
+    "Mathlib.Data.Fintype.Powerset",
+    "Mathlib.Data.List.Chain",
+    "Mathlib.Data.Nat.Find",
+    "Mathlib.Data.Prod.Lex",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.GroupTheory.Perm.List",
+    "Mathlib.Order.WellFoundedSet",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/3523dfe-LOS02CombinatorialAuctions/LOS02CombinatorialAuctions-after/graph.json",
+      "sha256": "c038f368f18b97b0ff7dbb00ec29e2b8f6d554e12dd9f4ea960a624a1feb8d61"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "sha256": "ad159a2b5842df9895a0bae159503cf125ff0e8de1d9e10feb0fc16d6c3e07c8"
+    }
+  },
+  "input_sha256": "b3533aec99775a951bd83110bfe1de84b6ce822d88d2ae088b894325b04343e5",
+  "external_boundaries": [
+    "Mathlib",
+    "Cslib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 5,
+    "sha256": "b1dc746cf2a7c84d9b2e3e33d2fcb48b9a2f02e5bc6f5f9576d83e8b8930bae5",
+    "effective_root_sha256": "449353b0e5cd5e1ea8c3089bfd149ba916e2cf4441bfbee91a2cb8a1ecdbd12a",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

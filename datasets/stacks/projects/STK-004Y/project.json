@@ -1,0 +1,68 @@
+{
+  "id": "STK-004Y",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Stacks 004Y",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/optpku/stacks",
+    "commit": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
+    "path": "ReasLib/Topology/IrreducibleCloseds/Hausdorff.lean",
+    "module": "ReasLib.Topology.IrreducibleCloseds.Hausdorff",
+    "declaration": "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton",
+    "url": "https://github.com/optpku/stacks/blob/e2299cf97f975b08e7b5b59202ed00adc80ff6b7/ReasLib/Topology/IrreducibleCloseds/Hausdorff.lean",
+    "sha256": "19bed3ee6e7b6e7538824605cae6b8539823e8b5b0a3d85ce8feb0a3c435f470",
+    "leads": []
+  },
+  "group_id": "stacks:004Y",
+  "split_group": "optpku/stacks",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Tactic.CrossRefAttribute",
+    "Mathlib.Topology.Irreducible",
+    "Mathlib.Topology.Separation.Hausdorff",
+    "Mathlib.Topology.Sober"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "dad09d8caef808889d855c39ed5cf962f749143e0ba4223dcc01a1e782cfcb13",
+    "effective_root_sha256": "25d8823e08c2b290c58621bf58b1b1855c1e1752d1ed7a95e316c90717d3e625",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/stacks.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/stacks-admission/technical/STK-004Y/receipt.json",
+    "graph": "reports/stacks-admission/technical/STK-004Y/default/graph.json",
+    "explicit_graph": "reports/stacks-admission/technical/STK-004Y/explicit/graph.json",
+    "review": "reports/stacks-admission/reviews.json",
+    "original_source": "reports/stacks-admission/original/STK-004Y/Main.lean",
+    "receipt_sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275",
+    "packaged_receipt": "reports/stacks-admission/technical/STK-004Y/receipt.json",
+    "packaged_receipt_sha256": "b17792d041d80e5eabae4ad8ef5048a61af79edc3d46d65a3af5364ad36d1275"
+  },
+  "author_disclosure": "no_explicit_root_error_admission",
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "70372055ac0f16f5855c2e51073860b982d13d1bd411542c0eda02cf384f102f"
+}

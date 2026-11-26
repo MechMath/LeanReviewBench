@@ -1,0 +1,73 @@
+{
+  "id": "bounded-dusart1999-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-dusart1999-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Dusart1999.p_n_upper",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "a93551347dce924b1db75d40218841bf085a465f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "declaration": "Dusart1999.p_n_upper",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+  },
+  "group_id": "pnt-Dusart1999.p_n_upper",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-dusart1999-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "ca383f0749e92f52cb527eb54e87d39d3adc6ab73ccef324e35f295ccbefd314",
+    "effective_root_sha256": "3b4825c5bf9ebf11286bb94f6db56b3a5615b0e77d8a58c370e22f78f3949dad",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-before/20261105T053544779623Z/receipt.json",
+    "receipt_sha256": "99c66c4f8b72579fb682ed4f4f21ee19a9935fc11c906f6384d761e136b2d353",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart1999-before/20261105T053544779623Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "7a32e6cd7e1d910ba4794618f798e90a90a724adac3e169102f103fa93dec8ac",
+    "formal_snapshot_id": "bounded-dusart1999-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+        "ref": "a93551347dce924b1db75d40218841bf085a465f",
+        "text": "For $n > 39017$ (i.e., $p_n > 467473$), we have\n  $p_n < n(\\log n + \\log\\log n - 0.9484)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Dusart1999.p_n_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Dusart1999.p_n_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "7e03c17c9a7322c9efe2c86caef1462e8e3ae84231584d4193c945c22c4609fa",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

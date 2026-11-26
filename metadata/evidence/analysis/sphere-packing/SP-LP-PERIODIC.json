@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-LP-PERIODIC",
+  "task_id": "sphere-packing:SP-LP-PERIODIC",
+  "input_sha256": "c87d9fc5374467b0515bf64039b252b93fd0b05326e6bda5b2cdccbbcf0ffd89",
+  "label": "misaligned",
+  "reason": "Summability over the entire Euclidean index space is an additional premise absent from the Schwartz-function target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "LinearProgrammingBound'"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root adds Summable f, where f is indexed by the entire Euclidean space rather than discrete lattice points. The paper permits nonzero Schwartz auxiliary functions and imposes no such summability assumption with respect to counting on the whole space.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-SMALL-mass_affine_interval_final_sign",
+  "task_id": "aml:GN21-SMALL-mass_affine_interval_final_sign",
+  "input_sha256": "4459f49a61bb59f5810778d3e5007654cae5c0bd6de185e90ff2a811bb27c4f4",
+  "label": "misaligned",
+  "reason": "The selected sign/incentive result omits the full uniqueness conclusion. The structured positive-mass strategy setting does not cover the full target input branches.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The full Theorem 3 specifies both the case-dependent optimal structure and almost-everywhere uniqueness. The target gives only incentive-compatibility or sign conclusions for structured measurable policies of positive mass, without the full uniqueness result or general branches.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

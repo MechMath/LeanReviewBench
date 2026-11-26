@@ -1,0 +1,163 @@
+module
+
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.InnerProductSpace.Basic
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Swap
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Metrizable
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Function.SpecialFunctions.Basic
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.SeparableMeasure
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Pseudo.Defs
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.CubeMetric
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.SignedPermutation
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Probability.RandomField
+public import dep.Homogenization.Sobolev.L2Ambient
+
+@[expose] public section
+
+namespace Homogenization
+
+/-- The `k`-th countable quantitative ellipticity slice on a fixed spatial set.
+
+This is the countable surface used by the probability layer after a qualitative
+locally uniformly elliptic field has been restricted to a bounded observation
+domain. -/
+def QuantitativeEllipticSlice {d : ℕ} (U : Set (Vec d)) (k : ℕ)
+    (a : CoeffField d) : Prop :=
+  IsEllipticFieldOn ((k + 1 : ℝ)⁻¹) (k + 1 : ℝ) U a
+
+/-- Essential/a.e. ellipticity on a deterministic observation set.
+
+This is the probability-facing version of `IsEllipticFieldOn`: the restricted
+coefficient field is measurable, but ellipticity is required only
+`volumeMeasureOn U`-almost everywhere.  This is the legacy essential variant
+used by constructions that identify coefficient fields up to spatial a.e.
+agreement. -/
+def IsEssentiallyEllipticFieldOn {d : ℕ} (lam Lam : ℝ) (U : Set (Vec d))
+    (a : CoeffField d) : Prop :=
+  by
+    classical
+    exact
+      MeasurableSet U ∧
+        Measurable (fun x i j => if x ∈ U then a x i j else 0) ∧
+          ∀ᵐ x ∂ volumeMeasureOn U, IsEllipticMatrix lam Lam (a x)
+
+/--
+Spatial a.e. ellipticity on a deterministic observation set, with only an
+a.e.-strongly-measurable coefficient representative.
+
+This is the boundary-stable variant needed by Ch. 5: unlike
+`IsEssentiallyEllipticFieldOn`, it is insensitive to changing the coefficient
+field on a null boundary layer.
+-/
+def IsAEEllipticFieldOn {d : ℕ} (lam Lam : ℝ) (U : Set (Vec d))
+    (a : CoeffField d) : Prop :=
+  MeasurableSet U ∧
+    (∀ i j : Fin d,
+      MeasureTheory.AEStronglyMeasurable
+        (fun x : Vec d => restrictCoeffField U a x i j) (volumeMeasureOn U)) ∧
+      ∀ᵐ x ∂ volumeMeasureOn U, IsEllipticMatrix lam Lam (a x)
+
+/-- The `k`-th essential quantitative ellipticity slice.  Unlike
+`QuantitativeEllipticSlice`, this records the quantitative ellipticity bounds
+only a.e. on `U`, matching the probability sigma lane generated by local
+integral tests. -/
+def EssentialQuantitativeEllipticSlice {d : ℕ} (U : Set (Vec d)) (k : ℕ)
+    (a : CoeffField d) : Prop :=
+  IsEssentiallyEllipticFieldOn ((k + 1 : ℝ)⁻¹) (k + 1 : ℝ) U a
+
+/-- The `k`-th quantitative slice for the boundary-stable spatial-a.e.
+ellipticity predicate.  This is the countable version of
+`IsAEEllipticFieldOn`, intended for law-relative Chapter 4/5 plumbing where
+only a.e.-strong measurability is available. -/
+def AEEQuantitativeEllipticSlice {d : ℕ} (U : Set (Vec d)) (k : ℕ)
+    (a : CoeffField d) : Prop :=
+  IsAEEllipticFieldOn ((k + 1 : ℝ)⁻¹) (k + 1 : ℝ) U a
+
+namespace IsEllipticFieldOn
+
+end IsEllipticFieldOn
+
+namespace IsEssentiallyEllipticFieldOn
+
+theorem measurableSet {d : ℕ} {lam Lam : ℝ} {U : Set (Vec d)} {a : CoeffField d}
+    (h : IsEssentiallyEllipticFieldOn lam Lam U a) :
+    MeasurableSet U := sorry
+
+end IsEssentiallyEllipticFieldOn
+
+namespace IsAEEllipticFieldOn
+
+theorem measurableSet {d : ℕ} {lam Lam : ℝ} {U : Set (Vec d)} {a : CoeffField d}
+    (h : IsAEEllipticFieldOn lam Lam U a) :
+    MeasurableSet U := sorry
+
+end IsAEEllipticFieldOn
+
+namespace QuantitativeEllipticSlice
+
+end QuantitativeEllipticSlice
+
+namespace EssentialQuantitativeEllipticSlice
+
+theorem measurableSet {d : ℕ} {U : Set (Vec d)} {k : ℕ} {a : CoeffField d}
+    (h : EssentialQuantitativeEllipticSlice U k a) :
+    MeasurableSet U := sorry
+
+end EssentialQuantitativeEllipticSlice
+
+namespace AEEQuantitativeEllipticSlice
+
+theorem measurableSet {d : ℕ} {U : Set (Vec d)} {k : ℕ} {a : CoeffField d}
+    (h : AEEQuantitativeEllipticSlice U k a) :
+    MeasurableSet U := sorry
+
+end AEEQuantitativeEllipticSlice
+
+namespace IsLocallyUniformlyElliptic
+
+end IsLocallyUniformlyElliptic
+
+end Homogenization

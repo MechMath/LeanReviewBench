@@ -1,0 +1,116 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GHW-theorem9_3_deterministic_truthful_lower_bound",
+  "task_id": "aml:GHW-theorem9_3_deterministic_truthful_lower_bound",
+  "input_sha256": "a996b035a665a79564c4d2556bacc4d057d18f7b053af55d68b3c8a479ce2379",
+  "label": "aligned",
+  "reason": "The anonymous bid-set model matches the source interpretation. A fixed-bid reduction supplies the required normalization and an unbounded family attaining the stated lower bound.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/applied-modeling-lib-review-2026-11-09/GHW-theorem9_3_deterministic_truthful_lower_bound.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "Theorem 9.3 in the anonymous auction model specified by Sections 2 and 5.1 and Lemma 9.2; identity-dependent pricing is outside scope.",
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "applied-modeling-lib",
+    "project_id": "GHW-theorem9_3_deterministic_truthful_lower_bound",
+    "root": "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound",
+    "input_sha256": "77784b836363410511239ee5a0d78f5a52be578e6fec682c46382ad047742a98",
+    "review_date": "2026-11-09",
+    "label": "aligned",
+    "reason": "Judged aligned under the model provided by the full paper's context: Section 2 of the manuscript takes a set of bids as input, Section 5.1 uses a common function from bid-value sets to prices, and Lemma 9.2 connects the result to that model. Together with the original authors' explicit attribution of the earlier lower bound to symmetric auctions in a later paper, this supports the anonymous bid-set interpretation. The formal common focusedOutcome explicitly represents this model; an anonymity field alone does not establish an extra restriction absent from the source. Natural-number H gives an unbounded family of bad examples. Applying the formal result to the derived mechanism that adds a fixed bid of 1, then returning to the original mechanism, yields actual min=1, max=H, F≥αH and R/F≤2/H, resolving the normalization issue when lowCount may be 0. This is a provisional semantic-alignment judgment under an explicit source-model interpretation. It neither covers arbitrary nonanonymous mechanisms with identity-dependent pricing nor provides a Lean-certified equivalence between models.",
+    "decision_source": "User authorized updating to aligned if review supports it (translated from Chinese): Please check it, and if it is correct, mark it aligned; subsequent messages requested further careful confirmation.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "human_adjudicated": false,
+    "gold_label": null,
+    "reference_ready": false,
+    "review_scope": "The full paper's Theorem 9.3, with Sections 2 and 5.1 and Lemma 9.2 determining the source model; retain the currently frozen informal and formal texts unchanged.",
+    "verification_status": "Source and Lean-definition inspection plus mathematical reduction; no new Lean compilation or machine-certified bridge.",
+    "source_model_adjudication": {
+      "decision": "Use the paper's anonymous bid-value-set model. This is a contextual semantic judgment, not a derivation of anonymity from general DSIC.",
+      "why_previous_uncertainty_is_resolved_for_this_label": "The earlier review considered both the standard general identity-dependent mechanism class and this paper's set-based model, leaving the judgment pending because the old theorem did not separately say symmetric. The current review uses the paper's common pricing function and the original authors' explicit attribution of the earlier result to select the set-based interpretation for this target. This does not identify a newly discovered explicit symmetry axiom throughout the paper, nor replace the frozen target with a later version.",
+      "remaining_interpretive_boundary": "If arbitrary in the old manuscript is instead interpreted to include identity-dependent pricing, the current formalization does not cover that scope; this label does not assert the validity of that broader version.",
+      "not_a_truthfulness_consequence": "Fixed prices (1,2,1) for three bidders define a truthful, IR, NPT, binary and nonanonymous mechanism. At bids (3,3,1), the first two bidders have the same own bid and multiset of other bids but pay different amounts. Thus truthfulness alone does not imply focusedOutcome; this label rests on the scope of the source model."
+    },
+    "sources": [
+      {
+        "url": "https://www.cs.miami.edu/home/burt/learning/Csc597.052/docs/goldberg.pdf",
+        "version": "InterTrust report, revised November 2000; current bound source",
+        "locators": [
+          "§2, PDF pp.4–5",
+          "§5.1, PDF pp.6–7",
+          "§9.2–9.3, PDF pp.12–13"
+        ],
+        "evidence": "Section 2 describes inputs as bid-value sets and orders them by bids; the common function in Section 5.1 takes the other bidders' bid-value set as input; Section 9.3 connects the threshold argument for each bidder to this model. Arbitrary mechanisms in Theorem 9.3 are interpreted within that context. The word set alone is insufficient; the common function and the authors' later explanation must also be considered."
+      },
+      {
+        "url": "https://users.ece.northwestern.edu/~hartline/papers/auctions-STOC-05.pdf",
+        "title": "Derandomization of Auctions, STOC 2005",
+        "locators": [
+          "§1 introduction, p.1",
+          "reference [8], p.7"
+        ],
+        "evidence": "The authors, including Goldberg and Hartline, explicitly attribute the earlier impossibility result in [8] to symmetric auctions and describe the present paper's contribution as a construction of asymmetric auctions. Reference [8] is precisely the GHW SODA 2001 paper. This independently corroborates the original result's scope; it does not modify the current informal input."
+      },
+      {
+        "url": "https://www.eecs.northwestern.edu/~hartline/papers/auctions-journal.pdf",
+        "title": "Competitive Auctions, journal version",
+        "locators": [
+          "§4, Theorem 4.1, printed p.9"
+        ],
+        "evidence": "The later formal statement explicitly restricts attention to symmetric deterministic auctions. This is used only to corroborate the authors' model scope; its different benchmark and conclusion do not replace Theorem 9.3."
+      }
+    ],
+    "formal_evidence": {
+      "target": "formal/Main.lean:1728",
+      "model_alias": "formal/dep/GHW01DigitalGoods/Assumptions.lean:90",
+      "model_structure": "formal/dep/GHW01DigitalGoods/AuctionMainTheorems.lean:13405",
+      "anonymous_representation": "formal/dep/GHW01DigitalGoods/AuctionMainTheorems.lean:13422",
+      "derived_relabeling": "formal/dep/GHW01DigitalGoods/AuctionMainTheorems.lean:13438",
+      "inspection": "Spec quantifies every H≥2, α>0 and complete auctionFamily, and asserts the existence of a bid family with highCount>0, lowCount≥0, R/F≤1/H and F≥αH. The two inputs to focusedOutcome are the multiset of other bids and the bidder's own bid; truthful, binary, IR and NPT are separate fields."
+    },
+    "mathematical_bridges": {
+      "anonymous_representation": "In the anonymous model, two focused states with the same own bid and multiset of other bids are related by a bidder permutation and therefore have the same outcome. Conversely, a common focusedOutcome gives permutation equivariance. The multiset cardinality retains the total number of bidders, so the common function does not require the same pricing rule for different numbers of bidders.",
+      "threshold_and_ties": "Section 5.1 allows the common pricing rule to use either > or ≥. A focused outcome of type Option ℝ can represent both allocation and rejection. If identity is used only to break ties at the threshold bid, the mechanism can instead accept everyone at that same threshold price. This preserves truthfulness and increases revenue pointwise. With unlimited supply, a bad example for the higher-revenue mechanism is also a bad example for the original mechanism. This bridge handles only tie-breaking at a common anonymous threshold price, not arbitrary identity-dependent prices.",
+      "real_report_domain": "If the source mechanism is defined only on positive bids, then on the witness domain of bids ≥1 its threshold price can be raised to at least 1, with acceptance at the threshold. First truncate other bids by max(1,b), then use the common pricing rule to test the bidder's own real report against the threshold. This yields an anonymous mechanism that is DSIC, IR and NPT on all real reports and whose revenue dominates the source mechanism on bids ≥1. Thus the formal representation of all real reports does not prevent transferring these bad examples back to the source mechanism.",
+      "benchmark": "When bids take only the values 1 and H, optimal fixed-price revenue is max(highCount+lowCount, H*highCount), matching twoValueFixedPriceBenchmark.",
+      "attained_normalization": [
+        "Let A be the anonymous mechanism family under consideration. Construct a derived mechanism A′ by adding one bidder with fixed bid 1 to each input, running A, and retaining only the original bidders' allocations and payments. A′ inherits DSIC, binary, IR and NPT. If A has focused outcome g, then A′ uses g(m+{1},x), so it still satisfies the formal source model.",
+        "Apply the formal result to A′ to obtain an input B with highCount>0, R′/F′≤1/H and F′≥αH. Adding the fixed bidder back gives input B+{1} for the original mechanism A, with actual minimum 1 and maximum H.",
+        "The fixed bidder's payment p satisfies 0≤p≤1, so R=R′+p≤F′/H+1. Adding a bidder cannot decrease optimal fixed-price revenue, hence F≥F′; at least one bidder bids H, giving F≥H. Therefore R/F≤1/H+1/F≤2/H, while F≥αH.",
+        "Thus lowCount=0 does not lose the full O(1/h) statement. One cannot simply add a bid of 1 to a bad example for the same mechanism and assume the original bidders' payments are unchanged; the formal result must first be applied to the derived mechanism."
+      ],
+      "integer_H": "Taking H=2,3,… gives a family of bad examples with unbounded actual max/min ratio, sufficient for the source's asymptotic worst-case claim. This review does not additionally interpret Theorem 9.3 as an exact 1/h statement for every prescribed real h.",
+      "alpha": "An arbitrary real α can be replaced by β=max(1,α)>0; F≥βH implies F≥αH.",
+      "constant": "Both the formal constant 1/H and the transferred bound 2/H for the source mechanism give the source's O(1/h). A stronger exact constant is not a coverage gap in the source's asymptotic conclusion."
+    },
+    "limitations": [
+      "This is a provisional contextual alignment judgment, not a claim that the unqualified theorem is true for all identity-dependent deterministic truthful auctions.",
+      "No new Lean-certified equivalence, dominance extension, or fixed-dummy reduction was produced.",
+      "No formal or informal source text was changed; existing compilation/extraction fields retain their historical meaning.",
+      "The user authorized an update after review, not a human gold adjudication."
+    ]
+  },
+  "retained_reason": "Judged aligned under the model provided by the full paper's context: Section 2 of the manuscript takes a set of bids as input, Section 5.1 uses a common function from bid-value sets to prices, and Lemma 9.2 connects the result to that model. Together with the original authors' explicit attribution of the earlier lower bound to symmetric auctions in a later paper, this supports the anonymous bid-set interpretation. The formal common focusedOutcome explicitly represents this model; an anonymity field alone does not establish an extra restriction absent from the source. Natural-number H gives an unbounded family of bad examples. Applying the formal result to the derived mechanism that adds a fixed bid of 1, then returning to the original mechanism, yields actual min=1, max=H, F≥αH and R/F≤2/H, resolving the normalization issue when lowCount may be 0. This is a provisional semantic-alignment judgment under an explicit source-model interpretation. It neither covers arbitrary nonanonymous mechanisms with identity-dependent pricing nor provides a Lean-certified equivalence between models.",
+  "retained_review_scope": "The full paper's Theorem 9.3, with Sections 2 and 5.1 and Lemma 9.2 determining the source model; retain the currently frozen informal and formal texts unchanged."
+}

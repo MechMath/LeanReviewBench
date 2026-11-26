@@ -1,0 +1,74 @@
+{
+  "id": "ik-totient-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT ik-totient-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ArithmeticFunction.LSeries_totient_eq",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "declaration": "ArithmeticFunction.LSeries_totient_eq",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+  },
+  "group_id": "pnt-ArithmeticFunction.LSeries_totient_eq",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "ik-totient-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.NumberTheory.LSeries.Dirichlet",
+    "Mathlib.NumberTheory.LSeries.Nonvanishing"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "ffa0ffed17a58c3315ebc91ae515c0c40975f90871278d31b8c9a8ba621e5cf6",
+    "effective_root_sha256": "051db18830578d045e71fa85c00c221e0856e9c37c7baf72352d276ef436d488",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-ik-extraction/repaired/ik-totient-after/20261105T052947437827Z/receipt.json",
+    "receipt_sha256": "b5f9d99fc6b092c82f15443370b7c62938a47cda8614fa761a7cf5ba4f6f391c",
+    "packaged_receipt": "reports/pnt-ik-extraction/repaired/ik-totient-after/20261105T052947437827Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "45a02d8e5b3fe9a77db5769881439cfe003187d18ca124966f8f6296c82c0bb8",
+    "formal_snapshot_id": "ik-totient-after",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "Euler totient series: $\\sum_{n=1}^{\\infty} \\varphi(n) n^{-s} = \\zeta(s-1)/\\zeta(s)$ for $\\Re(s) > 2$.\n  \\begin{verbatim}\n  This is IK (1.35).\n  \\end{verbatim}"
+      }
+    ],
+    "root_axioms": {
+      "default": "'ArithmeticFunction.LSeries_totient_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'ArithmeticFunction.LSeries_totient_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "1aef1f2092349a7e22fafc502f992db10765a1bb308e07adaed36a93ccbd323d",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

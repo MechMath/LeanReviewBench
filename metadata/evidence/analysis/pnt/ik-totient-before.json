@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "ik-totient-before",
+  "task_id": "pnt:ik-totient-before",
+  "input_sha256": "783da9de469c1c7b1da9fa330690d3a736c58f8c530e6bf9818cb9dbdb042e1d",
+  "label": "misaligned",
+  "reason": "The root asserts the totient Dirichlet-series identity for every Re(s)>1, including divergent points; the source identity uses its ordinary convergence domain. At s=3/2 the totalized series is zero while the zeta quotient is nonzero.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "ArithmeticFunction.LSeries_totient_eq"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1626"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The frozen infinite-series equation is interpreted on its ordinary domain of convergence. Formal instead asserts equality for every Re(s)>1, including divergent points, so the extra strip is a real strengthening rather than an omitted harmless condition. At s=3/2 the totalized LSeries is zero while ζ(1/2)/ζ(3/2) is nonzero.",
+  "review_scope": "The source Dirichlet-series identity on its ordinary convergence domain; the formal root is assessed on its actual Re(s)>1 domain."
+}

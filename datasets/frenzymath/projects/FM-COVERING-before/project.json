@@ -1,0 +1,57 @@
+{
+  "id": "FM-COVERING-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+    "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1CutLocusRemaining.lean",
+    "version_role": "before"
+  },
+  "group_id": "frenzymath-covering-extra-connectedness",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "aligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "license-copy-retained",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "573d8d09678f8dfd7769b51a308d6a809312999a4c9e4dc9452c0574f265cbde",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/frenzymath.jsonl",
+  "candidate_id": "FM-covering-extra-connectedness",
+  "validation_reference": "metadata/validation.json"
+}

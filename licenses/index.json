@@ -1,0 +1,1402 @@
+{
+  "schema_version": "paperlean-license-index-1",
+  "scope": "Registered publication candidate batches and retained third-party material; source text keeps its original terms.",
+  "datasets": {
+    "applied-modeling-lib": {
+      "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "175d656d056721bbf56ce57b2421908ec345921a"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "2476b3ff09cca173477757dfe87b31c5884608ee"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "25686396b1003e5e5bf44b06a1bf6f0319658660"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "3523dfea9e3d6e6fa54db3594fe2b3140a31f18d"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "7dfef1f11f46a5709da0f1a6de422863d2301b10"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "aef6c898c5570156989acb6d75fb9b4013997f1e"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "ba9d01206fdb3e5e595efcb501ab5104a345ae36"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "c2a77d260e596444f5678d9d4e5017992738da87"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "c539645ef3fbc8bd95edf742546b89544cd27702"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "c5fb3adb73dccce16bb7dfe3a0256e8dc387df1e"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "cf500b748ac63dbff55faf97d989d4935c8eff50"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "dbfa918c02cd35c8279f8f8a9183f6bcbe72c817"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "e1e995e3d6bcf7adc75c0cf5a461cbf90523e48a"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "e298529dc9f3a48e74afb4b64f4bcde1b85faa46"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "eb67cc832a74734e521fdbe7bb584238ab2ac0a8"
+        },
+        {
+          "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+          "commit": "fa5379e08df8c13e2bbfb85757bd2675b201d124"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "historical-copy-pending",
+      "license_files": [],
+      "evidence": {
+        "kind": "current-upstream-policy",
+        "url": "https://github.com/nikhgarg/AppliedModelingLib#license",
+        "limitation": "Current upstream declares Apache-2.0; exact license copies at the packaged historical revisions have not been retained or verified. Do not interpret this row as historical redistribution clearance."
+      }
+    },
+    "carleson": {
+      "repository": "https://github.com/fpvandoorn/carleson",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/fpvandoorn/carleson",
+          "commit": "0138d636eed1475ea5e848ef6cf4b141636056cc"
+        },
+        {
+          "repository": "https://github.com/fpvandoorn/carleson",
+          "commit": "26325e323949418e155a4dc92b9b5a047ef2de82"
+        },
+        {
+          "repository": "https://github.com/fpvandoorn/carleson",
+          "commit": "31a6f54943413ac48fd9e934c4fce3c9621e1860"
+        },
+        {
+          "repository": "https://github.com/fpvandoorn/carleson",
+          "commit": "f005a0fe7be71905a7bbe2f85b7ecd23e84a637f"
+        },
+        {
+          "repository": "https://github.com/fpvandoorn/carleson",
+          "commit": "f10c441921273ee2a04cea802f2c32b7c6ebc5ea"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/carleson/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+        "path": "experiments/real-project-errors/carleson-01/upstream/0138d636eed1475ea5e848ef6cf4b141636056cc/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/upstream/0138d636eed1475ea5e848ef6cf4b141636056cc/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "coarse-degiorgi": {
+      "repository": "https://github.com/scottnarmstrong/CoarseDeGiorgi",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/scottnarmstrong/CoarseDeGiorgi",
+          "commit": "200c40c9c55a5e19188739d27466ddffcb2660c4"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/coarse-degiorgi/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ],
+      "evidence": {
+        "kind": "upstream-git-objects",
+        "checked_revisions": [
+          {
+            "commit": "200c40c9c55a5e19188739d27466ddffcb2660c4",
+            "url": "https://github.com/scottnarmstrong/CoarseDeGiorgi/blob/200c40c9c55a5e19188739d27466ddffcb2660c4/LICENSE"
+          }
+        ]
+      }
+    },
+    "sphere-packing": {
+      "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+          "commit": "77cf0a0c104f2e31501eab04d88bbc068d61c169"
+        },
+        {
+          "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+          "commit": "8dbcc8c87a6e55b7048ffdb474fcbead5c2d4ba1"
+        },
+        {
+          "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+          "commit": "af2a2ac5002c62b9cbaab018c163e150dc960a4b"
+        },
+        {
+          "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+          "commit": "cce794efc489e57fa9bcb3dc831bcd92d4a05c14"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/sphere-packing/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "upstream-git-objects",
+        "checked_revisions": [
+          {
+            "commit": "77cf0a0c104f2e31501eab04d88bbc068d61c169",
+            "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/77cf0a0c104f2e31501eab04d88bbc068d61c169/LICENSE"
+          },
+          {
+            "commit": "8dbcc8c87a6e55b7048ffdb474fcbead5c2d4ba1",
+            "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/8dbcc8c87a6e55b7048ffdb474fcbead5c2d4ba1/LICENSE"
+          },
+          {
+            "commit": "af2a2ac5002c62b9cbaab018c163e150dc960a4b",
+            "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/af2a2ac5002c62b9cbaab018c163e150dc960a4b/LICENSE"
+          },
+          {
+            "commit": "cce794efc489e57fa9bcb3dc831bcd92d4a05c14",
+            "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/cce794efc489e57fa9bcb3dc831bcd92d4a05c14/LICENSE"
+          }
+        ]
+      }
+    },
+    "formalslt": {
+      "repository": "https://github.com/Robby955/FormalSLT",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/Robby955/FormalSLT",
+          "commit": "37ed81115a3c898dc432735cb52dd55545547452"
+        },
+        {
+          "repository": "https://github.com/Robby955/FormalSLT",
+          "commit": "3d96374ae0ab353a154a1db74708645a28973807"
+        },
+        {
+          "repository": "https://github.com/Robby955/FormalSLT",
+          "commit": "4ddd339369a093cc4a6eea761d1322ad6484f0ec"
+        },
+        {
+          "repository": "https://github.com/Robby955/FormalSLT",
+          "commit": "815d10dabf7c295417f82a1d7435a39214600e5f"
+        },
+        {
+          "repository": "https://github.com/Robby955/FormalSLT",
+          "commit": "94a4bfc3f8b50c8e905a44672babaff6d74619e6"
+        }
+      ],
+      "license_id": "MIT",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/formalslt/LICENSE",
+          "sha256": "54580b56f18296a6f31d6990a8be87dcf9a2835715195c1f7e038cb975ccec4d"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "licenses/FormalSLT/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/licenses/FormalSLT/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "vaught": {
+      "repository": "https://github.com/cameronfreer/vaught-conjecture-counterexample",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/cameronfreer/vaught-conjecture-counterexample",
+          "commit": "21099472892b83d9627c96992091d0083f1c3eea"
+        },
+        {
+          "repository": "https://github.com/cameronfreer/vaught-conjecture-counterexample",
+          "commit": "d3201f45109dc93df14102127ffcee91ec6b974f"
+        },
+        {
+          "repository": "https://github.com/cameronfreer/vaught-conjecture-counterexample",
+          "commit": "e7b6efbc3cc3210864666f48567c6aafd55dfb34"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/vaught/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "licenses/Vaught/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/licenses/Vaught/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "statsmllib": {
+      "repository": "https://github.com/Lean-MoDS/StatsMLlib",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/Lean-MoDS/StatsMLlib",
+          "commit": "4d5deccbec4d3ed14f50e90d43c021b18e3ac718"
+        },
+        {
+          "repository": "https://github.com/Lean-MoDS/StatsMLlib",
+          "commit": "902b2a0f69b2a63b1d5cb459fb4ece4202087395"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/statsmllib/LICENSE",
+          "sha256": "b25ea9d269f7b8419c2e574b3d3894a052895d85f9f1c551c5650625815137cd"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "licenses/StatsMLlib/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/licenses/StatsMLlib/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "brownian-motion": {
+      "repository": "https://github.com/RemyDegenne/brownian-motion",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/RemyDegenne/brownian-motion",
+          "commit": "c61844fb73c574b0c17c1690e7df7d7691a105a7"
+        },
+        {
+          "repository": "https://github.com/RemyDegenne/brownian-motion",
+          "commit": "e1110a71a5b96b0e00580afcbf170493b565fa8e"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/brownian-motion/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/brownian-motion-history/sources/finite-set-before/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/brownian-motion-history/sources/finite-set-before/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "pfr": {
+      "repository": "https://github.com/teorth/pfr",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/leanprover-community/add-combi",
+          "commit": "2d061f437c1ba00ba9b16d7cba1c7603ba4807a4"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "06b0b0e2dfdc5062ab992c4c3f4b8d5957c9097e"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "238db8a8e77897bd2f996837ae9c8711c6aebce5"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "3a3e20cb71942aefe62ada0dc0b6416645b1b0e8"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "3d68572315e488ec2e75aa35dc760d2d21a34479"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "3d7898164ebff70a809dce618f9082a7b39e7850"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "3dd249a8aec4961bc55de4744643fc3db7b4f252"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "420af883a0ddf1975cca1e1a49db587feef6f4bb"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "47299fac2eb0a561f093204237dc6a5a82babf81"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "52831e9b317ad6daf1bd1046ae3ddfe9f2f80b48"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "68f55a1771e1eb7948fbf90656268bfdb0c969f2"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "7347e1422d12ecd324f7bc9a56a9284fc140ea83"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "802b521bf6f35504b4097e9ae1a7b513f50175df"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "c30479cd5cfcea7c9e7af6b0da5f50d6d8c2bd32"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "ce7d2919453ab3a3349700841e76f230740359dd"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "dc2291513cc1020a91fc5024d8f78a17b8c8b746"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "e7218bb78ede5124aeac5f9e3beb01190e028af0"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "eb5557e9556a89a3418c4e8bdd717a5cf736c060"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "ebe97805ab718bec2ca0ab5268f3e4a69ae76b81"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "f11632354891514b2ad56ed3ff2c45624c6d8715"
+        },
+        {
+          "repository": "https://github.com/teorth/pfr",
+          "commit": "f84e5ae7b9d619fff50c155858dddf09b59493c9"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/pfr/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-extraction/sources/entropic-output-before/LICENSE-PFR",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pfr-extraction/sources/entropic-output-before/LICENSE-PFR",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "sphere-eversion": {
+      "repository": "https://github.com/leanprover-community/sphere-eversion",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/leanprover-community/sphere-eversion",
+          "commit": "094437437b24ee7a8b6a8f1f28da241a1ba9f280"
+        },
+        {
+          "repository": "https://github.com/leanprover-community/sphere-eversion",
+          "commit": "27a2c7fdff78bb5509831699899796eaffe62a4b"
+        },
+        {
+          "repository": "https://github.com/leanprover-community/sphere-eversion",
+          "commit": "357f2951c949baa5a3bcf6166a26b8205ff1deaf"
+        },
+        {
+          "repository": "https://github.com/leanprover-community/sphere-eversion",
+          "commit": "9380572eecd1f143accb73dbf114e8052626dc31"
+        },
+        {
+          "repository": "https://github.com/leanprover-community/sphere-eversion",
+          "commit": "a8898f0d4208052375450d4bdc7271197e7021c1"
+        },
+        {
+          "repository": "https://github.com/leanprover-community/sphere-eversion",
+          "commit": "e7f4e9109e586404f4bf130e23e26ffd031f2459"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/sphere-eversion/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/sphere-eversion-extraction/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/sphere-eversion-extraction/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "pnt": {
+      "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "253828569c34a1b0e2f493bf92b4ec2513de2bab"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "57b0698f119db17fae2ee01a4e56651a9b96ea5c"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "99d4ce46962a09b4ed95574e95c62b491673a1ad"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "a93551347dce924b1db75d40218841bf085a465f"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "be5e07e04cde20c5ceabf63759bd097a9c88173f"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a"
+        },
+        {
+          "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+          "commit": "fc3f35017ee842bccf0d887980e8e22dda1583ab"
+        }
+      ],
+      "license_id": "Apache-2.0",
+      "scope": "Lean/software source; source-paper excerpts and other third-party materials retain their own terms.",
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/pnt/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pnt-extraction/LICENSE",
+        "url": "https://github.com/MechMath/PaperLeanBench/blob/8012191c69c75a008356ba7b7bd422f0d57d2884/reports/pnt-extraction/LICENSE",
+        "limitation": "Retained license copy and source revision inventory; not a new per-file licensing adjudication."
+      }
+    },
+    "stacks": {
+      "repository": "https://github.com/optpku/stacks",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/optpku/stacks",
+          "commit": "a382629a103aaf5f2acd0e7772460dbb8083ddf3"
+        },
+        {
+          "repository": "https://github.com/optpku/stacks",
+          "commit": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7"
+        },
+        {
+          "repository": "https://github.com/optpku/stacks",
+          "commit": "e420713207f0a6682a65b2171362b77f2d217fa4"
+        }
+      ],
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/stacks/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ],
+      "evidence": {
+        "kind": "pinned-upstream-git-blobs",
+        "revisions": [
+          "a382629a103aaf5f2acd0e7772460dbb8083ddf3",
+          "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
+          "e420713207f0a6682a65b2171362b77f2d217fa4"
+        ],
+        "note": "LICENSE bytes compared at all selected revisions. Lean Apache-2.0; Stacks source text retains GFDL notices and source links."
+      }
+    },
+    "arklib": {
+      "repository": "https://github.com/Verified-zkEVM/ArkLib",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "1e0241333c18d8b22cb68f9522da5f9fb88f9a06"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "4b6d206585e7d3b67f630df13929f71431156426"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "7056c8b857b194f4a3fa45eb841d01476ec9b1bc"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "7f5bd412460755d1d0ffccd0fc1f72df833aa23d"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "83ce5504778330720ebba90a104e3ce27f89f61a"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "b660c6d4a5e2ea93fd6d8255606975bc6b263ec7"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "b6edc39a404e5904b82f7c80fd3b41eae496cd2e"
+        },
+        {
+          "repository": "https://github.com/Verified-zkEVM/ArkLib",
+          "commit": "f53f2a347b6ab8d3c2878861175c8f10183dc111"
+        }
+      ],
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/arklib/LICENSE",
+          "sha256": "c5accbbd8546e94c34aed24afe689a617627d18eed5a6c48277e48db57c23851"
+        }
+      ],
+      "evidence": {
+        "note": "Pinned original/source packet and source provenance retained in each package. Missing license copies are explicit pending gaps."
+      }
+    },
+    "imperial-flt": {
+      "repository": "https://github.com/ImperialCollegeLondon/FLT",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/ImperialCollegeLondon/FLT",
+          "commit": "8c4bb0b2046a1d564623057bb359212f92e0d1f2"
+        }
+      ],
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/imperial-flt/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "note": "Pinned original/source packet and source provenance retained in each package. Missing license copies are explicit pending gaps."
+      }
+    },
+    "equational-theories": {
+      "repository": "https://github.com/teorth/equational_theories",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/teorth/equational_theories",
+          "commit": "8b87204d5b201e1cf6c69b8dcabb0558109bee00"
+        }
+      ],
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/equational-theories/LICENSE",
+          "sha256": "c6be243aa954228fc83b68a08e769bf3c561a64fb515cbbd470046d006c18bbf"
+        }
+      ],
+      "evidence": {
+        "note": "Pinned original/source packet and source provenance retained in each package. Missing license copies are explicit pending gaps."
+      }
+    },
+    "apap": {
+      "repository": "https://github.com/YaelDillies/apap",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/YaelDillies/apap",
+          "commit": "251c21abcbac96793baeb67050732380d94550aa"
+        },
+        {
+          "repository": "https://github.com/YaelDillies/apap",
+          "commit": "2e86fa43e17d2721d00f1016916cf616e55f34f8"
+        },
+        {
+          "repository": "https://github.com/YaelDillies/apap",
+          "commit": "56041e8c7c58f5fd34031769dedae547bb73209f"
+        },
+        {
+          "repository": "https://github.com/YaelDillies/apap",
+          "commit": "8261296e61a6895823bee87664a335c56ae10258"
+        },
+        {
+          "repository": "https://github.com/YaelDillies/apap",
+          "commit": "d5f5f6054ec7967d05e87d7e0579a0b08a6c5cb2"
+        }
+      ],
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/apap/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "note": "Pinned original/source packet and source provenance retained in each package. Missing license copies are explicit pending gaps."
+      }
+    }
+  },
+  "additional_sources": {
+    "add-combi": {
+      "repository": "https://github.com/leanprover-community/add-combi",
+      "role": "Actual source repository of the two energy inputs in the pfr batch and their retained closure.",
+      "license_id": "Apache-2.0",
+      "license_files": [
+        {
+          "file": "licenses/add-combi/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "evidence": {
+        "kind": "immutable-benchmark-archive",
+        "commit": "8012191c69c75a008356ba7b7bd422f0d57d2884",
+        "path": "reports/pfr-extraction/sources/energy-cs/LICENSE-AddCombi"
+      }
+    },
+    "coarse-graining": {
+      "repository": "https://github.com/scottnarmstrong/CoarseGraining",
+      "role": "Homogenization support sources retained in the coarse-degiorgi local closure.",
+      "license_id": "Apache-2.0",
+      "license_files": [
+        {
+          "file": "licenses/coarse-graining/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ],
+      "evidence": {
+        "kind": "upstream-git-object",
+        "commit": "310d1a6bab3ba2d398cdaffec32f3c9d4b5a24be",
+        "path": "LICENSE",
+        "url": "https://github.com/scottnarmstrong/CoarseGraining/blob/310d1a6bab3ba2d398cdaffec32f3c9d4b5a24be/LICENSE"
+      }
+    },
+    "mathlib": {
+      "repository": "https://github.com/leanprover-community/mathlib4",
+      "role": "License text for Mathlib-derived helper sources identified by retained per-file notices. Mathlib itself remains an external dependency.",
+      "license_id": "Apache-2.0",
+      "license_files": [
+        {
+          "file": "licenses/mathlib/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ],
+      "evidence": {
+        "kind": "upstream-git-object",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "path": "LICENSE",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/LICENSE"
+      }
+    },
+    "ieantn": {
+      "repository": "https://github.com/teorth/IEANTN",
+      "role": "Later upstream mathematical documentation used for new informal target bindings of the four Vinogradov inputs in the pnt batch.",
+      "license_id": "Apache-2.0",
+      "license_files": [
+        {
+          "file": "licenses/ieantn/LICENSE",
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        }
+      ],
+      "evidence": {
+        "kind": "upstream-git-object",
+        "commit": "998dbb2d8d93bd3153653ca9d07088488df0d1a2",
+        "path": "LICENSE",
+        "url": "https://github.com/teorth/IEANTN/blob/998dbb2d8d93bd3153653ca9d07088488df0d1a2/LICENSE",
+        "note": "The initial vocabulary sources explicitly declare Apache 2.0 in their headers; the repository license file was added in this later commit."
+      }
+    }
+  },
+  "review_datasets": {
+    "qinz1yang": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "204ff35257a122939545b409dfdce0669961f5d7"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "1f75c3061dbd68596ecb2720aa3525563e2af809"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "70a5b86201494e379d1e2314695d4500adb3f7ff"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "1ea702a7b5a293b667973f91476dda907dbc30c2"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "8203ec4eb870072447e321394bd981777608ab6f"
+        },
+        {
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9"
+        }
+      ],
+      "status": "historical-license-evidence-incomplete-included-with-notice",
+      "license_files": [
+        {
+          "file": "licenses/qinz1yang/LICENSE.upstream",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "file": "licenses/qinz1yang/LICENSE.2026-06-02",
+          "sha256": "71d3402adc1048881bd7665f9df2c8bb60142e84941c59621b61def6560abea6",
+          "role": "license-introduction-history-evidence; not automatically assigned to earlier unresolved projects"
+        }
+      ],
+      "notice_files": [
+        {
+          "file": "licenses/qinz1yang/NOTICE.d787df1e",
+          "sha256": "c5f9c15434e2cb597b4c72a5694e95658e0a056aed00d2fe657c0921bfeb6da1"
+        },
+        {
+          "file": "licenses/qinz1yang/NOTICE.264ca83d",
+          "sha256": "2966ba1f8cdec6fb2cf08e2dfbb581320c3588ef70f958ecd416361b4b1e16e3"
+        }
+      ],
+      "projects": [
+        {
+          "project_id": "QDG-POINTWISE-before",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/3b43fea89fc8d4a42021cbd22d235960b81f6900",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-POINTWISE-before",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-LIONS-before",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/3b43fea89fc8d4a42021cbd22d235960b81f6900",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-LIONS-before",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-SOBOLEV-before",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/3b43fea89fc8d4a42021cbd22d235960b81f6900",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-SOBOLEV-before",
+            "source_commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-POINTWISE-after",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-POINTWISE-after",
+            "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-LIONS-after",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-LIONS-after",
+            "source_commit": "389a4fd195f3ee7600c9ed5424e6f1921bdc391e",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-CHART-PICARD-before",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/204ff35257a122939545b409dfdce0669961f5d7",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "204ff35257a122939545b409dfdce0669961f5d7"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-CHART-PICARD-before",
+            "source_commit": "204ff35257a122939545b409dfdce0669961f5d7",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-CHART-PICARD-after",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/1f75c3061dbd68596ecb2720aa3525563e2af809",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-CHART-PICARD-after",
+            "source_commit": "1f75c3061dbd68596ecb2720aa3525563e2af809",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-PL-BALL-PAIR-before",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "70a5b86201494e379d1e2314695d4500adb3f7ff",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/70a5b86201494e379d1e2314695d4500adb3f7ff",
+          "license_files": [
+            {
+              "file": "licenses/qinz1yang/LICENSE.upstream",
+              "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+            }
+          ],
+          "notice_files": [
+            {
+              "file": "licenses/qinz1yang/NOTICE.d787df1e",
+              "sha256": "c5f9c15434e2cb597b4c72a5694e95658e0a056aed00d2fe657c0921bfeb6da1"
+            }
+          ],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "QDG-PL-BALL-PAIR-after",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "a9066ec63abb1b935e5bbe37df5277b1bf721115",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/a9066ec63abb1b935e5bbe37df5277b1bf721115",
+          "license_files": [
+            {
+              "file": "licenses/qinz1yang/LICENSE.upstream",
+              "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+            }
+          ],
+          "notice_files": [
+            {
+              "file": "licenses/qinz1yang/NOTICE.d787df1e",
+              "sha256": "c5f9c15434e2cb597b4c72a5694e95658e0a056aed00d2fe657c0921bfeb6da1"
+            }
+          ],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+            "source_commit": "acb6b34cd5db29a41eef9a5caaf535bc2580bdc0",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+            "source_commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-COMPACT-ISOTOPY-BEFORE",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "1ea702a7b5a293b667973f91476dda907dbc30c2",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/1ea702a7b5a293b667973f91476dda907dbc30c2",
+          "license_files": [
+            {
+              "file": "licenses/qinz1yang/LICENSE.upstream",
+              "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+            }
+          ],
+          "notice_files": [
+            {
+              "file": "licenses/qinz1yang/NOTICE.264ca83d",
+              "sha256": "2966ba1f8cdec6fb2cf08e2dfbb581320c3588ef70f958ecd416361b4b1e16e3"
+            }
+          ],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/01cae4c7e0ee66f079c18179b01a2295ad5604fd",
+          "license_files": [
+            {
+              "file": "licenses/qinz1yang/LICENSE.upstream",
+              "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+            }
+          ],
+          "notice_files": [
+            {
+              "file": "licenses/qinz1yang/NOTICE.264ca83d",
+              "sha256": "2966ba1f8cdec6fb2cf08e2dfbb581320c3588ef70f958ecd416361b4b1e16e3"
+            }
+          ],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "QDG-TENSOR-BUNDLE-before",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/8203ec4eb870072447e321394bd981777608ab6f",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "8203ec4eb870072447e321394bd981777608ab6f"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-TENSOR-BUNDLE-before",
+            "source_commit": "8203ec4eb870072447e321394bd981777608ab6f",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        },
+        {
+          "project_id": "QDG-TENSOR-BUNDLE-after",
+          "repository": "https://github.com/qinz1yang/differential-geometry",
+          "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+          "root_tree_url": "https://github.com/qinz1yang/differential-geometry/tree/73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+          "license_files": [],
+          "notice_files": [],
+          "status": "historical-license-scope-unresolved",
+          "license": null,
+          "reason": "Apache-2.0 is established for the later licensed distribution. The exact historical source/ancestor tree, source headers, public scope statements and licensed-copy identity have been examined; applicable grant scope for this selected older root remains unconfirmed. This is not a claim of proprietary licensing or a legal determination that authorization is absent.",
+          "history_evidence": {
+            "file": "licenses/qinz1yang/HISTORY.json",
+            "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9"
+          },
+          "admission": {
+            "decision": "include_with_notice",
+            "authority": "explicit_curator_instruction",
+            "project_id": "QDG-TENSOR-BUNDLE-after",
+            "source_commit": "73fa343211e33dc4d3bc295a6082b4f6866aebe9",
+            "does_not_establish_a_license_grant": true,
+            "note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+          }
+        }
+      ],
+      "history_evidence": {
+        "file": "licenses/qinz1yang/HISTORY.json",
+        "sha256": "ddbdea32abeabb284d463b826187c7f6f4e9d5149b728f4a4558a20f3b0e6ecf"
+      },
+      "authorization_request": {
+        "file": "licenses/qinz1yang/AUTHORIZATION-REQUEST.json",
+        "sha256": "445e44a3f87868646fd253f990163b3e2c7700e2b5d6882539182dcd52ea38e2",
+        "status": "draft_not_sent"
+      },
+      "admission_decision": {
+        "file": "licenses/qinz1yang/ADMISSION.json",
+        "sha256": "2bc9c0d266d35152eb2b6a95e56cf14c30d0a4f41aa2aff4860bea2849a07164"
+      }
+    },
+    "frenzymath": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "source_revisions": [
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "f5661a1a73a7104af9e65024edd8a569d49ba981"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "f8f0ddb9eade496cbf4974a8f508227da4b461ec"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "6530802c544270722767513028e0045862daa575"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "b6173537bce076a7be5b5a6954e56ca25451b53a"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "154ca3eca804557d37043d660084093d1ee6d992"
+        },
+        {
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "commit": "e2d6a088ccaa45f6e5056a076616391ec2bee569"
+        }
+      ],
+      "status": "license-copy-retained",
+      "license_files": [
+        {
+          "file": "licenses/frenzymath/LICENSE.upstream",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "notice_files": [],
+      "projects": [
+        {
+          "project_id": "FM-BISHOP-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/4dff1831c65f51855a70dc3c4ff03bea49a5619e",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-GEODESIC-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "f5661a1a73a7104af9e65024edd8a569d49ba981",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/f5661a1a73a7104af9e65024edd8a569d49ba981",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-WEAK-LAPLACIAN-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-GEODESIC-after",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/f8f0ddb9eade496cbf4974a8f508227da4b461ec",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-WEAK-LAPLACIAN-after",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "6530802c544270722767513028e0045862daa575",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/6530802c544270722767513028e0045862daa575",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-BISHOP-after",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "b6173537bce076a7be5b5a6954e56ca25451b53a",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/b6173537bce076a7be5b5a6954e56ca25451b53a",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-COVERING-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/154ca3eca804557d37043d660084093d1ee6d992",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-LAPLACIAN-COEFFICIENTS-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/154ca3eca804557d37043d660084093d1ee6d992",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-EXP-LOCAL-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "154ca3eca804557d37043d660084093d1ee6d992",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/154ca3eca804557d37043d660084093d1ee6d992",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-GEODESIC-COMPLETENESS-before",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        },
+        {
+          "project_id": "FM-GEODESIC-COMPLETENESS-after",
+          "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+          "source_commit": "e2d6a088ccaa45f6e5056a076616391ec2bee569",
+          "root_tree_url": "https://github.com/frenzymath/Poincare-Conjecture/tree/e2d6a088ccaa45f6e5056a076616391ec2bee569",
+          "license_files": [
+            {
+              "file": "licenses/frenzymath/LICENSE.upstream",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            }
+          ],
+          "notice_files": [],
+          "status": "license-copy-retained",
+          "license": "Apache-2.0"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "sumcheck-full-rbr-after",
+  "task_id": "arklib:sumcheck-full-rbr-after",
+  "input_sha256": "41d6a545cd93ee63213b1e9a6d92390cdfb82bd8e5030ad14f3180e1a291a960",
+  "label": "misaligned",
+  "reason": "The formal finite CommSemiring plus IsDomain assumptions admit structures without additive inverses, whereas the source requires a finite integral domain.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/sumcheck-full-rbr-after.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound Sumcheck soundness statement over finite integral domains; the diagnosis concerns algebraic applicability, not a protocol counterexample.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "sumcheck-full-rbr-after",
+    "root": "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness",
+    "input_sha256": "f5e862f878a1c74fa96b3a458ac9134a0aa3858fc71ef16b92adf6f161d150b1",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source requires a finite integral domain. The formalization uses CommSemiring, Fintype and IsDomain without requiring additive inverses. The Boolean semiring, with OR as addition and AND as multiplication, satisfies these algebraic premises but is not a ring, showing that applicability is strictly broader. It is labeled misaligned under the current source-scope alignment criterion; no protocol counterexample violating d/|R| is claimed.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; what is the next case? This confirms misaligned for arklib:sumcheck-full-rbr-after after reviewing the finite integral-domain versus finite semiring scope difference.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The two security statements and parameter conventions in the currently frozen Sumcheck blueprint, compared with the full type premises of Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness. This negative label uses only the confirmed difference in algebraic applicability.",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/informal.jsonl",
+        "line": 1,
+        "sha256": "a08b3db3d38603e1fd9bfb5c013a75dc6876f7c50258263c6a68ea561030dfc1"
+      },
+      "source_parameters": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/informal/source.tex",
+        "line": 12,
+        "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00"
+      },
+      "source_rbr_claim": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/informal/source.tex",
+        "line": 68,
+        "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00"
+      },
+      "formal_algebra_parameters": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/formal/dep/ArkLib/ProofSystem/Sumcheck/Spec/General.lean",
+        "line": 117,
+        "sha256": "ee88b0c95153e6a14e7d5c02c1dbc5ba381d8422bdb3e360870487a765f20c06"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/formal/dep/ArkLib/ProofSystem/Sumcheck/Spec/General.lean",
+        "line": 223,
+        "sha256": "ee88b0c95153e6a14e7d5c02c1dbc5ba381d8422bdb3e360870487a765f20c06"
+      },
+      "knowledge_state_contract": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-after/formal/dep/ArkLib/OracleReduction/Security/RoundByRound.lean",
+        "line": 171,
+        "sha256": "4d8021e17d9cd0c68485d3c2b4fc9caa442e2cc579a8b93be7e1f429698d16e6"
+      },
+      "label_scope_policy": {
+        "path": "docs/MISALIGNMENT-TAXONOMY.md",
+        "line": 13,
+        "sha256": "c24ff66b62a5177b46acf930b6826c50b6ca9f9120aa28777eb26540b7dee02c"
+      }
+    },
+    "mathlib_definition_evidence": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/d13f23b723b8a846827a245b89c10fc7d3f11612/Mathlib/Algebra/Ring/Defs.lean#L390-L398",
+      "checked_in_previous_chat_turn": true,
+      "declaration": "class IsDomain (α : Type u) [Semiring α] : Prop extends IsCancelMulZero α, Nontrivial α",
+      "interpretation": "IsDomain supplies nontriviality and nonzero multiplicative cancellation; integral-domain structure requires CommRing, not merely CommSemiring."
+    },
+    "semantic_argument": [
+      "The source parameter clauses require an underlying ring, with security additionally requiring it to be finite and an integral domain. The per-round bound also describes |R| as the field size.",
+      "The root's environment assumes CommSemiring R, and the theorem adds Fintype R and IsDomain R. In the bound mathlib version, IsDomain contains neither additive inverses nor additive cancellation, so finiteness does not identify these premises with a finite integral domain.",
+      "Take carrier {0,1}, with a+b defined as logical OR and a*b as logical AND. This is a nontrivial finite commutative semiring. Its only nonzero multiplier is the identity 1, so multiplication by a nonzero element is left- and right-cancellative. The carrier has decidable equality and admits uniform sampling.",
+      "In this structure, 1+x=1 for every x, so 1 has no additive inverse. It cannot be a ring while retaining these two operations. It belongs to the formal parameter domain but not the source's finite integral-domain domain.",
+      "Under the repository's Applicability mismatch criterion, strictly enlarging the quantified algebraic structures is a difference in applicability. The user confirmed this criterion for the negative label."
+    ],
+    "scope_witness": {
+      "carrier": [
+        0,
+        1
+      ],
+      "addition": "OR",
+      "multiplication": "AND",
+      "zero": 0,
+      "one": 1,
+      "nonzero_elements": [
+        1
+      ],
+      "excluded_ring_requirement": "No x satisfies 1 + x = 0.",
+      "role": "Witness separating admissible algebraic domains, not a counterexample to the soundness probability bound."
+    },
+    "matched_components": [
+      "n variables and n protocol rounds",
+      "Input sum relation and final evaluation relation",
+      "Per-challenge error deg / Fintype.card R"
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "pinned_mathlib_definition_read": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The d/|R| security conclusion has not been proved false on the additional semirings; the judgment is based on the difference between the source and formal applicability domains.",
+      "Differences between the generic knowledge-state-function definition and ABF26 are not an independent reason for this negative label; the bound blueprint does not explicitly specify that state function.",
+      "The label is not based on sorry in the proof, compilation status or before/after naming.",
+      "The earlier preliminary audit's undetermined recommendation is retained as historical evidence; that audit file is not modified.",
+      "The formal and informal inputs, input hash and technical status remain unchanged. Retain provisional status, human_adjudicated=false and evaluation_eligible=false, and do not propagate the label to the next case."
+    ]
+  },
+  "retained_reason": "The source requires a finite integral domain. The formalization uses CommSemiring, Fintype and IsDomain without requiring additive inverses. The Boolean semiring, with OR as addition and AND as multiplication, satisfies these algebraic premises but is not a ring, showing that applicability is strictly broader. It is labeled misaligned under the current source-scope alignment criterion; no protocol counterexample violating d/|R| is claimed.",
+  "retained_review_scope": "The two security statements and parameter conventions in the currently frozen Sumcheck blueprint, compared with the full type premises of Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness. This negative label uses only the confirmed difference in algebraic applicability."
+}

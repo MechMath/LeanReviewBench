@@ -1,0 +1,105 @@
+{
+  "id": "entropic-output-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR entropic-output-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "entropic_PFR_conjecture'",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "802b521bf6f35504b4097e9ae1a7b513f50175df",
+    "path": "PFR/EntropyPFR.lean",
+    "module": "PFR.EntropyPFR",
+    "declaration": "entropic_PFR_conjecture'",
+    "url": "https://github.com/teorth/pfr/blob/802b521bf6f35504b4097e9ae1a7b513f50175df/PFR/EntropyPFR.lean",
+    "sha256": "27c2c64a57c94bd4ea1ec547e9faeb17c2ffd38aca1591d5c26786da69bcbb93"
+  },
+  "group_id": "pfr-entropic-output",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "entropic-output-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.Module.ZMod",
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Data.Set.Insert",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Prokhorov",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Probability.Kernel.Composition.Comp",
+    "Mathlib.Probability.Kernel.Composition.Prod",
+    "Mathlib.Probability.Kernel.CondDistrib",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 20,
+    "sha256": "fe981c178aad46d2d59643adbda6180b114c540d06ee389b358a7034b97c2a41",
+    "effective_root_sha256": "808a5973d077826812c7baff543d0b54295ac39cf5e598b0fbe223ad36f78e3c",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pfr-extraction/technical/entropic-output-after/20261104T080208099614Z/receipt.json",
+    "receipt_sha256": "040e442af82c8f58c47cbe68dd20f153a28b55a3a2e61e0486f6a5f5fc9671da",
+    "packaged_receipt": "reports/pfr-extraction/technical/entropic-output-after/20261104T080208099614Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "2f8aae7877f097824bbabf781181b1f97e14a461fe212790b5cb8a0b887857d2",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-history/sources/301/after/blueprint/src/chapter/entropy_pfr.tex",
+        "sha256": "1f00cfda18fcd2bce97a22ca308fba09a12b49d75e4be93f012d7f1133700c02",
+        "locator": "entropy-pfr, Furthermore clause, lines 417-425",
+        "text": "For G=F_2^n and G-valued random variables X1,X2, there exists a subgroup H such that a uniform random variable U_H has each Ruzsa distance to Xi bounded by six times d[X1;X2]. The blueprint also states the stronger sum bound eleven times that distance. This primed root targets the individual bounds only.",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'entropic_PFR_conjecture'' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'entropic_PFR_conjecture'' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "dda4818198a2c3b7c8d28d859a1f8456d206843b2d129dbeedbe560610c8b44a",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

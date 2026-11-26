@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-dusart-psi-theta",
+  "task_id": "pnt:bounded-dusart-psi-theta",
+  "input_sha256": "e255c3c18011a7f05ca71e4a56a82b8b7375f86fa2102d62243388ab76f2f44e",
+  "label": "aligned",
+  "reason": "Both strict lower bounds, their constants and logarithmic terms, and the range x>=121 match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Dusart.proposition_4_3"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1670"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The current text is exactly the conjunction of two strict lower bounds for x≥121; the formal ψ, θ, sqrt, and the 0.9999 and 4/(log x)^3 terms correspond individually.",
+  "review_scope": "The conjunction of the two bound lower estimates for psi and theta on x>=121."
+}

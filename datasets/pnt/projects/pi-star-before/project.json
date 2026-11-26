@@ -1,0 +1,73 @@
+{
+  "id": "pi-star-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT pi-star-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "pi_star",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "pi_star",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+  },
+  "group_id": "pnt-pi_star",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "pi-star-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.NumberTheory.Chebyshev"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "241a0a4973e6cd3ea681850550fffbc1a351c2c922caeaf0c8a1306f0fa72df1",
+    "effective_root_sha256": "7d8a32bb9c17584fbf99e19f1a44b642f27a5a84ec3b3353f0c5df35d3cd2249",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction/repaired/pi-star-before/20261105T051050169250Z/receipt.json",
+    "receipt_sha256": "75227722b4f62274c3a0506571921d79979a7159d3bebd92c6aa33f02550743d",
+    "packaged_receipt": "reports/pnt-extraction/repaired/pi-star-before/20261105T051050169250Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "ffabf9c700b9c797be52a2489ad02140296f0902370ad1ce44eeb83858fd7a93",
+    "formal_snapshot_id": "pi-star-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "$\\pi^*(x)$ is the sum of $\\Lambda(n)/n$ for $n$ up to\n  $x$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'pi_star' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "1bb1dc0f40e000d75a8875554a5d0ed3c8e6d8918a6df186ee6eb9b141ae3777",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

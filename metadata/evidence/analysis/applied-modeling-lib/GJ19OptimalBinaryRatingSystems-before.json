@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GJ19OptimalBinaryRatingSystems-before",
+  "task_id": "aml:GJ19OptimalBinaryRatingSystems-before",
+  "input_sha256": "b77a8f3d573a904e4d7f47b34282ab66c52a442b138a9e0cddcf899a0f13d8d5",
+  "label": "misaligned",
+  "reason": "The arbitrary limitingValue objective is not bound to the finite-partition objective. Uniqueness of the entire infinite cut sequence distinguishes irrelevant tails beyond the finite partition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographic"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root assumes an optimum for an arbitrary limitingValue and uniqueness of the entire cut : ℕ→ℝ. The paper's finite-partition objective is neither bound to that arbitrary function nor sensitive to the tail beyond the finite endpoints.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

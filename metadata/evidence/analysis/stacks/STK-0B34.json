@@ -1,0 +1,38 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "stacks",
+  "project_id": "STK-0B34",
+  "task_id": "stacks:STK-0B34",
+  "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
+  "label": "misaligned",
+  "reason": "The two roots jointly use only non-T0 of X and non-quasi-sobriety of Y, weakening the source requirements that X be indiscrete with at least two points and Y be infinite with the cofinite topology.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Sum.not_t0_of_not_t0_left",
+    "Sum.not_quasiSober_of_not_quasiSober_right"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/stacks-admission/reviews.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "merge_record",
+      "locator": "reports/stacks-admission/merges/STK-0B34.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-12",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "Both selected roots jointly against the complete Example 0B34 and its specified spaces.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Applicability mismatch (A): the two formal declarations are evaluated jointly and cover both non-T0 and non-quasi-sober conclusions. Their combined hypotheses only require non-T0 of X and non-quasi-sobriety of Y, weakening the source requirements that X be indiscrete with at least two points and Y be infinite with the cofinite topology. The user-confirmed weaker-assumption mismatch remains; the previous single-component conclusion-coverage objection is withdrawn.",
+  "retained_review_scope": "Both roots jointly compared with the complete source Example 0B34 and its specified spaces."
+}

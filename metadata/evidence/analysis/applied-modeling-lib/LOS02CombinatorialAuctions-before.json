@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LOS02CombinatorialAuctions-before",
+  "task_id": "aml:LOS02CombinatorialAuctions-before",
+  "input_sha256": "4bc28af73841e571377ea005562a0c79d499905002fbb3999a66681288248fd3",
+  "label": "aligned",
+  "reason": "The density ordering, fixed tie-breaking, greedy allocation, critical payments, and truthfulness against joint value-and-bundle deviations match the source mechanism.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Section 10 for single-minded bidders with nonempty desired bundles and nonnegative values.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The unfolded mechanism orders bids by decreasing value/|desired|, breaks ties consistently by a fixed bidder order, and greedily accepts nonconflicting bundles. A winner pays the unit price of the first later bid rejected solely because of that winner, multiplied by the winner's bundle size; if no such bid exists, or the bidder loses, payment is 0. Utility is the true single-minded valuation minus payment. Truthfulness permits changes to both value and desired and quantifies arbitrary other reports. This matches the mechanism and truthfulness claim in Section 10; nonempty bundles and nonnegative values define the selected single-minded domain. Moving the before/after interfaces does not change these definitions.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

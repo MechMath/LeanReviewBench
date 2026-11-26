@@ -1,0 +1,46 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-before",
+  "task_id": "pnt:vinogradov-pi-before",
+  "input_sha256": "718b37f871ae5279cce828ee8d2824461839b64c381a9ac7a3747304f0aca50a",
+  "label": "misaligned",
+  "reason": "Natural-number division makes fractional exponents 3/5 and 1/5 zero, changing the decay factor.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Eπ.vinogradovBound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel repository source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Under the explicit new binding, (3/5) and (1/5) in the current formal statement are interpreted as natural-number exponents. Natural-number division makes both 0, so the decay factor becomes exp(-C), rather than the source's Vinogradov form with real exponents 3/5 and 1/5. See the upstream search report for a distinction between the complete predicates: taking x₀=e², B=C=1, M=sup(Eπ(x)/log x)>0, and A=eM makes the old formal statement hold while the new source target fails. This label concerns the explicitly added later upstream definition and its operation conventions on the full real domain; it does not restore the original main comment from the frozen version.",
+  "review_scope": "The explicitly bound Vinogradov predicate and its real-domain conventions, rather than an inferred historical comment."
+}

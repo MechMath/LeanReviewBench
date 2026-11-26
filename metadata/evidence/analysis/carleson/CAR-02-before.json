@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "carleson",
+  "project_id": "CAR-02-before",
+  "task_id": "carleson:CAR-02-before",
+  "input_sha256": "80ebd0b75c59e2b89799163271e4571d33c9d33f103483f8cd28e091a486f4f0",
+  "label": "misaligned",
+  "reason": "The operator bound is assumed for one implicit phase instead of all phases.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "linearized_metric_carleson"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/migration-semantic-review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The complete bound theorem with its project-defined cancellation and phase assumptions.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The blueprint assumes operator-norm control for every phase θ. Lean's hT applies only to one implicit θ, yet concludes a linearizedCarleson statement that does not depend on that θ, creating a quantifier-scope mismatch.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

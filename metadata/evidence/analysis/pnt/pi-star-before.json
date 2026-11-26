@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "pi-star-before",
+  "task_id": "pnt:pi-star-before",
+  "input_sha256": "1bb1dc0f40e000d75a8875554a5d0ed3c8e6d8918a6df186ee6eb9b141ae3777",
+  "label": "aligned",
+  "reason": "The finite sum represents the source sum of Lambda(n)/n through x; the omitted n=1 term is zero and floor(x) implements the integer cutoff.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "pi_star"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1658"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The current text defines the sum of Λ(n)/n up to x; the formal statement uses Ioc 1 floor(x). Since Λ(1)=0, omitting n=1 does not change the value, and the floor precisely encodes integer n≤x. This judgment does not replace the definition with the half-weight prime-power count from another paper.",
+  "review_scope": "The bound Lambda(n)/n sum, retaining its own counting-function convention."
+}

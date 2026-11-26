@@ -1,0 +1,10 @@
+id,root,commit,group_id,before_ids,after_ids,status
+SP-A-CUTOFF,MagicFunction.a.SpecialValues.a_zero,8dbcc8c87a6e55b7048ffdb474fcbead5c2d4ba1,sphere-packing:SP-A-CUTOFF,,SP-A-CUTOFF-FIXED,misaligned
+SP-A-CUTOFF-FIXED,MagicFunction.a.SpecialValues.a_zero,cce794efc489e57fa9bcb3dc831bcd92d4a05c14,sphere-packing:SP-A-CUTOFF,SP-A-CUTOFF,,ready
+SP-B-EIG,MagicFunction.b.Fourier.eig_b,77cf0a0c104f2e31501eab04d88bbc068d61c169,sphere-packing:SP-B-EIG,,SP-B-EIG-FIXED,misaligned
+SP-B-EIG-FIXED,MagicFunction.b.Fourier.eig_b,af2a2ac5002c62b9cbaab018c163e150dc960a4b,sphere-packing:SP-B-EIG,SP-B-EIG,,ready
+SP-B-ZERO,MagicFunction.b.SpecialValues.b_zero,77cf0a0c104f2e31501eab04d88bbc068d61c169,sphere-packing:SP-B-ZERO,,SP-B-ZERO-FIXED,misaligned
+SP-B-ZERO-FIXED,MagicFunction.b.SpecialValues.b_zero,af2a2ac5002c62b9cbaab018c163e150dc960a4b,sphere-packing:SP-B-ZERO,SP-B-ZERO,,ready
+SP-I6-BOUND,MagicFunction.a.IntegralEstimates.I₆.I₆'_bounding,77cf0a0c104f2e31501eab04d88bbc068d61c169,sphere-packing:SP-I6-BOUND,,,misaligned
+SP-LP,LinearProgrammingBound,77cf0a0c104f2e31501eab04d88bbc068d61c169,sphere-packing:SP-LP,,,misaligned
+SP-LP-PERIODIC,LinearProgrammingBound',77cf0a0c104f2e31501eab04d88bbc068d61c169,sphere-packing:SP-LP-PERIODIC,,,misaligned

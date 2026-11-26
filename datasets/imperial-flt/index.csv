@@ -1,0 +1,6 @@
+id,root,commit,group_id,before_ids,after_ids,status
+flt-c01,FreyPackage.mazur,8c4bb0b2046a1d564623057bb359212f92e0d1f2,flt-reductions,,,misaligned
+flt-c02,FreyPackage.of_not_FermatLastTheoremFor_p_ge_5,8c4bb0b2046a1d564623057bb359212f92e0d1f2,flt-reductions,,,ready
+flt-c03,MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one,8c4bb0b2046a1d564623057bb359212f92e0d1f2,haar-adelic-product-formula,,,ready
+flt-c04,NumberField.AdeleRing.DivisionAlgebra.compact_quotient,8c4bb0b2046a1d564623057bb359212f92e0d1f2,fujisaki,,,ready
+flt-c05,NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset,8c4bb0b2046a1d564623057bb359212f92e0d1f2,fujisaki,,,ready

@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
+  "task_id": "aml:EOS-theorem7_no_positive_transfer_conclusion",
+  "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
+  "label": "misaligned",
+  "reason": "The abstract outcome is not bound to the GSP equilibrium and VCG payment objects required by the target. The comparison is restricted to the same slot assignment and no-positive-transfer class.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The full Theorem 7 (Theorem 1 in the author manuscript) concerns the GSP equilibrium B*, VCG payments and comparisons among stable outcomes. The root obtains an abstract outcome from ComparisonPaymentCertificate and compares only outcomes with the same slotOf and no positive transfers, without binding the result to a GSP equilibrium.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GCG24UserItemFairness-before",
+  "task_id": "aml:GCG24UserItemFairness-before",
+  "input_sha256": "94d69f4e0905f6052df12ff57378ac072b4d569d2e0d646a0e87d918dca5f9aa",
+  "label": "misaligned",
+  "reason": "Unnormalized integer user counts are equated to proportions alpha and 1-alpha; the missing normalization makes the premises inconsistent.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/applied-modeling-review-2026-11-09/GCG24UserItemFairness-before.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "applied-modeling-lib",
+    "project_id": "GCG24UserItemFairness-before",
+    "root": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half",
+    "input_sha256": "6d767045b121ce27f165f5a237fb5ff13da5c00eb2d28480b4f5327311a0c345",
+    "review_date": "2026-11-09",
+    "label": "misaligned",
+    "reason": "In the informal statement, α is the proportion of users of the first type, whose count should be mα. However, canonicalReduction uses unnormalized user counts as typeWeight, while twoTypeReducedModel uses α and 1−α. The root theorem's hred requires exact equality, so the first-type user count equals α. The premise hTypes makes this count at least 1, contradicting α<1. The formal premises have no instance and the theorem is vacuously true, failing to express the paper's monotonicity for actual models. This judgment does not depend on the dispute over first-half versus full-interval coverage; no Lean compilation certification has yet been performed.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-09 (translated from Chinese): Okay, change the label from undermined to misaligned, thank you (current stored label: undetermined).",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "Compare the full paper Theorem 3 with the selected before root, expanding the canonical reduction and its exact model-equality premises. The decisive mismatch is inconsistent count-versus-proportion weights, independently of the first-half symmetry question.",
+    "verification_status": "Source-level definition expansion and mathematical contradiction; not Lean-certified. The packaged case remains technically blocked by missing dependencies.",
+    "evidence_locations": {
+      "informal": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/informal.jsonl:2 (main-full-paper)",
+      "paper": "https://proceedings.neurips.cc/paper_files/paper/2024/file/cf836efd32fd53493e02d26670f04d46-Paper-Conference.pdf",
+      "paper_locator": "Theorem 3, printed page 6; Appendix D, printed pages 27-28.",
+      "root": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/Main.lean:1385",
+      "exact_model_equality": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/Main.lean:1391",
+      "integer_type_cardinality": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/dep/GCG24UserItemFairness/LPReduction.lean:299",
+      "unnormalized_type_weight": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/dep/GCG24UserItemFairness/LPReduction.lean:304",
+      "canonical_reduction": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/dep/GCG24UserItemFairness/LPReduction.lean:1347",
+      "surjectivity_wrapper": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/dep/GCG24UserItemFairness/LPReduction.lean:1374",
+      "fractional_weights": "datasets/applied-modeling-lib/projects/GCG24UserItemFairness-before/formal/dep/GCG24UserItemFairness/OpposingTypes.lean:2049"
+    },
+    "contradiction": [
+      "Let N0 be the natural-number cardinality of users mapped by S.types.toType to type 0.",
+      "typeWeight casts N0 to a real number without dividing by the population size m. The canonical reduction and its surjectivity wrapper use this weight without normalization.",
+      "twoTypeReducedModel alpha v has weight alpha at type 0. Projecting weight 0 from the exact structure equality hred gives (N0 : Real) = alpha.",
+      "Surjectivity hTypes gives a user of type 0, hence N0 >= 1. The premise halpha1 gives alpha < 1. Thus 1 <= alpha < 1, a contradiction.",
+      "Already hred, hTypes and halpha1 are inconsistent. Independently, hred with 0 < alpha < 1 forces a natural-number cast strictly between 0 and 1. The primed premises have the same defect.",
+      "The formal implication is vacuously true; no claim is made that its inequality is false or that the paper theorem is false."
+    ],
+    "valid_informal_instances": {
+      "population_size": 4,
+      "item_count": 2,
+      "type_zero_values": [
+        2,
+        1
+      ],
+      "type_one_values": [
+        1,
+        2
+      ],
+      "first_population": {
+        "type_counts": [
+          1,
+          3
+        ],
+        "alpha": "1/4",
+        "canonical_weights": [
+          1,
+          3
+        ],
+        "required_fractional_weights": [
+          "1/4",
+          "3/4"
+        ]
+      },
+      "second_population": {
+        "type_counts": [
+          2,
+          2
+        ],
+        "alpha": "1/2",
+        "canonical_weights": [
+          2,
+          2
+        ],
+        "required_fractional_weights": [
+          "1/2",
+          "1/2"
+        ]
+      },
+      "interpretation": "Both populations have positive strictly decreasing opposing item values and both types represented, with 0 < alpha <= alpha_prime <= 1/2. The paper compares their fairness prices. The formal exact-equality premises exclude both because the raw counts differ from the proportions."
+    },
+    "normalization_check": "The canonicalReductionOfSurjective wrapper only chooses representatives; it introduces no division by m. Common scaling may preserve fairness objectives but cannot establish exact equality of structures with different weight fields. A repair needs normalized weights or scaled model weights with an explicit preservation bridge.",
+    "limitations": [
+      "No complete Lean compilation or machine-certified contradiction was performed; technical_status remains blocked.",
+      "This update concerns only GCG24UserItemFairness-before. The after-spec snapshot is not reclassified by this review.",
+      "The prior missing-half argument is not used as the decisive reason; exchanging types may recover the other half under a correct model correspondence.",
+      "Formal and informal inputs are unchanged; this is a provisional label update, not a gold-label adjudication."
+    ]
+  },
+  "retained_reason": "In the informal statement, α is the proportion of users of the first type, whose count should be mα. However, canonicalReduction uses unnormalized user counts as typeWeight, while twoTypeReducedModel uses α and 1−α. The root theorem's hred requires exact equality, so the first-type user count equals α. The premise hTypes makes this count at least 1, contradicting α<1. The formal premises have no instance and the theorem is vacuously true, failing to express the paper's monotonicity for actual models. This judgment does not depend on the dispute over first-half versus full-interval coverage; no Lean compilation certification has yet been performed.",
+  "retained_review_scope": "Compare the full paper Theorem 3 with the selected before root, expanding the canonical reduction and its exact model-equality premises. The decisive mismatch is inconsistent count-versus-proportion weights, independently of the first-half symmetry question."
+}

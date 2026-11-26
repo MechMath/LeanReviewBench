@@ -1,0 +1,46 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-after",
+  "task_id": "pnt:vinogradov-pi-after",
+  "input_sha256": "e2247f7c40f816048c8839dbb97e7b62d67f8a21059c2e07a76ff87391ceecc4",
+  "label": "aligned",
+  "reason": "The absolute error, x/log(x) normalization, offset logarithmic integral, real exponents, four real parameters, and universal tail quantifier match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Eπ.vinogradovBound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel repository source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Under the explicit new binding, the main formula, absolute value, x/log x normalization, offset Li, four real parameters, and ∀x≥x₀ all correspond. This label concerns the explicitly added later upstream definition and its operation conventions on the full real domain; it does not restore the original main comment from the frozen version.",
+  "review_scope": "The explicitly bound Vinogradov predicate and its totalized operations on real arguments."
+}

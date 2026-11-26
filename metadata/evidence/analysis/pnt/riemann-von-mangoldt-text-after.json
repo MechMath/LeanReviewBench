@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "riemann-von-mangoldt-text-after",
+  "task_id": "pnt:riemann-von-mangoldt-text-after",
+  "input_sha256": "d06e781d2475cc061c203455c82c8d55b4f94af0cd73810cac22ea308c6ceed3",
+  "label": "aligned",
+  "reason": "Expanding the logarithmic main term gives the same -7/8 constant, error coefficients, and range T>=2.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "riemannZeta.Riemann_vonMangoldt_bound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "For T≥2, log(T/(2πe))=log(T/(2π))−1, and expanding the expression inside the formal absolute value gives exactly the current text's −7/8 version. The three error coefficients and the domain agree. Under the review scope, the retained definition of N is used (0<Imρ<T, counted with multiplicity), without substituting the counting-endpoint convention of another article.",
+  "review_scope": "The bound counting-error estimate using the retained multiplicity count with 0<Im(rho)<T."
+}

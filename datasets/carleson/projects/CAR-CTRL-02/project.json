@@ -1,0 +1,67 @@
+{
+  "id": "CAR-CTRL-02",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Carleson",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MetricSpaceCarleson",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/fpvandoorn/carleson",
+    "commit": "f10c441921273ee2a04cea802f2c32b7c6ebc5ea",
+    "path": "Carleson/Defs.lean",
+    "url": "https://github.com/fpvandoorn/carleson/blob/f10c441921273ee2a04cea802f2c32b7c6ebc5ea/Carleson/Defs.lean",
+    "declaration": "MetricSpaceCarleson",
+    "sha256": "85d484bea4ac10d39573c50b95abc2fa771f39fe507f271aa013a6e27c1d1732",
+    "leads": [],
+    "module": "Carleson.Defs"
+  },
+  "group_id": "carleson:CAR-CTRL-02",
+  "split_group": "fpvandoorn/carleson",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.Fourier.AddCircle"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/cases.json",
+      "sha256": "256f52c31e63f63a6a1bec0666b9e46c365ebb0e2ab9a56b2b47e2f97b50da38"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/technical/f10c441921273ee2a04cea802f2c32b7c6ebc5ea-MetricSpaceCarleson/graph.json",
+      "sha256": "f7d42dfbafc1aedf30bfe5a64e14da0d121bf43095386e8230e9e7ab9e2561f3"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/semantic-review.json",
+      "sha256": "33d8b771faf4041ac11fa4ccbbb1ed5e328f04af4a23ed702d85a2b36bb2a176"
+    }
+  },
+  "input_sha256": "e932a87cd61cbda63690cac484a981025a0fcade29a34948c3c694cca3edadc5",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "f78dcf51a9713c064c11783cc58cc0f768dc49956f2f781bb1b57c15fba85184",
+    "effective_root_sha256": "36aad5c09af99e4ec3e79c1b4f3f24fd8310621d489503fe3bf07738f8e08743",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/carleson.jsonl"
+}

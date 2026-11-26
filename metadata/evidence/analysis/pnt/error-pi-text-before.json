@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "error-pi-text-before",
+  "task_id": "pnt:error-pi-text-before",
+  "input_sha256": "cbd07af46bebb399219a5539efd4ec7e96f3f583fce67b66e1d0e92781269de8",
+  "label": "misaligned",
+  "reason": "The normalization denominator is x/log(x) instead of Li(x) in the bound text.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Eπ"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1642"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Own-version definition uses Li(x) as denominator; unchanged Formal uses x/log(x). At x=2 the old text evaluates to zero under Lean real-division totalization, whereas Formal is strictly positive. The hole-free kernel witness establishes separation. FKS2 equation (1) independently confirms the intended x/log(x) normalization on the positive domain.",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
+}

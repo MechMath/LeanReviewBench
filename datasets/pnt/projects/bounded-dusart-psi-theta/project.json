@@ -1,0 +1,71 @@
+{
+  "id": "bounded-dusart-psi-theta",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-dusart-psi-theta",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Dusart.proposition_4_3",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+    "path": "PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "declaration": "Dusart.proposition_4_3",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+  },
+  "group_id": "pnt-Dusart.proposition_4_3",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "94dc3b3f570af67a8ac8ff25761e1cc1867add9f1e9bf7f28c515edd3fa9189b",
+    "effective_root_sha256": "5e3f62298fbbd102647ed99ef2b6d1cd8f3e14776f1da850ada78fbbcc155ec0",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-psi-theta/20261105T053639938480Z/receipt.json",
+    "receipt_sha256": "b9288be46fb438e4ca2b75797383269ec17a55e7fe723d16821f00a9642b49d8",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-psi-theta/20261105T053639938480Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "f0b7831ac1c3506682ba50bfa4cf929c16b51076aa99a47498a0828be3c59963",
+    "formal_snapshot_id": "bounded-dusart-psi-theta",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+        "ref": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+        "text": "For $x \\geq 121$, we have\n  \\[\n  0.9999\\sqrt{x} < \\psi(x) - \\vartheta(x),\n  \\quad\n  \\sqrt{x}\\Bigl(1 - \\frac{4}{(\\log x)^3}\\Bigr) < \\psi(x) - \\vartheta(x).\n  \\]"
+      }
+    ],
+    "root_axioms": {
+      "default": "'Dusart.proposition_4_3' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Dusart.proposition_4_3' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "e255c3c18011a7f05ca71e4a56a82b8b7375f86fa2102d62243388ab76f2f44e",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

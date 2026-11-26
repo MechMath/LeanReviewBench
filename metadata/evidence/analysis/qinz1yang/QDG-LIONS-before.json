@@ -1,0 +1,90 @@
+{
+  "task_id": "qinz1yang:QDG-LIONS-before",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-LIONS-before",
+  "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+  "root": "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace",
+  "label": "misaligned",
+  "reason": "The assumption hExists is exactly the proposition repeated as the conclusion. This proposition bounds a single vector norm by a multiple of itself; its quantified function v is unused. It contains no time-dependent trace, distributional derivative relation, or interpolation space, so it does not state the bound Lions-Magenes trace theorem.",
+  "review_scope": "Joudioux Theorem A.1 with m = 1 and j = 0: L2(X) values, L2(Y) weak derivative, and a continuous representative in [X,Y]_(1/2).",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+  ],
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/qinz1yang/projects/QDG-LIONS-before/informal.jsonl",
+      "sha256": "7465b9a25e835737a5db7adb00fcadf68d491ea8b83074a506815059dd808e46",
+      "id": "main",
+      "source": {
+        "url": "https://arxiv.org/abs/1903.12591v1",
+        "version": "arXiv:1903.12591v1, 29 March 2019",
+        "locator": "Appendix A, pp.20–21, Theorem A.1; m=1 and j=0",
+        "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c"
+      },
+      "bound_scope": "Hilbert spaces with a continuous dense embedding, first distributional time derivative in the weaker space, and continuity into the real interpolation trace space."
+    },
+    "first_pass": "The assumption hExists is exactly the proposition repeated as the conclusion. This proposition bounds a single vector norm by a multiple of itself; its quantified function v is unused. It contains no time-dependent trace, distributional derivative relation, or interpolation space, so it does not state the bound Lions-Magenes trace theorem.",
+    "formal_evidence": [
+      {
+        "file": "datasets/qinz1yang/projects/QDG-LIONS-before/formal/Main.lean",
+        "sha256": "05fe994837b28f8f18124a139d69274962bdfc8d2b77077fc3216763ae3317bf",
+        "line_start": 5,
+        "line_end": 18,
+        "anchor": "theorem lions_magenes_intermediate_trace",
+        "declaration": "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      }
+    ],
+    "second_pass": "The tautology can be logically valid. The negative verdict concerns the absent mathematical objects and output, not proof validity; neither a choice of the norm-bound constant nor a different embedding convention supplies the missing trace assertion.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The assumption hExists is exactly the proposition repeated as the conclusion. This proposition bounds a single vector norm by a multiple of itself; its quantified function v is unused. It contains no time-dependent trace, distributional derivative relation, or interpolation space, so it does not state the bound Lions-Magenes trace theorem.",
+    "uncertainty": "",
+    "source": {
+      "repository": "https://github.com/qinz1yang/differential-geometry",
+      "commit": "3b43fea89fc8d4a42021cbd22d235960b81f6900",
+      "path": "DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean",
+      "url": "https://github.com/qinz1yang/differential-geometry/blob/3b43fea89fc8d4a42021cbd22d235960b81f6900/DifferentialGeometry/PDE/RicciFlow/LionsMagenes.lean"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "url": "https://arxiv.org/abs/1903.12591v1",
+          "version": "arXiv:1903.12591v1, 29 March 2019",
+          "locator": "Appendix A, pp.20–21, Theorem A.1; m=1 and j=0",
+          "sha256": "74c96115d3c274feba3da5c28863aafb20ca49bb9fecb4ca8560e9763c66417c"
+        },
+        "scope": "Hilbert spaces with a continuous dense embedding, first distributional time derivative in the weaker space, and continuity into the real interpolation trace space."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/qinz1yang/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "38563964ff6afaae89f5284c6e7a15d07856e3ad69ad4d3b59279754d047ff31"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "misaligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
+  },
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing misaligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "energy-definition",
+  "task_id": "pfr:energy-definition",
+  "input_sha256": "e69330078059dff2e955ad0404b75c340d89cc973da47440338e56b2ccaf20b9",
+  "label": "misaligned",
+  "reason": "The formal energy is normalized while the bound definition requests the raw quadruple count.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Finset.addEnergy'"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "On the diagonal A=A, the requested old raw quadruple count differs from the normalized formal value; the retained ZMod 2 witness gives 1 versus 1/8.",
+  "review_scope": "The bound raw additive-energy definition, before normalization."
+}

@@ -1,0 +1,137 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-obelix",
+  "task_id": "equational-theories:etp-obelix",
+  "input_sha256": "32c389701623ee6fe628a9214401226be61383e3560ac9eb763f10399b5018f7",
+  "label": "aligned",
+  "reason": "The root supplies one magma satisfying law 1491 and violating law 65, matching the source Obelix-not-Asterix assertion.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Obelix.PartialSolution.Equation1491_facts"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-obelix.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The Obelix-not-Asterix existence corollary with the specified definitions of laws 1491 and 65.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-obelix",
+    "root": "Obelix.PartialSolution.Equation1491_facts",
+    "input_sha256": "705f126485e3cfdd29cf0b1fe27bbe574295f85d12849b7f406a49326ad1cb10",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "Facts G [1491] [65] unfolds to one magma satisfying Equation1491 and not satisfying Equation65. The independent blueprint's Obelix/Asterix definitions match the formal equations. The root has no extra premises: initial.closure supplies a concrete model, closure_prop proves 1491, and x=0, y=-x₁ witness failure of 65.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Mark it aligned; selects aligned for equational-theories:etp-obelix after viewing the original corollary, both equation definitions, the Facts expansion, and the concrete construction.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The independent blueprint's existence corollary for an Obelix magma that is not Asterix, and its definitions of equations 1491 and 65, compared with Obelix.PartialSolution.Equation1491_facts. The original inputs for partial-solution extension and the closure construction are retained.",
+    "evidence_locations": {
+      "informal_and_scope": {
+        "path": "datasets/equational-theories/projects/etp-obelix/informal.jsonl",
+        "line": 1,
+        "sha256": "b9acb56821c93fc0d834b5d698735d5c4942d22ce0e0e40383bbac9d93eca331"
+      },
+      "source_corollary": {
+        "path": "datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/infinite_magma_constructions.tex",
+        "line": 255,
+        "sha256": "93a3a48e01d9509172d12ed67e8ec18bcc7ebeb391d8d6b12b5c9d79e8681543"
+      },
+      "source_initial_partial_solution": {
+        "path": "datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/infinite_magma_constructions.tex",
+        "line": 258,
+        "sha256": "93a3a48e01d9509172d12ed67e8ec18bcc7ebeb391d8d6b12b5c9d79e8681543"
+      },
+      "source_asterix_definition": {
+        "path": "datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/equations.tex",
+        "line": 130,
+        "sha256": "ee09f9ddbfcf7862285dc89f968b16c7e73fdfcc9e75266f81bd457a0d640db2"
+      },
+      "source_obelix_definition": {
+        "path": "datasets/equational-theories/projects/etp-obelix/informal-source/blueprint/src/chapter/equations.tex",
+        "line": 185,
+        "sha256": "ee09f9ddbfcf7862285dc89f968b16c7e73fdfcc9e75266f81bd457a0d640db2"
+      },
+      "root": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Obelix.lean",
+        "line": 784,
+        "sha256": "4d145bc695ba50e611ef455ebf99c8cb6191ee5dbc6b5324c278a59238948a1c"
+      },
+      "facts_elaboration": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/FactsSyntax.lean",
+        "line": 23,
+        "sha256": "92cb7fe2413fb1014cffd65ca6d5e3206c52a610b5731cd99265b90937e91fea"
+      },
+      "formal_asterix_equation": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Equations/Basic.lean",
+        "line": 77,
+        "sha256": "97d9e447d1071685db6a3d4515adab686fb797c8fc3a331c08b66a1a560c962d"
+      },
+      "formal_obelix_equation": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Equations/Basic.lean",
+        "line": 106,
+        "sha256": "97d9e447d1071685db6a3d4515adab686fb797c8fc3a331c08b66a1a560c962d"
+      },
+      "closure_operation": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Obelix.lean",
+        "line": 744,
+        "sha256": "4d145bc695ba50e611ef455ebf99c8cb6191ee5dbc6b5324c278a59238948a1c"
+      },
+      "closure_property": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Obelix.lean",
+        "line": 748,
+        "sha256": "4d145bc695ba50e611ef455ebf99c8cb6191ee5dbc6b5324c278a59238948a1c"
+      },
+      "initial_partial_solution": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Obelix.lean",
+        "line": 758,
+        "sha256": "4d145bc695ba50e611ef455ebf99c8cb6191ee5dbc6b5324c278a59238948a1c"
+      },
+      "asterix_failure_witness": {
+        "path": "datasets/equational-theories/projects/etp-obelix/formal/dep/equational_theories/Obelix.lean",
+        "line": 789,
+        "sha256": "4d145bc695ba50e611ef455ebf99c8cb6191ee5dbc6b5324c278a59238948a1c"
+      }
+    },
+    "semantic_argument": [
+      "The source requires an Obelix magma that is not Asterix. The same independent blueprint defines these respectively by satisfaction of equations 1491 and 65.",
+      "The Facts elaborator generates positive Equation predicates for the first list and their negations for the second, joining them by conjunction. Thus the root concludes exactly ∃G,∃M:Magma G,Equation1491 G∧¬Equation65 G, binding the same witness carrier and operation.",
+      "Equation1491 is ∀x,y, x=(y◇x)◇(y◇(y◇x)); Equation65 is ∀x,y, x=y◇(x◇(y◇x)). Their variables and parentheses match the independent definitions. Negating 65 means at least one input pair violates that law.",
+      "The root does not require the caller to supply a partial solution or extension hypothesis. It instantiates the concrete initial.closure; closure_prop initial supplies 1491, and the retained initial function values at 0 and -x₁ refute 65.",
+      "The source initial partial function contains (0,0), (x₁,x₂), (x₂-x₁,x₃) and (x₁+x₃,x₄). The finite domain and values of formal initial match these entries and are then extended by closure to a total operation.",
+      "An empty carrier automatically satisfies both universal equations and therefore cannot satisfy ¬Equation65. It does not make the existence conclusion vacuous."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "equation_definitions_and_facts_expansion_checked": true,
+      "concrete_initial_model_and_root_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checks the semantics of the statement, macro definitions and key construction, without recompiling the project or independently reproving the full partial-solution extension process.",
+      "No finite countermodel is required. Both the root and bound source permit general magmas and retain the original infinite-model construction.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines the positive label with the existing compilation/extraction status and is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "Facts G [1491] [65] unfolds to one magma satisfying Equation1491 and not satisfying Equation65. The independent blueprint's Obelix/Asterix definitions match the formal equations. The root has no extra premises: initial.closure supplies a concrete model, closure_prop proves 1491, and x=0, y=-x₁ witness failure of 65.",
+  "retained_review_scope": "The independent blueprint's existence corollary for an Obelix magma that is not Asterix, and its definitions of equations 1491 and 65, compared with Obelix.PartialSolution.Equation1491_facts. The original inputs for partial-solution extension and the closure construction are retained."
+}

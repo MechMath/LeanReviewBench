@@ -1,0 +1,35 @@
+import Lean
+import Lean.Elab.Declaration
+import Lean.Elab.Exception
+import Lean.Environment
+import Lean.Meta.Basic
+import Lean.Util
+import Lean.Util.CollectAxioms
+import Mathlib.Algebra.Lie.OfAssociative
+import Mathlib.Analysis.Normed.Field.Lemmas
+import Mathlib.Computability.Primrec.Basic
+import Mathlib.Data.DFinsupp.Encodable
+import Mathlib.Data.DFinsupp.FiniteInfinite
+import Mathlib.Data.DFinsupp.Multiset
+import Mathlib.Data.DFinsupp.Notation
+import Mathlib.Data.FunLike.Basic
+import Mathlib.Data.Int.Star
+import Mathlib.Data.List.NodupEquivFin
+import Mathlib.Data.Set.Defs
+import Mathlib.GroupTheory.FiniteAbelian.Basic
+import Mathlib.LinearAlgebra.Dimension.Localization
+import Mathlib.LinearAlgebra.FreeModule.StrongRankCondition
+import Mathlib.Logic.Equiv.Basic
+import dep.equational_theories.EquationLawConversion
+import dep.equational_theories.Equations.Basic
+import dep.equational_theories.Equations.Command
+import dep.equational_theories.FactsSyntax
+import dep.equational_theories.FreeMagma
+import dep.equational_theories.Homomorphisms
+import dep.equational_theories.Magma
+import dep.equational_theories.MagmaLaw
+import dep.equational_theories.Obelix
+import dep.equational_theories.ParseImplications
+import dep.equational_theories.Preorder
+
+

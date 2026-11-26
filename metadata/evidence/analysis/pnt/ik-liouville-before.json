@@ -1,0 +1,45 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "ik-liouville-before",
+  "task_id": "pnt:ik-liouville-before",
+  "input_sha256": "b840e1de72e7e7c1d3ab10abbb452b5143b6dace7133405c71b73a093198970c",
+  "label": "aligned",
+  "reason": "The coefficients lambda(n)=(-1)^Omega(n), convergence domain Re(s)>1, and quotient zeta(2s)/zeta(s) match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "ArithmeticFunction.LSeries_liouville_eq"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1632"
+    },
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1660"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The frozen Dirichlet-series identity has the standard implicit absolute-convergence scope Re(s)>1. Formal states exactly that domain and the same quotient ζ(2s)/ζ(s). Both retained versions define λ(n)=(-1)^Ω(n) for positive n; the cast syntax change does not change coefficients.",
+  "review_scope": "The Dirichlet-series identity on its ordinary absolute-convergence domain Re(s)>1."
+}

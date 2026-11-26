@@ -1,0 +1,119 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "sumcheck-full-rbr-before",
+  "task_id": "arklib:sumcheck-full-rbr-before",
+  "input_sha256": "490121ec80a0e9712958fdeb87b2f9e84f5b029949aaa165a79e5f201af88556",
+  "label": "misaligned",
+  "reason": "The finite commutative-semiring assumptions omit the source integral-domain restrictions, admitting structures with zero divisors such as Z/4Z.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/sumcheck-full-rbr-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound Sumcheck soundness statement over finite integral domains; the diagnosis concerns algebraic applicability, not a protocol counterexample.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "sumcheck-full-rbr-before",
+    "root": "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness",
+    "input_sha256": "062db02a9203343df616b5b80adbbaecda38e1cd8dea755e1a598a618343cce7",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source requires security over finite integral domains. The before root requires only CommSemiring, Fintype, DecidableEq and SampleableType, without even IsDomain, allowing structures with zero divisors such as Z/4Z. Its applicability exceeds the source scope, so it is labeled misaligned. This distinguishes premise domains; it does not claim a protocol counterexample violating the security probability bound.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Should this be marked misaligned? If you agree, please mark it; authorizes misaligned for arklib:sumcheck-full-rbr-before conditional on model agreement, which the model confirms based on the missing integral-domain premise.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The finite integral-domain parameter convention in the currently frozen Sumcheck blueprint and the complete type premises of the before root. This review relies only on the verified difference in algebraic applicability.",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/informal.jsonl",
+        "line": 1,
+        "sha256": "a08b3db3d38603e1fd9bfb5c013a75dc6876f7c50258263c6a68ea561030dfc1"
+      },
+      "source_parameters": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/informal/source.tex",
+        "line": 12,
+        "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00"
+      },
+      "source_rbr_claim": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/informal/source.tex",
+        "line": 68,
+        "sha256": "283c33e2ca42ee9f0a3c7b1855f1d4366f1aab556e3191fe725c94ebffd82b00"
+      },
+      "formal_algebra_parameters": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/formal/dep/ArkLib/ProofSystem/Sumcheck/Spec/General.lean",
+        "line": 117,
+        "sha256": "bedcb3dcbc1d3cfe326ebf75bff5da58409e61a0da48b5e01596daf115d2dab7"
+      },
+      "formal_sampling_parameters": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/formal/dep/ArkLib/ProofSystem/Sumcheck/Spec/General.lean",
+        "line": 149,
+        "sha256": "bedcb3dcbc1d3cfe326ebf75bff5da58409e61a0da48b5e01596daf115d2dab7"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/sumcheck-full-rbr-before/formal/dep/ArkLib/ProofSystem/Sumcheck/Spec/General.lean",
+        "line": 223,
+        "sha256": "bedcb3dcbc1d3cfe326ebf75bff5da58409e61a0da48b5e01596daf115d2dab7"
+      },
+      "label_scope_policy": {
+        "path": "docs/MISALIGNMENT-TAXONOMY.md",
+        "line": 13,
+        "sha256": "c24ff66b62a5177b46acf930b6826c50b6ca9f9120aa28777eb26540b7dee02c"
+      }
+    },
+    "semantic_argument": [
+      "The source requires R to be a ring and, for security, finite and an integral domain. This excludes structures with nonzero zero divisors.",
+      "The before root is in a CommSemiring R, DecidableEq R and SampleableType R environment and adds only Fintype R. It has no IsDomain R assumption or equivalent nonzero multiplicative-cancellation or no-zero-divisors premise.",
+      "Z/4Z is a nontrivial finite commutative ring and therefore a commutative semiring, with decidable equality and uniform sampling. It satisfies these formal structural conditions.",
+      "In Z/4Z, 2≠0 but 2*2=0, so it is not an integral domain and lies outside the source's required parameter domain.",
+      "This example shows that formal applicability strictly exceeds the source scope. The negative label follows the repository's Applicability mismatch criterion; the user explicitly authorized misaligned after the model agreed."
+    ],
+    "scope_witness": {
+      "structure": "Z/4Z",
+      "carrier": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "addition": "addition modulo 4",
+      "multiplication": "multiplication modulo 4",
+      "nonzero_zero_divisor": 2,
+      "product_mod_4": 0,
+      "role": "Separates algebraic premise domains; not an asserted protocol counterexample."
+    },
+    "verification": {
+      "source_binding_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The reason is the difference between the source and formal premise domains. The separating algebraic structure is not described as a verified counterexample to d/|R| security.",
+      "Other differences in the before single-round implementation and knowledge-state function are outside the reasons for this user-confirmed negative label.",
+      "The label is not based on the before name, sorry in the proof or compilation status.",
+      "The formal and informal inputs, input hash and technical status are unchanged; the label is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The source requires security over finite integral domains. The before root requires only CommSemiring, Fintype, DecidableEq and SampleableType, without even IsDomain, allowing structures with zero divisors such as Z/4Z. Its applicability exceeds the source scope, so it is labeled misaligned. This distinguishes premise domains; it does not claim a protocol counterexample violating the security probability bound.",
+  "retained_review_scope": "The finite integral-domain parameter convention in the currently frozen Sumcheck blueprint and the complete type premises of the before root. This review relies only on the verified difference in algebraic applicability."
+}

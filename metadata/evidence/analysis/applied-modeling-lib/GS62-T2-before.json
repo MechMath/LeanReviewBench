@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GS62-T2-before",
+  "task_id": "aml:GS62-T2-before",
+  "input_sha256": "a0514f5af13db2729f7ea8574f9438904166877e4d8d6dc3cb19e16a5131c92f",
+  "label": "misaligned",
+  "reason": "Existence of an optimal stable matching is not bound to the output of the designated deferred-acceptance algorithm.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The formal conclusion is the existence of an applicant-optimal stable matching. The bound marriage special case in the source requires optimality of the matching produced by the specified deferred-acceptance procedure. The root does not bind the result to that algorithm's output.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

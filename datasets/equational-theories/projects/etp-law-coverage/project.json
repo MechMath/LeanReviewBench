@@ -1,0 +1,140 @@
+{
+  "id": "etp-law-coverage",
+  "schema_version": "paperlean-project-case-1",
+  "title": "ETP-LAW-COVERAGE staged control",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "laws_complete'",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/equational_theories",
+    "commit": "8b87204d5b201e1cf6c69b8dcabb0558109bee00",
+    "path": "equational_theories/Equations/LawsComplete.lean",
+    "module": "equational_theories.Equations.LawsComplete",
+    "declarations": [
+      "laws_complete'"
+    ],
+    "sha256": "c46cf36196b957452f41d8f3af76fa3155cce66be8d2363bae7cfdab5e143c33",
+    "declaration": "laws_complete'"
+  },
+  "group_id": "graph-certification",
+  "split_group": "teorth/equational_theories",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "label": "undetermined",
+  "historical_status": "undetermined",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "technical_status": "statement-context-compiled-and-extracted",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "external_imports": [
+    "Batteries.Data.Array.Lemmas",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.ToExpr",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.Set.Function",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Tactic.Cases"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_role": "control",
+  "evaluation_eligible": false,
+  "changes": "CHANGES.md",
+  "original_source_archive": "original-source.tar.gz",
+  "compatibility_patch": "compatibility.patch",
+  "source_packet": "source-packet.json",
+  "gold_label": null,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "formal": {
+    "file_count": 17,
+    "sha256": "1976018ce2265c19bfb6c36cf000eace984210478db00553e720fc71643efc1d",
+    "effective_root_sha256": "18e9436f5f80c9921a91d344e16d14c8029f4015d5d10342dab2a7336d71ca49",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "resources": {},
+  "compatibility": {
+    "changed_files": [
+      "equational_theories/Equations/Command.lean",
+      "equational_theories/Equations/LawsComplete.lean",
+      "equational_theories/FreeMagma.lean",
+      "equational_theories/Homomorphisms.lean",
+      "equational_theories/MagmaLaw.lean"
+    ],
+    "patch_sha256": "8e16a44aa84b46806e1267e601186526224c1af2d7aa0b834543ce3ba7168770",
+    "added_sorry": false,
+    "added_axioms": false,
+    "target_weakened": false
+  },
+  "preparation": {
+    "compilation": "technical/compile.json",
+    "graph_modes": {
+      "default": {
+        "status": "passed",
+        "nodes": 4752,
+        "edges": 37724,
+        "raw_graph": "context/default/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      },
+      "explicit": {
+        "status": "passed",
+        "nodes": 4752,
+        "edges": 37724,
+        "raw_graph": "context/explicit/raw.json.gz",
+        "source_local_prefixes": [
+          "Main",
+          "equational_theories"
+        ]
+      }
+    },
+    "original_archive_sha256": "4b30c3e7c7e7b324beba634cfc39d110e239ee6b047a34d6094ee1b1f01786da",
+    "source_packet_sha256": "007375686e35a82c271ebd716922b3e6763373606368d17d2231b99e61a5d095"
+  },
+  "input_sha256": "64623e388afd80e93904dbe7ec8c4c0490b9cdaa85d7b7efee08459f76695bd4",
+  "original_external_imports": [
+    "Batteries.Data.Array.Lemmas",
+    "Lean",
+    "Lean.Elab.Declaration",
+    "Lean.Elab.Exception",
+    "Lean.Environment",
+    "Lean.Meta.Basic",
+    "Lean.ToExpr",
+    "Lean.Util",
+    "Lean.Util.CollectAxioms",
+    "Mathlib.Data.FunLike.Basic",
+    "Mathlib.Data.List.NodupEquivFin",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Logic.Equiv.Basic",
+    "Mathlib.Tactic.Cases"
+  ],
+  "human_adjudicated": false,
+  "source_family": "graph-certification",
+  "material_complete": true,
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "technical_receipt": "technical/relocated-receipt.json",
+  "alignment_reference": "metadata/labels/equational-theories.jsonl"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "bounded-dusart-prime-interval",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-dusart-prime-interval",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Dusart.corollary_5_5",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+    "path": "PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "declaration": "Dusart.corollary_5_5",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+  },
+  "group_id": "pnt-Dusart.corollary_5_5",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "727da878ff3ab70275e72b6aea13d049c66f171277e5c4e5f0b05fe236a60c58",
+    "effective_root_sha256": "96d4bd44bbc1492ed57707790afd912e02fba096329ccfb4f0c3edc4231a9565",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-prime-interval/20261105T053650875146Z/receipt.json",
+    "receipt_sha256": "12988ba60753c0871ef116167ad9a78b88c1275e24dce32ed6e3f5f5ac243dc2",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-prime-interval/20261105T053650875146Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "5031c35c59cd3b977ddc5c35b71f5f5f0cae8bc7699658e4098c5902760abdb0",
+    "formal_snapshot_id": "bounded-dusart-prime-interval",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+        "ref": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+        "text": "For all $x \\geq 468991632$, there exists a prime $p$ such that\n  \\[\n  x < p \\leq x\\Bigl(1 + \\frac{1}{5000 \\log^2 x}\\Bigr).\n  \\]"
+      }
+    ],
+    "root_axioms": {
+      "default": "'Dusart.corollary_5_5' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Dusart.corollary_5_5' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "26da2b622e835275629b7b2108160509f55cc2bfd878c88853416f3ea4da083e",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

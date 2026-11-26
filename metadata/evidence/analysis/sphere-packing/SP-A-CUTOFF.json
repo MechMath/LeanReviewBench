@@ -1,0 +1,38 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-A-CUTOFF",
+  "task_id": "sphere-packing:SP-A-CUTOFF",
+  "input_sha256": "f9f2a70e3467e76bec6300654c0584838b43b4502281bd12d15e5bb187da01ae",
+  "label": "misaligned",
+  "reason": "Multiplication by the cutoff changes the value at zero to zero instead of the target nonzero value.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "MagicFunction.a.SpecialValues.a_zero"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-packing.jsonl",
+      "id": "pr-485"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bound paper statement, expanding the selected auxiliary-function definitions and their quantitative constants.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root claims a(0)=−8640i/π, but all six actual Schwartz integral components are multiplied by a smooth cutoff through ofDecayOn(a:=1). The cutoff is 0 at the origin, so the wrapped function has a(0)=0.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

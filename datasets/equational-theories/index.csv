@@ -1,0 +1,8 @@
+id,root,commit,group_id,before_ids,after_ids,status
+etp-endtoend,EndToEnd.end_to_end1,8b87204d5b201e1cf6c69b8dcabb0558109bee00,graph-certification,,,ready
+etp-fullspectrum-1482,FullSpectrum.full_spectrum_Equation1482,8b87204d5b201e1cf6c69b8dcabb0558109bee00,full-spectrum-constructions,,,ready
+etp-fullspectrum-1682,FullSpectrum.full_spectrum_Equation1682,8b87204d5b201e1cf6c69b8dcabb0558109bee00,full-spectrum-constructions,,,ready
+etp-greedy1729,Eq1729.not_817,8b87204d5b201e1cf6c69b8dcabb0558109bee00,greedy1729-construction,,,ready
+etp-law-coverage,laws_complete',8b87204d5b201e1cf6c69b8dcabb0558109bee00,graph-certification,,,ready
+etp-obelix,Obelix.PartialSolution.Equation1491_facts,8b87204d5b201e1cf6c69b8dcabb0558109bee00,obelix-construction,,,ready
+etp-sheffer,Sheffer.Equation345169_is_Boolean;Sheffer.Sheffer_Equation345169,8b87204d5b201e1cf6c69b8dcabb0558109bee00,sheffer-axiomatization,,,misaligned

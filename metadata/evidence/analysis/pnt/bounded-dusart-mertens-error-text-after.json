@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-dusart-mertens-error-text-after",
+  "task_id": "pnt:bounded-dusart-mertens-error-text-after",
+  "input_sha256": "6624122e84b9aaf3efef8fc79571860aa6105d9ce040352ae551a7a30ef3adf5",
+  "label": "aligned",
+  "reason": "The source constant B3 equals the negative of mertensConstant, so log(x)-B3 matches log(x)+mertensConstant; the threshold and remainder agree.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Dusart.theorem_5_7"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1670"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The paper constant B3 is the negative of the retained mertensConstant. Thus log x−B3 and Formal log x+mertensConstant agree, and the threshold and O* remainder match.",
+  "review_scope": "The bound Mertens-type estimate with the specified B3 convention."
+}

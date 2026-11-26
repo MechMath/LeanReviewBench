@@ -1,0 +1,38 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-D3",
+  "task_id": "coarse-degiorgi:CDG-D3",
+  "input_sha256": "243c33cd92380a2b69abb3d6e5742c3da1e1e7cebb6cdd92497f760e5b6f8efd",
+  "label": "misaligned",
+  "reason": "Finite real exponents omit the infinity endpoint allowed by the full bound target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.moment_bounds_sobolev"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/coarse-degiorgi.jsonl",
+      "id": "theorem-d-finite-exponents"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/alignment-review-01/review-d3-l41.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The complete bound Theorem D, including infinite-exponent endpoints.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The full paired Theorem D includes the ∞ endpoints. Lean models p,q>1 as real numbers with finite-exponent formulas and does not express the ∞ endpoint branches.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

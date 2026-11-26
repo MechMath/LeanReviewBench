@@ -1,0 +1,65 @@
+{
+  "id": "int-uniform-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "APAP integer Kelley–Meka int-uniform-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "int",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/YaelDillies/apap",
+    "commit": "251c21abcbac96793baeb67050732380d94550aa",
+    "path": "APAP/Integer.lean",
+    "module": "APAP.Integer",
+    "declaration": "int",
+    "url": "https://github.com/YaelDillies/apap/blob/251c21abcbac96793baeb67050732380d94550aa/APAP/Integer.lean",
+    "sha256": "79d85781dde7385ab3f6a4f35fe41eac43a2f27c8d0c72aa23b7d652e95ea7d4",
+    "leads": []
+  },
+  "group_id": "apap:integer-bound",
+  "split_group": "YaelDillies/apap",
+  "before_ids": [
+    "int-uniform-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Combinatorics.Additive.AP.Three.Defs"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "9a0d8d35ef8448369f5d9356274b05883bab98103d2fefdbe4cd01b98943b93c",
+    "effective_root_sha256": "79d85781dde7385ab3f6a4f35fe41eac43a2f27c8d0c72aa23b7d652e95ea7d4",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/apap.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
+    "graph": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/default/graph.json",
+    "explicit_graph": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/explicit/graph.json",
+    "receipt_sha256": "4c7a0d28f1f7a502db6062c09ed6ef337645b76da045c338d29f840b6daf1057",
+    "packaged_receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-uniform-after/receipt.json",
+    "packaged_receipt_sha256": "4c7a0d28f1f7a502db6062c09ed6ef337645b76da045c338d29f840b6daf1057"
+  },
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9"
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-fullspectrum-1682",
+  "task_id": "equational-theories:etp-fullspectrum-1682",
+  "input_sha256": "a11e9e5f58572620e423ca2b1b51113661deee10fbe798ea4563c6cc5c74bfa5",
+  "label": "aligned",
+  "reason": "The quantifiers and equation syntax specify a model of law 1682 at every positive finite size. The additional size-zero case follows vacuously on the empty carrier.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FullSpectrum.full_spectrum_Equation1682"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-fullspectrum-1682.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The construction of models of law 1682 at all positive integer sizes; the broader law classification is excluded.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-fullspectrum-1682",
+    "root": "FullSpectrum.full_spectrum_Equation1682",
+    "input_sha256": "0f1d16d5c1648cb48c15316abcfdf4db2f03914eccd467e50ad027abf5238708",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "EqFullSpectrum requires a magma on Fin n satisfying equation 1682 for every n, with the equation's parentheses and model-existence quantifiers matching the source. The extra n=0 branch follows unconditionally from an operation on the empty type and the universal equation. The proof gives a piecewise operation for n>2, addition modulo 2 for n=2, and a projection for n≤1, covering all sizes.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, please mark it aligned; confirms aligned for equational-theories:etp-fullspectrum-1682 after reviewing the equation, all-size model quantification, the harmless empty-carrier branch, and the piecewise construction with small-size cases.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The explicitly selected construction of models of equation 1682 at every positive integer size in the current independent spectrum.tex; the paragraph's classification of 3074 laws, dual laws and classification completeness are excluded.",
+    "evidence_locations": {
+      "informal_and_selected_scope": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal.jsonl",
+        "line": 1,
+        "sha256": "ee1d52f597649db09a3bf2099e5630ec1791cc9f9f39aaea818d790fb0df2efa"
+      },
+      "positive_size_spectrum": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal-source/paper/spectrum.tex",
+        "line": 3,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "source_model_construction": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal-source/paper/spectrum.tex",
+        "line": 20,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "source_all_sizes_claim": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/informal-source/paper/spectrum.tex",
+        "line": 22,
+        "sha256": "2c1687c38962915fb6cb8dda6d3f28c52311e28b81afed4f0af12cdb25849cda"
+      },
+      "spectrum_definition_and_notation": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 25,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "root_and_piecewise_operation": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 162,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "two_element_case": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 234,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "zero_and_one_element_case": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/FullSpectrum.lean",
+        "line": 241,
+        "sha256": "b388ee3beda909c61f99da4bb91287217f32f213e939620aeccda655cb72869d"
+      },
+      "equation_1682": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/Equations/Eqns1000_1999.lean",
+        "line": 688,
+        "sha256": "44155045d2091d0ca3478ad596c4c3cd3abb5408260e2b3684db598310a1612b"
+      },
+      "universal_equation_elaboration": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/Equations/Command.lean",
+        "line": 106,
+        "sha256": "09edfbeb822f086d8b360879cec45fa58f7a75814aac4304b648bb7f18cf5e00"
+      },
+      "magma_definition": {
+        "path": "datasets/equational-theories/projects/etp-fullspectrum-1682/formal/dep/equational_theories/Magma.lean",
+        "line": 10,
+        "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+      }
+    },
+    "semantic_argument": [
+      "HasFullSpectrum [1682] unfolds to ∀n:ℕ,∃M:Magma(Fin n),Equation1682 (Fin n) M. Fin n has exactly n elements. The operation of any finite n-element model can be transported to Fin n along a bijection, preserving the equation.",
+      "Equation1682 is ∀x,y, x=(y◇x)◇((x◇x)◇y). Its variables, occurrence multiplicities and parentheses match the source target bound to this case.",
+      "The source discusses positive integer sizes, while the formal statement also includes n=0. Magma requires only a binary operation, which exists uniquely on the empty type, and the universal equation holds automatically. The zero-size branch therefore follows unconditionally and adds no substantive requirement, so the two versions are equivalent.",
+      "For n>2, the proof supplies an explicit operation branching on input values, comparisons and parity. Each branch returns a constant, an input, or an input plus or minus 1, with a proof that the result remains in Fin n. This corresponds to the source's piecewise-linear model.",
+      "For n=2, the operation is (x+y) mod 2, under which the equation's right side becomes (y+x)+((x+x)+y)=x. For n≤1, a projection operation handles the empty and singleton cases.",
+      "This review strictly uses the frozen target of constructing models of one equation at every size. It does not add the paragraph's classification statistics, dual laws or classification-completeness requirements to this root."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "equation_and_construction_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checks the semantics of the definitions, statement and explicit construction, without adding a Lean equivalence proof or recompiling the project.",
+      "The equivalence interpretation of the zero-size branch relies on the current Magma having no nonemptiness axiom and Equation1682 being a universal equation.",
+      "The label is not extended to the paragraph's full classification claims or the next case, Eq1729.not_817.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines this positive label with the existing compilation/extraction status.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "EqFullSpectrum requires a magma on Fin n satisfying equation 1682 for every n, with the equation's parentheses and model-existence quantifiers matching the source. The extra n=0 branch follows unconditionally from an operation on the empty type and the universal equation. The proof gives a piecewise operation for n>2, addition modulo 2 for n=2, and a projection for n≤1, covering all sizes.",
+  "retained_review_scope": "The explicitly selected construction of models of equation 1682 at every positive integer size in the current independent spectrum.tex; the paragraph's classification of 3074 laws, dual laws and classification completeness are excluded."
+}

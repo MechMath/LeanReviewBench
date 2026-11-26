@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "vaught",
+  "project_id": "twoface-before",
+  "task_id": "vaught:twoface-before",
+  "input_sha256": "78aa834cc1885b783b3b9e5b47a045696eefa2d6fc2cd38de676350763ea8bad",
+  "label": "misaligned",
+  "reason": "A universal extension premise absent from the independent completion/R1 target is added; retained witnesses refute that premise in the relevant stages.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/vaught.jsonl",
+      "id": "twoface-refutation"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/vaught-preparation/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review_packet",
+      "locator": "reports/vaught-preparation/inputs/case-r7.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The independent roadmap completion criterion, rather than the conditional formal docstring; upstream disclosures are evidence, not exclusions.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The independent zero-or-limit-stage apex coatom-extension goal has no universal two-face-lifting premise. The formal root adds that premise, refuted at every stage by the upstream legal-seed witness, so it does not express the frozen completion criterion. This is a goal-relative mismatch, not a claim that its explicitly conditional docstring is false.",
+  "retained_review_scope": "Frozen independent roadmap completion criterion; not the conditional theorem docstring. Author disclosures are evidence, not exclusion grounds."
+}

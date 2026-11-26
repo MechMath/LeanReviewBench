@@ -1,0 +1,83 @@
+{
+  "id": "reparametrization-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere eversion reparametrization-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "smooth_surrounding_family.reparametrize_average",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/leanprover-community/sphere-eversion",
+    "commit": "357f2951c949baa5a3bcf6166a26b8205ff1deaf",
+    "path": "src/loops/reparametrization.lean",
+    "module": "loops.reparametrization",
+    "declaration": "smooth_surrounding_family.reparametrize_average",
+    "url": "https://github.com/leanprover-community/sphere-eversion/blob/357f2951c949baa5a3bcf6166a26b8205ff1deaf/src/loops/reparametrization.lean",
+    "sha256": "8dcdae0f5e84b019cac912b71147e7825b4938d433471eb12fab2dd86fc91abd"
+  },
+  "group_id": "sphere-eversion-reparametrization",
+  "split_group": "leanprover-community/sphere-eversion",
+  "before_ids": [
+    "reparametrization-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 2,
+    "sha256": "4c5abc61d11afaa8b5773f24b7d27ec64f41ff016a3bce4a4144547b6ad4d67c",
+    "effective_root_sha256": "1fd3857546de0c63a514b2926957f1f93595d3329c17051361ea7caec6e35573",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/sphere-eversion-pr51/repaired/reparametrization-after/20261105T044559077033Z/receipt.json",
+    "receipt_sha256": "b024c882824070317b4a143c29e4a4fd9ae8f5655e72c3ad9ff72190743bceb1",
+    "packaged_receipt": "reports/sphere-eversion-pr51/repaired/reparametrization-after/20261105T044559077033Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "5cc5c9104a2a1866d83e4121f2568504d4aaf3b32361ee5a2f0de2223b164672",
+    "formal_snapshot_id": "reparametrization-after",
+    "formal_source_revision": "357f2951c949baa5a3bcf6166a26b8205ff1deaf",
+    "target_bindings": [
+      {
+        "path": "reports/sphere-eversion-pr51/sources/357f2951c949baa5a3bcf6166a26b8205ff1deaf/blueprint/src/loops.tex",
+        "sha256": "9058633bb89b317932020f5394c04abd110b85a2b8561c29e9f3d79b332c6486",
+        "ref": "357f2951c949baa5a3bcf6166a26b8205ff1deaf",
+        "locator": "lem:reparametrization",
+        "text": "\\begin{lemma}\n\\label{lem:reparametrization}\n\\uses{def:surrounds, def:average}\n\\lean{smooth_surrounding_family.reparametrize_average}\n\\leanok\nLet $γ \\co E × 𝕊^1 → F$ be a smooth family of loops surrounding\na map $g$.\nThere is a smooth family of equivalences $φ \\co E × 𝕊^1 → 𝕊^1$ such\nthat each $γ_x ∘ φ_x$ has average $g(x)$ and $φ_x(0) = 0$.\n\\end{lemma}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'smooth_surrounding_family.reparametrize_average' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'smooth_surrounding_family.reparametrize_smooth_at' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'smooth_surrounding_family.reparametrize_map_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'smooth_surrounding_family.reparametrize_average' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'smooth_surrounding_family.reparametrize_smooth_at' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'smooth_surrounding_family.reparametrize_map_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/sphere-eversion-admission/review.json",
+    "approach": "Local Lean3 syntax/API port preserving historical statements, concrete inverse-integral construction and selected original holes",
+    "supporting_declarations": [
+      "smooth_surrounding_family.reparametrize_smooth_at",
+      "smooth_surrounding_family.reparametrize_map_zero"
+    ],
+    "assessment_scope": "own-version average clause",
+    "historical_sorryAx": true
+  },
+  "input_sha256": "f49456a3411f317cc860bc9d4952d264e1eb0381e9b5949687529f67430eb847",
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/sphere-eversion.jsonl"
+}

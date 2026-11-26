@@ -1,0 +1,5 @@
+# arklib
+
+Historical source snapshots promoted from staging into formal project layout. Original sources, independent informal evidence, compatibility patches and historical technical receipts are retained per project. Relocation compilation and graph receipts are separate; no semantic reference labels are assigned.
+
+Current selection: 12 inputs and 5 before/after links. The four high-cost Binius/Hachi migration candidates were removed from registration and archived; see [migration decisions](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/MIGRATION-DECISIONS.md). The four KZG function/reduction inputs now have independent target excerpts and bindings. Function-binding uses dated cached paper text; its exact original PDF revision/hash remains unavailable. See [material follow-up](https://github.com/MechMath/PaperLeanBench/blob/18086147ad0f8bcac09485289aeda217747de2f6/reports/pending-extraction-2026-11-13/MATERIALS.md).

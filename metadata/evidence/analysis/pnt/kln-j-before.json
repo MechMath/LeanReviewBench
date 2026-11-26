@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "kln-j-before",
+  "task_id": "pnt:kln-j-before",
+  "input_sha256": "97a7f5f5d401e14fda60e9e14ee7b7d2cd1bb44395d2ef8b7e3a5acba028c692",
+  "label": "misaligned",
+  "reason": "Log powers, log(kT) versus log(T), quotient parentheses, and the a2 constant differ from the independently bound formula.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "KLN.J"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-source-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The independent definition in equation (4.17) of the author's paper has been bound. The formal statement differs in the logarithmic power in the integral, log(kT) versus log T, the parentheses dividing the entire numerator, and the a₂ constant. The after version fixes only the fractional power of T; the other differences remain. See the component-by-component formula comparison and numerical distinction.",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
+}

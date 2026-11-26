@@ -1,0 +1,93 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "int-sign-before",
+  "task_id": "apap:int-sign-before",
+  "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+  "label": "misaligned",
+  "reason": "The denominator uses exp(-c*(log N)^(1/12)) instead of exp(c*(log N)^(1/12)), replacing decay by growth. The constant c is chosen after the input parameters and hypotheses, losing the independent uniform-constant requirement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "int"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/int-sign-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound asymptotic estimate with one positive constant uniform in A and N.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "int-sign-before",
+    "root": "int",
+    "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The exponent has the opposite sign from the source: the formal denominator is exp(-c*(log N)^(1/12)), yielding the growing upper bound N*exp(c*(log N)^(1/12)), which follows from |A|≤N alone when N≥1. In addition, c is existentially quantified after A, N and their hypotheses, rather than expressing the uniform positive constant required by the source.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): This also looks misaligned; if you agree, mark it misaligned; assistant agrees on the exponent-sign and quantifier-order mismatches for apap:int-sign-before.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The exponent-1/12 bound in the main paragraph of the currently frozen README, interpreted as requiring one uniform c>0 for all A and N. Only this int-sign-before input.",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/int-sign-before/informal.jsonl:1",
+      "root": "datasets/apap/projects/int-sign-before/formal/Main.lean:10"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/int-sign-before/informal.jsonl": "6fbfb7eda4c213b1c0da1898802478b09892291475f5f93fe56fcae712590f13",
+      "datasets/apap/projects/int-sign-before/formal/Main.lean": "9ba2eb6c97ca9ff7fe8037a854d1b5fd74e75d20291067fa4fed359a4557b1a8"
+    },
+    "formula_comparison": {
+      "source": "|A| <= N / exp(c * (log N)^(1/12)) = N * exp(-c * (log N)^(1/12))",
+      "formal": "|A| <= N / exp(-c * (log N)^(1/12)) = N * exp(c * (log N)^(1/12))"
+    },
+    "quantifier_comparison": {
+      "source": "exists c > 0, forall N A, P(A,N) -> bound(c,A,N)",
+      "formal": "forall N A, P(A,N) -> exists c > 0, bound(c,A,N)",
+      "formal_binders": "A and N are implicit universal parameters; hAN and hA precede the existential c."
+    },
+    "semantic_argument": [
+      "For N≥1, log N≥0. Set L=(log N)^(1/12)≥0; for every c>0, we have 0<exp(-cL)≤1.",
+      "The formal right-hand side is therefore N/exp(-cL)=N*exp(cL)≥N. The premise A⊆range N already gives |A|≤N, without ThreeAPFree.",
+      "For N=0, A⊆range 0 forces A=∅, and the right-hand side is 0, so the numerical conclusion also holds. One can choose c=1 in all these branches.",
+      "For N>1, the source's positive-exponent denominator gives an upper bound strictly below N, while the formal negative-exponent denominator gives one strictly above N, losing the density-decay content.",
+      "The formalization also existentially quantifies c after A, N and their hypotheses, failing to retain the source's quantifier order for a uniform constant."
+    ],
+    "endpoint_convention": "Adding 1 to each element of range N gives a subset of {1,...,N}, preserving cardinality and the nontrivial three-term arithmetic-progression property; this endpoint difference is not used to support the negative label.",
+    "separate_source_issue": {
+      "N": 2,
+      "source_A": [
+        1,
+        2
+      ],
+      "argument": "The source's two-element interval contains no nontrivial three-term arithmetic progression, but for every c>0 its decaying upper bound is strictly below 2, so the current source lacks a small-N qualification. This before version's growing bound does not have that failure.",
+      "needed_source_clarification": "The source needs an appropriate small-N qualification; this review retains the frozen input and records the source issue only.",
+      "relation_to_label": "The exponent sign and the quantification of the uniform constant suffice to support the negative label, independently of the small-N defect in the source."
+    },
+    "verification": {
+      "method": "Source statement and binder comparison, with symbolic inequalities using exp positivity and monotonicity.",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "The frozen source uses lowercase log n and contains an extra parenthesis. Its mathematical interpretation follows the context as log N; the source file is retained as written.",
+      "The later improvement to exponent 1/9 described in a subsequent README section is outside this scope.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
+    ]
+  },
+  "retained_reason": "The exponent has the opposite sign from the source: the formal denominator is exp(-c*(log N)^(1/12)), yielding the growing upper bound N*exp(c*(log N)^(1/12)), which follows from |A|≤N alone when N≥1. In addition, c is existentially quantified after A, N and their hypotheses, rather than expressing the uniform positive constant required by the source.",
+  "retained_review_scope": "The exponent-1/12 bound in the main paragraph of the currently frozen README, interpreted as requiring one uniform c>0 for all A and N. Only this int-sign-before input."
+}

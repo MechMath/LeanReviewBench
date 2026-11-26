@@ -1,0 +1,104 @@
+{
+  "id": "LMMS04FairDivision-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "LMMS04FairDivision",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "3523dfea9e3d6e6fa54db3594fe2b3140a31f18d",
+    "path": "papers/LMMS04FairDivision/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d/papers/LMMS04FairDivision/PaperInterface.lean",
+    "declaration": "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset",
+    "sha256": "5b853152c5d59318b15fc0cf779329c9afc5280bc58faa7b6f0ccc064b610133",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/cf500b748ac63dbff55faf97d989d4935c8eff50",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e9f7579ce3c4ddaffff0648ea5a265cbff57de10",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d"
+    ],
+    "module": "LMMS04FairDivision.PaperInterface"
+  },
+  "group_id": "aml:LMMS04FairDivision-before",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [
+    "LMMS04FairDivision-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Cslib.Foundations.Data.RelatesInSteps",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+    "Mathlib.Data.Finset.Basic",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.Basic",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.Pi",
+    "Mathlib.Data.Fintype.Powerset",
+    "Mathlib.Data.List.Chain",
+    "Mathlib.Data.Nat.Find",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Defs",
+    "Mathlib.Data.Set.Finite.Basic",
+    "Mathlib.GroupTheory.Perm.List",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.SFinite",
+    "Mathlib.Order.Interval.Set.LinearOrder",
+    "Mathlib.Order.WellFoundedSet",
+    "Mathlib.Probability.CDF",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Instances.Real.Lemmas"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/3523dfe-LMMS04FairDivision/LMMS04FairDivision-after/graph.json",
+      "sha256": "0329e9bd0b9608acbd3af7e5b94c3d10e4faf0c29f8ed75eee4c0ab11172b8d4"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "sha256": "ad159a2b5842df9895a0bae159503cf125ff0e8de1d9e10feb0fc16d6c3e07c8"
+    }
+  },
+  "input_sha256": "cf211fdc0480bf483ba954b243896796cf0f80a63593462c3826f48bb39a2024",
+  "external_boundaries": [
+    "Mathlib",
+    "Cslib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 6,
+    "sha256": "2f4fbaecfe646b5f55e409b8564d6f1eae2c7ad5727a6a71a54d419d2861b006",
+    "effective_root_sha256": "37b7a6e7b084b10f4af48c4f80df60872511c74d32d71c48f5107dd0408bc8f4",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "bounded-dusart-mertens-error-text-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-dusart-mertens-error-text-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Dusart.theorem_5_7",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+    "path": "PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "declaration": "Dusart.theorem_5_7",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+    "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67"
+  },
+  "group_id": "pnt-Dusart.theorem_5_7",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "bounded-dusart-mertens-error-text-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "1394fc3b48451bdeed83657f9dcaa68a465265826f9fa1bb6b5623339c501dfc",
+    "effective_root_sha256": "d5581d5c09cfc22f78729170da9cca630e3943a1ea03f7d073724eeef09814f1",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-mertens-error/20261105T053701812583Z/receipt.json",
+    "receipt_sha256": "f45513af2d95be073bcfe9390fe0498377dde6b0112cca1c045c911e751946ad",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-dusart-mertens-error/20261105T053701812583Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "8c2c6883d90c6b121fee2e9c0cc3152dc9ad74bfc837aeaf8896692539877a55",
+    "formal_snapshot_id": "bounded-dusart-mertens-error",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/57b0698f119db17fae2ee01a4e56651a9b96ea5c/PrimeNumberTheoremAnd/IEANTN/Dusart.lean",
+        "sha256": "3f29d0e2c2aab1786faeb8cd53db21876af2726d012eac2ffd721f7c6acbdf67",
+        "ref": "57b0698f119db17fae2ee01a4e56651a9b96ea5c",
+        "text": "We have for $x \\geq 912560$,\n  \\[\n  \\sum_{p \\leq x} \\frac{\\log p}{p} = \\log x - B_3 + O^*\\Bigl(\\frac{0.3}{\\log^2 x}\\Bigr),\n  \\]\n  where $B_3 \\approx 1.33258$ is the constant from \\cite[Theorem 5.7]{Dusart2018}."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Dusart.theorem_5_7' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Dusart.theorem_5_7' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "6624122e84b9aaf3efef8fc79571860aa6105d9ce040352ae551a7a30ef3adf5",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

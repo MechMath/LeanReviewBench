@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "classical-zero-free-text-before",
+  "task_id": "pnt:classical-zero-free-text-before",
+  "input_sha256": "a90f3e5f0b4614bddbbb10f8724851a311cfc6cf367f6ca30975662cbd48e874",
+  "label": "misaligned",
+  "reason": "The defining boundary uses 1-1/(R log(t)) instead of 1-log(abs(t))/R. The parameter condition includes t=3 while the bound text requires t>3.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "riemannZeta.classicalZeroFree"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The text's boundary is 1−(log|t|)/R with t>3, whereas the formal boundary is 1−1/(R log t) with t≥3. These define different regions: for example, at R=1,t=e², the former requires σ≥−1 and the latter σ≥1/2.",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
+}

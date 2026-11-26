@@ -1,0 +1,51 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "formalslt",
+  "project_id": "mixture-after",
+  "task_id": "formalslt:mixture-after",
+  "input_sha256": "9071b80d760f0521904b7364c8b90f56606203e16783e53e6a7d78a49dc1a48d",
+  "label": "aligned",
+  "reason": "The probability model, increment assumptions, predictable variance proxy, uniform-prior Bernstein mixture, and crossing-probability bound match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/formalslt.jsonl",
+      "id": "mixture-vacuity"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/formalslt-history/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "labeling_review",
+      "locator": {
+        "path": "reports/formalslt-labeling/case-m4.json",
+        "sha256": "e3228ee995eea0485e078abef591480d800a466e189b813f28e6e5bc9b26aeba",
+        "case_id": "case-m4",
+        "packet_path": "reports/formalslt-labeling/inputs/case-m4.json",
+        "packet_sha256": "6ebb593d24f30576a2e37a2416fd41bd16e8e9bb94e1f5cfb4cf15c26bd0bbac",
+        "reviewed_input_sha256": "9067f5e19eddd50865d57acc87644a1299d772b7be021003462e45c6a1131c27",
+        "review_kind": "independent_blinded_subagent",
+        "source_review_path": "reports/formalslt-history/semantic-review.json",
+        "proofs_and_existing_labels_shown": false,
+        "confidence": 0.99,
+        "confidence_kind": "uncalibrated_self_report"
+      },
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bounded-increment specialization with a compact uniform prior and predictable variance proxy; realized sample variance is excluded.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root's probability model, hypotheses and crossing conclusion match the informal statement. Unfolding the reachable definitions gives exactly the integral of exp(lambda*S_n - n*sigma2*lambda^2/(2*(1-b*lambda/3))) under the normalized uniform prior on [lam0,lam1]. The root bounds by delta the probability that some n>0 reaches at least 1/delta.",
+  "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
+}

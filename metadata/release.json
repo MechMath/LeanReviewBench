@@ -1,0 +1,60 @@
+{
+  "schema_version": "paperlean-local-release-1",
+  "source_commit": "18086147ad0f8bcac09485289aeda217747de2f6",
+  "research_docs_commit": "2f471585a4b71adb32f6e3fac214e366ce8979ae",
+  "dataset_schema": "paperlean-project-case-1",
+  "inputs": 171,
+  "batches": {
+    "applied-modeling-lib": 30,
+    "carleson": 7,
+    "coarse-degiorgi": 7,
+    "sphere-packing": 9,
+    "formalslt": 6,
+    "vaught": 3,
+    "statsmllib": 2,
+    "brownian-motion": 2,
+    "pfr": 24,
+    "sphere-eversion": 6,
+    "pnt": 40,
+    "stacks": 5,
+    "arklib": 12,
+    "imperial-flt": 5,
+    "equational-theories": 7,
+    "apap": 6
+  },
+  "labels": {
+    "misaligned": 90,
+    "aligned": 81
+  },
+  "formal_files": 3075,
+  "reference_ready": 0,
+  "model_export_status": "Native project-case data; no frozen model task export is asserted.",
+  "omitted": [
+    "excluded and technically deferred candidate packages",
+    "qwen experiment runs",
+    "per-declaration and duplicate graph encodings",
+    "build caches",
+    "optional original/ copies, source caches, patches and construction logs",
+    "regenerable dependency graphs and historical graph/composition intermediates"
+  ],
+  "packaging_policy": "Statement-only declaration closures and required source/runtime support; per-input CHANGES.md records Lean migration edits.",
+  "excluded_batches": {
+    "stat-learning-theory": {
+      "repository": "YuanheZ/lean-stat-learning-theory",
+      "inputs": 1,
+      "reason": "Excluded by curator decision: full historical migration remains incomplete; statement-only context recovery does not qualify this batch for the retained release."
+    }
+  },
+  "review_inputs": 26,
+  "review_batches": {
+    "qinz1yang": 15,
+    "frenzymath": 11
+  },
+  "total_retained_inputs": 197,
+  "review_status": "All 197 retained inputs are human reviewed: 87 aligned and 110 misaligned. FM-COVERING-before is aligned under its explicitly adjudicated positive-dimensional source interpretation; the zero-dimensional alternative is retained in its review. The original-release and added-batch inventory partitions are retained for compatibility; neither added batch awaits human review. Historical license scope remains separate.",
+  "total_retained_labels": {
+    "aligned": 87,
+    "misaligned": 110
+  },
+  "human_review_pending": 0
+}

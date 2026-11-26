@@ -1,0 +1,73 @@
+{
+  "id": "bounded-robin-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-robin-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Robin.p_n_lower_const1",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "be5e07e04cde20c5ceabf63759bd097a9c88173f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "declaration": "Robin.p_n_lower_const1",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac"
+  },
+  "group_id": "pnt-Robin.p_n_lower_const1",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "bounded-robin-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "5b89ed3072aff02629d5526da9f523cb42e37a7a2262af6e207df43d6018d93f",
+    "effective_root_sha256": "e09d159430452650043b0088eee498029191a68d5f465fbbe13dd9dc49d4bd17",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-robin-after/20261105T053606612097Z/receipt.json",
+    "receipt_sha256": "dabe1af254517e07b2f1027b80f5214aef7f4baf89358d234d61f069f8fb496c",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-robin-after/20261105T053606612097Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "0edfedaee48545f56a8e0f7d01b8efd0cb9dcad5800a4e8e2a97394d05b97842",
+    "formal_snapshot_id": "bounded-robin-after",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/be5e07e04cde20c5ceabf63759bd097a9c88173f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "e28a291d97bbb0276ff5dd5729faa2d0ce583ce3dad2dae9a880fbd0d33de9ac",
+        "ref": "be5e07e04cde20c5ceabf63759bd097a9c88173f",
+        "text": "For $n \\geq 2$ with $p_n \\leq 10^{11}$, we have\n  $p_n > n(\\log n + \\log\\log n - 1)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Robin.p_n_lower_const1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Robin.p_n_lower_const1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "0187e2bed2547fc398e238c2e314fc888cd01f151c3df4b2c041fa0a49b55ca5",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

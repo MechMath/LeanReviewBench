@@ -1,0 +1,43 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-TENSOR-BUNDLE-after",
+  "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
+  "formal_sha256": "0aaf58b53553b8d5f0de6be7ed63badc267056d571c83885235c757003b7e90d",
+  "roots": [
+    "Tensor0SBundle.tensor0SBundle_topology",
+    "Tensor0SBundle.tensor0SBundle_smooth"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "108125bcdbf162d495cefcf018ace7530c647db264e9983102c07f6100fb80b1",
+  "nodes": 186,
+  "edges": 1532,
+  "local_nodes": 35,
+  "compiled_sources": {
+    "Main.lean": "249af692e069721c6fb35b470d6712ce6d7c418d636c845993fed84d5c0b4927",
+    "dep/Multilinear/Bundle.lean": "b6b8d3124230331042af179792f9d33370cc2ba28a0d49d56aee5b0bfeecc2d7"
+  },
+  "statement_preservation_recorded": "passed_entire_selected_declaration_closure_in_migrated_environment",
+  "nonproof_preservation_recorded": "passed_all_selected_source_level_nonproof_values_and_data_fields",
+  "source_preservation_method": "See archived full receipt for the source/context comparison and nominal-identity qualifications.",
+  "preservation_status_recorded": "passed_in_migrated_environment",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-TENSOR-BUNDLE-after/preservation.json",
+  "archived_receipt_sha256": "b2ac59b5bef69af9437b78c2c8f7c2cba4f9acf9806f6ffc4024bbc9f907ec2b",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

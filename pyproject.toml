@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leanreviewbench"
+version = "0.1.0"
+description = "Native LeanReviewBench project-case inspection and validation"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+dependencies = []
+
+[project.scripts]
+leanreviewbench = "scripts.data.inspect_dataset:main"
+
+[tool.setuptools.packages.find]
+include = ["scripts*"]
+
+[tool.setuptools.package-data]
+"scripts.evaluation" = ["*.json", "*.md", ".env.example"]

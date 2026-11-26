@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-CHART-PICARD-before",
+  "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
+  "formal_sha256": "40a39f08b0f6e94736b6358288cf757fb98f6c0a27756b4aad889ab7a809f699",
+  "roots": [
+    "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "96a9c98d723d6ae0a70338701831c6c9377d244ae9cbf312c0d334e98398ff63",
+  "nodes": 90,
+  "edges": 89,
+  "local_nodes": 1,
+  "compiled_sources": {
+    "Main.lean": "637a8358564786a2bc240d9ea6291bf94ece7ef3bfe8f3e00c6fc7aaf15b6dfa"
+  },
+  "statement_preservation_recorded": "passed_full_root_type_in_migrated_environment",
+  "nonproof_preservation_recorded": "not_applicable_no_local_helper_values",
+  "source_preservation_method": "See archived full receipt for the source/context comparison and nominal-identity qualifications.",
+  "preservation_status_recorded": "passed_in_migrated_environment",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-CHART-PICARD-before/preservation.json",
+  "archived_receipt_sha256": "3100cca847036a65ef3a9c1d7f5c2b87638426b385e864e4dcaa598494945db5",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

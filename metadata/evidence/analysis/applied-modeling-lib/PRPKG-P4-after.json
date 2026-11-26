@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "PRPKG-P4-after",
+  "task_id": "aml:PRPKG-P4-after",
+  "input_sha256": "911a8bb9ea57c21000ec9854355dd286869694adbd93e78f01979db32b56e4ac",
+  "label": "misaligned",
+  "reason": "Continuity of the radial probability kernel is an additional substantive premise absent from the bound full proposition.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Proposition 4 does not require its radial, nonconstant probability kernel to be continuous. Lean adds Continuous p as a premise, narrowing applicability. Submission-review supplement: the upstream verdict is matches_approved_corrected_target, coverage_status is corrected_source_statement, and archival_equivalence_claimed=false. Thus that label confirms a corrected target including continuity and other conditions; it cannot be directly converted to aligned for the current pairing with the original paper statement.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

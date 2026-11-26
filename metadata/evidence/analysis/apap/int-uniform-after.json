@@ -1,0 +1,95 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "int-uniform-after",
+  "task_id": "apap:int-uniform-after",
+  "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
+  "label": "aligned",
+  "reason": "The uniform positive constant, exponent sign, and 1/12 power match. The unused positive constant is eliminable and interval endpoints correspond by translation; both statements retain the same unresolved small-N qualification.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "int"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/int-uniform-after.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound README asymptotic estimate with one positive constant uniform in A and N; alignment does not certify the estimate itself.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "int-uniform-after",
+    "root": "int",
+    "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "The uniform constant c, exponent sign and power 1/12 match the current source. The unused existential C>0 can be eliminated by taking C=1, and the interval endpoints correspond under translation. Both statements lack a small-N qualification, so the mathematical validity of the source still requires correction.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned and then look at the next case; confirms the preceding statement-alignment explanation and shared small-N caveat for apap:int-uniform-after.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "Alignment with the exponent-1/12 statement in the main paragraph of the currently frozen README, interpreted as requiring one uniform c>0 for all A and N. Only this int-uniform-after input; neither statement is certified as true.",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/int-uniform-after/informal.jsonl:1",
+      "root": "datasets/apap/projects/int-uniform-after/formal/Main.lean:10"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/int-uniform-after/informal.jsonl": "6fbfb7eda4c213b1c0da1898802478b09892291475f5f93fe56fcae712590f13",
+      "datasets/apap/projects/int-uniform-after/formal/Main.lean": "79d85781dde7385ab3f6a4f35fe41eac43a2f27c8d0c72aa23b7d652e95ea7d4"
+    },
+    "quantifier_comparison": {
+      "source": "exists c > 0, forall N A, P(A,N) -> |A| <= N / exp(c * (log N)^(1/12))",
+      "formal": "exists c > 0, exists C > 0, forall N A, P(A,N) -> |A| <= N / exp(c * (log N)^(1/12))",
+      "unused_C": "C does not occur in any later hypothesis or conclusion; choose C=1 to introduce it, or discard its witness to eliminate it."
+    },
+    "semantic_argument": [
+      "The quantifier ∃c>0 precedes ∀A,N, expressing a uniform positive constant independent of A and N.",
+      "Both the source and the formal statement use denominator exp(c*(log N)^(1/12)), with the same sign and real fractional power.",
+      "The witness for ∃C>0 is unused in the remaining proposition. It can be supplied as C=1 and discarded in the reverse direction, without changing the remaining proposition.",
+      "The translation a↦a+1 from range N to {1,...,N} preserves cardinality and three-term arithmetic progressions; its inverse on the positive-integer interval is a↦a-1. The uniform constant c need not change with A or N.",
+      "The extra branch N=0 contains only the empty set, and its numerical inequality is 0≤0."
+    ],
+    "separate_source_issue": {
+      "N": 2,
+      "formal_A": [
+        0,
+        1
+      ],
+      "source_A": [
+        1,
+        2
+      ],
+      "argument": "A two-element interval contains no nontrivial three-term arithmetic progression, and log 2>0. For every c>0, 2/exp(c*(log 2)^(1/12))<2, so both current literal statements fail.",
+      "unused_C_does_not_repair": "C appears neither in the conclusion nor in a restriction on N, so it cannot serve as a multiplicative constant or a sufficiently-large-N threshold.",
+      "needed_source_clarification": "The mathematical source's small-N condition or effective multiplicative constant needs a separate correction and rebinding to the new input; this review did not modify the input.",
+      "evaluation_eligible": false,
+      "relation_to_label": "The aligned label confirms only the correspondence between the currently bound statements; it does not establish mathematical validity or evaluation readiness."
+    },
+    "status_semantics": "Under the repository's existing convention, compiled and extracted projects labeled aligned use status=ready; historical_status, technical_status and evaluation_eligible=false retain their existing values.",
+    "verification": {
+      "method": "Source statement and binder comparison; dummy existential elimination and translation argument; shared small-N issue checked symbolically.",
+      "lean_equivalence_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "The frozen source uses lowercase log n and contains an extra parenthesis. Its mathematical interpretation follows the context as log N; the source file is retained as written.",
+      "The later improvement to exponent 1/9 described in a subsequent README section is outside this scope.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
+    ]
+  },
+  "retained_reason": "The uniform constant c, exponent sign and power 1/12 match the current source. The unused existential C>0 can be eliminated by taking C=1, and the interval endpoints correspond under translation. Both statements lack a small-N qualification, so the mathematical validity of the source still requires correction.",
+  "retained_review_scope": "Alignment with the exponent-1/12 statement in the main paragraph of the currently frozen README, interpreted as requiring one uniform c>0 for all A and N. Only this int-uniform-after input; neither statement is certified as true."
+}

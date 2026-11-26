@@ -1,0 +1,82 @@
+{
+  "id": "LG21-report_required-source_witness_of_base_crossings",
+  "schema_version": "paperlean-project-case-1",
+  "title": "LG21TestOptionalPolicies",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings",
+      "informal_id": "paper-1"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "25686396b1003e5e5bf44b06a1bf6f0319658660",
+    "path": "papers/LG21TestOptionalPolicies/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/25686396b1003e5e5bf44b06a1bf6f0319658660/papers/LG21TestOptionalPolicies/PaperInterface.lean",
+    "declaration": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings",
+    "sha256": "4b9927999dad66271c374186117bd6d188be7a89ba6ba1cf0e9deb0bc717f71a",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/25686396b1003e5e5bf44b06a1bf6f0319658660"
+    ],
+    "module": "LG21TestOptionalPolicies.PaperInterface"
+  },
+  "group_id": "aml:LG21-report_required-source_witness_of_base_crossings",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.Field.Basic",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Ring.Real",
+    "Mathlib.Topology.Instances.Real.Lemmas",
+    "Mathlib.Topology.Order.IntermediateValue"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/2568639-LG21TestOptionalPolicies/LG21-report_required-source_witness_of_base_crossings/graph.json",
+      "sha256": "7edd80c800f96dd49c07bd3147565ab94cfc431b8a4259a01904a969c04c8b4d"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "sha256": "c7a5dfacce8ae086283947d8f0598b328fd9584644711365a529fb617518b768"
+    }
+  },
+  "input_sha256": "2270f9b71c79a2707fcb0475a06d85a8a83eff29414f2485f267ab008ba9d72d",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "67eefeaf60d2a4dc50fda8f573e45f16a5b2e919aca77fbe8388a1114bcf99ef",
+    "effective_root_sha256": "ec7e7f5f204a68cc7df74cfa7d4f50e1c97bad2e1070dededccb191ddfd816b1",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

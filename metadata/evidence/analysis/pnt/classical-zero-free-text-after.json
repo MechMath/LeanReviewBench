@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "classical-zero-free-text-after",
+  "task_id": "pnt:classical-zero-free-text-after",
+  "input_sha256": "ea41ea98b29e1a326bcacba2bce2997ef2de9a49c14ad2bfdb7d7b38a931af44",
+  "label": "aligned",
+  "reason": "Both definitions exclude zeta zeros when t>=3 and sigma>=1-1/(R*log(|t|)); |t|=t on this domain.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "riemannZeta.classicalZeroFree"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Both the text and the formal statement require ζ(σ+it)≠0 for t≥3 and σ≥1−1/(R log|t|). Since t≥3 implies |t|=t, the formulas and endpoint conditions agree.",
+  "review_scope": "The bound zero-free-region definition, including t=3."
+}

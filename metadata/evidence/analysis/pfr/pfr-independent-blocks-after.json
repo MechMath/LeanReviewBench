@@ -1,0 +1,46 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pfr-independent-blocks-after",
+  "task_id": "pfr:pfr-independent-blocks-after",
+  "input_sha256": "073f911a919ddfef0914ce9d9dc0ba2111bdc8eeeb0e3ab69bb505db1497fbad",
+  "label": "aligned",
+  "reason": "The root permits any block-index set and concludes joint independence of the vectors on pairwise disjoint finite coordinate blocks, matching the source.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "ProbabilityTheory.iIndepFun.finsets"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-321"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/missing-target-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Remark 1.71 of the independent probability notes already gives the complete mathematical conclusion that finitely many disjoint finite coordinate blocks form independent random vectors; Definition 1.69 defines independence of an arbitrary family through all finite subfamilies. PR321 explicitly intends to allow an arbitrary or infinite block index J, so the proposal retains arbitrary J. The after root directly permits arbitrary J, assumes independent measurable inputs and pairwise disjoint Finsets S_j, and concludes exactly the joint independence of the finite-product coordinate vectors for the blocks. The formal statement allows general measures, including the probability measures used in the notes.",
+  "review_scope": "Independence of random vectors on disjoint finite coordinate blocks, allowing an arbitrary block-index set."
+}

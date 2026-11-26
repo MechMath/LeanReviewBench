@@ -1,0 +1,215 @@
+module
+
+public import Batteries.Tactic.Lint.Basic
+public import Lean.PrettyPrinter.Delaborator.Basic
+public import Lean.PrettyPrinter.Formatter
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Group.List.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.CharP.Defs
+public import Mathlib.Control.Basic
+public import Mathlib.Control.Monad.Basic
+public import Mathlib.Data.Fin.Basic
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Data.FinEnum
+public import Mathlib.Data.Fintype.Card
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Data.FunLike.IsApply
+public import Mathlib.Data.List.FinRange
+public import Mathlib.Data.Nat.Cast.Basic
+public import Mathlib.Data.Vector.Basic
+public import Mathlib.Data.Vector.Defs
+public import Mathlib.Logic.Function.Basic
+public import Mathlib.Logic.Function.Defs
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.MeasurableSpace.Instances
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+public import Mathlib.Order.Interval.Finset.Fin
+public import Mathlib.Tactic.Attr.Register
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.Algebra.InfiniteSum.Basic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.EMetricSpace.Weak
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import dep.ToMathlib.Data.Vector.Induction
+public import dep.ToMathlib.MeasureTheory.Measure.Subprobability
+public import dep.VCVio.EvalDist.Defs.Measure.Core
+public import dep.VCVio.EvalDist.ProbabilityNotation.Attr
+
+public section
+
+open MeasureTheory
+
+open scoped ENNReal
+
+universe v
+
+/-- The probability that a computation returns a true proposition: the mass its successful-output
+measure puts on `True`. -/
+@[expose] noncomputable def prEvent {m : Type → Type v} [EvalDistSemantics m] (mx : m Prop) :
+    ℝ≥0∞ :=
+  𝒟[mx] {True}
+
+/-- The probability that a computation fails or does not terminate: the mass its successful-output
+measure is missing. -/
+@[expose] noncomputable def prFail {m : Type → Type v} [Monad m] [EvalDistSemantics m]
+    {α : Type} (mx : m α) : ℝ≥0∞ :=
+  1 - prEvent ((fun _ ↦ True) <$> mx)
+
+attribute [prEvent_norm] map_bind bind_pure_comp Functor.map_map Function.comp_def map_pure
+  bind_assoc pure_bind bind_map_left id_map'
+
+/-- Probability of a successful event after an ordinary Lean `do` sequence, as in
+`Pr{let x ← mx; let y ← my x}[p y]`. -/
+syntax (name := prEventStx) "Pr{" doSeq "}[" term "]" : term
+
+public meta section Formatting
+
+open Lean PrettyPrinter Formatter Syntax.MonadTraverser
+
+end Formatting
+
+public meta section Elaboration
+
+open Lean Elab Term Meta
+
+/-- Rewrite the final `a >>= fun x => pure b` of a chain of binds to `(fun x => b) <$> a`, the form
+that `simp` maintains: the selector is eta-reduced and an identity selector is dropped. Other
+shapes are returned unchanged. Instances are left to later synthesis, so elaboration problems
+inside the computation may still be pending. -/
+partial def prEventNormalize (e : Expr) : TermElabM Expr := do
+  -- `do` binds the continuation of an `if` as a join point before pushing it into both branches.
+  let e := zetaHead (← instantiateMVars e)
+  if e.isAppOfArity ``ite 5 then
+    let yes ← prEventNormalize (e.getArg! 3)
+    let no ← prEventNormalize (e.getArg! 4)
+    return mkAppN e.getAppFn (e.getAppArgs.set! 3 yes |>.set! 4 no)
+  if e.isAppOfArity ``dite 5 then
+    let branch (f : Expr) : TermElabM Expr := do
+      let .lam n ty body bi := f.cleanupAnnotations | return f
+      withLocalDecl n bi ty fun h => do
+        mkLambdaFVars #[h] (← prEventNormalize (body.instantiate1 h))
+    return mkAppN e.getAppFn (e.getAppArgs.set! 3 (← branch (e.getArg! 3))
+      |>.set! 4 (← branch (e.getArg! 4)))
+  let some (m, α, β, a, k) := bindParts? e | return e
+  let .lam n ty body bi := k.cleanupAnnotations | return e
+  let body := zetaHead body
+  if let some b := pureArg? body then
+    if b == .bvar 0 then return a
+    -- Take the functor from the monad, as `simp`'s `bind_pure_comp` does.
+    let monad ← mkInstMVar (← mkAppM ``Monad #[m])
+    let inst ← mkAppOptM ``Applicative.toFunctor
+      #[m, ← mkAppOptM ``Monad.toApplicative #[m, monad]]
+    return ← mkAppOptM ``Functor.map #[m, inst, α, β, (Expr.lam n ty b bi).eta, a]
+  withLocalDecl n bi ty fun x => do
+    let rest ← prEventNormalize (body.instantiate1 x)
+    let k' ← mkLambdaFVars #[x] rest
+    return mkAppN e.getAppFn (e.getAppArgs.set! 5 k')
+where
+  /-- Local definitions of the sequence are substituted into what follows them. -/
+  zetaHead (e : Expr) : Expr :=
+    match e.cleanupAnnotations.headBeta with
+    | .letE _ _ value body _ => zetaHead (body.instantiate1 value)
+    | e => e
+  bindParts? (e : Expr) : Option (Expr × Expr × Expr × Expr × Expr) :=
+    if e.isAppOfArity ``Bind.bind 6 then
+      let args := e.getAppArgs
+      some (args[0]!, args[2]!, args[3]!, args[4]!, args[5]!)
+    else none
+  pureArg? (e : Expr) : Option Expr :=
+    if e.isAppOfArity ``Pure.pure 4 then some e.appArg! else none
+
+/-- Internal form of the event notation: the computation's `do` sequence and its final event. -/
+syntax (name := prEventElabStx) "prEvent% " "{" doSeq "}[" term "]" : term
+
+/-- The monad of an event sequence, when its own terms determine it: the type of the first draw
+`let x ← e` or, failing that, of the whole sequence elaborated on its own. The probe's elaboration
+is discarded. -/
+def prEventMonad? (items : Array (TSyntax ``Lean.Parser.Term.doSeqItem)) (body : Term) :
+    TermElabM (Option Expr) := do
+  let firstDraw? : Option Syntax := do
+    let elem := (← items[0]?).raw[0]
+    guard <| elem.isOfKind ``Lean.Parser.Term.doLetArrow
+    let action := elem[3][3]
+    guard <| action.isOfKind ``Lean.Parser.Term.doExpr
+    return action[0]
+  let saved ← saveState
+  let m? ← try
+      let m? ← if let some action := firstDraw? then
+          let ty ← instantiateMVars (← whnfR (← inferType (← elabTerm action none)))
+          pure <| if ty.isApp && !ty.appFn!.hasExprMVar then some ty.appFn! else none
+        else
+          -- `do` infers its monad from the sequence when the expected type leaves it open.
+          let m ← mkFreshExprMVar (← mkArrow (mkSort Level.one) (mkSort (← mkFreshLevelMVar).succ))
+          discard <| elabTerm body (mkApp m (mkSort .zero))
+          synthesizeSyntheticMVarsNoPostponing
+          let m ← instantiateMVars m
+          pure <| if m.hasExprMVar then none else some m
+      m?.mapM fun m => (abstractMVars m : MetaM _)
+    catch _ => pure none
+  saved.restore
+  -- Universe metavariables of the discarded probe are reopened as fresh ones.
+  m?.mapM fun m => return (← openAbstractMVarsResult m).2.2
+
+/-- A final destructuring draw `let pat ← e` becomes a plain draw whose event matches on `pat`,
+so the event still ends in a map of its selector. -/
+def splitFinalPattern (items : Array (TSyntax ``Lean.Parser.Term.doSeqItem)) (t : Term) :
+    TermElabM (Array (TSyntax ``Lean.Parser.Term.doSeqItem) × Term) := do
+  let some item := items.back? | return (items, t)
+  let elem := item.raw[0]
+  unless elem.isOfKind ``Lean.Parser.Term.doLetArrow && elem[1].isNone do return (items, t)
+  let decl := elem[3]
+  unless decl.isOfKind ``Lean.Parser.Term.doPatDecl && decl[4].isNone && decl[1].isNone do
+    return (items, t)
+  let action := decl[3]
+  -- The draw is a term, or a nested `do` block that is kept as one.
+  let e : Term ← if action.isOfKind ``Lean.Parser.Term.doExpr then pure ⟨action[0]⟩
+    else if action.isOfKind ``Lean.Parser.Term.doNested then `((do $(⟨action[1]⟩):doSeq))
+    else return (items, t)
+  let pat : Term := ⟨decl[0]⟩
+  let last ← `(Lean.Parser.Term.doSeqItem| let z ← $e:term)
+  -- A discarded result binds nothing the event could mention.
+  if pat.raw.isOfKind ``Lean.Parser.Term.hole then return (items.pop.push last, t)
+  return (items.pop.push last, ← `(match z with | $pat => $t))
+
+/-- Elaborate the event of a `do` sequence as `prEvent` in normal form. The sequence is elaborated
+against the monad of its first draw when that is known; otherwise elaboration is postponed, and
+the notation ascribes `ℝ≥0∞` so the placeholder keeps that type. -/
+def elabPrEventDo (items : Array (TSyntax ``Lean.Parser.Term.doSeqItem)) (t : Term) :
+    TermElabM Expr := do
+  let (items, t) ← splitFinalPattern items t
+  let body ← `(do $items:doSeqItem* return ($t : Prop))
+  let expected? := (← prEventMonad? items body).map (mkApp · (mkSort .zero))
+  let e ← instantiateMVars (← elabTerm body expected?)
+  if e.getAppFn.isMVar then tryPostpone
+  let e ← prEventNormalize e
+  let ty ← whnfR (← inferType e)
+  unless ty.isApp do
+    throwError m!"an event expects a computation in a monad, got{indentExpr ty}"
+  let inst ← mkInstMVar (← mkAppM ``EvalDistSemantics #[ty.appFn!])
+  mkAppOptM ``prEvent #[ty.appFn!, inst, e]
+
+elab_rules : term
+  | `(prEvent% {$items*}[$t]) => elabPrEventDo items t
+
+end Elaboration
+
+macro_rules (kind := prEventStx)
+  | `(Pr{{$items*}}[$t]) => `((prEvent% {$items*}[$t] : ENNReal))
+  | `(Pr{$items*}[$t]) => `((prEvent% {$items*}[$t] : ENNReal))
+
+public meta section Delaboration
+
+open Lean Meta PrettyPrinter Delaborator SubExpr
+
+end Delaboration
+
+section prFail
+
+variable {m : Type → Type v} [Monad m] [EvalDistSemantics m] {α : Type}
+
+end prFail

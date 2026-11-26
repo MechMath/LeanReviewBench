@@ -1,0 +1,73 @@
+{
+  "id": "error-pi-text-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT error-pi-text-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Eπ",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "Eπ",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "207d9d278e1e1bcffc7285e00cff954804cc22148ebe113d6ad7a54e604201b0"
+  },
+  "group_id": "pnt-Eπ",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "error-pi-text-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.NumberTheory.Chebyshev"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "6a76c7d30afcc863227804cb8d0b7e499c4bbe1ac9211958b7118ae4f58e447d",
+    "effective_root_sha256": "08492829fd1e5985fee4d0dfdd71792021de651504c741dd516b7804f63b0552",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/receipt.json",
+    "receipt_sha256": "3c9653d0db8288d45213c11377e30bf8fdd9cb791097643bc595abfc35894b9c",
+    "packaged_receipt": "reports/pnt-extraction/repaired/error-pi/20261105T051044011535Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "837d3179fabda8230f095f1d70b34831e110bddb984bfa0df2860282c18c075e",
+    "formal_snapshot_id": "error-pi",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "$E_\\pi(x) = |\\pi(x) - \\mathrm{Li}(x)| /\n  \\mathrm{Li}(x)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'Eπ' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'Eπ' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "cbd07af46bebb399219a5539efd4ec7e96f3f583fce67b66e1d0e92781269de8",
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

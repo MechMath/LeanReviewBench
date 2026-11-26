@@ -1,0 +1,52 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "vaught",
+  "project_id": "coupled-after",
+  "task_id": "vaught:coupled-after",
+  "input_sha256": "41e9617830e9578935aaa325686eab751c546d7a61ca70f9adb74c57d498ffc9",
+  "label": "misaligned",
+  "reason": "A universal extension premise absent from the independent completion/R1 target is added; retained witnesses refute that premise in the relevant stages.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/vaught.jsonl",
+      "id": "coupled-open-hypothesis"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/vaught-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_path",
+      "locator": "reports/vaught-preparation/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review_packet",
+      "locator": "reports/vaught-preparation/inputs/case-h5.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "review_scope": "The independent roadmap completion criterion, rather than the conditional formal docstring; upstream disclosures are evidence, not exclusions.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The informal statement requires every model to satisfy R1 without additional assumptions; the formal statement additionally requires HasCoupledGatedPinnedExtensions α. A new upstream counterexample proves this condition false for every α>1, so the formal statement can only hold vacuously at those stages and cannot express the selected unconditional R1 target. The relevant definitions have been checked against the frozen snapshot; no claim is made that R1 itself has been refuted.",
+  "retained_review_scope": "Frozen independent roadmap completion criterion; not the conditional theorem docstring. Author disclosures are evidence, not exclusion grounds."
+}

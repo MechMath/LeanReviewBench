@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:paperlean:protocol:1:prediction",
+  "title": "PaperLean statement alignment prediction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "verdict", "issues", "summary"],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "verdict": {"enum": ["aligned", "misaligned", "insufficient_information"]},
+    "summary": {"type": "string", "minLength": 1},
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["declaration_id", "category", "explanation"],
+        "properties": {
+          "declaration_id": {"type": "string", "minLength": 1},
+          "category": {"enum": ["hypothesis", "quantifier", "definition", "structure_constraint", "conclusion", "other"]},
+          "explanation": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"verdict": {"const": "misaligned"}}}, "then": {"properties": {"issues": {"minItems": 1}}}},
+    {"if": {"properties": {"verdict": {"const": "aligned"}}}, "then": {"properties": {"issues": {"maxItems": 0}}}}
+  ]
+}

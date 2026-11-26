@@ -1,0 +1,32 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-packing",
+  "project_id": "SP-A-CUTOFF-FIXED",
+  "task_id": "sphere-packing:SP-A-CUTOFF-FIXED",
+  "input_sha256": "af52284b309c40999f00b58c17fb6fc98b13b68abb1c83bc66e9ed8076040226",
+  "label": "aligned",
+  "reason": "",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "MagicFunction.a.SpecialValues.a_zero"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-packing.jsonl",
+      "id": "pr-485"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-repairs-01/adjudication.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bound corrected auxiliary-function statement and its retained project-local definitions; the label has no retained mathematical justification.",
+  "analysis_status": "reason_missing",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

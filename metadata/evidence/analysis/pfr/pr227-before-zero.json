@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr227-before-zero",
+  "task_id": "pfr:pr227-before-zero",
+  "input_sha256": "fa7ad5f861febfa1d9f1e2d24a14854a44ab48825241b004ef895d1406b8e872",
+  "label": "misaligned",
+  "reason": "Real log/division totalization at zero denominators replaces the intended infinite KL value.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "KL_div_eq_zero_iff_identDistrib"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-227"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The formal real-valued log and division make KL between distinct point masses equal to 0 at a zero denominator, causing the zero-value criterion to misidentify the distributions as equal. The source assigns infinity to this input, so the definitions and predicates do not correspond.",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
+}

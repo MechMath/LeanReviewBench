@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr227-after-nonneg",
+  "task_id": "pfr:pr227-after-nonneg",
+  "input_sha256": "5f3e1759cf752065cf87a4145ae37435527569683050e6afc93739a1962d04ee",
+  "label": "misaligned",
+  "reason": "The formal input group is finite, excluding general groups and infinite-support distributions allowed by the bound target.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "KL_div_nonneg"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-227"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The after version fixes the support condition for KL on finite domains, but the root still quantifies only over finite G. The source's full scope has no finite-range or finite-support convention and includes genuine probability inputs with infinite support. The narrowed input domain therefore fails to satisfy the frozen full target.",
+  "review_scope": "The complete bound definition or theorem over general groups, including infinite-support inputs and the source infinite-value KL convention."
+}

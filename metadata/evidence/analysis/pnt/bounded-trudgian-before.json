@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-trudgian-before",
+  "task_id": "pnt:bounded-trudgian-before",
+  "input_sha256": "f5ae1efa3eebe41984dfc44e542795f94ced74124b7a8f1c7e6b3205027149f7",
+  "label": "misaligned",
+  "reason": "The center is the integral from 2, Li, instead of the target principal-value li. Natural-number division removes a fractional logarithmic exponent needed for the quantitative bound.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Trudgian2016.theorem_2"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1673"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The text gives a pointwise bound centered at the principal-value li, with factor (log x)^(−3/4). The formal statement is centered at Li integrated from 2, and natural-number division gives 1/4=0, leaving the normalized bound without the factor (log x)^(1/4). The tail-bound quantifier itself can be handled by monotonicity in ε, but that does not remove these two differences in quantities and functions.",
+  "review_scope": "The input-specific bound source formula and its mathematical operation conventions."
+}

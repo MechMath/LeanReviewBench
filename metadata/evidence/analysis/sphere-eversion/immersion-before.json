@@ -1,0 +1,46 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "immersion-before",
+  "task_id": "sphere-eversion:immersion-before",
+  "input_sha256": "4e72119aff81a0db29352a3b3a94606f738a1951fc06b66eef22ebe415d1052d",
+  "label": "misaligned",
+  "reason": "The immersion predicate omits smoothness, retaining only injectivity of the derivative and admitting C1 but non-C2 maps.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Immersion"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-eversion.jsonl",
+      "id": "immersion-definition"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/sphere-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The immersion predicate is reviewed in the smooth jet/holonomic-section category referenced by the frozen text, without separately assuming smoothness of the function being tested. The complete blueprint from the same version defines j¹f for smooth maps, and the base maps of the relevant sections are also smooth; thus the source's immersion predicate includes C∞ regularity. The before version requires only injectivity of mfderiv for arbitrary f, allowing C¹ but non-C² maps such as f(x)=x+x|x|. On the ordinary real one-dimensional smooth manifold, this example has derivative 1+2|x|>0 everywhere, satisfying the formal predicate while not being a smooth immersion in the source category. The negative label is not based merely on a missing field and does not exploit a derivative junk value.",
+  "review_scope": "The bound smooth immersion definition in the source jet/holonomic-section setting."
+}

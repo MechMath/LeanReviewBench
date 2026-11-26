@@ -1,0 +1,80 @@
+{
+  "id": "reparametrization-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere eversion reparametrization-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "reparametrization",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/leanprover-community/sphere-eversion",
+    "commit": "a8898f0d4208052375450d4bdc7271197e7021c1",
+    "path": "src/loops/reparametrization.lean",
+    "module": "loops.reparametrization",
+    "declaration": "reparametrization",
+    "url": "https://github.com/leanprover-community/sphere-eversion/blob/a8898f0d4208052375450d4bdc7271197e7021c1/src/loops/reparametrization.lean",
+    "sha256": "c3b640f7dbe7a7283819e1a46c30ee166b5316326ba0ee8113bbccaf3e2f9575"
+  },
+  "group_id": "sphere-eversion-reparametrization",
+  "split_group": "leanprover-community/sphere-eversion",
+  "before_ids": [],
+  "after_ids": [
+    "reparametrization-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 2,
+    "sha256": "c9f29baaedbb4ecf49c573773b32bffff96ac509024b7e092ac8fa9dcd53a948",
+    "effective_root_sha256": "714edc74adee52746d0645f29153eea1998cb3817d1553c7fdbce320de0ae132",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/sphere-eversion-pr51/repaired/reparametrization-before/20261105T044543510806Z/receipt.json",
+    "receipt_sha256": "1e1b7ccfe08bd4ba0c4f0f386f3a3da501bead68e030d4343c9306d481aef7a3",
+    "packaged_receipt": "reports/sphere-eversion-pr51/repaired/reparametrization-before/20261105T044543510806Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "bc0eebf860bae604efbe553c76fe98a383010657bf01a2543dec14abbb88e89b",
+    "formal_snapshot_id": "reparametrization-before",
+    "formal_source_revision": "a8898f0d4208052375450d4bdc7271197e7021c1",
+    "target_bindings": [
+      {
+        "path": "reports/sphere-eversion-pr51/sources/a8898f0d4208052375450d4bdc7271197e7021c1/blueprint/src/loops.tex",
+        "sha256": "26331dfcea5108fd2b3f9e428280f8eb24cc2e47c8aad9197e0ca8af5999ea72",
+        "ref": "a8898f0d4208052375450d4bdc7271197e7021c1",
+        "locator": "lem:reparametrization",
+        "text": "\\begin{lemma}\n\\label{lem:reparametrization}\n\\uses{def:surrounds, def:average}\n\\lean{reparametrization}\n\\leanok\nLet $γ \\co E × 𝕊^1 → F$ be a smooth family of loops surrounding\na map $g$ with base $β$.\nThere is a family of circle diffeomorphisms $φ \\co E × 𝕊^1 → 𝕊^1$ such\nthat each $γ_x ∘ φ_x$ has average $g(x)$ and $φ_x(0) = 0$.\n\\end{lemma}",
+        "selected": true
+      }
+    ],
+    "root_axioms": {
+      "default": "'reparametrization' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'reparametrization' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/sphere-eversion-admission/review.json",
+    "approach": "Local Lean3 syntax/API port preserving historical statements, concrete inverse-integral construction and selected original holes",
+    "supporting_declarations": [],
+    "assessment_scope": "own-version definition or lemma",
+    "historical_sorryAx": true
+  },
+  "input_sha256": "03ffa06b0cc2d3a59eb497715bdd14924e09a84feb96201b40758cf8d83b2e04",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/sphere-eversion.jsonl"
+}

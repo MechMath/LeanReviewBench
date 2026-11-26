@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+  "task_id": "aml:EOS-lemma6_stable_assignment_slot_envy_free",
+  "input_sha256": "f28946fd59bc9941eeae852299577418fdc5aec986618f1eb4fb2bcf3cd0fccd",
+  "label": "misaligned",
+  "reason": "Slot envy-freeness does not include existence of bids realizing the outcome as a GSP/Nash equilibrium.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The original Lemma 6 (Lemma 2 in the author manuscript) obtains a locally envy-free GSP equilibrium implementing a stable outcome. Lean concludes only SlotEnvyFree, without the existence of bids or a GSP/Nash implementation.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

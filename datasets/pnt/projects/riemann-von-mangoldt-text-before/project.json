@@ -1,0 +1,73 @@
+{
+  "id": "riemann-von-mangoldt-text-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT riemann-von-mangoldt-text-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "riemannZeta.Riemann_vonMangoldt_bound",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "e32cf2d56926389a22109fcc92cc6c2af889161a",
+    "path": "PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "declaration": "riemannZeta.Riemann_vonMangoldt_bound",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/e32cf2d56926389a22109fcc92cc6c2af889161a/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+    "sha256": "50460319f00f8080c17e1247a25ea56e45a4b0852f1c4dc84953f326c0e7517a"
+  },
+  "group_id": "pnt-riemannZeta.Riemann_vonMangoldt_bound",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "riemann-von-mangoldt-text-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "2f3a2f206498240dcc05f33c3ac7742d154ef0b0882268fee36a9baed22840d9",
+    "effective_root_sha256": "63b844a2c84f06b600877e3e8c62f544359173648b6e3740ff268b46a400f853",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/receipt.json",
+    "receipt_sha256": "f73b27e14fdb7dec83107a6aedfaf823ca35f1368468029d1578bb6996936bf9",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/riemann-von-mangoldt/20261105T052201747793Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "ece7880d0ced490ba8993d9599c2ab729e63982ccf68710a2c015eca5fc46c3f",
+    "formal_snapshot_id": "riemann-von-mangoldt",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/ZetaDefinitions.lean",
+        "sha256": "f20547faf64165fe28da9bbd1f18617ce375a6e59d0ac6e17e0f57a091bba2ac",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "An estimate of the form\n    $N(T) - \\frac{T}{2\\pi} \\log \\frac{T}{2\\pi e} + \\frac{7}{8}| \\leq b_1 \\log T + b_2 \\log\\log T\n    + b_3$ for $T \\geq 2$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'riemannZeta.Riemann_vonMangoldt_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'riemannZeta.Riemann_vonMangoldt_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "952cf78469814d5a6c20d614bb505f27782f16c8d8a0694bf1b7704760131768",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

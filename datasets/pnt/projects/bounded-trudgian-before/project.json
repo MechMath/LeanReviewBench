@@ -1,0 +1,73 @@
+{
+  "id": "bounded-trudgian-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-trudgian-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Trudgian2016.theorem_2",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "fc3f35017ee842bccf0d887980e8e22dda1583ab",
+    "path": "PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "declaration": "Trudgian2016.theorem_2",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4"
+  },
+  "group_id": "pnt-Trudgian2016.theorem_2",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-trudgian-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "274eab12a6c312ce141e16a6ae2326a553aaf49a5af9282ea3e007906b28169d",
+    "effective_root_sha256": "777c2860bedaacdad5a59107d9e3a092f36215978d847368d8756bf7b9fb064c",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-trudgian-before/20261105T053438619949Z/receipt.json",
+    "receipt_sha256": "d959cf9290d4e71d1641d61cca4975ef82f73a0c383b353a84a66669d8a1a9f0",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-trudgian-before/20261105T053438619949Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "35b05078b4eb322fad784780d7b919d27501d75d877d3c39b047b98ed88dcf65",
+    "formal_snapshot_id": "bounded-trudgian-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4",
+        "ref": "fc3f35017ee842bccf0d887980e8e22dda1583ab",
+        "text": "For $x \\geq 229$ one has\n  \\[\n  |\\pi(x) - \\mathrm{li}(x)| \\leq 0.2795 \\frac{x}{(\\log x)^{3/4}}\n    \\exp\\left(-\\sqrt{\\frac{\\log x}{6.455}}\\right).\n  \\]"
+      }
+    ],
+    "root_axioms": {
+      "default": "'Trudgian2016.theorem_2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'Trudgian2016.theorem_2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "f5ae1efa3eebe41984dfc44e542795f94ced74124b7a8f1c7e6b3205027149f7",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

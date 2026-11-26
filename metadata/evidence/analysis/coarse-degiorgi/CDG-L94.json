@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-L94",
+  "task_id": "coarse-degiorgi:CDG-L94",
+  "input_sha256": "071fd526f215cd554197f1983f2a0722d2ef2f4cb8d741f6efc4c0ce38c340d3",
+  "label": "misaligned",
+  "reason": "The radius-loss exponent gamma6 differs from the exponent in the bound quantitative statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/candidates.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-05",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The quantitative formula in the bound Lemma 9.4.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Within the fixed quantitative-exponent scope of Lemma 9.4, Lean's radius-loss exponent γ6 differs from the paper's. For d=3, p=10, q=2, s=1/100 and t=3/10, γ6_paper=209/3 and γ6_Lean=3005/42, a difference of 79/42.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-law-coverage",
+  "task_id": "equational-theories:etp-law-coverage",
+  "input_sha256": "64623e388afd80e93904dbe7ec8c4c0490b9cdaa85d7b7efee08459f76695bd4",
+  "label": "aligned",
+  "reason": "Every law with at most four binary-operation occurrences has a table entry equivalent over all magmas; the syntax encoding and semantic quantifiers match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "laws_complete'"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-law-coverage.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "Enumeration coverage only; numbering uniqueness, list minimality, and the complete implication graph are excluded.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-law-coverage",
+    "root": "laws_complete'",
+    "input_sha256": "c085f0df5c319dc029da2ac1c5da3e79ae4bf2aa728fb302b1d213d0103c4a65",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "For the selected enumeration-coverage target, the formalization supplies a semantically equivalent law-table entry for every equation with at most four binary-operation occurrences across both sides. forks corresponds to the source's order, and iff quantifies all magmas. The root does not require canonicalized input; Nat encodes only variable names. Uniqueness of numbering, minimality and the complete implication graph are outside this scope.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for equational-theories:etp-law-coverage after reviewing operation-count scope, semantic-equivalence coverage, internal canonicalization, and the selected endpoint limitations.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The law-enumeration coverage explicitly selected by the frozen scope: every magma equation with at most four total binary-operation occurrences is semantically equivalent to an entry in the project's law table. Uniqueness of numbering, list minimality and the complete implication graph are not targets of this case.",
+    "evidence_locations": {
+      "informal_and_selected_scope": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/informal.jsonl",
+        "line": 1,
+        "sha256": "b1919239844066c6ffb2ae43b9767c36a22b7931b83de6781a531498fb092780"
+      },
+      "source_numbering": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+        "line": 13,
+        "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+      },
+      "source_order_definition": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+        "line": 23,
+        "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+      },
+      "source_law_inventory": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/informal-source/paper/intro.tex",
+        "line": 37,
+        "sha256": "897ba3fa9160ff5391fc852ad3655268c8c23977126ffdb9c2c02e8e0bd3a710"
+      },
+      "law_list_construction": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+        "line": 20,
+        "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+      },
+      "law_operation_count": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+        "line": 133,
+        "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+      },
+      "term_operation_count": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/FreeMagma.lean",
+        "line": 143,
+        "sha256": "c2307f5d0253f469bcc679cfc62b10f304c5666a127b509a1e13814d9ae6edc7"
+      },
+      "canonicalization": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+        "line": 540,
+        "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+      },
+      "canonical_law_coverage": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+        "line": 757,
+        "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+      },
+      "root": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Equations/LawsComplete.lean",
+        "line": 768,
+        "sha256": "5254971bfc8bf75ef4e3db786684206324c04132ddf3adfeb985014c51e57059"
+      },
+      "semantic_equivalence": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/Preorder.lean",
+        "line": 18,
+        "sha256": "f17def52e0ec5a50d7c4b7c6d405e7bf68d2c7d193af1191ec45ff6826c95278"
+      },
+      "array_lookup": {
+        "path": "datasets/equational-theories/projects/etp-law-coverage/formal/dep/equational_theories/RArray.lean",
+        "line": 18,
+        "sha256": "bc3bdde26a92fe31219ebbe9d197bb1ec500a5b90f068bc2679bd1773da79f08"
+      }
+    },
+    "semantic_argument": [
+      "The source's order counts occurrences of the magma binary operation. FreeMagma.forks assigns 0 to a leaf and the sum of the child counts plus 1 to a binary-operation node. Law.MagmaLaw.forks adds the counts on the equation's two sides. Thus l.forks≤4 matches the target's order bound.",
+      "For arbitrary l:Law.MagmaLaw Nat, the root gives ∃i:Nat, laws[i].iff l. Unfolding iff says that for every G:Type and Magma G, satisfaction of the two universal equational laws is equivalent, matching semantic coverage in the target.",
+      "The construction of laws references Law1 through Law4694. RArray.get follows branches and ultimately returns an existing leaf, so an index without an explicit upper bound does not produce extra laws outside the table. This review does not claim that the root explicitly proves i<4694.",
+      "The helper laws_complete supplies an equal table entry for a canonical law. The root first calls exists_canonical to obtain a semantically equivalent canonical law with no greater operation count, then applies the helper's coverage result. It therefore has no additional IsCanonical input premise.",
+      "Nat in MagmaLaw Nat encodes variable names, not the model carrier. Every equation syntax tree contains finitely many variables, which can be renamed by natural-number indices; the semantics still quantifies general magmas.",
+      "The currently frozen scope requires only law-enumeration coverage. Background descriptions of numbering and the whole implication graph are not expanded into additional uniqueness, minimality or graph-classification conclusions that this root must prove."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "operation_count_and_equivalence_inspected": true,
+      "law_inventory_and_lookup_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checks the semantics of the statement and key definitions, without recompiling the project or rerunning the full enumeration of 4694 laws.",
+      "The aligned judgment is limited to the bound coverage target. It does not claim that the root also proves uniqueness of numbering, list minimality or the complete implication graph.",
+      "This label is not propagated to other inputs in the same proof family.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines this positive label with the existing compilation/extraction status.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "For the selected enumeration-coverage target, the formalization supplies a semantically equivalent law-table entry for every equation with at most four binary-operation occurrences across both sides. forks corresponds to the source's order, and iff quantifies all magmas. The root does not require canonicalized input; Nat encodes only variable names. Uniqueness of numbering, minimality and the complete implication graph are outside this scope.",
+  "retained_review_scope": "The law-enumeration coverage explicitly selected by the frozen scope: every magma equation with at most four total binary-operation occurrences is semantically equivalent to an entry in the project's law table. Uniqueness of numbering, list minimality and the complete implication graph are not targets of this case."
+}

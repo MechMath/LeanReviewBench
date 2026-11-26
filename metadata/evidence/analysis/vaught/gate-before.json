@@ -1,0 +1,39 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "vaught",
+  "project_id": "gate-before",
+  "task_id": "vaught:gate-before",
+  "input_sha256": "244db73738a2c4ee7222d7d1d0467a80040a0a64b1be5a17fe94bc3301598c02",
+  "label": "misaligned",
+  "reason": "A universal extension premise absent from the independent completion/R1 target is added; retained witnesses refute that premise in the relevant stages.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasGatedPinnedExtensions"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/vaught.jsonl",
+      "id": "gate-refutation"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/vaught-preparation/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review_packet",
+      "locator": "reports/vaught-preparation/inputs/case-b2.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The independent roadmap completion criterion, rather than the conditional formal docstring; upstream disclosures are evidence, not exclusions.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The independent R1 goal requires receiving for every model without a universal gated-extension premise. The formal root assumes HasGatedPinnedExtensions, which the upstream legal-type witness refutes at every stage. Its true conditional statement does not express that frozen goal; its conditional docstring is not alleged to be false.",
+  "retained_review_scope": "Frozen independent roadmap completion criterion; not the conditional theorem docstring. Author disclosures are evidence, not exclusion grounds."
+}

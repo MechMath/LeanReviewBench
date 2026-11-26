@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "statsmllib",
+  "project_id": "statsml-before",
+  "task_id": "statsmllib:statsml-before",
+  "input_sha256": "19934b454cfc24e35e685857757592c2fb7dc826a6e8024386d41a4ca205ca2f",
+  "label": "aligned",
+  "reason": "The function-class assumptions, absolute-value Rademacher complexity, uniform-deviation bound, coefficient 2, and exponential denominator 2*b^2 match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "uniform_deviation_tail_bound_separable_of_pos"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/statsmllib.jsonl",
+      "id": "pr-78"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/missing-target-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Sections 2–4 of the published ITP 2026 paper specify the probability model, absolute-value empirical and expected Rademacher complexity, uniform deviation, and tail bound. The StatsML official website at the pinned 2026-07-31 commit explicitly requires separability, first countability, and pointwise continuity in the parameter before the complete formula, and directly names the before root after it. This target predates issue77/PR78, so there is no need to reconstruct the function-class scope by translating back from the formal statement. The before root covers this target component by component; the complexity definition retains the absolute value, and the coefficient 2 and exponent denominator 2b² agree. The formal statement also permits n=0, which does not affect its coverage of the source range n≥1.",
+  "review_scope": "The specified separable, first-countable parameter space with pointwise-continuous evaluations and positive sample size."
+}

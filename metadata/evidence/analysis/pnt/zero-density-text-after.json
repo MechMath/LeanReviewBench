@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "zero-density-text-after",
+  "task_id": "pnt:zero-density-text-after",
+  "input_sha256": "554a3ec7ce2623d137634a97764f73f1c15f705a15002a521f4e71534cd457f6",
+  "label": "aligned",
+  "reason": "The threshold T0, sigma range, coefficient functions, exponent functions, and bound quantifiers match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "zero_density_bound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The text explicitly specifies T0, the prescribed range for σ, and four coefficient or exponent functions depending on σ; the formal structure fields and bound quantifiers correspond individually. N(σ,T) is interpreted according to the currently retained N′ definition; its open endpoints are not an additional requirement of this text revision.",
+  "review_scope": "The bound zero-density structure using the retained N-prime counting convention."
+}

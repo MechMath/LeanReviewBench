@@ -1,0 +1,82 @@
+{
+  "id": "coupled-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Vaught receiving roadmap target",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/cameronfreer/vaught-conjecture-counterexample",
+    "commit": "d3201f45109dc93df14102127ffcee91ec6b974f",
+    "path": "VaughtConjecture/Realization/CoupledFiniteCutReceiving.lean",
+    "module": "VaughtConjecture.Realization.CoupledFiniteCutReceiving",
+    "declaration": "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions",
+    "url": "https://github.com/cameronfreer/vaught-conjecture-counterexample/blob/d3201f45109dc93df14102127ffcee91ec6b974f/VaughtConjecture/Realization/CoupledFiniteCutReceiving.lean",
+    "sha256": "638a8ac3ccef0d027ff557797110bd9e29b4bd38989306ad79b55bfdfd492ade",
+    "leads": [
+      "https://github.com/cameronfreer/vaught-conjecture-counterexample/pull/106",
+      "https://github.com/cameronfreer/vaught-conjecture-counterexample/pull/109"
+    ]
+  },
+  "group_id": "vaught:receiving",
+  "split_group": "cameronfreer/vaught-conjecture-counterexample",
+  "before_ids": [
+    "gate-before"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Data.Fin.Tuple.Embedding",
+    "Mathlib.Data.Finset.Lattice.Fold",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Finset.Preimage",
+    "Mathlib.Data.Finset.Sort",
+    "Mathlib.Data.Fintype.Basic",
+    "Mathlib.Data.Set.Countable",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Order.InitialSeg",
+    "Mathlib.Order.SupClosed",
+    "Mathlib.SetTheory.Cardinal.Aleph",
+    "Mathlib.SetTheory.Cardinal.Ordinal",
+    "Mathlib.SetTheory.Ordinal.Arithmetic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 25,
+    "sha256": "e8eabc1c816c06063b0c3d90c40d186d79614ff8c54ce0b749ac46fcf8850073",
+    "effective_root_sha256": "25a8a5c25b9b37406b3898c20bf80aec9a04711aa0011cc89c18b1da13ea4bf4",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/vaught-build/technical/coupled-after/20261103T141703212107Z/receipt.json",
+    "receipt_sha256": "7c71064ce964f1a0e7e0932bb6d430b3e14323509fcaa763151d734a29436926",
+    "graph": "reports/vaught-build/technical/coupled-after/20261103T141703212107Z/default-graph.json",
+    "explicit_graph": "reports/vaught-build/technical/coupled-after/20261103T141703212107Z/explicit-graph.json",
+    "review": "reports/vaught-preparation/semantic-review.json",
+    "source_mapping": "reports/vaught-preparation/source-maps/coupled-after.json",
+    "packaged_receipt": "reports/vaught-preparation/technical/coupled-after/receipt.json",
+    "packaged_receipt_sha256": "b57767ffe7837a716f3cafedac698bbfa8b8d888a216773edced25df62942502"
+  },
+  "author_disclosure": "universal_coupled_hypothesis_explicitly_open",
+  "mechanism_group": "vaught:universal-extension-premise",
+  "target_selection": "roadmap_completion_criterion_not_conditional_root_docstring",
+  "input_sha256": "41e9617830e9578935aaa325686eab751c546d7a61ca70f9adb74c57d498ffc9",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/vaught.jsonl"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr209-before",
+  "task_id": "pfr:pr209-before",
+  "input_sha256": "8ed1e7d727a0c9f0b04a0ec488d5ab6085dcc9080dc1e414c0051006868dacf3",
+  "label": "aligned",
+  "reason": "The conclusion supplies measurable random variables, a probability measure, the required joint laws, and conditional independence. Finite conditioning codomains satisfy the source countability and finite-range conditions.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "ProbabilityTheory.condIndep_copies"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-209"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Relative to the finite-group chapter scope, finite conditioning codomains satisfy every version's finite/countable/finite-range requirements. The conclusion supplies measurable variables, a probability measure, both joint laws and conditional independence. Wider generic-codomain readings are not the selected target.",
+  "review_scope": "The finite-group chapter setting, with finite conditioning codomains."
+}

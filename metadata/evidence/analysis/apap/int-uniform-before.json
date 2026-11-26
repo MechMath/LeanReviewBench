@@ -1,0 +1,100 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "int-uniform-before",
+  "task_id": "apap:int-uniform-before",
+  "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+  "label": "misaligned",
+  "reason": "The existential constant c may depend on the particular A and N, whereas the source requires one positive constant uniform over admissible inputs.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "int"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/int-uniform-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound asymptotic estimate with one positive constant uniform in A and N.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "int-uniform-before",
+    "root": "int",
+    "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source requires a uniform positive constant c independent of A and N. The formalization existentially quantifies c after A, N and their hypotheses, allowing it to depend on the particular input and weakening the uniform asymptotic bound.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms the preceding identical-input and quantifier-order explanation for apap:int-uniform-before.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The exponent-1/12 bound in the main paragraph of the currently frozen README, interpreted as requiring one uniform c>0 for all A and N. Only this int-uniform-before input.",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/int-uniform-before/informal.jsonl:1",
+      "root": "datasets/apap/projects/int-uniform-before/formal/Main.lean:10"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/int-uniform-before/informal.jsonl": "6fbfb7eda4c213b1c0da1898802478b09892291475f5f93fe56fcae712590f13",
+      "datasets/apap/projects/int-uniform-before/formal/Main.lean": "7b65f1a88b14a933add72da781e0eb9b9b6717b41c7a77a322e325703998324d"
+    },
+    "quantifier_comparison": {
+      "source": "exists c > 0, forall N A, P(A,N) -> |A| <= N / exp(c * (log N)^(1/12))",
+      "formal": "forall N A, P(A,N) -> exists c > 0, |A| <= N / exp(c * (log N)^(1/12))",
+      "formal_binders": "A and N are implicit universal parameters; hAN and hA precede the existential c."
+    },
+    "semantic_argument": [
+      "Let N>1, 0<m=|A|<N, and L=(log N)^(1/12)>0.",
+      "Choose c=log(N/m)/(2L)>0. Then exp(cL)=sqrt(N/m), so N/exp(cL)=sqrt(Nm)>m.",
+      "Thus every nonempty proper subset admits a local choice of c satisfying the numerical conclusion, without ThreeAPFree; this c may vary with N and A.",
+      "The source requires the same positive c for all admissible inputs; the formalization does not express this uniformity."
+    ],
+    "endpoint_convention": "Adding 1 to each element of range N gives a subset of {1,...,N}, preserving cardinality and the nontrivial three-term arithmetic-progression property; this endpoint difference is not used to support the negative label.",
+    "separate_source_issue": {
+      "N": 2,
+      "formal_A": [
+        0,
+        1
+      ],
+      "source_A": [
+        1,
+        2
+      ],
+      "argument": "A two-element set contains no nontrivial three-term arithmetic progression. Since log 2>0, for every c>0 we have 2/exp(c*(log 2)^(1/12))<2, so both current literal statements fail on this input.",
+      "needed_source_clarification": "The source needs an appropriate small-N qualification, such as sufficiently large N or an effective multiplicative constant; this review did not modify the input.",
+      "relation_to_label": "The negative label records the mismatch in the quantification of a uniform constant; the example on which both statements fail is not presented as a counterexample separating their truth values."
+    },
+    "verification": {
+      "method": "Source statement and binder comparison, with symbolic real-arithmetic argument.",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "The frozen source uses lowercase log n and contains an extra parenthesis. Its display and mathematical interpretation follow the context as log N; the source file is retained as written.",
+      "The later improvement to exponent 1/9 described in a subsequent README section is outside this scope.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
+    ],
+    "identical_input_review": {
+      "project_id": "apap:int-sign-after",
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "formal_and_informal_byte_identical": true,
+      "review_report": "reports/user-annotations-2026-11-16/int-sign-after.json",
+      "review_report_sha256": "04fc59b4519a0ab365ae33f8b7c371711ccf23fa820d8eb49f44130d9435dd92",
+      "note": "Each version is counted as a separate input. The currently selected declaration, formal source and informal input are identical; the same quantifier-mismatch argument is retained, with this project's separate user confirmation recorded."
+    }
+  },
+  "retained_reason": "The source requires a uniform positive constant c independent of A and N. The formalization existentially quantifies c after A, N and their hypotheses, allowing it to depend on the particular input and weakening the uniform asymptotic bound.",
+  "retained_review_scope": "The exponent-1/12 bound in the main paragraph of the currently frozen README, interpreted as requiring one uniform c>0 for all A and N. Only this int-uniform-before input."
+}

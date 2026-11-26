@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-technical-evidence-1",
+  "dataset": "qinz1yang",
+  "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+  "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
+  "formal_sha256": "48b2358d1a143e6e31954e02ca6096c74e423b81da571c0abc4a79b0bcdc9197",
+  "roots": [
+    "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "path_env": "PAPERLEAN_MATHLIB"
+    },
+    "cslib": {
+      "commit": "7c8f6c0f67015df29b152fdcffaf7850db2e9185",
+      "path_env": "PAPERLEAN_CSLIB"
+    }
+  },
+  "compilation": "passed",
+  "extraction": "passed",
+  "graph_sha256": "7503184c3526c2a66595f451ef359dd9ddb6b3637cefb1fac6776f14c8731163",
+  "nodes": 238,
+  "edges": 1189,
+  "local_nodes": 30,
+  "compiled_sources": {
+    "Main.lean": "f2b1d4ae191a019e5889eadf1abdb004bf683a37855c8b62a3349bf656a1f87f"
+  },
+  "statement_preservation_recorded": "passed",
+  "nonproof_preservation_recorded": "passed_with_source_exact_nominal_SectionAlongCurve_identity",
+  "source_preservation_method": "Independent pinned source bodies re-elaborated against same nominal structure identities and compared by Lean.Meta.isDefEq types and complete nonproof values.",
+  "preservation_status_recorded": "passed",
+  "original_environment_preservation": "not_checked",
+  "original_proofs_certified": false,
+  "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+  "archived_receipt": "datasets/qinz1yang/metadata/technical-evidence/QDG-PARALLEL-TRANSPORT-AFTER/preservation.json",
+  "archived_receipt_sha256": "7a4b6ff7eabd185e1146e99460e1a25f566e339b703b99eea927488d1ca7e028",
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba"
+}

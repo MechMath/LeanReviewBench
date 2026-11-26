@@ -1,0 +1,133 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-sheffer",
+  "task_id": "equational-theories:etp-sheffer",
+  "input_sha256": "7cc90a401f97e8a15c487b07d543367f260a499b8a9572b77725c7584a503ece",
+  "label": "misaligned",
+  "reason": "The reverse construction requires Inhabited G, excluding the empty magmas admitted by the bound source characterization.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Sheffer.Equation345169_is_Boolean",
+    "Sheffer.Sheffer_Equation345169"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-sheffer.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The two-root Sheffer characterization under the source convention allowing empty magmas; minimality and other axiom equivalences are excluded.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-sheffer",
+    "root": "Sheffer.Equation345169_is_Boolean",
+    "roots": [
+      "Sheffer.Equation345169_is_Boolean",
+      "Sheffer.Sheffer_Equation345169"
+    ],
+    "input_sha256": "5ca02153328f26b7c71939c62eb66de531b4a1b9f313a61ea1aab4451adbbb96",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source's Sheffer characterization does not impose nonemptiness, and the same blueprint explicitly permits empty magmas. An empty carrier vacuously satisfies Equation345169 but cannot provide the top and bottom elements of a BooleanAlgebra. The formal converse construction additionally requires Inhabited G, excluding this case. Under the independent source criterion, nonempty added by the metadata summary is not treated as an existing source premise.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, please mark it misaligned, thank you; confirms misaligned for equational-theories:etp-sheffer after reviewing the empty-magma boundary and the additional Inhabited premise in the formal converse.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The independent blueprint's Sheffer-equation characterization and the two formal roots, focusing on the source convention allowing empty magmas and the converse construction's Inhabited premise. The nonempty scope added in the metadata summary does not replace the source. Minimality and equivalence with the other four axioms are outside the target.",
+    "evidence_locations": {
+      "informal_and_scope": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/informal.jsonl",
+        "line": 1,
+        "sha256": "9fe5766d1fa8d13f125a888ef8f6e6fc9c661e1519d5be36e93e1351d01d3a84"
+      },
+      "source_theorem": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/informal-source/blueprint/src/chapter/implications.tex",
+        "line": 170,
+        "sha256": "bdac0b20158d29ff3e002255b89c2ecc828f78cb9cbab653362ce80d8a9355a6"
+      },
+      "source_converse": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/informal-source/blueprint/src/chapter/implications.tex",
+        "line": 177,
+        "sha256": "bdac0b20158d29ff3e002255b89c2ecc828f78cb9cbab653362ce80d8a9355a6"
+      },
+      "source_empty_magma_convention": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/informal-source/blueprint/src/chapter/equations.tex",
+        "line": 18,
+        "sha256": "ee09f9ddbfcf7862285dc89f968b16c7e73fdfcc9e75266f81bd457a0d640db2"
+      },
+      "magma_definition": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/Magma.lean",
+        "line": 10,
+        "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+      },
+      "equation_definition": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/Equations/Basic.lean",
+        "line": 197,
+        "sha256": "97d9e447d1071685db6a3d4515adab686fb797c8fc3a331c08b66a1a560c962d"
+      },
+      "boolean_to_equation_root": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/Sheffer.lean",
+        "line": 37,
+        "sha256": "565aed00b6ad36844d5248b1bcd57ce3d8f65107b7b4f14d740d5364aeb6dd8a"
+      },
+      "inhabited_sheffer_construction": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/Sheffer.lean",
+        "line": 164,
+        "sha256": "565aed00b6ad36844d5248b1bcd57ce3d8f65107b7b4f14d740d5364aeb6dd8a"
+      },
+      "equation_to_boolean_root": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/Sheffer.lean",
+        "line": 178,
+        "sha256": "565aed00b6ad36844d5248b1bcd57ce3d8f65107b7b4f14d740d5364aeb6dd8a"
+      },
+      "induced_operations": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/ShefferAlgebra.lean",
+        "line": 76,
+        "sha256": "8741eeee062f06c81a05c8ac6a0bd4b2397431df4fc039124d6786e7475b6a55"
+      },
+      "boolean_constructor": {
+        "path": "datasets/equational-theories/projects/etp-sheffer/formal/dep/equational_theories/ShefferAlgebra.lean",
+        "line": 349,
+        "sha256": "8741eeee062f06c81a05c8ac6a0bd4b2397431df4fc039124d6786e7475b6a55"
+      }
+    },
+    "semantic_argument": [
+      "The independent source theorem says Equation345169 characterizes the Sheffer stroke on Boolean algebras, and its converse proof adds no nonempty restriction. The same blueprint explicitly mentions empty and singleton magmas for Equation2, so one cannot assume without evidence that every magma in the text is nonempty.",
+      "An empty type has a unique binary operation, and Equation345169, universally quantified over x, y and z, holds vacuously. A BooleanAlgebra requires top and bottom constants and cannot be constructed on an empty type. This distinguishes the unrestricted source characterization from the formal nonempty characterization.",
+      "Equation345169_is_Boolean and the Equation345169_is_Sheffer it invokes both explicitly require Inhabited G. The latter actually uses default to construct ShefferAlgebra. Nonemptiness is not a dispensable representation detail.",
+      "The forward root Sheffer_Equation345169 derives the equation from the NAND operation of a BooleanAlgebra, matching the source's forward direction. This negative label concerns the converse scope. Both formal roots and the original input remain bound.",
+      "The frozen metadata's scoped_target_summary already says nonempty, but its scope also retains Empty-domain convention still requires human review. The user confirmed adjudication against the independent source scope; the summary was not changed to hide the difference.",
+      "Checking the induced operations shows that ShefferAlgebra has sup=(a◇b)′ and inf=a′◇b′, so the original operation is NOR relative to the returned order. Passing to the dual Boolean algebra gives NAND. This order convention is not an independent basis for the user-confirmed negative label."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "empty_domain_convention_checked": true,
+      "both_roots_and_induced_operations_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The judgment concerns the independent source's unrestricted carrier scope. If the target were explicitly restricted to nonempty magmas, the empty-carrier difference would disappear.",
+      "The empty-carrier argument demonstrates a scope difference; it does not refute the Lean construction with its Inhabited premise.",
+      "The project was not recompiled and the Sheffer-axiom derivation was not independently reproved. This record documents the semantic review and explicit user confirmation.",
+      "Retain the formal and informal inputs, input hash, both targets and technical status; do not propagate the label to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The source's Sheffer characterization does not impose nonemptiness, and the same blueprint explicitly permits empty magmas. An empty carrier vacuously satisfies Equation345169 but cannot provide the top and bottom elements of a BooleanAlgebra. The formal converse construction additionally requires Inhabited G, excluding this case. Under the independent source criterion, nonempty added by the metadata summary is not treated as an existing source premise.",
+  "retained_review_scope": "The independent blueprint's Sheffer-equation characterization and the two formal roots, focusing on the source convention allowing empty magmas and the converse construction's Inhabited premise. The nonempty scope added in the metadata summary does not replace the source. Minimality and equivalence with the other four axioms are outside the target."
+}

@@ -1,0 +1,73 @@
+{
+  "id": "bounded-massias-robin-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-massias-robin-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MassiasRobin.p_n_lower",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "a93551347dce924b1db75d40218841bf085a465f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "declaration": "MassiasRobin.p_n_lower",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+    "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b"
+  },
+  "group_id": "pnt-MassiasRobin.p_n_lower",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-massias-robin-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "f0f2157525e50b3474cf5f629333e2d80341eb273710cfdbe8dbf61f5d13fcab",
+    "effective_root_sha256": "6831c09c74bd804e84c38dac9af9a491093405fb0d77fc56c7575c3d100091dd",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-massias-robin-before/20261105T053522859455Z/receipt.json",
+    "receipt_sha256": "9d612b5d3d4db657d16f911410c6f7cddc04b2a3a5c5ba0952463bf616c7da49",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-massias-robin-before/20261105T053522859455Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "8b01440192ff024d7435090623ea138af4ddff21995f51c5b6638746df1597fc",
+    "formal_snapshot_id": "bounded-massias-robin-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/a93551347dce924b1db75d40218841bf085a465f/PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean",
+        "sha256": "fc467f1202c4adae95c28cd4d4cf8239128058ca31e279225c324e7bf9b4d72b",
+        "ref": "a93551347dce924b1db75d40218841bf085a465f",
+        "text": "If $n \\geq 2$ and either $p_n < e^{598}$ or $p_n > e^{1800}$, then\n  $p_n \\geq n(\\log n + \\log\\log n - 1)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'MassiasRobin.p_n_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'MassiasRobin.p_n_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "aa1549fe067aba1316c3232a4000f07b231ad8da335c4aa5be865ee796aeaf78",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "error-pi-text-after",
+  "task_id": "pnt:error-pi-text-after",
+  "input_sha256": "333707c2a20f60b0e7ce3c52b38ab5e865bef05543417037d478fe473368150c",
+  "label": "aligned",
+  "reason": "The numerator-absolute-value formula is definitionally equal to the specified source definition. Its relation to the paper quotient-absolute-value formula is restricted to x>1.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Eπ"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1642"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The revised own-version numerator-absolute-value formula matches the retained Formal definition exactly for every real x, checked by definitional equality. This label assesses that explicit source definition, not global agreement with the paper quotient-absolute-value formula. The separately checked x>1 bridge records the paper-domain scope.",
+  "review_scope": "The explicitly bound source definition over all real x; the paper-domain equivalence is a separate x>1 statement."
+}

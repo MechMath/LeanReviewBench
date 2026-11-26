@@ -1,0 +1,65 @@
+{
+  "id": "int-sign-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "APAP integer Kelley–Meka int-sign-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "int",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/YaelDillies/apap",
+    "commit": "8261296e61a6895823bee87664a335c56ae10258",
+    "path": "APAP/Integer.lean",
+    "module": "APAP.Integer",
+    "declaration": "int",
+    "url": "https://github.com/YaelDillies/apap/blob/8261296e61a6895823bee87664a335c56ae10258/APAP/Integer.lean",
+    "sha256": "9ba2eb6c97ca9ff7fe8037a854d1b5fd74e75d20291067fa4fed359a4557b1a8",
+    "leads": []
+  },
+  "group_id": "apap:integer-bound",
+  "split_group": "YaelDillies/apap",
+  "before_ids": [],
+  "after_ids": [
+    "int-sign-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Combinatorics.Additive.AP.Three.Defs"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "bc9928198744754b8265e158adf459c712540ca2861926714c9128424495c4b5",
+    "effective_root_sha256": "9ba2eb6c97ca9ff7fe8037a854d1b5fd74e75d20291067fa4fed359a4557b1a8",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/apap.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
+    "graph": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/default/graph.json",
+    "explicit_graph": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/explicit/graph.json",
+    "receipt_sha256": "0cc82310cd04b01ae1eab1a76404c7223681b779dd1600efb57380c0d22fc869",
+    "packaged_receipt": "reports/pending-extraction-2026-11-13/apap/technical/int-sign-before/receipt.json",
+    "packaged_receipt_sha256": "0cc82310cd04b01ae1eab1a76404c7223681b779dd1600efb57380c0d22fc869"
+  },
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b"
+}

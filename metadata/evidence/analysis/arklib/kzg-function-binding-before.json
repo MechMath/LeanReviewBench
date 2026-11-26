@@ -1,0 +1,155 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "kzg-function-binding-before",
+  "task_id": "arklib:kzg-function-binding-before",
+  "input_sha256": "56feaf3d7d0de61c280d7809a994a32808512242bb517b9559cef10b29d21055",
+  "label": "misaligned",
+  "reason": "The ARSDH hardness assumption quantifies over unrestricted Lean adversary functions instead of the circuit-size-bounded class specified by the source. The formal root and reduction definitions omit the explicit circuit-size overhead guarantee required by the source.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "KZG.CommitmentScheme.function_binding"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/kzg-function-binding-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "CGKY25 Lemma 9.1, including circuit-bounded adversaries and the explicit reduction overhead; the exact original PDF revision remains unverified.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "kzg-function-binding-before",
+    "root": "KZG.CommitmentScheme.function_binding",
+    "input_sha256": "09ab14ff379068b34456bd13e7d314eed7cc1517117c44b365b807c6c984d85b",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source ARSDH assumption bounds circuit size, but the before arsdhAssumption quantifies every Lean function of that type. An unrestricted function can recover τ, choose n+1 points avoiding τ, and construct an ARSDH solution that succeeds with probability 1, making the hardness premise impossible when error<1. The formalization also omits the source's concrete reduction-circuit overhead.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms misaligned for arklib:kzg-function-binding-before after reviewing the unrestricted-adversary hardness assumption and the missing circuit-size guarantee.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The currently frozen cached transcription of CGKY25 Lemma 9.1, including the ARSDH hardness assumption for bounded-size circuits and the concrete reduction-size overhead; only this before input.",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/informal.jsonl",
+        "line": 1,
+        "sha256": "bc05cdb3c34a0b75fd5d9cebf240d2c6c97f23eae4a7f57e086d6aebbd8e4185"
+      },
+      "cached_target": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/cgky25-cached-target.txt",
+        "line": 3,
+        "sha256": "4266925c78234a06ef377b429e342ec37e3ff5543d6d305436f253270c968ef4"
+      },
+      "source_acquisition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/source-acquisition.json",
+        "line": 1,
+        "sha256": "d62b96815d19c643a9171b8415c5163b5a0a0387939cf657c47ca6aca4852276"
+      },
+      "scope_metadata": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/target/sources.json",
+        "line": 24,
+        "sha256": "1671dcf6e522524a7cee0b9fc83d0598f80c0f244fcf5e28e06f83eed70ae895"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/FunctionBinding/Basic.lean",
+        "line": 635,
+        "sha256": "053a8d71f7c600bd05128878a8f74c0265ed6d29956da67be44909637db487dd"
+      },
+      "adversary_type_and_message_space": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/FunctionBinding/Basic.lean",
+        "line": 108,
+        "sha256": "053a8d71f7c600bd05128878a8f74c0265ed6d29956da67be44909637db487dd"
+      },
+      "reduction": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/FunctionBinding/Basic.lean",
+        "line": 118,
+        "sha256": "053a8d71f7c600bd05128878a8f74c0265ed6d29956da67be44909637db487dd"
+      },
+      "function_binding_condition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/Basic.lean",
+        "line": 284,
+        "sha256": "6b10b480974c6dc24aaf7b1af049bbb8e69bd3f7ee67d3b143c50da6b356c106"
+      },
+      "arsdh_condition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 101,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "unrestricted_hardness": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 127,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "srs_definition": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/Algebra.lean",
+        "line": 48,
+        "sha256": "edd48b9618397ec48016b69b5f3e92309d167ac7b5b0523849b0b0f5e827698b"
+      },
+      "arsdh_adversary_type": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 96,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "arsdh_game": {
+        "path": "datasets/arklib/projects/kzg-function-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 108,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "corroborating_after_lemma": {
+        "path": "datasets/arklib/projects/kzg-function-binding-after/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 185,
+        "sha256": "6ce955312c7bc6e5333511c25fbaaff40c89b1d4d73efcc2616f572aa0911087"
+      }
+    },
+    "semantic_argument": [
+      "The source bounds the success probability of size-bounded ARSDH circuits. The before arsdhAssumption quantifies all functions of type arsdhAdversary, without any computational-resource or adversary-class restriction.",
+      "The root condition pairing(g1,g2)≠0 implies g2≠1. In a prime-order group, exponentiation τ↦g2^τ by a nonidentity g2 is injective. The SRS publishes g2^τ, so an unrestricted function can recover τ by inverting this map.",
+      "The root premise p≥n+2 ensures that at least n+1 field elements remain after excluding τ. The adversary chooses a set S of size n+1 avoiding τ, so Z_S(τ)=∏_{s∈S}(τ-s)≠0.",
+      "Output (S,h1,h2)=(S,g1,g1^(1/Z_S(τ))). Together with hg1:g1≠1, this satisfies every arsdhCondition requirement. It succeeds for every sampled τ, giving ARSDH success probability 1.",
+      "Thus the before hardness premise cannot hold when arsdhError<1; when error≥1 it gives only a trivial probability bound. This differs from the source's computational-hardness assumption for bounded-size circuits.",
+      "The source also explicitly requires t_ARSDH ≤ t_FC + 2L² + L + D(L+8) + 2(D+1)². The formal root and related adversary and reduction definitions do not express this circuit-size guarantee.",
+      "The structure of the function-binding success event corresponds to the source, and both statements use probability inequalities. The probability-equality issue from the preceding evaluation-binding reductions is not used here."
+    ],
+    "parameter_cross_check": {
+      "formal_message_space": "Fin (n + 1) → ZMod p",
+      "degree_interpretation": "n+1 coefficients, corresponding to degree at most n",
+      "arsdh_cardinality": "S.card = n + 1",
+      "paper_correspondence": "Under the degree and set-cardinality conventions, the correspondence should be n=D.",
+      "scope_note_correction": "The existing scope's description of Lean degree<n and its suggested n=D+1 correspondence do not match the actual source code. The frozen input is not changed, and this description is not used to manufacture an off-by-one objection."
+    },
+    "verification": {
+      "source_binding_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The current source is a dated cached paper transcription; the exact original PDF revision and byte hash were not obtained. This decision concerns the currently bound text.",
+      "The unbounded inverse function is not a size-bounded attack circuit; this is not a claim that the source's cryptographic assumption has been broken.",
+      "The negative label concerns the scope of the hardness premise and the coverage of the conclusion; it does not claim that the Lean conditional theorem with that premise is false.",
+      "The absence of a circuit-size formalization does not imply that the actual reduction necessarily exceeds its budget; no lower bound on actual complexity is proved here.",
+      "Randomized experiments, auxiliary-input distributions and other premises are not additional reasons for a negative label; no other input's label is changed.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ],
+    "corroboration": {
+      "declaration": "Groups.not_arsdhAssumption_univ",
+      "location": "corroborating_after_lemma",
+      "role": "The corresponding after source contains a Lean proof that the unrestricted-class ARSDH assumption fails for a nonidentity generator, p≥D+2 and error<1. This review read it and checked it against the before experiment definition, without recompiling."
+    }
+  },
+  "retained_reason": "The source ARSDH assumption bounds circuit size, but the before arsdhAssumption quantifies every Lean function of that type. An unrestricted function can recover τ, choose n+1 points avoiding τ, and construct an ARSDH solution that succeeds with probability 1, making the hardness premise impossible when error<1. The formalization also omits the source's concrete reduction-circuit overhead.",
+  "retained_review_scope": "The currently frozen cached transcription of CGKY25 Lemma 9.1, including the ARSDH hardness assumption for bounded-size circuits and the concrete reduction-size overhead; only this before input."
+}

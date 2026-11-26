@@ -1,0 +1,38 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-L41",
+  "task_id": "coarse-degiorgi:CDG-L41",
+  "input_sha256": "56c78ffcb9b1295a17a215bca0d256760eb9d82654e23f127fb14fa9d611df3b",
+  "label": "misaligned",
+  "reason": "The average uses cells at scale k-1 while the right side still sums at scale k.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.LowerFractional.lower_auxAverage_norm_local"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/coarse-degiorgi.jsonl",
+      "id": "lemma-4-1-weaker-average"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/alignment-review-01/review-d3-l41.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The quantitative formula in the bound Lemma 4.1.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The left-hand auxAverage m k actually uses descendant cells of side length 3^(1−k), corresponding to the paper's P_(k−1). The right-hand side still sums over level-k triangulationIn, creating a level mismatch.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

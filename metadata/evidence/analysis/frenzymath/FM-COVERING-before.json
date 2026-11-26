@@ -1,0 +1,268 @@
+{
+  "task_id": "frenzymath:FM-COVERING-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-COVERING-before",
+  "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
+  "root": "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering",
+  "label": "aligned",
+  "reason": "Aligned under the cited lecture series' positive-dimensional manifold convention (Chapter 7, Definition 7.3, n >= 1), as adopted for this source-bound review. The connectedness and Riemannian completeness assumptions match, and the local-isometry premise supplies smoothness and metric preservation, so surjectivity together with IsCoveringMap gives the required surjective Riemannian covering. The singleton zero-dimensional example lies outside this adjudicated scope; it would establish an applicability mismatch under the broader interpretation that includes dimension zero.",
+  "review_scope": "Proposition 15.7 interpreted using the positive-dimensional, boundaryless manifold convention of Chapter 7 Definition 7.3 (n >= 1) and the connected-source completeness convention of Chapter 13: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering. The separately discussed zero-dimensional extension is outside this adjudicated source scope.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "roots": [
+    "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
+  ],
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "Compare the corrected source-bound statement with the elaborated root and key definitions, and explicitly adjudicate the positive-dimensional source convention after considering the zero-dimensional alternative discussed in issue #4.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-COVERING-before/informal.jsonl",
+      "sha256": "27b3ca07c00535080004ae5a631510637bf2e0afa6d4f7b0bd84bbdfa7206431",
+      "id": "main",
+      "source": {
+        "title": "CIS610 Chapter15 Isometries, Local Isometries, Riemannian Coverings",
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+        "locator": "Chapter 15, Proposition 15.7, printed page 777 / PDF page 11 (one-based).",
+        "version": "2018 slides",
+        "sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d",
+        "context_sources": [
+          {
+            "title": "CIS610 Chapter 13: Geodesics on Riemannian Manifolds",
+            "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl13.pdf",
+            "version": "2018 slides",
+            "locator": "Theorem 13.16, printed page 661 / PDF page 35, and the completeness convention on printed page 662 / PDF page 36 (one-based).",
+            "context": "Completeness is completeness of the induced Riemannian metric, and a complete Riemannian manifold is understood to be connected."
+          },
+          {
+            "title": "CIS610 Chapter 7: Manifolds, Tangent Spaces, Cotangent Spaces, Submanifolds",
+            "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf",
+            "version": "2018 slides",
+            "locator": "Printed page 333 / PDF page 3 (one-based).",
+            "context": "Manifolds are Hausdorff and second-countable."
+          },
+          {
+            "title": "CIS610 Chapter 15: Isometries, Local Isometries, Riemannian Coverings",
+            "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+            "version": "2018 slides",
+            "locator": "Definition 15.1, printed page 774 / PDF page 8 (one-based).",
+            "context": "A Riemannian covering is a smooth covering map that is a local isometry."
+          }
+        ]
+      },
+      "bound_scope": "Proposition 15.7 with the lecture series completeness convention: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering.",
+      "review_scope_interpretation": "Proposition 15.7 interpreted using the positive-dimensional, boundaryless manifold convention of Chapter 7 Definition 7.3 (n >= 1) and the connected-source completeness convention of Chapter 13: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering. The separately discussed zero-dimensional extension is outside this adjudicated source scope."
+    },
+    "first_pass": "ConnectedSpace N and ConnectedSpace M' include nonemptiness. CompleteSpace N together with hgN identifies completeness for the supplied source Riemannian distance. IsLocalIsometry unfolds to a smooth local diffeomorphism and preservation of the supplied metric by mfderiv. Surjectivity and IsCoveringMap therefore supply the remaining covering properties under these premises.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 1525,
+        "line_end": 1538,
+        "anchor": "theorem IsLocalIsometry.surjectiveCovering",
+        "declaration": "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 1510,
+        "line_end": 1520,
+        "anchor": "def IsLocalIsometry"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 1502,
+        "line_end": 1506,
+        "anchor": "def DCPreservesMetric"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-COVERING-before/formal/Main.lean",
+        "sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+        "line_start": 889,
+        "line_end": 898,
+        "anchor": "def IsRiemannianDist"
+      }
+    ],
+    "second_pass": "The retained NeZero (finrank ℝ E) hypothesis is substantive. Chapter 7 Definition 7.3 begins with n >= 1, while the following page separately discusses n = 0. This adjudication reads Proposition 15.7 under the positive-dimensional definition, rather than its zero-dimensional extension. Under that selected source convention the hypothesis does not narrow the target. The singleton identity remains a valid applicability witness for the broader zero-dimensional interpretation, but is outside the adjudicated scope. The earlier disconnected-source objection remains withdrawn.",
+    "unresolved_questions": [],
+    "verification_limits": "The unchanged formal context was re-elaborated with Lean 4.34.1 to inspect the actual theorem type and key definitions. The alignment judgment adopts a documented interpretation of the source dimension convention; it is not a proof of alignment for zero-dimensional inputs. Packaged theorem proofs are erased to sorry, so successful elaboration does not certify the original proofs. Informal and formal input bytes, their hashes, and evaluation-export readiness remain unchanged.",
+    "source_context_review": {
+      "chapter_15": {
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf#page=11",
+        "locator": "Proposition 15.7, printed page 777, PDF page 11 (zero-based page index 10).",
+        "finding": "With the Chapter 13 completeness convention made explicit, the proposition concerns a connected complete source and a connected target; this is now the bound informal statement."
+      },
+      "chapter_7": {
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf#page=9",
+        "locator": "Definition 7.3, printed page 339 / PDF page 9, and the following discussion on printed page 340 / PDF page 10 (one-based).",
+        "finding": "Definition 7.3 introduces manifolds with integer dimension n >= 1, modeled on Euclidean space. The next page separately discusses zero-dimensional discrete manifolds. Both passages are retained in the review; the aligned judgment adopts the positive-dimensional definition for the bound Proposition 15.7.",
+        "zero_dimensional_discussion_url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf#page=10",
+        "connectedness_note": "General manifolds need not be connected; the specialized completeness convention in Chapter 13 separately supplies connectedness for the source."
+      },
+      "chapter_13": {
+        "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl13.pdf#page=36",
+        "locator": "Printed page 662, PDF page 36 (zero-based page index 35), immediately after Theorem 13.16 on printed page 661.",
+        "short_quote": "it is understood that M is connected",
+        "finding": "The text adopts connectedness as part of its usage of complete Riemannian manifold. The user authorized correcting the bound target to this convention."
+      },
+      "locator_note": "Source locators in the corrected informal record and this review now use one-based PDF page numbers."
+    },
+    "distance_scope_check": {
+      "dependency_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "definitions": [
+        {
+          "path": "Mathlib/Geometry/Manifold/Riemannian/Basic.lean",
+          "line": 81,
+          "declaration": "IsRiemannianManifold",
+          "meaning": "Requires ambient edist x y = riemannianEDist I x y."
+        },
+        {
+          "path": "Mathlib/Geometry/Manifold/Riemannian/PathELength.lean",
+          "line": 208,
+          "declaration": "riemannianEDist",
+          "meaning": "Infimum over C1 paths and their lengths."
+        },
+        {
+          "path": "Mathlib/Topology/Connected/Basic.lean",
+          "line": 705,
+          "declaration": "ConnectedSpace",
+          "meaning": "Preconnected and nonempty."
+        },
+        {
+          "path": "Mathlib/Topology/Covering/Basic.lean",
+          "line": 288,
+          "declaration": "IsCoveringMap",
+          "meaning": "Every target point has an evenly covered neighborhood."
+        }
+      ],
+      "argument": "Between different path components there is no path, so the intrinsic extended distance is infinity. In a MetricSpace every ambient edist is finite. Thus a nonempty source satisfying MetricSpace and IsRiemannianDist is already path connected, even if the explicit ConnectedSpace parameter is removed.",
+      "consequence": "The corrected target uses a connected source and the induced Riemannian distance. The finite-distance compatibility condition is appropriate to that target and is not used as misalignment evidence."
+    },
+    "alternative_interpretations": [
+      "The disconnected-source formulation is no longer the selected target. Its two-copy example does not witness a mismatch with the corrected connected-source target.",
+      "The singleton identity witnesses a positive-dimension restriction only when the target includes dimension zero. The aligned label applies to the adjudicated Chapter 7 Definition 7.3 scope and must not be generalized to that broader interpretation."
+    ],
+    "followup_review": {
+      "date": "2026-11-20",
+      "trigger": "The user requested that the repository label and review record be changed to aligned after discussion of issue #4.",
+      "recorded_label": "aligned",
+      "agent_assessment": "Aligned under the cited lecture series' positive-dimensional manifold convention (Chapter 7, Definition 7.3, n >= 1), as adopted for this source-bound review. The connectedness and Riemannian completeness assumptions match, and the local-isometry premise supplies smoothness and metric preservation, so surjectivity together with IsCoveringMap gives the required surjective Riemannian covering. The singleton zero-dimensional example lies outside this adjudicated scope; it would establish an applicability mismatch under the broader interpretation that includes dimension zero.",
+      "adjudication": "Human-confirmed aligned judgment under the explicitly recorded positive-dimensional source interpretation.",
+      "reason_handling": "The English reason explains the statement correspondence and retains the zero-dimensional alternative as a scope qualification."
+    },
+    "elaborated_type_check": {
+      "lean_toolchain": "leanprover/lean4:v4.34.1",
+      "method": "Compiled an unchanged copy of formal/Main.lean with #print MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering appended; exit code 0.",
+      "result": "NeZero (finrank ℝ E) is retained in the elaborated theorem type, not merely an unused section variable.",
+      "printed_type": "theorem MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering.{u_1, u_2, u_4, u_5} : ∀ {E : Type u_1}\n  [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [NeZero (finrank ℝ E)]\n  [CompleteSpace E] {H : Type u_2} [inst_5 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [I.Boundaryless]\n  {N : Type u_4} [inst_7 : MetricSpace N] [inst_8 : ChartedSpace H N] [inst_9 : IsManifold I ∞ N] [ConnectedSpace N]\n  [CompleteSpace N] {M' : Type u_5} [inst_12 : MetricSpace M'] [inst_13 : ChartedSpace H M']\n  [inst_14 : IsManifold I ∞ M'] [ConnectedSpace M'] {gN : MorganTianLib.RiemannianMetric I N}\n  {gM : MorganTianLib.RiemannianMetric I M'} {F : N → M'},\n  Riemannian.RiemannianMetric.IsRiemannianDist gN →\n    MorganTianLib.LocalIsometry.IsLocalIsometry gN gM F → Surjective F ∧ IsCoveringMap F",
+      "formal_source_sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7"
+    },
+    "dimension_scope_adjudication": {
+      "date": "2026-11-20",
+      "related_issue": "https://github.com/MechMath/LeanReviewBench/issues/4",
+      "selected_interpretation": "The positive-dimensional manifold definition in Chapter 7 Definition 7.3 governs this source-bound review of Proposition 15.7.",
+      "formal_hypothesis": "NeZero (Module.finrank ℝ E), retained in the elaborated theorem type.",
+      "alternative_considered": "If the target includes dimension zero, the identity on a singleton is a connected complete local isometry and a surjective Riemannian covering, but cannot instantiate the formal NeZero hypothesis. That broader interpretation supports misaligned for applicability.",
+      "decision": "The user requested aligned for the repository label and review record after the dimension-scope discussion. The supporting mathematical assessment is explicitly restricted to the positive-dimensional source interpretation.",
+      "input_handling": "The informal text and Lean source bytes are unchanged. This is an explicit review-scope interpretation of the cited source, not a claim that the informal transcription literally states n >= 1 or that the formal theorem covers dimension zero."
+    },
+    "additional_scope_checks": [
+      {
+        "topic": "Target completeness and unrelated section variables",
+        "finding": "The elaborated root has no CompleteSpace M' premise. The separate section variable M and its completeness, sigma-compactness, and tangent-bundle separation assumptions do not enter this root."
+      },
+      {
+        "topic": "Smooth Riemannian covering conclusion",
+        "finding": "The hF premise includes IsLocalDiffeomorph at smoothness order infinity and DCPreservesMetric. Combining these with Surjective F and IsCoveringMap F yields the smooth Riemannian covering in Definition 15.1."
+      },
+      {
+        "topic": "Second countability",
+        "finding": "Connected metrizable finite-dimensional manifolds are second countable, so the lack of a separate SecondCountableTopology parameter does not broaden the source scope.",
+        "source": "https://math.ucr.edu/~res/m205C/metricmanifolds.pdf"
+      }
+    ]
+  },
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "Aligned under the cited lecture series' positive-dimensional manifold convention (Chapter 7, Definition 7.3, n >= 1), as adopted for this source-bound review. The connectedness and Riemannian completeness assumptions match, and the local-isometry premise supplies smoothness and metric preservation, so surjectivity together with IsCoveringMap gives the required surjective Riemannian covering. The singleton zero-dimensional example lies outside this adjudicated scope; it would establish an applicability mismatch under the broader interpretation that includes dimension zero.",
+    "uncertainty": "The aligned judgment is conditional on the explicitly adjudicated positive-dimensional source convention. The broader zero-dimensional interpretation would instead yield an applicability mismatch; this alternative is not claimed to have been refuted.",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "file": "formalized-sources/MorganTian/MorganTianLib/Ch01/Chapter1CutLocusRemaining.lean",
+      "version_role": "before"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "CIS610 Chapter15 Isometries, Local Isometries, Riemannian Coverings",
+          "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+          "locator": "Chapter 15, Proposition 15.7, printed page 777 / PDF page 11 (one-based).",
+          "version": "2018 slides",
+          "sha256": "02087014c1d7664361d81d550799f0f56931f951d35599c20660b5eccb9c3a6d",
+          "context_sources": [
+            {
+              "title": "CIS610 Chapter 13: Geodesics on Riemannian Manifolds",
+              "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl13.pdf",
+              "version": "2018 slides",
+              "locator": "Theorem 13.16, printed page 661 / PDF page 35, and the completeness convention on printed page 662 / PDF page 36 (one-based).",
+              "context": "Completeness is completeness of the induced Riemannian metric, and a complete Riemannian manifold is understood to be connected."
+            },
+            {
+              "title": "CIS610 Chapter 7: Manifolds, Tangent Spaces, Cotangent Spaces, Submanifolds",
+              "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl7.pdf",
+              "version": "2018 slides",
+              "locator": "Printed page 333 / PDF page 3 (one-based).",
+              "context": "Manifolds are Hausdorff and second-countable."
+            },
+            {
+              "title": "CIS610 Chapter 15: Isometries, Local Isometries, Riemannian Coverings",
+              "url": "https://www.cis.upenn.edu/~cis6100/cis610-18-sl15.pdf",
+              "version": "2018 slides",
+              "locator": "Definition 15.1, printed page 774 / PDF page 8 (one-based).",
+              "context": "A Riemannian covering is a smooth covering map that is a local isometry."
+            }
+          ]
+        },
+        "scope": "Proposition 15.7 with the lecture series completeness convention: a local isometry from a connected nonempty complete Riemannian source to a connected nonempty Riemannian target is a surjective Riemannian covering."
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "860ff2e967c4f335b2bffb13d2715a9895d7d9e1e702b4a6e75e9078c97d6f3b"
+    },
+    "followup_recommendation": "Record the user-requested aligned judgment with the positive-dimensional source convention explicit in the reason and review scope; retain the zero-dimensional alternative in the detailed evidence.",
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_confirmation",
+      "label": "aligned",
+      "review_mode": "source_scope_adjudication_after_dimension_review",
+      "reason_recording": "The user requested changing the repository label and review record to aligned. The English reason states the positive-dimensional source interpretation supporting that judgment and the different result under a zero-dimensional extension."
+    },
+    "informal_source_correction": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_instruction",
+      "change": "Make source connectedness and Riemannian metric completeness explicit, remove the unsupported disconnected-source interpretation and its review-specific example, and correct one-based PDF locators.",
+      "formal_source_unchanged": true,
+      "formal_source_sha256": "100cc1c87874f5d6f3c1162b4c42ce762500389ab8e469ccaa4b232bc88a59b7",
+      "source_context": "Chapter 13, printed page 662 / PDF page 36; Chapter 15, Proposition 15.7, printed page 777 / PDF page 11."
+    },
+    "reason_followup": {
+      "date": "2026-11-20",
+      "method": "Review both Chapter 7 dimension passages, the connected-source completeness convention, and the actual elaborated root and definitions.",
+      "reason": "Aligned under the cited lecture series' positive-dimensional manifold convention (Chapter 7, Definition 7.3, n >= 1), as adopted for this source-bound review. The connectedness and Riemannian completeness assumptions match, and the local-isometry premise supplies smoothness and metric preservation, so surjectivity together with IsCoveringMap gives the required surjective Riemannian covering. The singleton zero-dimensional example lies outside this adjudicated scope; it would establish an applicability mismatch under the broader interpretation that includes dimension zero.",
+      "related_issue": "https://github.com/MechMath/LeanReviewBench/issues/4"
+    }
+  },
+  "analysis_availability": "The statement correspondence, elaborated-type check, source-dimension adjudication, zero-dimensional alternative, and user-confirmed aligned judgment are retained. The mathematical input and proof-certification limits are unchanged."
+}

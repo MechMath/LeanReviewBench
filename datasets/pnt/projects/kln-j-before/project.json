@@ -1,0 +1,75 @@
+{
+  "id": "kln-j-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT kln-j-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "KLN.J",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+    "declaration": "KLN.J",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+    "sha256": "9630d7efe172c92be056b619d14029f6c9f2ced952da6702155ff4ab4dd49f65"
+  },
+  "group_id": "pnt-KLN.J",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "kln-j-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "e0515e1b73258246c2981374f000c0d848c45aa6fdaf0c1e09a034e7091a5828",
+    "effective_root_sha256": "6cd84feb9e0e4a251d29d8b5d349b56241a2b34984e1d2d2e0c1497696d4f17f",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/kln-j-before/20261105T052245461319Z/receipt.json",
+    "receipt_sha256": "97c18b1e856aad4588dcbc03268188cb08773bb7c55be2113b00e0b6c127f961",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/kln-j-before/20261105T052245461319Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "3a85c2ee287855dd5d3bd676d68a5a560d2b5faea0def36eaf86203588baf34a",
+    "formal_snapshot_id": "kln-j-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IEANTN/KLN.lean",
+        "sha256": "9630d7efe172c92be056b619d14029f6c9f2ced952da6702155ff4ab4dd49f65",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": null
+      }
+    ],
+    "root_axioms": {
+      "default": "'KLN.J' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'KLN.J' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "informal_status": "independent_paper_target_bound",
+  "evaluation_eligible": true,
+  "input_sha256": "97a7f5f5d401e14fda60e9e14ee7b7d2cd1bb44395d2ef8b7e3a5acba028c692",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

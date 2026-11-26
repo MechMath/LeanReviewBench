@@ -1,0 +1,123 @@
+{
+  "id": "SP-B-ZERO",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Sphere-Packing-Lean",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MagicFunction.b.SpecialValues.b_zero",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean",
+    "commit": "77cf0a0c104f2e31501eab04d88bbc068d61c169",
+    "path": "SpherePacking/MagicFunction/b/SpecialValues.lean",
+    "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/77cf0a0c104f2e31501eab04d88bbc068d61c169/SpherePacking/MagicFunction/b/SpecialValues.lean",
+    "declaration": "MagicFunction.b.SpecialValues.b_zero",
+    "sha256": "63ac7110906f89608ea7864f26ed8faba40defc517142f7b2844f15914697add",
+    "leads": [
+      "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/pull/504"
+    ],
+    "module": "SpherePacking.MagicFunction.b.SpecialValues"
+  },
+  "group_id": "sphere-packing:SP-B-ZERO",
+  "split_group": "thefundamentaltheor3m/Sphere-Packing-Lean",
+  "before_ids": [],
+  "after_ids": [
+    "SP-B-ZERO-FIXED"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.Field.ZMod",
+    "Mathlib.Algebra.Order.Star.Real",
+    "Mathlib.Analysis.CStarAlgebra.Classes",
+    "Mathlib.Analysis.CStarAlgebra.Module.Defs",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.UniformLimitsDeriv",
+    "Mathlib.Analysis.Complex.Trigonometric",
+    "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+    "Mathlib.Analysis.Complex.UpperHalfPlane.FunctionsBoundedAtInfty",
+    "Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Basic",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.InnerProductSpace.Calculus",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Normed.Group.FunctionSeries",
+    "Mathlib.Analysis.Normed.Group.InfiniteSum",
+    "Mathlib.Analysis.Normed.Group.Tannery",
+    "Mathlib.Analysis.RCLike.Basic",
+    "Mathlib.Analysis.Real.Pi.Bounds",
+    "Mathlib.Analysis.SpecialFunctions.Log.Summable",
+    "Mathlib.Analysis.SpecialFunctions.SmoothTransition",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.Analysis.SpecificLimits.Normed",
+    "Mathlib.Basic.Complex.Basic",
+    "Mathlib.Data.Fintype.Parity",
+    "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+    "Mathlib.Geometry.Manifold.MFDeriv.SpecificFunctions",
+    "Mathlib.Geometry.Manifold.Notation",
+    "Mathlib.LinearAlgebra.Dimension.Localization",
+    "Mathlib.LinearAlgebra.Matrix.FixedDetMatrices",
+    "Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup",
+    "Mathlib.NumberTheory.ModularForms.BoundedAtCusp",
+    "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups",
+    "Mathlib.NumberTheory.ModularForms.Derivative",
+    "Mathlib.NumberTheory.ModularForms.Discriminant",
+    "Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic",
+    "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+    "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion",
+    "Mathlib.NumberTheory.ModularForms.JacobiTheta.Bounds",
+    "Mathlib.NumberTheory.ModularForms.LevelOne.GradedRing",
+    "Mathlib.NumberTheory.ModularForms.QExpansion",
+    "Mathlib.NumberTheory.ModularForms.RamanujanFormula",
+    "Mathlib.NumberTheory.ModularForms.SlashActions",
+    "Mathlib.Tactic.Convert",
+    "Mathlib.Tactic.FunProp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.NormNum.Parity",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.InfiniteSum.NatInt",
+    "Mathlib.Topology.Algebra.Ring.Basic",
+    "Mathlib.Topology.ContinuousMap.Compact"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/candidates.json",
+      "sha256": "309b18ae8194e5dada48e6f160814dc87eb1f99b070f807f1fe1a7621546801c"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/technical/SP-B-ZERO/compat-03/graph.json",
+      "sha256": "065d66ef3573c0644e1aca0a7c506272a0b442558de943a4323c36adf9e60db3"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/sphere-packing-01/review-01/adjudication.json",
+      "sha256": "4729ceae9b3c6110e2ffccadce12904061e20fe2eb1f3ab10fa9d00d53b5d15b"
+    }
+  },
+  "input_sha256": "4ab327333564fbe3ff19c50f91d6638fa85b707ee3e09b68bb998a371409837f",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 17,
+    "sha256": "ae2c24533b6fc434e55410b489218221300aab92a133aa896bf72db997cb998a",
+    "effective_root_sha256": "746456827efda32f07edd82d60f61d70a07da17e5f472f713766b204191a52ac",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/sphere-packing.jsonl"
+}

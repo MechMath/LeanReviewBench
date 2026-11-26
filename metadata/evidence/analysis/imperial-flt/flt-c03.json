@@ -1,0 +1,179 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c03",
+  "task_id": "imperial-flt:flt-c03",
+  "input_sha256": "117e6ba5f8ccaa5b52362e4fb245dfd0198a83efa5483b8ed69db82e2ef5260d",
+  "label": "aligned",
+  "reason": "The rational vector space, scalar extension, adelic module topology, and normalized Haar factor match. The Borel structure adds no substantive restriction.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/flt-c03.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The unit Haar factor of an adelically extended automorphism of a finite-dimensional rational vector space.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "imperial-flt",
+    "project_id": "flt-c03",
+    "root": "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one",
+    "input_sha256": "229f6186c8fd360d971a36492ad48d9930a2cd7aa0d642ea93d488aa4ebcd041",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "The finite-dimensional ℚ-vector space, ℚ-linear automorphism, and adelic tensor product correspond to the source. baseChange actually acts by v⊗a↦φ(v)⊗a, the explicit instance uses the adelic module topology, and addEquivAddHaarChar has the same normalization as the source's d. BorelSpace merely specifies the naturally available Borel measurable structure and introduces no substantive scope difference.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for imperial-flt:flt-c03 after checking the finite-dimensional rational vector-space scope, actual scalar-extension map, module topology, Borel structure, and Haar-character normalization.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "model_recommendation": "aligned",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The bound source states that extending an automorphism of a finite-dimensional rational vector space to the adeles gives Haar factor 1. The review checks the base ring, actual scalar-extension data, module topology, Borel measurable structure, and normalization of the Haar factor.",
+    "detailed_review": {
+      "path": "reports/adelic-haar-recheck-2026-11-16/review.json",
+      "sha256": "08b46980797561de6fa678fd8ff6dd4593319d05ad661f1ca36b9956354eb7b3"
+    },
+    "evidence_locations": {
+      "bound_informal": {
+        "path": "datasets/imperial-flt/projects/flt-c03/informal.jsonl",
+        "line": 1,
+        "sha256": "724f36d06c921d0dacd5d5e77de1fed9b578b81c0429469d6732949b92727d8b"
+      },
+      "source_haar_character": {
+        "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+        "line": 31,
+        "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+      },
+      "source_haar_independence": {
+        "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+        "line": 48,
+        "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+      },
+      "source_vector_space_and_topology": {
+        "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+        "line": 850,
+        "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+      },
+      "source_theorem": {
+        "path": "datasets/imperial-flt/projects/flt-c03/informal/source.tex",
+        "line": 859,
+        "sha256": "de12b5a544cfb4d9d789d36dfd73e6b5223c27ef2c22b15183477733cd73f2c8"
+      },
+      "root": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+        "line": 160,
+        "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+      },
+      "continuous_base_change": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+        "line": 130,
+        "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+      },
+      "base_change_on_pure_tensors": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+        "line": 141,
+        "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+      },
+      "right_module_action": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+        "line": 63,
+        "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+      },
+      "module_topology": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+        "line": 153,
+        "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+      },
+      "linear_base_change": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+        "line": 165,
+        "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+      },
+      "linear_equivalence_base_change": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/Hacks/RightActionInstances.lean",
+        "line": 195,
+        "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+      },
+      "adele_notation": {
+        "path": "datasets/imperial-flt/projects/flt-c03/formal/dep/FLT/NumberField/AdeleRing.lean",
+        "line": 78,
+        "sha256": "cfaf2f7ca40f2de2d18f7494051a5edd1149c30a256408d1f2e291126ef222b7"
+      },
+      "explicit_graph": {
+        "path": "datasets/imperial-flt/projects/flt-c03/graph/explicit/graph.json",
+        "line": 1,
+        "sha256": "0181fdaa09f8e114e430c3e98b562b1b234ba7706a28d99c87849a57795d9028"
+      }
+    },
+    "external_evidence": [
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/MeasureTheory/Measure/Haar/MulEquivHaarChar.lean",
+        "relative_path": "Mathlib/MeasureTheory/Measure/Haar/MulEquivHaarChar.lean",
+        "line": 38,
+        "sha256": "d03d5bc407e8f8e675f457d6f59f95ec035852a63a8727194595a6dd33118c3b",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+        "relative_path": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+        "line": 50,
+        "sha256": "43081cf5d6a27218eaf94ea3cfccf62093edb6e6a4d2d748be8fdaa32f00c0d2",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/MeasureTheory/Constructions/BorelSpace/Basic.lean",
+        "relative_path": "Mathlib/MeasureTheory/Constructions/BorelSpace/Basic.lean",
+        "line": 16,
+        "sha256": "d15ab5af19662b4cd2ae3c3a9665ae52e134d8954ad17d5ded063819b72b7e40",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      }
+    ],
+    "semantic_argument": [
+      "The mathematical source text explicitly uses ℚ and 𝔸_ℚ. Although the source's Lean marker name lacks the rat suffix, the current root's ℚ-specialization matches that text; the adjacent general number-field version is not included in the target.",
+      "Module ℚ V, FiniteDimensional ℚ V, and φ:V≃ₗ[ℚ]V match the source's finite-dimensional rational vector space and linear automorphism; no positive-dimension or Nontrivial requirement is added.",
+      "𝔸 ℚ unfolds to NumberField.AdeleRing (𝓞 ℚ) ℚ, defined in the pinned external version as the product of infinite and finite adeles, with the diagonal ℚ-algebra structure.",
+      "ContinuousLinearEquiv.baseChange is constructed from the concrete LinearEquiv.baseChange and proves continuity. baseChange_apply gives φ(v)⊗a on pure tensors, with proof rfl. The inverse is obtained by extending φ.symm; the data object has no placeholder.",
+      "The explicitly extracted type uses RightActions.instTopologicalSpaceOfFinite_dep, whose value is moduleTopology (𝔸 ℚ) (V⊗[ℚ]𝔸 ℚ), matching the source's module topology.",
+      "MeasurableSpace together with BorelSpace fixes the measurable structure to the Borel σ-algebra of this topology. It can be chosen directly as borel, so it is neither an arbitrary measurable structure nor an additional mathematical restriction.",
+      "The source's d_A(φ) satisfies d_A(φ)·φ_*μ=μ. In the pinned Mathlib version, addEquivAddHaarChar is the additive version generated by to_additive and is defined as haarScalarFactor haar (haar.map φ). Its smul_map theorem gives exactly the same equation, and the result is unchanged for any regular Haar measure.",
+      "The root conclusion that the factor equals 1 therefore expresses preservation of Haar measure exactly as in the source; it does not rely on confusing a scaling factor with its reciprocal."
+    ],
+    "verification": {
+      "source_and_input_hash_checked": true,
+      "base_change_and_topology_definitions_inspected": true,
+      "explicit_root_topology_instance_checked": true,
+      "local_data_sorry_nodes": [],
+      "root_and_continuous_base_change_match_retained_original": true,
+      "mathlib_commit_verified": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "external_evidence_blobs_match_commit": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checked the statement and key definitions; it did not recompile or independently reprove the determinant and product formulas.",
+      "This update saves aligned as confirmed by the user, retaining the source text, formal input, input hash, targets, and technical status; it does not propagate the label to the next case.",
+      "ready reflects the positive label together with existing compilation and extraction results; it does not imply recompilation or completion of a new equivalence proof in this review.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The finite-dimensional ℚ-vector space, ℚ-linear automorphism, and adelic tensor product correspond to the source. baseChange actually acts by v⊗a↦φ(v)⊗a, the explicit instance uses the adelic module topology, and addEquivAddHaarChar has the same normalization as the source's d. BorelSpace merely specifies the naturally available Borel measurable structure and introduces no substantive scope difference.",
+  "retained_review_scope": "The bound source states that extending an automorphism of a finite-dimensional rational vector space to the adeles gives Haar factor 1. The review checks the base ring, actual scalar-extension data, module topology, Borel measurable structure, and normalization of the Haar factor."
+}

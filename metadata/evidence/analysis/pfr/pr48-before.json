@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "pr48-before",
+  "task_id": "pfr:pr48-before",
+  "input_sha256": "30fc8f505cc5d871ea3010ef56c6b51874a10fc22978ed077896551fe767c410",
+  "label": "misaligned",
+  "reason": "Independence of (X,Z) from Y is replaced by independence of (X,Y) from Z, with the inequality variables fixed.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "ent_of_diff_le"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pfr.jsonl",
+      "id": "pr-48"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pfr-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The source assumes that (X,Z) is independent of Y, while the formal statement assumes that (X,Y) is independent of Z. These are different propositions, and variable renaming cannot identify them while preserving the subtraction terms in the original inequality.",
+  "review_scope": "The bound entropy inequality with the original random-variable roles and independence premise."
+}

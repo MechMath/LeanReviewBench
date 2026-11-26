@@ -1,0 +1,113 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "carleson",
+  "project_id": "CAR-01-after",
+  "task_id": "carleson:CAR-01-after",
+  "input_sha256": "16a31295a8904f435e8bf38bdda8ad2dc025a358118efff5c53a773dc52261e8",
+  "label": "misaligned",
+  "reason": "The cancellation condition uses a global Lipschitz seminorm instead of the source ball-restricted seminorm, changing the admissible model class. A retained construction separates the hypotheses.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "metric_carleson"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/carleson.jsonl",
+      "id": "pr-212"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/carleson-review-2026-11-09/CAR-01-after.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/migration-semantic-review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete theorem cancellation hypothesis with the intended ball-restricted seminorm; the formal conclusion is not alleged to be false.",
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "carleson",
+    "project_id": "CAR-01-after",
+    "root": "metric_carleson",
+    "input_sha256": "b9bb6c6d56e3e4f4d67ff0cd1855ae47400aab6a602c1625bf5351183859cfb8",
+    "review_date": "2026-11-09",
+    "label": "misaligned",
+    "reason": "iLipNorm replaces the source's Lipschitz seminorm on a ball with the seminorm on the entire space, strictly weakening the main theorem's cancellative premise. On ℚ₂ with a=4, one can construct a continuous phase family satisfying formal doubling and all compatible and cancellative conditions, with the zero kernel satisfying the remaining premises. Yet the phase family's oscillation within balls forces a contradiction between any informally compatible distance and the source's cancellation estimate. The judgment concerns applicability of the main statement, not falsity of the formal conclusion. The after hT already uses ENNReal, so toReal is not part of the negative rationale. The mathematical argument has not been Lean-certified.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-09 (translated from Chinese): Before continuing, change the preceding labels to misaligned.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "Compare the full main-statement hypotheses with the same a and real-valued phase family, allowing alternative informal auxiliary distances.",
+    "verification_status": "Mathematical derivation with exact arithmetic checks; not Lean-certified.",
+    "evidence_locations": {
+      "informal": "datasets/carleson/projects/CAR-01-after/informal.jsonl:1; eq-vdc-cond and osccontrol",
+      "norm": "datasets/carleson/projects/CAR-01-after/formal/dep/Carleson/Defs.lean:156",
+      "cancellative": "datasets/carleson/projects/CAR-01-after/formal/dep/Carleson/Defs.lean:169",
+      "target": "datasets/carleson/projects/CAR-01-after/formal/Main.lean:25"
+    },
+    "distinguishing_construction": {
+      "parameters": {
+        "a": 4,
+        "A": 16,
+        "tau": "1/4",
+        "D": 159999
+      },
+      "space": "Q_2 with its usual metric and Haar measure mu(Z_2)=1. Each nonempty ball B(x,R) has measure s, a power of 2, with s<R<=2s. The space is proper and the measure regular and positive on nonempty open sets. Doubling the radius doubles s.",
+      "phases": "Let b_j(x) be the j-th binary digit of the 2-adic expansion. Put theta(x)=pi*b_{-1}(x)+24000*pi*b_0(x), and Theta={0,theta}. These continuous functions vanish at 0. theta is constant on cosets of 2Z_2, and exp(i*theta(x))=(-1)^{b_{-1}(x)} changes sign under translation by 1/2.",
+      "auxiliary_distances": "For positive radius set d_B(0,theta)=D*mu(B). Use zero pseudometric for empty balls.",
+      "compatibility_checks": [
+        "For s<=1/2, local oscillation is zero. For s>=1, local oscillation is at most 24001*pi < 96004 < D <= D*s.",
+        "Inclusion gives monotonicity of s. Radius dilation by 2 multiplies d by 2<=16; dilation by 16 multiplies d by 16>=2. Center changes do not change ball measure. These prove the three distance comparison fields.",
+        "The two-point phase space has the required covering bound of at most 16 balls. The common zero point is 0."
+      ],
+      "formal_cancellative_proof": [
+        "For a test phi with tsupport(phi) contained in B, let M=sup_B |phi|, L=Lip_X(phi), N=M+R*L. These are finite for the globally Lipschitz tests on compact balls.",
+        "If s<=1, every point in B has an exterior point at distance 2s where phi vanishes. Thus L>=M/(2s) and N>=3M/2. Also 16/(1+D*s)^(1/4)>=4/5. The formal RHS is at least (6/5)*s*M, while the integral norm is at most s*M.",
+        "If s>=2, translation by 1/2 preserves B and reverses the oscillatory factor. Therefore the integral norm is at most s*L, and also at most s*M. Hence it is at most s*N/(1+R). Since (1+D*s)^(1/4)<=20*s^(1/4)<=10*(1+s)<=16*(1+R), the formal RHS dominates this bound.",
+        "The reversed phase pair has the same oscillatory factor; equal phases and empty balls satisfy the trivial estimate."
+      ],
+      "informal_failure": {
+        "test": "B=B(0,3/2)=Z_2, phi=1_B. This phi has both support and topological support equal to B and is globally Lipschitz with constant 1/2.",
+        "integral_norm": 1,
+        "informal_norm": 1,
+        "formal_norm": "7/4",
+        "informal_rhs_with_supplied_metric": "4/5",
+        "formal_rhs": "7/5",
+        "any_alternative_metric": "The points 0 and 1 in B have phase difference 24000*pi>72000>65535. Informal oscillation control forces d_B>=24000*pi, whereas informal cancellativity applied to phi forces d_B<=16^4-1=65535. Thus no alternative compatible distance fixes the failure."
+      },
+      "remaining_hypotheses": "Take K=0, q=qprime=2, and for example F=G=Z_2, f=0. The one-sided kernel and direct ENNReal bounded strong-type assumptions hold. This separates admissible hypotheses, not the zero-kernel conclusion."
+    },
+    "other_differences": {
+      "support": "Radial soft-thresholding of phi approximates it by tests with topological support in B without increasing either Lipschitz seminorm; the constant is preserved.",
+      "nontangential_boundary": "For the bounded/essentially bounded inputs in scope, letting the inner truncation radius decrease from above identifies the strict and weak cone constraints.",
+      "kernel_diagonal": "Setting K(x,x)=0 preserves off-diagonal conditions and all truncated operators."
+    },
+    "exact_arithmetic_checks": {
+      "D_plus_one": 160000,
+      "20_pow_4": 160000,
+      "phase_oscillation_lower_bound": 72000,
+      "informal_distance_upper_bound": 65535,
+      "phase_oscillation_upper_bound": 96004,
+      "result": "passed; uses 3<pi<4 and the displayed all-scale inequalities"
+    },
+    "limitations": [
+      "No Lean-certified construction has been produced.",
+      "No claim that the formal main conclusion is false.",
+      "User authorization does not turn provisional model review into human gold certification."
+    ]
+  },
+  "retained_reason": "iLipNorm replaces the source's Lipschitz seminorm on a ball with the seminorm on the entire space, strictly weakening the main theorem's cancellative premise. On ℚ₂ with a=4, one can construct a continuous phase family satisfying formal doubling and all compatible and cancellative conditions, with the zero kernel satisfying the remaining premises. Yet the phase family's oscillation within balls forces a contradiction between any informally compatible distance and the source's cancellation estimate. The judgment concerns applicability of the main statement, not falsity of the formal conclusion. The after hT already uses ENNReal, so toReal is not part of the negative rationale. The mathematical argument has not been Lean-certified.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

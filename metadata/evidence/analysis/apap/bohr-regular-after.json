@@ -1,0 +1,87 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "bohr-regular-after",
+  "task_id": "apap:bohr-regular-after",
+  "input_sha256": "39665cf983a484eeff9fe4d48dda52ad67fedee2ba7c7d62a4c7a966adcad689",
+  "label": "misaligned",
+  "reason": "The rank counts characters of finite width instead of characters whose width is strictly below 2, changing the numerical regularity range and bounds.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "BohrSet.IsRegular"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/bohr-regular-after.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound Bohr-set regularity definition.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "bohr-regular-after",
+    "root": "BohrSet.IsRegular",
+    "input_sha256": "17e3a7819394b05d5fc5e390dbcf9a73b4cc665ac63b2fe0f22d1ea7697cffb7",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The formalization defines rank as the number of characters with finite width, whereas the source counts characters with width less than 2. This changes both the range over which regularity is checked and the error bound; some inputs are regular formally but not regular under the source definition.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms the preceding rank-mismatch explanation for apap:bohr-regular-after only.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this after input.",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/bohr-regular-after/informal.jsonl:1",
+      "finite_width_frequencies": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean:25",
+      "rank": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean:227",
+      "regularity": "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Regular.lean:15"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/bohr-regular-after/informal.jsonl": "73a435e3e0b09cc6579239095d89d227395a444934c03cd5351b9bd9cdac719b",
+      "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Basic.lean": "663182eed6ffe9b5b85cf2530bec451193c386b23cd6bb152026a9d39d88d624",
+      "datasets/apap/projects/bohr-regular-after/formal/dep/APAP/Prereqs/Bohr/Regular.lean": "d7a8f037d45dd4904a0cf5fe050abe1e616234644ee134ce007bf8741fb2cdda"
+    },
+    "witness": {
+      "group": "Z/2",
+      "width_trivial_character": "3",
+      "width_sign_character": "1000/503",
+      "initial_bohr_set": "{0}",
+      "source_rank": 1,
+      "formal_rank": 2,
+      "formal_kappa_upper_bound": "1/200",
+      "source_kappa_upper_bound": "1/100",
+      "jump_kappa": "3/500",
+      "formal_max_expanded_sign_width": "1005/503",
+      "expanded_sign_width_at_jump": "2",
+      "cardinality_ratio_at_jump": 2,
+      "source_upper_bound_at_jump": "8/5",
+      "formal_regular": true,
+      "source_regular": false,
+      "argument": "The trivial character never restricts the set; the sign character has distance 2 at the nonzero element. For 0≤κ≤1/200, both the dilated and contracted sets are {0}, so both formal inequalities hold. At κ=3/500, the dilated set becomes all of Z/2, and its size ratio 2 exceeds the source upper bound 8/5."
+    },
+    "verification": {
+      "exact_rational_checks": "passed",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "This is a semantic mismatch between statements or definitions, not a claim that the formal definition is internally inconsistent.",
+      "The source rank is positive, d=1; the example does not depend on d=0 or the typographical ambiguity in the source expression 1/100d.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
+    ]
+  },
+  "retained_reason": "The formalization defines rank as the number of characters with finite width, whereas the source counts characters with width less than 2. This changes both the range over which regularity is checked and the error bound; some inputs are regular formally but not regular under the source definition.",
+  "retained_review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this after input."
+}

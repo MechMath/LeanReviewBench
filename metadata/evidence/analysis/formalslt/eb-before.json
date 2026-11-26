@@ -1,0 +1,51 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "formalslt",
+  "project_id": "eb-before",
+  "task_id": "formalslt:eb-before",
+  "input_sha256": "889ce21db87802909aeea9491e3f7d46f4476d204110ced2dbce2deae52bf3af",
+  "label": "misaligned",
+  "reason": "Adaptedness uses filtration index k instead of k+1; with conditional centering this forces zero increments.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/formalslt.jsonl",
+      "id": "eb-vacuity"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/formalslt-history/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "labeling_review",
+      "locator": {
+        "path": "reports/formalslt-labeling/case-v9.json",
+        "sha256": "5f4a6b4d7b18a65dcf6d83168704862c58545b6e5433aace85c29012aa91f4fc",
+        "case_id": "case-v9",
+        "packet_path": "reports/formalslt-labeling/inputs/case-v9.json",
+        "packet_sha256": "b628fee92153257cda166376dc3d5a02c01cf9a3e370b95e27539a1d724580d6",
+        "reviewed_input_sha256": "84fccd39b0b4043a9149592aa38cd7898fb7ba2e5ee36385e46f6fc09388b40b",
+        "review_kind": "independent_blinded_subagent",
+        "source_review_path": "reports/formalslt-history/semantic-review.json",
+        "proofs_and_existing_labels_shown": false,
+        "confidence": 0.99,
+        "confidence_kind": "uncalibrated_self_report"
+      },
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bounded-increment specialization with a compact uniform prior and predictable variance proxy; realized sample variance is excluded.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root requires StronglyAdapted ℱ X, so each X_k is measurable with respect to ℱ_k, while the informal statement requires only ℱ_(k+1)-measurability. Together with integrability and E[X_k|ℱ_k]=0, the formal premises force every X_k=0 almost everywhere, excluding the nontrivial martingale differences allowed by the informal statement. Thus the model scope is materially narrowed even though the mixture process and probability-bound formulas agree.",
+  "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
+}

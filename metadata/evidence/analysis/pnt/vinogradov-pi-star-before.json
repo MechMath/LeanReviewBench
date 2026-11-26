@@ -1,0 +1,46 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "vinogradov-pi-star-before",
+  "task_id": "pnt:vinogradov-pi-star-before",
+  "input_sha256": "d213d1f687a3a64474fdf8974113b83d804cd77043832db79cbd282cca7dd4b8",
+  "label": "misaligned",
+  "reason": "Natural-number division makes the fractional exponents zero. The historical sum of Lambda(n)/n is a different counting function from the newly bound pi-star prime-power sum.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Eπ_star.vinogradovBound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1644"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/vinogradov-target-search-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel repository source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Under the explicit new binding, (3/5) and (1/5) in the current formal statement are interpreted as natural-number exponents. Natural-number division makes both 0, so the decay factor becomes exp(-C), rather than the source's Vinogradov form with real exponents 3/5 and 1/5. In addition, the current pi_star is ΣΛ(n)/n, whereas the new common source's π* is Σ_{k≥1}π(x^(1/k))/k; at x=2 they are (log2)/2 and 1 respectively. This function-specification change must be made explicit in the new binding. The complete predicates are also inequivalent: the old error tends to 1 and the new error tends to 0. Taking A=1/2, B=C=0, and sufficiently large x₀ makes the new source target hold while the old formal statement fails. This label concerns the explicitly added later upstream definition and its operation conventions on the full real domain; it does not restore the original main comment from the frozen version.",
+  "review_scope": "The explicitly bound prime-power Vinogradov predicate, including the specified counting function and real exponents."
+}

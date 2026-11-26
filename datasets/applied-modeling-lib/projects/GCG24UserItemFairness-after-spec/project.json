@@ -1,0 +1,97 @@
+{
+  "id": "GCG24UserItemFairness-after-spec",
+  "schema_version": "paperlean-project-case-1",
+  "title": "GCG24UserItemFairness",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec",
+      "informal_id": "main-full-paper"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "cf500b748ac63dbff55faf97d989d4935c8eff50",
+    "path": "papers/GCG24UserItemFairness/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/cf500b748ac63dbff55faf97d989d4935c8eff50/papers/GCG24UserItemFairness/PaperInterface.lean",
+    "declaration": "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec",
+    "sha256": "bbaee14817b79d2d1aac54cb65ea94b89462fd2f83fb769b1533925c4ba97e5c",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/cf500b748ac63dbff55faf97d989d4935c8eff50",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e9f7579ce3c4ddaffff0648ea5a265cbff57de10",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/3523dfea9e3d6e6fa54db3594fe2b3140a31f18d"
+    ],
+    "module": "GCG24UserItemFairness.PaperInterface"
+  },
+  "group_id": "aml:GCG24UserItemFairness-before",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [
+    "GCG24UserItemFairness-before"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Algebra.BigOperators.Field",
+    "Mathlib.Algebra.BigOperators.Fin",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.BigOperators.Group.List.Basic",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.Chebyshev",
+    "Mathlib.Analysis.Convex.StdSimplex",
+    "Mathlib.Data.Fin.Basic",
+    "Mathlib.Data.Finset.Lattice.Basic",
+    "Mathlib.Data.Finset.Powerset",
+    "Mathlib.Data.Finset.Sum",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.EquivFin",
+    "Mathlib.Data.List.GetD",
+    "Mathlib.Data.List.Sort",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Module.Basic",
+    "Mathlib.Topology.Order.Compact",
+    "Mathlib.Topology.Order.IntermediateValue"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": null,
+    "review": null
+  },
+  "input_sha256": "e501f21a465e34e30eb9b2e39d7de8444d4d20e9c84a191fa61687139872741e",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 10,
+    "sha256": "410d7a608c5416e9c2b5f40b03ac0fc34c82ff7cbc3cc7615178f3ca77d628b3",
+    "effective_root_sha256": "53448cf7b297d883a96d2c0d1b3a5d12dbd679636ae682a3fd578d886034a9e6",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "blocked",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

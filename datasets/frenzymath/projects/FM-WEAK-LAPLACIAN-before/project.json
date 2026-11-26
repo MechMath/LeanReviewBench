@@ -1,0 +1,59 @@
+{
+  "id": "FM-WEAK-LAPLACIAN-before",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "frenzymath",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "MorganTianLib.WeakLaplacianLE",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+    "commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+    "path": "formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean",
+    "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/bb91a091f0b968f8bbe8d861e025a88d82b161be/formalized-sources/MorganTian/MorganTianLib/Ch01/WeakLaplacian.lean"
+  },
+  "group_id": "frenzymath:FM-weak-laplacian-distance",
+  "split_group": "frenzymath/Poincare-Conjecture",
+  "before_ids": [],
+  "after_ids": [
+    "FM-WEAK-LAPLACIAN-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "de3b5949490ede369110ca008c9266ec48f9be983f1bda01c3d0e34ea8529017",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "target_mode": "single",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "license-copy-retained",
+  "original_toolchain": "leanprover/lean4:v4.32.1",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "input_sha256": "7bc36674becfd755cb6a361c6cccfd6be3c5f6c0ea3ccddc262b048a239f9ad1",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/frenzymath.jsonl",
+  "candidate_id": "FM-weak-laplacian-distance",
+  "validation_reference": "metadata/validation.json"
+}

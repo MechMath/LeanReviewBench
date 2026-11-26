@@ -1,0 +1,51 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "formalslt",
+  "project_id": "eb-after",
+  "task_id": "formalslt:eb-after",
+  "input_sha256": "77a9bbce34c4e476fa2042beae02fdc7caa6acfdfc1cb18be5dc1672b712f1dd",
+  "label": "aligned",
+  "reason": "The probability model, increment assumptions, predictable variance proxy, uniform-prior Bernstein mixture, and crossing-probability bound match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/formalslt.jsonl",
+      "id": "eb-vacuity"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/formalslt-history/semantic-review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "labeling_review",
+      "locator": {
+        "path": "reports/formalslt-labeling/case-k7.json",
+        "sha256": "b2b63201ed0662a2cfe008a82d4050687cb6859c5cf9ff0060452bcbb5ff5bc8",
+        "case_id": "case-k7",
+        "packet_path": "reports/formalslt-labeling/inputs/case-k7.json",
+        "packet_sha256": "a08d8d0e9522d99e0ff3f37c252c1ae41976d0282c6354bb9bf0a208db2e9fbd",
+        "reviewed_input_sha256": "50c87cbc7984947d40d1754b741b267955f4053bb06e5847a0e21381f76d5d6e",
+        "review_kind": "independent_blinded_subagent",
+        "source_review_path": "reports/formalslt-history/semantic-review.json",
+        "proofs_and_existing_labels_shown": false,
+        "confidence": 0.99,
+        "confidence_kind": "uncalibrated_self_report"
+      },
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bounded-increment specialization with a compact uniform prior and predictable variance proxy; realized sample variance is excluded.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The root's probability space, filtration, increments and predictable variance-proxy hypotheses match the informal statement. Unfolding the reachable definitions gives exactly the stated Bernstein exponential integral under a uniform prior. The conclusion is exactly that the probability of crossing 1/δ at any positive integer time is at most δ.",
+  "retained_review_scope": "Explicit bounded-increment compact uniform-prior predictable-variance specialization; no claim about realized sample variance."
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "MBJG-VARIANCE-INTERIOR",
+  "task_id": "aml:MBJG-VARIANCE-INTERIOR",
+  "input_sha256": "c327690925e2b2324f55eb52dfd8a64e669e6a4afd7e243da9a66e63e1088dd3",
+  "label": "aligned",
+  "reason": "The posterior-mean variance formula and strict decrease in eta match under the specified positivity and interior-parameter conditions.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The corrected interior variance statement with 0<q<1 and finite positive time and shape parameters; endpoint claims are excluded.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Compare within the previously frozen corrected interior component. The original model's posterior-mean variance is t*q*(1-q)/(ηα+ηβ+t)^2, exactly paper_variance. The root assumes 0<q<1, positive t and total shape, and nonnegative, strictly increasing η; its strict decrease is precisely the comparison of this formula on that domain. Only the positive sum of α and β enters the variance. Allowing real t is an analytic extension of the formula that includes the source's discrete positive times. This judgment does not use the source's erroneous strict claim at closed-interval endpoints as a counterexample to the formalization, nor claim equivalence to the full uncorrected Theorem 3.1.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

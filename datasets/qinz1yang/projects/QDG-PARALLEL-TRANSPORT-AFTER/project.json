@@ -1,0 +1,85 @@
+{
+  "id": "QDG-PARALLEL-TRANSPORT-AFTER",
+  "schema_version": "paperlean-project-case-1",
+  "source_batch": "qinz1yang",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/qinz1yang/differential-geometry",
+    "commit": "ffe86b6b9462f10afcac60d514fe31d4ac602c57",
+    "root_file": "DifferentialGeometry/Geometry/Riemannian/Variation/ParallelTransport.lean"
+  },
+  "group_id": "QDG-PARALLEL-TRANSPORT",
+  "split_group": "qinz1yang/differential-geometry",
+  "before_ids": [
+    "QDG-PARALLEL-TRANSPORT-BEFORE"
+  ],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.Deriv.Basic",
+    "Mathlib.Analysis.Calculus.FDeriv.Basic",
+    "Mathlib.Analysis.InnerProductSpace.EuclideanDist",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Matrix.PosDef",
+    "Mathlib.Analysis.ODE.Gronwall",
+    "Mathlib.Analysis.SpecialFunctions.Sqrt",
+    "Mathlib.Data.Matrix.Mul",
+    "Mathlib.Geometry.Manifold.Algebra.Monoid",
+    "Mathlib.Geometry.Manifold.Algebra.Structures",
+    "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+    "Mathlib.Geometry.Manifold.VectorBundle.Hom",
+    "Mathlib.Geometry.Manifold.VectorBundle.Riemannian",
+    "Mathlib.Geometry.Manifold.VectorBundle.Tangent",
+    "Mathlib.LinearAlgebra.Basis.Basic",
+    "Mathlib.LinearAlgebra.Dimension.Free",
+    "Mathlib.LinearAlgebra.Matrix.Adjugate",
+    "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+    "Mathlib.LinearAlgebra.Matrix.PosDef",
+    "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+    "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+    "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.WithDensity",
+    "Mathlib.Topology.Algebra.Module.Equiv"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "target_mode": "single",
+  "changes": "CHANGES.md",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "evaluation_eligible": false,
+  "licensing_status": "historical-license-scope-unresolved",
+  "original_toolchain": "leanprover/lean4:v4.29.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "technical_status": "migrated_context_checks_passed_original_toolchain_unchecked",
+  "formal": {
+    "file_count": 1,
+    "sha256": "48b2358d1a143e6e31954e02ca6096c74e423b81da571c0abc4a79b0bcdc9197",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
+  "review_status": "human_reviewed",
+  "alignment_reference": "metadata/labels/qinz1yang.jsonl",
+  "candidate_id": "parallel-transport-pairing",
+  "validation_reference": "metadata/validation.json",
+  "license_admission": "include_with_notice",
+  "license_review_note": "Public repository with Apache-2.0 licensing. Documentation associating the selected earlier source snapshot with that grant remains incomplete; no explicit prohibition was found in the inspected evidence. The curator has instructed inclusion with this notice. This admission decision does not establish or fabricate a copyright license grant."
+}

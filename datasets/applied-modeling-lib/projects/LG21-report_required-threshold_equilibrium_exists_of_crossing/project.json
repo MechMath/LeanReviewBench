@@ -1,0 +1,82 @@
+{
+  "id": "LG21-report_required-threshold_equilibrium_exists_of_crossing",
+  "schema_version": "paperlean-project-case-1",
+  "title": "LG21TestOptionalPolicies",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+      "informal_id": "paper-1"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "25686396b1003e5e5bf44b06a1bf6f0319658660",
+    "path": "papers/LG21TestOptionalPolicies/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/25686396b1003e5e5bf44b06a1bf6f0319658660/papers/LG21TestOptionalPolicies/PaperInterface.lean",
+    "declaration": "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing",
+    "sha256": "4b9927999dad66271c374186117bd6d188be7a89ba6ba1cf0e9deb0bc717f71a",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/25686396b1003e5e5bf44b06a1bf6f0319658660"
+    ],
+    "module": "LG21TestOptionalPolicies.PaperInterface"
+  },
+  "group_id": "aml:LG21-report_required-threshold_equilibrium_exists_of_crossing",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Algebra.Order.Field.Basic",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Ring.Real",
+    "Mathlib.Topology.Instances.Real.Lemmas",
+    "Mathlib.Topology.Order.IntermediateValue"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/2568639-LG21TestOptionalPolicies/LG21-report_required-threshold_equilibrium_exists_of_crossing/graph.json",
+      "sha256": "299c6edfb5b6f17e668a64c6114efd9fae758c434f1906eb112cd0b5670fb965"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "sha256": "c7a5dfacce8ae086283947d8f0598b328fd9584644711365a529fb617518b768"
+    }
+  },
+  "input_sha256": "5ce209c7ef24f511741f9e70e8b5ba020907d7711a2b8004e2107d8f832bf7e0",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "4beac45ac1dab2d4ce293967cf1e435aecd8a11eab15d8c0f3a5edb7217428ca",
+    "effective_root_sha256": "7ca7de69cf552f41f5defe745a1a4e382dbfeb3f9702901f76466881514c035b",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

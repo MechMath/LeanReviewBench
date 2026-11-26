@@ -1,0 +1,97 @@
+{
+  "id": "CAR-01-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Carleson",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "metric_carleson",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/fpvandoorn/carleson",
+    "commit": "0138d636eed1475ea5e848ef6cf4b141636056cc",
+    "path": "Carleson/MetricCarleson.lean",
+    "url": "https://github.com/fpvandoorn/carleson/blob/0138d636eed1475ea5e848ef6cf4b141636056cc/Carleson/MetricCarleson.lean",
+    "declaration": "metric_carleson",
+    "sha256": "ba67c20457d2d10dc6c0ac88221222a76c807578daff8b390929bd86582dbd29",
+    "leads": [
+      "https://github.com/fpvandoorn/carleson/pull/212"
+    ],
+    "module": "Carleson.MetricCarleson"
+  },
+  "group_id": "carleson:CAR-01-before",
+  "split_group": "fpvandoorn/carleson",
+  "before_ids": [],
+  "after_ids": [
+    "CAR-01-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.Order.Group.Int",
+    "Mathlib.Analysis.CStarAlgebra.Classes",
+    "Mathlib.Analysis.Calculus.ContDiff.Basic",
+    "Mathlib.Analysis.Convex.PartitionOfUnity",
+    "Mathlib.Analysis.Normed.Group.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Integral",
+    "Mathlib.Data.Int.Star",
+    "Mathlib.Data.Real.ENatENNReal",
+    "Mathlib.Data.Real.StarOrdered",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.AEStronglyMeasurable",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.Basic",
+    "Mathlib.MeasureTheory.Integral.Average",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Layercake",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.MeanInequalities",
+    "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.Order.CompletePartialOrder",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Topology.MetricSpace.Holder"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/cases.json",
+      "sha256": "256f52c31e63f63a6a1bec0666b9e46c365ebb0e2ab9a56b2b47e2f97b50da38"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/technical/0138d636eed1475ea5e848ef6cf4b141636056cc/migration-212/graph.json",
+      "sha256": "e30f594de60cdc8c4de7956482980749af3c1a35305739847fb3e224f38ce497"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/carleson-01/migration-semantic-review.json",
+      "sha256": "00b938b85151bebce243dbd34b37ae1fd0b2d0d5aa6f0ef99c17e0a5dbdc6639"
+    }
+  },
+  "input_sha256": "2518326efd9c1ff2e06a67d86c63e8b929edf939fc51d91d85d550a93a4204d5",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 7,
+    "sha256": "9ec3458a12d64ce8d3f9bae0dd8f9a143629d8221b5ab25a46867d1a209fb63e",
+    "effective_root_sha256": "03f48ed0c34e320b606644f0c9da8ca14bac46c7c62cf80494faaecbd56ab3a2",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/carleson.jsonl"
+}

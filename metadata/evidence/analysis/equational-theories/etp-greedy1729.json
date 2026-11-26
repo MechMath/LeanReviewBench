@@ -1,0 +1,132 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "equational-theories",
+  "project_id": "etp-greedy1729",
+  "task_id": "equational-theories:etp-greedy1729",
+  "input_sha256": "1e99cf462ffc2731c2fb4a1d037b9bb389dccf74ef3d17666ee7669cff224892",
+  "label": "aligned",
+  "reason": "Both statements require one magma satisfying law 1729 and violating law 817; the law definitions and negation scope match.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Eq1729.not_817"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/etp-greedy1729.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The nonimplication of law 817 by law 1729, including the independently specified equation numbering.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "equational-theories",
+    "project_id": "etp-greedy1729",
+    "root": "Eq1729.not_817",
+    "input_sha256": "99e78a223d32421d861b5da9b5570cf09b80b660989b70a948522a8ba131e40f",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "Both the source and formal statement require one magma satisfying equation 1729 and not satisfying equation 817. The variables and parentheses match the independent equation table, and negation applies to the entire universally quantified law. The root has no extra premises; extension and chain-coverage conditions are handled within the proof. An empty magma satisfies 817 and cannot serve as a witness.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for equational-theories:etp-greedy1729 after reviewing the shared magma witness, equation definitions, negation scope, and absence of extra root premises.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The current independent blueprint theorem that 1729 does not imply 817 and the independent paper's equation table, compared with the same-magma existence statement Eq1729.not_817. The review checks the root proof's internal use of greedy-chain and extension conditions.",
+    "evidence_locations": {
+      "informal_and_scope": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/informal.jsonl",
+        "line": 1,
+        "sha256": "6e614c03655f2cf66718441998156ee4382e216e212a7e67bd2a05f8272699ad"
+      },
+      "source_theorem_and_construction": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/blueprint/src/chapter/1729.tex",
+        "line": 299,
+        "sha256": "5cbd7b2f319f9e0ed6d85dca8541e13430ef464d9fab088b62adb2c74363eb96"
+      },
+      "independent_equation_817": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/paper/numbering.tex",
+        "line": 80,
+        "sha256": "0ea1d1ceedfd7a1066fe92f3f36f77adea95d96620fab6a64bad7308070a46f2"
+      },
+      "independent_equation_1729": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/informal-source/paper/numbering.tex",
+        "line": 95,
+        "sha256": "0ea1d1ceedfd7a1066fe92f3f36f77adea95d96620fab6a64bad7308070a46f2"
+      },
+      "root_and_greedy_chain": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729.lean",
+        "line": 15,
+        "sha256": "97b9142dac5c13bb03904e19194d171b87e3e8d03e1dd67d5aa5aa81a8531c94"
+      },
+      "extension_obligations": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729.lean",
+        "line": 32,
+        "sha256": "97b9142dac5c13bb03904e19194d171b87e3e8d03e1dd67d5aa5aa81a8531c94"
+      },
+      "formal_equation_817": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Equations/Basic.lean",
+        "line": 95,
+        "sha256": "97d9e447d1071685db6a3d4515adab686fb797c8fc3a331c08b66a1a560c962d"
+      },
+      "formal_equation_1729": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Equations/Eqns1000_1999.lean",
+        "line": 735,
+        "sha256": "44155045d2091d0ca3478ad596c4c3cd3abb5408260e2b3684db598310a1612b"
+      },
+      "universal_equation_elaboration": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Equations/Command.lean",
+        "line": 106,
+        "sha256": "09edfbeb822f086d8b360879cec45fa58f7a75814aac4304b648bb7f18cf5e00"
+      },
+      "magma_definition": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/Magma.lean",
+        "line": 10,
+        "sha256": "d25a2e9b42b3164a9b8068582ba99e7ad63d68daf977eede6b3f853c5a49a2d4"
+      },
+      "initial_partial_solution": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean",
+        "line": 59,
+        "sha256": "30a3d49c86aa919f84b1e783607108f1b7759eee57fc455502ee5c48063ef47f"
+      },
+      "chain_to_complete_model": {
+        "path": "datasets/equational-theories/projects/etp-greedy1729/formal/dep/equational_theories/ManuallyProved/Equation1729/MagmaConstruction.lean",
+        "line": 138,
+        "sha256": "30a3d49c86aa919f84b1e783607108f1b7759eee57fc455502ee5c48063ef47f"
+      }
+    },
+    "semantic_argument": [
+      "The root concludes ∃G:Type,∃M:Magma G, Equation1729 G ∧ ¬Equation817 G. Both properties use the same carrier and operation, matching the source's existence of one countermodel.",
+      "Equation1729 is ∀x,y, x=(y◇y)◇((y◇x)◇y); Equation817 is ∀x, x=x◇((x◇x)◇(x◇x)). Both match the independent paper's equation table term by term.",
+      "Negation is outside Equation817, denying that it holds for every element. Under ordinary classical semantics this means at least one element violates the equation, not that every element must violate it.",
+      "Magma requires only a binary operation, and the root adds no finiteness, associativity or similar restriction. Although the carrier type may be empty, an empty type vacuously satisfies Equation817 and cannot satisfy the negated part of the conclusion, so it cannot provide a spurious existence witness.",
+      "The source starts with an initial partial solution, repeatedly extends it and takes the limit of a chain. The root proof uses TrivialPartialSolution, exists_greedy_chain and use_chain, and calls enlarge_L₀, enlarge_S and enlarge_op for the extension obligations. The necessary conditions are supplied inside the proof rather than added as root premises."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "independent_equation_numbering_checked": true,
+      "root_and_chain_interface_inspected": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checks the semantics of the statement, equation definitions and key construction interfaces. It does not recompile the project or independently reprove the entire greedy-extension dependency closure.",
+      "A finite countermodel is not required: the bound source asks only for a general magma and imposes no finiteness condition.",
+      "Compilation status, theorem names and historical audit recommendations are not substitutes for this semantic review.",
+      "The formal and informal inputs, input hash and technical status are unchanged. The ready status combines this positive label with the existing compilation/extraction status and is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "Both the source and formal statement require one magma satisfying equation 1729 and not satisfying equation 817. The variables and parentheses match the independent equation table, and negation applies to the entire universally quantified law. The root has no extra premises; extension and chain-coverage conditions are handled within the proof. An empty magma satisfies 817 and cannot serve as a witness.",
+  "retained_review_scope": "The current independent blueprint theorem that 1729 does not imply 817 and the independent paper's equation table, compared with the same-magma existence statement Eq1729.not_817. The review checks the root proof's internal use of greedy-chain and extension conditions."
+}

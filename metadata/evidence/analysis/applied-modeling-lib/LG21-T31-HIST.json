@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "LG21-T31-HIST",
+  "task_id": "aml:LG21-T31-HIST",
+  "input_sha256": "30cf15828b1384f8b1c7571642bac2118dbaac67d689ab119cd321b789420f66",
+  "label": "misaligned",
+  "reason": "The constructed strategy witness is not bound to the behavior of the actual equilibrium.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/misaligned-strict-review-2026-11-05/README.md",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The complete bound paper theorem or lemma, including its model assumptions and full conclusion.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The full Theorem 3.1 requires the strategies of actual equilibria to have threshold structure and satisfy unfairness conclusions. This root constructs ∃W for each abstract e, without binding W.takes and W.reports to e's actual behavior.",
+  "retained_review_scope": "Complete paper Theorem 3.1, user-authorized scope; source pairing fixed in this review."
+}

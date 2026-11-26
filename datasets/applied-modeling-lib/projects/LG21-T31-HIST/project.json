@@ -1,0 +1,67 @@
+{
+  "id": "LG21-T31-HIST",
+  "schema_version": "paperlean-project-case-1",
+  "title": "LG21TestOptionalPolicies",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
+      "informal_id": "main-full-paper"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "dbfa918c02cd35c8279f8f8a9183f6bcbe72c817",
+    "path": "papers/LG21TestOptionalPolicies/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/dbfa918c02cd35c8279f8f8a9183f6bcbe72c817/papers/LG21TestOptionalPolicies/PaperInterface.lean",
+    "declaration": "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting",
+    "sha256": "c0e02999e9f0dc6098b3e27f7a849e5e801e618c26c355ed45d7f51b806ce680",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e556eea9942263c22073ae5f9b4584ab6ee51759",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/3f89691188a14b57359a1f086641fd1e5f75800b",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/b2a5abb8818ae0a069784674bb4193f996baeda1",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/3d025458ae0874e8b2de26a2415d2507e95f1a91",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/d24a49d833331a294b365ef0fab548a9302fca82"
+    ],
+    "module": "LG21TestOptionalPolicies.PaperInterface"
+  },
+  "group_id": "aml:LG21-T31-HIST",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": null,
+    "review": null
+  },
+  "input_sha256": "30cf15828b1384f8b1c7571642bac2118dbaac67d689ab119cd321b789420f66",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 5,
+    "sha256": "e70803b286f5be5301cc8c5097db66154f90eec5f03fb200041d5f7266b8c1ef",
+    "effective_root_sha256": "b36b376e4cd4f42d1b4b7c7cfe5910cd49f2023a66bb51330ad61759a44cfb33",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "blocked",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

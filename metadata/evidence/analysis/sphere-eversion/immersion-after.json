@@ -1,0 +1,46 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "immersion-after",
+  "task_id": "sphere-eversion:immersion-after",
+  "input_sha256": "df4beea7189458934f9048ea4fe92d6b0fb5e901ed034de90911f52c87e32ba6",
+  "label": "aligned",
+  "reason": "Under the source real finite-dimensional smooth interpretation, the formal predicate requires exactly smoothness and injectivity of the differential.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Immersion"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-eversion.jsonl",
+      "id": "immersion-definition"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/sphere-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The source's smooth immersion corresponds in the parameterized API to 𝕜=ℝ, a finite-dimensional source manifold, and n=∞. This correspondence is not a convenient choice of subcase made in this review: public Main.lean at the same 27a2c7fd revision directly writes 'every f t is an immersion' as Immersion ... (f t) ⊤. Under this source-supported mapping, the structure's two fields are exactly C∞ smoothness and injectivity of the differential everywhere, corresponding in both directions to the frozen jet definition. General n, other scalars, and the infinite-dimensional API remain fully recorded, but they are not all interpreted as the smooth immersion of the current source text.",
+  "review_scope": "Smooth immersions over the reals with differentiability index infinity, as specified by the source use of the parametrized API."
+}

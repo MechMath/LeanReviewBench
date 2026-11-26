@@ -1,0 +1,71 @@
+{
+  "id": "pfr-independent-blocks-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pfr-independent-blocks-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ProbabilityTheory.iIndepFun.finsets",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "68f55a1771e1eb7948fbf90656268bfdb0c969f2",
+    "path": "PFR/Mathlib/Probability/Independence/Basic.lean",
+    "module": "PFR.Mathlib.Probability.Independence.Basic",
+    "declaration": "ProbabilityTheory.iIndepFun.finsets",
+    "url": "https://github.com/teorth/pfr/blob/68f55a1771e1eb7948fbf90656268bfdb0c969f2/PFR/Mathlib/Probability/Independence/Basic.lean",
+    "sha256": "135675495f5fc75d8c25ae3a63d8c45321246a673f0ace3559ad1685a772a410"
+  },
+  "group_id": "pfr-independent-blocks",
+  "split_group": "teorth/pfr",
+  "before_ids": [
+    "pfr-independent-blocks-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.MeasurableSpace.Pi",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "966fffaee23cb11fdae82e1d2db70d6519ee8fd4e2646e5ebd3388ffe8ef1a3c",
+    "effective_root_sha256": "29f26afe1e1ff4089c2eb4976fbc474938836f54c7e8aaffacee84ee2e20aa0f",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pfr-admission/../real-project-expansion-01/technical/pfr-independent-blocks-after/20261104T055051060797Z/receipt.json",
+    "receipt_sha256": "d3a50be49e4397b5c532d052e703c15f189968216f3352e08c58df66d1846064",
+    "packaged_receipt": "reports/pfr-admission/technical/pfr-independent-blocks-after/packaged/receipt.json",
+    "packaged_receipt_sha256": "23e8cc26add611aecfd9db34f34120532051584a7aa5fb6de422c9e70f58f1cb",
+    "target_bindings": [],
+    "root_axioms": {
+      "default": "'ProbabilityTheory.iIndepFun.finsets' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'ProbabilityTheory.iIndepFun.finsets' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "unchanged_source_with_import_relocation"
+  },
+  "input_sha256": "073f911a919ddfef0914ce9d9dc0ba2111bdc8eeeb0e3ab69bb505db1497fbad",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl",
+  "informal_binding_review": "reports/undetermined-review-2026-11-09/review.json"
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c05",
+  "task_id": "imperial-flt:flt-c05",
+  "input_sha256": "1f1d9778831c26f6c0413d25960d34ccc222b800f9fd658328b4c775370776ca",
+  "label": "aligned",
+  "reason": "The finite-adelic unit group, diagonal embedding, left and right subgroup actions, and openness hypothesis match the finite double-coset statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/flt-c05.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "Finiteness of the finite-adelic double-coset space for any open subgroup in the specified central-division-algebra setting.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "imperial-flt",
+    "project_id": "flt-c05",
+    "root": "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset",
+    "input_sha256": "1397ef69981658685d129bd922b4b07a7103ce9c794bcc94999842a37a12bb59",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "Dfx unfolds to the unit group of the finite-adelic tensor product, and incl₁ is the unit-group embedding d↦d⊗1. The DoubleCoset.Quotient relation is y=h*x*u, with the image of Dˣ on the left and U on the right. The root only requires U to be an open subgroup, and Finite states precisely that the double-coset space is finite. The background assumptions of a number field and a finite-dimensional central division algebra come from the source context.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it aligned; confirms aligned for imperial-flt:flt-c05 after checking finite adeles, the diagonal units embedding, double-coset relation y=h*x*u, the open-subgroup premise, and the finite quotient conclusion.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "model_recommendation": "aligned",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The independent blueprint states finiteness of the double-coset space of finite-adelic units for any open subgroup U, in the context of a finite-dimensional central division algebra over a number field. The review checks the objects, left and right actions, openness assumption, and finiteness conclusion.",
+    "detailed_review": {
+      "path": "reports/finite-double-coset-recheck-2026-11-16/review.json",
+      "sha256": "f460a0b0b1bfb554f03991b6defa8340c2d3df7312e0014de7014de2549632e6"
+    },
+    "evidence_locations": {
+      "bound_informal": {
+        "path": "datasets/imperial-flt/projects/flt-c05/informal.jsonl",
+        "line": 1,
+        "sha256": "cd562041db447faef044cf27214ae8d3a60aadcf9ccd5ab5a13412b868f7f461"
+      },
+      "source_finite_adele_notation": {
+        "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+        "line": 49,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_scope": {
+        "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+        "line": 69,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_division_hypothesis": {
+        "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+        "line": 85,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_theorem": {
+        "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+        "line": 350,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_open_cover_proof": {
+        "path": "datasets/imperial-flt/projects/flt-c05/informal/source.tex",
+        "line": 358,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "formal_finite_tensor_units": {
+        "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 92,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "diagonal_embedding": {
+        "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 108,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "formal_scope": {
+        "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 1070,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "compact_quotient_input": {
+        "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 1084,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "root": {
+        "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 1099,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "module_topology": {
+        "path": "datasets/imperial-flt/projects/flt-c05/formal/dep/FLT/Hacks/RightActionInstances.lean",
+        "line": 153,
+        "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+      },
+      "explicit_graph": {
+        "path": "datasets/imperial-flt/projects/flt-c05/graph/explicit/graph.json",
+        "line": 1,
+        "sha256": "f5a16198593d89254346e369239793ee5cbf4ffbb27fae6f07d2c92dce40a8a2"
+      }
+    },
+    "external_evidence": [
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/GroupTheory/DoubleCoset.lean",
+        "relative_path": "Mathlib/GroupTheory/DoubleCoset.lean",
+        "line": 37,
+        "sha256": "5cd2c2f43e626d29f8de125253ec001c69810eb66d4f756ae130f9cbc46f67dd",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+        "relative_path": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+        "line": 87,
+        "sha256": "a9eb9b4fa54baa2e2e1f0cfbdf6b230767bfe28730d97b71c4d118a86e9fb4e5",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Algebra/Constructions.lean",
+        "relative_path": "Mathlib/Topology/Algebra/Constructions.lean",
+        "line": 98,
+        "sha256": "735585000e045eff631ff562bb9655e3494b3bab086e8d9ffdf6bab2bb24dc9d",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Algebra/Central/Defs.lean",
+        "relative_path": "Mathlib/Algebra/Central/Defs.lean",
+        "line": 63,
+        "sha256": "f7b55686c1e5b36830fcdcc100009c728c4ecde7dd65623a391fc3b941fae8ff",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "relative_path": "Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "line": 52,
+        "sha256": "a7533e6639806f0905b9a31bcf07efcc046137eaf607b99257afcfdc43d60a25",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      }
+    ],
+    "semantic_argument": [
+      "The source explicitly defines 𝔸_K^∞ as the finite adeles. In the formal statement, Df=D⊗[K]FiniteAdeleRing (𝓞 K) K and Dfx=(Df K D)ˣ match this object; neither the infinite adeles nor the Haar kernel of the full adeles is substituted.",
+      "incl₁ uses Units.map Algebra.TensorProduct.includeLeftRingHom, and Set.range (incl₁ K D) is the actual embedded Dˣ subgroup. The data definition specifies the concrete map beyond merely giving it a name.",
+      "In the pinned Mathlib version, doubleCoset x H U=H*{x}*U, and Quotient identifies equal double cosets. For subgroups H and U, rel_iff gives y=h*x*u. The order of the two formal parameters matches Dˣ\\G/U.",
+      "U has type Subgroup (Dfx K D), and the only additional parameter is IsOpen (U:Set(Dfx K D)); U is not required to be compact, normal, or of finite index a priori.",
+      "Openness uses the unit-group topology induced by the finite-adelic module topology. The root's dependency graph confirms these actual instances; no arbitrary alternative topology is used.",
+      "K is a number field and D is a finite-dimensional central division K-algebra, matching the preceding source context; DivisionRing automatically supplies the simplicity required by the source.",
+      "Finite (DoubleCoset.Quotient ...) asserts that the total number of equivalence classes is finite, matching the source conclusion without additionally requiring algorithmic enumeration, a specified cardinality, or a quotient-group structure.",
+      "The proof internally extracts a finite subcover from the previously proved compactness of the single-coset quotient, matching the source's proof strategy; this intermediate compactness is not an extra premise required when invoking the root theorem."
+    ],
+    "verification": {
+      "source_and_input_hash_checked": true,
+      "finite_adele_and_diagonal_map_checked": true,
+      "double_coset_relation_checked": true,
+      "open_only_subgroup_premise_checked": true,
+      "root_type_topology_dependency_edges": [
+        "IsOpen",
+        "Units.instTopologicalSpaceUnits",
+        "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep",
+        "IsDedekindDomain.instTopologicalSpaceFiniteAdeleRing"
+      ],
+      "root_and_key_definitions_match_retained_original": true,
+      "local_data_sorry_nodes": [],
+      "mathlib_commit_verified": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "external_evidence_blobs_match_commit": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checked the statement, dependency definitions, and existing extracted graphs; it did not recompile or independently reprove the compactness and finite-cover arguments.",
+      "This update saves aligned as confirmed by the user, retaining the source text, formal input, input hash, targets, and technical status; it does not propagate the label to the next case.",
+      "ready reflects the positive label together with existing compilation and extraction results; it does not imply recompilation or completion of a new equivalence proof in this review.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "Dfx unfolds to the unit group of the finite-adelic tensor product, and incl₁ is the unit-group embedding d↦d⊗1. The DoubleCoset.Quotient relation is y=h*x*u, with the image of Dˣ on the left and U on the right. The root only requires U to be an open subgroup, and Finite states precisely that the double-coset space is finite. The background assumptions of a number field and a finite-dimensional central division algebra come from the source context.",
+  "retained_review_scope": "The independent blueprint states finiteness of the double-coset space of finite-adelic units for any open subgroup U, in the context of a finite-dimensional central division algebra over a number field. The review checks the objects, left and right actions, openness assumption, and finiteness conclusion."
+}

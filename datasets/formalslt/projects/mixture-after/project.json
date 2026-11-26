@@ -1,0 +1,82 @@
+{
+  "id": "mixture-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "FormalSLT mixture confidence sequence",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/Robby955/FormalSLT",
+    "commit": "3d96374ae0ab353a154a1db74708645a28973807",
+    "path": "FormalSLT/AnytimeValid/MixtureCS.lean",
+    "module": "FormalSLT.AnytimeValid.MixtureCS",
+    "declaration": "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior",
+    "url": "https://github.com/Robby955/FormalSLT/blob/3d96374ae0ab353a154a1db74708645a28973807/FormalSLT/AnytimeValid/MixtureCS.lean",
+    "sha256": "4a82bbe4006122f3b0bdf307e4465bc427f5fa2536e847d527acfdcfa6bddb58",
+    "leads": [
+      "https://github.com/Robby955/FormalSLT/commit/3d96374ae0ab353a154a1db74708645a28973807"
+    ]
+  },
+  "group_id": "formalslt:mixture",
+  "split_group": "Robby955/FormalSLT",
+  "before_ids": [
+    "mixture-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Exp",
+    "Mathlib.Analysis.SpecialFunctions.Exponential",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Analysis.SpecificLimits.Basic",
+    "Mathlib.Analysis.SpecificLimits.Normed",
+    "Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic",
+    "Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut",
+    "Mathlib.MeasureTheory.Function.ConditionalExpectation.Real",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.Martingale.OptionalStopping",
+    "Mathlib.Probability.Notation",
+    "Mathlib.Probability.Process.HittingTime",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 2,
+    "sha256": "67725d222907d55f9e04fb8128a3e4df3998a6575497de7d338403cca9d43699",
+    "effective_root_sha256": "e34a2bc46b1e4be17e4493d11fb6e177291dfe36c68e102cf6b42b45d2cf25d1",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/formalslt-history/technical/mixture-after/20261103T130213711545Z/receipt.json",
+    "receipt_sha256": "68d461de76848eeee9bcbd53d1c693d95f91244ad4d2c1d6775aea1bd0bb6c79",
+    "graph": "reports/formalslt-history/technical/mixture-after/20261103T130213711545Z/graph.json",
+    "explicit_graph": "reports/formalslt-history/technical/mixture-after/20261103T130213711545Z/explicit-graph.json",
+    "explicit_receipt_sha256": "e0a00987bd73c575d0cf409e3a12b1fcbcb0983494e7731e2e58048d4065324f",
+    "packaged_receipt": "reports/formalslt-history/technical/mixture-after/packaged/receipt.json",
+    "packaged_receipt_sha256": "3fd483dbb194a9a236def607ca6f5c4aa29b7e8ece90fb8726f6d5ee7ce86304",
+    "review": "reports/formalslt-history/semantic-review.json"
+  },
+  "author_disclosure": "explicitly_confirmed_in_repair_commit",
+  "mechanism_group": "formalslt:increment-adapted-zero-collapse",
+  "input_sha256": "9071b80d760f0521904b7364c8b90f56606203e16783e53e6a7d78a49dc1a48d",
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/formalslt.jsonl"
+}

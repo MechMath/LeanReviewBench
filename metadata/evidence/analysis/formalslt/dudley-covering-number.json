@@ -1,0 +1,29 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "formalslt",
+  "project_id": "dudley-covering-number",
+  "task_id": "formalslt:dudley-covering-number",
+  "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
+  "label": "misaligned",
+  "reason": "An adjacent-grid cardinality product replaces the minimum ball-cover count in the entropy functional.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_path",
+      "locator": "reports/formalslt-batch2/review/dudley-semantic.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The bound entropy integral based on genuine minimum ball-cover counts.",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The formal entropy function is sqrt(log of an adjacent-grid cardinality product), not sqrt(log of the minimum ball-cover count promised by the original genuine-covering-number task. Both inequalities may be true; the formal theorem solves a different, weaker-bound task.",
+  "retained_review_scope": "Author specialization and independent covering-number semantics"
+}

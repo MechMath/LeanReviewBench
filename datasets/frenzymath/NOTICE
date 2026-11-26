@@ -1,0 +1,6 @@
+Sources: frenzymath/Poincare-Conjecture. Exact source revisions and selected
+files are recorded in project.json and metadata/provenance.json. Original
+ownership remains with the upstream authors. Statement contexts erase proofs
+and include Lean 4.34.1 compatibility edits as recorded in CHANGES.md.
+The pinned Apache-2.0 copy is retained at ../../licenses/frenzymath/LICENSE.upstream.
+Independent informal sources retain their own bibliographic attribution.

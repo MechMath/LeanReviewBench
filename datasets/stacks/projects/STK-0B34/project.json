@@ -1,0 +1,80 @@
+{
+  "id": "STK-0B34",
+  "schema_version": "paperlean-project-case-1",
+  "title": "Stacks 0B34",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Sum.not_t0_of_not_t0_left",
+      "informal_id": "main"
+    },
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Sum.not_quasiSober_of_not_quasiSober_right",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/optpku/stacks",
+    "commit": "e2299cf97f975b08e7b5b59202ed00adc80ff6b7",
+    "path": "ReasLib/Topology/Sum.lean",
+    "module": "ReasLib.Topology.Sum",
+    "url": "https://github.com/optpku/stacks/blob/e2299cf97f975b08e7b5b59202ed00adc80ff6b7/ReasLib/Topology/Sum.lean",
+    "sha256": "70e3c7a457f687884b515f0044fcc9e89c5dc4aef159ed222124fd5fa740186d",
+    "leads": [],
+    "declarations": [
+      "Sum.not_t0_of_not_t0_left",
+      "Sum.not_quasiSober_of_not_quasiSober_right"
+    ]
+  },
+  "group_id": "stacks:0B34",
+  "split_group": "optpku/stacks",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Tactic.CrossRefAttribute",
+    "Mathlib.Topology.Sober"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "b6bed63ec33cc9c6b0ba823d8e06caaec5eb8beffd5b877d5a3add247ff9d4c3",
+    "effective_root_sha256": "a75557327cd2302ee2750bb73d9ace68dac711089643a7dbe1f4b76cbfde0823",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/stacks.jsonl",
+  "evaluation_eligible": false,
+  "preparation": {
+    "receipt": "reports/stacks-admission/technical/STK-0B34/receipt.json",
+    "graph": "reports/stacks-admission/technical/STK-0B34/default/graph.json",
+    "explicit_graph": "reports/stacks-admission/technical/STK-0B34/explicit/graph.json",
+    "review": "reports/stacks-admission/reviews.json",
+    "original_source": "reports/stacks-admission/original/STK-0B34-left/Main.lean",
+    "merge_record": "reports/stacks-admission/merges/STK-0B34.json",
+    "receipt_sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a",
+    "packaged_receipt": "reports/stacks-admission/technical/STK-0B34/receipt.json",
+    "packaged_receipt_sha256": "4057e0b89ff2107d5d43ff8e7ef3135d75b31758e1b04d638babbdba92fe417a"
+  },
+  "author_disclosure": "no_explicit_root_error_admission",
+  "upstream_proof_holes_preserved": true,
+  "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
+  "target_mode": "joint",
+  "merged_from": [
+    "STK-0B34-left",
+    "STK-0B34-right"
+  ]
+}

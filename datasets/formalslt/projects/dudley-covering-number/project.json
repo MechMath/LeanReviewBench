@@ -1,0 +1,90 @@
+{
+  "id": "dudley-covering-number",
+  "schema_version": "paperlean-project-case-1",
+  "title": "FormalSLT dudley-covering-number",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/Robby955/FormalSLT",
+    "commit": "815d10dabf7c295417f82a1d7435a39214600e5f",
+    "path": "FormalSLT/Covering/ContinuousDudleyUnitIntervalCovering.lean",
+    "module": "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering",
+    "declaration": "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber",
+    "url": "https://github.com/Robby955/FormalSLT/blob/815d10dabf7c295417f82a1d7435a39214600e5f/FormalSLT/Covering/ContinuousDudleyUnitIntervalCovering.lean",
+    "sha256": "7598f6e124f048018e66bdb8e724942c26d31e4270ee73df1a541bcc3fea7d6c",
+    "leads": [
+      "https://github.com/Robby955/FormalSLT/commit/fc08e9bd87ba546863e54d167f63cae324426777"
+    ]
+  },
+  "group_id": "formalslt:unit-interval-paircount",
+  "split_group": "Robby955/FormalSLT",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Analysis.Convex.Jensen",
+    "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Exp",
+    "Mathlib.Analysis.SpecialFunctions.Integrability.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+    "Mathlib.Analysis.SpecialFunctions.Sqrt",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Series",
+    "Mathlib.Data.Finset.Lattice.Fold",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Data.Fintype.Pi",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Real.ENatENNReal",
+    "Mathlib.Logic.Equiv.Defs",
+    "Mathlib.MeasureTheory.Function.Floor",
+    "Mathlib.MeasureTheory.Function.SpecialFunctions.Basic",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.MetricSpace.Pseudo.Basic",
+    "Mathlib.Topology.Order.Compact"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 5,
+    "sha256": "49d5976e03ccd4b07915dadb742f443f38f32454baed176bbce546882826d711",
+    "effective_root_sha256": "a73b8c77ce2647310ca2a8ec86eba75edda7b7d402171e1e4cd0f958a269fc75",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/formalslt-batch2/dudley/receipt.json",
+    "receipt_sha256": "27ac70a6cd9f23b266438b2e2d2c1d264401ac880d3da92987ecdcea3caedc87",
+    "graph": "reports/formalslt-batch2/dudley/default-graph.json",
+    "explicit_graph": "reports/formalslt-batch2/dudley/explicit-graph.json",
+    "review": "reports/formalslt-batch2/review/dudley-semantic.json",
+    "packaged_receipt": "reports/formalslt-batch2/dudley/packaged/receipt.json",
+    "packaged_receipt_sha256": "480c0f1ae0f14b01b8df2e069a9c22dc6472223e1e7574f361dd70fb67a08e62"
+  },
+  "pairing_status": "standalone_no_same_task_historical_repair",
+  "mechanism_group": "formalslt:unit-interval-paircount",
+  "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
+  "historical_status": "ready",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/formalslt.jsonl"
+}

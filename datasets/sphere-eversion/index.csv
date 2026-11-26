@@ -1,0 +1,7 @@
+id,root,commit,group_id,before_ids,after_ids,status
+immersion-after,Immersion,27a2c7fdff78bb5509831699899796eaffe62a4b,sphere-eversion-immersion,immersion-before,,ready
+immersion-before,Immersion,e7f4e9109e586404f4bf130e23e26ffd031f2459,sphere-eversion-immersion,,immersion-after,misaligned
+loop-support-after,loop.support,094437437b24ee7a8b6a8f1f28da241a1ba9f280,sphere-eversion-loop-support,loop-support-before,,ready
+loop-support-before,loop.support,9380572eecd1f143accb73dbf114e8052626dc31,sphere-eversion-loop-support,,loop-support-after,misaligned
+reparametrization-after,smooth_surrounding_family.reparametrize_average,357f2951c949baa5a3bcf6166a26b8205ff1deaf,sphere-eversion-reparametrization,reparametrization-before,,ready
+reparametrization-before,reparametrization,a8898f0d4208052375450d4bdc7271197e7021c1,sphere-eversion-reparametrization,,reparametrization-after,misaligned

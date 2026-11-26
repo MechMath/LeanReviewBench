@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pfr",
+  "project_id": "energy-cs",
+  "task_id": "pfr:energy-cs",
+  "input_sha256": "43e0bc4e916619f94ac665d7901f151a8fa48d0d804fcf3cf599182400bb562f",
+  "label": "aligned",
+  "reason": "Specializing the formal two-set inequality to s=t=A gives the normalized source inequality; cardinality rescaling recovers its raw-count formulation.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Finset.card_sq_le_card_mul_addEnergy'"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pfr-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Use the normalized target and its normalized energy definition. The formal inequality generalizes A x A to s x t; specialize s=t=A. The raw formulation is equivalent after cardinality rescaling.",
+  "review_scope": "The normalized additive-energy inequality and its bound energy definition."
+}

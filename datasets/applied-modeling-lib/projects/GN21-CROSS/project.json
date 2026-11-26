@@ -1,0 +1,96 @@
+{
+  "id": "GN21-CROSS",
+  "schema_version": "paperlean-project-case-1",
+  "title": "GN21DriverSurgePricing",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields",
+      "informal_id": "paper-1"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "e1e995e3d6bcf7adc75c0cf5a461cbf90523e48a",
+    "path": "papers/GN21DriverSurgePricing/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/e1e995e3d6bcf7adc75c0cf5a461cbf90523e48a/papers/GN21DriverSurgePricing/PaperInterface.lean",
+    "declaration": "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields",
+    "sha256": "aa3667027c5a67dca27b9205bb76188374a045f6b6d6f700eaed8cb00c849604",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e1e995e3d6bcf7adc75c0cf5a461cbf90523e48a"
+    ],
+    "module": "GN21DriverSurgePricing.PaperInterface"
+  },
+  "group_id": "aml:GN21-CROSS",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Analysis.Calculus.Deriv.Inv",
+    "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+    "Mathlib.Analysis.Calculus.Deriv.Slope",
+    "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+    "Mathlib.Data.Set.Disjoint",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.Indicator",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Map",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+    "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Measure.OpenPos",
+    "Mathlib.MeasureTheory.Measure.RegularityCompacts",
+    "Mathlib.MeasureTheory.Measure.WithDensity",
+    "Mathlib.Order.Filter.AtTopBot.Basic",
+    "Mathlib.Probability.Independence.InfinitePi",
+    "Mathlib.Probability.Moments.SubGaussian",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Probability.ProductMeasure",
+    "Mathlib.Probability.StrongLaw",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Order.Field"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/e1e995e-GN21DriverSurgePricing/GN21-CROSS/graph.json",
+      "sha256": "4315e16f9816d6101e02413d2c02ed5ca8f171b9d9f2d083b3918c5867b7b247"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "sha256": "d8d40973d913167fc9be6d85a55b8d4f3dcd069509ff8e4abe05a82522d1f73f"
+    }
+  },
+  "input_sha256": "7253a07ed7a6a0e0d3dae26266bcfaa80e6613c69a009900354a7f6d0e9bf24c",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "242a7741ea2bf8bb8b7af03673e0aee4dfe4e5cb9aeb956629f83dd88b2d54d2",
+    "effective_root_sha256": "39391ef8e99018710d9579fa4ce75da8ffe08154768eca46f2fe06c4754c088d",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

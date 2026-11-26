@@ -1,0 +1,74 @@
+{
+  "id": "ik-pow-injective-text-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT ik-pow-injective-text-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ArithmeticFunction.pow_divisors_mul_injective",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "declaration": "ArithmeticFunction.pow_divisors_mul_injective",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+  },
+  "group_id": "pnt-ArithmeticFunction.pow_divisors_mul_injective",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "ik-pow-injective-text-after"
+  ],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.NumberTheory.LSeries.Dirichlet",
+    "Mathlib.NumberTheory.LSeries.Nonvanishing"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "75a91bfd0ae4b0963ceff475bd458c7af41ca1f6b14104c1c127dea735939d39",
+    "effective_root_sha256": "9c1e64f3e65769d5212e604d16e4ea74567b639b3d1217c5e0a0e70b11391545",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-ik-extraction/repaired/ik-pow-injective/20261105T053020495714Z/receipt.json",
+    "receipt_sha256": "6ed4d238e0725290e031182935d0a7409c11a3c11cd741670aae983f7dff72cd",
+    "packaged_receipt": "reports/pnt-ik-extraction/repaired/ik-pow-injective/20261105T053020495714Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "46a5feb56941ef1d9dfe18e87d868982cdd9c4eac8565a86b0be03e6101f4fa4",
+    "formal_snapshot_id": "ik-pow-injective",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-ik-extraction/sources/99d4ce46962a09b4ed95574e95c62b491673a1ad/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "8ff956895e0f37198edcc6c17c680bb7525f43c100b790c6ecae81cc3f5ee112",
+        "ref": "99d4ce46962a09b4ed95574e95c62b491673a1ad",
+        "text": "Let $m$ and $n$ be coprime natural numbers, with a fixed power $k$. The function\n    $(a,b) \\mapsto ab$ is injective on the product of the divisors of $m$ and $n$ that can be\n    expressed as perfect $k$-powers."
+      }
+    ],
+    "root_axioms": {
+      "default": "'ArithmeticFunction.pow_divisors_mul_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'ArithmeticFunction.pow_divisors_mul_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "c5e2f67c469c2d41da2af405543ba21d54c6a2580354c5ff274bf2cbb5452ae7",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

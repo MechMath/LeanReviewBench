@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "ik-pow-divisors-text-before",
+  "task_id": "pnt:ik-pow-divisors-text-before",
+  "input_sha256": "cbce0f549152d5bc8bf55943cc72da5a30aae3ee3e7ede88c9299f1838bb6cdc",
+  "label": "aligned",
+  "reason": "For positive inputs and k>=1, the bijection x->x^k converts root-divisors into perfect-kth-power divisors and preserves multiplication. The k=0 source case follows directly.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "ArithmeticFunction.pow_divisors_mul"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1641"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The statements correspond when explicit kth-root parameterization is allowed: for m,n>0 and k≥1, x↦x^k is a product-preserving bijection from {x|m:x^k|m} to the perfect kth-power divisors of m. Thus the formal factorization or injectivity of multiplication for root divisors becomes the text's power-divisor proposition through this bijection. At k=0, the only perfect zeroth power in the text is 1, so factorization and injectivity hold directly; the formal statement covers the stronger ordinary coprime-divisor conclusion.",
+  "review_scope": "The bound perfect-power divisor statement, allowing the explicit kth-root parametrization."
+}

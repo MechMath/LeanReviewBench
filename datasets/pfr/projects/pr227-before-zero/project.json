@@ -1,0 +1,91 @@
+{
+  "id": "pr227-before-zero",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr227-before-zero",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "KL_div_eq_zero_iff_identDistrib",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "3dd249a8aec4961bc55de4744643fc3db7b4f252",
+    "path": "PFR/Kullback.lean",
+    "module": "PFR.Kullback",
+    "declaration": "KL_div_eq_zero_iff_identDistrib",
+    "url": "https://github.com/teorth/pfr/blob/3dd249a8aec4961bc55de4744643fc3db7b4f252/PFR/Kullback.lean",
+    "sha256": "d77ddd17c7b4464da52282a709ec7f04637ded2f2bfa0559d6365dbc72b07b42"
+  },
+  "group_id": "pfr-kl-support",
+  "split_group": "teorth/pfr",
+  "before_ids": [],
+  "after_ids": [
+    "pr227-after-zero"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Tactic"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 2,
+    "sha256": "1c8024252c2afeb889eed8743684371317d9c26083e988746de95396b9af75ae",
+    "effective_root_sha256": "623a780aa565b4bf59799d141ad39b5269aacef59f8d090aeeb1c16c3a93dcb1",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr227-before-zero/20261104T091643741378Z/receipt.json",
+    "receipt_sha256": "d1a8b5787cd9154594325d7177b3c0cd0c9b599b569e67932f811e750cb181fb",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr227-before-zero/20261104T091643741378Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "45f0c969527c16a3fe4e30fe6bcc2a6f5fe099500c040a86f30120052a2dbed2",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/further_improvement.tex",
+        "sha256": "7562efdd2bb61da9ac18c011fc3adfbcf9357bdc8f66492fa6cffc44881e3788",
+        "locator": "Gibbs-converse",
+        "text": "\\begin{lemma}[Converse Gibbs inequality]\\label{Gibbs-converse}\\lean{KL_div_eq_zero_iff_identDistrib}\\leanok  If $D_{KL}(X\\Vert Y) = 0$, then $Y$ is a copy of $X$.\n\\end{lemma}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/jensen.tex",
+        "sha256": "e54cbcdbccf354979da495d044d65585d408a71bedcc335a34aa0982ed511841",
+        "locator": "further_improvement.tex: kl-div, Gibbs, Gibbs-converse; jensen.tex: log-sum",
+        "text": "",
+        "selected": false
+      },
+      {
+        "path": "reports/pfr-candidates/sources/3dd249a8aec4961bc55de4744643fc3db7b4f252/blueprint/src/chapter/entropy.tex",
+        "sha256": "6587c95c25e521f7f16f14e079f715550b9dbf9f8d00f5c845a5ba2af56dbddf",
+        "locator": "further_improvement.tex: kl-div, Gibbs, Gibbs-converse; jensen.tex: log-sum",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'KL_div_eq_zero_iff_identDistrib' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'KL_div_eq_zero_iff_identDistrib' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "definition_preserving_slice"
+  },
+  "input_sha256": "fa7ad5f861febfa1d9f1e2d24a14854a44ab48825241b004ef895d1406b8e872",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

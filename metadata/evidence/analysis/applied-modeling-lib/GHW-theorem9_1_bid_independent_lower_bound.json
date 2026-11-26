@@ -1,0 +1,36 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GHW-theorem9_1_bid_independent_lower_bound",
+  "task_id": "aml:GHW-theorem9_1_bid_independent_lower_bound",
+  "input_sha256": "53012956eb9b18f8591858bb029627e294a046df994ea553299ddd528d23523b",
+  "label": "aligned",
+  "reason": "Adding a fixed bid of 1 and applying the quantified bid-independent rule yields the required family with minimum 1, maximum H, benchmark at least alpha*H, and revenue ratio at most 2/H.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GHW01DigitalGoods.PaperInterface.theorem9_1_bid_independent_lower_bound"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/other-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/new-families.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "review_scope": "The complete Theorem 9.1 asymptotic lower bound for bid-independent rules.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The full frozen Theorem 9.1 is recovered by an explicit fixed-dummy reduction within the root's universally quantified bid-independent rules. The old lowCount=0 concern does not lose attained min=1: apply the root to the rule that first adds a fixed bid 1, then restore that bidder. This gives actual min=1, max=H, F≥αH and R/F≤2/H. Natural H≥2 supplies an unbounded bad-input family, as required by the source's asymptotic existence claim.",
+  "retained_review_scope": "Review against the full paper statement, as confirmed by the user on 2026-11-05; a conditional proof step does not replace the full statement."
+}

@@ -1,0 +1,236 @@
+{
+  "id": "flt-c02",
+  "schema_version": "paperlean-project-case-1",
+  "title": "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/ImperialCollegeLondon/FLT",
+    "commit": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+    "path": "FLT/FreyCurve/FreyPackage.lean",
+    "module": "FLT.FreyCurve.FreyPackage",
+    "declaration": "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5",
+    "url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/FreyCurve/FreyPackage.lean",
+    "sha256": "4b9adcb2edebbe5dbf3b096acbc65ca86ed666991ca1254e487331491b36da8a"
+  },
+  "group_id": "flt-reductions",
+  "split_group": "ImperialCollegeLondon/FLT",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "ready",
+  "historical_status": "undetermined",
+  "gold_label": null,
+  "human_adjudicated": false,
+  "evaluation_eligible": false,
+  "role": "control_candidate",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "preparation": {
+    "source_packet": {
+      "id": "FLT-C02",
+      "role": "control_candidate",
+      "root": "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5",
+      "module": "FLT/FreyCurve/FreyPackage.lean",
+      "source_family": "flt-reductions",
+      "source_revision": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+      "source_url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/FLT/FreyCurve/FreyPackage.lean",
+      "label": "undetermined",
+      "gold_label": null,
+      "human_adjudicated": false,
+      "evaluation_eligible": false,
+      "readiness": "semantic_candidate_materials_complete_technical_pending",
+      "informal_target": {
+        "text": "If Fermat's Last Theorem fails at a prime p at least 5, there exists a Frey package: nonzero pairwise-coprime integers a,b,c with a congruent to 3 modulo 4, b even, and a^p+b^p=c^p.",
+        "kind": "curator_paraphrase_of_frozen_blueprint",
+        "source_path": "blueprint/src/chapter/ch02reductions.tex",
+        "source_label": "FreyPackage.of_not_FermatLastTheorem_p_ge_5",
+        "source_revision": "8c4bb0b2046a1d564623057bb359212f92e0d1f2",
+        "source_url": "https://github.com/ImperialCollegeLondon/FLT/blob/8c4bb0b2046a1d564623057bb359212f92e0d1f2/blueprint/src/chapter/ch02reductions.tex",
+        "source_sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb",
+        "exact_theorem_environment": "\\begin{lemma}\n  \\label{FreyPackage.of_not_FermatLastTheorem_p_ge_5}\n  \\lean{FreyPackage.of_not_FermatLastTheorem_p_ge_5}\n  \\leanok\n  \\discussion{19}\n  If Fermat's Last Theorem is false for $p \\ge 5$ and prime, then there exists a Frey package.\n\\end{lemma}",
+        "independence": "Separate mathematical LaTeX exposition, with mathematical proof prose and historical Lean annotations; not produced here by Lean-to-text. Same pinned repository revision as formal source; last-change provenance retained in evidence."
+      },
+      "scope_check": "The source conclusion is existence of a Frey package. It does not require an additional equality between the package exponent and the input p in the exposed conclusion. The historical blueprint declaration annotation omits For; current binding is explicitly recorded.",
+      "archive": "FLT-C02-source-closure.tar.gz",
+      "archive_sha256": "43b60af4db942657ce8321df3b7fe56ed9245815f27c281b9e50b5536090597e",
+      "source_inventory": [
+        {
+          "path": "FLT/Basic/Lemmas.lean",
+          "sha256": "ec9694a1c9497a6f0bf8ea1ffe8bb51e483ae8bed13802465ab6ca0f96f8969f"
+        },
+        {
+          "path": "FLT/FreyCurve/FreyPackage.lean",
+          "sha256": "4b9adcb2edebbe5dbf3b096acbc65ca86ed666991ca1254e487331491b36da8a"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "lake-manifest.json",
+          "sha256": "69bea3a723baa7da056496b1535acf49641977881614601d33114363a44358c7"
+        },
+        {
+          "path": "lakefile.toml",
+          "sha256": "2deef638ed8315399f8346c20c7db5a3cbd344ea3dee93ec6a27b2e09c64bc27"
+        },
+        {
+          "path": "lean-toolchain",
+          "sha256": "2c290dc3675a4faf0bc03545ff71a417d2f9a7c2e60e8be80ed643fcbcc73e2d"
+        }
+      ],
+      "project_module_count": 2,
+      "external_imports": [
+        "Mathlib.Algebra.Field.ZMod",
+        "Mathlib.Algebra.Lie.OfAssociative",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "Mathlib.Analysis.Normed.Field.Lemmas",
+        "Mathlib.Data.Matrix.Mul",
+        "Mathlib.Data.Nat.Factors",
+        "Mathlib.NumberTheory.FLT.Basic",
+        "Mathlib.NumberTheory.FLT.Four",
+        "Mathlib.NumberTheory.FLT.Three",
+        "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+        "Mathlib.Tactic.ModCases"
+      ],
+      "local_import_edges": [
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Algebra.Field.ZMod",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Analysis.Normed.Field.Lemmas",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Data.Matrix.Mul",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.FLT.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Algebra.Lie.OfAssociative",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.FLT.Four",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.NumberTheory.FLT.Three",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "Mathlib.Tactic.ModCases",
+          "local": false
+        },
+        {
+          "importer": "FLT/FreyCurve/FreyPackage.lean",
+          "module": "FLT.Basic.Lemmas",
+          "local": true
+        },
+        {
+          "importer": "FLT/Basic/Lemmas.lean",
+          "module": "Mathlib.Data.Nat.Factors",
+          "local": false
+        },
+        {
+          "importer": "FLT/Basic/Lemmas.lean",
+          "module": "Mathlib.NumberTheory.FLT.Four",
+          "local": false
+        },
+        {
+          "importer": "FLT/Basic/Lemmas.lean",
+          "module": "Mathlib.NumberTheory.FLT.Three",
+          "local": false
+        }
+      ],
+      "technical": {
+        "compilation": "not_attempted",
+        "leantrace": "not_attempted",
+        "source_bytes_unchanged": true,
+        "upstream_admissions_preserved": true,
+        "new_axioms_or_sorry_added": false,
+        "source_sorry_occurrences": 0,
+        "sorry_count_is_textual_not_axiom_audit": true,
+        "toolchain": "leanprover/lean4:v4.32.0-rc1"
+      },
+      "remaining": [
+        "Human semantic label and scope adjudication",
+        "Pinned-environment compatibility and actual compile",
+        "LeanTrace declaration dependency extraction and proof/comment filtering"
+      ]
+    },
+    "original": "original/",
+    "compatibility_patch": "compatibility.patch",
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+  },
+  "changes": "CHANGES.md",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "compatibility_files": [],
+  "technical_receipt": "technical/relocated-receipt.json",
+  "source_role": "control",
+  "source_family": "flt-reductions",
+  "material_complete": true,
+  "formal": {
+    "file_count": 2,
+    "sha256": "e364140daaf7af4246dfac69c6c292658d37006c53fe863a2768d293cf90efc9",
+    "effective_root_sha256": "57d4e758a384206a3940fa2e7893d6dc5c844a50503e380719b174c9c1baac30",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "input_sha256": "34d856cef8108022bce4c83f00429841d9d06d33f045a921aa407f145bb1c01c",
+  "external_imports": [
+    "Mathlib.Algebra.Field.ZMod",
+    "Mathlib.Algebra.Lie.OfAssociative",
+    "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+    "Mathlib.Analysis.Normed.Field.Lemmas",
+    "Mathlib.Data.Matrix.Mul",
+    "Mathlib.Data.Nat.Factors",
+    "Mathlib.NumberTheory.FLT.Basic",
+    "Mathlib.NumberTheory.FLT.Four",
+    "Mathlib.NumberTheory.FLT.Three",
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+    "Mathlib.Tactic.ModCases"
+  ],
+  "missing_modules": [],
+  "packaged_compilation": "passed",
+  "historical_technical_receipt": "technical/receipt.json",
+  "admitted_to_dataset": true,
+  "relocation_patch": "relocation.patch",
+  "alignment_reference": "metadata/labels/imperial-flt.jsonl"
+}

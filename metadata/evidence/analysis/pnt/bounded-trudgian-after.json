@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-trudgian-after",
+  "task_id": "pnt:bounded-trudgian-after",
+  "input_sha256": "b5f6f4b35ff98c4e6f739d09284e669e3fa91191e8eed007c6b0f0006fc34370",
+  "label": "aligned",
+  "reason": "The pointwise error relative to the principal-value logarithmic integral and the bound formula match for x>=229.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Trudgian2016.theorem_2"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1673"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Old Formal is a universally quantified normalized tail bound with Li and natural 1/4 exponent; the paper states a pointwise pi-li estimate. The after statement matches the paper formula on x>=229.",
+  "review_scope": "The bound pointwise pi-li estimate on x>=229."
+}

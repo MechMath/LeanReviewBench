@@ -1,0 +1,64 @@
+{
+  "id": "EOS-theorem7_no_positive_transfer_conclusion",
+  "schema_version": "paperlean-project-case-1",
+  "title": "EOS07GSP",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
+      "informal_id": "main-full-paper"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "0f8ab772a3432265c5bd3d0b90bb4a8de52aff27",
+    "path": "papers/EOS07GSP/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/0f8ab772a3432265c5bd3d0b90bb4a8de52aff27/papers/EOS07GSP/PaperInterface.lean",
+    "declaration": "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion",
+    "sha256": "4662efec3ff231e00fe6965ef53e490e00f6cf74b443197416ee7c83bb398524",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/040650891b432f2fd7912529e8a9f2981f01cd92",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/0f8ab772a3432265c5bd3d0b90bb4a8de52aff27"
+    ],
+    "module": "EOS07GSP.PaperInterface"
+  },
+  "group_id": "aml:EOS-theorem7_no_positive_transfer_conclusion",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": null,
+    "review": null
+  },
+  "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "4d44862ae336b20b386f0ca84f37483b3991ddec0a57c35e0eb59c278a0c2788",
+    "effective_root_sha256": "1c958e8333f65e7ae7c625ced8238f9057e37c222c43d97c81b2fb88c5799e5b",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "blocked",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

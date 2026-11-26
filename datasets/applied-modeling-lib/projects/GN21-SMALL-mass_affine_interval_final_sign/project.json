@@ -1,0 +1,100 @@
+{
+  "id": "GN21-SMALL-mass_affine_interval_final_sign",
+  "schema_version": "paperlean-project-case-1",
+  "title": "GN21DriverSurgePricing",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign",
+      "informal_id": "paper-1"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/nikhgarg/AppliedModelingLib",
+    "commit": "ba9d01206fdb3e5e595efcb501ab5104a345ae36",
+    "path": "papers/GN21DriverSurgePricing/PaperInterface.lean",
+    "url": "https://github.com/nikhgarg/AppliedModelingLib/blob/ba9d01206fdb3e5e595efcb501ab5104a345ae36/papers/GN21DriverSurgePricing/PaperInterface.lean",
+    "declaration": "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign",
+    "sha256": "79ffdc51dfa7cac241bf4f858c89663eee2ccccec7fc10259b47f89febb15afc",
+    "leads": [
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/11ff28bdba3dda959ae7f8e47d1955e575feec56",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/158cfccd1d10cf984440ea2936fae6b0c134d522",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/ba9d01206fdb3e5e595efcb501ab5104a345ae36",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/0d4636e1a810430a7fbce34db874f982fd1a5b1f",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/e645f1e4672611c396899c739a41ea70637bc60a",
+      "https://github.com/nikhgarg/AppliedModelingLib/commit/7197126c59dcdff6836a8572296962757fd17cee"
+    ],
+    "module": "GN21DriverSurgePricing.PaperInterface"
+  },
+  "group_id": "aml:GN21-SMALL-mass_affine_interval_final_sign",
+  "split_group": "nikhgarg/AppliedModelingLib",
+  "before_ids": [],
+  "after_ids": [],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Analysis.Calculus.Deriv.Inv",
+    "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+    "Mathlib.Analysis.Calculus.Deriv.Slope",
+    "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+    "Mathlib.Data.Set.Disjoint",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.Indicator",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Map",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+    "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Measure.OpenPos",
+    "Mathlib.MeasureTheory.Measure.RegularityCompacts",
+    "Mathlib.MeasureTheory.Measure.WithDensity",
+    "Mathlib.Order.Filter.AtTopBot.Basic",
+    "Mathlib.Probability.Independence.InfinitePi",
+    "Mathlib.Probability.Moments.SubGaussian",
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "Mathlib.Probability.ProbabilityMassFunction.Monad",
+    "Mathlib.Probability.ProductMeasure",
+    "Mathlib.Probability.StrongLaw",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Order.Field"
+  ],
+  "preparation": {
+    "commit": "964f2d92e71b1b911e568790a7196a6fb7e1250b",
+    "catalog": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/cases.json",
+      "sha256": "e83e76585cbd819decdf712ea9e9c618cc4b541a8bb00c272b08dfa358193b62"
+    },
+    "graph": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/technical/ba9d012-GN21DriverSurgePricing/GN21-SMALL-mass_affine_interval_final_sign/graph.json",
+      "sha256": "393e0758d4d7b98ad9295b4dc1074c919e99284c15ec9ebd08eb71cd7eda06b2"
+    },
+    "review": {
+      "url": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "sha256": "d8d40973d913167fc9be6d85a55b8d4f3dcd069509ff8e4abe05a82522d1f73f"
+    }
+  },
+  "input_sha256": "4459f49a61bb59f5810778d3e5007654cae5c0bd6de185e90ff2a811bb27c4f4",
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 3,
+    "sha256": "066e39eff49b8a2d82aa230e1fa7055220c64077518746f476fee270c0269585",
+    "effective_root_sha256": "5765787662320c021f8ca6c5f666e77f5e7af81da6bb95b1544f207a28b61eda",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/applied-modeling-lib.jsonl"
+}

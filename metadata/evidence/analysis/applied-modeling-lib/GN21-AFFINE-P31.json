@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GN21-AFFINE-P31",
+  "task_id": "aml:GN21-AFFINE-P31",
+  "input_sha256": "3598b5a4c73d2110cc9edb7cf05d946528e033a50df105dffe6f8fc2bd5f4145",
+  "label": "aligned",
+  "reason": "The affine reward formula, parameter range, and comparison with every feasible measurable policy match. The model assumptions express standard finite-probability properties.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/prpkg-gn.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "Appendix C.3, Proposition 3.1 in the finite-integral single-state renewal-reward model.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Paired with the original Appendix C.3, Proposition 3.1, within the established finite renewal-reward single-state domain. The conditions λ>0 and 0≤a≤m/λ exactly match the source sentence and imply m≥0; normalization and finiteness of μ correspond to the trip probability distribution. The remaining Assumptions fields state nonnegativity of the integral of positive τ, subset time bounded by total time, and zero positive-τ integral implying zero mass. These are standard properties of this probability model, not direct assumptions of IC. The formal affine reward is λ(m∫στ+aμσ)/(1+λ∫στ), exactly the source formula after integrating w=mτ+a. IC quantifies all measurable σ⊆(0,∞) and compares their rewards with accept-all, rather than comparing only a finite policy family. Appendix C.3 derives its result in the same finite-T=∫τdF model. Allowing atomic μ is a valid extension that still covers the source's continuous-distribution domain; this label does not extend to models without finite expectations.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

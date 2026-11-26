@@ -1,0 +1,73 @@
+{
+  "id": "bounded-jy-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT bounded-jy-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "JY.theorem_1_4",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "fc3f35017ee842bccf0d887980e8e22dda1583ab",
+    "path": "PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "declaration": "JY.theorem_1_4",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+    "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4"
+  },
+  "group_id": "pnt-JY.theorem_1_4",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "bounded-jy-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "232b6aa8846c982297accf0c40bd0044852d05ef9c39722e53e8e527735a5078",
+    "effective_root_sha256": "d3e273523ecc32aac4a12b33ca35b8c65b1e47268d5d6747ff8564c921b8ae02",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-before/20261105T053449737400Z/receipt.json",
+    "receipt_sha256": "24dcdd5a2a2b14a87625ff03b59b21aac9417bdb08d24e7be24b6f95f27f5474",
+    "packaged_receipt": "reports/pnt-bounded-extraction/repaired/bounded-jy-before/20261105T053449737400Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "0ecf67a8b788672388b04356e480153bff3ecc2d79eba50ea86175b06358418c",
+    "formal_snapshot_id": "bounded-jy-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-bounded-extraction/sources/fc3f35017ee842bccf0d887980e8e22dda1583ab/PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean",
+        "sha256": "3e7330efb16312eee666c86d6e69f64c97572d7dc91e1c0c25034936b2fee6a4",
+        "ref": "fc3f35017ee842bccf0d887980e8e22dda1583ab",
+        "text": "One has\n  \\[\n  |\\pi(x) - \\mathrm{Li}(x)| \\leq 0.028 x (\\log x)^{0.801}\n    \\exp(-0.1853 \\log^{3/5} x / (\\log \\log x)^{1/5}))\n  \\]\n  for all $x \\geq 2$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'JY.theorem_1_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'JY.theorem_1_4' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "1760ae0c0e228cba8c10e23c31f61966dac6f870333a12e3813c96d7bf8c5ad4",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

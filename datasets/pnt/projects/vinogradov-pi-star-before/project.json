@@ -1,0 +1,77 @@
+{
+  "id": "vinogradov-pi-star-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT vinogradov-pi-star-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "Eπ_star.vinogradovBound",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/Defs.lean",
+    "declaration": "Eπ_star.vinogradovBound",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6"
+  },
+  "group_id": "pnt-Eπ_star.vinogradovBound",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [],
+  "after_ids": [
+    "vinogradov-pi-star-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "bbcceba04fd09c302aa1e39c1f03d0af2e1522b07f5ed3526979cde64f0eae62",
+    "effective_root_sha256": "08d034e396735c329dfc89003a7dc8ceae9d6446cfe96b1b105a7d445d92efeb",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-star-before/20261105T052121704839Z/receipt.json",
+    "receipt_sha256": "d11418715b7bc3712911d3f7819545c9f56250cc7713405dd9dd407c30722960",
+    "packaged_receipt": "reports/pnt-extraction-batch2/repaired/vinogradov-pi-star-before/20261105T052121704839Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "d2bd833419117b5d87e156d9154ccc5d856a258d1c7879fa97557b0c02655d16",
+    "formal_snapshot_id": "vinogradov-pi-star-before",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-history/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/Defs.lean",
+        "sha256": "4890916ef48bdd320bdce836ef6b01d1f586fd25beba76aaa4db23c957de4ec6",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": null
+      }
+    ],
+    "root_axioms": {
+      "default": "'Eπ_star.vinogradovBound' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "explicit": "'Eπ_star.vinogradovBound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": false,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "informal_status": "source_backed_later_upstream_target",
+  "evaluation_eligible": true,
+  "input_sha256": "d213d1f687a3a64474fdf8974113b83d804cd77043832db79cbd282cca7dd4b8",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl",
+  "pair_validity": "valid_source_backed_new_binding",
+  "informal_binding_review": "reports/vinogradov-target-search-2026-11-09/review.json"
+}

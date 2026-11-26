@@ -1,0 +1,112 @@
+{
+  "id": "pr48-before",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PFR pr48-before",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ent_of_diff_le",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/teorth/pfr",
+    "commit": "f84e5ae7b9d619fff50c155858dddf09b59493c9",
+    "path": "PFR/ruzsa_distance.lean",
+    "module": "PFR.ruzsa_distance",
+    "declaration": "ent_of_diff_le",
+    "url": "https://github.com/teorth/pfr/blob/f84e5ae7b9d619fff50c155858dddf09b59493c9/PFR/ruzsa_distance.lean",
+    "sha256": "10c87e114e6b43297ce6341d94a96637874058a65cc4a5722da4b12df021a5ce"
+  },
+  "group_id": "pfr-ruzsa-independence",
+  "split_group": "teorth/pfr",
+  "before_ids": [],
+  "after_ids": [
+    "pr48-after"
+  ],
+  "status": "misaligned",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Data.Finset.Pairwise",
+    "Mathlib.Data.Set.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Data.Set.Insert",
+    "Mathlib.MeasureTheory.Constructions.Pi",
+    "Mathlib.MeasureTheory.Group.Arithmetic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+    "Mathlib.MeasureTheory.Integral.Prod",
+    "Mathlib.MeasureTheory.MeasurableSpace.Constructions",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.MeasureTheory.Measure.FiniteMeasureProd",
+    "Mathlib.MeasureTheory.Measure.Map",
+    "Mathlib.MeasureTheory.Measure.MeasureSpaceDef",
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+    "Mathlib.MeasureTheory.Measure.Prod",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.IdentDistrib",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Probability.Independence.Kernel.IndepFun",
+    "Mathlib.Probability.Kernel.Composition.Comp",
+    "Mathlib.Probability.Kernel.Composition.Prod",
+    "Mathlib.Probability.Kernel.CondDistrib",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Basic",
+    "Mathlib.Tactic.Finiteness",
+    "Mathlib.Util.Notation3"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 15,
+    "sha256": "993197138a2a7fcb7701378d7bce9707009d88fd97a49253387484dd043c8d41",
+    "effective_root_sha256": "deab17c6313b294c2b2c2722328db1c8278daa5a3d1788cb5f60e600091f6c68",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pfr-repair/repaired/pr48-before/20261104T091612966982Z/receipt.json",
+    "receipt_sha256": "ef41b32aed33ec8d947e39d9c7c05ea8b9a38b2796025c4b15604f1ced5b0f79",
+    "packaged_receipt": "reports/pfr-repair/repaired/pr48-before/20261104T091612966982Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "553da30486ca74e2723891231931dba4512d31d16db749d8ef965d2d24a96f1d",
+    "target_bindings": [
+      {
+        "path": "reports/pfr-candidates/sources/f84e5ae7b9d619fff50c155858dddf09b59493c9/blueprint/src/chapter/distance.tex",
+        "sha256": "0e59178dcee8ccc5a8e84c44a0ebedf75b8519b6a152f23a5ef176d001e9597d",
+        "locator": "ruzsa-triangle-improved",
+        "text": "\\begin{lemma}[Improved Ruzsa triangle inequality]\n  \\label{ruzsa-triangle-improved}\n  \\lean{ent_of_diff_le}\n  \\leanok\n  If $X,Y,Z$ are $G$-valued random variables on $\\Omega$ with $(X,Z)$ independent of $Y$, then\n  \\begin{equation}\\label{submod-explicit} \\bbH[X - Y] \\leq \\bbH[X-Z] + \\bbH[Z-Y] - \\bbH[Z]\\end{equation}\n\\end{lemma}",
+        "selected": true
+      },
+      {
+        "path": "reports/pfr-candidates/sources/f84e5ae7b9d619fff50c155858dddf09b59493c9/blueprint/src/chapter/entropy.tex",
+        "sha256": "5989174af8adab3aff6d9b8b95d60c049c1dc1586bfdd12bc0aad3d6fc72961d",
+        "locator": "distance.tex: ruzsa-triangle-improved, lines149-170; finite group scope line3",
+        "text": "",
+        "selected": false
+      }
+    ],
+    "root_axioms": {
+      "default": "'ent_of_diff_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'ent_of_diff_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "review": "reports/pfr-admission/review.json",
+    "approach": "historical_statement_with_kernel_checked_bridge"
+  },
+  "input_sha256": "30fc8f505cc5d871ea3010ef56c6b51874a10fc22978ed077896551fe767c410",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pfr.jsonl"
+}

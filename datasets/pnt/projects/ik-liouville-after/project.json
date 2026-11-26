@@ -1,0 +1,74 @@
+{
+  "id": "ik-liouville-after",
+  "schema_version": "paperlean-project-case-1",
+  "title": "PNT ik-liouville-after",
+  "targets": [
+    {
+      "file": "formal/Main.lean",
+      "declaration": "ArithmeticFunction.LSeries_liouville_eq",
+      "informal_id": "main"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+    "commit": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+    "path": "PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "declaration": "ArithmeticFunction.LSeries_liouville_eq",
+    "url": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+    "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc"
+  },
+  "group_id": "pnt-ArithmeticFunction.LSeries_liouville_eq",
+  "split_group": "pnt-ieantn-migration-family",
+  "before_ids": [
+    "ik-liouville-before"
+  ],
+  "after_ids": [],
+  "status": "ready",
+  "compiled_lean434": true,
+  "leantrace_extracted": true,
+  "packaged_compilation": "passed",
+  "missing_modules": [],
+  "external_imports": [
+    "Mathlib.NumberTheory.LSeries.Dirichlet",
+    "Mathlib.NumberTheory.LSeries.Nonvanishing"
+  ],
+  "external_boundaries": [
+    "Mathlib",
+    "Lean",
+    "Std",
+    "Init"
+  ],
+  "changes": "CHANGES.md",
+  "formal": {
+    "file_count": 1,
+    "sha256": "43c9b6f1d8ab6e6c8e518c6933fb939ce1b2b24565d61ce05d3fef042cb16a16",
+    "effective_root_sha256": "aae2eb51f069a483d980050fd440237a5ade23de592e314279f138a786835afb",
+    "declaration_slice": true,
+    "proofs_erased": true
+  },
+  "preparation": {
+    "receipt": "reports/pnt-ik-extraction/repaired/ik-liouville-after/20261105T052933665678Z/receipt.json",
+    "receipt_sha256": "9b41bc20b580285330dac81667bfaf789d54e4c85ec2be965bab866f98a2ad1e",
+    "packaged_receipt": "reports/pnt-ik-extraction/repaired/ik-liouville-after/20261105T052933665678Z/packaged/receipt.json",
+    "packaged_receipt_sha256": "0c3dd19afcfd02d5c85a38f5f4703e2d573215ad3bc6ebea88e6dbe3ecd84d8c",
+    "formal_snapshot_id": "ik-liouville-after",
+    "target_bindings": [
+      {
+        "path": "reports/pnt-ik-extraction/sources/657ac0e5cf42c45b03b93a662fd8237b6b0be49f/PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean",
+        "sha256": "cda6a76ad0d40ea7b12e6d157932e87415afd6654bcb8874b707586379846cbc",
+        "ref": "657ac0e5cf42c45b03b93a662fd8237b6b0be49f",
+        "text": "The Dirichlet series of the Liouville function is $\\zeta(2s)/\\zeta(s)$."
+      }
+    ],
+    "root_axioms": {
+      "default": "'ArithmeticFunction.LSeries_liouville_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "explicit": "'ArithmeticFunction.LSeries_liouville_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+    },
+    "historical_sorryAx": true,
+    "review": "reports/pnt-admission/review.json"
+  },
+  "input_sha256": "29eba7a95f8f3134299c8c6287b7702610ad4fe30238b070cc6461887081808a",
+  "historical_status": "undetermined",
+  "technical_status": "statement-context-compiled-and-extracted",
+  "alignment_reference": "metadata/labels/pnt.jsonl"
+}

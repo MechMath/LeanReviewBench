@@ -1,0 +1,109 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "kzg-binding-before",
+  "task_id": "arklib:kzg-binding-before",
+  "input_sha256": "b3df2ad1857a26ef2757d381041b7863be464ba585f19dfc94b9308311230825",
+  "label": "misaligned",
+  "reason": "The computational hardness assumption ranges over all Lean functions of the adversary type rather than the source class of probabilistic polynomial-time adversaries.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "KZG.CommitmentScheme.binding"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/kzg-binding-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound KZG evaluation-binding claim in the source efficient-adversary model.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "kzg-binding-before",
+    "root": "KZG.CommitmentScheme.binding",
+    "input_sha256": "66e220c62b628b2d22836be33f160662204c7d4cffbc9d4a93bff627a61668ab",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The paper restricts adversaries to probabilistic polynomial time (PPT), but the formal tSdhAssumption quantifies all functions of the relevant Lean type. An unrestricted function can recover τ from g₂^τ in the SRS and win the t-SDH experiment with probability 1, making the hardness premise false when error<1 and departing from the paper's computational-hardness assumption.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Please mark it misaligned; confirms misaligned for arklib:kzg-binding-before after inspecting its unrestricted tSdhAssumption and the paper PPT requirement.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The currently frozen KZG evaluation-binding statement and the paper's PPT-adversary context; only the kzg-binding-before input.",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/kzg-binding-before/informal.jsonl",
+        "line": 1,
+        "sha256": "458a8d90e1de7d6ac83754de9b73bffb55e21d168665b792ccd94e71b966228a"
+      },
+      "paper_PPT_context": {
+        "path": "datasets/arklib/projects/kzg-binding-before/informal/source.txt",
+        "line": 130,
+        "sha256": "aadd398e8d7b35a6136ab869f1cc8509e3e9100e95ae29b81826487245f70c8e"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/Binding.lean",
+        "line": 751,
+        "sha256": "b68056f84dffa02fbb18d965ab488d3baad02dc31df03430c80f2947e3efb24d"
+      },
+      "adversary_type": {
+        "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 55,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "winning_condition": {
+        "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 60,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "unrestricted_assumption": {
+        "path": "datasets/arklib/projects/kzg-binding-before/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 90,
+        "sha256": "50cdc23ccc68fe674f3d291ab5b159767e3a54060557a98cb02f24c33c4745d6"
+      },
+      "corroborating_after_lemma": {
+        "path": "datasets/arklib/projects/kzg-binding-after/formal/dep/ArkLib/Commitments/Functional/KZG/HardnessAssumptions.lean",
+        "line": 116,
+        "sha256": "6ce955312c7bc6e5333511c25fbaaff40c89b1d4d73efcc2616f572aa0911087"
+      }
+    },
+    "semantic_argument": [
+      "Section 2 restricts adversaries to algorithms that are PPT in the security parameter. The current tSdhAssumption quantifies all functions of type tSdhAdversary, without a resource bound or model-class restriction.",
+      "The root premise pairing(g₁,g₂)≠0 implies g₂≠1. In a prime-order group, nonidentity g₂ generates the group, so τ↦g₂^τ is injective on ZMod p.",
+      "The second verifier-group element in the SRS contains g₂^τ. A Lean function with no computational-resource restriction can recover τ using the inverse of this exponentiation map.",
+      "The adversary outputs (c,h)=(1-τ,g₁). Since τ+c=1≠0 and g₁^(1/(τ+c))=g₁, tSdhCondition holds for every sampled τ, giving success probability 1.",
+      "Thus the formal hardness assumption has no instance when error<1. When error≥1, the probability bound has no nontrivial security content. This is not the PPT hardness condition used in the paper."
+    ],
+    "corroboration": {
+      "declaration": "Groups.not_tSdhAssumption_univ",
+      "location": "corroborating_after_lemma",
+      "role": "The after source in the same before/after pair contains a Lean proof that the unrestricted-class assumption fails when error<1. This review only read the proof and checked the definitions; it did not recompile them."
+    },
+    "verification": {
+      "source_binding_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The negative label concerns the adversary-class mismatch in the hardness premise; it does not claim that the Lean implication theorem with that premise is false.",
+      "An unbounded inverse function is not a PPT attack; it does not establish a break of the paper's cryptographic assumption.",
+      "This decision does not change the aligned label for kzg-binding-after or propagate to reduction roots without a hardness assumption.",
+      "Retain the existing provisional-label convention and evaluation_eligible=false, without automatically promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The paper restricts adversaries to probabilistic polynomial time (PPT), but the formal tSdhAssumption quantifies all functions of the relevant Lean type. An unrestricted function can recover τ from g₂^τ in the SRS and win the t-SDH experiment with probability 1, making the hardness premise false when error<1 and departing from the paper's computational-hardness assumption.",
+  "retained_review_scope": "The currently frozen KZG evaluation-binding statement and the paper's PPT-adversary context; only the kzg-binding-before input."
+}

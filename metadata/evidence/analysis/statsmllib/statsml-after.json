@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "statsmllib",
+  "project_id": "statsml-after",
+  "task_id": "statsmllib:statsml-after",
+  "input_sha256": "31ef9247a31d360510791ec792f90dcebee5a33bb8e8266973b97b4b2dccaef7",
+  "label": "aligned",
+  "reason": "The source topological assumptions imply the formal PointwiseSeparable condition. The complexity definition and concentration bound are unchanged.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "uniform_deviation_tail_bound_pointwiseSeparable_of_pos"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/statsmllib.jsonl",
+      "id": "pr-78"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/missing-target-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Sections 2–4 of the published ITP 2026 paper specify the probability model, absolute-value empirical and expected Rademacher complexity, uniform deviation, and tail bound. The StatsML official website at the pinned 2026-07-31 commit explicitly requires separability, first countability, and pointwise continuity in the parameter before the complete formula, and directly names the before root after it. This target predates issue77/PR78, so there is no need to reconstruct the function-class scope by translating back from the formal statement. The after root replaces the topological assumptions with PointwiseSeparable, but the existing dependency PointwiseSeparable.of_continuous derives this from a separable Fréchet–Urysohn parameter space and pointwise continuity, and first countability implies Fréchet–Urysohn. Thus the after version covers every function class in the source; the complexity and conclusion are unchanged.",
+  "review_scope": "The source function classes arising from separable, first-countable parameter spaces with pointwise-continuous evaluations."
+}

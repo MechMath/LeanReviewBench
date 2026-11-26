@@ -1,0 +1,1 @@
+Keep original namespace and source section instance order independently for each helper. Preserve the actual chart metric/Gram/inverse/Christoffel formulas and Classical.choose transport construction. Erase theorem proofs only. Nominal SectionAlongCurve retained exactly, including its phantom curve/model binders. Original-toolchain elaboration not certified.

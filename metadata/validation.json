@@ -1,0 +1,2836 @@
+{
+  "schema_version": "leanreviewbench-context-validation-1",
+  "purpose": "Recorded checks of all retained Lean contexts, including datasets awaiting human alignment review. Offline checks verify bindings and source inventories without rerunning Lean.",
+  "evidence_commit": "71cc1e623ee81092467bf8b4860bce41c25db4b0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "external_libraries": {
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "cslib": "7c8f6c0f67015df29b152fdcffaf7850db2e9185"
+  },
+  "exporter_sha256": "da1bb6c081de2fddfefb3618ad199cfdffc41866d0bfb777298993fe12188cf1",
+  "graph_reader_sha256": "fe11a8c268483a36bd1aba38fa978b2fd2b5667778f9cbb757be3e79077a4fba",
+  "proofs_erased": true,
+  "original_theorem_proofs_certified": false,
+  "preservation_comparison": "Elaborated expressions of all shared essential declarations agree modulo proof irrelevance, source-neutral binder/let metadata, generated matcher expansion, identity wrappers and source labels on existing data placeholders.",
+  "records": [
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-after",
+      "roots": [
+        "BohrSet.IsRegular"
+      ],
+      "input_sha256": "39665cf983a484eeff9fe4d48dda52ad67fedee2ba7c7d62a4c7a966adcad689",
+      "formal_sha256": "9dca35fa3654588003d0944b183107a8c8682a2c6e18719c9c013fa5e31fe977",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "bohr-regular-before",
+      "roots": [
+        "BohrSet.IsRegular"
+      ],
+      "input_sha256": "ab02d0b07cd21d13c8d0acad23e9a4083bc93f42bce63cf9f0a8fd0c4b52814f",
+      "formal_sha256": "2b4ae55eb686c4c372e99930dd83aa3269f86a50c2721a837fc13537485df22c",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-after",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "formal_sha256": "0729062f82968d6a53c6f3b036b154e1584a33e1b9d95925c05acfb4162dfc50",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-sign-before",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "29ae0c3cb5a364e6b6d35ac80f53e35dd37aa5ca997637e6e79235eb873d614b",
+      "formal_sha256": "bc9928198744754b8265e158adf459c712540ca2861926714c9128424495c4b5",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-after",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "94b12ac0d73ec76db3ddd68da33e3eeb3c412c5744a4067336f295a1c21e8fe9",
+      "formal_sha256": "9a0d8d35ef8448369f5d9356274b05883bab98103d2fefdbe4cd01b98943b93c",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "apap",
+      "project_id": "int-uniform-before",
+      "roots": [
+        "int"
+      ],
+      "input_sha256": "93bde1ffeddb7f2e075faf1730fdfa0e639b46908e0d0575a03d7ee85bf8c5c6",
+      "formal_sha256": "0729062f82968d6a53c6f3b036b154e1584a33e1b9d95925c05acfb4162dfc50",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-lemma5_locally_envy_free_stable",
+      "roots": [
+        "EOS07GSP.PaperInterface.lemma5_locally_envy_free_stable"
+      ],
+      "input_sha256": "e077e51367cf9af4c1246adccaaebf9694fdf26d8bda8e930998eb5f20ef7ad2",
+      "formal_sha256": "98d0672f08ffe33f2b587dc444b35a715f2687d8eb1c9321f1df25544094c773",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0f52b25eb31bb89088efd010361917b753ee5a7bcc58addccd06f78282144023",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-lemma6_stable_assignment_slot_envy_free",
+      "roots": [
+        "EOS07GSP.PaperInterface.lemma6_stable_assignment_slot_envy_free"
+      ],
+      "input_sha256": "f28946fd59bc9941eeae852299577418fdc5aec986618f1eb4fb2bcf3cd0fccd",
+      "formal_sha256": "59063a689583f3537f9bc0f5c5beb8b1142a7399a63bc8cc863c387627588778",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "47183187af11d4d13e5e7407e029f368f2bc78f24516a4931ddef79c1daf32b1",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "EOS-theorem7_no_positive_transfer_conclusion",
+      "roots": [
+        "EOS07GSP.PaperInterface.theorem7_no_positive_transfer_conclusion"
+      ],
+      "input_sha256": "21cc1384f3b03f2e60fc5829f49883441b09524722bd37d0a1d9af7d79e4993c",
+      "formal_sha256": "4d44862ae336b20b386f0ca84f37483b3991ddec0a57c35e0eb59c278a0c2788",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "b1f85a773f3c6fce5e58db8cb555289ee9deaf391e5cd98d1285e6d85e1fb5ae",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GCG24UserItemFairness-after-spec",
+      "roots": [
+        "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_halfSpec"
+      ],
+      "input_sha256": "e501f21a465e34e30eb9b2e39d7de8444d4d20e9c84a191fa61687139872741e",
+      "formal_sha256": "410d7a608c5416e9c2b5f40b03ac0fc34c82ff7cbc3cc7615178f3ca77d628b3",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "48ce3dae469544a1d7696006515ea1a83e655374e88e55743b3266bf6727b2b5",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GCG24UserItemFairness-before",
+      "roots": [
+        "GCG24UserItemFairness.PaperInterface.theorem3_price_decreases_first_half"
+      ],
+      "input_sha256": "94d69f4e0905f6052df12ff57378ac072b4d569d2e0d646a0e87d918dca5f9aa",
+      "formal_sha256": "3bad6a2480cc4332cf6ec23f421ef65489af89839aaec9e9a5702a7ed8d8c1ca",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "13e4a727b6202e464f2ddefb45f9bab8d3e82ef907b821e202bf8666a996293a",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GHW-theorem9_1_bid_independent_lower_bound",
+      "roots": [
+        "GHW01DigitalGoods.PaperInterface.theorem9_1_bid_independent_lower_bound"
+      ],
+      "input_sha256": "53012956eb9b18f8591858bb029627e294a046df994ea553299ddd528d23523b",
+      "formal_sha256": "af50e386c903536f56ae86f64f6f753a70dbadb3703181171570e80a7da07041",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0375836f94e30808860f6d239d3019efb44c4253de47bd4641ef8f98155b7061",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GHW-theorem9_3_deterministic_truthful_lower_bound",
+      "roots": [
+        "GHW01DigitalGoods.PaperInterface.theorem9_3_deterministic_truthful_lower_bound"
+      ],
+      "input_sha256": "a996b035a665a79564c4d2556bacc4d057d18f7b053af55d68b3c8a479ce2379",
+      "formal_sha256": "8234ac632e4e7081b6b4482f4d0b9d5dee5e728ffb1705768e4bf0721c47cb00",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "e96ba841f675c675d4676c39f4c92e58718363a5957c4a371704fa9d21b76c4b",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GJ19OptimalBinaryRatingSystems-after-spec",
+      "roots": [
+        "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographicSpec"
+      ],
+      "input_sha256": "a1325841ebebe4843ef957287140c4f860ebda48603dc6c26e54814e3286dd2c",
+      "formal_sha256": "2cbb6e615fb96f75b16fe0c71ccd45c98bf738e05e8016466554b4f3d3586149",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "d38104dc76629d73b397ba7e88ba2b64be46b3aa3cfbe7809d6ea671739cd16b",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GJ19OptimalBinaryRatingSystems-before",
+      "roots": [
+        "GJ19OptimalBinaryRatingSystems.PaperInterface.theorem31_source_matching_function_unique_value_argmax_lexicographic"
+      ],
+      "input_sha256": "b77a8f3d573a904e4d7f47b34282ab66c52a442b138a9e0cddcf899a0f13d8d5",
+      "formal_sha256": "732bae2a44a0a0e1656c481751b548a256de8c41a63a533a3b714526ece5153f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "1acca434a1a6197d8f2ffb348c4f05cf206f05d86e723db62fc54220bb811470",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-AFFINE-P31",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.proposition3_1_affine_single_state_measurable_ic"
+      ],
+      "input_sha256": "3598b5a4c73d2110cc9edb7cf05d946528e033a50df105dffe6f8fc2bd5f4145",
+      "formal_sha256": "c0bf5b01fa7cfe7d12ba02e7e2b387fcad42fd2fd758b8f59fe6cfcd7d9a3a69",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "dd33bc477629a86ba185a720ba461049b10013093e7b7dd04db2ea62a2e57299",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-CROSS",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_structured_measurable_ic_ae_unique_of_bracket_cross_fields"
+      ],
+      "input_sha256": "7253a07ed7a6a0e0d3dae26266bcfaa80e6613c69a009900354a7f6d0e9bf24c",
+      "formal_sha256": "242a7741ea2bf8bb8b7af03673e0aee4dfe4e5cb9aeb956629f83dd88b2d54d2",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "55beff8f9378e77fa64f86b4024bcd12155f6d774e4dec5fbe95121571c92a11",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-final_sign",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_final_sign"
+      ],
+      "input_sha256": "5cb428b5db3d0ef57b1431979df02d8357b0d98154bfefff7ab063c5b823592b",
+      "formal_sha256": "f8655c45df6d66ace41a967d172070faaa62370e2a95caa68d66853c22b547c5",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "fac55dad53ffba9c06dae082271d35a407d3a56df656e9384c21abbae13998ce",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-interval_final_sign",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_interval_final_sign"
+      ],
+      "input_sha256": "c8a2309a8b56c0ae88474a3c6131df533826240479baf1e2c83b0dfeb7718641",
+      "formal_sha256": "702ec4e09159340a00694af6c4fb0a674d70256c796d75d16ec8f49e40969ae6",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "b9359613776e1f59b602c88e1404d63c63d0069b9b7179100c6d9ee1b0837610",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-SMALL-mass_affine_interval_final_sign",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem3_small_surge_mass_affine_interval_final_sign"
+      ],
+      "input_sha256": "4459f49a61bb59f5810778d3e5007654cae5c0bd6de185e90ff2a811bb27c4f4",
+      "formal_sha256": "066e39eff49b8a2d82aa230e1fa7055220c64077518746f476fee270c0269585",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "291967b4618e8d0c1927e2ae54eb10cecb3edce0dbe046d69d20d6bd63c9fbe4",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GN21-T1",
+      "roots": [
+        "GN21DriverSurgePricing.PaperInterface.theorem1_single_state_threshold_best_response"
+      ],
+      "input_sha256": "1b20efc37e37da955c1c924335ccdfb6c5c5689633eb17061a1a5ad537ad7c5f",
+      "formal_sha256": "4c53d0905f09a8f046f5f7cd2ae34f04a6beedab3a7e6e11863d8784bdcb8c99",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "527c07bf4f48d8a6d36792ef7ebfd814aa25d0934690133b4e2813f4a729f3e4",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GS62-T2-after",
+      "roots": [
+        "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+      ],
+      "input_sha256": "b8fe5e99a1a274c95b3442e699a253e012f4d37582b11e2793ebdd272de31c2d",
+      "formal_sha256": "3bf13127386f1e2f89f8d7b640d6d0fdaa4e644808072a8c7ec0b901fc6efd97",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "GS62-T2-before",
+      "roots": [
+        "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+      ],
+      "input_sha256": "a0514f5af13db2729f7ea8574f9438904166877e4d8d6dc3cb19e16a5131c92f",
+      "formal_sha256": "6cd42ff3c0ac56513d58d0d91e295e83720ac5506c5042d6c0f696d3f3d6c4d1",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-GAUSSIAN-P42",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_proposition4_2_not_law_latent_skill_fair_of_gaussian_mean_gap"
+      ],
+      "input_sha256": "6e5ff666e47e1c94713aa4fdec8c86776f0ca43fedcabb1e8a865add41651670",
+      "formal_sha256": "1fe3fa1799c97b07fcfb4e1a028b81012732f59e1b7f504bebfe3e463c5445d1",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "16007ac2377130870ed5820e7598b58ef568d029d70e83ce9be5ea6e4382c467",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-T31-HIST",
+      "roots": [
+        "LG21TestOptionalPolicies.PaperInterface.theorem3_1_optional_reporting"
+      ],
+      "input_sha256": "30cf15828b1384f8b1c7571642bac2118dbaac67d689ab119cd321b789420f66",
+      "formal_sha256": "e70803b286f5be5301cc8c5097db66154f90eec5f03fb200041d5f7266b8c1ef",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "a126460ba1c5dd2346d25bc7768030724f69060bd58b8b3528f79861ce7215d4",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-optional_reporting-source_witness_of_base_crossings",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_source_witness_of_base_crossings"
+      ],
+      "input_sha256": "0b580a56c0c748442aa091e1b3f36f6a40104f87c411cbf749a583c333eee806",
+      "formal_sha256": "6fb4b37d94f4a399a8179194a5e5f654420edc3bedf68d5f7533818523bd7fbe",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "919482c9c46766a751d36ff0a39b01bd1e3646aac6980df0c0a2869519eebf5f",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-optional_reporting-threshold_equilibrium_exists_of_crossing",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_optional_reporting_threshold_equilibrium_exists_of_crossing"
+      ],
+      "input_sha256": "5fd748261352f38e1c2bfc226231cf9a6e32df773b4fd2fd580286ae2d3dc010",
+      "formal_sha256": "016d90bd54eb39f32634b52a030161a6b64e117db464709298c0e6355e9413a9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "f3f38f8f6e86ca143abfa5d51c525a6add8547ff4acbe6080e882d58ff9500bf",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-report_required-source_witness_of_base_crossings",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_source_witness_of_base_crossings"
+      ],
+      "input_sha256": "2270f9b71c79a2707fcb0475a06d85a8a83eff29414f2485f267ab008ba9d72d",
+      "formal_sha256": "67eefeaf60d2a4dc50fda8f573e45f16a5b2e919aca77fbe8388a1114bcf99ef",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "a591453315c7deebce468290a10ecdd2cec72be93d283740f493d9b011603e07",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LG21-report_required-threshold_equilibrium_exists_of_crossing",
+      "roots": [
+        "LG21TestOptionalPolicies.paper_interface_theorem3_1_report_required_threshold_equilibrium_exists_of_crossing"
+      ],
+      "input_sha256": "5ce209c7ef24f511741f9e70e8b5ba020907d7711a2b8004e2107d8f832bf7e0",
+      "formal_sha256": "4beac45ac1dab2d4ce293967cf1e435aecd8a11eab15d8c0f3a5edb7217428ca",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "68b8e27bb1dc5c264f504f3e5d3770ba5d913100653ccca9ba67b36d74c93822",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LMMS04FairDivision-after",
+      "roots": [
+        "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+      ],
+      "input_sha256": "cf211fdc0480bf483ba954b243896796cf0f80a63593462c3826f48bb39a2024",
+      "formal_sha256": "2f4fbaecfe646b5f55e409b8564d6f1eae2c7ad5727a6a71a54d419d2861b006",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "8bd83e5c9da09e19953b92e4294f84d7cef497283bbface880328aa4bc1a2c01",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LMMS04FairDivision-before",
+      "roots": [
+        "LMMS04FairDivision.PaperInterface.theorem2_1_algorithm_correct_list_toFinset"
+      ],
+      "input_sha256": "76f0203a05040787a9b81b435857d4cdaa0024cfead95abda20fbe043dc3e2ab",
+      "formal_sha256": "d3c86e0acd3018496f04311095832fb4dae8e9cf445a973ddfcfd780cddbf32e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0b3fcaa6b94ede3ba0954e1d97fb9626f4fcce9e7b91fdf228047ce40ca9c8d0",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LOS02CombinatorialAuctions-after",
+      "roots": [
+        "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+      ],
+      "input_sha256": "b3533aec99775a951bd83110bfe1de84b6ce822d88d2ae088b894325b04343e5",
+      "formal_sha256": "b1dc746cf2a7c84d9b2e3e33d2fcb48b9a2f02e5bc6f5f9576d83e8b8930bae5",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "ab8b618d597a7bce4a99234bf660b2ffde22a826cf5335de848469aad700b1b1",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "LOS02CombinatorialAuctions-before",
+      "roots": [
+        "LOS02CombinatorialAuctions.PaperInterface.theorem10_2_averageGreedy_truthful"
+      ],
+      "input_sha256": "4bc28af73841e571377ea005562a0c79d499905002fbb3999a66681288248fd3",
+      "formal_sha256": "81fa9a725db98245a6f17fed58f1522eed3583b5bc2389a4191c0adb89afec0f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "bf9acd8afa9a74ad66cc6ddd56f01f7ca79b113247bf237711beae545f33a891",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "MBJG-VARIANCE-INTERIOR",
+      "roots": [
+        "MBJG25ProducerFairness.paper_facing_theorem3_1_variance_strict_decrease_interior"
+      ],
+      "input_sha256": "c327690925e2b2324f55eb52dfd8a64e669e6a4afd7e243da9a66e63e1088dd3",
+      "formal_sha256": "2feabe088731baec148ccb48458bb3d72cb560bc37a9307ae9ad8b24b3989353",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "5268f5c2fc4c9af62197eac1d96c84bf7b81c3a75e165e568f7a6b9859eac86d",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "PRPKG-P4-after",
+      "roots": [
+        "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+      ],
+      "input_sha256": "911a8bb9ea57c21000ec9854355dd286869694adbd93e78f01979db32b56e4ac",
+      "formal_sha256": "8cde014fc6d2b88cf70b6243cdbe7279a69d04961e82cf69dbe4ca0ed976693e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "0e783d19f016b2a1d42eb8b5df2cddca42d4bfaec3fd1fdbe7659f33d0bdd355",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "applied-modeling-lib",
+      "project_id": "PRPKG-P4-before",
+      "roots": [
+        "PRPKG24AccuracyDiversity.PaperInterface.proposition4"
+      ],
+      "input_sha256": "06e661fb59de3799035e72b4f567d83f10c01a5c52efd914b287e38fcebea9dc",
+      "formal_sha256": "c77d5e4e941ee8b6d4b2b4903f98e4257f8c6ed7d5a020dd9375816ecda44af9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "24e1e843df770864b7a6ae4ec715f20ccb9bb82e55b5e17693848d5beee80bdf",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-after",
+      "roots": [
+        "KZG.CommitmentScheme.binding"
+      ],
+      "input_sha256": "2e115ec742a1c59bafee5003498a7333fe5a0bf3b71f3a8d7d50d37f1b31e26d",
+      "formal_sha256": "fd87aad8abc84420f908c15b2af8675b0dac4615261b365f28d981903892f8d4",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-before",
+      "roots": [
+        "KZG.CommitmentScheme.binding"
+      ],
+      "input_sha256": "b3df2ad1857a26ef2757d381041b7863be464ba585f19dfc94b9308311230825",
+      "formal_sha256": "e55113f399ef43c2d013bf7c478cafb9f20c48047070a8ea779f21f3b4360624",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-after",
+      "roots": [
+        "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+      ],
+      "input_sha256": "48b54101e47ef47d0d80addd124d7e285949c9bfb995e02bd08788c7fd334125",
+      "formal_sha256": "5aefe24ad22b65507d36fe4a078d81d9dda1613caf7d099761db45d448b64ace",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-binding-reduction-before",
+      "roots": [
+        "KZG.CommitmentScheme.binding_reduces_to_tSdh"
+      ],
+      "input_sha256": "f50980429a6fa80863bfbab9b77fe30285c6ba1187c7a1139779920afa8696b6",
+      "formal_sha256": "6e7a48b0b1713eca9b3ea79627eb8577f984e4effa827cfd13d2670182b8d02b",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-after",
+      "roots": [
+        "KZG.CommitmentScheme.function_binding"
+      ],
+      "input_sha256": "f172359db0a9522145c1009310c70755461d738b5d2d7313f67f95d7817c007e",
+      "formal_sha256": "dcdb994cb98b416f99f46f4ded76f957db04004336a1694e8dc8a949632c3e17",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "kzg-function-binding-before",
+      "roots": [
+        "KZG.CommitmentScheme.function_binding"
+      ],
+      "input_sha256": "56feaf3d7d0de61c280d7809a994a32808512242bb517b9559cef10b29d21055",
+      "formal_sha256": "e5d5fa2fd0e97adcc48dc747c66ac7b3b1f10cb9439c540cc8ee56a243e8b6c2",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-main-withdrawn-before",
+      "roots": [
+        "StirIOP.stir_main"
+      ],
+      "input_sha256": "6e41ab32e09e6464c03c393cc7938796b7852247a1597f5eb9eb02d13d92b6e4",
+      "formal_sha256": "8f993c57be3d9da51aad8e7cfa62e1e602f4edd8db03bbf20f80579f91984faf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-after",
+      "roots": [
+        "STIR.proximity_gap"
+      ],
+      "input_sha256": "ad8665684eb9ceb59855f1036af32517062dde9949e5f855873b354b17096272",
+      "formal_sha256": "ff4563baf602d9555758abb08f880d4a9e4d69dd2855d9dee64873b9d7577b77",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-proximity-before",
+      "roots": [
+        "STIR.proximity_gap"
+      ],
+      "input_sha256": "eb7768a4cabbe0d1739919335ecb430c6c4ae0ba792007143247036a7dec0a40",
+      "formal_sha256": "b593f2865cf4734b0cd9d3c96ebc6b7b505354a6443ea64949fbc8769070e6cf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "stir-rbr-withdrawn-before",
+      "roots": [
+        "StirIOP.stir_rbr_soundness"
+      ],
+      "input_sha256": "a306d41db737c2fcced3fcfb6de5eaab40070e3ec2f4252b40b4bfdfbe0add59",
+      "formal_sha256": "8c20d217e197c9f12334d99a4eadf41255a7b9ba35857408e7925778afb45de3",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-after",
+      "roots": [
+        "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+      ],
+      "input_sha256": "41d6a545cd93ee63213b1e9a6d92390cdfb82bd8e5030ad14f3180e1a291a960",
+      "formal_sha256": "b21f589c129b9bf965f2ae8ea50e058bb473f52b03191cd24899c52ac3ed725a",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "arklib",
+      "project_id": "sumcheck-full-rbr-before",
+      "roots": [
+        "Sumcheck.Spec.oracleVerifier_rbrKnowledgeSoundness"
+      ],
+      "input_sha256": "490121ec80a0e9712958fdeb87b2f9e84f5b029949aaa165a79e5f201af88556",
+      "formal_sha256": "6d249f804162e643b8f632f765776a99365dfdd1e4bef46b54161568c4b142a2",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "brownian-motion",
+      "project_id": "finite-set-after",
+      "roots": [
+        "ProbabilityTheory.finite_set_bound_of_edist_le"
+      ],
+      "input_sha256": "1f358f54221932f8c5169bef87e80c20b88eb64989ac5bb46cd7222ae2a894eb",
+      "formal_sha256": "26895747496dfd60fa25a7512200bcf662044230edb10b78b5ebd9fb14a7f854",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "brownian-motion",
+      "project_id": "finite-set-before",
+      "roots": [
+        "ProbabilityTheory.finite_set_bound_of_edist_le"
+      ],
+      "input_sha256": "00b0e4424626a1fb57a17f4f84edd4d24d89aa0783b4bb0641a33de9a383f33c",
+      "formal_sha256": "92ae6f31723b785cf6a8872778d98855dc13a70f62ffb42fb2eefeb5aeeb329f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-01-after",
+      "roots": [
+        "metric_carleson"
+      ],
+      "input_sha256": "16a31295a8904f435e8bf38bdda8ad2dc025a358118efff5c53a773dc52261e8",
+      "formal_sha256": "b495d1cc544b45d9d0a77111635ea998d6b25b6a3520fdd61e55e02dd595cc33",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-01-before",
+      "roots": [
+        "metric_carleson"
+      ],
+      "input_sha256": "2518326efd9c1ff2e06a67d86c63e8b929edf939fc51d91d85d550a93a4204d5",
+      "formal_sha256": "9ec3458a12d64ce8d3f9bae0dd8f9a143629d8221b5ab25a46867d1a209fb63e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-02-after",
+      "roots": [
+        "linearized_metric_carleson"
+      ],
+      "input_sha256": "5e43cb5313c9ed65775fa7fbcdedce6bfd8dac55e797372f5d9358fadc34f39e",
+      "formal_sha256": "f9cde3b963f6c1b0f15b5682f4f2b3b7e162bf51a76b086e686e2640b81123ed",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-02-before",
+      "roots": [
+        "linearized_metric_carleson"
+      ],
+      "input_sha256": "80ebd0b75c59e2b89799163271e4571d33c9d33f103483f8cd28e091a486f4f0",
+      "formal_sha256": "dac71e303fba49623b84ca83c7073e69a6847183be24680c0934a79db154a647",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-01",
+      "roots": [
+        "ClassicalCarleson"
+      ],
+      "input_sha256": "dfcee02b31b840b0e93e16ef4cf2f94811f20fda770cfe20a74e51a2e3b0c5b5",
+      "formal_sha256": "9df77cd415e0ce5b2dcceed33141bb5c593d38438b9b3062bafa49f686d844b7",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-02",
+      "roots": [
+        "MetricSpaceCarleson"
+      ],
+      "input_sha256": "e932a87cd61cbda63690cac484a981025a0fcade29a34948c3c694cca3edadc5",
+      "formal_sha256": "f78dcf51a9713c064c11783cc58cc0f768dc49956f2f781bb1b57c15fba85184",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "carleson",
+      "project_id": "CAR-CTRL-03",
+      "roots": [
+        "LinearizedMetricCarleson"
+      ],
+      "input_sha256": "10642925a6d9757521e2305aa929d213df9e4b08f7460ba13527e987937ac8ec",
+      "formal_sha256": "8bb1d9fe4cd4cd8ae999d8aa98c5f94febd21749b09de2e42195c23f219318e0",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-A",
+      "roots": [
+        "CoarseDeGiorgi.local_boundedness"
+      ],
+      "input_sha256": "f9c4a58080689b21c934f9ea4551c4bb1ba18579e679f20739e44c00ec324043",
+      "formal_sha256": "dbe11d820ef8983d1ad333defb09236e05b4ff4fac3bf6f74fec6b2b922e0c3e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-C",
+      "roots": [
+        "CoarseDeGiorgi.harnack"
+      ],
+      "input_sha256": "5688474eabfdf58702517645f4a7c85ccc2f29a6daae10a6ea176775212ab87b",
+      "formal_sha256": "dd1492a7e78ca6cc2cf85f6e17a23774efe98c255152e081de82c701a6426baf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D1",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_lebesgue"
+      ],
+      "input_sha256": "f014e4d18afed2bddd96fd1bc2e50775403d47be23114bbebdb31dcc18db5932",
+      "formal_sha256": "ff971f690c33d53677d4440fa7a218bef1927eb9b0d55a033af88d72e19ed476",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D2",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_besov"
+      ],
+      "input_sha256": "bedaee2b0aa258aa9fcb21cfed33979e194de055372623b51ec71aad987604b6",
+      "formal_sha256": "aad435f565b31cd2b3f725c201463df9f3a16508018440adf487f13d2fb813b4",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-D3",
+      "roots": [
+        "CoarseDeGiorgi.moment_bounds_sobolev"
+      ],
+      "input_sha256": "243c33cd92380a2b69abb3d6e5742c3da1e1e7cebb6cdd92497f760e5b6f8efd",
+      "formal_sha256": "0567b85600dd2da0ecc2e0b392bb1b832474232954bfc0ff104c7ef064bdcb3b",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-L41",
+      "roots": [
+        "CoarseDeGiorgi.LowerFractional.lower_auxAverage_norm_local"
+      ],
+      "input_sha256": "56c78ffcb9b1295a17a215bca0d256760eb9d82654e23f127fb14fa9d611df3b",
+      "formal_sha256": "be7f76b04d6d6f6214f4540e7030566824ad8280f2959426cb47ced55c7fbebf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "coarse-degiorgi",
+      "project_id": "CDG-L94",
+      "roots": [
+        "CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli"
+      ],
+      "input_sha256": "071fd526f215cd554197f1983f2a0722d2ef2f4cb8d741f6efc4c0ce38c340d3",
+      "formal_sha256": "94e6f214e187cc554c3ffa30de1a2bbc7f217902380eb213d8f74a7d7e0e72e8",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "informal_translation_rebinding": {
+        "date": "2026-11-20",
+        "previous_input_sha256": "296c49598af0cb73ba7dfe8824203e3a04b4d53418b6dcbd2e5eeae5c378e34e",
+        "qualification": "Rebound after translating Chinese informal text, scope notes, and source locators into English. Lean source bytes and target roots are unchanged. Existing technical results are reused, not newly executed; they do not certify translation accuracy."
+      }
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-endtoend",
+      "roots": [
+        "EndToEnd.end_to_end1"
+      ],
+      "input_sha256": "d3165d3054b5d392777385243006b28b351c93881b8a74072f0bcff16f5a500f",
+      "formal_sha256": "95fed8a3314128dbf8b95611473bb064f65f512d68152a3793d879212673d2e1",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1482",
+      "roots": [
+        "FullSpectrum.full_spectrum_Equation1482"
+      ],
+      "input_sha256": "e745da2362b591371d8160842f168436fc2554f0138491ff078e3c2a520accf5",
+      "formal_sha256": "630fb915df935a0c426a078b61809ff3a773003c6385d07f535cfd53a28ad417",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-fullspectrum-1682",
+      "roots": [
+        "FullSpectrum.full_spectrum_Equation1682"
+      ],
+      "input_sha256": "a11e9e5f58572620e423ca2b1b51113661deee10fbe798ea4563c6cc5c74bfa5",
+      "formal_sha256": "9aa3ad2db93b8a760bcba4203d873ad4312f7661f9eae1583f8bbb3bef92d038",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-greedy1729",
+      "roots": [
+        "Eq1729.not_817"
+      ],
+      "input_sha256": "1e99cf462ffc2731c2fb4a1d037b9bb389dccf74ef3d17666ee7669cff224892",
+      "formal_sha256": "6d6c45444f07fff0301f62693cba9c1ae6f6dac968cce4d090d95d591fc91257",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-law-coverage",
+      "roots": [
+        "laws_complete'"
+      ],
+      "input_sha256": "64623e388afd80e93904dbe7ec8c4c0490b9cdaa85d7b7efee08459f76695bd4",
+      "formal_sha256": "1976018ce2265c19bfb6c36cf000eace984210478db00553e720fc71643efc1d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-obelix",
+      "roots": [
+        "Obelix.PartialSolution.Equation1491_facts"
+      ],
+      "input_sha256": "32c389701623ee6fe628a9214401226be61383e3560ac9eb763f10399b5018f7",
+      "formal_sha256": "51bd766a1c0582dbe07f148bae31950904b54be390c770bdd88cb6465986b8a1",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "equational-theories",
+      "project_id": "etp-sheffer",
+      "roots": [
+        "Sheffer.Equation345169_is_Boolean",
+        "Sheffer.Sheffer_Equation345169"
+      ],
+      "input_sha256": "7cc90a401f97e8a15c487b07d543367f260a499b8a9572b77725c7584a503ece",
+      "formal_sha256": "f987d85f2add63ab97ced9e6bc9fab0de4adda7069a1c065553979c402a34186",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "dudley-covering-number",
+      "roots": [
+        "FormalSLT.Covering.ContinuousDudleyUnitIntervalCovering.continuous_dudley_entropy_integral_iSup_unitInterval_coveringNumber"
+      ],
+      "input_sha256": "63f77fc2faa71ec3fd82a3cdfd430dcf5915e91c20867320a9ddef33747d5a7a",
+      "formal_sha256": "49d5976e03ccd4b07915dadb742f443f38f32454baed176bbce546882826d711",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-after",
+      "roots": [
+        "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "77a9bbce34c4e476fa2042beae02fdc7caa6acfdfc1cb18be5dc1672b712f1dd",
+      "formal_sha256": "ecf9d1f5c568714fecec3ea5d64948f9c66cc7b17305c63bc65697cdbf315ed8",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "eb-before",
+      "roots": [
+        "FormalSLT.AnytimeValid.empiricalBernstein_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "889ce21db87802909aeea9491e3f7d46f4476d204110ced2dbce2deae52bf3af",
+      "formal_sha256": "72dd4a245e8bb3d4bf852e2f16309a401b24d49c71872b3b548fd23125176e66",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "flagship-scalar-reflexive",
+      "roots": [
+        "FormalSLT.TestTimeMeta.FlagshipComponentWorkedExample.flagshipComponentWorkedExample_scalarAssembly"
+      ],
+      "input_sha256": "44781cd03dd9c0525b48c45cdb922ee9cc7093205a71b2a2228ef7e386de15fd",
+      "formal_sha256": "fac51817bf8abad46e75e8e4c74e6b40467abf20674bbfe8ba5930fdccca073f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-after",
+      "roots": [
+        "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "9071b80d760f0521904b7364c8b90f56606203e16783e53e6a7d78a49dc1a48d",
+      "formal_sha256": "67725d222907d55f9e04fb8128a3e4df3998a6575497de7d338403cca9d43699",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "formalslt",
+      "project_id": "mixture-before",
+      "roots": [
+        "FormalSLT.AnytimeValid.mixture_confidence_sequence_uniformPrior"
+      ],
+      "input_sha256": "55699af3eccb3752878fc95362c3574898796febb9c016fc5b460094d813d0da",
+      "formal_sha256": "583677fc9331105f6e83d3ed861fcf2b91b56f0273fe9668c19d329eeb2d569d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c01",
+      "roots": [
+        "FreyPackage.mazur"
+      ],
+      "input_sha256": "abcb2304f7939c210170e9fe39b136e07c14c30f98c72c235dbdf9838af43a80",
+      "formal_sha256": "317685f970fe5989fc02b11bce3a9f1a2693a93ca56d90d1377d36476169496b",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c02",
+      "roots": [
+        "FreyPackage.of_not_FermatLastTheoremFor_p_ge_5"
+      ],
+      "input_sha256": "34d856cef8108022bce4c83f00429841d9d06d33f045a921aa407f145bb1c01c",
+      "formal_sha256": "e364140daaf7af4246dfac69c6c292658d37006c53fe863a2768d293cf90efc9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c03",
+      "roots": [
+        "MeasureTheory.addHaarScalarFactor_tensor_adeles_rat_eq_one"
+      ],
+      "input_sha256": "117e6ba5f8ccaa5b52362e4fb245dfd0198a83efa5483b8ed69db82e2ef5260d",
+      "formal_sha256": "3b2dba63ad436e3c3afaf7d558b242cca89ce38734a8042f9fa7306c26107722",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c04",
+      "roots": [
+        "NumberField.AdeleRing.DivisionAlgebra.compact_quotient"
+      ],
+      "input_sha256": "611ba15c87d16bd92857c412046e6739535951e0745728bcfa5dd41cb687432f",
+      "formal_sha256": "194ee0a9c391a56cb09c5b02b4f7c741a6d78ae97aeb1baa550537843a315f67",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "imperial-flt",
+      "project_id": "flt-c05",
+      "roots": [
+        "NumberField.FiniteAdeleRing.DivisionAlgebra.finiteDoubleCoset"
+      ],
+      "input_sha256": "1f1d9778831c26f6c0413d25960d34ccc222b800f9fd658328b4c775370776ca",
+      "formal_sha256": "61d969c480c1df80b9bd191864806e203604dc1ae1989f5b7d52042359799a1d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-cs",
+      "roots": [
+        "Finset.card_sq_le_card_mul_addEnergy'"
+      ],
+      "input_sha256": "43e0bc4e916619f94ac665d7901f151a8fa48d0d804fcf3cf599182400bb562f",
+      "formal_sha256": "cc16867a0ea56e3a3366e4141121f7aff53b1c2c8d03ea828a042a04a05a65da",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "energy-definition",
+      "roots": [
+        "Finset.addEnergy'"
+      ],
+      "input_sha256": "e69330078059dff2e955ad0404b75c340d89cc973da47440338e56b2ccaf20b9",
+      "formal_sha256": "fc163a498174a9320fb807b6a31ca0e43382f785c283691c7e771cc233987b1d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-after",
+      "roots": [
+        "entropic_PFR_conjecture'"
+      ],
+      "input_sha256": "dda4818198a2c3b7c8d28d859a1f8456d206843b2d129dbeedbe560610c8b44a",
+      "formal_sha256": "fe981c178aad46d2d59643adbda6180b114c540d06ee389b358a7034b97c2a41",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "entropic-output-before",
+      "roots": [
+        "entropic_PFR_conjecture'"
+      ],
+      "input_sha256": "2c18a1b94856428270be697438b9cf7c63bf403cedd239c2c589aa87b9205496",
+      "formal_sha256": "c73492744534638baf2c98908a9ce54db49046fbd487c99545f27ec8a38040f7",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-after",
+      "roots": [
+        "ProbabilityTheory.iIndepFun.finsets"
+      ],
+      "input_sha256": "073f911a919ddfef0914ce9d9dc0ba2111bdc8eeeb0e3ab69bb505db1497fbad",
+      "formal_sha256": "966fffaee23cb11fdae82e1d2db70d6519ee8fd4e2646e5ebd3388ffe8ef1a3c",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pfr-independent-blocks-before",
+      "roots": [
+        "ProbabilityTheory.iIndepFun.finsets"
+      ],
+      "input_sha256": "f346f77ad292632a4b870d18e213104eaff46297d050a692a9173938e499eb60",
+      "formal_sha256": "14e0b1ccaffbccfa76b336c9eec109663ad756b53dfbae9b3e9bc85660b6c151",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-after",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "6bd07d5350f574e1a7f07be34056338376ce10ee5e4f7c807a209ec9180e9936",
+      "formal_sha256": "73c14d70499d4cf8823b1607c86d671718eb6a6e4fd8fcc0f46e4376f5411e13",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr209-before",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "8ed1e7d727a0c9f0b04a0ec488d5ab6085dcc9080dc1e414c0051006868dacf3",
+      "formal_sha256": "96d2438ec03614a7679c291eda3c1d78516ed38fe516e20b6b44499dd7dca28e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-nonneg",
+      "roots": [
+        "KL_div_nonneg"
+      ],
+      "input_sha256": "5f3e1759cf752065cf87a4145ae37435527569683050e6afc93739a1962d04ee",
+      "formal_sha256": "d4dadb55b4ed4aece2fe2a23753afa1060709f1b936e8d7e527ddfd508c219ea",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-after-zero",
+      "roots": [
+        "KL_div_eq_zero_iff_identDistrib"
+      ],
+      "input_sha256": "0b1407cb12cd373abf011e833619f3dd9cf6e5fa361130a6db6f61c61f65d3c0",
+      "formal_sha256": "34a5b7f076f19725799819980dde032e5a39deb757ec280a5f08681c8048f21e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-nonneg",
+      "roots": [
+        "KL_div_nonneg"
+      ],
+      "input_sha256": "04467815f77ba6ed08381cc71a82a47e807640d0dc66aaa72e6ebe699af225b9",
+      "formal_sha256": "7a40685615b47ffee28e0c8ba1c8fc5f8015939621fd54e947aebef1d0ec5bfc",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr227-before-zero",
+      "roots": [
+        "KL_div_eq_zero_iff_identDistrib"
+      ],
+      "input_sha256": "fa7ad5f861febfa1d9f1e2d24a14854a44ab48825241b004ef895d1406b8e872",
+      "formal_sha256": "1c8024252c2afeb889eed8743684371317d9c26083e988746de95396b9af75ae",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-after",
+      "roots": [
+        "rhoMinus"
+      ],
+      "input_sha256": "1843fb0f9319f6ffdc65d8b8763b27d6d09f3dd0cc839e8b3cd8d49a99e47656",
+      "formal_sha256": "e435d95cf48c5d2691e20c606826a690e18672a5a8713dce12f1c5845f0005e7",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr228-before",
+      "roots": [
+        "rho_minus"
+      ],
+      "input_sha256": "ba4e066413fad52422b5aa234182173d97b4c614df046775817971777a420037",
+      "formal_sha256": "892ab607effd46c2c681d5683372ee68172e52b43280b8c9bbdd0a135b662595",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-after",
+      "roots": [
+        "approx_hom_pfr'"
+      ],
+      "input_sha256": "803436e2f98baf7932c9aae42f0a840cb0c157038fb68ade67dd1cecb9898092",
+      "formal_sha256": "b9085cea5980754d4b993f41f6612de9d9b6e14bd5cce51cf384bca5c4a5fbe5",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr293-before",
+      "roots": [
+        "approx_hom_pfr'"
+      ],
+      "input_sha256": "ca1c5722283a937ca572d96a0a7d9c67b0f7c6f0c4dfcc7597b5ff525fe87b79",
+      "formal_sha256": "1c2c75cb1b165c103cc2dcb5554ebfdeb2e05f675db93e4d2b84f9aba503a833",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-after",
+      "roots": [
+        "entropic_PFR_conjecture_improv"
+      ],
+      "input_sha256": "cd4d245ec62a8b6f7378fb83105193e6de92228e3f5ac012a729ec4793eae42d",
+      "formal_sha256": "e633666cb822bb444722d8cec1b6ce79c9c3cff765d3b29bb702ea313f85ca8c",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr304-before",
+      "roots": [
+        "entropic_PFR_conjecture_improv'"
+      ],
+      "input_sha256": "0f10ceb9007879069b7f5e661f1274af7150e26a4c73a6a96d355a89e4d9fc33",
+      "formal_sha256": "e26f9b0dac9bf9d26eb7994ea8c09052cbc92c054fd7856bae54d9054e2d3d68",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-after",
+      "roots": [
+        "torsion_PFR"
+      ],
+      "input_sha256": "a0151fbf13185354a89f704c891caa98da409b7f6d59428aeea8b5461abcbe0a",
+      "formal_sha256": "7ab1dff106db1693dc263d1b7537afed7ce668057cb6a91ad5c52da17b812937",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr305-before",
+      "roots": [
+        "torsion_PFR"
+      ],
+      "input_sha256": "126dc51af825eeb712aebb4f7cf608927ca9b6044d6fa36f9d58db6c58e1ba36",
+      "formal_sha256": "b295d21ea487690a5d63f761d57b5922ad8e3977961495a016600a9d219da4dd",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-after",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "aa6e178d6d2e3c5b75960d897eae853c77a2e6c4998098aad20b70cb942d9e02",
+      "formal_sha256": "8caac6805ae3c23f429b5c34879b7fed7f592565bde32bf72b1a24e1a8f60e12",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr311-before",
+      "roots": [
+        "ProbabilityTheory.condIndep_copies"
+      ],
+      "input_sha256": "63d1ce0b8b34198c96ba81f06ae6b5b24dd2d83610e4c66f58a18cab31345efe",
+      "formal_sha256": "2bb17861cfec1c8af267a88dbe36c010220974d33c69d19b956715bd169dad89",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-after",
+      "roots": [
+        "ent_of_diff_le"
+      ],
+      "input_sha256": "69c873fd6a10f3271f952d0e570430857063f7181dbdf833007a62ef0dbac943",
+      "formal_sha256": "993197138a2a7fcb7701378d7bce9707009d88fd97a49253387484dd043c8d41",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pfr",
+      "project_id": "pr48-before",
+      "roots": [
+        "ent_of_diff_le"
+      ],
+      "input_sha256": "30fc8f505cc5d871ea3010ef56c6b51874a10fc22978ed077896551fe767c410",
+      "formal_sha256": "993197138a2a7fcb7701378d7bce9707009d88fd97a49253387484dd043c8d41",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-after",
+      "roots": [
+        "Dusart.theorem_5_7"
+      ],
+      "input_sha256": "6624122e84b9aaf3efef8fc79571860aa6105d9ce040352ae551a7a30ef3adf5",
+      "formal_sha256": "1394fc3b48451bdeed83657f9dcaa68a465265826f9fa1bb6b5623339c501dfc",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-mertens-error-text-before",
+      "roots": [
+        "Dusart.theorem_5_7"
+      ],
+      "input_sha256": "57ade113f16cc01c8eb669e91859370f1d34d15860cad22b1fd499e4a0f50740",
+      "formal_sha256": "1394fc3b48451bdeed83657f9dcaa68a465265826f9fa1bb6b5623339c501dfc",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-prime-interval",
+      "roots": [
+        "Dusart.corollary_5_5"
+      ],
+      "input_sha256": "26da2b622e835275629b7b2108160509f55cc2bfd878c88853416f3ea4da083e",
+      "formal_sha256": "727da878ff3ab70275e72b6aea13d049c66f171277e5c4e5f0b05fe236a60c58",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-psi-theta",
+      "roots": [
+        "Dusart.proposition_4_3"
+      ],
+      "input_sha256": "e255c3c18011a7f05ca71e4a56a82b8b7375f86fa2102d62243388ab76f2f44e",
+      "formal_sha256": "94dc3b3f570af67a8ac8ff25761e1cc1867add9f1e9bf7f28c515edd3fa9189b",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-after",
+      "roots": [
+        "Dusart.proposition_3_2"
+      ],
+      "input_sha256": "4d933ed615bbdd809ed935fe9da18310f7163c41aaa54ba67d60b11d58153fd1",
+      "formal_sha256": "49c1a0eecce584b3f12360f6b9a52a4d3bfae9f305bcc0b5c22dd423a4c63494",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart-table-error-text-before",
+      "roots": [
+        "Dusart.proposition_3_2"
+      ],
+      "input_sha256": "6eab3a6e95cde52f2103bf7cda34ef204f4a530562b8601b5d2dc8d815021050",
+      "formal_sha256": "49c1a0eecce584b3f12360f6b9a52a4d3bfae9f305bcc0b5c22dd423a4c63494",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-after",
+      "roots": [
+        "Dusart1999.p_n_upper"
+      ],
+      "input_sha256": "8af29a20d01cbb7b7703d85f522ca557eeef7be4578b6ce504781897796ec306",
+      "formal_sha256": "abffea2d4763f8d7f6b95bed0977f3e982fe1a428ed8be708177847da50dbe85",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-dusart1999-before",
+      "roots": [
+        "Dusart1999.p_n_upper"
+      ],
+      "input_sha256": "7e03c17c9a7322c9efe2c86caef1462e8e3ae84231584d4193c945c22c4609fa",
+      "formal_sha256": "ca383f0749e92f52cb527eb54e87d39d3adc6ab73ccef324e35f295ccbefd314",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-after",
+      "roots": [
+        "JY.theorem_1_4"
+      ],
+      "input_sha256": "5480389edc82225d6e107214860ddcb134bbd9df64f22267d665dc780faab510",
+      "formal_sha256": "65d768b14874cf0a0bdb8425fe7dff4a7661be1af270a315ea618bc2e151b756",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-jy-before",
+      "roots": [
+        "JY.theorem_1_4"
+      ],
+      "input_sha256": "1760ae0c0e228cba8c10e23c31f61966dac6f870333a12e3813c96d7bf8c5ad4",
+      "formal_sha256": "232b6aa8846c982297accf0c40bd0044852d05ef9c39722e53e8e527735a5078",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-after",
+      "roots": [
+        "MassiasRobin.p_n_lower"
+      ],
+      "input_sha256": "c70621bc33e5a989ff3e8321bdef75418ad8d807742c2362694e6c9223ddc615",
+      "formal_sha256": "6ee86aa35682d21d3ba66cab917d4a0b1f9ec4bc9c8aeddec7a9a93010f06f1d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-massias-robin-before",
+      "roots": [
+        "MassiasRobin.p_n_lower"
+      ],
+      "input_sha256": "aa1549fe067aba1316c3232a4000f07b231ad8da335c4aa5be865ee796aeaf78",
+      "formal_sha256": "f0f2157525e50b3474cf5f629333e2d80341eb273710cfdbe8dbf61f5d13fcab",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-after",
+      "roots": [
+        "Robin.p_n_lower_const1"
+      ],
+      "input_sha256": "0187e2bed2547fc398e238c2e314fc888cd01f151c3df4b2c041fa0a49b55ca5",
+      "formal_sha256": "5b89ed3072aff02629d5526da9f523cb42e37a7a2262af6e207df43d6018d93f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-robin-before",
+      "roots": [
+        "Robin.p_n_lower_const1"
+      ],
+      "input_sha256": "b2f4ebeb7619cd2f0ccf66fc7ac9541cbf500b67a84b579ecd9239ca4761ea47",
+      "formal_sha256": "5b6db60491edadcadeaa6b9aa818341462f4a1f9ff1ca266aba159952e761c44",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-after",
+      "roots": [
+        "Trudgian2016.theorem_2"
+      ],
+      "input_sha256": "b5f6f4b35ff98c4e6f739d09284e669e3fa91191e8eed007c6b0f0006fc34370",
+      "formal_sha256": "10a2f41219d0f53b76426448388e91a3bafccab10c06cb34d8fdc82b47100ef0",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "bounded-trudgian-before",
+      "roots": [
+        "Trudgian2016.theorem_2"
+      ],
+      "input_sha256": "f5ae1efa3eebe41984dfc44e542795f94ced74124b7a8f1c7e6b3205027149f7",
+      "formal_sha256": "274eab12a6c312ce141e16a6ae2326a553aaf49a5af9282ea3e007906b28169d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-after",
+      "roots": [
+        "riemannZeta.classicalZeroFree"
+      ],
+      "input_sha256": "ea41ea98b29e1a326bcacba2bce2997ef2de9a49c14ad2bfdb7d7b38a931af44",
+      "formal_sha256": "bda4b2fdba488396324ada6ecf5aa34a1a2741a06c0f146d7c52f7c01fe83389",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "classical-zero-free-text-before",
+      "roots": [
+        "riemannZeta.classicalZeroFree"
+      ],
+      "input_sha256": "a90f3e5f0b4614bddbbb10f8724851a311cfc6cf367f6ca30975662cbd48e874",
+      "formal_sha256": "bda4b2fdba488396324ada6ecf5aa34a1a2741a06c0f146d7c52f7c01fe83389",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-after",
+      "roots": [
+        "Eπ"
+      ],
+      "input_sha256": "333707c2a20f60b0e7ce3c52b38ab5e865bef05543417037d478fe473368150c",
+      "formal_sha256": "6a76c7d30afcc863227804cb8d0b7e499c4bbe1ac9211958b7118ae4f58e447d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "error-pi-text-before",
+      "roots": [
+        "Eπ"
+      ],
+      "input_sha256": "cbd07af46bebb399219a5539efd4ec7e96f3f583fce67b66e1d0e92781269de8",
+      "formal_sha256": "6a76c7d30afcc863227804cb8d0b7e499c4bbe1ac9211958b7118ae4f58e447d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-after",
+      "roots": [
+        "ArithmeticFunction.LSeries_liouville_eq"
+      ],
+      "input_sha256": "29eba7a95f8f3134299c8c6287b7702610ad4fe30238b070cc6461887081808a",
+      "formal_sha256": "43c9b6f1d8ab6e6c8e518c6933fb939ce1b2b24565d61ce05d3fef042cb16a16",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-liouville-before",
+      "roots": [
+        "ArithmeticFunction.LSeries_liouville_eq"
+      ],
+      "input_sha256": "b840e1de72e7e7c1d3ab10abbb452b5143b6dace7133405c71b73a093198970c",
+      "formal_sha256": "81df8132f6c9a9e1aeacf1436c15693c3649bde523c085f076bce4d8d558d337",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-after",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul"
+      ],
+      "input_sha256": "13e578444fd36104966859694439209f2e80cbd15a39f9d6565dee766a378f01",
+      "formal_sha256": "9c9bb863dcd4743d56dc13bc162c92e60cf1a8c42fb8a88cf15338a13193ed13",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-divisors-text-before",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul"
+      ],
+      "input_sha256": "cbce0f549152d5bc8bf55943cc72da5a30aae3ee3e7ede88c9299f1838bb6cdc",
+      "formal_sha256": "9c9bb863dcd4743d56dc13bc162c92e60cf1a8c42fb8a88cf15338a13193ed13",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-after",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul_injective"
+      ],
+      "input_sha256": "0249ad3e92a2f69ee00deb35f8a1190d74c14edb6b1007b6944392a7704bb3d9",
+      "formal_sha256": "75a91bfd0ae4b0963ceff475bd458c7af41ca1f6b14104c1c127dea735939d39",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-pow-injective-text-before",
+      "roots": [
+        "ArithmeticFunction.pow_divisors_mul_injective"
+      ],
+      "input_sha256": "c5e2f67c469c2d41da2af405543ba21d54c6a2580354c5ff274bf2cbb5452ae7",
+      "formal_sha256": "75a91bfd0ae4b0963ceff475bd458c7af41ca1f6b14104c1c127dea735939d39",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-after",
+      "roots": [
+        "ArithmeticFunction.LSeries_totient_eq"
+      ],
+      "input_sha256": "1aef1f2092349a7e22fafc502f992db10765a1bb308e07adaed36a93ccbd323d",
+      "formal_sha256": "ffa0ffed17a58c3315ebc91ae515c0c40975f90871278d31b8c9a8ba621e5cf6",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "ik-totient-before",
+      "roots": [
+        "ArithmeticFunction.LSeries_totient_eq"
+      ],
+      "input_sha256": "783da9de469c1c7b1da9fa330690d3a736c58f8c530e6bf9818cb9dbdb042e1d",
+      "formal_sha256": "813730e883aea79eb1e502c1efe66d901653783b2ab50ff05cd9bcdcd8d1a8cc",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "kln-j-after",
+      "roots": [
+        "KLN.J"
+      ],
+      "input_sha256": "8565ff7686c96d4513c22fe60b351b7f7da09566c6845dcd2fde38377e23058c",
+      "formal_sha256": "50f2e919989a3323e7ed1b844415c98db8868b9032500268faea320e2114cc22",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "kln-j-before",
+      "roots": [
+        "KLN.J"
+      ],
+      "input_sha256": "97a7f5f5d401e14fda60e9e14ee7b7d2cd1bb44395d2ef8b7e3a5acba028c692",
+      "formal_sha256": "e0515e1b73258246c2981374f000c0d848c45aa6fdaf0c1e09a034e7091a5828",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-after",
+      "roots": [
+        "pi_star"
+      ],
+      "input_sha256": "4e1725dfed6c8a6d9422a870fde9f2bd42116fdd97c640ac5952ea63a795131d",
+      "formal_sha256": "fa1bd4e0ac75d7cfe5cc0e22f173d611306b301ca315679156ba2550432d77ee",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "pi-star-before",
+      "roots": [
+        "pi_star"
+      ],
+      "input_sha256": "1bb1dc0f40e000d75a8875554a5d0ed3c8e6d8918a6df186ee6eb9b141ae3777",
+      "formal_sha256": "241a0a4973e6cd3ea681850550fffbc1a351c2c922caeaf0c8a1306f0fa72df1",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-after",
+      "roots": [
+        "riemannZeta.Riemann_vonMangoldt_bound"
+      ],
+      "input_sha256": "d06e781d2475cc061c203455c82c8d55b4f94af0cd73810cac22ea308c6ceed3",
+      "formal_sha256": "2f3a2f206498240dcc05f33c3ac7742d154ef0b0882268fee36a9baed22840d9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "riemann-von-mangoldt-text-before",
+      "roots": [
+        "riemannZeta.Riemann_vonMangoldt_bound"
+      ],
+      "input_sha256": "952cf78469814d5a6c20d614bb505f27782f16c8d8a0694bf1b7704760131768",
+      "formal_sha256": "2f3a2f206498240dcc05f33c3ac7742d154ef0b0882268fee36a9baed22840d9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-after",
+      "roots": [
+        "Eπ.vinogradovBound"
+      ],
+      "input_sha256": "e2247f7c40f816048c8839dbb97e7b62d67f8a21059c2e07a76ff87391ceecc4",
+      "formal_sha256": "2f420db68d88ce5d62f9bcbe4edc07ad471f2b5eaa8c338f7523128ece8bfdcf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-before",
+      "roots": [
+        "Eπ.vinogradovBound"
+      ],
+      "input_sha256": "718b37f871ae5279cce828ee8d2824461839b64c381a9ac7a3747304f0aca50a",
+      "formal_sha256": "0ef0ee81a26ff2d141a5beb002ff032cbf933d732945b0bd59481ee0c070bdc7",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-after",
+      "roots": [
+        "Eπ_star.vinogradovBound"
+      ],
+      "input_sha256": "e77a0a896a97726011ff9cd03df0d44675cd051ac20e20c6d31eb3ec78b28194",
+      "formal_sha256": "e5bc11d277c2fe4a5c1d908b7bb041d5d926e609a37dc81256ca6281d8f2503f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "vinogradov-pi-star-before",
+      "roots": [
+        "Eπ_star.vinogradovBound"
+      ],
+      "input_sha256": "d213d1f687a3a64474fdf8974113b83d804cd77043832db79cbd282cca7dd4b8",
+      "formal_sha256": "bbcceba04fd09c302aa1e39c1f03d0af2e1522b07f5ed3526979cde64f0eae62",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-after",
+      "roots": [
+        "zero_density_bound"
+      ],
+      "input_sha256": "554a3ec7ce2623d137634a97764f73f1c15f705a15002a521f4e71534cd457f6",
+      "formal_sha256": "4667ee6499b8515956feef549cc634e958ab64a141d05ff68d5c02483a0c98cf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "pnt",
+      "project_id": "zero-density-text-before",
+      "roots": [
+        "zero_density_bound"
+      ],
+      "input_sha256": "9415393142e202b06be56e29c8e52995f81ef1094cda40cb5a20e9f06dfeaa8e",
+      "formal_sha256": "4667ee6499b8515956feef549cc634e958ab64a141d05ff68d5c02483a0c98cf",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-after",
+      "roots": [
+        "Immersion"
+      ],
+      "input_sha256": "df4beea7189458934f9048ea4fe92d6b0fb5e901ed034de90911f52c87e32ba6",
+      "formal_sha256": "064dc4492085bacb76821f87a0226fe4906600ebeabb28bb6c157046d5e0aa82",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "immersion-before",
+      "roots": [
+        "Immersion"
+      ],
+      "input_sha256": "4e72119aff81a0db29352a3b3a94606f738a1951fc06b66eef22ebe415d1052d",
+      "formal_sha256": "38d6445f164b674056c24d2684065658f347f06033e5bfaec81ee165d69cb4db",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-after",
+      "roots": [
+        "loop.support"
+      ],
+      "input_sha256": "f685415273a7d7ccb345615785543d14727ac24ee3f9ac0421208c948031d862",
+      "formal_sha256": "33ffe2876b314752f25aa55c805606b2bae801c7ebf84bccb753a0b978e27c18",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "loop-support-before",
+      "roots": [
+        "loop.support"
+      ],
+      "input_sha256": "f06bdde08413dcee5888f28a501e76d90e3102799758c1e799f0894e94688a1d",
+      "formal_sha256": "33ffe2876b314752f25aa55c805606b2bae801c7ebf84bccb753a0b978e27c18",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-after",
+      "roots": [
+        "smooth_surrounding_family.reparametrize_average"
+      ],
+      "input_sha256": "f49456a3411f317cc860bc9d4952d264e1eb0381e9b5949687529f67430eb847",
+      "formal_sha256": "4c5abc61d11afaa8b5773f24b7d27ec64f41ff016a3bce4a4144547b6ad4d67c",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-eversion",
+      "project_id": "reparametrization-before",
+      "roots": [
+        "reparametrization"
+      ],
+      "input_sha256": "03ffa06b0cc2d3a59eb497715bdd14924e09a84feb96201b40758cf8d83b2e04",
+      "formal_sha256": "c9f29baaedbb4ecf49c573773b32bffff96ac509024b7e092ac8fa9dcd53a948",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-A-CUTOFF",
+      "roots": [
+        "MagicFunction.a.SpecialValues.a_zero"
+      ],
+      "input_sha256": "f9f2a70e3467e76bec6300654c0584838b43b4502281bd12d15e5bb187da01ae",
+      "formal_sha256": "08113a969f9ea479b815262df7ae48df8bbf1a84a09537a2d7af136dbd8b0254",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-A-CUTOFF-FIXED",
+      "roots": [
+        "MagicFunction.a.SpecialValues.a_zero"
+      ],
+      "input_sha256": "af52284b309c40999f00b58c17fb6fc98b13b68abb1c83bc66e9ed8076040226",
+      "formal_sha256": "1118b9d9b491aab84b287b73145aa86f8932720a3de4514d67220ac018e20956",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-EIG",
+      "roots": [
+        "MagicFunction.b.Fourier.eig_b"
+      ],
+      "input_sha256": "dd74f947376e023657ab7771ecdc58a759de5af40dc5f914eef22cc741be6070",
+      "formal_sha256": "9ce343f0ce44a0a9c12487c3e8d01f62ec2cd01841b79d7ee4b48be08dd269d9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-EIG-FIXED",
+      "roots": [
+        "MagicFunction.b.Fourier.eig_b"
+      ],
+      "input_sha256": "bd7b9552a2a7b50c6a6ed9cc7548ab926c35409c1427539d15264391301e0267",
+      "formal_sha256": "af2de7cf3cac6ce66c1756b43c6dce4a7989f369a57147384a8a11b4f92f1ea0",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-ZERO",
+      "roots": [
+        "MagicFunction.b.SpecialValues.b_zero"
+      ],
+      "input_sha256": "4ab327333564fbe3ff19c50f91d6638fa85b707ee3e09b68bb998a371409837f",
+      "formal_sha256": "ae2c24533b6fc434e55410b489218221300aab92a133aa896bf72db997cb998a",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-B-ZERO-FIXED",
+      "roots": [
+        "MagicFunction.b.SpecialValues.b_zero"
+      ],
+      "input_sha256": "e717e4af0aa407294a7069adc094b5c2d2b7ce1a99db3192ba524be88172999b",
+      "formal_sha256": "b1c6472e5992fe747cb01b8b277188e8144b64e02bea87a260420f3c377f2476",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-I6-BOUND",
+      "roots": [
+        "MagicFunction.a.IntegralEstimates.I₆.I₆'_bounding"
+      ],
+      "input_sha256": "316fdabd11e6d677a624dc51c4c4d304ff8e925a61c5d741ab3d7505cfa466df",
+      "formal_sha256": "db1e5efccda313bde0184454b0b50afde5344996716fea8373d3417f136b7a7f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-LP",
+      "roots": [
+        "LinearProgrammingBound"
+      ],
+      "input_sha256": "4fd704a4a06efbc4f6bddad0f8a0c9dd60b5f71f5ba9e49c819f55403fabeeee",
+      "formal_sha256": "6279e3409209c09ab367eb4d8d21050a1780265442bc795d401ac6511a1b69b9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "sphere-packing",
+      "project_id": "SP-LP-PERIODIC",
+      "roots": [
+        "LinearProgrammingBound'"
+      ],
+      "input_sha256": "c87d9fc5374467b0515bf64039b252b93fd0b05326e6bda5b2cdccbbcf0ffd89",
+      "formal_sha256": "bff9317a29771f0447305be9bce63f7874656f135b1d27b34bcd758c1cdcf2b4",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-004Y",
+      "roots": [
+        "TopologicalSpace.IrreducibleCloseds.exists_eq_singleton"
+      ],
+      "input_sha256": "70372055ac0f16f5855c2e51073860b982d13d1bd411542c0eda02cf384f102f",
+      "formal_sha256": "dad09d8caef808889d855c39ed5cf962f749143e0ba4223dcc01a1e782cfcb13",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-08ZR",
+      "roots": [
+        "locallyCompactSpace_iff_weaklyLocallyCompactSpace"
+      ],
+      "input_sha256": "8819970f92ae87fcc7b16e2a7723c20a392cdb1b623a9aab7ac650f4974b6144",
+      "formal_sha256": "9625c49aae7b8d1d583df1cbb142ff41742c1673db96817da47ab64fc8ff181f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-after",
+      "roots": [
+        "LocallyClosedPartition.exists_finite_good_refinement"
+      ],
+      "input_sha256": "0851c64fbddc357753a1397a4f10730c4bec75a16cb51ec6f7528309d1290e86",
+      "formal_sha256": "ba09c82e6d7a1753de9e3c8d921cda3a27a7d72f82de1724946f87f7b86be87e",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-09Y5-before",
+      "roots": [
+        "Setoid.Partitions.exists_finite_good_refinement"
+      ],
+      "input_sha256": "f1902336cd8109d582c44f08d2600af3df8fc08e9933b0a8ee26701f7f1ec4da",
+      "formal_sha256": "fa246d1ce6b3ae1bd574524823f20ff07bfca0de3ce3753f474c4ff1c60ad700",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "stacks",
+      "project_id": "STK-0B34",
+      "roots": [
+        "Sum.not_t0_of_not_t0_left",
+        "Sum.not_quasiSober_of_not_quasiSober_right"
+      ],
+      "input_sha256": "baf5caf91098813925296d4c8e86cf7c8c46ccfcb78409e8700874de7420070e",
+      "formal_sha256": "b6bed63ec33cc9c6b0ba823d8e06caaec5eb8beffd5b877d5a3add247ff9d4c3",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-after",
+      "roots": [
+        "uniform_deviation_tail_bound_pointwiseSeparable_of_pos"
+      ],
+      "input_sha256": "31ef9247a31d360510791ec792f90dcebee5a33bb8e8266973b97b4b2dccaef7",
+      "formal_sha256": "ee152f36b398c07dcf177e17b02b94421c2157af93faaa1d2adf0b0640d8c6b9",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "statsmllib",
+      "project_id": "statsml-before",
+      "roots": [
+        "uniform_deviation_tail_bound_separable_of_pos"
+      ],
+      "input_sha256": "19934b454cfc24e35e685857757592c2fb7dc826a6e8024386d41a4ca205ca2f",
+      "formal_sha256": "dbacd76f6e90155f8438af994422789d42e2a6f0b1c05a8dbdeebac3cfa9fdb5",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "coupled-after",
+      "roots": [
+        "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasCoupledGatedPinnedExtensions"
+      ],
+      "input_sha256": "41e9617830e9578935aaa325686eab751c546d7a61ca70f9adb74c57d498ffc9",
+      "formal_sha256": "e8eabc1c816c06063b0c3d90c40d186d79614ff8c54ce0b749ac46fcf8850073",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "gate-before",
+      "roots": [
+        "VaughtConjecture.Realization.IsModel.hasFiniteCutReceiving_of_hasGatedPinnedExtensions"
+      ],
+      "input_sha256": "244db73738a2c4ee7222d7d1d0467a80040a0a64b1be5a17fe94bc3301598c02",
+      "formal_sha256": "c4d407a934571ce96a66215d08ece033ca59cdcc438f704caffc0138e2da26fe",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "vaught",
+      "project_id": "twoface-before",
+      "roots": [
+        "VaughtConjecture.StageType.hasApexCoatomExtensions_of_twoFaceLift"
+      ],
+      "input_sha256": "78aa834cc1885b783b3b9e5b47a045696eefa2d6fc2cd38de676350763ea8bad",
+      "formal_sha256": "69ca7327376bdd278e0b6a5d2fe6fd05bd416bfba16199b32c60d3ffc92dc851",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed"
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-POINTWISE-before",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "input_sha256": "7a893a6b8da10008af007acb15c46a13e3d546e064d34036aa23a2594ec1ecb5",
+      "formal_sha256": "391b132b1d7f7d4686f9704b8f6bee803b9240fd15d8c0ea28611c01da81aff2",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-POINTWISE-before.json",
+      "evidence_sha256": "616ac8f6a97b7fea7a887ea520940d43189f50f9c808df116f3b1fd59fd785ea",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-LIONS-before",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "input_sha256": "2c5e3d172ac4fdd8b2ee93e7077849e705f625ff39c11da514f814c9b3e194fc",
+      "formal_sha256": "95c0e2fc485e01d684eb014ea305d56746d781dba8503cc9903d5b0b7b6ed440",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-LIONS-before.json",
+      "evidence_sha256": "dab722076762fd8be77afb8e198dbab15629249a728c2fcdb866a5b3f8cd29ab",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-SOBOLEV-before",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.tensorPouSobolevHilbert_embedding_Ck"
+      ],
+      "input_sha256": "a15b6d977515812d72c71845b269616d33a859b19bdb6634e29a66b571a3a172",
+      "formal_sha256": "f8f76aeefac9c2c6662ff9f429b33033c44216a5648d3627ae11f0d96d0238bb",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-SOBOLEV-before.json",
+      "evidence_sha256": "4939447ef5043e236e2b256859a9e14d3fd5d033cb850e9f76a9bd74dba69627",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-POINTWISE-after",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.IntrinsicSpectral.maxreg_l2deriv_to_pointwise_hasderivwithinat"
+      ],
+      "input_sha256": "e024fdb67d6f475eccae13d318d5420c9b1e82dfe46e2610ffc50549cea951ee",
+      "formal_sha256": "353cb67902d9033a007c2464a27bc0202657d89ec9eb08e0228e8bcbb4f7cead",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-POINTWISE-after.json",
+      "evidence_sha256": "1139519dcbab2a3443727e7a9cbed398a7e627698dce52e797e12eaf3bba4e34",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-LIONS-after",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.lions_magenes_intermediate_trace"
+      ],
+      "input_sha256": "4b9344dbff64858449a0f0ec8de16220bc9299946a455e91926f3a7830c9309d",
+      "formal_sha256": "4dbf3af373f176d4f095d9c48d0e4eef6108244f39c871400849be068d9fc7c7",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-LIONS-after.json",
+      "evidence_sha256": "7853b46334801e737c9666eed1cbeec3d0f63bd03db119297b8326f5d97ac51e",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-CHART-PICARD-before",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "input_sha256": "80af3c7d19fd427b52ad48c8596c28405dfde3bf9999607d30bdfcb744d4e8aa",
+      "formal_sha256": "40a39f08b0f6e94736b6358288cf757fb98f6c0a27756b4aad889ab7a809f699",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-CHART-PICARD-before.json",
+      "evidence_sha256": "f0a156438ef70b03d8b7023a294dd28affd9dcf4d9384acd8f07b4d1e2ca2b8f",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-CHART-PICARD-after",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.ODE.time_dependent_vf_chart_local_picard_with_lipschitz"
+      ],
+      "input_sha256": "7242d14f6874aeb1d36ae787131b0ac41cef13f05a6d0cfb05d89b7c9bcaf0ad",
+      "formal_sha256": "8b27ff19d5fced11c7097b801e4ad35a7c8e88aa583449b05692db441d468b36",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-CHART-PICARD-after.json",
+      "evidence_sha256": "ad9f183921506e4f2f06ca4bcb4ef479f87c8487c609db0c64afb641ab3e0167",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-PL-BALL-PAIR-before",
+      "roots": [
+        "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+      ],
+      "input_sha256": "58d54b49dfb0c0aa27e3806d9cb2aaee078dca65ac8195bbd1ffe13cbfdf07a6",
+      "formal_sha256": "46a31348e46f143a79d9e43b8cefc370bab68f6e3e028c47e7a2ea8de04441d5",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-PL-BALL-PAIR-before.json",
+      "evidence_sha256": "c1342d3ef0ce79aad93f66ad9bd62fb169124cfaca99a36193236103fc4f7761",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-PL-BALL-PAIR-after",
+      "roots": [
+        "DifferentialGeometry.Topology.PiecewiseLinear.IsPLBallPair"
+      ],
+      "input_sha256": "b96ed327184f9ac428b9246c7ef579a4c228d2a7c930a89fa08c2a0a62f147e8",
+      "formal_sha256": "711a049cb1b91dd98949c1aaf6ed198935957e55ca5d7666727dbd82d678b878",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-PL-BALL-PAIR-after.json",
+      "evidence_sha256": "3ce91bc9e09f4997d88e065f56079f14d03f51e677f389bfaca6b741315e5578",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-PARALLEL-TRANSPORT-BEFORE",
+      "roots": [
+        "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      ],
+      "input_sha256": "dd2201816651d533b0ed19d1152645384e58634d4791f8d600d463c3770a3b0e",
+      "formal_sha256": "043a15526765579fa14e6bf87cc9aadedcfd924bfa54997c71f70419306e31ac",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-PARALLEL-TRANSPORT-BEFORE.json",
+      "evidence_sha256": "e1c4d921238c63e7315c37d7387294ebbf6050bb78b68d17131d027144649d11",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-PARALLEL-TRANSPORT-AFTER",
+      "roots": [
+        "DifferentialGeometry.Geometry.Riemannian.Variation.parallelTransport_preserves_inner_product"
+      ],
+      "input_sha256": "e2c31e392838387cb991344e20ed015bceb1327a57a47c5d99575519c4b6ddb5",
+      "formal_sha256": "48b2358d1a143e6e31954e02ca6096c74e423b81da571c0abc4a79b0bcdc9197",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-PARALLEL-TRANSPORT-AFTER.json",
+      "evidence_sha256": "088050fda4ca19965d8375faad6d2816b29e922ffc6508fdc9a06e9726e7531f",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-COMPACT-ISOTOPY-BEFORE",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      ],
+      "input_sha256": "8fbac7c9b20ff81bcabc3830a942db587082765262a0a9c9afb92b7766a7fd27",
+      "formal_sha256": "257e1c83c066dafd58680034c4e02689632e70ae6e4855ca0ae7b208a3412d7b",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-COMPACT-ISOTOPY-BEFORE.json",
+      "evidence_sha256": "9272c1999fc204a7331ed0f5b3ce19444d2df3c1dfa1dd65738ad9a9b8fa2fcc",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-COMPACT-ISOTOPY-AFTER",
+      "roots": [
+        "DifferentialGeometry.PDE.RicciFlow.Extinction.CurveShortening.rfs_csf_boundary_isotopy_modelSpace_of_smoothOn_superwindow"
+      ],
+      "input_sha256": "32b56c8fa4930234a5bed4794aeb337c3f052b0cc5b9004cff447f80bcbccf7a",
+      "formal_sha256": "7dfaaa6839c4bf31d4fb182f1beb451a6422aa4ebc3d2380e91f05aab123489d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-COMPACT-ISOTOPY-AFTER.json",
+      "evidence_sha256": "4a0d620312f4fd7a3b6debe9975ef6c71ace56b220b85aa68d585d4005e2fb5c",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-TENSOR-BUNDLE-before",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundleData",
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "input_sha256": "285523c41b364089dcb7ee3344936141c0a5ea09a612604727c47786d0365fb2",
+      "formal_sha256": "c4e4f2fcf977e19a730900dc11a47f72f7073830d36fe932afc023052267ac56",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-TENSOR-BUNDLE-before.json",
+      "evidence_sha256": "54e644e4d6a8e5eae6b4e6c2a2910b1708c824c9fcf2702ff273fa9bf75a4034",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "qinz1yang",
+      "project_id": "QDG-TENSOR-BUNDLE-after",
+      "roots": [
+        "Tensor0SBundle.tensor0SBundle_topology",
+        "Tensor0SBundle.tensor0SBundle_smooth"
+      ],
+      "input_sha256": "a3a3cc1809b2429f433cef17ac9b5b5d07162a644706730b82acafe75050ab27",
+      "formal_sha256": "0aaf58b53553b8d5f0de6be7ed63badc267056d571c83885235c757003b7e90d",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/qinz1yang/QDG-TENSOR-BUNDLE-after.json",
+      "evidence_sha256": "a020c0890b9482b45d89458afd10e47563543568b8017ac67fc4d3fabf94357e",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-BISHOP-before",
+      "roots": [
+        "MorganTianLib.bishop_gromov_ball",
+        "MorganTianLib.bishop_gromov_ball_ratio"
+      ],
+      "input_sha256": "cace9dbf5d8771f2d4807a4966076ae3caa125ba04f612d5f58273c95cad1e0d",
+      "formal_sha256": "7f04131e328874ffd827e5f2d36434846907408a06adafa775267c3b788846ed",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-BISHOP-before.json",
+      "evidence_sha256": "d753586b05cfe8c9c33cad9e98b799bb8069dca3a785823c9e59bbca3ac25dd8",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-GEODESIC-before",
+      "roots": [
+        "MorganTianLib.IsGeodesicOn"
+      ],
+      "input_sha256": "63c5010d962034986aef6e5470237192f1c102b65a7821d917db61ce7d2ddbe7",
+      "formal_sha256": "47ea90600cfec765db725b655a15d184023f6f3f0cf7171996896770e7ac129f",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-GEODESIC-before.json",
+      "evidence_sha256": "541b2576e22a8cf3b3aa178fe5b17687d64b0f54712e7db842433bec6bba3dda",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-WEAK-LAPLACIAN-before",
+      "roots": [
+        "MorganTianLib.WeakLaplacianLE"
+      ],
+      "input_sha256": "7bc36674becfd755cb6a361c6cccfd6be3c5f6c0ea3ccddc262b048a239f9ad1",
+      "formal_sha256": "de3b5949490ede369110ca008c9266ec48f9be983f1bda01c3d0e34ea8529017",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-WEAK-LAPLACIAN-before.json",
+      "evidence_sha256": "18c4ce4276014a32bc4bbe4fa2fe8771862cb84845d38495918ed48c471cd6a0",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-GEODESIC-after",
+      "roots": [
+        "MorganTianLib.IsGeodesicCurveOn"
+      ],
+      "input_sha256": "bdee0700ff44ce6ae8481f69ac64e177b1c76f93efcfa7ff87dcac69e9a5e941",
+      "formal_sha256": "adc11766dc07dd75f7627965b0ffb60d02d1456c0b232075b93b82397828bbf8",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-GEODESIC-after.json",
+      "evidence_sha256": "d5e4d4868befd0b3993caa14c2331df1369f0524fe38d9ea7c5aa11cc602529c",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-WEAK-LAPLACIAN-after",
+      "roots": [
+        "MorganTianLib.WeakLaplacianLE"
+      ],
+      "input_sha256": "2eb1c988a9a67b3c04f0168303baf64efe2551b4ef95a674daf01717a2aad226",
+      "formal_sha256": "63b4bfc1511146a854308e2cf5e434ce33e88bc45ffb89e5d59eb7d4a3f79a74",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-WEAK-LAPLACIAN-after.json",
+      "evidence_sha256": "ac12be914d1e4850ee69489774d2d9b2fe8364b077797841fe1e784fe5bbb36b",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-BISHOP-after",
+      "roots": [
+        "MorganTianLib.bishop_gromov_manifold_ratio",
+        "MorganTianLib.bishop_gromov_manifold_with_producers"
+      ],
+      "input_sha256": "ca2c4139b6483a86a8b8a4d1293f1dde39d666c28dc8579423f3fd684076dd1e",
+      "formal_sha256": "76ff64ce798ed0a4e42962bd2204447029cae2e14c0e4e45d36a34548066dfb0",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-BISHOP-after.json",
+      "evidence_sha256": "cf0d2c6a05669a36372083d72de311fd07a3fcb9976a05d9f7fce9592333a454",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-COVERING-before",
+      "roots": [
+        "MorganTianLib.LocalIsometry.IsLocalIsometry.surjectiveCovering"
+      ],
+      "input_sha256": "9cbe1edf4a6cd56d0ff8aabd5c21baf44a8fa51b34def93308c1b0f4b5400770",
+      "formal_sha256": "573d8d09678f8dfd7769b51a308d6a809312999a4c9e4dc9452c0574f265cbde",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-COVERING-before.json",
+      "evidence_sha256": "527c4a5d9baafcf9d76cf0499313942b9dd17c3ef83a4beec2ce92f49cbc0c25",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable. Rebound after an informal-only source correction with unchanged Lean bytes and roots; existing technical results are reused, not newly executed."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-LAPLACIAN-COEFFICIENTS-before",
+      "roots": [
+        "MorganTianLib.laplacianAt_eq_invGram_sum",
+        "MorganTianLib.laplacianAt_eq_chart_formula"
+      ],
+      "input_sha256": "17554ed26c30b911d28bbe6b902f4f819d25cf3b05a97be8357fc179e18f2893",
+      "formal_sha256": "c11233fef440928a7dbac4790dc2abbd373947f4c912ece610e537beac8b3649",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-LAPLACIAN-COEFFICIENTS-before.json",
+      "evidence_sha256": "8025ff87228435ea5bba4e96a1a5f437f1e2476eca45494dc12d34ab5404f926",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-EXP-LOCAL-before",
+      "roots": [
+        "MorganTianLib.expMapGlobal_localDiffeo_of_minimizing"
+      ],
+      "input_sha256": "69412888d0786635ceb23adb4810963cf9ffe18cffb327c3b87d5df0339509c7",
+      "formal_sha256": "4e2d0406e51e47f523afc3de6bdda073cc1456d49e5f9bbfac115262d84032c0",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-EXP-LOCAL-before.json",
+      "evidence_sha256": "a713b486175523c3423c53281f20743bc0d6de261ffe277792648b9fdc4b0861",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-GEODESIC-COMPLETENESS-before",
+      "roots": [
+        "MorganTianLib.not_isConjugatePointAt_of_minimizing"
+      ],
+      "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+      "formal_sha256": "1b70fcf242adadba590834859657b5da81409a5ef4c84c9900786ea43846b270",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-GEODESIC-COMPLETENESS-before.json",
+      "evidence_sha256": "6d5b278987b2f4ec69761fc3ec95b01eafa214ee1e2ab644d6f2a73bc4c8de29",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    },
+    {
+      "dataset": "frenzymath",
+      "project_id": "FM-GEODESIC-COMPLETENESS-after",
+      "roots": [
+        "MorganTianLib.not_isConjugatePointAt_of_minimizing"
+      ],
+      "input_sha256": "6b2fa2e47818b48ea2e5f11f25bf9006208c1f2de64f9b2c20366ea71102f211",
+      "formal_sha256": "1b70fcf242adadba590834859657b5da81409a5ef4c84c9900786ea43846b270",
+      "compilation": "passed",
+      "extraction": "passed",
+      "statement_preservation": "passed",
+      "nonproof_definition_preservation": "passed",
+      "original_environment_preservation": "not_checked",
+      "evidence_path": "metadata/evidence/technical/frenzymath/FM-GEODESIC-COMPLETENESS-after.json",
+      "evidence_sha256": "aab0494994a1f1d38671a79c2f0e4a3870f4dc77e8861d3bccc3321352ef9469",
+      "preservation_qualification": "Migrated-source checks only; archived nominal-identity, generated-parent and exact-source-reuse policies remain applicable."
+    }
+  ],
+  "review_evidence_commit": "3026927"
+}

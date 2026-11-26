@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "riemann-von-mangoldt-text-before",
+  "task_id": "pnt:riemann-von-mangoldt-text-before",
+  "input_sha256": "952cf78469814d5a6c20d614bb505f27782f16c8d8a0694bf1b7704760131768",
+  "label": "misaligned",
+  "reason": "The expanded constant term has the opposite sign, differing by 7/4 even after repairing the evident missing absolute-value bar.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "riemannZeta.Riemann_vonMangoldt_bound"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1648"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Even if the missing left absolute-value symbol in the text is supplied charitably, its error expression is N(T)−T/(2π)log(T/(2πe))+7/8; expanding the formal expression gives a final term of −7/8, a difference of 7/4.",
+  "review_scope": "The bound error formula after granting the evident missing absolute-value delimiter; the retained counting-function convention is unchanged."
+}

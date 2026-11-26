@@ -1,0 +1,8 @@
+id,root,commit,group_id,before_ids,after_ids,status
+CDG-A,CoarseDeGiorgi.local_boundedness,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-A,,,ready
+CDG-C,CoarseDeGiorgi.harnack,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-C,,,ready
+CDG-D1,CoarseDeGiorgi.moment_bounds_lebesgue,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-D1,,,misaligned
+CDG-D2,CoarseDeGiorgi.moment_bounds_besov,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-D2,,,misaligned
+CDG-D3,CoarseDeGiorgi.moment_bounds_sobolev,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-D3,,,misaligned
+CDG-L41,CoarseDeGiorgi.LowerFractional.lower_auxAverage_norm_local,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-L41,,,misaligned
+CDG-L94,CoarseDeGiorgi.Harnack.Iterations.uniform_three_iterations_of_power_caccioppoli,200c40c9c55a5e19188739d27466ddffcb2660c4,coarse-degiorgi:CDG-L94,,,misaligned

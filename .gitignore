@@ -1,0 +1,41 @@
+# Local task exports, evaluation runs, and legacy preparation workspace
+/build/
+/exports/
+/views/
+/data/
+/sources/
+/tmp/
+
+# Python environments, caches, and test coverage
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Lean build artifacts
+.lake/
+*.olean
+*.ilean
+*.ir
+
+# Local editor and operating-system files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Local model credentials
+.env
+.env.*
+!.env.example
+
+# Release migration and packaging outputs
+/artifacts/
+/runs/
+*.egg-info/
+/dist/

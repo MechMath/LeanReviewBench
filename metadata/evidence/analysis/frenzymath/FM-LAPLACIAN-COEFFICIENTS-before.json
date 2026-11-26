@@ -1,0 +1,131 @@
+{
+  "task_id": "frenzymath:FM-LAPLACIAN-COEFFICIENTS-before",
+  "dataset": "frenzymath",
+  "project_id": "FM-LAPLACIAN-COEFFICIENTS-before",
+  "input_sha256": "17554ed26c30b911d28bbe6b902f4f819d25cf3b05a97be8357fc179e18f2893",
+  "root": "MorganTianLib.laplacianAt_eq_invGram_sum",
+  "label": "aligned",
+  "reason": "The selected roots express the Laplace-Beltrami operator as the inverse-metric contraction of the covariant Hessian and as g^(ij) times (partial_i partial_j f - Gamma^k_ij partial_k f). With the genuine smooth positive-definite metric and its Levi-Civita connection, these are equivalent to the bound divergence formula (det g)^(-1/2) partial_i((det g)^(1/2) g^(ij) partial_j f). Both selected roots have the required smoothness and chart-domain hypotheses.",
+  "review_scope": "The local scalar Laplace-Beltrami formula in the bound Morgan-Tian lemma; surrounding metric expansions are context, not additional selected conclusions.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "gold_label": null,
+  "roots": [
+    "MorganTianLib.laplacianAt_eq_invGram_sum",
+    "MorganTianLib.laplacianAt_eq_chart_formula"
+  ],
+  "target_mode": "joint",
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "reviewer_type": "agent",
+    "review_date": "2026-11-20",
+    "method": "First pass: compare the bound informal claim with every selected root and decisive definitions. Second pass: test the proposed verdict against equivalent formulations, source qualifications, counterexamples, and alternative scope readings. Unresolved scope or coordinate questions remain undetermined.",
+    "informal_evidence": {
+      "file": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/informal.jsonl",
+      "sha256": "ed7fe4e85d153824e50da0565e1bc2e1647a26c74454bd4a3949f3ed6174a408",
+      "id": "main",
+      "source": {
+        "title": "Ricci Flow and the Poincare Conjecture",
+        "authors": [
+          "John W. Morgan",
+          "Gang Tian"
+        ],
+        "url": "https://arxiv.org/src/math/0607607v2",
+        "version": "math/0607607v2 2007-03-21",
+        "locator": "prelim.tex803–847, local coordinate Laplace–Beltrami operator formula842–847",
+        "sha256": "7ef05ea8ae978d22577f805d4106891262f79e6ef901e71de8677cb10f25955a"
+      },
+      "bound_scope": null
+    },
+    "first_pass": "The selected roots express the Laplace-Beltrami operator as the inverse-metric contraction of the covariant Hessian and as g^(ij) times (partial_i partial_j f - Gamma^k_ij partial_k f). With the genuine smooth positive-definite metric and its Levi-Civita connection, these are equivalent to the bound divergence formula (det g)^(-1/2) partial_i((det g)^(1/2) g^(ij) partial_j f). Both selected roots have the required smoothness and chart-domain hypotheses.",
+    "formal_evidence": [
+      {
+        "file": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/formal/Main.lean",
+        "sha256": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89",
+        "line_start": 1504,
+        "line_end": 1536,
+        "anchor": "theorem laplacianAt_eq_invGram_sum (g : RiemannianMetric I M) {f : M → ℝ}",
+        "declaration": "MorganTianLib.laplacianAt_eq_invGram_sum"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/formal/Main.lean",
+        "sha256": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89",
+        "line_start": 1523,
+        "line_end": 1536,
+        "anchor": "theorem laplacianAt_eq_chart_formula (g : RiemannianMetric I M) {f : M → ℝ}",
+        "declaration": "MorganTianLib.laplacianAt_eq_chart_formula"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/formal/Main.lean",
+        "sha256": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89",
+        "line_start": 456,
+        "line_end": 467,
+        "anchor": "noncomputable def RiemannianMetric.leviCivitaConnection"
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/formal/Main.lean",
+        "sha256": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89",
+        "line_start": 557,
+        "line_end": 560,
+        "anchor": "def hessian "
+      },
+      {
+        "file": "datasets/frenzymath/projects/FM-LAPLACIAN-COEFFICIENTS-before/formal/Main.lean",
+        "sha256": "898ec50c6aeec6602f45a0813073f5c444e8bf61e95c04b608868818e4b24a89",
+        "line_start": 587,
+        "line_end": 594,
+        "anchor": "noncomputable def laplacianAt"
+      }
+    ],
+    "second_pass": "The expression is not required to have the same syntax as the source. Metric compatibility and the determinant derivative identity give (det g)^(-1/2) partial_i((det g)^(1/2) g^(ij)) = -g^(ab) Gamma^j_ab, yielding the displayed equivalence. The actual hessianAt, laplacianAt, and Koszul-based connection definitions were inspected; no separate coefficient-positivity output is demanded by this formula target.",
+    "unresolved_questions": [],
+    "verification_limits": "Statement semantics and computational definitions were reviewed. Proof-erasure sorries are not misalignment evidence. No complete upstream proof or complete atlas countermodel is certified by this review. Mathematical inputs and export readiness remain unchanged. The existing binary label was accepted by explicit user batch confirmation on 2026-11-20; this records batch acceptance, not a new proof or an assertion of separate case-by-case human inspection."
+  },
+  "upstream_evidence": [],
+  "curator_notes": {
+    "agent_assessment": "The selected roots express the Laplace-Beltrami operator as the inverse-metric contraction of the covariant Hessian and as g^(ij) times (partial_i partial_j f - Gamma^k_ij partial_k f). With the genuine smooth positive-definite metric and its Levi-Civita connection, these are equivalent to the bound divergence formula (det g)^(-1/2) partial_i((det g)^(1/2) g^(ij) partial_j f). Both selected roots have the required smoothness and chart-domain hypotheses.",
+    "uncertainty": "",
+    "source": {
+      "repository": "https://github.com/frenzymath/Poincare-Conjecture",
+      "commit": "154ca3eca804557d37043d660084093d1ee6d992",
+      "file": "formalized-sources/MorganTian/MorganTianLib/Ch02/LaplacianCoord.lean",
+      "version_role": "before"
+    },
+    "informal_records": [
+      {
+        "id": "main",
+        "source": {
+          "title": "Ricci Flow and the Poincare Conjecture",
+          "authors": [
+            "John W. Morgan",
+            "Gang Tian"
+          ],
+          "url": "https://arxiv.org/src/math/0607607v2",
+          "version": "math/0607607v2 2007-03-21",
+          "locator": "prelim.tex803–847, local coordinate Laplace–Beltrami operator formula842–847",
+          "sha256": "7ef05ea8ae978d22577f805d4106891262f79e6ef901e71de8677cb10f25955a"
+        },
+        "scope": null
+      }
+    ],
+    "archive_commit": "302692756d3d695e00138a1816652ae803d60703",
+    "archived_review": "datasets/frenzymath/metadata/current-review-snapshot.json",
+    "input_metadata_cleanup": {
+      "previous_input_sha256": "e4592d6d1a392d2959b50f96704a61a063d3e4b98cf19cc10e6e0de8500caa0f",
+      "change": "Removed local acquisition/cache paths and curator review/repair clues from informal context; retained independently sourced text, bibliographic pins and mathematical scope. Formal source bytes unchanged.",
+      "archived_input_sha256": "b3460193d6b998ccf8093700cf8f80cb93da52fef9f4a5ae60eeec815953d81b"
+    },
+    "human_adjudication": {
+      "date": "2026-11-20",
+      "authority": "explicit_user_batch_confirmation",
+      "label": "aligned",
+      "review_mode": "batch_acceptance_of_existing_agent_label",
+      "basis": "The user instructed the assistant to finalize the remaining existing aligned/misaligned labels and leave undetermined cases for separate user adjudication.",
+      "reason_recording": "The existing English reason and review scope are preserved verbatim."
+    },
+    "followup_recommendation": "Accepted by explicit user batch confirmation; preserve the existing semantic judgment, English reason and review scope."
+  },
+  "analysis_availability": "The retained semantic review, evidence locations and scope qualifications remain available. The existing aligned label was accepted by explicit user batch confirmation, with its English reason and review scope preserved verbatim. Mathematical inputs and export readiness are unchanged."
+}

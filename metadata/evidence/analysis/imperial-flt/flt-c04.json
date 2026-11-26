@@ -1,0 +1,224 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c04",
+  "task_id": "imperial-flt:flt-c04",
+  "input_sha256": "611ba15c87d16bd92857c412046e6739535951e0745728bcfa5dd41cb687432f",
+  "label": "aligned",
+  "reason": "The full adelic tensor product, Haar-character kernel, diagonal subgroup, right cosets, and quotient topology express the source compactness statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "NumberField.AdeleRing.DivisionAlgebra.compact_quotient"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/flt-c04.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "Compactness of the norm-one adelic quotient for a finite-dimensional central division algebra over a number field.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "imperial-flt",
+    "project_id": "flt-c04",
+    "root": "NumberField.AdeleRing.DivisionAlgebra.compact_quotient",
+    "input_sha256": "075f7c59547dfcf9caa4e6aabea1c2b072440826a49b956fe792c894e821f009",
+    "review_date": "2026-11-16",
+    "label": "aligned",
+    "reason": "The source context explicitly requires a number field, finite dimension, and centrality; DivisionRing automatically implies simplicity. The formal statement uses the Haar-character kernel of the full adelic tensor product. The image of diagonal Dˣ is viewed as a subgroup of this kernel through comap; rightRel gives cosets Hx, Quotient uses the quotient topology, and CompactSpace matches the source's compactness assertion.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, please mark it aligned; confirms aligned for imperial-flt:flt-c04 after checking the source assumptions, Haar-character kernel, diagonal units subgroup, right-coset relation Hx, and quotient topology.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_aligned_user_confirmed",
+    "model_recommendation": "aligned",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The independent blueprint states compactness of Dˣ\\D_𝔸^(1) after adding the division-algebra assumption in the context of a finite-dimensional central simple algebra over a number field. The review checks the full adelic tensor product, Haar kernel, diagonal embedding, coset orientation, and topology instances.",
+    "detailed_review": {
+      "path": "reports/division-algebra-compact-recheck-2026-11-16/review.json",
+      "sha256": "6ab4dae318522ed4ff9e592db5e0aca251925e838eccc5d0336e80d9599cfe4c"
+    },
+    "evidence_locations": {
+      "bound_informal": {
+        "path": "datasets/imperial-flt/projects/flt-c04/informal.jsonl",
+        "line": 1,
+        "sha256": "93e57e50ca1d2e957f4e183ff2f4cace49ea1f08b0d050228ed367742082b9b0"
+      },
+      "source_central_simple_definition": {
+        "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+        "line": 15,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_division_algebra": {
+        "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+        "line": 37,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_scope": {
+        "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+        "line": 69,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_kernel_and_embedding": {
+        "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+        "line": 76,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "source_theorem": {
+        "path": "datasets/imperial-flt/projects/flt-c04/informal/source.tex",
+        "line": 85,
+        "sha256": "e4a3c20eacad130a5e5d721a6d38de3c89bd5b64fd08149287bffbfbfc51b6f5"
+      },
+      "root": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 1075,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "adele_tensor": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 77,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "diagonal_units_embedding": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 105,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "borel_structure": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/DivisionAlgebra/Finiteness.lean",
+        "line": 133,
+        "sha256": "e42a7fb690d2f80ac84f0d352c52e1bd847e184a58538238914390fb54f8a906"
+      },
+      "haar_character": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/HaarMeasure/HaarChar/Ring.lean",
+        "line": 85,
+        "sha256": "3236db31fda74c5b6309b3b483cea6ce79437919985e2886ac3958439f52dc35"
+      },
+      "haar_kernel": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/HaarMeasure/HaarChar/Ring.lean",
+        "line": 137,
+        "sha256": "3236db31fda74c5b6309b3b483cea6ce79437919985e2886ac3958439f52dc35"
+      },
+      "global_units_in_kernel": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/HaarMeasure/HaarChar/AdeleRing.lean",
+        "line": 222,
+        "sha256": "d354dc3097c8bfa24abf0bbef9b0e4c30e412a7ec8f66c2559489a1ae170d73f"
+      },
+      "module_topology": {
+        "path": "datasets/imperial-flt/projects/flt-c04/formal/dep/FLT/Hacks/RightActionInstances.lean",
+        "line": 153,
+        "sha256": "8d2d6d23e8406b29d3398079f76e08742a355d3ab11421013341156114579421"
+      },
+      "explicit_graph": {
+        "path": "datasets/imperial-flt/projects/flt-c04/graph/explicit/graph.json",
+        "line": 1,
+        "sha256": "be74c1d8cc2227befa2420593be46f93b74b3886831d7adc85da7520b0de94f0"
+      }
+    },
+    "external_evidence": [
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/GroupTheory/Coset/Defs.lean",
+        "relative_path": "Mathlib/GroupTheory/Coset/Defs.lean",
+        "line": 101,
+        "sha256": "54d12da7845705c511a89b705f4cb5ea55cb8017df66737af77d8319e229713c",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Constructions.lean",
+        "relative_path": "Mathlib/Topology/Constructions.lean",
+        "line": 58,
+        "sha256": "47de73fc60746ec4c31fa6e3fcb6d7fe8fbbcf5dbc88c0471fc017040a26467f",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Defs/Induced.lean",
+        "relative_path": "Mathlib/Topology/Defs/Induced.lean",
+        "line": 76,
+        "sha256": "ba804ff6a2bd28aea83da56dfc339e565745a088d7aeac977643410f1dae8f74",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Topology/Algebra/Constructions.lean",
+        "relative_path": "Mathlib/Topology/Algebra/Constructions.lean",
+        "line": 98,
+        "sha256": "735585000e045eff631ff562bb9655e3494b3bab086e8d9ffdf6bab2bb24dc9d",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Algebra/Group/Subgroup/Map.lean",
+        "relative_path": "Mathlib/Algebra/Group/Subgroup/Map.lean",
+        "line": 72,
+        "sha256": "6daba0fbdbd5321595dc76fa575e4bc6c7b21a49e1185d2dfbcc723498fda0c1",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/Algebra/Central/Defs.lean",
+        "relative_path": "Mathlib/Algebra/Central/Defs.lean",
+        "line": 63,
+        "sha256": "f7b55686c1e5b36830fcdcc100009c728c4ecde7dd65623a391fc3b941fae8ff",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      },
+      {
+        "path": "/tmp/paperlean-mathlib-434-20261109/Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "relative_path": "Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "line": 52,
+        "sha256": "a7533e6639806f0905b9a31bcf07efcc046137eaf607b99257afcfdc43d60a25",
+        "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "matches_committed_blob": true
+      }
+    ],
+    "semantic_argument": [
+      "Line 69 of the independent source already fixes K as a number field and D as a finite-dimensional central simple K-algebra; the theorem additionally assumes that D is a division algebra. The formal Field, NumberField, DivisionRing, Algebra, FiniteDimensional, and Algebra.IsCentral assumptions match these conditions. A division ring is automatically simple, so simplicity has not been omitted.",
+      "D_𝔸 is D⊗[K]AdeleRing (𝓞 K) K and includes both infinite and finite adeles; the statement has not been replaced by the later finite-adelic quotient or double-coset conclusion.",
+      "ringHaarChar concretely applies addEquivAddHaarChar to the continuous additive automorphism given by left multiplication. ringHaarCharKer is the kernel of this group homomorphism, exactly representing units with scaling factor 1.",
+      "incl uses Units.map includeLeftRingHom, with underlying map d↦d⊗1. units_mem_ringHaarCharacter_ker proves that the entire image of Dˣ lies in the kernel. Applying comap to the range along the kernel's subtype merely views the same subgroup inside the kernel; it does not further restrict it to some of the global units.",
+      "In the pinned Mathlib version, rightRel H satisfies rightRel H x y ↔ y*x⁻¹∈H, equivalently y=h*x, so its equivalence classes are Hx. This agrees exactly with the source's quotient H\\G by the left multiplication action; the word right in rightRel refers to right cosets Hx.",
+      "In the source, the kernel inherits the subspace topology from the unit group, and the quotient inherits the quotient topology. The root's dependency graph explicitly contains the standard unit-group topology, the induced topology on Subtype, and the coinduced topology along Quotient.mk; the underlying tensor product uses the adelic module topology.",
+      "The conclusion is only CompactSpace (Quotient ...); it neither requires the subgroup to be normal nor additionally asserts that the quotient is a group. The formal definition matches the source's topological quotient space."
+    ],
+    "verification": {
+      "source_and_input_hash_checked": true,
+      "source_context_centrality_and_finiteness_checked": true,
+      "haar_character_kernel_and_embedding_checked": true,
+      "global_units_kernel_membership_checked": true,
+      "right_coset_relation_checked": true,
+      "root_type_topology_dependency_edges": [
+        "instTopologicalSpaceQuotient",
+        "instTopologicalSpaceSubtype",
+        "Units.instTopologicalSpaceUnits",
+        "TensorProduct.RightActions.instTopologicalSpaceOfFinite_dep"
+      ],
+      "root_matches_retained_original": true,
+      "local_data_sorry_nodes": [],
+      "mathlib_commit_verified": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "external_evidence_blobs_match_commit": true,
+      "fresh_lean_build": false,
+      "new_lean_equivalence_proof": false
+    },
+    "limitations": [
+      "This review checked the statement, dependency definitions, and topology instances; it did not recompile or independently reprove the compactness construction.",
+      "The explicit type text contains pretty-printer ellipses. The topology choices were also checked against the extracted graph's complete type-dependency edges and the instance definitions in the pinned version; the ellipses were not mistaken for data placeholders.",
+      "This update saves aligned as confirmed by the user, retaining the source text, formal input, input hash, targets, and technical status; it does not propagate the label to the next case.",
+      "ready reflects the positive label together with existing compilation and extraction results; it does not imply recompilation or completion of a new equivalence proof in this review.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The source context explicitly requires a number field, finite dimension, and centrality; DivisionRing automatically implies simplicity. The formal statement uses the Haar-character kernel of the full adelic tensor product. The image of diagonal Dˣ is viewed as a subgroup of this kernel through comap; rightRel gives cosets Hx, Quotient uses the quotient topology, and CompactSpace matches the source's compactness assertion.",
+  "retained_review_scope": "The independent blueprint states compactness of Dˣ\\D_𝔸^(1) after adding the division-algebra assumption in the context of a finite-dimensional central simple algebra over a number field. The review checks the full adelic tensor product, Haar kernel, diagonal embedding, coset orientation, and topology instances."
+}

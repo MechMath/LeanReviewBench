@@ -1,0 +1,407 @@
+module
+
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set
+public import Mathlib.Algebra.Order.Archimedean.Basic
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.Field.GeomSum
+public import Mathlib.Algebra.Order.Floor.Ring
+public import Mathlib.Algebra.Order.ToIntervalMod
+public import Mathlib.Algebra.QuadraticDiscriminant
+public import Mathlib.Algebra.Ring.Parity
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Calculus.BumpFunction.Basic
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.BumpFunction.Normed
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Calculus.ContDiff.Deriv
+public import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+public import Mathlib.Analysis.Calculus.Deriv.Basic
+public import Mathlib.Analysis.Calculus.Deriv.Inv
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.Deriv.Support
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Pow
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+public import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.Analysis.Convex.Basic
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.Jensen
+public import Mathlib.Analysis.Convex.Mul
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.FunctionalSpaces.SobolevInequality
+public import Mathlib.Analysis.InnerProductSpace.Basic
+public import Mathlib.Analysis.InnerProductSpace.Completion
+public import Mathlib.Analysis.InnerProductSpace.Dual
+public import Mathlib.Analysis.InnerProductSpace.LaxMilgram
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+public import Mathlib.Analysis.InnerProductSpace.Projection.Basic
+public import Mathlib.Analysis.InnerProductSpace.Rayleigh
+public import Mathlib.Analysis.InnerProductSpace.Subspace
+public import Mathlib.Analysis.Matrix.Hermitian
+public import Mathlib.Analysis.Matrix.Order
+public import Mathlib.Analysis.MeanInequalities
+public import Mathlib.Analysis.MeanInequalitiesPow
+public import Mathlib.Analysis.Normed.Lp.SmoothApprox
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Normed.Operator.Banach
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.Analysis.Normed.Operator.Extend
+public import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+public import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+public import Mathlib.Analysis.SpecialFunctions.Log.Basic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
+public import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+public import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Basic.ENNReal.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Basic.Real.ConjExponents
+public import Mathlib.Basic.Real.Pointwise
+public import Mathlib.Data.EReal.Basic
+public import Mathlib.Data.Fin.Tuple.Sort
+public import Mathlib.Data.Finset.Pi
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Data.Int.Interval
+public import Mathlib.Data.Matrix.Basic
+public import Mathlib.Data.Matrix.Mul
+public import Mathlib.Data.Set.Function
+public import Mathlib.Dynamics.Ergodic.MeasurePreserving
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+public import Mathlib.LinearAlgebra.AffineSpace.AffineMap
+public import Mathlib.LinearAlgebra.Matrix.BilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.PosDef
+public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
+public import Mathlib.LinearAlgebra.Matrix.Swap
+public import Mathlib.LinearAlgebra.Matrix.Symmetric
+public import Mathlib.LinearAlgebra.Pi
+public import Mathlib.LinearAlgebra.QuadraticForm.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Metrizable
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Covering.DensityTheorem
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+public import Mathlib.MeasureTheory.Function.EssSup
+public import Mathlib.MeasureTheory.Function.Floor
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.ChebyshevMarkov
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Function.SpecialFunctions.Basic
+public import Mathlib.MeasureTheory.Function.UniformIntegrable
+public import Mathlib.MeasureTheory.Group.Arithmetic
+public import Mathlib.MeasureTheory.Group.LIntegral
+public import Mathlib.MeasureTheory.Group.Measure
+public import Mathlib.MeasureTheory.Group.Prod
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Integral.IntervalAverage
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.MeasureTheory.Integral.Lebesgue.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.Integral.Pi
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import Mathlib.MeasureTheory.MeasurableSpace.Prod
+public import Mathlib.MeasureTheory.Measure.Dirac.Basic
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Map
+public import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Restrict
+public import Mathlib.MeasureTheory.Measure.SeparableMeasure
+public import Mathlib.MeasureTheory.Measure.Sum
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import Mathlib.MeasureTheory.SpecificCodomains.WithLp
+public import Mathlib.Order.Filter.AtTopBot.Basic
+public import Mathlib.Order.Filter.Finite
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Tactic
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Push
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Topology.Algebra.InfiniteSum.NatInt
+public import Mathlib.Topology.Algebra.InfiniteSum.Real
+public import Mathlib.Topology.Algebra.Module.ClosedSubmodule
+public import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.PiProd
+public import Mathlib.Topology.Algebra.Module.FiniteDimension
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.Basic
+public import Mathlib.Topology.Compactness.LocallyCompact
+public import Mathlib.Topology.Compactness.SigmaCompact
+public import Mathlib.Topology.Constructions
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Topology.Instances.Matrix
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Lipschitz
+public import Mathlib.Topology.MetricSpace.Pseudo.Defs
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Topology.Order.Compact
+public import Mathlib.Topology.Sequences
+public import Mathlib.Topology.Sets.Opens
+public import dep.CoarseDeGiorgi.Assembly.ParameterDefs
+public import dep.CoarseDeGiorgi.Foundations.FracGeometry.Defs
+public import dep.CoarseDeGiorgi.Foundations.FracGeometry.FaceHausdorff
+public import dep.CoarseDeGiorgi.Foundations.FractionalSobolev.SurfaceEmbeddingNorms
+public import dep.CoarseDeGiorgi.Harnack.Iterations.SignedEndpointIterations
+public import dep.CoarseDeGiorgi.Harnack.ReverseMoments.NormalizedReverse
+public import dep.CoarseDeGiorgi.Moments.Cells
+public import dep.CoarseDeGiorgi.Statements.AlphaParam
+public import dep.CoarseDeGiorgi.Statements.ChiParam
+public import dep.CoarseDeGiorgi.Statements.Contrast
+public import dep.CoarseDeGiorgi.Statements.CrossoverExponent
+public import dep.CoarseDeGiorgi.Statements.CubeFaceMeasure
+public import dep.CoarseDeGiorgi.Statements.FaceCoordinateMeasures
+public import dep.CoarseDeGiorgi.Statements.GridOffset
+public import dep.CoarseDeGiorgi.Statements.IsSmoothCore
+public import dep.CoarseDeGiorgi.Statements.IsWeightedCoeffOn
+public import dep.CoarseDeGiorgi.Statements.IsWeightedSolution
+public import dep.CoarseDeGiorgi.Statements.IsWeightedSubsolution
+public import dep.CoarseDeGiorgi.Statements.IsWeightedSupersolution
+public import dep.CoarseDeGiorgi.Statements.LowerCellAverage
+public import dep.CoarseDeGiorgi.Statements.LowerDirectionalResponse
+public import dep.CoarseDeGiorgi.Statements.LowerMoment
+public import dep.CoarseDeGiorgi.Statements.LowerResponseExistsUnique
+public import dep.CoarseDeGiorgi.Statements.LowerResponseInv
+public import dep.CoarseDeGiorgi.Statements.LowerResponseInvOnCell
+public import dep.CoarseDeGiorgi.Statements.MemH1a
+public import dep.CoarseDeGiorgi.Statements.MemH1a0
+public import dep.CoarseDeGiorgi.Statements.NonnegativeEssInf
+public import dep.CoarseDeGiorgi.Statements.NormalizedLpMoment
+public import dep.CoarseDeGiorgi.Statements.OriginCube
+public import dep.CoarseDeGiorgi.Statements.ParamR
+public import dep.CoarseDeGiorgi.Statements.ParamTheta
+public import dep.CoarseDeGiorgi.Statements.PowerFactor
+public import dep.CoarseDeGiorgi.Statements.RStarParam
+public import dep.CoarseDeGiorgi.Statements.Simplex
+public import dep.CoarseDeGiorgi.Statements.SimplexCell
+public import dep.CoarseDeGiorgi.Statements.SimplexCellIsOpenBoundedConvexDomain
+public import dep.CoarseDeGiorgi.Statements.SimplexCellNonempty
+public import dep.CoarseDeGiorgi.Statements.SimplexIndex
+public import dep.CoarseDeGiorgi.Statements.SmoothGrad
+public import dep.CoarseDeGiorgi.Statements.SpatialMomentRange
+public import dep.CoarseDeGiorgi.Statements.SurfaceMeasure
+public import dep.CoarseDeGiorgi.Statements.Triangulation
+public import dep.CoarseDeGiorgi.Statements.UpperCellAverage
+public import dep.CoarseDeGiorgi.Statements.UpperDirectionalResponseSol
+public import dep.CoarseDeGiorgi.Statements.UpperMoment
+public import dep.CoarseDeGiorgi.Statements.UpperResponse
+public import dep.CoarseDeGiorgi.Statements.UpperResponseExistsUnique
+public import dep.CoarseDeGiorgi.Statements.UpperResponseOnCell
+public import dep.CoarseDeGiorgi.Statements.WeightedCoeffOnSimplexCell
+public import dep.CoarseDeGiorgi.Statements.WeightedEnergy
+public import dep.CoarseDeGiorgi.Weighted.Defs
+public import dep.CoarseDeGiorgi.Weighted.Energy
+public import dep.CoarseDeGiorgi.Weighted.GradientHilbert
+public import dep.CoarseDeGiorgi.Weighted.PairOperations
+public import dep.CoarseDeGiorgi.Weighted.SmoothCore
+public import dep.CoarseDeGiorgi.Weighted.SmoothSpace
+public import dep.CoarseDeGiorgi.Weighted.Truncation.Chain
+public import dep.CoarseDeGiorgi.Weighted.ZeroCore
+public import dep.CoarseDeGiorgi.Weighted.ZeroSpace
+public import dep.Homogenization.Ambient.Basic
+public import dep.Homogenization.Ambient.BlockMatrix
+public import dep.Homogenization.Ambient.CoefficientField
+public import dep.Homogenization.Ambient.Euclidean
+public import dep.Homogenization.Ambient.HilbertFinite
+public import dep.Homogenization.Besov.Basic
+public import dep.Homogenization.Besov.Duality.Definitions
+public import dep.Homogenization.Besov.Duality.Full
+public import dep.Homogenization.Besov.Duality.GlobalComparison
+public import dep.Homogenization.Besov.Negative
+public import dep.Homogenization.Besov.Poincare.Structures
+public import dep.Homogenization.Besov.Positive
+public import dep.Homogenization.Book.Ch02.Dilation
+public import dep.Homogenization.Book.Ch02.Matrices
+public import dep.Homogenization.Book.Ch02.MultiscaleEllipticity
+public import dep.Homogenization.Book.Ch02.Response
+public import dep.Homogenization.Book.Ch02.Setup
+public import dep.Homogenization.CoarseGraining.Definitions
+public import dep.Homogenization.CoarseGraining.ResponseIdentities.Foundations.Algebra
+public import dep.Homogenization.CoarseGraining.SharpBlockBounds.DiagonalSandwich
+public import dep.Homogenization.Geometry.BoundedMeasurableDomain
+public import dep.Homogenization.Geometry.ConvexDomain
+public import dep.Homogenization.Geometry.CubeMeasure
+public import dep.Homogenization.Geometry.CubeMetric
+public import dep.Homogenization.Geometry.Domain
+public import dep.Homogenization.Geometry.SignedPermutation
+public import dep.Homogenization.Geometry.TriadicCube
+public import dep.Homogenization.Multiscale.CubeAverage
+public import dep.Homogenization.Multiscale.NormalizedDomainCube
+public import dep.Homogenization.Multiscale.NormalizedNorms
+public import dep.Homogenization.PDE.Harmonic
+public import dep.Homogenization.Probability.LocalEllipticitySlices
+public import dep.Homogenization.Probability.RandomField
+public import dep.Homogenization.Probability.RegCoeffField
+public import dep.Homogenization.Probability.RegCoeffField.EllipticSet
+public import dep.Homogenization.Probability.RegCoeffField.Sigma
+public import dep.Homogenization.Probability.Source.Coarse
+public import dep.Homogenization.Sobolev.FiniteLpExponent
+public import dep.Homogenization.Sobolev.Foundations.CoerciveH1
+public import dep.Homogenization.Sobolev.Foundations.CubeNeumannW22CZ.WeakInterior
+public import dep.Homogenization.Sobolev.Foundations.CubeNeumannW22CZ.WeakInteriorDQ.TestSubmodule
+public import dep.Homogenization.Sobolev.Foundations.CubePoisson.Solver
+public import dep.Homogenization.Sobolev.Foundations.Cutoff.Cube
+public import dep.Homogenization.Sobolev.Foundations.Cutoff.Euclidean
+public import dep.Homogenization.Sobolev.Foundations.Cutoff.Profile
+public import dep.Homogenization.Sobolev.Foundations.EuclideanL2CZ
+public import dep.Homogenization.Sobolev.Foundations.H10Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.CoerciveHilbert
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Graph
+public import dep.Homogenization.Sobolev.Foundations.H1Graph.Preliminaries
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.Basic
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.RieszPowerMean
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.SegmentChangeOfVariables
+public import dep.Homogenization.Sobolev.Foundations.PoincareLpKernel.TimeCollapse
+public import dep.Homogenization.Sobolev.Foundations.PoincareMeanZero
+public import dep.Homogenization.Sobolev.Foundations.PoincareW1p.Core
+public import dep.Homogenization.Sobolev.Foundations.PoincareW1p.Seminorms
+public import dep.Homogenization.Sobolev.Foundations.PoincareZeroTrace
+public import dep.Homogenization.Sobolev.Foundations.QuantitativeCutoff
+public import dep.Homogenization.Sobolev.Fractional.Definitions
+public import dep.Homogenization.Sobolev.Fractional.UnitCubeEuclideanL2
+public import dep.Homogenization.Sobolev.H1.Algebra.H10Function
+public import dep.Homogenization.Sobolev.H1.Algebra.H1Function
+public import dep.Homogenization.Sobolev.H1.BasicLemmas
+public import dep.Homogenization.Sobolev.H1.Definitions
+public import dep.Homogenization.Sobolev.L2Ambient
+public import dep.Homogenization.Sobolev.PotentialSolenoidal
+public import dep.Homogenization.Sobolev.W1p.BasicLemmas
+public import dep.Homogenization.Sobolev.W1p.ConvexApproxSmoothing.Kernel
+public import dep.Homogenization.Sobolev.W1p.Definitions
+public import dep.Homogenization.Sobolev.WeakDerivatives
+
+@[expose] public section
+
+open Homogenization MeasureTheory
+
+open scoped ENNReal
+
+namespace CoarseDeGiorgi.Harnack.Iterations
+
+/-- All three source iterations and the crossover all-radii estimates with one
+common parameter constant, for every admissible crossover constant `c`.
+-/
+theorem uniform_three_iterations_of_power_caccioppoli
+    (hPowerCaccioppoli :
+      ∀ d : ℕ, 3 ≤ d → ∀ p q s t : ℝ,
+        (hp : 1 < p) → (hq : 1 < q) → (hs : 0 < s) → (ht : 0 < t) →
+        0 < paramTheta d p q s t →
+        ∃ C : ℝ≥0∞, C < ⊤ ∧
+          ∀ (a : CoeffField d) (ha : IsWeightedCoeffOn (originCube 1) a),
+            spatialMomentRange a ha p q s t →
+            ∀ (u : Vec d → ℝ) (G : Vec d → Vec d),
+              (∀ᵐ x ∂(volume.restrict (originCube 1)), 0 ≤ u x) →
+              IsWeightedSupersolution a (originCube 1) u G →
+              ∀ ε : ℝ, 0 < ε →
+                ∀ m : ℝ, m < 1 / 2 → m ≠ 0 →
+                  ∀ ρ R : ℝ, 1 / 2 ≤ ρ → ρ < R → R ≤ 1 →
+                    weightedEnergy a (originCube ρ)
+                      (fun x => (m * (u x + ε) ^ (m - 1)) • G x) ≤
+                      C * (ENNReal.ofReal (R - ρ)).rpow
+                          (-2 * gammaTwoParam (d := d) p q t * alphaParam t /
+                            paramTheta d p q s t) *
+                        upperMoment a ha s p hs (le_of_lt hp) *
+                        ENNReal.ofReal (powerFactor m ^ 2) *
+                        (1 + ENNReal.ofReal (powerFactor m ^ 2) *
+                          contrast a ha s t p q hs ht (le_of_lt hp) (le_of_lt hq)).rpow
+                          (sigmaParam (d := d) p q s / paramTheta d p q s t) *
+                        (eLpNorm (fun x => (u x + ε) ^ m)
+                          (ENNReal.ofReal (paramR q))
+                          (volume.restrict (originCube R))).rpow 2)
+    {d : ℕ} (hd : 3 ≤ d) {p q s t : ℝ}
+    (hp : 1 < p) (hq : 1 < q) (hs : 0 < s) (ht : 0 < t)
+    (hθ : 0 < paramTheta d p q s t) :
+    ∃ C₃ γ₆ : ℝ, 1 ≤ C₃ ∧ 0 < γ₆ ∧
+    ∀ (c : ℝ) (hc : 0 < c)
+      (hcRange : c ≤ min (1 / 2) (paramR q / (16 * chiParam d q t)))
+      (a : CoeffField d) (ha : IsWeightedCoeffOn (originCube 1) a)
+      (hrange : spatialMomentRange a ha p q s t)
+      (u : Vec d → ℝ) (G : Vec d → Vec d)
+      (_hsup : IsWeightedSupersolution a (originCube 1) u G)
+      (_hnonneg : ∀ᵐ x ∂volume.restrict (originCube 1), 0 ≤ u x)
+      (ε : ℝ) (_hε : 0 < ε),
+    let pC := crossoverExponent c a ha s t p q hs ht hp.le hq.le
+    ((∀ {e b ρ R : ℝ} (he : 0 < e) (heb : e < b), b ≤ 1 → 1 / 2 ≤ ρ → ρ < R → R ≤ 1 →
+      normalizedLpMoment b (he.trans heb) (originCube ρ) (fun x => (u x + ε) ^ pC) ≤
+        (ENNReal.ofReal (C₃ * (R - ρ) ^ (-γ₆))) ^ (1 / e) *
+          normalizedLpMoment e he (originCube R) (fun x => (u x + ε) ^ pC)) ∧
+    (∀ {e b ρ R : ℝ} (he : 0 < e) (heb : e < b), b ≤ 1 → 1 / 2 ≤ ρ → ρ < R → R ≤ 1 →
+      normalizedLpMoment b (he.trans heb) (originCube ρ) (fun x => (u x + ε) ^ (-pC)) ≤
+        (ENNReal.ofReal (C₃ * (R - ρ) ^ (-γ₆))) ^ (1 / e) *
+          normalizedLpMoment e he (originCube R) (fun x => (u x + ε) ^ (-pC)))) ∧
+    (∀ {ρ R : ℝ}, 1 / 2 ≤ ρ → ρ < R → R ≤ 1 →
+    let H := (ENNReal.ofReal (C₃ *
+      (R - ρ) ^ (-γ₆))) ^ (1 / pC)
+    (normalizedLpMoment pC
+      (iteration_crossoverExponent_pos hd hp hq hs ht hθ c hc hcRange a ha hrange)
+      (originCube R) (fun x => (u x + ε)⁻¹))⁻¹ ≤
+      H * nonnegativeEssInf (originCube ρ) (fun x => u x + ε) ∧
+    normalizedLpMoment (paramR q / 4) (by
+      have h := ReverseMoments.paramR_pos_of_harnack_facts hd hp hq hs ht hθ
+      positivity) (originCube ρ) (fun x => u x + ε) ≤
+      H * normalizedLpMoment pC
+        (iteration_crossoverExponent_pos hd hp hq hs ht hθ c hc hcRange a ha hrange)
+        (originCube R) (fun x => u x + ε)) ∧
+    ((∀ {b ρ R : ℝ}, 0 < b → b < 1 → 3 / 4 ≤ ρ → ρ < R → R ≤ 7 / 8 →
+      eLpNorm (fun x => (u x + ε) ^ pC) 1 (volume.restrict (originCube ρ)) ≤
+        (ENNReal.ofReal (((2 : ℝ) ^ d * C₃) * (R - ρ) ^ (-γ₆))) ^ (1 / b) *
+          eLpNorm (fun x => (u x + ε) ^ pC) (ENNReal.ofReal b)
+            (volume.restrict (originCube R))) ∧
+    (∀ {b ρ R : ℝ}, 0 < b → b < 1 → 3 / 4 ≤ ρ → ρ < R → R ≤ 7 / 8 →
+      eLpNorm (fun x => (u x + ε) ^ (-pC)) 1 (volume.restrict (originCube ρ)) ≤
+        (ENNReal.ofReal (((2 : ℝ) ^ d * C₃) * (R - ρ) ^ (-γ₆))) ^ (1 / b) *
+          eLpNorm (fun x => (u x + ε) ^ (-pC)) (ENNReal.ofReal b)
+            (volume.restrict (originCube R))))
+ := sorry
+
+end CoarseDeGiorgi.Harnack.Iterations

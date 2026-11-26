@@ -1,0 +1,187 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "imperial-flt",
+  "project_id": "flt-c01",
+  "task_id": "imperial-flt:flt-c01",
+  "input_sha256": "abcb2304f7939c210170e9fe39b136e07c14c30f98c72c235dbdf9838af43a80",
+  "label": "misaligned",
+  "reason": "The formal galoisRep value is a data placeholder of the appropriate representation type without binding to the specified natural Galois action on Frey-curve p-torsion.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "FreyPackage.mazur"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/flt-c01.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound Mazur irreducibility statement and the specified natural Galois action on Frey-curve p-torsion; proof placeholders alone are not discrepancies.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "imperial-flt",
+    "project_id": "flt-c01",
+    "root": "FreyPackage.mazur",
+    "input_sha256": "4857dd5b085a5ac72dfb319731b4f1f7045240dc2fd0947eecbca54c23a76837",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source specifies the natural Galois action on the Frey curve's p-torsion. The formal galoisRep is entirely a data-valued sorry; its type specifies only the group, scalar field and torsion carrier, without binding the representation to the natural action. The source code and explicit extracted value confirm this gap, supporting an object-mismatch label. The proof placeholder in knownin1980s is not itself a reason for the negative label.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned; confirms misaligned for imperial-flt:flt-c01 after detailed review of the missing natural-action binding in the data-valued galoisRep definition and clarification that def ... := sorry is legal placeholder syntax.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "model_recommendation": "misaligned",
+    "proposed_categories": [
+      "O"
+    ],
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The independent blueprint's Mazur irreducibility statement and definition of its natural Galois representation, compared with FreyPackage.mazur and its actual dependency definitions. Distinguish an unbound data object from an unfinished proof, while retaining the checked correspondences for the Frey-package conditions, curve coordinate transformation and irreducibility predicate.",
+    "detailed_review": {
+      "path": "reports/mazur-recheck-2026-11-16/review.json",
+      "sha256": "3c94029fe96ec007d7a8f2676b0799f3614c7b028d8e8e19f785ee1dcee983e1"
+    },
+    "prior_conversation_recommendation": "undetermined",
+    "evidence_locations": {
+      "source_natural_action": {
+        "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+        "line": 112,
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "source_frey_package": {
+        "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+        "line": 59,
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "source_curve": {
+        "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+        "line": 141,
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "source_irreducibility": {
+        "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+        "line": 162,
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "source_theorem": {
+        "path": "datasets/imperial-flt/projects/flt-c01/informal/source.tex",
+        "line": 172,
+        "sha256": "66f0643f293ee7a7ff8dc8625e018dacf460dbd5dad68dc053de221c0459edbb"
+      },
+      "root": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/Mazur.lean",
+        "line": 30,
+        "sha256": "1eae1c67de2050f58d3e91d6943a36ae0453d50f13907dc980c417b6cc203068"
+      },
+      "formal_frey_package": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/FreyPackage.lean",
+        "line": 75,
+        "sha256": "1dbfc6c88dfd33e27039ad8a8eb2d71dce599f6115dcb2d8a05eb13521e019f1"
+      },
+      "other_coprime_pairs": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/FreyPackage.lean",
+        "line": 135,
+        "sha256": "1dbfc6c88dfd33e27039ad8a8eb2d71dce599f6115dcb2d8a05eb13521e019f1"
+      },
+      "formal_curve": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/FreyCurve/Basic.lean",
+        "line": 60,
+        "sha256": "60323470402d8f8483c8bdcdf3a0086edfda60359a3fc6cde2f6443fdad969e2"
+      },
+      "torsion_carrier": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/EllipticCurve/Torsion.lean",
+        "line": 35,
+        "sha256": "0138908309c18b57680699129a7aba91c9c662b13c48c073cb8cc7012799c5e7"
+      },
+      "natural_action_defined_separately": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/EllipticCurve/Torsion.lean",
+        "line": 100,
+        "sha256": "0138908309c18b57680699129a7aba91c9c662b13c48c073cb8cc7012799c5e7"
+      },
+      "data_placeholder": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/EllipticCurve/Torsion.lean",
+        "line": 122,
+        "sha256": "0138908309c18b57680699129a7aba91c9c662b13c48c073cb8cc7012799c5e7"
+      },
+      "retained_upstream_placeholder": {
+        "path": "datasets/imperial-flt/projects/flt-c01/original/FLT/EllipticCurve/Torsion.lean",
+        "line": 122,
+        "sha256": "d828f3deb16bffbb5629a2e8c0c7028131649443d3e6075e7d1d1c1e03bb55f0"
+      },
+      "representation_type": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+        "line": 51,
+        "sha256": "e9b419ccf8914d1111171445742864a5d2c490ccdd5e29d536f2c078e77d0435"
+      },
+      "irreducibility_predicate": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/Deformations/RepresentationTheory/GaloisRep.lean",
+        "line": 406,
+        "sha256": "e9b419ccf8914d1111171445742864a5d2c490ccdd5e29d536f2c078e77d0435"
+      },
+      "proof_placeholder": {
+        "path": "datasets/imperial-flt/projects/flt-c01/formal/dep/FLT/Assumptions/KnownIn1980s.lean",
+        "line": 79,
+        "sha256": "ddbd0b63b267a31a5df5467c31fdfd5cb673a512ae27cc712cbb0b1c77dd0c9c"
+      },
+      "explicit_statement_graph": {
+        "path": "datasets/imperial-flt/projects/flt-c01/graph/explicit/graph.json",
+        "line": 1,
+        "sha256": "fa4f0ff8327c9572695a3ea58296eb4a1d59d31349eb5fd386640f1e089f7881"
+      },
+      "taxonomy": {
+        "path": "docs/MISALIGNMENT-TAXONOMY.md",
+        "line": 12,
+        "sha256": "c24ff66b62a5177b46acf930b6826c50b6ca9f9120aa28777eb26540b7dee02c"
+      },
+      "assessment_scope": {
+        "path": "protocol/v1/README.md",
+        "line": 8,
+        "sha256": "b6a5d93ffc693c093bf6f2aef1ec9fe9d8ec467a538c9ac0edf88760af9c571c"
+      }
+    },
+    "confirmed_matches": [
+      "FreyPackage contains nonzero integers, a prime p at least 5, the Fermat equation and congruence conditions. hgcdac and hgcdbc derive the other two coprimality conditions from hgcdab and the equation.",
+      "The formal curve is obtained from the source curve by the rational invertible coordinate transformation X=4x, Y=8y+4x. Exact rational polynomial expansion gives y²+xy=x³+(b^p-a^p-1)x²/4-a^p*b^p*x/16, matching the formal coefficients.",
+      "nTorsion is defined as the kernel of multiplication by n on the point group. The returned representation uses this carrier over the algebraic closure and scalars ZMod p.",
+      "GaloisRep.IsIrreducible delegates to Representation.IsIrreducible; the local Mathlib copy defines this as IsSimpleOrder on the lattice of subrepresentations, matching the source meaning of irreducibility. This is not a basis for a negative label."
+    ],
+    "semantic_argument": [
+      "The source specifies the natural representation by first letting field automorphisms act on point coordinates and then restricting to p-torsion. Having the same type does not establish identity of the objects.",
+      "GaloisRep K k M is defined as a continuous monoid homomorphism from the absolute Galois group to Module.End k M, without requiring its action to equal the natural coordinate action.",
+      "The source already contains galoisRepresentationSmul, which specifies a map on points, but the entire data value of galoisRep is supplied by sorry. Although the comment says that only the continuity proof is intended to be missing, neither the actual source nor the extracted value retains the underlying action.",
+      "The trivial action on a two-dimensional space also has this representation type, and its one-dimensional subspaces are invariant. This shows that the return type alone cannot characterize the representation specified by the source. It does not claim that sorry actually selects the trivial representation, nor treat this type-level example as a FreyPackage instance or a counterexample to Mazur's theorem.",
+      "knownin1980s is used in the theorem proof and does not itself constitute statement misalignment. The negative label concerns the missing specified action in the definition of a data object occurring in the theorem statement.",
+      "The change from undetermined to misaligned follows from confirming that the gap is in the fully retained formal definition, rather than in missing review materials, and classifying it under repository taxonomy O for a missing binding to the specified object. A looser standard that compares only declared intent and permits undefined data constants could yield a different result; the current review requires the actual meaning of the Formal dependencies."
+    ],
+    "verification": {
+      "non_proof_data_node": true,
+      "elaborated_value_contains_sorryAx": true,
+      "elaborated_value_uses_natural_action": false,
+      "galoisRep_binding_equation_found_in_retained_formal_closure": false,
+      "definition_matches_retained_original": true,
+      "coordinate_change_exact_polynomial_identity_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The negative label is based on a key data object's missing binding to the specified action. Legal sorry syntax, proof placeholders, compilation status, or the project's use of axioms do not automatically warrant a negative label.",
+      "No claim is made that sorry selects the trivial representation, or that a FreyPackage or a mathematical counterexample to Mazur's theorem has been constructed.",
+      "The earlier undetermined recommendation, historical initial review, and detailed follow-up review are retained; the user has now confirmed the misaligned label from the detailed review.",
+      "The core evidence comes from frozen local source and explicitly extracted values; the project was not recompiled and no new Lean counterexample was proved.",
+      "The formal and informal inputs, input hash, targets, and technical status remain unchanged; the label is not propagated to the next case.",
+      "Retain provisional status, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The source specifies the natural Galois action on the Frey curve's p-torsion. The formal galoisRep is entirely a data-valued sorry; its type specifies only the group, scalar field and torsion carrier, without binding the representation to the natural action. The source code and explicit extracted value confirm this gap, supporting an object-mismatch label. The proof placeholder in knownin1980s is not itself a reason for the negative label.",
+  "retained_review_scope": "The independent blueprint's Mazur irreducibility statement and definition of its natural Galois representation, compared with FreyPackage.mazur and its actual dependency definitions. Distinguish an unbound data object from an unfinished proof, while retaining the checked correspondences for the Frey-package conditions, curve coordinate transformation and irreducibility predicate."
+}

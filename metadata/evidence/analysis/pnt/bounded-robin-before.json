@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "pnt",
+  "project_id": "bounded-robin-before",
+  "task_id": "pnt:bounded-robin-before",
+  "input_sha256": "b2f4ebeb7619cd2f0ccf66fc7ac9541cbf500b67a84b579ecd9239ca4761ea47",
+  "label": "aligned",
+  "reason": "The strict lower bound under p_n<=10^11 matches. The formal extension to n=0 adds a true boundary instance without restricting the positive-index source statement.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "Robin.p_n_lower_const1"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/pnt.jsonl",
+      "id": "pr-1706"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/pre-qwen-review-2026-11-09/pnt-direct-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/pnt-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source/semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The text's strict lower bound under p_n≤10^11 matches the formal statement. The formal totalization at n=0 adds only the true boundary instance 2>0 and does not restrict the source statement on positive integers. At n=1, log1=log0=0 and the lower bound is −1, which also holds.",
+  "review_scope": "The bound strict lower estimate for the nth prime under p_n<=10^11."
+}

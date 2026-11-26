@@ -1,0 +1,41 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "reparametrization-before",
+  "task_id": "sphere-eversion:reparametrization-before",
+  "input_sha256": "03ffa06b0cc2d3a59eb497715bdd14924e09a84feb96201b40758cf8d83b2e04",
+  "label": "misaligned",
+  "reason": "The formal output family must be jointly smooth, whereas the bound old target requires only pointwise circle diffeomorphisms.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "reparametrization"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/undetermined-review-2026-11-09/sphere-decisions.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    },
+    {
+      "field": "integrated_review",
+      "locator": "reports/undetermined-review-2026-11-09/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-09",
+  "reviewer": "Codex with parallel source and semantic review",
+  "reviewer_type": "model",
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Under the literal scope of the frozen old lemma, the input γ is a smooth family, but the output requires only a pointwise family of circle diffeomorphisms. It does not require joint smoothness of that family in x, nor state that g is smooth. The formal statement allows arbitrary g while requiring joint smoothness of φ(x,s). Take Γ(x,t,s)=t·sin(2πs), U=ℝ, β=0, and g jumping at 0 between ±1/4. All formal input conditions hold, and the literal source conclusion has an explicit diffeomorphism witness for each x; however, the average of any jointly continuous φ is continuous and cannot equal this g. This is a concrete mismatch in conclusion regularity and assumption scope, not a merely syntactic difference concerning time-one, U, or infinite-dimensional domains. If the published paper's intended smooth-family version is used, that paper also explicitly requires g to be smooth, a substantive condition omitted by the old root; the same example shows that it does not follow from the other premises.",
+  "review_scope": "The bound earlier reparametrization lemma: pointwise circle diffeomorphisms, without an assumed smooth output family or smooth target g."
+}

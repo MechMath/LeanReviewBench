@@ -1,0 +1,33 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "sphere-eversion",
+  "project_id": "loop-support-before",
+  "task_id": "sphere-eversion:loop-support-before",
+  "input_sha256": "f06bdde08413dcee5888f28a501e76d90e3102799758c1e799f0894e94688a1d",
+  "label": "misaligned",
+  "reason": "The defining locus requires nonconstant loops instead of constant loops.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "loop.support"
+  ],
+  "upstream_evidence": [
+    {
+      "path": "metadata/evidence/upstream/sphere-eversion.jsonl",
+      "id": "pr-47"
+    }
+  ],
+  "source_references": [
+    {
+      "field": "review",
+      "locator": "reports/sphere-eversion-admission/review.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "human_review_required": true,
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "The old independent text takes the closure of the constant-loop locus, while Formal takes the closure of the nonconstant-loop locus. A constant zero family on R gives the empty set in Formal and all of R in the old text; a Lean-checked separation is retained.",
+  "review_scope": "The bound definition using the constant-loop locus."
+}

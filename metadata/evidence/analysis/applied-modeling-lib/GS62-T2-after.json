@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "applied-modeling-lib",
+  "project_id": "GS62-T2-after",
+  "task_id": "aml:GS62-T2-after",
+  "input_sha256": "b8fe5e99a1a274c95b3442e699a253e012f4d37582b11e2793ebdd272de31c2d",
+  "label": "aligned",
+  "reason": "The root attributes stability and applicant optimality to the actual deferred-acceptance output. The proposal, retention, and rejection steps match the source algorithm.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "GS62CollegeAdmissions.PaperInterface.theorem2_applicant_optimality"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/screen-08/batch-01/alignment-review-01/lg-gs.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The equal-size, unit-quota marriage specialization with strict, fully acceptable preferences; general college quotas are excluded.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Aligned within the previously frozen marriage domain. Section 3 explicitly treats marriage as the equal-population, quota-1 special case, so this is a legitimate specialization and does not claim coverage of general college quotas. strictMarriageDomain requires injective preferences for each participant and positive utility for every pairing, representing strict rankings with all partners acceptable. Utilities are used only for ordering, and the unmatched value 0 is below every pairing. Assignment consistency represents a matching; stableMarriage is individual rationality with no blocking pair that strictly benefits both parties. applicantOptimalStableMarriage compares every applicant across all stable matchings. The root asserts these properties directly for the output of deferredAcceptance on the input preferences. Unfolding the implementation shows: initially everyone is unmatched and all candidates remain; choose an unmatched man with an acceptable candidate; choose his best woman not yet proposed to; remove that proposal; the woman accepts if unmatched or if she prefers the new man, releasing the previous man; perform at most |M||W| proposals, with identity steps after termination. This is a proposal-by-proposal scheduling of the source's deferred-acceptance process of proposing, tentatively retaining the best offer, rejecting others and continuing. The algorithm name alone was not used as evidence. Completeness is an accompanying guarantee of the original procedure within this marriage scope. If the informal target were changed to the full Theorem 2 with arbitrary quotas, the scope mismatch would need to be relabeled; this aligned judgment must not be generalized.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}

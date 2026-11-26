@@ -1,0 +1,93 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "apap",
+  "project_id": "bohr-regular-before",
+  "task_id": "apap:bohr-regular-before",
+  "input_sha256": "ab02d0b07cd21d13c8d0acad23e9a4083bc93f42bce63cf9f0a8fd0c4b52814f",
+  "label": "misaligned",
+  "reason": "The rank counts finite-width characters instead of those with width below 2. The kappa bound is d/100 instead of the intended 1/(100*d).",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "BohrSet.IsRegular"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/bohr-regular-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The bound Bohr-set regularity definition, interpreting the source expression 1/100d as 1/(100*d).",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "apap",
+    "project_id": "bohr-regular-before",
+    "root": "BohrSet.IsRegular",
+    "input_sha256": "8b0b0402826a9850412aa3644914ce12082fd37bbaca9478acef908d2bd477f6",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The rank counts differ: the formalization counts characters with finite width, while the source counts characters with width less than 2, making the regularity definitions inequivalent. In addition, the range of κ is written as d/100 rather than the intended source value 1/(100d).",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned and then move to the next case; confirms the preceding rank and kappa-range mismatch explanation for apap:bohr-regular-before.",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this before input. The source expression 1/100d is interpreted with denominator 100*d, as intended by the existing scope.",
+    "evidence_locations": {
+      "informal": "datasets/apap/projects/bohr-regular-before/informal.jsonl:1",
+      "finite_width_frequencies": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean:25",
+      "rank": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean:227",
+      "regularity": "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Regular.lean:15"
+    },
+    "source_files_sha256": {
+      "datasets/apap/projects/bohr-regular-before/informal.jsonl": "73a435e3e0b09cc6579239095d89d227395a444934c03cd5351b9bd9cdac719b",
+      "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Basic.lean": "663182eed6ffe9b5b85cf2530bec451193c386b23cd6bb152026a9d39d88d624",
+      "datasets/apap/projects/bohr-regular-before/formal/dep/APAP/Prereqs/Bohr/Regular.lean": "84449439c68137b2fa5c739bf4945dd8e789ad94d88142a0625128e8ea8bc8c9"
+    },
+    "witness": {
+      "group": "Z/2",
+      "width_trivial_character": "3",
+      "width_sign_character": "1000/503",
+      "initial_bohr_set": "{0}",
+      "source_rank": 1,
+      "formal_rank": 2,
+      "formal_kappa_upper_bound": "1/50",
+      "source_kappa_upper_bound": "1/100",
+      "jump_kappa": "3/500",
+      "expanded_sign_width_at_jump": "2",
+      "cardinality_ratio_at_jump": 2,
+      "formal_upper_bound_at_jump": "11/5",
+      "source_upper_bound_at_jump": "8/5",
+      "formal_regular": true,
+      "source_regular": false,
+      "argument": "The trivial character never restricts the set. For 0≤κ<3/500, the dilated set is {0}, with size ratio 1, satisfying the formal upper bound. For 3/500≤κ≤1/50, the dilated set is all of Z/2, with size ratio 2, while the formal upper bound 1+200κ is at least 11/5. Throughout the checked interval, the contracted set is {0}, and the lower bound 1-200κ≤1 holds, so the set is formally regular. At κ=3/500, the source permits only an upper bound of 8/5, violated by size ratio 2."
+    },
+    "verification": {
+      "exact_rational_checks": "passed",
+      "lean_counterexample_proof": false,
+      "fresh_lean_build": false
+    },
+    "limitations": [
+      "This is a semantic mismatch between statements or definitions, not a claim that the formal definition is internally inconsistent.",
+      "The source rank is positive, d=1; the example does not depend on d=0 or the typographical ambiguity in the source expression 1/100d.",
+      "User confirmation is recorded; the existing provisional-label convention is retained, without automatically promoting the record to a human gold label supported by completed independent review and adjudication."
+    ],
+    "additional_formula_mismatch": {
+      "formal": "kappa <= d / 100",
+      "source_intended": "|kappa| <= 1 / (100*d)",
+      "source_typography": "1/100d",
+      "scope_note": "The denominator is interpreted as intended by the currently frozen scope. In the example separating the rank definitions, source d=1, so both typographical interpretations give 1/100; the negative rank judgment does not depend on this ambiguity."
+    }
+  },
+  "retained_reason": "The rank counts differ: the formalization counts characters with finite width, while the source counts characters with width less than 2, making the regularity definitions inequivalent. In addition, the range of κ is written as d/100 rather than the intended source value 1/(100d).",
+  "retained_review_scope": "The Bohr-set and regularity definitions in the currently frozen informal input, corresponding to the root BohrSet.IsRegular; only this before input. The source expression 1/100d is interpreted with denominator 100*d, as intended by the existing scope."
+}

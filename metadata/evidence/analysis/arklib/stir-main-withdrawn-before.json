@@ -1,0 +1,125 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "arklib",
+  "project_id": "stir-main-withdrawn-before",
+  "task_id": "arklib:stir-main-withdrawn-before",
+  "input_sha256": "6e41ab32e09e6464c03c393cc7938796b7852247a1597f5eb9eb02d13d92b6e4",
+  "label": "misaligned",
+  "reason": "The field-size condition is an upper bound where the source requires an asymptotic lower bound. The external round, proof-length, and query-count parameters are not bound to the actual resource measures of the existentially supplied protocol. The existential complexity constants are chosen after the instance parameters, losing the corresponding uniform asymptotic bounds.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "StirIOP.stir_main"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "review_report",
+      "locator": "reports/user-annotations-2026-11-16/stir-main-withdrawn-before.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_date": "2026-11-16",
+  "reviewer": "Codex",
+  "reviewer_type": "model",
+  "review_scope": "The complete bound STIR main theorem, including field size, protocol resources, and uniform complexity constants.",
+  "human_review_required": true,
+  "analysis_status": "detailed_review_retained",
+  "analysis": {
+    "dataset": "arklib",
+    "project_id": "stir-main-withdrawn-before",
+    "root": "StirIOP.stir_main",
+    "input_sha256": "624cddb03bf99d6bc4a2aa781987751b5cf6baf9c5a89b49c7340dc88f95e4da",
+    "review_date": "2026-11-16",
+    "label": "misaligned",
+    "reason": "The source requires a sufficiently large field, expressed by an Ω lower bound, whereas the formal hF gives an upper bound on field size. M, proofLen, qNumtoInput and qNumtoProofstr are external inputs unbound to the actual resources of the existential protocol π. Complexity constants are existentially quantified after the input parameters, lacking the uniformity required by the source's asymptotic bounds.",
+    "decision_source": "Explicit user instruction in this conversation, 2026-11-16 (translated from Chinese): Okay, mark it misaligned, thank you; confirms misaligned for arklib:stir-main-withdrawn-before after reviewing the reversed field-size bound, unbound protocol resource parameters, and nonuniform asymptotic constants.",
+    "decision_author": "user",
+    "reviewer": "Codex",
+    "reviewer_type": "model",
+    "review_status": "model_rechecked_misaligned_user_confirmed",
+    "human_adjudicated": false,
+    "reference_ready": false,
+    "gold_label": null,
+    "review_scope": "Statement alignment between the currently frozen blueprint STIR Main Theorem (thm:stir) and StirIOP.stir_main; only this input.",
+    "evidence_locations": {
+      "informal": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal.jsonl",
+        "line": 1,
+        "sha256": "6d2b9b0b989cc53c8d42f73884c65fbcaeaa444da5f32c3066299fe374034c71"
+      },
+      "source_theorem": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+        "line": 240,
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "source_field_lower_bound": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+        "line": 250,
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "source_complexity_guarantees": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/informal/source.tex",
+        "line": 252,
+        "sha256": "f6b4c550b82086555ca1c3706f2f17e3a2ee02a91fc11213e65ad9d53936d371"
+      },
+      "root": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+        "line": 122,
+        "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+      },
+      "outer_round_parameter": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+        "line": 33,
+        "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+      },
+      "resource_parameters": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+        "line": 126,
+        "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+      },
+      "field_upper_bound": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+        "line": 129,
+        "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+      },
+      "existential_protocol": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+        "line": 132,
+        "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+      },
+      "complexity_conclusions": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/ProofSystem/Stir/MainThm.lean",
+        "line": 140,
+        "sha256": "b64df07d7765cebdf6f71f1e86cc18291dd3a8125b9d90320b9bd50926835acb"
+      },
+      "security_definition": {
+        "path": "datasets/arklib/projects/stir-main-withdrawn-before/formal/dep/ArkLib/OracleReduction/VectorIOR.lean",
+        "line": 180,
+        "sha256": "7af9323404832acb456af3d32b7c59461577d33ff5d9ed6488cdb9bb912eb2cf"
+      }
+    },
+    "semantic_argument": [
+      "The source condition |F|=Ω(λ·2^λ·d²·N²/log(1/ρ)) is an asymptotic lower bound requiring a sufficiently large field. The formal hF uses Fintype.card F ≤ ..., changing the applicability condition to an upper bound.",
+      "The source requires the existence of a protocol and treats rounds, proof length and query counts as properties of that protocol. The formal M comes from an outer variable declaration, while proofLen, qNumtoInput and qNumtoProofstr are implicit natural-number inputs preceding the root. No equation or definition relates them to the existential π, vPSpec or n.",
+      "Unfolding IsSecureWithGap shows only completeness and round-by-round knowledge soundness fields. It contains no mechanism binding the external resource parameters to π. Consequently, inequalities on those parameters do not express actual complexity bounds for the constructed protocol.",
+      "The complexity constants ∃c>0 and ∃c_k are quantified after secpar, degree, the field, resource counts and other inputs. Although c_k is a function of k, its choice can still depend on the other current inputs. This lacks the corresponding uniformity required by the source's O/O_k bounds.",
+      "For example, if degree>1 and k≥4, then log(degree)/log(k)>0. For each fixed degree, k and M, one can choose c large enough that M≤c·log(degree)/log(k). Such an instance-dependent constant does not imply a uniform logarithmic round bound as degree varies."
+    ],
+    "verification": {
+      "source_binding_checked": true,
+      "fresh_lean_build": false,
+      "new_lean_counterexample_proof": false
+    },
+    "limitations": [
+      "The negative label is based on these differences between the current source and formal statements, not on withdrawn in the project name or sorry in the proof.",
+      "This review does not claim to complete the protocol construction, analyze actual runtime complexity or certify a Lean counterexample.",
+      "Other issues involving powers in the field-size expression, missing endpoint restrictions and the additional scope of challenge quantifiers are not independent bases for this user-confirmed label.",
+      "The formal and informal inputs, input hash and technical status are unchanged; the label is not propagated to neighboring STIR inputs.",
+      "Retain the provisional-label convention, human_adjudicated=false and evaluation_eligible=false, without promoting the record to a human gold label."
+    ]
+  },
+  "retained_reason": "The source requires a sufficiently large field, expressed by an Ω lower bound, whereas the formal hF gives an upper bound on field size. M, proofLen, qNumtoInput and qNumtoProofstr are external inputs unbound to the actual resources of the existential protocol π. Complexity constants are existentially quantified after the input parameters, lacking the uniformity required by the source's asymptotic bounds.",
+  "retained_review_scope": "Statement alignment between the currently frozen blueprint STIR Main Theorem (thm:stir) and StirIOP.stir_main; only this input."
+}

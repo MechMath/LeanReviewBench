@@ -1,0 +1,28 @@
+{
+  "schema_version": "leanreviewbench-analysis-evidence-1",
+  "dataset": "coarse-degiorgi",
+  "project_id": "CDG-C",
+  "task_id": "coarse-degiorgi:CDG-C",
+  "input_sha256": "5688474eabfdf58702517645f4a7c85ccc2f29a6daae10a6ea176775212ab87b",
+  "label": "aligned",
+  "reason": "The weighted-solution assumptions and constant ranges match. Almost-everywhere nonnegativity identifies the formal essential supremum of |u| with the source supremum of u.",
+  "review_status": "human_reviewed",
+  "human_adjudicated": true,
+  "reference_ready": false,
+  "roots": [
+    "CoarseDeGiorgi.harnack"
+  ],
+  "upstream_evidence": [],
+  "source_references": [
+    {
+      "field": "source_review_url",
+      "locator": "https://github.com/MechMath/PaperLeanBench/blob/964f2d92e71b1b911e568790a7196a6fb7e1250b/experiments/real-project-errors/coarse-degiorgi-01/alignment-review-01/review-controls.json",
+      "availability": "historical_locator"
+    }
+  ],
+  "review_scope": "The nonnegative weighted-solution component of Theorem C; the other component is excluded.",
+  "analysis_status": "retained_label_reason_only",
+  "evidence_limit": "No detailed analysis report was retained locally; this record preserves the existing label reason and source locators, not a new semantic review.",
+  "retained_reason": "Source-level match on nonnegative weighted solutions; eLpNorm u ∞ is ess sup |u| and equals ess sup u under the existing a.e. nonnegativity. Constant and coefficient ranges match; do not pair with the whole two-component Theorem C.",
+  "retained_review_scope": "Archived compiled/extracted Formal and frozen source pairing; packaging adds no new semantic judgment."
+}
